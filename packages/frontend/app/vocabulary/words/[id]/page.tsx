@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect, useMemo, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { getApiClient } from "@/lib/api/client";
 import useAuthStore from "@/lib/store/auth";
@@ -57,9 +57,45 @@ function hasContent(value: unknown): boolean {
   return true;
 }
 
+function isSimplifiedLesson(lesson: any) {
+  return (
+    typeof lesson?.format_version === "string" &&
+    lesson.format_version.startsWith("simplified-v")
+  );
+}
+
+function hasCompleteSimplifiedLesson(lesson: any) {
+  const requiredValues = [
+    lesson?.overview?.meaning_usage_profile?.meaning_type,
+    lesson?.overview?.meaning_usage_profile?.connotation,
+    lesson?.overview?.meaning_usage_profile?.tone,
+    lesson?.overview?.meaning_usage_profile?.register,
+    lesson?.meaning_in_context?.source_sentence,
+    lesson?.meaning_in_context?.contextual_meaning,
+    lesson?.meaning_in_context?.simple_explanation,
+    lesson?.usage_guide?.when_to_use,
+    lesson?.usage_guide?.when_not_to_use,
+    lesson?.patterns_collocations?.main_pattern,
+    lesson?.patterns_collocations?.common_collocations,
+    lesson?.natural_examples?.examples,
+    lesson?.natural_examples?.mini_conversation,
+    lesson?.mistakes_differences?.common_mistake,
+    lesson?.mistakes_differences?.correction,
+    lesson?.mistakes_differences?.important_difference,
+    lesson?.memory_practice?.memory_trigger,
+    lesson?.memory_practice?.memory_sentence,
+    lesson?.memory_practice?.recall_question,
+    lesson?.memory_practice?.recognition_task,
+    lesson?.memory_practice?.production_task,
+    lesson?.advanced_nuance,
+  ];
+
+  return requiredValues.every(hasContent);
+}
+
 function renderSimpleValue(value: unknown): ReactNode {
   if (value === null || value === undefined || value === "") {
-    return <span className="text-gray-400">Not added</span>;
+    return null;
   }
 
   if (Array.isArray(value)) {
@@ -90,23 +126,6 @@ function renderSimpleValue(value: unknown): ReactNode {
   }
 
   return <span className="whitespace-pre-line">{String(value)}</span>;
-}
-
-function StatusBadge({ value }: { value: unknown }) {
-  const status = String(value || "").toLowerCase();
-  const className = status.includes("yes")
-    ? "bg-emerald-100 text-emerald-700"
-    : status.includes("limited")
-      ? "bg-amber-100 text-amber-700"
-      : status.includes("no")
-        ? "bg-rose-100 text-rose-700"
-        : "bg-gray-100 text-gray-700";
-
-  return (
-    <span className={`rounded-full px-2 py-1 text-xs font-medium ${className}`}>
-      {String(value || "Not set")}
-    </span>
-  );
 }
 
 function LessonPanel({
@@ -161,93 +180,6 @@ function FieldTable({ rows }: { rows: Array<[string, unknown]> }) {
   );
 }
 
-function DataTable({ rows }: { rows: Array<Record<string, unknown>> }) {
-  const columns = useMemo(() => {
-    const keys = new Set<string>();
-    rows.forEach((row) => Object.keys(row).forEach((key) => keys.add(key)));
-    const preferredOrder = ["usage_area", "status", "example_sentence", "note"];
-    const allColumns = Array.from(keys);
-    return [
-      ...preferredOrder.filter((key) => keys.has(key)),
-      ...allColumns.filter((key) => !preferredOrder.includes(key)),
-    ];
-  }, [rows]);
-
-  if (!rows.length) {
-    return <p className="text-sm text-gray-500">No rows added.</p>;
-  }
-
-  return (
-    <div className="overflow-x-auto rounded-lg border border-gray-200">
-      <table className="min-w-full border-collapse text-sm">
-        <thead>
-          <tr className="bg-gray-900 text-white">
-            {columns.map((column) => (
-              <th key={column} className="px-4 py-3 text-left font-semibold">
-                {formatLabel(column)}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, rowIndex) => (
-            <tr
-              key={`${rowIndex}-${JSON.stringify(row).slice(0, 18)}`}
-              className="border-b border-gray-100 last:border-b-0"
-            >
-              {columns.map((column) => (
-                <td key={column} className="px-4 py-3 align-top text-gray-700">
-                  {column.toLowerCase().includes("status") ||
-                  column.toLowerCase().includes("natural") ? (
-                    <StatusBadge value={row[column]} />
-                  ) : (
-                    renderSimpleValue(row[column])
-                  )}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-function isRecordArray(
-  value: unknown,
-): value is Array<Record<string, unknown>> {
-  return (
-    Array.isArray(value) &&
-    value.every(
-      (item) => !!item && typeof item === "object" && !Array.isArray(item),
-    )
-  );
-}
-
-function renderSectionContent(title: string, value: unknown): ReactNode {
-  if (title === "Word Nature") {
-    const record = asRecord(value);
-    return (
-      <FieldTable
-        rows={[
-          ["Primary Classification", record.primary_classification],
-          ["Reason", record.reason],
-        ]}
-      />
-    );
-  }
-
-  if (isRecordArray(value)) {
-    return <DataTable rows={value} />;
-  }
-
-  return (
-    <div className="text-sm leading-6 text-gray-700">
-      {renderSimpleValue(value)}
-    </div>
-  );
-}
-
 function ChipList({
   values,
   tone = "bg-blue-100 text-blue-800",
@@ -257,18 +189,14 @@ function ChipList({
 }) {
   return (
     <div className="flex flex-wrap gap-2">
-      {values.length ? (
-        values.map((value, index) => (
-          <span
-            key={`${index}-${String(value)}`}
-            className={`rounded-full px-3 py-1 text-xs font-medium ${tone}`}
-          >
-            {String(value)}
-          </span>
-        ))
-      ) : (
-        <span className="text-sm text-gray-500">No items added.</span>
-      )}
+      {values.filter(hasContent).map((value, index) => (
+        <span
+          key={`${index}-${String(value)}`}
+          className={`rounded-full px-3 py-1 text-xs font-medium ${tone}`}
+        >
+          {String(value)}
+        </span>
+      ))}
     </div>
   );
 }
@@ -280,30 +208,34 @@ function ImportedSectionsTemplate({
   lesson: any;
   word: WordDetail;
 }) {
-  if (lesson.format_version === "simplified-v1") {
+  if (isSimplifiedLesson(lesson)) {
+    if (!hasCompleteSimplifiedLesson(lesson)) {
+      return (
+        <div className="rounded-lg border border-amber-300 bg-amber-50 p-5">
+          <h3 className="font-semibold text-amber-950">
+            Lesson update required
+          </h3>
+          <p className="mt-2 text-sm leading-6 text-amber-900">
+            This entry does not yet meet the complete eight-section learning
+            standard. Refresh the starter set or regenerate this entry before
+            learning it.
+          </p>
+        </div>
+      );
+    }
     return <SimplifiedLessonTemplate lesson={lesson} word={word} />;
   }
 
-  const sections = asArray(lesson.sections).filter(
-    (item): item is Record<string, unknown> =>
-      !!item && typeof item === "object" && !Array.isArray(item),
-  );
-
-  if (!sections.length) return <StandardLessonTemplate lesson={lesson} />;
-
   return (
-    <section className="space-y-5">
-      {sections.map((section, index) => {
-        const number = Number(section.number || index + 1);
-        const title = String(section.title || `Section ${number}`);
-
-        return (
-          <LessonPanel key={`${number}-${title}`} number={number} title={title}>
-            {renderSectionContent(title, section.content)}
-          </LessonPanel>
-        );
-      })}
-    </section>
+    <div className="rounded-lg border border-amber-300 bg-amber-50 p-5">
+      <h3 className="font-semibold text-amber-950">
+        Lesson regeneration required
+      </h3>
+      <p className="mt-2 text-sm leading-6 text-amber-900">
+        This entry uses a retired lesson format. Regenerate it with the complete
+        eight-section standard before learning it.
+      </p>
+    </div>
   );
 }
 
@@ -440,281 +372,9 @@ function SimplifiedLessonTemplate({
         />
       </LessonPanel>
 
-      {advancedNuance.length > 0 && (
-        <LessonPanel number={8} title="Advanced Nuance">
-          {renderSimpleValue(advancedNuance)}
-        </LessonPanel>
-      )}
-    </section>
-  );
-}
-
-function MeaningExpansion({ lesson }: { lesson: any }) {
-  const expansion = asRecord(lesson.meaning_expansion);
-  const layers: Array<[string, unknown]> = [
-    ["Layer 1 - Literal", expansion.layer_1_literal],
-    ["Layer 2 - Abstract", expansion.layer_2_abstract],
-    ["Layer 3 - Figurative", expansion.layer_3_figurative],
-    [
-      "Layer 4 - Professional / Technical",
-      expansion.layer_4_professional_technical,
-    ],
-  ];
-
-  return (
-    <div className="grid gap-3 md:grid-cols-2">
-      {layers.map(([label, value]) => (
-        <div
-          key={String(label)}
-          className="rounded-lg border border-gray-200 p-4"
-        >
-          <p className="text-sm font-semibold text-gray-900">{label}</p>
-          <div className="mt-2 text-sm leading-6 text-gray-700">
-            {renderSimpleValue(value)}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function WordUsageZone({ lesson }: { lesson: any }) {
-  const zone = asRecord(lesson.usage_mastery?.word_usage_zone);
-
-  return (
-    <div className="space-y-4">
-      <div className="grid gap-4 md:grid-cols-3">
-        <div>
-          <h4 className="mb-2 text-sm font-semibold text-gray-900">
-            Natural Zones
-          </h4>
-          <ChipList
-            values={asArray(zone.natural_zones)}
-            tone="bg-emerald-100 text-emerald-800"
-          />
-        </div>
-        <div>
-          <h4 className="mb-2 text-sm font-semibold text-gray-900">
-            Limited Zones
-          </h4>
-          <ChipList
-            values={asArray(zone.limited_zones)}
-            tone="bg-amber-100 text-amber-800"
-          />
-        </div>
-        <div>
-          <h4 className="mb-2 text-sm font-semibold text-gray-900">
-            Unnatural Zones
-          </h4>
-          <ChipList
-            values={asArray(zone.unnatural_zones)}
-            tone="bg-rose-100 text-rose-800"
-          />
-        </div>
-      </div>
-      <p className="rounded-lg bg-gray-50 p-4 text-sm leading-6 text-gray-700">
-        {renderSimpleValue(zone.short_explanation)}
-      </p>
-    </div>
-  );
-}
-
-function ApplicationSections({ lesson }: { lesson: any }) {
-  const application = asRecord(lesson.application);
-
-  return (
-    <div className="space-y-4">
-      <FieldTable rows={Object.entries(asRecord(application.examples))} />
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="rounded-lg border border-gray-200 p-4">
-          <h4 className="text-sm font-semibold text-gray-900">Collocations</h4>
-          <div className="mt-3">
-            {renderSimpleValue(application.collocations)}
-          </div>
-        </div>
-        <div className="rounded-lg border border-gray-200 p-4">
-          <h4 className="text-sm font-semibold text-gray-900">
-            Native Usage Patterns
-          </h4>
-          <div className="mt-3">
-            {renderSimpleValue(application.native_usage_patterns)}
-          </div>
-        </div>
-      </div>
-      <DataTable
-        rows={asArray(application.common_mistakes).filter(
-          (item): item is Record<string, unknown> =>
-            !!item && typeof item === "object" && !Array.isArray(item),
-        )}
-      />
-    </div>
-  );
-}
-
-function StandardLessonTemplate({ lesson }: { lesson: any }) {
-  const usage = asRecord(lesson.usage_mastery);
-  const mastery = asRecord(lesson.mastery);
-  const application = asRecord(lesson.application);
-
-  return (
-    <section className="space-y-5">
-      <LessonPanel number={3} title="Memory Mastery">
-        <FieldTable
-          rows={[
-            ["Memory Trigger", lesson.memory_mastery?.memory_trigger],
-            ["Visual Scene", lesson.memory_mastery?.visual_scene],
-            ["Sound Association", lesson.memory_mastery?.sound_association],
-            ["Tamil Connection", lesson.memory_mastery?.tamil_connection],
-            ["Emotional Hook", lesson.memory_mastery?.emotional_hook],
-            ["Memory Sentence", lesson.memory_mastery?.memory_sentence],
-            ["Recall Question", lesson.memory_mastery?.recall_question],
-            ["Pattern Family", lesson.memory_mastery?.pattern_family],
-            ["Notice", lesson.memory_mastery?.notice],
-          ]}
-        />
+      <LessonPanel number={8} title="Advanced Nuance">
+        {renderSimpleValue(advancedNuance)}
       </LessonPanel>
-
-      <LessonPanel number={4} title="Meaning Expansion">
-        <MeaningExpansion lesson={lesson} />
-      </LessonPanel>
-
-      <LessonPanel number={5} title="Usage Mastery">
-        <DataTable
-          rows={asArray(usage.usage_profile).filter(
-            (item): item is Record<string, unknown> =>
-              !!item && typeof item === "object" && !Array.isArray(item),
-          )}
-        />
-      </LessonPanel>
-
-      <LessonPanel number={6} title="Word Usage Zone">
-        <WordUsageZone lesson={lesson} />
-      </LessonPanel>
-
-      <LessonPanel number={7} title="Natural Domains">
-        <ChipList values={asArray(usage.natural_domains)} />
-      </LessonPanel>
-
-      <LessonPanel number={8} title="Domain Restrictions">
-        <FieldTable
-          rows={Object.entries(asRecord(usage.domain_restrictions))}
-        />
-      </LessonPanel>
-
-      <LessonPanel number={9} title="Context Switching Test">
-        <DataTable
-          rows={asArray(usage.context_switching_test).filter(
-            (item): item is Record<string, unknown> =>
-              !!item && typeof item === "object" && !Array.isArray(item),
-          )}
-        />
-      </LessonPanel>
-
-      <LessonPanel number={10} title="Word Nature">
-        <FieldTable
-          rows={[
-            ["Primary Classification", usage.word_nature],
-            ["Reason", usage.word_nature_reason],
-          ]}
-        />
-      </LessonPanel>
-
-      <LessonPanel number={11} title="Register">
-        <p className="text-sm leading-6 text-gray-700">
-          {renderSimpleValue(usage.register)}
-        </p>
-      </LessonPanel>
-
-      <LessonPanel number={12} title="Common Contexts">
-        <ChipList values={asArray(usage.common_contexts)} />
-      </LessonPanel>
-
-      <LessonPanel number={13} title="Tamil Usage Notes">
-        <p className="text-sm leading-6 text-gray-700">
-          {renderSimpleValue(usage.tamil_usage_notes)}
-        </p>
-      </LessonPanel>
-
-      <div className="grid gap-5 lg:grid-cols-2">
-        <LessonPanel number={14} title="When To Use">
-          {renderSimpleValue(usage.when_to_use)}
-        </LessonPanel>
-        <LessonPanel number={15} title="When NOT To Use">
-          {renderSimpleValue(usage.when_not_to_use)}
-        </LessonPanel>
-      </div>
-
-      <LessonPanel number={16} title="Application">
-        <ApplicationSections lesson={lesson} />
-      </LessonPanel>
-
-      <div className="grid gap-5 lg:grid-cols-2">
-        <LessonPanel number={17} title="Collocations">
-          {renderSimpleValue(application.collocations)}
-        </LessonPanel>
-        <LessonPanel number={18} title="Native Usage Patterns">
-          {renderSimpleValue(application.native_usage_patterns)}
-        </LessonPanel>
-      </div>
-
-      <LessonPanel number={19} title="Common Mistakes">
-        <DataTable
-          rows={asArray(application.common_mistakes).filter(
-            (item): item is Record<string, unknown> =>
-              !!item && typeof item === "object" && !Array.isArray(item),
-          )}
-        />
-      </LessonPanel>
-
-      <LessonPanel number={20} title="Confusion Zone">
-        <p className="text-sm leading-6 text-gray-700">
-          {renderSimpleValue(application.confusion_zone)}
-        </p>
-      </LessonPanel>
-
-      <LessonPanel number={21} title="Alternatives & Synonyms">
-        {renderSimpleValue(application.alternatives_synonyms)}
-      </LessonPanel>
-
-      <LessonPanel number={22} title="Frequency By Context">
-        <DataTable
-          rows={asArray(application.frequency_by_context).filter(
-            (item): item is Record<string, unknown> =>
-              !!item && typeof item === "object" && !Array.isArray(item),
-          )}
-        />
-      </LessonPanel>
-
-      <LessonPanel number={23} title="Mini Conversation">
-        <p className="text-sm leading-6 text-gray-700">
-          {renderSimpleValue(mastery.mini_conversation)}
-        </p>
-      </LessonPanel>
-
-      <div className="grid gap-5 lg:grid-cols-2">
-        <LessonPanel number={24} title="Learn The Pattern">
-          {renderSimpleValue(mastery.learn_the_pattern)}
-        </LessonPanel>
-        <LessonPanel number={25} title="Guided Practice">
-          {renderSimpleValue(mastery.guided_practice)}
-        </LessonPanel>
-      </div>
-
-      <LessonPanel number={26} title="Evaluation">
-        {renderSimpleValue(mastery.evaluation)}
-      </LessonPanel>
-
-      <div className="grid gap-5 lg:grid-cols-3">
-        <LessonPanel number={27} title="Feedback">
-          {renderSimpleValue(mastery.feedback)}
-        </LessonPanel>
-        <LessonPanel number={28} title="Mastery Notes">
-          {renderSimpleValue(mastery.mastery_notes)}
-        </LessonPanel>
-        <LessonPanel number={29} title="Native Thinking Model">
-          {renderSimpleValue(mastery.native_thinking_model)}
-        </LessonPanel>
-      </div>
     </section>
   );
 }
@@ -825,7 +485,7 @@ export default function VocabularyWordPage() {
                 </span>
               </div>
 
-              {word.lesson_data?.format_version !== "simplified-v1" && (
+              {!isSimplifiedLesson(word.lesson_data) && (
                 <div className="mt-6 grid gap-4 md:grid-cols-3">
                   <div className="rounded-lg bg-gray-50 p-4">
                     <h3 className="text-sm font-semibold text-gray-900">
