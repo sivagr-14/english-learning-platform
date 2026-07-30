@@ -4,9 +4,9 @@
   "description": "Next.js frontend for English Learning Platform",
   "private": true,
   "scripts": {
-    "dev": "NEXT_PUBLIC_API_URL=http://127.0.0.1:5001 next dev -H 127.0.0.1 -p 3000",
+    "dev": "NEXT_PUBLIC_API_URL=http://127.0.0.1:5001 next dev -H 127.0.0.1 -p ${FRONTEND_PORT:-3000}",
     "build": "next build",
-    "start": "NEXT_PUBLIC_API_URL=http://127.0.0.1:5001 next start -H 127.0.0.1 -p 3000",
+    "start": "NEXT_PUBLIC_API_URL=http://127.0.0.1:5001 next start -H 127.0.0.1 -p ${FRONTEND_PORT:-3000}",
     "lint": "eslint . --ext .ts,.tsx",
     "type-check": "tsc --noEmit"
   },
