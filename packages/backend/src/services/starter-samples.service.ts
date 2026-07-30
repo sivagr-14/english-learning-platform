@@ -4,6 +4,10 @@ import {
   STARTER_SAMPLE_VERSION,
   StarterSample,
 } from "../data/starter-samples";
+import {
+  assertVocabularyLessonCompliant,
+  vocabularyLessonQualityIssues,
+} from "../data/vocabulary-lesson-template";
 import { database } from "../utils/db";
 
 function sampleSnapshot(sample: StarterSample) {
@@ -17,15 +21,27 @@ function sampleSnapshot(sample: StarterSample) {
   };
 }
 
-function lessonVersion(value: unknown) {
-  if (!value) return 0;
-
-  const lesson =
-    typeof value === "string"
+function readLesson(value: unknown): Record<string, unknown> {
+  if (!value) return {};
+  try {
+    return typeof value === "string"
       ? (JSON.parse(value) as Record<string, unknown>)
       : (value as Record<string, unknown>);
+  } catch {
+    return {};
+  }
+}
 
+function lessonVersion(value: unknown) {
+  const lesson = readLesson(value);
   return Number(lesson.sample_version || 0);
+}
+
+function lessonNeedsRefresh(value: unknown, sample: StarterSample) {
+  return (
+    lessonVersion(value) < STARTER_SAMPLE_VERSION ||
+    vocabularyLessonQualityIssues(readLesson(value), sample.word).length > 0
+  );
 }
 
 export async function starterSampleStatus(userId: string) {
@@ -37,14 +53,17 @@ export async function starterSampleStatus(userId: string) {
     )
     .where({ owner_user_id: userId, is_starter_sample: true })
     .whereIn("canonical_key", STARTER_SAMPLE_KEYS)
-    .select("vocabulary_lessons.lesson_data");
+    .select("vocabulary_words.canonical_key", "vocabulary_lessons.lesson_data");
 
   return {
     available: STARTER_SAMPLES.length,
     loaded: samples.length,
-    outdated: samples.filter(
-      (sample) => lessonVersion(sample.lesson_data) < STARTER_SAMPLE_VERSION,
-    ).length,
+    outdated: samples.filter((savedSample) => {
+      const source = STARTER_SAMPLES.find(
+        (sample) => sample.canonicalKey === savedSample.canonical_key,
+      );
+      return !source || lessonNeedsRefresh(savedSample.lesson_data, source);
+    }).length,
     version: STARTER_SAMPLE_VERSION,
   };
 }
@@ -77,6 +96,8 @@ export async function loadStarterSamples(userId: string) {
     let conflicts = 0;
 
     for (const sample of STARTER_SAMPLES) {
+      assertVocabularyLessonCompliant(sample.lesson, sample.word);
+
       const current = await trx("vocabulary_words")
         .leftJoin(
           "vocabulary_lessons",
@@ -100,7 +121,7 @@ export async function loadStarterSamples(userId: string) {
           continue;
         }
 
-        if (lessonVersion(current.lesson_data) >= STARTER_SAMPLE_VERSION) {
+        if (!lessonNeedsRefresh(current.lesson_data, sample)) {
           existing += 1;
           continue;
         }
