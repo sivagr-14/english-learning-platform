@@ -13,6 +13,7 @@ const frontendHost = '127.0.0.1';
 const frontendPort = Number(process.env.FRONTEND_INTERNAL_PORT || 3001);
 const frontendUrl = `http://${frontendHost}:${frontendPort}`;
 const frontendDirectory = path.join(repoRoot, 'packages', 'frontend');
+const backendDirectory = path.join(repoRoot, 'packages', 'backend');
 const backendUrl = 'http://127.0.0.1:5001/health';
 const envPath = path.join(repoRoot, '.env.local');
 const envExamplePath = path.join(repoRoot, '.env.example');
@@ -176,6 +177,7 @@ class ControlManager {
     this.services = null;
     this.servicesStopping = false;
     this.serviceFailure = null;
+    this.serviceOutput = { backend: [], frontend: [] };
     this.startPromise = null;
     this.readyCache = { value: false, checkedAt: 0 };
   }
@@ -208,10 +210,22 @@ class ControlManager {
     return value;
   }
 
+  async backendReady() {
+    return urlHealthy(backendUrl);
+  }
+
+  async appReady() {
+    const [frontend, backend] = await Promise.all([
+      this.frontendReady(true),
+      this.backendReady(),
+    ]);
+    return frontend && backend;
+  }
+
   async snapshot() {
     const [frontend, backend] = await Promise.all([
       this.frontendReady(true),
-      urlHealthy(backendUrl),
+      this.backendReady(),
     ]);
     if (frontend && backend && this.phase !== 'starting') {
       this.phase = 'ready';
@@ -235,7 +249,7 @@ class ControlManager {
   async ensureDependencies() {
     const required = [
       path.join(repoRoot, 'node_modules', 'next', 'dist', 'bin', 'next'),
-      path.join(repoRoot, 'node_modules', 'ts-node-dev', 'lib', 'bin.js'),
+      path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'),
       path.join(repoRoot, 'node_modules', 'knex', 'bin', 'cli.js'),
     ];
     if (required.every((file) => fs.existsSync(file))) return;
@@ -397,8 +411,8 @@ class ControlManager {
     const backendBin = path.join(
       repoRoot,
       'node_modules',
-      'ts-node-dev',
-      'lib',
+      'ts-node',
+      'dist',
       'bin.js',
     );
     const childEnvironment = {
@@ -411,12 +425,13 @@ class ControlManager {
     const definitions = [
       {
         name: 'backend',
-        cwd: repoRoot,
+        cwd: backendDirectory,
         args: [
           backendBin,
-          '--respawn',
           '--transpile-only',
-          path.join(repoRoot, 'packages', 'backend', 'src', 'index.ts'),
+          '--project',
+          path.join(backendDirectory, 'tsconfig.json'),
+          path.join(backendDirectory, 'src', 'index.ts'),
         ],
       },
       {
@@ -434,8 +449,9 @@ class ControlManager {
     ];
     this.servicesStopping = false;
     this.serviceFailure = null;
+    this.serviceOutput = { backend: [], frontend: [] };
     this.services = definitions.map(({ name, args, cwd }) => {
-      const recentOutput = [];
+      const recentOutput = this.serviceOutput[name];
       const child = this.spawnChild(process.execPath, args, {
         cwd,
         env: childEnvironment,
@@ -487,19 +503,35 @@ class ControlManager {
   }
 
   async waitForServices() {
+    let lastBackend = false;
+    let lastFrontend = false;
     for (let attempt = 0; attempt < 75; attempt += 1) {
       if (this.serviceFailure) throw this.serviceFailure;
-      const [backend, frontend] = await Promise.all([
-        urlHealthy(backendUrl),
+      [lastBackend, lastFrontend] = await Promise.all([
+        this.backendReady(),
         this.frontendReady(true),
       ]);
-      if (backend && frontend) return;
+      if (lastBackend && lastFrontend) return;
       if (this.services?.some((child) => child.exitCode !== null)) {
         throw new Error('A web service stopped before the app became ready.');
       }
-      await delay(2000);
+      await this.wait(2000);
     }
-    throw new Error('The app did not become ready within two and a half minutes.');
+    const unavailable = [
+      !lastBackend && 'backend',
+      !lastFrontend && 'frontend',
+    ].filter(Boolean);
+    const diagnostics = unavailable
+      .map((name) => {
+        const output = this.serviceOutput[name] || [];
+        return output.length
+          ? `${name} last output: ${output.slice(-6).join(' | ')}`
+          : `${name} produced no output`;
+      })
+      .join(' ');
+    throw new Error(
+      `${unavailable.join(' and ')} did not become ready within two and a half minutes. ${diagnostics}`,
+    );
   }
 
   start() {
@@ -538,7 +570,7 @@ class ControlManager {
 
       this.step('Checking existing web services');
       const [backend, frontend] = await Promise.all([
-        urlHealthy(backendUrl),
+        this.backendReady(),
         this.frontendReady(true),
       ]);
       if (backend !== frontend) {
@@ -739,7 +771,7 @@ function createControlServer(manager = new ControlManager()) {
       });
       return response.end(body);
     }
-    if (await manager.frontendReady()) return proxyRequest(request, response);
+    if (await manager.appReady()) return proxyRequest(request, response);
     const body = controlPage();
     response.writeHead(200, {
       'Content-Type': 'text/html; charset=utf-8',
