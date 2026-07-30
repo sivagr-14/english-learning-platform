@@ -1,9 +1,11 @@
 const assert = require('node:assert/strict');
 const test = require('node:test');
 const {
+  ControlManager,
   commandOutput,
   controlPage,
   createControlServer,
+  parseContainerState,
   parseEnvironment,
 } = require('./control-server');
 
@@ -32,6 +34,108 @@ test('command output combines captured stdout and stderr for browser diagnostics
       stderr: 'database error\n',
     }),
     'container status\n\ndatabase error',
+  );
+});
+
+test('container state parser returns Docker status, health, and exit code', () => {
+  assert.deepEqual(parseContainerState('running|healthy|0'), {
+    status: 'running',
+    health: 'healthy',
+    exitCode: 0,
+  });
+  assert.deepEqual(parseContainerState('exited|none|137'), {
+    status: 'exited',
+    health: 'none',
+    exitCode: 137,
+  });
+});
+
+test('mock startup validates PostgreSQL and Redis containers used by main', async () => {
+  const commands = [];
+  const execute = (command, args) => {
+    commands.push([command, ...args]);
+    if (args[0] === 'inspect') {
+      return { status: 0, stdout: 'running|healthy|0\n', stderr: '' };
+    }
+    if (args[0] === 'exec') {
+      return {
+        status: 0,
+        stdout: args[1] === 'english_learning_redis' ? 'PONG\n' : 'accepting connections\n',
+        stderr: '',
+      };
+    }
+    return { status: 0, stdout: '', stderr: '' };
+  };
+  const runCalls = [];
+  const manager = new ControlManager({
+    execute,
+    runAsync: async (command, args) => {
+      runCalls.push([command, ...args]);
+    },
+    wait: async () => {},
+  });
+
+  await manager.startInfrastructure();
+
+  assert.deepEqual(runCalls, [
+    ['docker', 'compose', 'up', '-d', 'postgres', 'redis'],
+  ]);
+  assert.ok(
+    commands.some(
+      (args) =>
+        args.join(' ') ===
+        'docker exec english_learning_postgres pg_isready -U postgres -d english_learning',
+    ),
+  );
+  assert.ok(
+    commands.some(
+      (args) =>
+        args.join(' ') ===
+        'docker exec english_learning_redis redis-cli ping',
+    ),
+  );
+});
+
+test('mock startup reports an exited PostgreSQL container immediately with logs', async () => {
+  let waits = 0;
+  const manager = new ControlManager({
+    execute: (command, args) => {
+      if (args[0] === 'inspect') {
+        return { status: 0, stdout: 'exited|none|1\n', stderr: '' };
+      }
+      if (args[0] === 'compose' && args[1] === 'ps') {
+        return {
+          status: 0,
+          stdout: 'english_learning_postgres exited (1)\n',
+          stderr: '',
+        };
+      }
+      if (args[0] === 'compose' && args[1] === 'logs') {
+        return {
+          status: 0,
+          stdout: 'database files are incompatible\n',
+          stderr: '',
+        };
+      }
+      return { status: 0, stdout: '', stderr: '' };
+    },
+    wait: async () => {
+      waits += 1;
+    },
+  });
+
+  await assert.rejects(
+    manager.waitForContainer({
+      containerName: 'english_learning_postgres',
+      label: 'PostgreSQL',
+      probeArgs: ['pg_isready'],
+      service: 'postgres',
+    }),
+    /PostgreSQL container stopped with exit code 1/,
+  );
+  assert.equal(waits, 0);
+  assert.ok(
+    manager.logs.some((line) => line.includes('database files are incompatible')),
   );
 });
 
