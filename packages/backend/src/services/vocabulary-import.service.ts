@@ -1,6 +1,10 @@
 import { Knex } from "knex";
 import { Frequency, VocabularyLessonSample } from "../data/vocabulary-lesson-samples";
-import { VOCABULARY_SECTION_TEMPLATE } from "../data/vocabulary-lesson-template";
+import {
+  assertVocabularyLessonCompliant,
+  VocabularyLesson,
+  VOCABULARY_SECTION_TEMPLATE,
+} from "../data/vocabulary-lesson-template";
 
 export interface VocabularyImportRow {
   track?: string;
@@ -12,9 +16,11 @@ export interface VocabularyImportRow {
   word_type?: string;
   cefr_level?: string;
   frequency?: "High" | "Medium" | "Low" | string;
+  item_type?: string;
   english_meaning: string;
   tamil_meaning?: string;
   core_idea?: string;
+  lesson_data?: unknown;
   memory_trigger?: string;
   visual_scene?: string;
   memory_sentence?: string;
@@ -643,11 +649,13 @@ export class VocabularyImportService {
 
     for (const [index, row] of rows.entries()) {
       try {
-        validateRow(row);
+        const compliantLesson = validateVocabularyImportEntry(row);
         const lesson = buildImportedLesson(row);
         items.push(
           await this.saveLesson(
             lesson,
+            compliantLesson,
+            (row as VocabularyImportRow).item_type!,
             (row as VocabularyImportRow).categoryId,
             userId,
             (row as VocabularyImportRow)._categoryCandidates
@@ -670,6 +678,8 @@ export class VocabularyImportService {
 
   private async saveLesson(
     lesson: VocabularyLessonSample,
+    compliantLesson: VocabularyLesson,
+    itemType: string,
     categoryId?: string,
     userId?: string,
     categoryCandidates: string[] = []
@@ -691,6 +701,7 @@ export class VocabularyImportService {
         word: lesson.word,
         pronunciation: lesson.pronunciation,
         word_type: lesson.word_type,
+        item_type: itemType,
         cefr_level: lesson.cefr_level,
         frequency: lesson.frequency,
         english_meaning: lesson.english_meaning,
@@ -708,7 +719,11 @@ export class VocabularyImportService {
             .insert({ ...wordPayload, created_at: new Date() })
             .returning("*");
 
-      const lessonPayload = buildLessonPayload(word.id, lesson);
+      const lessonPayload = buildLessonPayload(
+        word.id,
+        lesson,
+        compliantLesson,
+      );
       const [savedLesson] = await trx("vocabulary_lessons")
         .insert({ ...lessonPayload, created_at: new Date() })
         .onConflict("word_id")
@@ -870,57 +885,120 @@ function validateRow(row: VocabularyImportEntry) {
   if (!row.english_meaning?.trim()) {
     throw new Error(`English meaning is required for "${row.word}".`);
   }
+
+  const requiredHeaderFields: Array<[string, unknown]> = [
+    ["pronunciation", row.pronunciation],
+    ["word_type", row.word_type],
+    ["item_type", (row as VocabularyImportRow).item_type],
+    ["cefr_level", row.cefr_level],
+    ["frequency", row.frequency],
+    ["category", row.category || (row as VocabularyImportRow).categoryId],
+    ["tamil_meaning", row.tamil_meaning],
+    ["core_idea", row.core_idea],
+  ];
+
+  const missing = requiredHeaderFields
+    .filter(([, value]) => typeof value !== "string" || !value.trim())
+    .map(([field]) => field);
+  if (missing.length) {
+    throw new Error(
+      `Vocabulary entry "${row.word}" is missing required header fields: ${missing.join(
+        ", ",
+      )}.`,
+    );
+  }
 }
 
-function buildLessonPayload(wordId: string, lesson: VocabularyLessonSample) {
+export function validateVocabularyImportEntry(
+  row: VocabularyImportEntry,
+): VocabularyLesson {
+  validateRow(row);
+  return readCompliantLesson(row);
+}
+
+function readCompliantLesson(row: VocabularyImportEntry): VocabularyLesson {
+  const input = row as unknown as Record<string, unknown>;
+  const candidate = input.lesson_data ?? input.lesson;
+
+  if (!candidate) {
+    throw new Error(
+      `Vocabulary lesson for "${row.word}" must provide lesson_data using the simplified-v2 eight-section format.`,
+    );
+  }
+
+  return assertVocabularyLessonCompliant(candidate, row.word);
+}
+
+function buildLessonPayload(
+  wordId: string,
+  lesson: VocabularyLessonSample,
+  content: VocabularyLesson,
+) {
+  const profile = content.overview.meaning_usage_profile;
+  const context = content.meaning_in_context;
+  const usage = content.usage_guide;
+  const patterns = content.patterns_collocations;
+  const examples = content.natural_examples;
+  const differences = content.mistakes_differences;
+  const practice = content.memory_practice;
+
   return {
     word_id: wordId,
-    memory_trigger: lesson.memory_mastery.memory_trigger,
-    visual_scene: lesson.memory_mastery.visual_scene,
-    sound_association: lesson.memory_mastery.sound_association,
-    tamil_connection: lesson.memory_mastery.tamil_connection,
-    emotional_hook: lesson.memory_mastery.emotional_hook,
-    memory_sentence: lesson.memory_mastery.memory_sentence,
-    recall_question: lesson.memory_mastery.recall_question,
-    pattern_family: lesson.memory_mastery.pattern_family,
+    memory_trigger: practice.memory_trigger,
+    visual_scene: practice.memory_trigger,
+    sound_association: practice.memory_sentence,
+    tamil_connection: lesson.tamil_meaning,
+    emotional_hook: content.advanced_nuance[0],
+    memory_sentence: practice.memory_sentence,
+    recall_question: practice.recall_question,
+    pattern_family: patterns.main_pattern,
     meaning_layer_1_literal: JSON.stringify({
-      text: lesson.meaning_expansion.layer_1_literal,
+      text: context.source_sentence,
     }),
     meaning_layer_2_abstract: JSON.stringify({
-      text: lesson.meaning_expansion.layer_2_abstract,
+      text: context.contextual_meaning,
     }),
     meaning_layer_3_figurative: JSON.stringify({
-      text: lesson.meaning_expansion.layer_3_figurative,
+      text: context.simple_explanation,
     }),
     meaning_layer_4_professional: JSON.stringify({
-      text: lesson.meaning_expansion.layer_4_professional_technical,
+      text: content.advanced_nuance.join("\n"),
     }),
-    usage_profile: JSON.stringify(lesson.usage_mastery.usage_profile),
-    word_usage_zones: JSON.stringify(lesson.usage_mastery.word_usage_zone),
-    natural_domains: lesson.usage_mastery.natural_domains,
-    domain_restrictions: JSON.stringify(lesson.usage_mastery.domain_restrictions),
-    context_switching_test: JSON.stringify(
-      lesson.usage_mastery.context_switching_test
-    ),
-    word_nature: lesson.usage_mastery.word_nature,
-    register: lesson.usage_mastery.register,
-    common_contexts: lesson.usage_mastery.common_contexts,
-    tamil_usage_notes: lesson.usage_mastery.tamil_usage_notes,
-    examples: JSON.stringify(lesson.application.examples),
-    collocations: JSON.stringify(lesson.application.collocations),
-    native_usage_patterns: lesson.application.native_usage_patterns.join("\n"),
-    common_mistakes: JSON.stringify(lesson.application.common_mistakes),
-    confusion_zone: lesson.application.confusion_zone,
-    alternatives_synonyms: JSON.stringify(lesson.application.alternatives_synonyms),
-    frequency_by_context: JSON.stringify(lesson.application.frequency_by_context),
-    mini_conversation: lesson.mastery.mini_conversation,
-    learn_pattern: lesson.mastery.learn_the_pattern.join("\n"),
-    guided_practice: JSON.stringify(lesson.mastery.guided_practice),
-    evaluation: JSON.stringify(lesson.mastery.evaluation),
-    feedback_template: lesson.mastery.feedback,
-    mastery_notes: lesson.mastery.mastery_notes,
-    native_thinking_model: lesson.mastery.native_thinking_model,
-    lesson_data: JSON.stringify(lesson),
+    usage_profile: JSON.stringify(profile),
+    word_usage_zones: JSON.stringify(usage),
+    natural_domains: Object.keys(examples.examples),
+    domain_restrictions: JSON.stringify(usage),
+    context_switching_test: JSON.stringify(examples.examples),
+    word_nature: profile.meaning_type,
+    register: profile.register,
+    common_contexts: Object.keys(examples.examples),
+    tamil_usage_notes: lesson.tamil_meaning,
+    examples: JSON.stringify(examples.examples),
+    collocations: JSON.stringify(patterns.common_collocations),
+    native_usage_patterns: patterns.main_pattern,
+    common_mistakes: JSON.stringify({
+      mistake: differences.common_mistake,
+      correction: differences.correction,
+    }),
+    confusion_zone: differences.important_difference,
+    alternatives_synonyms: JSON.stringify({
+      distinction: differences.important_difference,
+    }),
+    frequency_by_context: JSON.stringify({
+      connotation: profile.connotation,
+      tone: profile.tone,
+    }),
+    mini_conversation: examples.mini_conversation,
+    learn_pattern: patterns.main_pattern,
+    guided_practice: JSON.stringify([
+      practice.recognition_task,
+      practice.production_task,
+    ]),
+    evaluation: JSON.stringify([practice.recall_question]),
+    feedback_template: practice.production_task,
+    mastery_notes: content.advanced_nuance.join("\n"),
+    native_thinking_model: context.simple_explanation,
+    lesson_data: JSON.stringify(content),
     updated_at: new Date(),
   };
 }

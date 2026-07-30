@@ -3,6 +3,11 @@ import {
   STARTER_SAMPLE_KEYS,
   STARTER_SAMPLE_VERSION,
 } from "./starter-samples";
+import {
+  vocabularyLessonQualityIssues,
+  VOCABULARY_LESSON_FORMAT_VERSION,
+  VOCABULARY_SECTION_TEMPLATE,
+} from "./vocabulary-lesson-template";
 
 describe("starter samples", () => {
   it("cover multiple CEFR levels and item types", () => {
@@ -31,7 +36,7 @@ describe("starter samples", () => {
       expect(sample.tamilMeaning).toBeTruthy();
       expect(sample.coreIdea).toBeTruthy();
       expect(sample.lesson).toMatchObject({
-        format_version: "simplified-v1",
+        format_version: VOCABULARY_LESSON_FORMAT_VERSION,
         sample_version: STARTER_SAMPLE_VERSION,
         sample_notice: expect.any(String),
         overview: {
@@ -65,11 +70,13 @@ describe("starter samples", () => {
           important_difference: expect.any(String),
         },
         memory_practice: {
+          memory_trigger: expect.any(String),
           memory_sentence: expect.any(String),
           recall_question: expect.any(String),
           recognition_task: expect.any(String),
           production_task: expect.any(String),
         },
+        advanced_nuance: expect.any(Array),
       });
 
       const lesson = sample.lesson as any;
@@ -87,6 +94,26 @@ describe("starter samples", () => {
       expect(
         Object.keys(lesson.natural_examples.examples).length,
       ).toBeGreaterThan(1);
+      expect(lesson.advanced_nuance.length).toBeGreaterThan(0);
+      expect(vocabularyLessonQualityIssues(lesson, sample.word)).toEqual([]);
+    }
+  });
+
+  it("populates all eight required sections", () => {
+    const lessonKeys = [
+      "overview",
+      "meaning_in_context",
+      "usage_guide",
+      "patterns_collocations",
+      "natural_examples",
+      "mistakes_differences",
+      "memory_practice",
+      "advanced_nuance",
+    ];
+
+    expect(VOCABULARY_SECTION_TEMPLATE).toHaveLength(8);
+    for (const sample of STARTER_SAMPLES) {
+      expect(lessonKeys.every((key) => key in sample.lesson)).toBe(true);
     }
   });
 
