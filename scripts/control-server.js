@@ -70,17 +70,36 @@ function resolvePackageManager() {
 
 function run(command, args, onOutput) {
   return new Promise((resolve, reject) => {
+    let capturedOutput = '';
     const child = spawn(command, args, {
       cwd: repoRoot,
       env: process.env,
       stdio: ['ignore', 'pipe', 'pipe'],
     });
-    child.stdout.on('data', (chunk) => onOutput(chunk.toString()));
-    child.stderr.on('data', (chunk) => onOutput(chunk.toString()));
+    const capture = (chunk) => {
+      const output = chunk.toString();
+      capturedOutput += output;
+      onOutput(output);
+    };
+    child.stdout.on('data', capture);
+    child.stderr.on('data', capture);
     child.once('error', reject);
     child.once('exit', (code) => {
       if (code === 0) resolve();
-      else reject(new Error(`Command failed: ${command} ${args.join(' ')}`));
+      else {
+        const detail = capturedOutput
+          .trim()
+          .split(/\r?\n/)
+          .slice(-12)
+          .join('\n');
+        reject(
+          new Error(
+            `Command failed: ${command} ${args.join(' ')}${
+              detail ? `\n${detail}` : ''
+            }`,
+          ),
+        );
+      }
     });
   });
 }
@@ -97,6 +116,17 @@ function parseEnvironment(content) {
     values[key] = value;
   }
   return values;
+}
+
+function parseContainerState(output) {
+  const [status = 'unknown', health = 'none', exitCode = ''] = output
+    .trim()
+    .split('|');
+  return {
+    status: status || 'unknown',
+    health: health || 'none',
+    exitCode: exitCode === '' ? null : Number(exitCode),
+  };
 }
 
 function secureLocalEnvironment() {
@@ -127,7 +157,14 @@ function secureLocalEnvironment() {
 }
 
 class ControlManager {
-  constructor() {
+  constructor({
+    execute = commandResult,
+    runAsync = run,
+    wait = delay,
+  } = {}) {
+    this.execute = execute;
+    this.runAsync = runAsync;
+    this.wait = wait;
     this.phase = 'idle';
     this.currentStep = 'Ready to validate and start';
     this.error = null;
@@ -210,28 +247,28 @@ class ControlManager {
     if (!commandAvailable('docker')) {
       throw new Error('Docker Desktop is not installed.');
     }
-    if (commandResult('docker', ['info']).status === 0) return;
+    if (this.execute('docker', ['info']).status === 0) return;
     if (process.platform !== 'darwin') {
       throw new Error('Docker is installed, but its engine is not running.');
     }
     this.log('Opening Docker Desktop…');
-    const opened = commandResult('open', ['-a', 'Docker']);
+    const opened = this.execute('open', ['-a', 'Docker']);
     if (opened.status !== 0) throw new Error('Docker Desktop could not be opened.');
     for (let attempt = 0; attempt < 60; attempt += 1) {
-      if (commandResult('docker', ['info']).status === 0) return;
-      await delay(2000);
+      if (this.execute('docker', ['info']).status === 0) return;
+      await this.wait(2000);
     }
     throw new Error('Docker Desktop did not become ready within two minutes.');
   }
 
   infrastructureDiagnostics(service) {
-    const status = commandResult('docker', [
+    const status = this.execute('docker', [
       'compose',
       'ps',
       '--all',
       service,
     ]);
-    const logs = commandResult('docker', [
+    const logs = this.execute('docker', [
       'compose',
       'logs',
       '--no-color',
@@ -249,56 +286,97 @@ class ControlManager {
     return output;
   }
 
-  async waitForDockerCommand(args, label, service) {
+  async waitForContainer({
+    containerName,
+    label,
+    probeArgs,
+    service,
+  }) {
     let lastOutput = '';
     for (let attempt = 0; attempt < 45; attempt += 1) {
-      const result = commandResult('docker', args);
-      if (result.status === 0) {
-        this.log(`${label}: ready`);
-        return;
+      const inspected = this.execute('docker', [
+        'inspect',
+        '--format',
+        '{{.State.Status}}|{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}|{{.State.ExitCode}}',
+        containerName,
+      ]);
+      if (inspected.status !== 0) {
+        this.infrastructureDiagnostics(service);
+        throw new Error(
+          `${label} container was not created or cannot be inspected: ${
+            commandOutput(inspected) || containerName
+          }`,
+        );
       }
-      lastOutput = commandOutput(result);
-      await delay(2000);
+
+      const state = parseContainerState(commandOutput(inspected));
+      if (['dead', 'exited', 'removing'].includes(state.status)) {
+        this.infrastructureDiagnostics(service);
+        throw new Error(
+          `${label} container stopped${
+            state.exitCode === null ? '' : ` with exit code ${state.exitCode}`
+          }. Open Startup details for its logs.`,
+        );
+      }
+      if (state.health === 'unhealthy') {
+        this.infrastructureDiagnostics(service);
+        throw new Error(
+          `${label} container is unhealthy. Open Startup details for its logs.`,
+        );
+      }
+
+      if (state.status === 'running') {
+        const result = this.execute('docker', [
+          'exec',
+          containerName,
+          ...probeArgs,
+        ]);
+        if (result.status === 0) {
+          this.log(`${label}: ready`);
+          return;
+        }
+        lastOutput = commandOutput(result);
+      }
+      await this.wait(2000);
     }
-    const diagnostics = this.infrastructureDiagnostics(service);
-    const detail = lastOutput || diagnostics;
+    this.infrastructureDiagnostics(service);
     throw new Error(
-      `${label} did not become ready. Open Startup details for the container status and logs.${detail.includes('port is already allocated') ? ' Port 5432 is already in use.' : ''}`,
+      `${label} container is running but its readiness probe failed for 90 seconds.${
+        lastOutput ? ` Last probe: ${lastOutput}` : ''
+      }`,
     );
   }
 
   async startInfrastructure() {
-    await run(
+    await this.runAsync(
       'docker',
       ['compose', 'up', '-d', 'postgres', 'redis'],
       (output) => this.log(output),
     );
     await Promise.all([
-      this.waitForDockerCommand(
-        [
-          'compose',
-          'exec',
-          '-T',
-          'postgres',
+      this.waitForContainer({
+        containerName: 'english_learning_postgres',
+        label: 'PostgreSQL',
+        probeArgs: [
           'pg_isready',
           '-U',
           localPostgresUser,
           '-d',
           localPostgresDatabase,
         ],
-        'PostgreSQL',
-        'postgres',
-      ),
-      this.waitForDockerCommand(
-        ['compose', 'exec', '-T', 'redis', 'redis-cli', 'ping'],
-        'Redis',
-        'redis',
-      ),
+        service: 'postgres',
+      }),
+      this.waitForContainer({
+        containerName: 'english_learning_redis',
+        label: 'Redis',
+        probeArgs: ['redis-cli', 'ping'],
+        service: 'redis',
+      }),
     ]);
   }
 
   async migrate() {
-    await run(
+    await this.runAsync(
       process.execPath,
       [
         path.join(repoRoot, 'node_modules', 'knex', 'bin', 'cli.js'),
@@ -692,5 +770,6 @@ module.exports = {
   controlPage,
   createControlServer,
   commandOutput,
+  parseContainerState,
   parseEnvironment,
 };
