@@ -9,7 +9,10 @@ export interface ApiError {
 }
 
 export class AppError extends Error {
-  constructor(public status: number, message: string) {
+  constructor(
+    public status: number,
+    message: string,
+  ) {
     super(message);
     this.name = "AppError";
   }
@@ -19,7 +22,7 @@ export const errorHandler = (
   err: Error | ZodError | AppError,
   _req: Request,
   res: Response,
-  _next: NextFunction
+  _next: NextFunction,
 ) => {
   logger.error("Error:", err);
 
@@ -42,6 +45,14 @@ export const errorHandler = (
   }
 
   if (err instanceof Error) {
+    const databaseError = err as Error & { code?: string; status?: number };
+    const status = databaseError.status;
+    if (status && status >= 400 && status < 600) {
+      return res.status(status).json({
+        message: err.message,
+      });
+    }
+
     if (
       err.message.includes("Email already registered") ||
       err.message.includes("Username already taken")
@@ -60,6 +71,13 @@ export const errorHandler = (
     if (err.message.includes("Invalid or expired refresh token")) {
       return res.status(401).json({
         message: err.message,
+      });
+    }
+
+    if (databaseError.code === "42P01") {
+      return res.status(503).json({
+        message:
+          "Database setup is incomplete. Run the database migrations and try again.",
       });
     }
   }

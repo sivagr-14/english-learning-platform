@@ -9,7 +9,11 @@
   ],
   "scripts": {
     "setup": "yarn install && yarn run setup:backend",
-    "setup:backend": "cd packages/backend && npm run setup:db",
+    "setup:backend": "yarn run db:setup",
+    "db:setup": "yarn run db:migrate && yarn run db:seed",
+    "db:migrate": "knex --knexfile knexfile.js migrate:latest",
+    "db:seed": "knex --knexfile knexfile.js seed:run",
+    "db:status": "knex --knexfile knexfile.js migrate:status",
     "dev": "node scripts/dev.js",
     "dev:backend": "yarn workspace english-learning-backend run dev",
     "dev:frontend": "yarn workspace english-learning-frontend run dev",
@@ -18,9 +22,9 @@
     "lint": "yarn workspaces foreach -pt run lint",
     "type-check": "yarn workspaces foreach -pt run type-check",
     "start": "yarn workspaces foreach -pt run start",
-    "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down",
-    "docker:build": "docker-compose build"
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:build": "docker compose build"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

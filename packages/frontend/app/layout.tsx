@@ -1,10 +1,11 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import ClientLayout from './ClientLayout';
+import type { Metadata } from "next";
+import "./globals.css";
+import ClientLayout from "./ClientLayout";
 
 export const metadata: Metadata = {
-  title: 'English Mastery - Master English with AI',
-  description: 'Interactive English learning platform with AI-powered vocabulary generation, spaced repetition, and comprehensive lessons.',
+  title: "English Mastery",
+  description:
+    "ChatGPT-controlled vocabulary learning, active recall, spaced review, Tamil support, and progress tracking.",
 };
 
 export default function RootLayout({
