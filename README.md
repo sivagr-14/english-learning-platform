@@ -49,7 +49,7 @@ implementation phase. The current app does not call the paid OpenAI API.
 - Node.js 20 or newer
 - Yarn 1.22
 
-### First launch
+### First setup
 
 ```bash
 git clone https://github.com/sivagr-14/english-learning-platform.git
@@ -59,35 +59,48 @@ corepack enable
 corepack prepare yarn@1.22.22 --activate
 yarn install
 
-yarn app:start
+yarn app:install
 ```
 
-`yarn app:start` is the safe one-command launcher. It creates `.env.local` when
-needed, generates a secure local JWT secret, opens Docker Desktop if necessary,
-starts and checks PostgreSQL/Redis, applies migrations, runs lint, tests,
-type-checks and production builds, starts both web services, waits for their
-health checks, and opens the app in the default Mac browser.
+`yarn app:install` performs the one-time macOS background-service setup. It
+creates a user-level `launchd` service that starts automatically at login and is
+kept alive by macOS. It resolves the current repository and Node.js paths while
+installing, so it does not contain a hard-coded user or project directory.
 
-Open:
+After installation, open:
 
 - App: <http://localhost:3000>
 - Backend health: <http://127.0.0.1:5001/health>
+
+Port 3000 always presents either:
+
+- A lightweight **Validate and start app** page when the learning services are
+  stopped, or
+- The complete Next.js learning app after startup succeeds.
+
+The button checks Node.js, local configuration, dependencies, Docker Desktop,
+PostgreSQL, Redis, migrations, backend health, and frontend health. It opens
+Docker Desktop when necessary. Startup progress and actionable errors appear
+inside the page. The browser URL remains `localhost:3000`; the gateway proxies
+the running Next.js service from its private port 3001.
 
 Create your personal account through the registration screen. No sample user or
 sample vocabulary is created. Migration `007_remove_prototype_content` removes
 only the old known prototype entries and the old `sample@example.com` account;
 it preserves personal accounts and user-owned vocabulary.
 
-### Later launches
+### Daily use
 
-```bash
-yarn app:start:quick
-```
+There is no daily Terminal command. After a Mac login or restart, open
+<http://localhost:3000> and select **Validate and start app**.
 
-Quick mode still checks the environment, Docker, PostgreSQL, Redis, migrations,
-backend health, and frontend readiness. It skips the slower
-lint/test/type-check/build suite. Use `yarn app:doctor` at any time to validate
-everything without starting the frontend or backend.
+To run the control page in the foreground for troubleshooting, use
+`yarn app:start`. To remove automatic startup without deleting database data,
+use `yarn app:uninstall`.
+
+The older terminal launcher remains available as `yarn app:start:legacy`. Use
+`yarn app:doctor` to run its comprehensive validation without starting the web
+services.
 
 `yarn db:seed` is now non-destructive. It updates the standardized category
 definitions and never deletes or creates vocabulary.
