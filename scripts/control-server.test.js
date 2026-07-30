@@ -1,4 +1,6 @@
 const assert = require('node:assert/strict');
+const { EventEmitter } = require('node:events');
+const path = require('node:path');
 const test = require('node:test');
 const {
   ControlManager,
@@ -136,6 +138,48 @@ test('mock startup reports an exited PostgreSQL container immediately with logs'
   assert.equal(waits, 0);
   assert.ok(
     manager.logs.some((line) => line.includes('database files are incompatible')),
+  );
+});
+
+test('frontend starts from its Next.js workspace and preserves clean-exit diagnostics', async () => {
+  const launches = [];
+  const spawnChild = (command, args, options) => {
+    const child = new EventEmitter();
+    child.stdout = new EventEmitter();
+    child.stderr = new EventEmitter();
+    child.killed = false;
+    child.exitCode = null;
+    child.kill = () => {
+      child.killed = true;
+    };
+    launches.push({ command, args, options, child });
+    return child;
+  };
+  const manager = new ControlManager({ spawnChild });
+  manager.phase = 'starting';
+
+  manager.spawnServices();
+
+  const frontend = launches.find((launch) =>
+    launch.args.some((arg) => arg.endsWith(path.join('next', 'dist', 'bin', 'next'))),
+  );
+  assert.ok(frontend);
+  assert.equal(
+    frontend.options.cwd,
+    path.join(__dirname, '..', 'packages', 'frontend'),
+  );
+
+  frontend.child.stderr.emit(
+    'data',
+    Buffer.from('simulated frontend diagnostic\n'),
+  );
+  frontend.child.emit('exit', 0, null);
+
+  assert.match(manager.error, /frontend exited with exit code 0/);
+  assert.match(manager.error, /simulated frontend diagnostic/);
+  await assert.rejects(
+    manager.waitForServices(),
+    /frontend exited with exit code 0/,
   );
 });
 
