@@ -1,4 +1,10 @@
-export const STARTER_SAMPLE_VERSION = 2;
+import {
+  assertVocabularyLessonCompliant,
+  VocabularyLesson,
+  VOCABULARY_LESSON_FORMAT_VERSION,
+} from "./vocabulary-lesson-template";
+
+export const STARTER_SAMPLE_VERSION = 3;
 
 export interface StarterSample {
   word: string;
@@ -12,7 +18,7 @@ export interface StarterSample {
   englishMeaning: string;
   tamilMeaning: string;
   coreIdea: string;
-  lesson: Record<string, unknown>;
+  lesson: VocabularyLesson;
 }
 
 interface LessonInput {
@@ -37,12 +43,12 @@ interface LessonInput {
   recallQuestion: string;
   recognitionTask: string;
   productionTask: string;
-  advancedNuance?: string[];
+  advancedNuance: string[];
 }
 
-function lesson(input: LessonInput) {
-  return {
-    format_version: "simplified-v1",
+function lesson(term: string, input: LessonInput) {
+  const value = {
+    format_version: VOCABULARY_LESSON_FORMAT_VERSION,
     sample_version: STARTER_SAMPLE_VERSION,
     sample_notice:
       "Built-in starter sample. Refreshing the starter set updates this lesson without changing your progress.",
@@ -83,10 +89,10 @@ function lesson(input: LessonInput) {
       recognition_task: input.recognitionTask,
       production_task: input.productionTask,
     },
-    ...(input.advancedNuance?.length
-      ? { advanced_nuance: input.advancedNuance }
-      : {}),
+    advanced_nuance: input.advancedNuance,
   };
+
+  return assertVocabularyLessonCompliant(value, term);
 }
 
 export const STARTER_SAMPLES: StarterSample[] = [
@@ -103,7 +109,7 @@ export const STARTER_SAMPLES: StarterSample[] = [
     tamilMeaning: "எளிதாகப் புரியக்கூடிய / நேரடியான",
     coreIdea:
       "There is no unnecessary difficulty, complexity or hidden meaning.",
-    lesson: lesson({
+    lesson: lesson("straightforward", {
       meaningType: "Literal and abstract",
       connotation: "Usually positive or neutral",
       tone: "Clear and direct",
@@ -167,7 +173,7 @@ export const STARTER_SAMPLES: StarterSample[] = [
     tamilMeaning:
       "ஒரு கடினமான உண்மையை மனதளவில் ஏற்றுக்கொண்டு சமாளிக்கத் தொடங்குதல்",
     coreIdea: "Difficult reality → emotional struggle → gradual acceptance.",
-    lesson: lesson({
+    lesson: lesson("come to terms with", {
       meaningType: "Figurative, idiomatic and abstract",
       connotation:
         "Neutral, but normally associated with difficult experiences",
@@ -239,7 +245,7 @@ export const STARTER_SAMPLES: StarterSample[] = [
     tamilMeaning: "மிகவும் நம்ப வைக்கும் வாதம்",
     coreIdea:
       "The reasons and evidence make the conclusion difficult to dismiss.",
-    lesson: lesson({
+    lesson: lesson("a compelling argument", {
       meaningType: "Abstract",
       connotation: "Positive when evaluating the quality of reasoning",
       tone: "Persuasive and thoughtful",
@@ -291,7 +297,7 @@ export const STARTER_SAMPLES: StarterSample[] = [
       productionTask:
         "Make a compelling argument for one useful habit using a reason and evidence.",
       advancedNuance: [
-        "Compelling can also mean powerfully interesting or impossible to ignore, as in compelling evidence or a compelling story.",
+        "In a compelling argument, compelling evaluates persuasive force; elsewhere it can mean powerfully interesting or impossible to ignore, as in compelling evidence or a compelling story.",
       ],
     }),
   },
@@ -307,7 +313,7 @@ export const STARTER_SAMPLES: StarterSample[] = [
     englishMeaning: "Without achieving the intended result.",
     tamilMeaning: "எந்தப் பயனும் இல்லாமல் / பலனின்றி",
     coreIdea: "An effort was made, but it produced no useful result.",
-    lesson: lesson({
+    lesson: lesson("to no avail", {
       meaningType: "Idiomatic and abstract",
       connotation: "Negative because the attempt was unsuccessful",
       tone: "Matter-of-fact, disappointed or serious",
