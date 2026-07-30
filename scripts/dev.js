@@ -1,7 +1,12 @@
-const { spawn } = require('child_process');
+const { spawn, spawnSync } = require('child_process');
 
 const isWindows = process.platform === 'win32';
-const yarn = isWindows ? 'yarn.cmd' : 'yarn';
+const yarnCommand = isWindows ? 'yarn.cmd' : 'yarn';
+const hasYarn = spawnSync(yarnCommand, ['--version'], {
+  stdio: 'ignore',
+}).status === 0;
+const command = hasYarn ? yarnCommand : (isWindows ? 'corepack.cmd' : 'corepack');
+const commandPrefix = hasYarn ? [] : ['yarn'];
 
 const processes = [
   {
@@ -15,7 +20,7 @@ const processes = [
 ];
 
 const children = processes.map(({ name, args }) => {
-  const child = spawn(yarn, args, {
+  const child = spawn(command, [...commandPrefix, ...args], {
     cwd: process.cwd(),
     env: process.env,
     stdio: ['inherit', 'pipe', 'pipe'],
@@ -29,29 +34,39 @@ const children = processes.map(({ name, args }) => {
     process.stderr.write(`[${name}] ${data}`);
   });
 
-  child.on('exit', (code) => {
-    if (code && code !== 0) {
-      process.exitCode = code;
-    }
-  });
-
   return child;
 });
 
-function stop() {
+let stopping = false;
+
+function stop(exitCode = 0) {
+  if (stopping) return;
+  stopping = true;
+
   for (const child of children) {
     if (!child.killed) {
       child.kill('SIGINT');
     }
   }
+
+  setTimeout(() => process.exit(exitCode), 300);
+}
+
+for (const child of children) {
+  child.on('exit', (code, signal) => {
+    if (stopping) return;
+
+    const exitCode = typeof code === 'number' ? code : 1;
+    const reason = signal ? `signal ${signal}` : `code ${exitCode}`;
+    console.error(`\nA development service stopped (${reason}). Stopping the other service.`);
+    stop(exitCode || 1);
+  });
 }
 
 process.on('SIGINT', () => {
-  stop();
-  setTimeout(() => process.exit(), 250);
+  stop(0);
 });
 
 process.on('SIGTERM', () => {
-  stop();
-  setTimeout(() => process.exit(), 250);
+  stop(0);
 });
