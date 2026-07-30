@@ -44,6 +44,8 @@ export default function VocabularyPage() {
   const [starterSamples, setStarterSamples] = useState({
     available: 0,
     loaded: 0,
+    outdated: 0,
+    version: 0,
   });
   const [sampleAction, setSampleAction] = useState<
     "loading" | "removing" | null
@@ -181,16 +183,30 @@ export default function VocabularyPage() {
             </p>
           </div>
           {starterSamples.loaded ? (
-            <button
-              type="button"
-              onClick={removeSamples}
-              disabled={sampleAction !== null}
-              className="shrink-0 rounded-lg border border-indigo-300 bg-white px-4 py-2.5 text-sm font-semibold text-indigo-800 hover:bg-indigo-100 disabled:opacity-60"
-            >
-              {sampleAction === "removing"
-                ? "Removing…"
-                : `Remove samples (${starterSamples.loaded})`}
-            </button>
+            <div className="flex shrink-0 flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={loadSamples}
+                disabled={sampleAction !== null}
+                className="rounded-lg bg-indigo-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-indigo-800 disabled:opacity-60"
+              >
+                {sampleAction === "loading"
+                  ? "Refreshing…"
+                  : starterSamples.outdated
+                    ? `Update ${starterSamples.outdated} samples`
+                    : "Refresh samples"}
+              </button>
+              <button
+                type="button"
+                onClick={removeSamples}
+                disabled={sampleAction !== null}
+                className="rounded-lg border border-indigo-300 bg-white px-4 py-2.5 text-sm font-semibold text-indigo-800 hover:bg-indigo-100 disabled:opacity-60"
+              >
+                {sampleAction === "removing"
+                  ? "Removing…"
+                  : `Remove samples (${starterSamples.loaded})`}
+              </button>
+            </div>
           ) : (
             <button
               type="button"
