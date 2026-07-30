@@ -1,0 +1,15 @@
+FROM node:20-alpine
+WORKDIR /app
+
+# Install dependencies
+COPY package.json yarn.lock* ./
+# Ensure dev dependencies are installed in the frontend image for `yarn dev`
+ENV NODE_ENV=development
+RUN yarn install --frozen-lockfile --production=false || yarn install --production=false
+
+# Copy source
+COPY . .
+
+EXPOSE 3000
+# Run Next dev server for containerized development
+CMD ["yarn", "dev"]
