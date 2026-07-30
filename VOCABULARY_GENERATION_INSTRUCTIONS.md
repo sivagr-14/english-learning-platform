@@ -1,127 +1,116 @@
-# Vocabulary Generation Instructions
+# Vocabulary Lesson Generation Contract
 
-Use this guide for every vocabulary deck, in any category.
+Use this contract for every vocabulary entry, whether it is new or an update.
 
-## Core Rule
+## Core rule
 
-Generate like `cornerstone`: specific, native-sounding, category-aware, and useful for Tamil speakers. Do not fill sections with generic repeated sentences.
+Generate exactly eight complete learning sections. Every value must teach
+something specific about the target word or expression. The app must reject the
+entry instead of saving partial, vague, generic, or placeholder content.
 
-## Header Fields
+Never use filler such as:
 
-Keep these at the card/header level only:
+- `TODO`, `TBD`, `placeholder`, `coming soon`, `not added`, `not set` or `N/A`
+- “Use it when appropriate”
+- “It depends on the context”
+- “This is a useful/common word”
+- “It can be used in many situations/various contexts”
+
+Do not create facts merely to fill a field. Research or regenerate the lesson
+when a section is weak.
+
+## Required entry header
+
+Keep these fields at the entry/header level:
 
 - `word`
+- `pronunciation`
 - `word_type`
+- `item_type`
 - `cefr_level`
 - `frequency`
+- `category`
 - `english_meaning`
-- `extended_meaning`
 - `tamil_meaning`
 - `core_idea`
 
-Do not repeat these as lesson sections. Do not include pronunciation.
+## Required lesson format
 
-## Required Sections
+Set `format_version` to `simplified-v2` and populate all eight sections:
 
-Use exactly these 17 sections:
+1. **Overview**
+   - `meaning_usage_profile.meaning_type`
+   - `meaning_usage_profile.connotation`
+   - `meaning_usage_profile.tone`
+   - `meaning_usage_profile.register`
+2. **Meaning in Context**
+   - `source_sentence`
+   - `contextual_meaning`
+   - `simple_explanation`
+3. **Usage Guide**
+   - `when_to_use`
+   - `when_not_to_use`
+4. **Patterns & Collocations**
+   - `main_pattern`
+   - `common_collocations` with at least two useful items
+5. **Natural Examples**
+   - `examples` with at least two different natural contexts
+   - `mini_conversation`
+6. **Mistakes & Differences**
+   - `common_mistake`
+   - `correction`
+   - `important_difference`
+7. **Memory & Practice**
+   - `memory_trigger`
+   - `memory_sentence`
+   - `recall_question`
+   - `recognition_task`
+   - `production_task`
+8. **Advanced Nuance**
+   - `advanced_nuance` with at least one genuine, term-specific distinction
 
-1. English Meaning + Recall Meaning
-2. Memory Mastery
-3. Pattern Family
-4. Notice
-5. Word Nature
-6. Tamil Usage Notes
-7. Usage Profile
-8. Word Usage Zone
-9. Natural Domains
-10. Domain Restrictions
-11. Common Patterns / Grammar
-12. When To Use
-13. When NOT To Use
-14. Confusion Zone
-15. Alternatives & Synonyms
-16. Common Mistakes
-17. Paragraph-Based Real-Life Conversation / Story
+The Overview profile must contain only Meaning type, Connotation, Tone and
+Register. Do not recreate the older usage-zone, domain, word-nature or
+frequency-by-context sections.
 
-Do not generate `Meaning Layers` or `Practice + Evaluation`.
+## Quality requirements
 
-## Quality Rules
+- All eight sections are mandatory, including Advanced Nuance.
+- No string, list, object, or nested value may be empty.
+- Every explanation must be concrete and specific to the target term.
+- The source sentence, main pattern and memory sentence must use the term.
+- At least two natural examples must use the term.
+- The mistake or correction must demonstrate the term.
+- Advanced Nuance must name and explain the term, not provide general advice.
+- Examples must be natural and meaningfully different from one another.
+- Tamil is selective: use it in the header meaning when it improves clarity.
+- If a generated lesson fails any rule, regenerate or hold it for manual
+  review. Never save the incomplete version.
 
-- Every section must be word-specific.
-- Do not reuse the same example across different sections unless it is intentionally being corrected.
-- Avoid vague filler such as “use it in daily life when the context fits.”
-- Write concrete examples tied to the selected category.
-- The Tamil notes must explain a real Tamil-speaker mistake or translation trap.
-- Common mistakes must include a wrong sentence, a corrected sentence, and a reason.
-- Confusion Zone must compare the target word with genuinely similar words.
-- Alternatives must be realistic: near synonyms, formal alternatives, and informal alternatives.
-- The story must use the word naturally in a realistic situation and show why the word fits.
+## Meaning & Usage Profile
 
-## Usage Profile Rule
+Use only these four items:
 
-Usage Profile must be a table-like array with this exact column order:
+- **Meaning type:** literal, abstract, figurative, idiomatic, technical, or a
+  useful combination
+- **Connotation:** positive, negative, neutral, mixed, or context-dependent
+- **Tone:** the speaker’s relevant attitude, such as serious, friendly, polite,
+  critical, humorous, reflective or forceful
+- **Register:** informal, neutral, formal, professional or academic as
+  applicable
 
-1. `usage_area`
-2. `status`
-3. `example_sentence`
-4. `note`
+Do not list every possible label. State only the values that actually apply and
+briefly explain important context.
 
-Include these usage areas when meaningful:
+## Update behavior
 
-- Literal
-- Abstract
-- Figurative
-- Everyday
-- Professional
-- Technical
-- Academic
-- Business
-- Formal
-- Informal
+When an entry already exists:
 
-Each row needs a different example sentence. Do not repeat the same sentence.
+1. Validate the complete replacement lesson against this contract.
+2. Reject the update if any section is incomplete or generic.
+3. Replace all eight lesson sections together in one transaction.
+4. Preserve the learner’s review history and mastery progress.
+5. Record a new entry version so the earlier lesson remains auditable.
 
-## Word Nature Rule
-
-Word Nature must contain:
-
-1. `primary_classification`
-2. `reason`
-
-Examples of classifications:
-
-- Mostly Abstract
-- Mostly Literal
-- Figurative Idiom
-- Action Phrasal Verb
-- State Word
-- Daily-Life Expression
-- Practical Noun Phrase
-
-## Tamil Usage Notes Rule
-
-Tamil Usage Notes must contain:
-
-- `correct_tamil_speaker_usage`
-- `common_tamil_speaker_mistake`
-- `correct_version`
-- `translation_trap`
-- `thinking_difference`
-
-This section is mandatory and must not be generic.
-
-## Category Awareness
-
-Before generating, decide the category and domain. Examples must match that category.
-
-For Daily Life, examples should involve home, family, routines, errands, money, time, food, cleaning, health, planning, or normal conversation.
-
-For Work & Business, examples should involve meetings, clients, planning, strategy, tasks, deadlines, reporting, leadership, and communication.
-
-For Academic English, examples should involve research, evidence, argument, writing, reading, analysis, and formal discussion.
-
-## Duplicate Avoidance
-
-Before importing, compare against existing words in the target category. Do not add the same word twice in the same category.
-
-Use the app importer’s resolved category + normalized word behavior to update existing entries rather than creating duplicates.
+Starter samples follow the same rules. Increasing the starter sample version
+must cause already-loaded samples to refresh through this validation gate.
