@@ -141,7 +141,7 @@ test('mock startup reports an exited PostgreSQL container immediately with logs'
   );
 });
 
-test('frontend starts from its Next.js workspace and preserves clean-exit diagnostics', async () => {
+test('web services start from their own workspaces and preserve clean-exit diagnostics', async () => {
   const launches = [];
   const spawnChild = (command, args, options) => {
     const child = new EventEmitter();
@@ -162,6 +162,19 @@ test('frontend starts from its Next.js workspace and preserves clean-exit diagno
 
   const frontend = launches.find((launch) =>
     launch.args.some((arg) => arg.endsWith(path.join('next', 'dist', 'bin', 'next'))),
+  );
+  const backend = launches.find((launch) =>
+    launch.args.some((arg) => arg.endsWith(path.join('ts-node', 'dist', 'bin.js'))),
+  );
+  assert.ok(backend);
+  assert.equal(
+    backend.options.cwd,
+    path.join(__dirname, '..', 'packages', 'backend'),
+  );
+  assert.ok(
+    backend.args.some((arg) =>
+      arg.endsWith(path.join('packages', 'backend', 'tsconfig.json')),
+    ),
   );
   assert.ok(frontend);
   assert.equal(
@@ -194,7 +207,7 @@ test('control API requires the local control header before starting', async (con
       frontend: false,
       backend: false,
     }),
-    frontendReady: async () => false,
+    appReady: async () => false,
     start: () => {
       starts += 1;
     },
