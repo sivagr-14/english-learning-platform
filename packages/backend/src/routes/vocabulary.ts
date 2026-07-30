@@ -5,6 +5,11 @@ import {
   AuthenticatedRequest,
 } from "../middleware/auth.middleware";
 import { database } from "../utils/db";
+import {
+  loadStarterSamples,
+  removeStarterSamples,
+  starterSampleStatus,
+} from "../services/starter-samples.service";
 
 const router: Router = express.Router();
 
@@ -111,6 +116,7 @@ router.get(
           "vocabulary_words.english_meaning",
           "vocabulary_words.tamil_meaning",
           "vocabulary_words.core_idea",
+          "vocabulary_words.is_starter_sample",
           "vocabulary_lessons.lesson_data",
         )
         .where("vocabulary_words.category_id", req.params.id)
@@ -151,6 +157,43 @@ router.post(
 );
 
 router.get(
+  "/starter-samples",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      res.json(await starterSampleStatus(req.userId as string));
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.post(
+  "/starter-samples",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const result = await loadStarterSamples(req.userId as string);
+      res.status(result.created ? 201 : 200).json(result);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.delete(
+  "/starter-samples",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      res.json(await removeStarterSamples(req.userId as string));
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.get(
   "/search",
   authMiddleware,
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
@@ -178,6 +221,7 @@ router.get(
           "vocabulary_words.english_meaning",
           "vocabulary_words.tamil_meaning",
           "vocabulary_words.core_idea",
+          "vocabulary_words.is_starter_sample",
           "vocabulary_categories.track_name",
           "vocabulary_categories.category_name",
         )
@@ -236,6 +280,7 @@ router.get(
           "vocabulary_words.english_meaning",
           "vocabulary_words.tamil_meaning",
           "vocabulary_words.core_idea",
+          "vocabulary_words.is_starter_sample",
           "vocabulary_categories.track_name",
           "vocabulary_categories.category_name",
           "vocabulary_categories.description as category_description",
