@@ -16,6 +16,7 @@ interface WordDetail {
   english_meaning: string;
   tamil_meaning: string;
   core_idea: string;
+  is_starter_sample: boolean;
   track_name: string;
   category_name: string;
   category_description: string | null;
@@ -637,6 +638,11 @@ export default function VocabularyWordPage() {
                     {word.pronunciation} · {word.word_type || 'Word'} ·{' '}
                     {word.cefr_level}
                   </p>
+                  {word.is_starter_sample && (
+                    <p className="mt-2 inline-flex rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-800">
+                      Starter sample
+                    </p>
+                  )}
                 </div>
                 <span className="rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700">
                   {word.frequency}
