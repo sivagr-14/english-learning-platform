@@ -302,7 +302,7 @@ function printHelp() {
 English Mastery local launcher
 
 Usage:
-  yarn app:start           Validate everything, migrate, and start the app
+  yarn app:start:legacy    Validate everything, migrate, and start in Terminal
   yarn app:start:quick     Skip tests/build, migrate, and start the app
   yarn app:doctor          Validate everything without starting the web servers
   node scripts/start-app.js --no-open
