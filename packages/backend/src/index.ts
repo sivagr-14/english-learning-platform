@@ -9,6 +9,7 @@ import { errorHandler } from "./middleware/error.middleware";
 
 // Load environment variables
 dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
+dotenv.config({ path: path.resolve(__dirname, "../../..", ".env.local") });
 dotenv.config();
 
 const app = express();
