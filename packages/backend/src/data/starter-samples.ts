@@ -1,3 +1,5 @@
+export const STARTER_SAMPLE_VERSION = 2;
+
 export interface StarterSample {
   word: string;
   canonicalKey: string;
@@ -13,92 +15,77 @@ export interface StarterSample {
   lesson: Record<string, unknown>;
 }
 
-function lesson(input: {
-  memoryTrigger: string;
-  visualScene: string;
-  tamilConnection: string;
-  memorySentence: string;
-  recallQuestion: string;
-  naturalZones: string[];
-  limitedZones: string[];
+interface LessonInput {
+  meaningType: string;
+  connotation: string;
+  tone: string;
+  register: string;
+  sourceSentence: string;
+  contextualMeaning: string;
+  usageNote: string;
   whenToUse: string[];
   whenNotToUse: string[];
-  examples: Record<string, string>;
+  mainPattern: string;
   collocations: string[];
-  commonMistake: string;
-  confusion: string;
+  examples: Record<string, string>;
   miniConversation: string;
-  guidedPractice: string[];
-}) {
+  commonMistake: string;
+  correction: string;
+  importantDifference: string;
+  memoryTrigger: string;
+  memorySentence: string;
+  recallQuestion: string;
+  recognitionTask: string;
+  productionTask: string;
+  advancedNuance?: string[];
+}
+
+function lesson(input: LessonInput) {
   return {
+    format_version: "simplified-v1",
+    sample_version: STARTER_SAMPLE_VERSION,
     sample_notice:
-      "Built-in starter sample. You can remove the complete starter set without affecting your own vocabulary.",
-    memory_mastery: {
-      memory_trigger: input.memoryTrigger,
-      visual_scene: input.visualScene,
-      tamil_connection: input.tamilConnection,
-      memory_sentence: input.memorySentence,
-      recall_question: input.recallQuestion,
-      emotional_hook: "Connect the expression to a situation you have experienced.",
-      pattern_family: "Meaning → situation → natural sentence",
-    },
-    meaning_expansion: {
-      layer_1_literal: "The direct meaning used in the example context.",
-      layer_2_abstract:
-        "The broader idea the speaker communicates in conversation or writing.",
-      layer_3_figurative: "Use depends on the expression and its context.",
-      layer_4_professional_technical:
-        "Suitable when the register and situation shown below match.",
-    },
-    usage_mastery: {
-      usage_profile: {
-        everyday: "Yes",
-        professional: "Yes, when contextually suitable",
-        academic: "Varies by expression",
-        formal: "Varies by expression",
+      "Built-in starter sample. Refreshing the starter set updates this lesson without changing your progress.",
+    overview: {
+      meaning_usage_profile: {
+        meaning_type: input.meaningType,
+        connotation: input.connotation,
+        tone: input.tone,
+        register: input.register,
       },
-      word_usage_zone: {
-        natural_zones: input.naturalZones,
-        limited_zones: input.limitedZones,
-        unnatural_zones: ["Situations where a simpler expression is clearer"],
-        short_explanation:
-          "Choose this expression when its meaning and register fit the situation.",
-      },
-      tamil_usage_notes:
-        "தமிழில் உள்ள எண்ணத்தை அப்படியே word-by-word மொழிபெயர்க்காமல், இந்த English pattern-ஐ முழுமையாக நினைவில் கொள்ளுங்கள்.",
+    },
+    meaning_in_context: {
+      source_sentence: input.sourceSentence,
+      contextual_meaning: input.contextualMeaning,
+      simple_explanation: input.usageNote,
+    },
+    usage_guide: {
       when_to_use: input.whenToUse,
       when_not_to_use: input.whenNotToUse,
-      register: "See the contextual guidance and examples.",
-      common_contexts: input.naturalZones,
     },
-    application: {
+    patterns_collocations: {
+      main_pattern: input.mainPattern,
+      common_collocations: input.collocations,
+    },
+    natural_examples: {
       examples: input.examples,
-      collocations: input.collocations,
-      native_usage_patterns:
-        "Notice the complete pattern, then replace only the situation-specific part.",
-      common_mistakes: [
-        {
-          mistake: input.commonMistake,
-          correction: "Use the complete expression and match its grammar.",
-        },
-      ],
-      confusion_zone: input.confusion,
-      alternatives_synonyms: [],
-    },
-    mastery: {
       mini_conversation: input.miniConversation,
-      guided_practice: input.guidedPractice,
-      evaluation: [
-        "Explain the meaning without translating word by word.",
-        "Create one natural personal example.",
-      ],
-      feedback:
-        "Check meaning, grammar, naturalness, register and the complete pattern.",
-      mastery_notes:
-        "The sample is mastered when you can recall and use it naturally in a new context.",
-      native_thinking_model:
-        "Think of the situation first; retrieve the whole English expression next.",
     },
+    mistakes_differences: {
+      common_mistake: input.commonMistake,
+      correction: input.correction,
+      important_difference: input.importantDifference,
+    },
+    memory_practice: {
+      memory_trigger: input.memoryTrigger,
+      memory_sentence: input.memorySentence,
+      recall_question: input.recallQuestion,
+      recognition_task: input.recognitionTask,
+      production_task: input.productionTask,
+    },
+    ...(input.advancedNuance?.length
+      ? { advanced_nuance: input.advancedNuance }
+      : {}),
   };
 }
 
@@ -114,90 +101,127 @@ export const STARTER_SAMPLES: StarterSample[] = [
     categoryName: "Daily Life",
     englishMeaning: "Easy to understand or do; honest and direct.",
     tamilMeaning: "எளிதாகப் புரியக்கூடிய / நேரடியான",
-    coreIdea: "There is no unnecessary difficulty, complexity or hidden meaning.",
+    coreIdea:
+      "There is no unnecessary difficulty, complexity or hidden meaning.",
     lesson: lesson({
-      memoryTrigger: "A straight road with no confusing turns.",
-      visualScene: "You open clear instructions and finish the task immediately.",
-      tamilConnection: "சிக்கல் இல்லாமல் நேராகவும் தெளிவாகவும் இருப்பது.",
-      memorySentence: "The application process was surprisingly straightforward.",
-      recallQuestion: "Which adjective means clear, direct and not complicated?",
-      naturalZones: ["instructions", "processes", "explanations", "people"],
-      limitedZones: ["highly emotional situations"],
+      meaningType: "Literal and abstract",
+      connotation: "Usually positive or neutral",
+      tone: "Clear and direct",
+      register: "Neutral; natural in everyday and professional English",
+      sourceSentence:
+        "The application process was surprisingly straightforward.",
+      contextualMeaning:
+        "The process was clear and easy to complete, without unnecessary difficulty.",
+      usageNote:
+        "It can describe a clear task or explanation, or a person who communicates honestly and directly.",
       whenToUse: [
-        "Use it for something clear and uncomplicated.",
-        "Use it for a person who communicates honestly and directly.",
+        "Use it for a process, instruction or explanation that is clear and uncomplicated.",
+        "Use it for a person or answer that is honest and direct.",
       ],
-      whenNotToUse: ["Do not assume it always means physically straight."],
+      whenNotToUse: ["Do not use it merely to mean physically straight."],
+      mainPattern:
+        "be + straightforward; a straightforward + noun; be straightforward about + noun",
+      collocations: [
+        "straightforward process",
+        "straightforward explanation",
+        "fairly straightforward",
+        "be straightforward about something",
+      ],
       examples: {
         everyday: "The instructions are straightforward.",
         professional: "The migration should be straightforward.",
         person: "She was straightforward about the problem.",
       },
-      collocations: [
-        "straightforward process",
-        "straightforward explanation",
-        "fairly straightforward",
-      ],
-      commonMistake: "Using straight when straightforward is needed.",
-      confusion:
-        "Simple emphasizes low difficulty; straightforward also suggests clarity or directness.",
       miniConversation:
         "A: Is the setup difficult?\nB: No, it is quite straightforward.",
-      guidedPractice: [
-        "Describe a clear procedure using straightforward.",
-        "Describe an honest person using straightforward.",
+      commonMistake: "Using straight when straightforward is needed.",
+      correction:
+        "Say “The instructions are straightforward,” not “The instructions are straight.”",
+      importantDifference:
+        "Simple emphasizes low difficulty; straightforward also suggests clarity or directness.",
+      memoryTrigger: "Picture a straight road with no confusing turns.",
+      memorySentence:
+        "The application process was surprisingly straightforward.",
+      recallQuestion:
+        "Which adjective means clear, direct and not complicated?",
+      recognitionTask:
+        "Choose the natural use: “a straightforward explanation” or “a straightforward road.”",
+      productionTask:
+        "Describe one clear process and one honest person using straightforward.",
+      advancedNuance: [
+        "When it describes a person, straightforward can sound approving, but in a sensitive situation it may imply bluntness.",
       ],
     }),
   },
   {
     word: "come to terms with",
     canonicalKey: "come to terms with|expression",
-    pronunciation: "/kʌm tə tɜːrmz wɪð/",
+    pronunciation: "/kʌm tə tɜːmz wɪð/",
     wordType: "Expression",
     itemType: "phrasal expression",
     cefrLevel: "C1",
     frequency: "Heavy",
     categoryName: "Emotions & Personality",
     englishMeaning:
-      "To gradually accept a difficult, painful or unwanted reality.",
-    tamilMeaning: "கடினமான உண்மையை படிப்படியாக ஏற்றுக்கொள்",
-    coreIdea:
-      "The reality has not changed, but your mind gradually stops resisting it.",
+      "To gradually accept and emotionally deal with a difficult reality.",
+    tamilMeaning:
+      "ஒரு கடினமான உண்மையை மனதளவில் ஏற்றுக்கொண்டு சமாளிக்கத் தொடங்குதல்",
+    coreIdea: "Difficult reality → emotional struggle → gradual acceptance.",
     lesson: lesson({
-      memoryTrigger: "Your hands slowly release a rope you cannot keep pulling.",
-      visualScene:
-        "Someone reads disappointing news, pauses, and begins planning what to do next.",
-      tamilConnection:
-        "மாற்ற முடியாத ஒரு கடினமான உண்மையை மனதளவில் ஏற்றுக்கொள்வது.",
-      memorySentence: "It took me time to come to terms with the change.",
-      recallQuestion:
-        "Which expression means gradually accepting a painful reality?",
-      naturalZones: ["loss", "change", "failure", "diagnosis", "limitations"],
-      limitedZones: ["small everyday preferences"],
+      meaningType: "Figurative, idiomatic and abstract",
+      connotation:
+        "Neutral, but normally associated with difficult experiences",
+      tone: "Serious, reflective or empathetic",
+      register:
+        "Neutral; suitable for everyday, professional and formal English",
+      sourceSentence:
+        "She is still trying to come to terms with the loss of her job.",
+      contextualMeaning:
+        "She knows she has lost her job, but she is still learning to accept it emotionally.",
+      usageNote:
+        "It describes a gradual emotional process. It does not mean the person likes the situation or has fully recovered.",
       whenToUse: [
-        "Use it when acceptance is emotionally or mentally difficult.",
+        "Use it for accepting a loss, illness, failure, major change or difficult truth.",
+        "Use it when acceptance requires real emotional or mental adjustment.",
       ],
       whenNotToUse: [
-        "Do not use it for quickly agreeing to ordinary conditions or prices.",
+        "Avoid it for trivial facts or ordinary arrangements that require no emotional acceptance.",
+      ],
+      mainPattern: "come to terms with + noun / noun phrase / the fact that…",
+      collocations: [
+        "come to terms with a loss",
+        "come to terms with reality",
+        "come to terms with the diagnosis",
+        "struggle to come to terms with",
+        "find it difficult to come to terms with",
       ],
       examples: {
-        personal: "She is still coming to terms with the result.",
-        professional: "The team had to come to terms with the reduced budget.",
-        reflective: "I finally came to terms with what had happened.",
+        everyday:
+          "It took him several months to come to terms with the end of the relationship.",
+        professional:
+          "The company must come to terms with the fact that customer expectations have changed.",
+        reflection:
+          "I have finally come to terms with the mistakes I made in the past.",
       },
-      collocations: [
-        "struggle to come to terms with",
-        "slowly come to terms with",
-        "come to terms with reality",
-      ],
-      commonMistake: "Saying come into terms with.",
-      confusion:
-        "Accept can be immediate and neutral; come to terms with emphasizes a gradual, difficult emotional process.",
       miniConversation:
-        "A: How is he handling the decision?\nB: He is slowly coming to terms with it.",
-      guidedPractice: [
-        "Describe a change that took time to accept.",
-        "Contrast accept with come to terms with.",
+        "A: How is Maya coping with the news?\nB: She understands what happened, but she hasn’t fully come to terms with it yet.",
+      commonMistake: "She came into terms with the decision.",
+      correction: "She came to terms with the decision.",
+      importantDifference:
+        "Accept can describe a simple or immediate decision; come to terms with emphasizes gradual, often difficult emotional acceptance.",
+      memoryTrigger:
+        "Picture the mind slowly moving from “I can’t accept this” to “I understand that this is real.”",
+      memorySentence: "It takes time to come to terms with a painful truth.",
+      recallQuestion:
+        "What expression means gradually accepting a difficult reality?",
+      recognitionTask:
+        "Choose the natural use: accepting a life-changing diagnosis or accepting a slightly cold coffee.",
+      productionTask:
+        "Complete naturally: “It took me a long time to come to terms with ______.”",
+      advancedNuance: [
+        "Coming to terms with means the process is continuing.",
+        "Came to terms with means acceptance was eventually reached.",
+        "Hasn’t come to terms with means the person is still resisting or struggling.",
       ],
     }),
   },
@@ -211,44 +235,63 @@ export const STARTER_SAMPLES: StarterSample[] = [
     frequency: "Medium",
     categoryName: "Academic English",
     englishMeaning:
-      "A line of reasoning that is convincing and strongly holds attention.",
+      "A line of reasoning that is strongly convincing and holds attention.",
     tamilMeaning: "மிகவும் நம்ப வைக்கும் வாதம்",
     coreIdea:
-      "The reasons and evidence are strong enough to make an idea difficult to dismiss.",
+      "The reasons and evidence make the conclusion difficult to dismiss.",
     lesson: lesson({
-      memoryTrigger: "Evidence pulling an undecided listener toward one side.",
-      visualScene:
-        "A presenter connects clear evidence until the audience nods in agreement.",
-      tamilConnection: "ஆதாரங்களால் மிகவும் நம்ப வைக்கும் வாதம்.",
-      memorySentence: "The report makes a compelling argument for early action.",
-      recallQuestion:
-        "Which collocation describes a strongly convincing line of reasoning?",
-      naturalZones: ["essays", "reports", "debates", "proposals", "reviews"],
-      limitedZones: ["very casual conversation"],
+      meaningType: "Abstract",
+      connotation: "Positive when evaluating the quality of reasoning",
+      tone: "Persuasive and thoughtful",
+      register:
+        "Neutral to formal; common in professional and academic English",
+      sourceSentence:
+        "The report makes a compelling argument for early action.",
+      contextualMeaning:
+        "The report gives strong reasons and evidence that make early action seem necessary.",
+      usageNote:
+        "Use compelling to evaluate how convincing an argument is, not merely whether you agree with its conclusion.",
       whenToUse: [
-        "Use it to evaluate reasoning supported by convincing evidence.",
+        "Use it for reasoning in essays, reports, debates, proposals and reviews.",
+        "Use it when the evidence or logic strongly persuades the audience.",
       ],
       whenNotToUse: [
-        "Do not use compelling merely because you personally like the conclusion.",
+        "Do not call an argument compelling only because you personally like its conclusion.",
+      ],
+      mainPattern:
+        "make / present + a compelling argument + for / against + noun",
+      collocations: [
+        "make a compelling argument",
+        "present a compelling argument",
+        "a compelling argument for change",
+        "a compelling argument against the proposal",
       ],
       examples: {
         academic: "The author presents a compelling argument for reform.",
         business: "She made a compelling argument for investing now.",
-        critical: "It is interesting, but not yet a compelling argument.",
+        critical:
+          "The idea is interesting, but it is not yet a compelling argument.",
       },
-      collocations: [
-        "make a compelling argument",
-        "present a compelling argument",
-        "compelling argument for/against",
-      ],
-      commonMistake: "Using strong argument in every formal context.",
-      confusion:
-        "A valid argument is logically sound; a compelling argument is strongly convincing.",
       miniConversation:
         "A: Did the proposal persuade you?\nB: Yes, it made a compelling argument for the change.",
-      guidedPractice: [
-        "Make a compelling argument for one useful habit.",
-        "Explain why evidence can make an argument compelling.",
+      commonMistake:
+        "Using compelling as if it simply meant an argument you agree with.",
+      correction:
+        "Use compelling when the reasoning or evidence is strongly convincing.",
+      importantDifference:
+        "A valid argument is logically sound; a compelling argument is powerfully persuasive. It may be compelling without being fully valid.",
+      memoryTrigger:
+        "Picture strong evidence pulling an undecided listener toward one side.",
+      memorySentence:
+        "The report makes a compelling argument for early action.",
+      recallQuestion:
+        "Which collocation describes a strongly convincing line of reasoning?",
+      recognitionTask:
+        "Decide whether personal preference alone can make an argument compelling.",
+      productionTask:
+        "Make a compelling argument for one useful habit using a reason and evidence.",
+      advancedNuance: [
+        "Compelling can also mean powerfully interesting or impossible to ignore, as in compelling evidence or a compelling story.",
       ],
     }),
   },
@@ -265,38 +308,55 @@ export const STARTER_SAMPLES: StarterSample[] = [
     tamilMeaning: "எந்தப் பயனும் இல்லாமல் / பலனின்றி",
     coreIdea: "An effort was made, but it produced no useful result.",
     lesson: lesson({
-      memoryTrigger: "A key turns repeatedly, but the locked door never opens.",
-      visualScene: "You try several solutions, yet the same error remains.",
-      tamilConnection: "முயற்சி செய்தும் எந்தப் பலனும் கிடைக்காத நிலை.",
-      memorySentence: "We restarted the service several times, but to no avail.",
-      recallQuestion: "Which idiom means that an effort produced no result?",
-      naturalZones: ["narratives", "reports", "formal conversation", "journalism"],
-      limitedZones: ["very informal everyday speech"],
+      meaningType: "Idiomatic and abstract",
+      connotation: "Negative because the attempt was unsuccessful",
+      tone: "Matter-of-fact, disappointed or serious",
+      register:
+        "Neutral to formal; common in reports, narratives and journalism",
+      sourceSentence:
+        "We restarted the service several times, but to no avail.",
+      contextualMeaning:
+        "Several restart attempts were made, but none solved the problem.",
+      usageNote:
+        "It normally follows an unsuccessful effort and emphasizes that the intended result was not achieved.",
       whenToUse: [
-        "Use it after describing an unsuccessful effort or several attempts.",
+        "Use it after describing one or more unsuccessful attempts.",
+        "Use it in narratives, reports, formal conversation and journalism.",
       ],
       whenNotToUse: [
-        "Avoid it when the attempt achieved even a meaningful partial result.",
+        "Avoid it when the attempt achieved a meaningful partial result.",
+      ],
+      mainPattern:
+        "try / search / appeal + to no avail; clause + but to no avail",
+      collocations: [
+        "try to no avail",
+        "search to no avail",
+        "appeal to no avail",
+        "but to no avail",
       ],
       examples: {
         narrative: "They searched throughout the night, but to no avail.",
         professional:
           "The team attempted to reproduce the defect, initially to no avail.",
-        personal: "I called several times, but to no avail.",
+        everyday: "I called several times, but to no avail.",
       },
-      collocations: [
-        "try to no avail",
-        "search to no avail",
-        "but to no avail",
-      ],
-      commonMistake: "Saying with no avail.",
-      confusion:
-        "In vain has nearly the same meaning; to no avail often sounds slightly more formal.",
       miniConversation:
         "A: Did restarting it fix the problem?\nB: I tried twice, but to no avail.",
-      guidedPractice: [
-        "Describe an unsuccessful attempt using but to no avail.",
-        "Replace without success with to no avail.",
+      commonMistake: "I tried with no avail.",
+      correction: "I tried to no avail.",
+      importantDifference:
+        "In vain has nearly the same meaning; to no avail often sounds slightly more formal and focuses on the lack of a useful result.",
+      memoryTrigger:
+        "Picture a key turning repeatedly while the locked door never opens.",
+      memorySentence:
+        "We restarted the service several times, but to no avail.",
+      recallQuestion: "Which idiom means that an effort produced no result?",
+      recognitionTask:
+        "Choose the natural form: “but to no avail” or “but with no avail.”",
+      productionTask:
+        "Describe an unsuccessful attempt using “but to no avail.”",
+      advancedNuance: [
+        "To no avail usually comments on a completed or repeated effort; it is less natural for an attempt that is still in progress.",
       ],
     }),
   },

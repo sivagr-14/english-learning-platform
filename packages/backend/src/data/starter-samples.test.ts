@@ -1,4 +1,8 @@
-import { STARTER_SAMPLES, STARTER_SAMPLE_KEYS } from "./starter-samples";
+import {
+  STARTER_SAMPLES,
+  STARTER_SAMPLE_KEYS,
+  STARTER_SAMPLE_VERSION,
+} from "./starter-samples";
 
 describe("starter samples", () => {
   it("cover multiple CEFR levels and item types", () => {
@@ -21,29 +25,77 @@ describe("starter samples", () => {
     ).toBe(STARTER_SAMPLES.length);
   });
 
-  it("include the learning fields used by vocabulary and review screens", () => {
+  it("use the complete simplified lesson structure", () => {
     for (const sample of STARTER_SAMPLES) {
       expect(sample.englishMeaning).toBeTruthy();
       expect(sample.tamilMeaning).toBeTruthy();
       expect(sample.coreIdea).toBeTruthy();
       expect(sample.lesson).toMatchObject({
+        format_version: "simplified-v1",
+        sample_version: STARTER_SAMPLE_VERSION,
         sample_notice: expect.any(String),
-        memory_mastery: {
-          memory_sentence: expect.any(String),
-          recall_question: expect.any(String),
+        overview: {
+          meaning_usage_profile: {
+            meaning_type: expect.any(String),
+            connotation: expect.any(String),
+            tone: expect.any(String),
+            register: expect.any(String),
+          },
         },
-        usage_mastery: {
+        meaning_in_context: {
+          source_sentence: expect.any(String),
+          contextual_meaning: expect.any(String),
+          simple_explanation: expect.any(String),
+        },
+        usage_guide: {
           when_to_use: expect.any(Array),
           when_not_to_use: expect.any(Array),
         },
-        application: {
-          examples: expect.any(Object),
-          collocations: expect.any(Array),
+        patterns_collocations: {
+          main_pattern: expect.any(String),
+          common_collocations: expect.any(Array),
         },
-        mastery: {
-          guided_practice: expect.any(Array),
+        natural_examples: {
+          examples: expect.any(Object),
+          mini_conversation: expect.any(String),
+        },
+        mistakes_differences: {
+          common_mistake: expect.any(String),
+          correction: expect.any(String),
+          important_difference: expect.any(String),
+        },
+        memory_practice: {
+          memory_sentence: expect.any(String),
+          recall_question: expect.any(String),
+          recognition_task: expect.any(String),
+          production_task: expect.any(String),
         },
       });
+
+      const lesson = sample.lesson as any;
+      expect(Object.keys(lesson.overview.meaning_usage_profile)).toEqual([
+        "meaning_type",
+        "connotation",
+        "tone",
+        "register",
+      ]);
+      expect(lesson.usage_guide.when_to_use.length).toBeGreaterThan(0);
+      expect(lesson.usage_guide.when_not_to_use.length).toBeGreaterThan(0);
+      expect(
+        lesson.patterns_collocations.common_collocations.length,
+      ).toBeGreaterThan(0);
+      expect(
+        Object.keys(lesson.natural_examples.examples).length,
+      ).toBeGreaterThan(1);
+    }
+  });
+
+  it("does not retain noisy legacy lesson sections", () => {
+    for (const sample of STARTER_SAMPLES) {
+      expect(sample.lesson).not.toHaveProperty("meaning_expansion");
+      expect(sample.lesson).not.toHaveProperty("usage_mastery");
+      expect(sample.lesson).not.toHaveProperty("application");
+      expect(sample.lesson).not.toHaveProperty("mastery");
     }
   });
 });

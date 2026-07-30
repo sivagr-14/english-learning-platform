@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { ReactNode, useEffect, useMemo, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
-import { getApiClient } from '@/lib/api/client';
-import useAuthStore from '@/lib/store/auth';
+import { ReactNode, useEffect, useMemo, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { getApiClient } from "@/lib/api/client";
+import useAuthStore from "@/lib/store/auth";
 
 interface WordDetail {
   id: string;
@@ -24,17 +24,17 @@ interface WordDetail {
 }
 
 const lessonTones = [
-  'border-sky-200 bg-sky-50',
-  'border-emerald-200 bg-emerald-50',
-  'border-amber-200 bg-amber-50',
-  'border-indigo-200 bg-indigo-50',
-  'border-rose-200 bg-rose-50',
-  'border-teal-200 bg-teal-50',
+  "border-sky-200 bg-sky-50",
+  "border-emerald-200 bg-emerald-50",
+  "border-amber-200 bg-amber-50",
+  "border-indigo-200 bg-indigo-50",
+  "border-rose-200 bg-rose-50",
+  "border-teal-200 bg-teal-50",
 ];
 
 function formatLabel(value: string) {
   return value
-    .replace(/_/g, ' ')
+    .replace(/_/g, " ")
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
@@ -43,13 +43,22 @@ function asArray(value: unknown): unknown[] {
 }
 
 function asRecord(value: unknown): Record<string, unknown> {
-  return value && typeof value === 'object' && !Array.isArray(value)
+  return value && typeof value === "object" && !Array.isArray(value)
     ? (value as Record<string, unknown>)
     : {};
 }
 
+function hasContent(value: unknown): boolean {
+  if (value === null || value === undefined || value === "") return false;
+  if (Array.isArray(value)) return value.some(hasContent);
+  if (typeof value === "object") {
+    return Object.values(value as Record<string, unknown>).some(hasContent);
+  }
+  return true;
+}
+
 function renderSimpleValue(value: unknown): ReactNode {
-  if (value === null || value === undefined || value === '') {
+  if (value === null || value === undefined || value === "") {
     return <span className="text-gray-400">Not added</span>;
   }
 
@@ -65,14 +74,14 @@ function renderSimpleValue(value: unknown): ReactNode {
     );
   }
 
-  if (typeof value === 'object') {
+  if (typeof value === "object") {
     return (
       <div className="space-y-2">
         {Object.entries(value as Record<string, unknown>).map(([key, item]) => (
           <div key={key}>
             <span className="font-medium text-gray-900">
               {formatLabel(key)}:
-            </span>{' '}
+            </span>{" "}
             {renderSimpleValue(item)}
           </div>
         ))}
@@ -84,18 +93,18 @@ function renderSimpleValue(value: unknown): ReactNode {
 }
 
 function StatusBadge({ value }: { value: unknown }) {
-  const status = String(value || '').toLowerCase();
-  const className = status.includes('yes')
-    ? 'bg-emerald-100 text-emerald-700'
-    : status.includes('limited')
-      ? 'bg-amber-100 text-amber-700'
-      : status.includes('no')
-        ? 'bg-rose-100 text-rose-700'
-        : 'bg-gray-100 text-gray-700';
+  const status = String(value || "").toLowerCase();
+  const className = status.includes("yes")
+    ? "bg-emerald-100 text-emerald-700"
+    : status.includes("limited")
+      ? "bg-amber-100 text-amber-700"
+      : status.includes("no")
+        ? "bg-rose-100 text-rose-700"
+        : "bg-gray-100 text-gray-700";
 
   return (
     <span className={`rounded-full px-2 py-1 text-xs font-medium ${className}`}>
-      {String(value || 'Not set')}
+      {String(value || "Not set")}
     </span>
   );
 }
@@ -125,12 +134,19 @@ function LessonPanel({
 }
 
 function FieldTable({ rows }: { rows: Array<[string, unknown]> }) {
+  const visibleRows = rows.filter(([, value]) => hasContent(value));
+
+  if (!visibleRows.length) return null;
+
   return (
     <div className="overflow-hidden rounded-lg border border-gray-200">
       <table className="w-full border-collapse text-sm">
         <tbody>
-          {rows.map(([label, value]) => (
-            <tr key={label} className="border-b border-gray-100 last:border-b-0">
+          {visibleRows.map(([label, value]) => (
+            <tr
+              key={label}
+              className="border-b border-gray-100 last:border-b-0"
+            >
               <th className="w-48 bg-gray-50 px-4 py-3 text-left font-semibold text-gray-800">
                 {label}
               </th>
@@ -149,12 +165,7 @@ function DataTable({ rows }: { rows: Array<Record<string, unknown>> }) {
   const columns = useMemo(() => {
     const keys = new Set<string>();
     rows.forEach((row) => Object.keys(row).forEach((key) => keys.add(key)));
-    const preferredOrder = [
-      'usage_area',
-      'status',
-      'example_sentence',
-      'note',
-    ];
+    const preferredOrder = ["usage_area", "status", "example_sentence", "note"];
     const allColumns = Array.from(keys);
     return [
       ...preferredOrder.filter((key) => keys.has(key)),
@@ -186,8 +197,8 @@ function DataTable({ rows }: { rows: Array<Record<string, unknown>> }) {
             >
               {columns.map((column) => (
                 <td key={column} className="px-4 py-3 align-top text-gray-700">
-                  {column.toLowerCase().includes('status') ||
-                  column.toLowerCase().includes('natural') ? (
+                  {column.toLowerCase().includes("status") ||
+                  column.toLowerCase().includes("natural") ? (
                     <StatusBadge value={row[column]} />
                   ) : (
                     renderSimpleValue(row[column])
@@ -202,21 +213,25 @@ function DataTable({ rows }: { rows: Array<Record<string, unknown>> }) {
   );
 }
 
-function isRecordArray(value: unknown): value is Array<Record<string, unknown>> {
+function isRecordArray(
+  value: unknown,
+): value is Array<Record<string, unknown>> {
   return (
     Array.isArray(value) &&
-    value.every((item) => !!item && typeof item === 'object' && !Array.isArray(item))
+    value.every(
+      (item) => !!item && typeof item === "object" && !Array.isArray(item),
+    )
   );
 }
 
 function renderSectionContent(title: string, value: unknown): ReactNode {
-  if (title === 'Word Nature') {
+  if (title === "Word Nature") {
     const record = asRecord(value);
     return (
       <FieldTable
         rows={[
-          ['Primary Classification', record.primary_classification],
-          ['Reason', record.reason],
+          ["Primary Classification", record.primary_classification],
+          ["Reason", record.reason],
         ]}
       />
     );
@@ -226,12 +241,16 @@ function renderSectionContent(title: string, value: unknown): ReactNode {
     return <DataTable rows={value} />;
   }
 
-  return <div className="text-sm leading-6 text-gray-700">{renderSimpleValue(value)}</div>;
+  return (
+    <div className="text-sm leading-6 text-gray-700">
+      {renderSimpleValue(value)}
+    </div>
+  );
 }
 
 function ChipList({
   values,
-  tone = 'bg-blue-100 text-blue-800',
+  tone = "bg-blue-100 text-blue-800",
 }: {
   values: unknown[];
   tone?: string;
@@ -254,10 +273,20 @@ function ChipList({
   );
 }
 
-function ImportedSectionsTemplate({ lesson }: { lesson: any }) {
+function ImportedSectionsTemplate({
+  lesson,
+  word,
+}: {
+  lesson: any;
+  word: WordDetail;
+}) {
+  if (lesson.format_version === "simplified-v1") {
+    return <SimplifiedLessonTemplate lesson={lesson} word={word} />;
+  }
+
   const sections = asArray(lesson.sections).filter(
     (item): item is Record<string, unknown> =>
-      !!item && typeof item === 'object' && !Array.isArray(item)
+      !!item && typeof item === "object" && !Array.isArray(item),
   );
 
   if (!sections.length) return <StandardLessonTemplate lesson={lesson} />;
@@ -278,14 +307,156 @@ function ImportedSectionsTemplate({ lesson }: { lesson: any }) {
   );
 }
 
+function SimplifiedLessonTemplate({
+  lesson,
+  word,
+}: {
+  lesson: any;
+  word: WordDetail;
+}) {
+  const profile = asRecord(lesson.overview?.meaning_usage_profile);
+  const context = asRecord(lesson.meaning_in_context);
+  const usage = asRecord(lesson.usage_guide);
+  const patterns = asRecord(lesson.patterns_collocations);
+  const examples = asRecord(lesson.natural_examples);
+  const differences = asRecord(lesson.mistakes_differences);
+  const practice = asRecord(lesson.memory_practice);
+  const advancedNuance = asArray(lesson.advanced_nuance).filter(hasContent);
+
+  return (
+    <section className="space-y-5">
+      <LessonPanel number={1} title="Overview">
+        <div className="space-y-5">
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-lg bg-gray-50 p-4">
+              <h4 className="text-sm font-semibold text-gray-900">Meaning</h4>
+              <p className="mt-2 text-sm leading-6 text-gray-700">
+                {word.english_meaning}
+              </p>
+            </div>
+            <div className="rounded-lg bg-gray-50 p-4">
+              <h4 className="text-sm font-semibold text-gray-900">
+                Tamil Meaning
+              </h4>
+              <p className="mt-2 text-sm leading-6 text-blue-700">
+                {word.tamil_meaning}
+              </p>
+            </div>
+            <div className="rounded-lg bg-gray-50 p-4">
+              <h4 className="text-sm font-semibold text-gray-900">Core Idea</h4>
+              <p className="mt-2 text-sm leading-6 text-gray-700">
+                {word.core_idea}
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="mb-3 text-sm font-semibold text-gray-900">
+              Meaning &amp; Usage Profile
+            </h4>
+            <FieldTable
+              rows={[
+                ["Meaning Type", profile.meaning_type],
+                ["Connotation", profile.connotation],
+                ["Tone", profile.tone],
+                ["Register", profile.register],
+              ]}
+            />
+          </div>
+        </div>
+      </LessonPanel>
+
+      <LessonPanel number={2} title="Meaning in Context">
+        <FieldTable
+          rows={[
+            ["Source Sentence", context.source_sentence],
+            ["Meaning Here", context.contextual_meaning],
+            ["Simple Explanation", context.simple_explanation],
+          ]}
+        />
+      </LessonPanel>
+
+      <LessonPanel number={3} title="Usage Guide">
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+            <h4 className="text-sm font-semibold text-emerald-900">
+              When to use
+            </h4>
+            <div className="mt-3 text-sm leading-6 text-emerald-950">
+              {renderSimpleValue(usage.when_to_use)}
+            </div>
+          </div>
+          <div className="rounded-lg border border-rose-200 bg-rose-50 p-4">
+            <h4 className="text-sm font-semibold text-rose-900">
+              When not to use
+            </h4>
+            <div className="mt-3 text-sm leading-6 text-rose-950">
+              {renderSimpleValue(usage.when_not_to_use)}
+            </div>
+          </div>
+        </div>
+      </LessonPanel>
+
+      <LessonPanel number={4} title="Patterns & Collocations">
+        <div className="space-y-4">
+          <FieldTable rows={[["Main Pattern", patterns.main_pattern]]} />
+          <ChipList values={asArray(patterns.common_collocations)} />
+        </div>
+      </LessonPanel>
+
+      <LessonPanel number={5} title="Natural Examples">
+        <div className="space-y-4">
+          <FieldTable rows={Object.entries(asRecord(examples.examples))} />
+          <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+            <h4 className="text-sm font-semibold text-gray-900">
+              Mini Conversation
+            </h4>
+            <p className="mt-2 whitespace-pre-line text-sm leading-6 text-gray-700">
+              {String(examples.mini_conversation)}
+            </p>
+          </div>
+        </div>
+      </LessonPanel>
+
+      <LessonPanel number={6} title="Mistakes & Differences">
+        <FieldTable
+          rows={[
+            ["Common Mistake", differences.common_mistake],
+            ["Correction", differences.correction],
+            ["Important Difference", differences.important_difference],
+          ]}
+        />
+      </LessonPanel>
+
+      <LessonPanel number={7} title="Memory & Practice">
+        <FieldTable
+          rows={[
+            ["Memory Trigger", practice.memory_trigger],
+            ["Memory Sentence", practice.memory_sentence],
+            ["Recall Question", practice.recall_question],
+            ["Recognition Task", practice.recognition_task],
+            ["Production Task", practice.production_task],
+          ]}
+        />
+      </LessonPanel>
+
+      {advancedNuance.length > 0 && (
+        <LessonPanel number={8} title="Advanced Nuance">
+          {renderSimpleValue(advancedNuance)}
+        </LessonPanel>
+      )}
+    </section>
+  );
+}
+
 function MeaningExpansion({ lesson }: { lesson: any }) {
   const expansion = asRecord(lesson.meaning_expansion);
   const layers: Array<[string, unknown]> = [
-    ['Layer 1 - Literal', expansion.layer_1_literal],
-    ['Layer 2 - Abstract', expansion.layer_2_abstract],
-    ['Layer 3 - Figurative', expansion.layer_3_figurative],
+    ["Layer 1 - Literal", expansion.layer_1_literal],
+    ["Layer 2 - Abstract", expansion.layer_2_abstract],
+    ["Layer 3 - Figurative", expansion.layer_3_figurative],
     [
-      'Layer 4 - Professional / Technical',
+      "Layer 4 - Professional / Technical",
       expansion.layer_4_professional_technical,
     ],
   ];
@@ -293,7 +464,10 @@ function MeaningExpansion({ lesson }: { lesson: any }) {
   return (
     <div className="grid gap-3 md:grid-cols-2">
       {layers.map(([label, value]) => (
-        <div key={String(label)} className="rounded-lg border border-gray-200 p-4">
+        <div
+          key={String(label)}
+          className="rounded-lg border border-gray-200 p-4"
+        >
           <p className="text-sm font-semibold text-gray-900">{label}</p>
           <div className="mt-2 text-sm leading-6 text-gray-700">
             {renderSimpleValue(value)}
@@ -370,7 +544,7 @@ function ApplicationSections({ lesson }: { lesson: any }) {
       <DataTable
         rows={asArray(application.common_mistakes).filter(
           (item): item is Record<string, unknown> =>
-            !!item && typeof item === 'object' && !Array.isArray(item)
+            !!item && typeof item === "object" && !Array.isArray(item),
         )}
       />
     </div>
@@ -387,15 +561,15 @@ function StandardLessonTemplate({ lesson }: { lesson: any }) {
       <LessonPanel number={3} title="Memory Mastery">
         <FieldTable
           rows={[
-            ['Memory Trigger', lesson.memory_mastery?.memory_trigger],
-            ['Visual Scene', lesson.memory_mastery?.visual_scene],
-            ['Sound Association', lesson.memory_mastery?.sound_association],
-            ['Tamil Connection', lesson.memory_mastery?.tamil_connection],
-            ['Emotional Hook', lesson.memory_mastery?.emotional_hook],
-            ['Memory Sentence', lesson.memory_mastery?.memory_sentence],
-            ['Recall Question', lesson.memory_mastery?.recall_question],
-            ['Pattern Family', lesson.memory_mastery?.pattern_family],
-            ['Notice', lesson.memory_mastery?.notice],
+            ["Memory Trigger", lesson.memory_mastery?.memory_trigger],
+            ["Visual Scene", lesson.memory_mastery?.visual_scene],
+            ["Sound Association", lesson.memory_mastery?.sound_association],
+            ["Tamil Connection", lesson.memory_mastery?.tamil_connection],
+            ["Emotional Hook", lesson.memory_mastery?.emotional_hook],
+            ["Memory Sentence", lesson.memory_mastery?.memory_sentence],
+            ["Recall Question", lesson.memory_mastery?.recall_question],
+            ["Pattern Family", lesson.memory_mastery?.pattern_family],
+            ["Notice", lesson.memory_mastery?.notice],
           ]}
         />
       </LessonPanel>
@@ -408,7 +582,7 @@ function StandardLessonTemplate({ lesson }: { lesson: any }) {
         <DataTable
           rows={asArray(usage.usage_profile).filter(
             (item): item is Record<string, unknown> =>
-              !!item && typeof item === 'object' && !Array.isArray(item)
+              !!item && typeof item === "object" && !Array.isArray(item),
           )}
         />
       </LessonPanel>
@@ -422,14 +596,16 @@ function StandardLessonTemplate({ lesson }: { lesson: any }) {
       </LessonPanel>
 
       <LessonPanel number={8} title="Domain Restrictions">
-        <FieldTable rows={Object.entries(asRecord(usage.domain_restrictions))} />
+        <FieldTable
+          rows={Object.entries(asRecord(usage.domain_restrictions))}
+        />
       </LessonPanel>
 
       <LessonPanel number={9} title="Context Switching Test">
         <DataTable
           rows={asArray(usage.context_switching_test).filter(
             (item): item is Record<string, unknown> =>
-              !!item && typeof item === 'object' && !Array.isArray(item)
+              !!item && typeof item === "object" && !Array.isArray(item),
           )}
         />
       </LessonPanel>
@@ -437,8 +613,8 @@ function StandardLessonTemplate({ lesson }: { lesson: any }) {
       <LessonPanel number={10} title="Word Nature">
         <FieldTable
           rows={[
-            ['Primary Classification', usage.word_nature],
-            ['Reason', usage.word_nature_reason],
+            ["Primary Classification", usage.word_nature],
+            ["Reason", usage.word_nature_reason],
           ]}
         />
       </LessonPanel>
@@ -485,7 +661,7 @@ function StandardLessonTemplate({ lesson }: { lesson: any }) {
         <DataTable
           rows={asArray(application.common_mistakes).filter(
             (item): item is Record<string, unknown> =>
-              !!item && typeof item === 'object' && !Array.isArray(item)
+              !!item && typeof item === "object" && !Array.isArray(item),
           )}
         />
       </LessonPanel>
@@ -504,7 +680,7 @@ function StandardLessonTemplate({ lesson }: { lesson: any }) {
         <DataTable
           rows={asArray(application.frequency_by_context).filter(
             (item): item is Record<string, unknown> =>
-              !!item && typeof item === 'object' && !Array.isArray(item)
+              !!item && typeof item === "object" && !Array.isArray(item),
           )}
         />
       </LessonPanel>
@@ -559,7 +735,7 @@ export default function VocabularyWordPage() {
 
   useEffect(() => {
     if (isHydrated && !isAuthenticated) {
-      router.push('/login');
+      router.push("/login");
     }
   }, [isHydrated, isAuthenticated, router]);
 
@@ -570,14 +746,14 @@ export default function VocabularyWordPage() {
       setIsLoading(true);
       setError(null);
       const response = await getApiClient().get(
-        `/api/vocabulary/words/${params.id}`
+        `/api/vocabulary/words/${params.id}`,
       );
       setWord(response.data.word);
       setIsLoading(false);
     };
 
     loadWord().catch(() => {
-      setError('Could not load this vocabulary entry.');
+      setError("Could not load this vocabulary entry.");
       setIsLoading(false);
     });
   }, [isHydrated, isAuthenticated, params.id]);
@@ -594,23 +770,23 @@ export default function VocabularyWordPage() {
             <p className="text-sm text-gray-500">
               {word
                 ? `${word.track_name} / ${word.category_name}`
-                : 'Vocabulary'}
+                : "Vocabulary"}
             </p>
             <h1 className="mt-1 text-2xl font-bold text-gray-900">
-              {word?.word || 'Vocabulary Detail'}
+              {word?.word || "Vocabulary Detail"}
             </h1>
           </div>
           <div className="flex gap-2">
             <button
               type="button"
-              onClick={() => router.push('/vocabulary')}
+              onClick={() => router.push("/vocabulary")}
               className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100"
             >
               Vocabulary
             </button>
             <button
               type="button"
-              onClick={() => router.push('/dashboard')}
+              onClick={() => router.push("/dashboard")}
               className="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
             >
               Dashboard
@@ -624,7 +800,7 @@ export default function VocabularyWordPage() {
           </div>
         ) : error || !word ? (
           <div className="rounded-lg border border-red-200 bg-red-50 p-8 text-sm text-red-700">
-            {error || 'Vocabulary entry not found.'}
+            {error || "Vocabulary entry not found."}
           </div>
         ) : (
           <main className="space-y-6">
@@ -635,7 +811,7 @@ export default function VocabularyWordPage() {
                     {word.word}
                   </h2>
                   <p className="mt-2 text-sm text-gray-600">
-                    {word.pronunciation} · {word.word_type || 'Word'} ·{' '}
+                    {word.pronunciation} · {word.word_type || "Word"} ·{" "}
                     {word.cefr_level}
                   </p>
                   {word.is_starter_sample && (
@@ -649,42 +825,49 @@ export default function VocabularyWordPage() {
                 </span>
               </div>
 
-              <div className="mt-6 grid gap-4 md:grid-cols-3">
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h3 className="text-sm font-semibold text-gray-900">
-                    Meaning
-                  </h3>
-                  <p className="mt-2 text-sm text-gray-700">
-                    {word.english_meaning}
-                  </p>
+              {word.lesson_data?.format_version !== "simplified-v1" && (
+                <div className="mt-6 grid gap-4 md:grid-cols-3">
+                  <div className="rounded-lg bg-gray-50 p-4">
+                    <h3 className="text-sm font-semibold text-gray-900">
+                      Meaning
+                    </h3>
+                    <p className="mt-2 text-sm text-gray-700">
+                      {word.english_meaning}
+                    </p>
+                  </div>
+                  <div className="rounded-lg bg-gray-50 p-4">
+                    <h3 className="text-sm font-semibold text-gray-900">
+                      Tamil Meaning
+                    </h3>
+                    <p className="mt-2 text-sm text-blue-700">
+                      {word.tamil_meaning}
+                    </p>
+                  </div>
+                  <div className="rounded-lg bg-gray-50 p-4">
+                    <h3 className="text-sm font-semibold text-gray-900">
+                      Core Idea
+                    </h3>
+                    <p className="mt-2 text-sm text-gray-700">
+                      {word.core_idea}
+                    </p>
+                  </div>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h3 className="text-sm font-semibold text-gray-900">
-                    Tamil Meaning
-                  </h3>
-                  <p className="mt-2 text-sm text-blue-700">
-                    {word.tamil_meaning}
-                  </p>
-                </div>
-                <div className="rounded-lg bg-gray-50 p-4">
-                  <h3 className="text-sm font-semibold text-gray-900">
-                    Core Idea
-                  </h3>
-                  <p className="mt-2 text-sm text-gray-700">{word.core_idea}</p>
-                </div>
-              </div>
+              )}
             </section>
 
             <section className="rounded-lg border border-gray-200 bg-white p-6">
               <div className="mb-5 border-b border-gray-200 pb-4">
                 <h2 className="text-xl font-semibold text-gray-900">
-                  Full Vocabulary Lesson
+                  Vocabulary Lesson
                 </h2>
                 <p className="mt-1 text-sm text-gray-600">
                   {word.category_description}
                 </p>
               </div>
-              <ImportedSectionsTemplate lesson={word.lesson_data || {}} />
+              <ImportedSectionsTemplate
+                lesson={word.lesson_data || {}}
+                word={word}
+              />
             </section>
           </main>
         )}
