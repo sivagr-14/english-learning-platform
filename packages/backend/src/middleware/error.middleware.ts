@@ -9,7 +9,10 @@ export interface ApiError {
 }
 
 export class AppError extends Error {
-  constructor(public status: number, message: string) {
+  constructor(
+    public status: number,
+    message: string,
+  ) {
     super(message);
     this.name = "AppError";
   }
@@ -19,7 +22,7 @@ export const errorHandler = (
   err: Error | ZodError | AppError,
   _req: Request,
   res: Response,
-  _next: NextFunction
+  _next: NextFunction,
 ) => {
   logger.error("Error:", err);
 
@@ -42,6 +45,13 @@ export const errorHandler = (
   }
 
   if (err instanceof Error) {
+    const status = (err as Error & { status?: number }).status;
+    if (status && status >= 400 && status < 600) {
+      return res.status(status).json({
+        message: err.message,
+      });
+    }
+
     if (
       err.message.includes("Email already registered") ||
       err.message.includes("Username already taken")
