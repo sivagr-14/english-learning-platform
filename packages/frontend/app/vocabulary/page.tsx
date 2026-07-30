@@ -27,6 +27,7 @@ interface Word {
   english_meaning: string;
   tamil_meaning: string;
   core_idea: string;
+  is_starter_sample: boolean;
   lesson_data?: any;
 }
 
@@ -40,6 +41,14 @@ export default function VocabularyPage() {
   );
   const [words, setWords] = useState<Word[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [starterSamples, setStarterSamples] = useState({
+    available: 0,
+    loaded: 0,
+  });
+  const [sampleAction, setSampleAction] = useState<
+    "loading" | "removing" | null
+  >(null);
+  const [sampleError, setSampleError] = useState("");
 
   useEffect(() => {
     useAuthStore.getState().loadFromLocalStorage();
@@ -57,9 +66,13 @@ export default function VocabularyPage() {
 
     const loadCategories = async () => {
       setIsLoading(true);
-      const response = await getApiClient().get("/api/vocabulary/categories");
+      const [response, sampleResponse] = await Promise.all([
+        getApiClient().get("/api/vocabulary/categories"),
+        getApiClient().get("/api/vocabulary/starter-samples"),
+      ]);
       const nextCategories = response.data.categories;
       setCategories(nextCategories);
+      setStarterSamples(sampleResponse.data);
       setSelectedCategory(
         nextCategories.find(
           (category: Category) => Number(category.word_count) > 0,
@@ -70,6 +83,60 @@ export default function VocabularyPage() {
 
     loadCategories().catch(() => setIsLoading(false));
   }, [isHydrated, isAuthenticated]);
+
+  const refreshVocabulary = async () => {
+    const [categoryResponse, sampleResponse] = await Promise.all([
+      getApiClient().get("/api/vocabulary/categories"),
+      getApiClient().get("/api/vocabulary/starter-samples"),
+    ]);
+    const nextCategories = categoryResponse.data.categories;
+    const firstActive =
+      nextCategories.find(
+        (category: Category) => Number(category.word_count) > 0,
+      ) || null;
+    setCategories(nextCategories);
+    setStarterSamples(sampleResponse.data);
+    setSelectedCategory(firstActive);
+    setWords([]);
+  };
+
+  const loadSamples = async () => {
+    setSampleAction("loading");
+    setSampleError("");
+    try {
+      await getApiClient().post("/api/vocabulary/starter-samples");
+      await refreshVocabulary();
+    } catch (error: any) {
+      setSampleError(
+        error?.response?.data?.message || "Could not load starter samples.",
+      );
+    } finally {
+      setSampleAction(null);
+    }
+  };
+
+  const removeSamples = async () => {
+    if (
+      !window.confirm(
+        "Remove all starter samples and their review progress? Your own vocabulary will not be changed.",
+      )
+    ) {
+      return;
+    }
+
+    setSampleAction("removing");
+    setSampleError("");
+    try {
+      await getApiClient().delete("/api/vocabulary/starter-samples");
+      await refreshVocabulary();
+    } catch (error: any) {
+      setSampleError(
+        error?.response?.data?.message || "Could not remove starter samples.",
+      );
+    } finally {
+      setSampleAction(null);
+    }
+  };
 
   useEffect(() => {
     if (!selectedCategory) return;
@@ -99,6 +166,51 @@ export default function VocabularyPage() {
           : `${categories.filter((category) => Number(category.word_count) > 0).length} active categories. Browse ChatGPT-generated lessons and their contextual meanings.`
       }
     >
+      <section className="mb-6 rounded-xl border border-indigo-200 bg-indigo-50 p-5">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-indigo-700">
+              Starter set
+            </p>
+            <h2 className="mt-1 font-semibold text-slate-950">
+              Preview the complete learning experience
+            </h2>
+            <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-600">
+              Four removable examples cover B2–C2 words, expressions,
+              collocations and idioms. They belong only to your account.
+            </p>
+          </div>
+          {starterSamples.loaded ? (
+            <button
+              type="button"
+              onClick={removeSamples}
+              disabled={sampleAction !== null}
+              className="shrink-0 rounded-lg border border-indigo-300 bg-white px-4 py-2.5 text-sm font-semibold text-indigo-800 hover:bg-indigo-100 disabled:opacity-60"
+            >
+              {sampleAction === "removing"
+                ? "Removing…"
+                : `Remove samples (${starterSamples.loaded})`}
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={loadSamples}
+              disabled={sampleAction !== null}
+              className="shrink-0 rounded-lg bg-indigo-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-indigo-800 disabled:opacity-60"
+            >
+              {sampleAction === "loading"
+                ? "Loading…"
+                : `Load ${starterSamples.available || 4} samples`}
+            </button>
+          )}
+        </div>
+        {sampleError && (
+          <p role="alert" className="mt-3 text-sm font-medium text-red-700">
+            {sampleError}
+          </p>
+        )}
+      </section>
+
       <div className="grid gap-6 lg:grid-cols-[320px_1fr]">
         <aside className="space-y-2">
           {categories
@@ -162,6 +274,7 @@ export default function VocabularyPage() {
                         </h3>
                         <p className="mt-1 text-xs text-gray-500">
                           {word.word_type || "Word"} · {word.cefr_level}
+                          {word.is_starter_sample ? " · Starter sample" : ""}
                         </p>
                       </div>
                       <span className="shrink-0 rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
