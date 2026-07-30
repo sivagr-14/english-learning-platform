@@ -1,4 +1,11 @@
-require('dotenv').config({ path: '.env.local' });
+const path = require('path');
+
+require('dotenv').config({ path: path.join(__dirname, '.env.local') });
+
+const backendSource = path.join(
+  __dirname,
+  'packages/backend/src/database'
+);
 
 module.exports = {
   development: {
@@ -11,11 +18,11 @@ module.exports = {
       database: process.env.DB_NAME || 'english_learning',
     },
     migrations: {
-      directory: './src/database/migrations',
+      directory: path.join(backendSource, 'migrations'),
       extension: 'ts',
     },
     seeds: {
-      directory: './src/database/seeds',
+      directory: path.join(backendSource, 'seeds'),
       extension: 'ts',
     },
   },
