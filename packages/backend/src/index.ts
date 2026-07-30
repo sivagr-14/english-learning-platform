@@ -1,49 +1,67 @@
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import morgan from 'morgan';
-import dotenv from 'dotenv';
-import path from 'path';
-import { logger } from './utils/logger';
-import { errorHandler } from './middleware/error.middleware';
+import express from "express";
+import cors from "cors";
+import helmet from "helmet";
+import morgan from "morgan";
+import dotenv from "dotenv";
+import path from "path";
+import { logger } from "./utils/logger";
+import { errorHandler } from "./middleware/error.middleware";
 
 // Load environment variables
-dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
+dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const HOST = process.env.HOST || '127.0.0.1';
+const HOST = process.env.HOST || "127.0.0.1";
 
 // Middleware
 app.use(helmet());
-app.use(cors());
-app.use(morgan('combined', { stream: { write: (msg) => logger.info(msg) } }));
+const allowedOrigins = (
+  process.env.CORS_ALLOWED_ORIGINS ||
+  "http://localhost:3000,http://127.0.0.1:3000"
+)
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin))
+        return callback(null, true);
+      return callback(new Error("Origin is not allowed by CORS"));
+    },
+    credentials: true,
+  }),
+);
+app.use(morgan("combined", { stream: { write: (msg) => logger.info(msg) } }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Health check endpoint
-app.get('/health', (req, res) => {
+app.get("/health", (req, res) => {
   res.json({
-    status: 'OK',
+    status: "OK",
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
-    environment: process.env.NODE_ENV || 'development'
+    environment: process.env.NODE_ENV || "development",
   });
 });
 
 // API Routes
-app.use('/api/auth', require('./routes/auth').default);
-app.use('/api/vocabulary', require('./routes/vocabulary').default);
-app.use('/api/progress', require('./routes/progress').default);
-app.use('/api/flashcards', require('./routes/flashcards').default);
+app.use("/api/auth", require("./routes/auth").default);
+app.use("/api/vocabulary", require("./routes/vocabulary").default);
+app.use("/api/progress", require("./routes/progress").default);
+app.use("/api/flashcards", require("./routes/flashcards").default);
+app.use("/api/control", require("./routes/control").default);
 
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({
-    error: 'Route not found',
+    error: "Route not found",
     path: req.path,
-    method: req.method
+    method: req.method,
   });
 });
 
@@ -53,7 +71,7 @@ app.use(errorHandler);
 // Start server
 app.listen(Number(PORT), HOST, () => {
   logger.info(`Server running on http://${HOST}:${PORT}`);
-  logger.info(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  logger.info(`Environment: ${process.env.NODE_ENV || "development"}`);
 });
 
 export default app;
