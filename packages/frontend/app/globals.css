@@ -1,0 +1,25 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900;
+}
+
+a {
+  @apply text-primary-600 hover:text-primary-700;
+}
+
+button {
+  @apply transition-all duration-200;
+}
+
+input,
+textarea,
+select {
+  @apply transition-colors;
+}
