@@ -24,6 +24,18 @@ router.use((_req, res, next) => {
   next();
 });
 
+router.get(
+  "/overview",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const overview = await service.getOverview(req.userId!);
+      res.json(overview);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
 router.post(
   "/assessments",
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {

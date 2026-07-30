@@ -50,42 +50,44 @@ export class AuthService {
   async register(input: RegisterInput): Promise<AuthResponse> {
     const { email, password, username, first_name, last_name } = input;
 
-    const existingUser = await this.db("users")
-      .where("email", email)
-      .orWhere("username", username || null)
-      .first();
+    const existingUserQuery = this.db("users").where("email", email);
+    if (username) {
+      existingUserQuery.orWhere("username", username);
+    }
+    const existingUser = await existingUserQuery.first();
 
     if (existingUser) {
       throw new Error(
         existingUser.email === email
           ? "Email already registered"
-          : "Username already taken"
+          : "Username already taken",
       );
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const userId = uuidv4();
     const now = new Date();
-
-    await this.db("users").insert({
-      id: userId,
-      email,
-      username: username || null,
-      password_hash: hashedPassword,
-      first_name: first_name || null,
-      last_name: last_name || null,
-      native_language: "Tamil",
-      current_level: "A1",
-      email_verified: false,
-      created_at: now,
-      updated_at: now,
-    });
-
-    const user = await this.db("users").where("id", userId).first();
-
     const { token, refreshToken } = this.generateTokens(userId);
 
-    await this.createSession(userId, token, refreshToken);
+    const user = await this.db.transaction(async (trx) => {
+      await trx("users").insert({
+        id: userId,
+        email,
+        username: username || null,
+        password_hash: hashedPassword,
+        first_name: first_name || null,
+        last_name: last_name || null,
+        native_language: "Tamil",
+        current_level: "A1",
+        email_verified: false,
+        created_at: now,
+        updated_at: now,
+      });
+
+      const createdUser = await trx("users").where("id", userId).first();
+      await this.createSession(userId, token, refreshToken, trx);
+      return createdUser;
+    });
 
     return {
       user,
@@ -174,6 +176,9 @@ export class AuthService {
     refreshToken: string;
   } {
     const secret = process.env.JWT_SECRET as string;
+    if (!secret) {
+      throw new Error("JWT_SECRET is not configured");
+    }
     const expiresIn = process.env.JWT_EXPIRATION || "1h";
     const refreshExpiresIn = process.env.JWT_REFRESH_EXPIRATION || "30d";
 
@@ -191,15 +196,16 @@ export class AuthService {
   private async createSession(
     userId: string,
     token: string,
-    refreshToken: string
+    refreshToken: string,
+    db: Knex | Knex.Transaction = this.db,
   ): Promise<void> {
     const expiresAt = new Date();
     expiresAt.setSeconds(
       expiresAt.getSeconds() +
-        getJwtDurationSeconds(process.env.JWT_REFRESH_EXPIRATION || "30d")
+        getJwtDurationSeconds(process.env.JWT_REFRESH_EXPIRATION || "30d"),
     );
 
-    await this.db("user_sessions").insert({
+    await db("user_sessions").insert({
       id: uuidv4(),
       user_id: userId,
       token,

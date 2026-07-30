@@ -1,182 +1,160 @@
-# English Learning & Mastery Platform
+# English Mastery
 
-An AI-powered web application for comprehensive English vocabulary mastery with ChatGPT-4 integration, spaced repetition learning, and Tamil translation support.
+A personal, Mac-local English vocabulary learning platform controlled through
+ChatGPT.
 
-## Features
+ChatGPT is the vocabulary-management entry point. The web app is the learning
+workspace for browsing lessons, active recall, spaced review, progress, and
+content-processing history.
 
-- **ChatGPT-4 AI Generation**: Generate complete vocabulary lessons on-demand with automatic validation
-- **Interactive Lessons**: 6-section vocabulary teaching framework (Memory Mastery, Meaning Expansion, Usage Mastery, Application, Mastery)
-- **In-App Spaced Repetition**: SM-2 algorithm for optimal flashcard scheduling and vocabulary recall practice
-- **Tamil Translation**: Automatic translation of English vocabulary to Tamil using Google Translate API
-- **Multi-Method Authentication**: Email/password, OAuth (Google/GitHub), and magic links
-- **Progress Tracking**: Detailed analytics on learning progress, mastery levels, and retention
-- **25 Vocabulary Categories**: Organized across 6 CEFR levels (A1-C2)
+## Product workflow
 
-## Tech Stack
+1. Share text or a supported file with ChatGPT.
+2. ChatGPT assesses the complete content and compares it with saved vocabulary.
+3. Review exact counts for new, update, unchanged, filtered, Heavy-use, and
+   Medium-use candidates.
+4. Approve the proposed scope in ChatGPT.
+5. ChatGPT creates or updates complete lessons through authenticated control
+   tools.
+6. The platform accounts for every approved item as completed, failed, or
+   requiring manual review.
 
-### Frontend
-- **Framework**: Next.js 14+ (React 18+, TypeScript)
-- **Styling**: Tailwind CSS + shadcn/ui
-- **State Management**: Zustand + React Query
-- **UI Components**: Framer Motion, Recharts
+Assessment never creates or updates vocabulary. Direct single-entry and JSON
+imports are disabled so they cannot bypass this workflow.
 
-### Backend
-- **Runtime**: Node.js 20+
-- **Framework**: Express.js with TypeScript
-- **Database**: PostgreSQL 15+
-- **Cache**: Redis 7+
-- **APIs**: OpenAI ChatGPT-4, Google Translate
+## Current features
 
-### DevOps
-- **Containerization**: Docker & Docker Compose
-- **CI/CD**: GitHub Actions
-- **Deployment**: Vercel (Frontend) + Railway (Backend)
+- Email/password registration and authentication
+- ChatGPT-controlled assessment and approval API
+- Exact assessment counts and source traceability
+- Idempotent generation-job foundation
+- User-owned vocabulary with version-history foundations
+- Hierarchical primary/secondary category foundations
+- Full vocabulary lesson storage with Tamil support
+- Vocabulary library and contextual search
+- Active-production recall cards with spaced scheduling
+- Real progress totals, review accuracy, and category mastery
+- Control history for assessment and generation status
+- PostgreSQL and Redis running locally through Docker
 
-## Quick Start (macOS)
+The remote ChatGPT MCP connector and complete-entry job processor are the next
+implementation phase. The current app does not call the paid OpenAI API.
 
-### Prerequisites
+## Local Mac setup
+
+### Requirements
+
+- Docker Desktop
+- Git
+- Node.js 20 or newer
+- Yarn 1.22
+
+### First launch
+
 ```bash
-brew install node postgresql redis docker
-brew services start postgresql
-brew services start redis
-```
-
-### Development Setup
-
-```bash
-# Clone and install
-git clone <repo-url>
+git clone https://github.com/sivagr-14/english-learning-platform.git
 cd english-learning-platform
+git switch --track origin/agent/chatgpt-control-foundation
+
+corepack enable
+corepack prepare yarn@1.22.22 --activate
 yarn install
 
-# Set up environment variables
 cp .env.example .env.local
-
-# Start with Docker
-docker-compose up -d
-
-# Or run locally
+docker compose up -d postgres redis
+yarn db:setup
 yarn dev
 ```
 
-### Access
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:5000
-- **PostgreSQL**: localhost:5432
-- **Redis**: localhost:6379
+Open:
 
-## Project Structure
+- App: <http://localhost:3000>
+- Backend health: <http://127.0.0.1:5001/health>
 
-```
-english-learning-platform/
-├── packages/
-│   ├── frontend/           # Next.js app
-│   │   ├── app/           # Next.js app directory
-│   │   ├── components/    # React components
-│   │   ├── lib/           # Utilities and hooks
-│   │   └── public/        # Static assets
-│   └── backend/           # Express API
-│       ├── src/
-│       │   ├── database/  # Database schema & migrations
-│       │   ├── routes/    # API endpoints
-│       │   ├── services/  # Business logic
-│       │   ├── middleware/# Auth, validation
-│       │   └── utils/     # Helper functions
-│       └── tests/         # Test files
-├── docker-compose.yml     # Local development containers
-├── .gitignore
-└── package.json
-```
+Create your personal account through the registration screen. No sample user or
+sample vocabulary is created. Migration `007_remove_prototype_content` removes
+only the old known prototype entries and the old `sample@example.com` account;
+it preserves personal accounts and user-owned vocabulary.
 
-## Environment Variables
+### Later launches
 
-### Backend (.env)
 ```bash
-DATABASE_URL=postgresql://user:password@localhost:5432/english_learning
+docker compose up -d postgres redis
+yarn db:migrate
+yarn dev
+```
+
+`yarn db:seed` is now non-destructive. It updates the standardized category
+definitions and never deletes or creates vocabulary.
+
+## Local environment
+
+Create `.env.local` from `.env.example`. The essential local values are:
+
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_NAME=english_learning
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/english_learning
 REDIS_URL=redis://localhost:6379
-NODE_ENV=development
-PORT=5000
-JWT_SECRET=your-secret-key
-OPENAI_API_KEY=sk-...
-GOOGLE_TRANSLATE_API_KEY=...
+PORT=5001
+NEXT_PUBLIC_API_URL=http://127.0.0.1:5001
+CORS_ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
+JWT_SECRET=replace-with-openssl-rand-hex-32
 ```
 
-### Frontend (.env.local)
+OAuth, email delivery, Google Translate, and `OPENAI_API_KEY` are optional and
+may remain empty for the personal local version.
+
+## Main API surfaces
+
+### Authentication
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/auth/logout`
+- `GET /api/auth/me`
+
+### ChatGPT control
+
+- `GET /api/control/overview`
+- `POST /api/control/assessments`
+- `GET /api/control/assessments/:id`
+- `POST /api/control/assessments/:id/approve`
+
+### Learning
+
+- `GET /api/vocabulary/categories`
+- `GET /api/vocabulary/categories/:id/words`
+- `GET /api/vocabulary/search`
+- `GET /api/vocabulary/words/:id`
+- `GET /api/flashcards/categories`
+- `GET /api/flashcards/due`
+- `POST /api/flashcards/:wordId/review`
+- `GET /api/progress`
+
+## Validation
+
 ```bash
-NEXT_PUBLIC_API_URL=http://localhost:5000
-NODE_ENV=development
+yarn workspace english-learning-backend test
+yarn workspace english-learning-backend type-check
+yarn workspace english-learning-frontend type-check
+yarn workspace english-learning-backend build
+yarn workspace english-learning-frontend build
 ```
 
-## Development
+## Project structure
 
-### Running Tests
-```bash
-yarn test
+```text
+packages/
+  backend/
+    src/database/       PostgreSQL migrations and safe category seeds
+    src/routes/         Authenticated API routes
+    src/services/       Authentication, assessment, and vocabulary logic
+  frontend/
+    app/                Next.js pages
+    components/         Shared authenticated application shell
+    lib/                API and authentication state
 ```
-
-### Linting & Type Checking
-```bash
-yarn lint
-yarn type-check
-```
-
-### Building for Production
-```bash
-yarn build
-```
-
-## API Documentation
-
-### Authentication Endpoints
-- `POST /api/auth/register` - Register with email/password
-- `POST /api/auth/login` - Login with email/password
-- `POST /api/auth/oauth/google` - Google OAuth
-- `POST /api/auth/magic-link/send` - Send magic link
-- `POST /api/auth/logout` - Logout
-- `GET /api/auth/me` - Get current user
-
-### Vocabulary Endpoints
-- `GET /api/vocabulary/categories` - List all categories
-- `GET /api/vocabulary/categories/:id/words` - Get words in category
-- `GET /api/vocabulary/words/:id/lesson` - Get complete lesson
-
-### ChatGPT Integration
-- `POST /api/ai/generate-vocabulary` - Generate lesson with AI
-- `GET /api/ai/generation-status/:id` - Check generation progress
-- `GET /api/ai/generation-history` - View past generations
-
-### Progress & Learning
-- `GET /api/progress/user` - Get user progress
-- `POST /api/progress/word/:wordId/review` - Record word review
-- `GET /api/flashcards/queue` - Get due flashcards
-- `POST /api/flashcards/review` - Submit flashcard review
-
-See [API Documentation](./docs/API.md) for complete endpoint details.
-
-## Implementation Phases
-
-- **Phase 1** (Weeks 1-4): Foundation - Project setup, auth, database
-- **Phase 2** (Weeks 5-8): Core Learning - Vocabulary, lessons, ChatGPT integration
-- **Phase 3** (Weeks 9-12): Spaced Repetition - In-app flashcards, SM-2 algorithm
-- **Phase 4** (Weeks 13-16): Enhanced Features - Translations, search, filtering
-- **Phase 5** (Weeks 17-20): Advanced Features - Grammar, communication, analytics
-- **Phase 6** (Weeks 21-24): Polish & Deployment - Testing, optimization, launch
-
-## Contributing
-
-1. Create a feature branch (`git checkout -b feature/amazing-feature`)
-2. Commit changes (`git commit -m 'Add amazing feature'`)
-3. Push to branch (`git push origin feature/amazing-feature`)
-4. Open a Pull Request
-
-## License
-
-MIT License - see LICENSE file for details
-
-## Support
-
-For issues and questions, please open an issue on GitHub.
-
----
-
-**Built with ❤️ for English language learners worldwide**

@@ -131,6 +131,90 @@ function stableHash(value: unknown): string {
 export class AssessmentControlService {
   constructor(private readonly database: any) {}
 
+  async getOverview(userId: string) {
+    const [assessments, jobs, vocabularyTotal, controlTotals, activeJobTotal] =
+      await Promise.all([
+        this.database("assessment_runs")
+          .join(
+            "content_sources",
+            "assessment_runs.source_id",
+            "content_sources.id",
+          )
+          .select(
+            "assessment_runs.id",
+            "assessment_runs.operation_id",
+            "assessment_runs.status",
+            "assessment_runs.counts",
+            "assessment_runs.approved_at",
+            "assessment_runs.completed_at",
+            "assessment_runs.created_at",
+            "assessment_runs.updated_at",
+            "content_sources.name as source_name",
+            "content_sources.source_type",
+          )
+          .where("assessment_runs.owner_user_id", userId)
+          .orderBy("assessment_runs.created_at", "desc")
+          .limit(20),
+        this.database("generation_jobs")
+          .join(
+            "assessment_runs",
+            "generation_jobs.assessment_run_id",
+            "assessment_runs.id",
+          )
+          .join(
+            "content_sources",
+            "assessment_runs.source_id",
+            "content_sources.id",
+          )
+          .select(
+            "generation_jobs.id",
+            "generation_jobs.assessment_run_id",
+            "generation_jobs.status",
+            "generation_jobs.total_items",
+            "generation_jobs.completed_items",
+            "generation_jobs.failed_items",
+            "generation_jobs.manual_review_items",
+            "generation_jobs.created_at",
+            "generation_jobs.updated_at",
+            "content_sources.name as source_name",
+          )
+          .where("generation_jobs.owner_user_id", userId)
+          .orderBy("generation_jobs.created_at", "desc")
+          .limit(20),
+        this.database("vocabulary_words")
+          .where((builder: any) =>
+            builder.where("owner_user_id", userId).orWhereNull("owner_user_id"),
+          )
+          .countDistinct({ count: "id" })
+          .first(),
+        this.database("assessment_runs")
+          .where("owner_user_id", userId)
+          .select(
+            this.database.raw("COUNT(*) AS assessments"),
+            this.database.raw(
+              "COUNT(*) FILTER (WHERE status = 'assessed') AS pending_approval",
+            ),
+          )
+          .first(),
+        this.database("generation_jobs")
+          .where("owner_user_id", userId)
+          .whereIn("status", ["approved", "processing"])
+          .count({ count: "id" })
+          .first(),
+      ]);
+
+    return {
+      summary: {
+        vocabularyEntries: Number(vocabularyTotal?.count || 0),
+        assessments: Number(controlTotals?.assessments || 0),
+        pendingApproval: Number(controlTotals?.pending_approval || 0),
+        activeJobs: Number(activeJobTotal?.count || 0),
+      },
+      assessments,
+      jobs,
+    };
+  }
+
   async createAssessment(userId: string, rawInput: unknown) {
     const input = CreateAssessmentSchema.parse(rawInput);
     const requestHash = stableHash(input);
