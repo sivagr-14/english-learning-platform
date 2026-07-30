@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "description": "AI-powered English Learning & Mastery Platform with ChatGPT integration",
   "private": true,
+  "packageManager": "yarn@1.22.22",
   "workspaces": [
     "packages/frontend",
     "packages/backend"
   ],
   "scripts": {
+    "app:start": "node scripts/start-app.js",
+    "app:start:quick": "node scripts/start-app.js --quick",
+    "app:doctor": "node scripts/start-app.js --doctor",
     "setup": "yarn install && yarn run setup:backend",
     "setup:backend": "yarn run db:setup",
     "db:setup": "yarn run db:migrate && yarn run db:seed",
@@ -17,11 +21,12 @@
     "dev": "node scripts/dev.js",
     "dev:backend": "yarn workspace english-learning-backend run dev",
     "dev:frontend": "yarn workspace english-learning-frontend run dev",
-    "build": "yarn workspaces foreach -pt run build",
-    "test": "yarn workspaces foreach -pt run test",
-    "lint": "yarn workspaces foreach -pt run lint",
-    "type-check": "yarn workspaces foreach -pt run type-check",
-    "start": "yarn workspaces foreach -pt run start",
+    "build": "yarn workspace english-learning-backend run build && yarn workspace english-learning-frontend run build",
+    "test": "yarn workspace english-learning-backend run test",
+    "lint": "yarn workspace english-learning-backend run lint && yarn workspace english-learning-frontend run lint",
+    "type-check": "yarn workspace english-learning-backend run type-check && yarn workspace english-learning-frontend run type-check",
+    "validate": "yarn run lint && yarn run type-check && yarn run test --runInBand && yarn run build",
+    "start": "node scripts/dev.js",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
     "docker:build": "docker compose build"

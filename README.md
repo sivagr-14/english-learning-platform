@@ -54,17 +54,19 @@ implementation phase. The current app does not call the paid OpenAI API.
 ```bash
 git clone https://github.com/sivagr-14/english-learning-platform.git
 cd english-learning-platform
-git switch --track origin/agent/chatgpt-control-foundation
 
 corepack enable
 corepack prepare yarn@1.22.22 --activate
 yarn install
 
-cp .env.example .env.local
-docker compose up -d postgres redis
-yarn db:setup
-yarn dev
+yarn app:start
 ```
+
+`yarn app:start` is the safe one-command launcher. It creates `.env.local` when
+needed, generates a secure local JWT secret, opens Docker Desktop if necessary,
+starts and checks PostgreSQL/Redis, applies migrations, runs lint, tests,
+type-checks and production builds, starts both web services, waits for their
+health checks, and opens the app in the default Mac browser.
 
 Open:
 
@@ -79,10 +81,13 @@ it preserves personal accounts and user-owned vocabulary.
 ### Later launches
 
 ```bash
-docker compose up -d postgres redis
-yarn db:migrate
-yarn dev
+yarn app:start:quick
 ```
+
+Quick mode still checks the environment, Docker, PostgreSQL, Redis, migrations,
+backend health, and frontend readiness. It skips the slower
+lint/test/type-check/build suite. Use `yarn app:doctor` at any time to validate
+everything without starting the frontend or backend.
 
 `yarn db:seed` is now non-destructive. It updates the standardized category
 definitions and never deletes or creates vocabulary.
@@ -138,11 +143,7 @@ may remain empty for the personal local version.
 ## Validation
 
 ```bash
-yarn workspace english-learning-backend test
-yarn workspace english-learning-backend type-check
-yarn workspace english-learning-frontend type-check
-yarn workspace english-learning-backend build
-yarn workspace english-learning-frontend build
+yarn app:doctor
 ```
 
 ## Project structure
