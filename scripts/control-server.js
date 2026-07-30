@@ -12,6 +12,7 @@ const controlPort = Number(process.env.CONTROL_PORT || 3000);
 const frontendHost = '127.0.0.1';
 const frontendPort = Number(process.env.FRONTEND_INTERNAL_PORT || 3001);
 const frontendUrl = `http://${frontendHost}:${frontendPort}`;
+const frontendDirectory = path.join(repoRoot, 'packages', 'frontend');
 const backendUrl = 'http://127.0.0.1:5001/health';
 const envPath = path.join(repoRoot, '.env.local');
 const envExamplePath = path.join(repoRoot, '.env.example');
@@ -160,10 +161,12 @@ class ControlManager {
   constructor({
     execute = commandResult,
     runAsync = run,
+    spawnChild = spawn,
     wait = delay,
   } = {}) {
     this.execute = execute;
     this.runAsync = runAsync;
+    this.spawnChild = spawnChild;
     this.wait = wait;
     this.phase = 'idle';
     this.currentStep = 'Ready to validate and start';
@@ -172,6 +175,7 @@ class ControlManager {
     this.logs = [];
     this.services = null;
     this.servicesStopping = false;
+    this.serviceFailure = null;
     this.startPromise = null;
     this.readyCache = { value: false, checkedAt: 0 };
   }
@@ -407,6 +411,7 @@ class ControlManager {
     const definitions = [
       {
         name: 'backend',
+        cwd: repoRoot,
         args: [
           backendBin,
           '--respawn',
@@ -416,6 +421,7 @@ class ControlManager {
       },
       {
         name: 'frontend',
+        cwd: frontendDirectory,
         args: [
           nextBin,
           'dev',
@@ -427,24 +433,46 @@ class ControlManager {
       },
     ];
     this.servicesStopping = false;
-    this.services = definitions.map(({ name, args }) => {
-      const child = spawn(process.execPath, args, {
-        cwd: repoRoot,
+    this.serviceFailure = null;
+    this.services = definitions.map(({ name, args, cwd }) => {
+      const recentOutput = [];
+      const child = this.spawnChild(process.execPath, args, {
+        cwd,
         env: childEnvironment,
         stdio: ['ignore', 'pipe', 'pipe'],
       });
-      child.stdout.on('data', (chunk) => this.log(`[${name}] ${chunk}`));
-      child.stderr.on('data', (chunk) => this.log(`[${name}] ${chunk}`));
-      child.once('error', (error) => {
+      const capture = (chunk) => {
+        const output = chunk.toString();
+        this.log(`[${name}] ${output}`);
+        recentOutput.push(
+          ...output
+            .split(/\r?\n/)
+            .map((line) => line.trim())
+            .filter(Boolean),
+        );
+        if (recentOutput.length > 12) recentOutput.splice(0, recentOutput.length - 12);
+      };
+      const failService = (message) => {
+        const detail = recentOutput.length
+          ? ` Last output: ${recentOutput.slice(-6).join(' | ')}`
+          : '';
+        this.serviceFailure = new Error(`${message}${detail}`);
         this.phase = 'error';
-        this.error = `${name} could not start: ${error.message}`;
+        this.currentStep = `${name} stopped`;
+        this.error = this.serviceFailure.message;
+        this.stopServices();
+      };
+      child.stdout.on('data', capture);
+      child.stderr.on('data', capture);
+      child.once('error', (error) => {
+        failService(`${name} could not start: ${error.message}.`);
       });
       child.once('exit', (code, signal) => {
         if (this.phase === 'idle' || this.servicesStopping) return;
-        this.phase = 'error';
-        this.currentStep = `${name} stopped`;
-        this.error = `${name} exited (${signal || code || 'unknown reason'}).`;
-        this.stopServices();
+        const reason = signal
+          ? `signal ${signal}`
+          : `exit code ${code === null ? 'unknown' : code}`;
+        failService(`${name} exited with ${reason}.`);
       });
       return child;
     });
@@ -460,6 +488,7 @@ class ControlManager {
 
   async waitForServices() {
     for (let attempt = 0; attempt < 75; attempt += 1) {
+      if (this.serviceFailure) throw this.serviceFailure;
       const [backend, frontend] = await Promise.all([
         urlHealthy(backendUrl),
         this.frontendReady(true),
@@ -484,6 +513,7 @@ class ControlManager {
   async runStart() {
     this.phase = 'starting';
     this.error = null;
+    this.serviceFailure = null;
     this.logs = [];
     this.startedAt = new Date().toISOString();
     try {
