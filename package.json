@@ -9,7 +9,10 @@
     "packages/backend"
   ],
   "scripts": {
-    "app:start": "node scripts/start-app.js",
+    "app:start": "node scripts/control-server.js",
+    "app:install": "node scripts/install-mac-service.js",
+    "app:uninstall": "node scripts/install-mac-service.js --uninstall",
+    "app:start:legacy": "node scripts/start-app.js",
     "app:start:quick": "node scripts/start-app.js --quick",
     "app:doctor": "node scripts/start-app.js --doctor",
     "setup": "yarn install && yarn run setup:backend",
@@ -23,9 +26,10 @@
     "dev:frontend": "yarn workspace english-learning-frontend run dev",
     "build": "yarn workspace english-learning-backend run build && yarn workspace english-learning-frontend run build",
     "test": "yarn workspace english-learning-backend run test",
+    "test:control": "node --test scripts/control-server.test.js",
     "lint": "yarn workspace english-learning-backend run lint && yarn workspace english-learning-frontend run lint",
     "type-check": "yarn workspace english-learning-backend run type-check && yarn workspace english-learning-frontend run type-check",
-    "validate": "yarn run lint && yarn run type-check && yarn run test --runInBand && yarn run build",
+    "validate": "yarn run lint && yarn run type-check && yarn run test --runInBand && yarn run test:control && yarn run build",
     "start": "node scripts/dev.js",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
