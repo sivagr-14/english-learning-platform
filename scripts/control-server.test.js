@@ -1,6 +1,11 @@
 const assert = require('node:assert/strict');
 const test = require('node:test');
-const { controlPage, createControlServer, parseEnvironment } = require('./control-server');
+const {
+  commandOutput,
+  controlPage,
+  createControlServer,
+  parseEnvironment,
+} = require('./control-server');
 
 test('control page presents the browser-based startup action', () => {
   const page = controlPage();
@@ -17,6 +22,16 @@ test('environment parser ignores comments and preserves URLs', () => {
       DATABASE_URL: 'postgresql://local/db',
       EMPTY: '',
     },
+  );
+});
+
+test('command output combines captured stdout and stderr for browser diagnostics', () => {
+  assert.equal(
+    commandOutput({
+      stdout: 'container status\n',
+      stderr: 'database error\n',
+    }),
+    'container status\n\ndatabase error',
   );
 });
 

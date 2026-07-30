@@ -16,6 +16,8 @@ const backendUrl = 'http://127.0.0.1:5001/health';
 const envPath = path.join(repoRoot, '.env.local');
 const envExamplePath = path.join(repoRoot, '.env.example');
 const controlHeader = 'x-english-mastery-control';
+const localPostgresUser = 'postgres';
+const localPostgresDatabase = 'english_learning';
 
 process.chdir(repoRoot);
 
@@ -42,6 +44,13 @@ function commandResult(command, args, options = {}) {
     stdio: options.quiet === false ? 'inherit' : 'pipe',
     encoding: 'utf8',
   });
+}
+
+function commandOutput(result) {
+  return [result.stdout, result.stderr]
+    .filter(Boolean)
+    .join('\n')
+    .trim();
 }
 
 function commandAvailable(command) {
@@ -215,12 +224,47 @@ class ControlManager {
     throw new Error('Docker Desktop did not become ready within two minutes.');
   }
 
-  async waitForDockerCommand(args, label) {
+  infrastructureDiagnostics(service) {
+    const status = commandResult('docker', [
+      'compose',
+      'ps',
+      '--all',
+      service,
+    ]);
+    const logs = commandResult('docker', [
+      'compose',
+      'logs',
+      '--no-color',
+      '--tail',
+      '40',
+      service,
+    ]);
+    const output = [
+      `${service} container status:`,
+      commandOutput(status) || '(status unavailable)',
+      `${service} recent logs:`,
+      commandOutput(logs) || '(logs unavailable)',
+    ].join('\n');
+    this.log(output);
+    return output;
+  }
+
+  async waitForDockerCommand(args, label, service) {
+    let lastOutput = '';
     for (let attempt = 0; attempt < 45; attempt += 1) {
-      if (commandResult('docker', args).status === 0) return;
+      const result = commandResult('docker', args);
+      if (result.status === 0) {
+        this.log(`${label}: ready`);
+        return;
+      }
+      lastOutput = commandOutput(result);
       await delay(2000);
     }
-    throw new Error(`${label} did not become ready.`);
+    const diagnostics = this.infrastructureDiagnostics(service);
+    const detail = lastOutput || diagnostics;
+    throw new Error(
+      `${label} did not become ready. Open Startup details for the container status and logs.${detail.includes('port is already allocated') ? ' Port 5432 is already in use.' : ''}`,
+    );
   }
 
   async startInfrastructure() {
@@ -238,15 +282,17 @@ class ControlManager {
           'postgres',
           'pg_isready',
           '-U',
-          process.env.DB_USER || 'postgres',
+          localPostgresUser,
           '-d',
-          process.env.DB_NAME || 'english_learning',
+          localPostgresDatabase,
         ],
         'PostgreSQL',
+        'postgres',
       ),
       this.waitForDockerCommand(
         ['compose', 'exec', '-T', 'redis', 'redis-cli', 'ping'],
         'Redis',
+        'redis',
       ),
     ]);
   }
@@ -645,5 +691,6 @@ module.exports = {
   ControlManager,
   controlPage,
   createControlServer,
+  commandOutput,
   parseEnvironment,
 };
