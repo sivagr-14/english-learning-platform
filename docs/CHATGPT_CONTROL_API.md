@@ -51,6 +51,20 @@ Approval does not create vocabulary. It creates one resumable generation job
 and one pending job item for every selected candidate. Repeating approval
 returns the existing job.
 
+## Generated lesson quality gate
+
+Every completed generation item must provide the `simplified-v2` lesson format
+defined in `VOCABULARY_GENERATION_INSTRUCTIONS.md`.
+
+The server validates the complete replacement before any vocabulary write. It
+requires all eight sections, rejects empty nested values and known filler
+phrases, and checks that key examples, patterns, corrections and nuance
+explicitly demonstrate the target term. A failed lesson must remain failed or
+be held for manual review; partial content is never saved.
+
+Updates replace all eight sections together while preserving review history and
+recording a new entry version.
+
 ## Planned MCP tool mapping
 
 | ChatGPT tool               | API operation                               |
