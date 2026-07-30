@@ -1,0 +1,288 @@
+{
+  "deck_name": "Vocabulary Mastery Deck Template",
+  "format": "mastery_compact_full_detail_no_duplicate_metadata",
+  "version": "2.0",
+  "total_items": 1,
+  "category": "Any Category Name",
+  "conversation_style": "paragraph_based_real_life_native_usage_story",
+  "template_rules": [
+    "Use this structure for any vocabulary category.",
+    "Keep word, word_type, cefr_level, frequency, english_meaning, extended_meaning, tamil_meaning, and core_idea at the card header level.",
+    "Do not add lesson sections for Pronunciation, Word / Phrase, Word Type, CEFR Level, Frequency, Core Idea, or Meaning Layers.",
+    "Usage Profile must use the columns usage_area, status, example_sentence, note.",
+    "Usage Profile must include distinct examples for each usage area.",
+    "Word Nature must contain primary_classification first and reason second.",
+    "Tamil Usage Notes must appear immediately after Word Nature.",
+    "Every lesson section should be useful for recall, speaking, and Tamil-speaker mistake correction.",
+    "Do not generate Meaning Layers or Practice + Evaluation sections.",
+    "Use exactly 17 lesson sections."
+  ],
+  "cards": [
+    {
+      "word": "example word or phrase",
+      "word_type": "Noun / Verb / Adjective / Adverb / Idiom / Expression / Phrasal verb",
+      "cefr_level": "B1-C2",
+      "frequency": "High / Medium / Low",
+      "english_meaning": "short meaning for quick recall",
+      "extended_meaning": "a richer meaning that explains when and why native speakers use this word, with enough detail for recall",
+      "tamil_meaning": "Tamil meaning",
+      "core_idea": "one clear mental idea behind the word",
+      "sections": [
+        {
+          "section": 1,
+          "name": "English Meaning + Recall Meaning",
+          "content": {
+            "short_meaning": "short meaning",
+            "extended_recall_meaning": "recall-friendly expanded meaning",
+            "memory_hint": "simple memory hook"
+          }
+        },
+        {
+          "section": 2,
+          "name": "Memory Mastery",
+          "content": {
+            "memory_trigger": "strong memory trigger",
+            "visual_scene": "visual real-life scene",
+            "tamil_connection": "Tamil connection without direct-translation errors",
+            "memory_sentence": "one natural sentence",
+            "recall_question": "one question that makes the learner recall the word"
+          }
+        },
+        {
+          "section": 3,
+          "name": "Pattern Family",
+          "content": [
+            "main pattern 1",
+            "main pattern 2",
+            "main pattern 3",
+            "main pattern 4",
+            "main pattern 5"
+          ]
+        },
+        {
+          "section": 4,
+          "name": "Notice",
+          "content": "important usage notice about register, domain, tone, or natural context"
+        },
+        {
+          "section": 5,
+          "name": "Word Nature",
+          "content": {
+            "primary_classification": "Mostly Abstract / Mostly Literal / Figurative Idiom / Action Verb / State Word",
+            "reason": "why this classification is correct"
+          }
+        },
+        {
+          "section": 6,
+          "name": "Tamil Usage Notes",
+          "content": {
+            "correct_tamil_speaker_usage": "how Tamil speakers should think about this word",
+            "common_tamil_speaker_mistake": "common wrong English sentence",
+            "correct_version": "correct natural English sentence",
+            "translation_trap": "what not to translate directly",
+            "thinking_difference": "Tamil thought pattern versus natural English thought pattern"
+          }
+        },
+        {
+          "section": 7,
+          "name": "Usage Profile",
+          "content": [
+            {
+              "usage_area": "Literal",
+              "status": "Yes / No / Limited",
+              "example_sentence": "unique literal example",
+              "note": "literal usage note"
+            },
+            {
+              "usage_area": "Abstract",
+              "status": "Yes / No / Limited",
+              "example_sentence": "unique abstract example",
+              "note": "abstract usage note"
+            },
+            {
+              "usage_area": "Figurative",
+              "status": "Yes / No / Limited",
+              "example_sentence": "unique figurative example",
+              "note": "figurative usage note"
+            },
+            {
+              "usage_area": "Everyday",
+              "status": "Yes / No / Limited",
+              "example_sentence": "unique everyday example",
+              "note": "everyday usage note"
+            },
+            {
+              "usage_area": "Professional",
+              "status": "Yes / No / Limited",
+              "example_sentence": "unique professional example",
+              "note": "professional usage note"
+            },
+            {
+              "usage_area": "Technical",
+              "status": "Yes / No / Limited",
+              "example_sentence": "unique technical example",
+              "note": "technical usage note"
+            },
+            {
+              "usage_area": "Academic",
+              "status": "Yes / No / Limited",
+              "example_sentence": "unique academic example",
+              "note": "academic usage note"
+            },
+            {
+              "usage_area": "Business",
+              "status": "Yes / No / Limited",
+              "example_sentence": "unique business example",
+              "note": "business usage note"
+            },
+            {
+              "usage_area": "Formal",
+              "status": "Yes / No / Limited",
+              "example_sentence": "unique formal example",
+              "note": "formal usage note"
+            },
+            {
+              "usage_area": "Informal",
+              "status": "Yes / No / Limited",
+              "example_sentence": "unique informal example",
+              "note": "informal usage note"
+            }
+          ]
+        },
+        {
+          "section": 8,
+          "name": "Word Usage Zone",
+          "content": {
+            "natural_zones": [
+              "natural zone 1",
+              "natural zone 2",
+              "natural zone 3"
+            ],
+            "limited_zones": [
+              "limited zone 1",
+              "limited zone 2"
+            ],
+            "unnatural_zones": [
+              "unnatural zone 1"
+            ],
+            "short_explanation": "where the word sounds natural and where it does not"
+          }
+        },
+        {
+          "section": 9,
+          "name": "Natural Domains",
+          "content": [
+            "domain 1",
+            "domain 2",
+            "domain 3",
+            "domain 4"
+          ]
+        },
+        {
+          "section": 10,
+          "name": "Domain Restrictions",
+          "content": {
+            "commonly_used": [
+              "natural sentence 1",
+              "natural sentence 2"
+            ],
+            "rarely_used": [
+              "rare context 1"
+            ],
+            "not_normally_used": [
+              "wrong domain 1"
+            ],
+            "unnatural_example": "wrong or unnatural sentence",
+            "natural_alternative": "natural replacement sentence",
+            "explanation": "why the first sentence is unnatural"
+          }
+        },
+        {
+          "section": 11,
+          "name": "Common Patterns / Grammar",
+          "content": [
+            {
+              "pattern": "pattern 1",
+              "example": "natural example 1"
+            },
+            {
+              "pattern": "pattern 2",
+              "example": "natural example 2"
+            }
+          ]
+        },
+        {
+          "section": 12,
+          "name": "When To Use",
+          "content": {
+            "rule": "when the learner should use this word",
+            "examples": [
+              "use case 1",
+              "use case 2",
+              "use case 3"
+            ]
+          }
+        },
+        {
+          "section": 13,
+          "name": "When NOT To Use",
+          "content": {
+            "rule": "when the learner should avoid this word",
+            "wrong": "wrong sentence",
+            "better": "better sentence"
+          }
+        },
+        {
+          "section": 14,
+          "name": "Confusion Zone",
+          "content": [
+            {
+              "word": "target word",
+              "meaning": "meaning",
+              "usage_difference": "how it differs"
+            },
+            {
+              "word": "similar word",
+              "meaning": "meaning",
+              "usage_difference": "how it differs"
+            }
+          ]
+        },
+        {
+          "section": 15,
+          "name": "Alternatives & Synonyms",
+          "content": {
+            "near_synonyms": [
+              "near synonym 1",
+              "near synonym 2"
+            ],
+            "formal_alternatives": [
+              "formal alternative 1",
+              "formal alternative 2"
+            ],
+            "informal_alternatives": [
+              "informal alternative 1",
+              "informal alternative 2"
+            ]
+          }
+        },
+        {
+          "section": 16,
+          "name": "Common Mistakes",
+          "content": [
+            {
+              "wrong": "wrong sentence",
+              "correct": "correct sentence",
+              "reason": "why it is wrong"
+            }
+          ]
+        },
+        {
+          "section": 17,
+          "name": "Paragraph-Based Real-Life Conversation / Story",
+          "content": "A realistic paragraph showing the word naturally in context."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "english-learning-platform",
+  "version": "0.1.0",
+  "description": "AI-powered English Learning & Mastery Platform with ChatGPT integration",
+  "private": true,
+  "workspaces": [
+    "packages/frontend",
+    "packages/backend"
+  ],
+  "scripts": {
+    "setup": "yarn install && yarn run setup:backend",
+    "setup:backend": "cd packages/backend && npm run setup:db",
+    "dev": "node scripts/dev.js",
+    "dev:backend": "yarn workspace english-learning-backend run dev",
+    "dev:frontend": "yarn workspace english-learning-frontend run dev",
+    "build": "yarn workspaces foreach -pt run build",
+    "test": "yarn workspaces foreach -pt run test",
+    "lint": "yarn workspaces foreach -pt run lint",
+    "type-check": "yarn workspaces foreach -pt run type-check",
+    "start": "yarn workspaces foreach -pt run start",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:build": "docker-compose build"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/morgan": "^1.9.10",
+    "@types/pg": "^8.20.0",
+    "@types/uuid": "^11.0.0",
+    "eslint": "^8.54.0",
+    "playwright": "^1.61.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "knex": "^3.2.10"
+  }
+}
