@@ -273,10 +273,12 @@ export default function FlashcardsPage() {
                       Recall
                     </h3>
                     <p className="mt-2 text-gray-800">
-                      {card.lesson_data?.memory_mastery?.recall_question}
+                      {card.lesson_data?.memory_practice?.recall_question ||
+                        card.lesson_data?.memory_mastery?.recall_question}
                     </p>
                     <p className="mt-2 text-sm text-gray-600">
-                      {card.lesson_data?.memory_mastery?.memory_sentence}
+                      {card.lesson_data?.memory_practice?.memory_sentence ||
+                        card.lesson_data?.memory_mastery?.memory_sentence}
                     </p>
                   </section>
 
@@ -285,10 +287,12 @@ export default function FlashcardsPage() {
                       Natural Use
                     </h3>
                     <p className="mt-2 text-gray-800">
-                      {card.lesson_data?.usage_mastery?.when_to_use?.[0]}
+                      {card.lesson_data?.usage_guide?.when_to_use?.[0] ||
+                        card.lesson_data?.usage_mastery?.when_to_use?.[0]}
                     </p>
                     <p className="mt-1 text-sm text-red-700">
-                      {card.lesson_data?.usage_mastery?.when_not_to_use?.[0]}
+                      {card.lesson_data?.usage_guide?.when_not_to_use?.[0] ||
+                        card.lesson_data?.usage_mastery?.when_not_to_use?.[0]}
                     </p>
                   </section>
 
