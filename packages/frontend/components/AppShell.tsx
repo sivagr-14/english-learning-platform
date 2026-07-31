@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import useAuthStore from "@/lib/store/auth";
 
 const navigation = [
@@ -29,6 +29,36 @@ export default function AppShell({
   const pathname = usePathname();
   const router = useRouter();
   const { user, logout } = useAuthStore();
+  const [isRestarting, setIsRestarting] = useState(false);
+
+  const restartApp = async () => {
+    const confirmed = window.confirm(
+      "Restart the app to load recent code and content changes? Your vocabulary and review progress will be preserved.",
+    );
+    if (!confirmed) return;
+
+    setIsRestarting(true);
+    try {
+      const response = await fetch("/__control/restart", {
+        method: "POST",
+        headers: { "x-english-mastery-control": "1" },
+      });
+      if (!response.ok) {
+        const result = await response.json().catch(() => null);
+        throw new Error(
+          result?.error || "The restart request was not accepted.",
+        );
+      }
+      window.location.assign(`/__control?restart=${Date.now()}`);
+    } catch (error) {
+      setIsRestarting(false);
+      window.alert(
+        error instanceof Error
+          ? error.message
+          : "The app could not be restarted.",
+      );
+    }
+  };
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -44,6 +74,14 @@ export default function AppShell({
             <span className="hidden text-sm text-slate-500 sm:inline">
               {user?.first_name || user?.email}
             </span>
+            <button
+              type="button"
+              onClick={restartApp}
+              disabled={isRestarting}
+              className="rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-sm font-medium text-blue-700 hover:bg-blue-100 disabled:cursor-wait disabled:opacity-60"
+            >
+              {isRestarting ? "Restarting…" : "Restart app"}
+            </button>
             <button
               type="button"
               onClick={() => {
