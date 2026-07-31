@@ -8,15 +8,55 @@ import {
   VOCABULARY_LESSON_FORMAT_VERSION,
   VOCABULARY_SECTION_TEMPLATE,
 } from "./vocabulary-lesson-template";
+import { buildNavigation } from "../services/vocabulary-browse.service";
 
 describe("starter samples", () => {
   it("cover multiple CEFR levels and item types", () => {
     expect(new Set(STARTER_SAMPLES.map((sample) => sample.cefrLevel))).toEqual(
       new Set(["B2", "C1", "C2"]),
     );
-    expect(new Set(STARTER_SAMPLES.map((sample) => sample.itemType)).size).toBe(
-      STARTER_SAMPLES.length,
-    );
+    expect(
+      Array.from(new Set(STARTER_SAMPLES.map((sample) => sample.itemType))),
+    ).toEqual(expect.arrayContaining(["word", "collocation", "idiom"]));
+  });
+
+  it("provides three navigable words in every starter category", () => {
+    const byCategory = new Map<string, (typeof STARTER_SAMPLES)[number][]>();
+
+    for (const sample of STARTER_SAMPLES) {
+      const samples = byCategory.get(sample.categoryName) || [];
+      samples.push(sample);
+      byCategory.set(sample.categoryName, samples);
+    }
+
+    expect(byCategory.size).toBe(4);
+    expect(STARTER_SAMPLES).toHaveLength(12);
+
+    for (const samples of byCategory.values()) {
+      const rows = [...samples]
+        .sort((left, right) => left.word.localeCompare(right.word))
+        .map((sample) => ({ id: sample.canonicalKey }));
+
+      expect(rows).toHaveLength(3);
+      expect(buildNavigation(rows, rows[0].id)).toMatchObject({
+        previous_id: null,
+        next_id: rows[1].id,
+        position: 1,
+        total: 3,
+      });
+      expect(buildNavigation(rows, rows[1].id)).toMatchObject({
+        previous_id: rows[0].id,
+        next_id: rows[2].id,
+        position: 2,
+        total: 3,
+      });
+      expect(buildNavigation(rows, rows[2].id)).toMatchObject({
+        previous_id: rows[1].id,
+        next_id: null,
+        position: 3,
+        total: 3,
+      });
+    }
   });
 
   it("use unique stable identities", () => {
