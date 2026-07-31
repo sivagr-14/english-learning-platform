@@ -542,12 +542,55 @@ class ControlManager {
     return this.startPromise;
   }
 
-  async runStart() {
+  restart() {
+    if (this.startPromise) return this.startPromise;
+    this.startPromise = this.runRestart().finally(() => {
+      this.startPromise = null;
+    });
+    return this.startPromise;
+  }
+
+  async runRestart() {
+    this.phase = 'starting';
+    this.error = null;
+    this.logs = [];
+    this.startedAt = new Date().toISOString();
+    try {
+      this.step('Stopping the current backend and frontend');
+      this.stopServices();
+
+      let backend = false;
+      let frontend = false;
+      for (let attempt = 0; attempt < 30; attempt += 1) {
+        [backend, frontend] = await Promise.all([
+          this.backendReady(),
+          this.frontendReady(true),
+        ]);
+        if (!backend && !frontend) break;
+        await this.wait(250);
+      }
+      if (backend || frontend) {
+        throw new Error(
+          'The old web services did not stop. They may be running from a separate Terminal process; stop that process and try again.',
+        );
+      }
+
+      await this.runStart({ preserveLogs: true, preserveStartedAt: true });
+    } catch (error) {
+      this.stopServices();
+      this.phase = 'error';
+      this.currentStep = 'Restart stopped';
+      this.error = error instanceof Error ? error.message : String(error);
+      this.log(`Restart failed: ${this.error}`);
+    }
+  }
+
+  async runStart({ preserveLogs = false, preserveStartedAt = false } = {}) {
     this.phase = 'starting';
     this.error = null;
     this.serviceFailure = null;
-    this.logs = [];
-    this.startedAt = new Date().toISOString();
+    if (!preserveLogs) this.logs = [];
+    if (!preserveStartedAt) this.startedAt = new Date().toISOString();
     try {
       this.step('Checking Node.js and local configuration');
       const major = Number(process.versions.node.split('.')[0]);
@@ -760,6 +803,13 @@ function createControlServer(manager = new ControlManager()) {
       manager.start();
       return json(response, 202, { accepted: true });
     }
+    if (url.pathname === '/__control/restart' && request.method === 'POST') {
+      if (request.headers[controlHeader] !== '1') {
+        return json(response, 403, { error: 'Local control header required.' });
+      }
+      manager.restart();
+      return json(response, 202, { accepted: true });
+    }
     if (url.pathname.startsWith('/__control')) {
       const body = controlPage();
       response.writeHead(200, {
@@ -835,3 +885,4 @@ module.exports = {
   parseContainerState,
   parseEnvironment,
 };
+

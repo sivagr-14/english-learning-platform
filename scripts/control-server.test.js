@@ -198,6 +198,7 @@ test('web services start from their own workspaces and preserve clean-exit diagn
 
 test('control API requires the local control header before starting', async (context) => {
   let starts = 0;
+  let restarts = 0;
   const manager = {
     snapshot: async () => ({
       phase: 'idle',
@@ -210,6 +211,9 @@ test('control API requires the local control header before starting', async (con
     appReady: async () => false,
     start: () => {
       starts += 1;
+    },
+    restart: () => {
+      restarts += 1;
     },
     shutdown: () => {},
   };
@@ -237,4 +241,42 @@ test('control API requires the local control header before starting', async (con
   });
   assert.equal(accepted.status, 202);
   assert.equal(starts, 1);
+
+  const deniedRestart = await fetch(`${base}/__control/restart`, {
+    method: 'POST',
+  });
+  assert.equal(deniedRestart.status, 403);
+  assert.equal(restarts, 0);
+
+  const acceptedRestart = await fetch(`${base}/__control/restart`, {
+    method: 'POST',
+    headers: { 'x-english-mastery-control': '1' },
+  });
+  assert.equal(acceptedRestart.status, 202);
+  assert.equal(restarts, 1);
 });
+
+test('restart stops owned web services before running the validated startup flow', async () => {
+  let stopped = false;
+  let startupOptions = null;
+  const manager = new ControlManager({ wait: async () => {} });
+  manager.stopServices = () => {
+    stopped = true;
+  };
+  manager.backendReady = async () => false;
+  manager.frontendReady = async () => false;
+  manager.runStart = async (options) => {
+    assert.equal(stopped, true);
+    startupOptions = options;
+    manager.phase = 'ready';
+  };
+
+  await manager.restart();
+
+  assert.deepEqual(startupOptions, {
+    preserveLogs: true,
+    preserveStartedAt: true,
+  });
+  assert.equal(manager.phase, 'ready');
+});
+

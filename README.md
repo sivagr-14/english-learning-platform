@@ -94,6 +94,11 @@ it preserves personal accounts and user-owned vocabulary.
 There is no daily Terminal command. After a Mac login or restart, open
 <http://localhost:3000> and select **Validate and start app**.
 
+After pulling code or lesson changes, select **Restart app** in the application
+header. The control service restarts only the backend and frontend, reruns its
+validation and migrations, and preserves vocabulary, review progress,
+PostgreSQL, and Redis data.
+
 To run the control page in the foreground for troubleshooting, use
 `yarn app:start`. To remove automatic startup without deleting database data,
 use `yarn app:uninstall`.
