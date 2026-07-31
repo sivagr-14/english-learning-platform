@@ -1,9 +1,11 @@
 "use client";
 
-import { ReactNode, useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
+import { ReactNode, Suspense, useEffect, useState } from "react";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
+import AppShell from "@/components/AppShell";
+import AuthenticatedPage from "@/components/AuthenticatedPage";
 import { getApiClient } from "@/lib/api/client";
-import useAuthStore from "@/lib/store/auth";
 
 interface WordDetail {
   id: string;
@@ -21,6 +23,13 @@ interface WordDetail {
   category_name: string;
   category_description: string | null;
   lesson_data?: any;
+}
+
+interface WordNavigation {
+  previous_id: string | null;
+  next_id: string | null;
+  position: number;
+  total: number;
 }
 
 const lessonTones = [
@@ -379,36 +388,29 @@ function SimplifiedLessonTemplate({
   );
 }
 
-export default function VocabularyWordPage() {
+function VocabularyWordContent() {
   const router = useRouter();
   const params = useParams<{ id: string }>();
-  const { isAuthenticated } = useAuthStore();
-  const [isHydrated, setIsHydrated] = useState(false);
+  const searchParams = useSearchParams();
+  const contextQuery = searchParams.toString();
   const [word, setWord] = useState<WordDetail | null>(null);
+  const [navigation, setNavigation] = useState<WordNavigation | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    useAuthStore.getState().loadFromLocalStorage();
-    setIsHydrated(true);
-  }, []);
-
-  useEffect(() => {
-    if (isHydrated && !isAuthenticated) {
-      router.push("/login");
-    }
-  }, [isHydrated, isAuthenticated, router]);
-
-  useEffect(() => {
-    if (!isHydrated || !isAuthenticated || !params.id) return;
+    if (!params.id) return;
 
     const loadWord = async () => {
       setIsLoading(true);
       setError(null);
+      setWord(null);
+      setNavigation(null);
       const response = await getApiClient().get(
-        `/api/vocabulary/words/${params.id}`,
+        `/api/vocabulary/words/${params.id}${contextQuery ? `?${contextQuery}` : ""}`,
       );
       setWord(response.data.word);
+      setNavigation(response.data.navigation);
       setIsLoading(false);
     };
 
@@ -416,44 +418,84 @@ export default function VocabularyWordPage() {
       setError("Could not load this vocabulary entry.");
       setIsLoading(false);
     });
-  }, [isHydrated, isAuthenticated, params.id]);
+  }, [contextQuery, params.id]);
 
-  if (!isHydrated || !isAuthenticated) {
-    return null;
-  }
+  const source = searchParams.get("from");
+  const sourcePage = searchParams.get("page") || "1";
+  const categoryId = searchParams.get("categoryId");
+  const query = searchParams.get("q") || "";
+  const backHref =
+    source === "category" && categoryId
+      ? `/categories/${categoryId}?page=${sourcePage}`
+      : source === "search" && query
+        ? `/search?q=${encodeURIComponent(query)}&page=${sourcePage}`
+        : "/vocabulary";
+  const backLabel =
+    source === "category"
+      ? `Back to ${word?.category_name || "category"}`
+      : source === "search"
+        ? `Back to search: “${query}”`
+        : "Back to vocabulary";
+
+  const openWord = (id: string | null) => {
+    if (!id) return;
+    router.push(
+      `/vocabulary/words/${id}${contextQuery ? `?${contextQuery}` : ""}`,
+    );
+  };
+
+  const navigationControls = navigation ? (
+    <nav
+      aria-label="Vocabulary sequence"
+      className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4"
+    >
+      <Link
+        href={backHref}
+        className="text-sm font-semibold text-blue-700 hover:text-blue-900"
+      >
+        {backLabel}
+      </Link>
+      <div className="flex items-center gap-3">
+        <button
+          type="button"
+          disabled={!navigation.previous_id}
+          onClick={() => openWord(navigation.previous_id)}
+          className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Previous word
+        </button>
+        <span className="text-sm text-slate-500">
+          {navigation.position} of {navigation.total}
+        </span>
+        <button
+          type="button"
+          disabled={!navigation.next_id}
+          onClick={() => openWord(navigation.next_id)}
+          className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Next word
+        </button>
+      </div>
+    </nav>
+  ) : null;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <p className="text-sm text-gray-500">
-              {word
-                ? `${word.track_name} / ${word.category_name}`
-                : "Vocabulary"}
-            </p>
-            <h1 className="mt-1 text-2xl font-bold text-gray-900">
-              {word?.word || "Vocabulary Detail"}
-            </h1>
-          </div>
-          <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={() => router.push("/vocabulary")}
-              className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100"
-            >
-              Vocabulary
-            </button>
-            <button
-              type="button"
-              onClick={() => router.push("/dashboard")}
-              className="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
-            >
-              Dashboard
-            </button>
-          </div>
-        </div>
-
+    <AppShell
+      title={word?.word || "Vocabulary detail"}
+      description={
+        word ? `${word.track_name} / ${word.category_name}` : "Vocabulary"
+      }
+      actions={
+        <Link
+          href={backHref}
+          className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+        >
+          {backLabel}
+        </Link>
+      }
+    >
+      <div className="space-y-6">
+        {navigationControls}
         {isLoading ? (
           <div className="rounded-lg border border-gray-200 bg-white p-8 text-sm text-gray-600">
             Loading vocabulary...
@@ -472,7 +514,7 @@ export default function VocabularyWordPage() {
                   </h2>
                   <p className="mt-2 text-sm text-gray-600">
                     {word.pronunciation} · {word.word_type || "Word"} ·{" "}
-                    {word.cefr_level}
+                    {word.cefr_level || "CEFR pending"}
                   </p>
                   {word.is_starter_sample && (
                     <p className="mt-2 inline-flex rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-800">
@@ -529,9 +571,20 @@ export default function VocabularyWordPage() {
                 word={word}
               />
             </section>
+            {navigationControls}
           </main>
         )}
       </div>
-    </div>
+    </AppShell>
+  );
+}
+
+export default function VocabularyWordPage() {
+  return (
+    <AuthenticatedPage>
+      <Suspense fallback={null}>
+        <VocabularyWordContent />
+      </Suspense>
+    </AuthenticatedPage>
   );
 }
