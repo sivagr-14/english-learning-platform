@@ -50,6 +50,10 @@ export default function VocabularyPage() {
     "loading" | "removing" | null
   >(null);
   const [sampleError, setSampleError] = useState("");
+  const missingStarterSamples = Math.max(
+    starterSamples.available - starterSamples.loaded,
+    0,
+  );
 
   useEffect(() => {
     useAuthStore.getState().loadFromLocalStorage();
@@ -177,8 +181,10 @@ export default function VocabularyPage() {
               Preview the complete learning experience
             </h2>
             <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-600">
-              Four removable examples cover B2–C2 words, expressions,
-              collocations and idioms. They belong only to your account.
+              {starterSamples.available || 12} removable examples cover B2–C2
+              words, expressions, collocations and idioms. Each starter category
+              includes three words so Previous and Next navigation can be
+              tested. They belong only to your account.
             </p>
           </div>
           {starterSamples.loaded ? (
@@ -191,9 +197,13 @@ export default function VocabularyPage() {
               >
                 {sampleAction === "loading"
                   ? "Refreshing…"
-                  : starterSamples.outdated
-                    ? `Update ${starterSamples.outdated} samples`
-                    : "Refresh samples"}
+                  : missingStarterSamples && starterSamples.outdated
+                    ? `Add ${missingStarterSamples} and update ${starterSamples.outdated}`
+                    : missingStarterSamples
+                      ? `Add ${missingStarterSamples} samples`
+                      : starterSamples.outdated
+                        ? `Update ${starterSamples.outdated} samples`
+                        : "Refresh samples"}
               </button>
               <button
                 type="button"
@@ -215,7 +225,7 @@ export default function VocabularyPage() {
             >
               {sampleAction === "loading"
                 ? "Loading…"
-                : `Load ${starterSamples.available || 4} samples`}
+                : `Load ${starterSamples.available || 12} samples`}
             </button>
           )}
         </div>
