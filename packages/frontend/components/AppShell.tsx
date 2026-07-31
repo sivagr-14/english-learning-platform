@@ -8,6 +8,8 @@ import useAuthStore from "@/lib/store/auth";
 const navigation = [
   { href: "/dashboard", label: "Home" },
   { href: "/vocabulary", label: "Vocabulary" },
+  { href: "/categories", label: "Categories" },
+  { href: "/search", label: "Search" },
   { href: "/flashcards", label: "Review" },
   { href: "/progress", label: "Progress" },
   { href: "/generate", label: "ChatGPT Control" },

@@ -11,8 +11,7 @@ interface Category {
   track_name: string;
   category_name: string;
   description: string | null;
-  difficulty_level: string;
-  estimated_words_count: number;
+  cefr_range: string | null;
   color_code: string | null;
   word_count: string;
 }
@@ -254,8 +253,8 @@ export default function VocabularyPage() {
                   </span>
                 </div>
                 <p className="mt-1 text-xs text-gray-500">
-                  {category.track_name} · {category.difficulty_level} ·{" "}
-                  {category.word_count}
+                  {category.track_name} · {category.word_count} words
+                  {category.cefr_range ? ` · ${category.cefr_range}` : ""}
                 </p>
               </button>
             ))}
@@ -280,8 +279,7 @@ export default function VocabularyPage() {
                     className="rounded-lg border border-gray-200 bg-white transition hover:border-blue-300 hover:bg-blue-50"
                   >
                     <a
-                      href={`/vocabulary/words/${word.id}`}
-                      target={`vocabulary-word-${word.id}`}
+                      href={`/vocabulary/words/${word.id}?from=category&categoryId=${selectedCategory.id}&page=1&limit=50`}
                       className="flex w-full items-center justify-between gap-4 px-4 py-3 text-left hover:bg-gray-50"
                     >
                       <div className="min-w-0">

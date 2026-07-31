@@ -5,6 +5,7 @@ import {
   VocabularyLesson,
   VOCABULARY_SECTION_TEMPLATE,
 } from "../data/vocabulary-lesson-template";
+import { normalizeCefrLevel } from "./vocabulary-browse.service";
 
 export interface VocabularyImportRow {
   track?: string;
@@ -314,7 +315,8 @@ export function buildImportedLesson(
     word,
     pronunciation: asString(input.pronunciation),
     word_type: asString(input.word_type),
-    cefr_level: asString(input.cefr_level),
+    cefr_level:
+      normalizeCefrLevel(input.cefr_level) || asString(input.cefr_level),
     frequency: cleanFrequency(asString(input.frequency)),
     english_meaning: englishMeaning,
     tamil_meaning: asString(input.tamil_meaning),
@@ -692,9 +694,16 @@ export class VocabularyImportService {
         categoryCandidates
       );
 
-      const existingWord = await trx("vocabulary_words")
-        .where({ category_id: category.id, word: lesson.word })
-        .first();
+      const existingWordQuery = trx("vocabulary_words").where({
+        category_id: category.id,
+        word: lesson.word,
+      });
+      if (userId) {
+        existingWordQuery.where({ owner_user_id: userId });
+      } else {
+        existingWordQuery.whereNull("owner_user_id");
+      }
+      const existingWord = await existingWordQuery.first();
 
       const wordPayload = {
         category_id: category.id,
@@ -716,8 +725,27 @@ export class VocabularyImportService {
             .update(wordPayload)
             .returning("*")
         : await trx("vocabulary_words")
-            .insert({ ...wordPayload, created_at: new Date() })
+            .insert({
+              ...wordPayload,
+              owner_user_id: userId || null,
+              created_at: new Date(),
+            })
             .returning("*");
+
+      await trx("vocabulary_entry_categories")
+        .where({ word_id: word.id, relationship: "primary" })
+        .whereNot({ category_id: category.id })
+        .delete();
+      await trx("vocabulary_entry_categories")
+        .insert({
+          word_id: word.id,
+          category_id: category.id,
+          relationship: "primary",
+          sort_order: 0,
+          created_at: new Date(),
+        })
+        .onConflict(["word_id", "category_id"])
+        .merge({ relationship: "primary", sort_order: 0 });
 
       const lessonPayload = buildLessonPayload(
         word.id,
@@ -905,6 +933,12 @@ function validateRow(row: VocabularyImportEntry) {
       `Vocabulary entry "${row.word}" is missing required header fields: ${missing.join(
         ", ",
       )}.`,
+    );
+  }
+
+  if (!normalizeCefrLevel(row.cefr_level)) {
+    throw new Error(
+      `Vocabulary entry "${row.word}" has an invalid CEFR level. Use A1, A2, B1, B2, C1 or C2.`,
     );
   }
 }

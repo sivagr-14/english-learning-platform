@@ -4,6 +4,11 @@ import {
   authMiddleware,
   AuthenticatedRequest,
 } from "../middleware/auth.middleware";
+import {
+  buildNavigation,
+  cefrRange,
+  normalizeCefrLevel,
+} from "../services/vocabulary-browse.service";
 import { database } from "../utils/db";
 import {
   loadStarterSamples,
@@ -12,82 +17,156 @@ import {
 } from "../services/starter-samples.service";
 
 const router: Router = express.Router();
+const DEFAULT_PAGE_SIZE = 50;
+
+const paginationSchema = z.object({
+  page: z.coerce.number().int().min(1).optional(),
+  limit: z.coerce.number().int().min(1).max(100).optional(),
+});
+
+const searchSchema = paginationSchema.extend({
+  q: z.string().trim().min(1).max(100),
+});
+
+const detailContextSchema = z.object({
+  from: z.enum(["category", "search"]).optional(),
+  categoryId: z.string().uuid().optional(),
+  q: z.string().trim().min(1).max(100).optional(),
+  page: z.coerce.number().int().min(1).optional(),
+  limit: z.coerce.number().int().min(1).max(100).optional(),
+});
 
 router.use((_req, res, next) => {
   res.set("Cache-Control", "no-store");
   next();
 });
 
-router.get(
-  "/",
-  authMiddleware,
-  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
-    try {
-      const categories = await database("vocabulary_categories")
-        .leftJoin(
-          "vocabulary_words",
-          "vocabulary_categories.id",
-          "vocabulary_words.category_id",
-        )
-        .where((builder) =>
-          builder
-            .where("vocabulary_words.owner_user_id", req.userId)
-            .orWhereNull("vocabulary_words.owner_user_id"),
-        )
-        .select(
-          "vocabulary_categories.id",
-          "vocabulary_categories.track_number",
-          "vocabulary_categories.track_name",
-          "vocabulary_categories.category_number",
-          "vocabulary_categories.category_name",
-          "vocabulary_categories.description",
-          "vocabulary_categories.difficulty_level",
-          "vocabulary_categories.estimated_words_count",
-          "vocabulary_categories.color_code",
-        )
-        .count({ word_count: "vocabulary_words.id" })
-        .groupBy("vocabulary_categories.id")
-        .orderBy([{ column: "track_number" }, { column: "category_number" }]);
-
-      res.json({ categories });
-    } catch (error) {
-      next(error);
+function applyOwnership(query: any, userId?: string) {
+  return query.where((builder: any) => {
+    if (userId) {
+      builder.where("vw.owner_user_id", userId).orWhereNull("vw.owner_user_id");
+      return;
     }
-  },
-);
+    builder.whereNull("vw.owner_user_id");
+  });
+}
+
+function applyCategory(query: any, categoryId: string) {
+  return query.whereRaw("COALESCE(vec.category_id, vw.category_id) = ?", [
+    categoryId,
+  ]);
+}
+
+function applySearch(query: any, queryText: string) {
+  const term = `%${queryText}%`;
+
+  return query.where((builder: any) => {
+    builder
+      .whereILike("vw.word", term)
+      .orWhereILike("vw.english_meaning", term)
+      .orWhereILike("vw.tamil_meaning", term)
+      .orWhereILike("vw.core_idea", term)
+      .orWhereILike("vc.category_name", term)
+      .orWhereILike("vc.track_name", term)
+      .orWhereExists((linked: any) => {
+        linked
+          .select(database.raw("1"))
+          .from("vocabulary_entry_categories as search_vec")
+          .join(
+            "vocabulary_categories as search_vc",
+            "search_vec.category_id",
+            "search_vc.id",
+          )
+          .whereRaw("search_vec.word_id = vw.id")
+          .andWhere((categoryMatch: any) =>
+            categoryMatch
+              .whereILike("search_vc.category_name", term)
+              .orWhereILike("search_vc.track_name", term),
+          );
+      });
+  });
+}
+
+function addSearchOrder(query: any, queryText: string) {
+  return query
+    .orderByRaw(
+      `CASE
+        WHEN LOWER(vw.word) = LOWER(?) THEN 0
+        WHEN vw.word ILIKE ? THEN 1
+        WHEN vw.word ILIKE ? THEN 2
+        ELSE 3
+      END`,
+      [queryText, `${queryText}%`, `%${queryText}%`],
+    )
+    .orderByRaw("LOWER(vw.word)")
+    .orderBy("vw.id");
+}
+
+function categoryWordsBase(userId: string, categoryId: string) {
+  const query = database("vocabulary_words as vw").leftJoin(
+    "vocabulary_entry_categories as vec",
+    "vw.id",
+    "vec.word_id",
+  );
+  applyOwnership(query, userId);
+  applyCategory(query, categoryId);
+  return query;
+}
+
+function searchWordsBase(userId: string, queryText: string) {
+  const query = database("vocabulary_words as vw").join(
+    "vocabulary_categories as vc",
+    "vw.category_id",
+    "vc.id",
+  );
+  applyOwnership(query, userId);
+  applySearch(query, queryText);
+  return query;
+}
+
+async function getCategories(userId: string) {
+  const query = database("vocabulary_words as vw")
+    .leftJoin("vocabulary_entry_categories as vec", "vw.id", "vec.word_id")
+    .join("vocabulary_categories as vc", function () {
+      this.on(
+        "vc.id",
+        "=",
+        database.raw("COALESCE(vec.category_id, vw.category_id)"),
+      );
+    })
+    .where("vc.is_active", true)
+    .select(
+      "vc.id",
+      "vc.track_number",
+      "vc.track_name",
+      "vc.category_number",
+      "vc.category_name",
+      "vc.description",
+      "vc.color_code",
+    )
+    .select(
+      database.raw("ARRAY_AGG(DISTINCT UPPER(vw.cefr_level)) as cefr_levels"),
+    )
+    .countDistinct({ word_count: "vw.id" })
+    .groupBy("vc.id")
+    .orderBy([{ column: "vc.track_number" }, { column: "vc.category_number" }]);
+
+  applyOwnership(query, userId);
+  const rows = await query;
+
+  return rows.map((category: any) => ({
+    ...category,
+    cefr_range: cefrRange(category.cefr_levels),
+    cefr_levels: undefined,
+  }));
+}
 
 router.get(
-  "/categories",
+  ["/", "/categories"],
   authMiddleware,
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-      const categories = await database("vocabulary_categories")
-        .leftJoin(
-          "vocabulary_words",
-          "vocabulary_categories.id",
-          "vocabulary_words.category_id",
-        )
-        .where((builder) =>
-          builder
-            .where("vocabulary_words.owner_user_id", req.userId)
-            .orWhereNull("vocabulary_words.owner_user_id"),
-        )
-        .select(
-          "vocabulary_categories.id",
-          "vocabulary_categories.track_number",
-          "vocabulary_categories.track_name",
-          "vocabulary_categories.category_number",
-          "vocabulary_categories.category_name",
-          "vocabulary_categories.description",
-          "vocabulary_categories.difficulty_level",
-          "vocabulary_categories.estimated_words_count",
-          "vocabulary_categories.color_code",
-        )
-        .count({ word_count: "vocabulary_words.id" })
-        .groupBy("vocabulary_categories.id")
-        .orderBy([{ column: "track_number" }, { column: "category_number" }]);
-
-      res.json({ categories });
+      res.json({ categories: await getCategories(req.userId as string) });
     } catch (error) {
       next(error);
     }
@@ -99,35 +178,55 @@ router.get(
   authMiddleware,
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-      const words = await database("vocabulary_words")
-        .leftJoin(
-          "vocabulary_lessons",
-          "vocabulary_words.id",
-          "vocabulary_lessons.word_id",
-        )
-        .select(
-          "vocabulary_words.id",
-          "vocabulary_words.category_id",
-          "vocabulary_words.word",
-          "vocabulary_words.pronunciation",
-          "vocabulary_words.word_type",
-          "vocabulary_words.cefr_level",
-          "vocabulary_words.frequency",
-          "vocabulary_words.english_meaning",
-          "vocabulary_words.tamil_meaning",
-          "vocabulary_words.core_idea",
-          "vocabulary_words.is_starter_sample",
-          "vocabulary_lessons.lesson_data",
-        )
-        .where("vocabulary_words.category_id", req.params.id)
-        .where((builder) =>
-          builder
-            .where("vocabulary_words.owner_user_id", req.userId)
-            .orWhereNull("vocabulary_words.owner_user_id"),
-        )
-        .orderBy("vocabulary_words.word");
+      const { page = 1, limit = DEFAULT_PAGE_SIZE } = paginationSchema.parse(
+        req.query,
+      );
+      const categories = await getCategories(req.userId as string);
+      const category = categories.find(
+        (item: any) => item.id === req.params.id,
+      );
 
-      res.json({ words });
+      if (!category) {
+        return res.status(404).json({ message: "Category not found" });
+      }
+
+      const base = categoryWordsBase(req.userId as string, req.params.id);
+      const [{ total }] = await base.clone().countDistinct({ total: "vw.id" });
+      const words = await base
+        .clone()
+        .leftJoin("vocabulary_lessons as vl", "vw.id", "vl.word_id")
+        .select(
+          "vw.id",
+          "vw.category_id",
+          "vw.word",
+          "vw.pronunciation",
+          "vw.word_type",
+          "vw.cefr_level",
+          "vw.frequency",
+          "vw.english_meaning",
+          "vw.tamil_meaning",
+          "vw.core_idea",
+          "vw.is_starter_sample",
+          "vl.lesson_data",
+        )
+        .orderByRaw("LOWER(vw.word)")
+        .orderBy("vw.id")
+        .limit(limit)
+        .offset((page - 1) * limit);
+
+      res.json({
+        category,
+        words: words.map((word: any) => ({
+          ...word,
+          cefr_level: normalizeCefrLevel(word.cefr_level),
+        })),
+        pagination: {
+          page,
+          limit,
+          total: Number(total || 0),
+          total_pages: Math.max(1, Math.ceil(Number(total || 0) / limit)),
+        },
+      });
     } catch (error) {
       next(error);
     }
@@ -198,55 +297,47 @@ router.get(
   authMiddleware,
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-      const input = z
-        .object({
-          q: z.string().trim().min(1),
-          limit: z.coerce.number().int().min(1).max(50).optional(),
-        })
-        .parse(req.query);
-      const term = `%${input.q}%`;
-
-      const words = await database("vocabulary_words")
-        .join(
-          "vocabulary_categories",
-          "vocabulary_words.category_id",
-          "vocabulary_categories.id",
-        )
+      const {
+        q,
+        page = 1,
+        limit = DEFAULT_PAGE_SIZE,
+      } = searchSchema.parse(req.query);
+      const base = searchWordsBase(req.userId as string, q);
+      const [{ total }] = await base
+        .clone()
+        .clearSelect()
+        .countDistinct({ total: "vw.id" });
+      const wordsQuery = base
+        .clone()
         .select(
-          "vocabulary_words.id",
-          "vocabulary_words.word",
-          "vocabulary_words.word_type",
-          "vocabulary_words.cefr_level",
-          "vocabulary_words.frequency",
-          "vocabulary_words.english_meaning",
-          "vocabulary_words.tamil_meaning",
-          "vocabulary_words.core_idea",
-          "vocabulary_words.is_starter_sample",
-          "vocabulary_categories.track_name",
-          "vocabulary_categories.category_name",
-        )
-        .where((builder) => {
-          builder
-            .whereILike("vocabulary_words.word", term)
-            .orWhereILike("vocabulary_words.english_meaning", term)
-            .orWhereILike("vocabulary_words.tamil_meaning", term)
-            .orWhereILike("vocabulary_words.core_idea", term)
-            .orWhereILike("vocabulary_categories.category_name", term)
-            .orWhereILike("vocabulary_categories.track_name", term);
-        })
-        .where((builder) =>
-          builder
-            .where("vocabulary_words.owner_user_id", req.userId)
-            .orWhereNull("vocabulary_words.owner_user_id"),
-        )
-        .orderByRaw(
-          `CASE WHEN vocabulary_words.word ILIKE ? THEN 0 ELSE 1 END`,
-          [input.q],
-        )
-        .orderBy("vocabulary_words.word")
-        .limit(input.limit || 20);
+          "vw.id",
+          "vw.word",
+          "vw.word_type",
+          "vw.cefr_level",
+          "vw.frequency",
+          "vw.english_meaning",
+          "vw.tamil_meaning",
+          "vw.core_idea",
+          "vw.is_starter_sample",
+          "vc.track_name",
+          "vc.category_name",
+        );
+      addSearchOrder(wordsQuery, q);
+      const words = await wordsQuery.limit(limit).offset((page - 1) * limit);
 
-      res.json({ words });
+      res.json({
+        query: q,
+        words: words.map((word: any) => ({
+          ...word,
+          cefr_level: normalizeCefrLevel(word.cefr_level),
+        })),
+        pagination: {
+          page,
+          limit,
+          total: Number(total || 0),
+          total_pages: Math.max(1, Math.ceil(Number(total || 0) / limit)),
+        },
+      });
     } catch (error) {
       next(error);
     }
@@ -258,39 +349,32 @@ router.get(
   authMiddleware,
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-      const word = await database("vocabulary_words")
-        .join(
-          "vocabulary_categories",
-          "vocabulary_words.category_id",
-          "vocabulary_categories.id",
-        )
-        .leftJoin(
-          "vocabulary_lessons",
-          "vocabulary_words.id",
-          "vocabulary_lessons.word_id",
-        )
+      const context = detailContextSchema.parse(req.query);
+      const word = await database("vocabulary_words as vw")
+        .join("vocabulary_categories as vc", "vw.category_id", "vc.id")
+        .leftJoin("vocabulary_lessons as vl", "vw.id", "vl.word_id")
         .select(
-          "vocabulary_words.id",
-          "vocabulary_words.category_id",
-          "vocabulary_words.word",
-          "vocabulary_words.pronunciation",
-          "vocabulary_words.word_type",
-          "vocabulary_words.cefr_level",
-          "vocabulary_words.frequency",
-          "vocabulary_words.english_meaning",
-          "vocabulary_words.tamil_meaning",
-          "vocabulary_words.core_idea",
-          "vocabulary_words.is_starter_sample",
-          "vocabulary_categories.track_name",
-          "vocabulary_categories.category_name",
-          "vocabulary_categories.description as category_description",
-          "vocabulary_lessons.lesson_data",
+          "vw.id",
+          "vw.category_id",
+          "vw.word",
+          "vw.pronunciation",
+          "vw.word_type",
+          "vw.cefr_level",
+          "vw.frequency",
+          "vw.english_meaning",
+          "vw.tamil_meaning",
+          "vw.core_idea",
+          "vw.is_starter_sample",
+          "vc.track_name",
+          "vc.category_name",
+          "vc.description as category_description",
+          "vl.lesson_data",
         )
-        .where("vocabulary_words.id", req.params.id)
-        .where((builder) =>
+        .where("vw.id", req.params.id)
+        .where((builder: any) =>
           builder
-            .where("vocabulary_words.owner_user_id", req.userId)
-            .orWhereNull("vocabulary_words.owner_user_id"),
+            .where("vw.owner_user_id", req.userId)
+            .orWhereNull("vw.owner_user_id"),
         )
         .first();
 
@@ -298,7 +382,32 @@ router.get(
         return res.status(404).json({ message: "Word not found" });
       }
 
-      res.json({ word });
+      let navigation = null;
+      if (context.from === "category" && context.categoryId) {
+        const rowsQuery = categoryWordsBase(
+          req.userId as string,
+          context.categoryId,
+        )
+          .select("vw.id", "vw.word")
+          .orderByRaw("LOWER(vw.word)")
+          .orderBy("vw.id");
+        navigation = buildNavigation(await rowsQuery, req.params.id);
+      } else if (context.from === "search" && context.q) {
+        const rowsQuery = searchWordsBase(
+          req.userId as string,
+          context.q,
+        ).select("vw.id", "vw.word");
+        addSearchOrder(rowsQuery, context.q);
+        navigation = buildNavigation(await rowsQuery, req.params.id);
+      }
+
+      res.json({
+        word: {
+          ...word,
+          cefr_level: normalizeCefrLevel(word.cefr_level),
+        },
+        navigation,
+      });
     } catch (error) {
       next(error);
     }
@@ -317,7 +426,7 @@ router.get(
           "vocabulary_words.id",
         )
         .where("word_id", req.params.id)
-        .where((builder) =>
+        .where((builder: any) =>
           builder
             .where("vocabulary_words.owner_user_id", req.userId)
             .orWhereNull("vocabulary_words.owner_user_id"),

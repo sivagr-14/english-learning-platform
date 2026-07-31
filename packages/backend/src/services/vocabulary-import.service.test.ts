@@ -46,4 +46,13 @@ describe("vocabulary import compliance", () => {
       "incomplete or generic",
     );
   });
+
+  it("rejects a CEFR label outside A1 through C2", () => {
+    const entry = compliantImport();
+    entry.cefr_level = "advanced";
+
+    expect(() => validateVocabularyImportEntry(entry)).toThrow(
+      "Use A1, A2, B1, B2, C1 or C2",
+    );
+  });
 });
