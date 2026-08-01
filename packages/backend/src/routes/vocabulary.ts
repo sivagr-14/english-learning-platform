@@ -21,6 +21,10 @@ import {
   ensureFavoriteCategory,
   listUserCategories,
 } from "../services/user-category.service";
+import {
+  displayVocabularyLabel,
+  parseVocabularyDisplayLabel,
+} from "../services/vocabulary-sense.service";
 
 const router: Router = express.Router();
 const DEFAULT_PAGE_SIZE = 50;
@@ -80,9 +84,10 @@ function applyCategory(query: any, categoryId: string) {
 }
 
 function applySearch(query: any, queryText: string, userId: string) {
-  const term = `%${queryText}%`;
+  const parsed = parseVocabularyDisplayLabel(queryText);
+  const term = `%${parsed.term}%`;
 
-  return query.where((builder: any) => {
+  query.where((builder: any) => {
     builder
       .whereILike("vw.word", term)
       .orWhereILike("vw.english_meaning", term)
@@ -112,9 +117,12 @@ function applySearch(query: any, queryText: string, userId: string) {
           );
       });
   });
+  if (parsed.senseRank) query.where("vw.sense_rank", parsed.senseRank);
+  return query;
 }
 
 function addSearchOrder(query: any, queryText: string) {
+  const parsed = parseVocabularyDisplayLabel(queryText);
   return query
     .orderByRaw(
       `CASE
@@ -123,10 +131,18 @@ function addSearchOrder(query: any, queryText: string) {
         WHEN vw.word ILIKE ? THEN 2
         ELSE 3
       END`,
-      [queryText, `${queryText}%`, `%${queryText}%`],
+      [parsed.term, `${parsed.term}%`, `%${parsed.term}%`],
     )
     .orderByRaw("LOWER(vw.word)")
+    .orderBy("vw.sense_rank")
     .orderBy("vw.id");
+}
+
+function withDisplayLabel(word: any) {
+  return {
+    ...word,
+    display_label: displayVocabularyLabel(word.word, word.sense_rank),
+  };
 }
 
 function categoryWordsBase(userId: string, categoryId: string) {
@@ -286,6 +302,8 @@ router.get(
           "vw.id",
           "vw.category_id",
           "vw.word",
+          "vw.sense_rank",
+          "vw.sense_gloss",
           "vw.pronunciation",
           "vw.word_type",
           "vw.cefr_level",
@@ -297,6 +315,7 @@ router.get(
           "vl.lesson_data",
         )
         .orderByRaw("LOWER(vw.word)")
+        .orderBy("vw.sense_rank")
         .orderBy("vw.id")
         .limit(limit)
         .offset((page - 1) * limit);
@@ -304,7 +323,7 @@ router.get(
       res.json({
         category,
         words: words.map((word: any) => ({
-          ...word,
+          ...withDisplayLabel(word),
           cefr_level: normalizeCefrLevel(word.cefr_level),
         })),
         pagination: {
@@ -399,6 +418,8 @@ router.get(
         .select(
           "vw.id",
           "vw.word",
+          "vw.sense_rank",
+          "vw.sense_gloss",
           "vw.word_type",
           "vw.cefr_level",
           "vw.frequency",
@@ -415,7 +436,7 @@ router.get(
       res.json({
         query: q,
         words: words.map((word: any) => ({
-          ...word,
+          ...withDisplayLabel(word),
           cefr_level: normalizeCefrLevel(word.cefr_level),
         })),
         pagination: {
@@ -444,6 +465,8 @@ router.get(
           "vw.id",
           "vw.category_id",
           "vw.word",
+          "vw.sense_rank",
+          "vw.sense_gloss",
           "vw.pronunciation",
           "vw.word_type",
           "vw.cefr_level",
@@ -477,6 +500,7 @@ router.get(
         )
           .select("vw.id", "vw.word")
           .orderByRaw("LOWER(vw.word)")
+          .orderBy("vw.sense_rank")
           .orderBy("vw.id");
         navigation = buildNavigation(await rowsQuery, String(req.params.id));
       } else if (context.from === "search" && context.q) {
@@ -490,7 +514,7 @@ router.get(
 
       res.json({
         word: {
-          ...word,
+          ...withDisplayLabel(word),
           cefr_level: normalizeCefrLevel(word.cefr_level),
         },
         navigation,
