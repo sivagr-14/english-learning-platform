@@ -33,7 +33,8 @@ writes database rows.
 
 ## Manifest guarantees
 
-The manifest format is `chatgpt-vocabulary-manifest-v1`. It must include:
+New imports use `chatgpt-vocabulary-manifest-v2`. Version 1 remains readable
+only so already-started imports can finish. Version 2 must include:
 
 - a stable `manifestId`, source SHA-256, source type and creation time;
 - `totalPages` and an ordered page ledger from page 1 through the last page;
@@ -41,6 +42,8 @@ The manifest format is `chatgpt-vocabulary-manifest-v1`. It must include:
 - an explicit status for unreadable pages or chunks, including the error;
 - every discovered vocabulary candidate with a permanent decision:
   `generate`, `existing`, `filtered` or `rejected`;
+- one contextual meaning, stable `senseKey`, `senseDecision` and source-backed
+  `senseEvidence` for every candidate;
 - a specific reason for every non-generated candidate;
 - source page, chunk and sentence for every candidate occurrence;
 - exact recomputable totals; and
@@ -51,9 +54,16 @@ The app rejects a manifest when a page, chunk, candidate, count or planned batch
 is missing, duplicated or inconsistent. An unreadable page is never silently
 treated as assessed.
 
+Candidate identity is `normalized term + contextual sense`, not spelling alone.
+Repeated occurrences with the same meaning are merged. Repeated spelling with
+a genuinely different meaning remains a separate candidate. Ambiguous meanings
+are held for attention instead of guessed.
+
 ## Batch guarantees
 
-The batch format is `chatgpt-vocabulary-batch-v1`. It must include:
+New batches use `chatgpt-vocabulary-batch-v2` and must match a version-2
+manifest. Version-1 batches remain compatible only with version-1 manifests.
+Each batch must include:
 
 - an immutable `batchId`;
 - the manifest ID and exact manifest SHA-256;
@@ -65,6 +75,39 @@ Every entry contains pronunciation, word type, English meaning, useful Tamil
 meaning, core idea and the complete `simplified-v2` lesson. The local quality
 gate rejects empty values, placeholders, generic advice, missing term usage,
 weak examples and incomplete Advanced Nuance.
+
+The batch must use the real unsuffixed term. ChatGPT never writes `(A)`, `(B)`,
+`-B` or another display suffix into `word`. The assessed contextual meaning
+must be copied exactly into the header and Meaning in Context section, and the
+lesson source sentence must equal the recorded evidence sentence.
+
+## Multiple meanings of the same term
+
+For each occurrence, use the full sentence, surrounding paragraph or dialogue,
+grammatical role, topic and situation to identify only the demonstrated
+meaning. Do not add unrelated dictionary meanings.
+
+```text
+same term + same meaning       -> reuse the existing sense
+same term + different meaning -> create the next permanent sense
+uncertain meaning             -> attention required
+```
+
+The backend stores the real term plus a permanent rank. Rank 1 is internally A
+but is always displayed without a suffix. Rank 2 is `(B)`, rank 3 is `(C)`,
+rank 4 is `(D)`, rank 5 is `(E)`, continuing through `(Z)`, `(AA)` and beyond.
+Ranks are never renumbered or reused after deletion.
+
+Example:
+
+```text
+“She deposited the money at the bank.” -> bank
+“They rested on the river bank.”        -> bank (B)
+another financial occurrence           -> reuse bank
+```
+
+The suffix is derived only by the app. It is not part of pronunciation,
+matching, examples, sorting identity or the generated lesson.
 
 Reusing the same manifest or batch ID with identical content is safe and has no
 effect. Reusing it with changed content creates a conflict instead of modifying
@@ -97,6 +140,8 @@ interrupted import resumes with the rules it started with.
 - filter low-frequency terms, proper names, OCR/extraction noise, malformed
   tokens, exact duplicates and already-complete entries, recording a specific
   reason for every exclusion;
+- define an exact duplicate as the same normalized term and same contextual
+  sense; never exclude a different meaning merely because spelling repeats;
 - hold unreadable or ambiguous source material for attention instead of
   silently skipping it;
 - assess in bounded groups of 50 candidates up to 500 total candidates, then
@@ -116,11 +161,14 @@ When asked to process a source for this application, ChatGPT must:
    the learner has claimed the import; ask only for unresolved exceptions;
 4. use the manifest and batch runtime contracts in
    `packages/backend/src/services/content-pack-contract.ts`;
-5. validate files with `yarn content-packs:validate <directory>` before writing
+5. preserve different contextual senses of the same spelling as separate
+   candidates and merge only term-and-sense duplicates;
+6. validate files with `yarn content-packs:validate <directory>` before writing
    them to the inbox branch;
-6. never place an OpenAI API key, PostgreSQL credential or personal database
+7. never place an OpenAI API key, PostgreSQL credential or personal database
    export in GitHub; and
-7. report any unreadable source area, rejected batch or missing planned batch.
+8. report any unreadable source area, ambiguous sense, rejected batch or
+   missing planned batch.
 
 ## Completion rule
 
@@ -130,6 +178,7 @@ An import is complete only when all of these are true:
 declared pages = assessed pages + explicitly unreadable pages
 declared chunks = assessed chunks + explicitly unreadable chunks
 all candidates = generate + existing + filtered + rejected
+all contextual senses = resolved same/new senses + explicitly held ambiguities
 all approved candidates = committed PostgreSQL entries
 all planned batches = received and valid batches
 missing or untracked items = 0
@@ -137,6 +186,9 @@ missing or untracked items = 0
 
 If any value is nonzero or inconsistent, the UI reports **Processing** or
 **Attention required**, never **Completed**.
+
+An explicitly held ambiguity is accounted for but still blocks **Completed**
+until it is resolved or deliberately excluded with a recorded reason.
 
 ## Inbox cleanup rule
 
@@ -147,4 +199,3 @@ progress and review row is read back successfully. A guarded Git push prevents
 cleanup from overwriting a concurrently delivered pack. Failed cleanup is safe
 to retry, and an already-absent folder is recorded without changing PostgreSQL
 content.
-
