@@ -4,6 +4,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
+const os = require('os');
 const { spawn, spawnSync } = require('child_process');
 
 const repoRoot = path.resolve(__dirname, '..');
@@ -92,7 +93,7 @@ function run(command, args, onOutput) {
     child.stderr.on('data', capture);
     child.once('error', reject);
     child.once('exit', (code) => {
-      if (code === 0) resolve();
+      if (code === 0) resolve(capturedOutput);
       else {
         const detail = capturedOutput
           .trim()
@@ -473,7 +474,7 @@ class ControlManager {
       'sync-content-packs.ts',
     );
     if (!fs.existsSync(syncScript)) return { available: false };
-    await this.runAsync(
+    const syncOutput = await this.runAsync(
       process.execPath,
       [
         path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'),
@@ -486,7 +487,75 @@ class ControlManager {
       ],
       (output) => this.log(output),
     );
-    return { available: true };
+    const syncResult = this.parseLastJsonObject(syncOutput);
+    const cleanup = await this.cleanupVerifiedContentPacks(
+      syncResult.cleanupEligible || [],
+      syncScript,
+    );
+    return { available: true, cleanup };
+  }
+
+  parseLastJsonObject(output = '') {
+    const lines = String(output).trim().split(/\r?\n/);
+    for (let start = 0; start < lines.length; start += 1) {
+      const candidate = lines.slice(start).join('\n');
+      try {
+        return JSON.parse(candidate);
+      } catch {}
+    }
+    return {};
+  }
+
+  async cleanupVerifiedContentPacks(manifestIds, syncScript) {
+    const cleaned = [];
+    const alreadyAbsent = [];
+    const failed = [];
+    for (const manifestId of [...new Set(manifestIds)]) {
+      if (!/^[a-zA-Z0-9][a-zA-Z0-9._-]{2,119}$/.test(manifestId)) {
+        failed.push({ manifestId, error: 'Unsafe manifest ID.' });
+        continue;
+      }
+      const folder = `content-packs/inbox/${manifestId}`;
+      const exists = this.execute('git', ['cat-file', '-e', `${contentInboxRef}:${folder}`]);
+      if (exists.status !== 0) {
+        const currentSha = commandOutput(this.execute('git', ['rev-parse', contentInboxRef]));
+        await this.runAsync(
+          process.execPath,
+          [path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'), '--transpile-only', '--project', path.join(backendDirectory, 'tsconfig.json'), syncScript, '--mark-cleaned', manifestId, currentSha],
+          (output) => this.log(output),
+        );
+        alreadyAbsent.push(manifestId);
+        continue;
+      }
+      const expectedSha = commandOutput(this.execute('git', ['rev-parse', contentInboxRef]));
+      const worktree = fs.mkdtempSync(path.join(os.tmpdir(), 'english-content-cleanup-'));
+      try {
+        let result = this.execute('git', ['worktree', 'add', '--detach', worktree, contentInboxRef]);
+        if (result.status !== 0) throw new Error(commandOutput(result) || 'Could not create cleanup worktree.');
+        fs.rmSync(path.join(worktree, ...folder.split('/')), { recursive: true, force: true });
+        result = this.execute('git', ['-C', worktree, 'add', '-A', '--', folder]);
+        if (result.status !== 0) throw new Error(commandOutput(result) || 'Could not stage inbox cleanup.');
+        result = this.execute('git', ['-C', worktree, '-c', 'user.name=English Mastery', '-c', 'user.email=local@english-mastery.invalid', 'commit', '-m', `Archive completed content pack ${manifestId}`]);
+        if (result.status !== 0) throw new Error(commandOutput(result) || 'Could not commit inbox cleanup.');
+        const cleanupSha = commandOutput(this.execute('git', ['-C', worktree, 'rev-parse', 'HEAD']));
+        result = this.execute('git', ['-C', worktree, 'push', 'origin', `HEAD:refs/heads/${contentInboxBranch}`, `--force-with-lease=refs/heads/${contentInboxBranch}:${expectedSha}`]);
+        if (result.status !== 0) throw new Error(commandOutput(result) || 'Inbox changed concurrently; cleanup deferred.');
+        result = this.execute('git', ['update-ref', `refs/remotes/origin/${contentInboxBranch}`, cleanupSha, expectedSha]);
+        if (result.status !== 0) throw new Error(commandOutput(result) || 'Could not update the local inbox reference.');
+        await this.runAsync(
+          process.execPath,
+          [path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'), '--transpile-only', '--project', path.join(backendDirectory, 'tsconfig.json'), syncScript, '--mark-cleaned', manifestId, cleanupSha],
+          (output) => this.log(output),
+        );
+        cleaned.push(manifestId);
+      } catch (error) {
+        failed.push({ manifestId, error: error instanceof Error ? error.message : String(error) });
+      } finally {
+        this.execute('git', ['worktree', 'remove', '--force', worktree]);
+        fs.rmSync(worktree, { recursive: true, force: true });
+      }
+    }
+    return { cleaned, alreadyAbsent, failed };
   }
 
   verifyUpdateWorkspace() {
