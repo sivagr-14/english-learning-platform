@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "2026-08-01-contextual-senses-v2",
+  "sources": [
+    {
+      "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "sha256": "150094d00b58ce3d846d202fac298d6a565f9788129e6248b338aa049f1de295",
+      "sizeBytes": 9572
+    },
+    {
+      "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+      "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
+      "sha256": "a0c0768e103abb8001ec87ea6e5b9d55177fecb39723bae4d0b1c87129aa973c",
+      "sizeBytes": 7330
+    }
+  ]
+}
