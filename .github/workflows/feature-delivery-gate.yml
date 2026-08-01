@@ -1,0 +1,36 @@
+name: Feature delivery gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  delivery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validate feature delivery on pull request
+        if: github.event_name == 'pull_request'
+        run: >-
+          node scripts/validate-feature-delivery.js
+          --base "${{ github.event.pull_request.base.sha }}"
+          --head "${{ github.event.pull_request.head.sha }}"
+      - name: Validate merged feature delivery and create evidence
+        if: github.event_name == 'push'
+        run: >-
+          node scripts/validate-feature-delivery.js
+          --evidence feature-delivery-evidence.json
+      - name: Upload merged delivery evidence
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: feature-delivery-evidence
+          path: feature-delivery-evidence.json
+          if-no-files-found: error
+          retention-days: 90
