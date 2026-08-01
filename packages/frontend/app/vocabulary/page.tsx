@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { getApiClient } from "@/lib/api/client";
 import useAuthStore from "@/lib/store/auth";
 import AppShell from "@/components/AppShell";
+import WordCategoryPicker from "@/components/WordCategoryPicker";
 
 interface Category {
   id: string;
@@ -39,6 +40,7 @@ export default function VocabularyPage() {
     null,
   );
   const [words, setWords] = useState<Word[]>([]);
+  const [selectedWordIds, setSelectedWordIds] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [starterSamples, setStarterSamples] = useState({
     available: 0,
@@ -151,12 +153,36 @@ export default function VocabularyPage() {
         `/api/vocabulary/categories/${selectedCategory.id}/words`,
       );
       setWords(response.data.words);
+      setSelectedWordIds([]);
     };
 
     loadWords().catch(() => {
       setWords([]);
     });
   }, [selectedCategory]);
+
+  const refreshCategoryCounts = async () => {
+    const response = await getApiClient().get("/api/vocabulary/categories");
+    const nextCategories: Category[] = response.data.categories;
+    setCategories(nextCategories);
+    setSelectedCategory((current) =>
+      current
+        ? nextCategories.find((category) => category.id === current.id) ||
+          current
+        : current,
+    );
+  };
+
+  const toggleWord = (wordId: string) => {
+    setSelectedWordIds((current) =>
+      current.includes(wordId)
+        ? current.filter((id) => id !== wordId)
+        : [...current, wordId],
+    );
+  };
+
+  const allWordsSelected =
+    words.length > 0 && selectedWordIds.length === words.length;
 
   if (!isHydrated || !isAuthenticated) {
     return null;
@@ -282,15 +308,53 @@ export default function VocabularyPage() {
                 </p>
               </div>
 
+              <div className="mb-5 space-y-3">
+                <label className="inline-flex items-center gap-2 text-sm font-medium text-slate-700">
+                  <input
+                    type="checkbox"
+                    checked={allWordsSelected}
+                    onChange={() =>
+                      setSelectedWordIds(
+                        allWordsSelected ? [] : words.map((word) => word.id),
+                      )
+                    }
+                    className="h-4 w-4 rounded border-slate-300 text-amber-600"
+                  />
+                  {allWordsSelected
+                    ? "Clear selection"
+                    : `Select all ${words.length} words shown`}
+                </label>
+                <WordCategoryPicker
+                  wordIds={selectedWordIds}
+                  onUpdated={async () => {
+                    await refreshCategoryCounts();
+                    setSelectedWordIds([]);
+                  }}
+                />
+              </div>
+
               <div className="space-y-3">
                 {words.map((word) => (
                   <section
                     key={word.id}
-                    className="rounded-lg border border-gray-200 bg-white transition hover:border-blue-300 hover:bg-blue-50"
+                    className={`flex items-center rounded-lg border bg-white transition hover:border-blue-300 hover:bg-blue-50 ${
+                      selectedWordIds.includes(word.id)
+                        ? "border-amber-400 ring-1 ring-amber-200"
+                        : "border-gray-200"
+                    }`}
                   >
+                    <label className="flex self-stretch items-center px-4">
+                      <input
+                        type="checkbox"
+                        checked={selectedWordIds.includes(word.id)}
+                        onChange={() => toggleWord(word.id)}
+                        aria-label={`Select ${word.word}`}
+                        className="h-4 w-4 rounded border-slate-300 text-amber-600"
+                      />
+                    </label>
                     <a
                       href={`/vocabulary/words/${word.id}?from=category&categoryId=${selectedCategory.id}&page=1&limit=50`}
-                      className="flex w-full items-center justify-between gap-4 px-4 py-3 text-left hover:bg-gray-50"
+                      className="flex min-w-0 flex-1 items-center justify-between gap-4 py-3 pl-1 pr-4 text-left hover:bg-gray-50"
                     >
                       <div className="min-w-0">
                         <h3 className="truncate text-base font-semibold text-gray-900">
