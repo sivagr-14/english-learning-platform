@@ -24,6 +24,13 @@ class MemoryQuery {
     return this;
   }
 
+  whereNull(column: string) {
+    this.predicates.push(
+      (row) => row[column] === null || row[column] === undefined,
+    );
+    return this;
+  }
+
   orderBy() {
     return this;
   }

@@ -31,6 +31,20 @@ export function loadContentPacksFromGit(
 }
 
 async function main() {
+  const cleanedIndex = process.argv.indexOf("--mark-cleaned");
+  if (cleanedIndex >= 0) {
+    const manifestId = process.argv[cleanedIndex + 1];
+    const commitSha = process.argv[cleanedIndex + 2];
+    if (!manifestId || !commitSha) {
+      throw new Error("--mark-cleaned requires a manifest ID and commit SHA.");
+    }
+    await new ContentPackService(database).markInboxCleaned(
+      manifestId,
+      commitSha,
+    );
+    console.log(JSON.stringify({ markedCleaned: manifestId, commitSha }));
+    return;
+  }
   const refIndex = process.argv.indexOf("--git-ref");
   const gitRef = refIndex >= 0 ? process.argv[refIndex + 1] : undefined;
   const directoryIndex = process.argv.indexOf("--directory");

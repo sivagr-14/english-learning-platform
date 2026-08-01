@@ -39,6 +39,7 @@ interface PackManifest {
   };
   candidates?: PackCandidate[];
   createdAt: string;
+  inboxCleanedAt?: string | null;
 }
 
 interface PackCandidate {
@@ -125,7 +126,11 @@ export default function ChatGPTImportsPage() {
       setMessage(
         result.available === false
           ? "The ChatGPT content inbox has not been initialized yet."
-          : "ChatGPT content inbox synchronized and validated.",
+          : result.cleanup?.cleaned?.length
+            ? `Synchronized and removed ${result.cleanup.cleaned.length} verified pack(s) from the active inbox.`
+            : result.cleanup?.alreadyAbsent?.length
+              ? "Synchronized; the verified pack was already absent and is now recorded as cleaned."
+              : "ChatGPT content inbox synchronized and validated.",
       );
       await load();
     } catch (syncError) {
