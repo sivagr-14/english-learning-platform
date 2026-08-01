@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict');
 const { EventEmitter } = require('node:events');
+const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 const {
@@ -307,7 +308,10 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
 
   const result = await manager.synchronizeChatGPTContent();
 
-  assert.deepEqual(result, { available: true });
+  assert.deepEqual(result, {
+    available: true,
+    cleanup: { cleaned: [], alreadyAbsent: [], failed: [] },
+  });
   assert.ok(
     commands.some((command) =>
       command.join(' ').includes(
@@ -322,6 +326,86 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
         command.includes('origin/chatgpt-content-inbox'),
     ),
   );
+});
+
+test('verified content cleanup deletes only its inbox folder and records the commit', async () => {
+  const commands = [];
+  const marked = [];
+  const manager = new ControlManager({
+    execute: (command, args) => {
+      commands.push([command, ...args]);
+      if (args[0] === 'worktree' && args[1] === 'add') {
+        const worktree = args[3];
+        fs.mkdirSync(
+          path.join(worktree, 'content-packs', 'inbox', 'pack-001'),
+          { recursive: true },
+        );
+        fs.writeFileSync(
+          path.join(worktree, 'content-packs', 'inbox', 'pack-001', 'manifest.json'),
+          '{}',
+        );
+      }
+      if (args.includes('rev-parse') && args.includes('HEAD')) {
+        return { status: 0, stdout: 'b'.repeat(40), stderr: '' };
+      }
+      if (args[0] === 'rev-parse') {
+        return { status: 0, stdout: 'a'.repeat(40), stderr: '' };
+      }
+      return { status: 0, stdout: '', stderr: '' };
+    },
+    runAsync: async (_command, args) => {
+      marked.push(args);
+      return '{}';
+    },
+  });
+
+  const result = await manager.cleanupVerifiedContentPacks(
+    ['pack-001'],
+    '/repo/sync-content-packs.ts',
+  );
+
+  assert.deepEqual(result, {
+    cleaned: ['pack-001'],
+    alreadyAbsent: [],
+    failed: [],
+  });
+  assert.ok(
+    commands.some((command) =>
+      command.includes(
+        '--force-with-lease=refs/heads/chatgpt-content-inbox:' + 'a'.repeat(40),
+      ),
+    ),
+  );
+  assert.ok(marked[0].includes('--mark-cleaned'));
+});
+
+test('verified content cleanup records an already-absent folder without deleting data', async () => {
+  const marked = [];
+  const manager = new ControlManager({
+    execute: (_command, args) => {
+      if (args[0] === 'cat-file') return { status: 1, stdout: '', stderr: '' };
+      if (args[0] === 'rev-parse') {
+        return { status: 0, stdout: 'c'.repeat(40), stderr: '' };
+      }
+      return { status: 0, stdout: '', stderr: '' };
+    },
+    runAsync: async (_command, args) => {
+      marked.push(args);
+      return '{}';
+    },
+  });
+
+  const result = await manager.cleanupVerifiedContentPacks(
+    ['pack-removed'],
+    '/repo/sync-content-packs.ts',
+  );
+
+  assert.deepEqual(result, {
+    cleaned: [],
+    alreadyAbsent: ['pack-removed'],
+    failed: [],
+  });
+  assert.ok(marked[0].includes('--mark-cleaned'));
 });
 
 test('restart stops owned web services before running the validated startup flow', async () => {
