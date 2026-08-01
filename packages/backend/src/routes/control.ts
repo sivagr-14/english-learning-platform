@@ -6,12 +6,15 @@ import {
   AuthenticatedRequest,
 } from "../middleware/auth.middleware";
 import { AssessmentControlService } from "../services/assessment-control.service";
-import { AutomatedVocabularyService } from "../services/openai-generation.service";
+import {
+  ContentPackService,
+  synchronizeContentPacks,
+} from "../services/content-pack.service";
 import { database } from "../utils/db";
 
 const router: Router = express.Router();
 const service = new AssessmentControlService(database);
-const automation = new AutomatedVocabularyService(database);
+const contentPacks = new ContentPackService(database);
 const controlRateLimiter = rateLimit({
   windowMs: 60_000,
   limit: 60,
@@ -27,31 +30,115 @@ router.use((_req, res, next) => {
 });
 
 router.get(
-  "/automation-status",
-  async (_req: AuthenticatedRequest, res: Response) => {
-    res.json(automation.status());
+  "/connection-status",
+  (_req: AuthenticatedRequest, res: Response) => {
+    res.json({
+      mode: "chatgpt-github-content-inbox",
+      apiKeyRequired: false,
+      inboxBranch: "chatgpt-content-inbox",
+    });
+  },
+);
+
+router.get(
+  "/content-packs",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const [manifests, ingestErrors] = await Promise.all([
+        contentPacks.listManifests(req.userId!),
+        contentPacks.listIngestErrors(),
+      ]);
+      res.json({ manifests, ingestErrors });
+    } catch (error) {
+      next(error);
+    }
   },
 );
 
 router.post(
-  "/assess-text",
+  "/content-packs/sync",
+  async (_req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const result = await synchronizeContentPacks(database);
+      res.json({
+        message: "Local ChatGPT content packs synchronized.",
+        result,
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.get(
+  "/content-packs/:id",
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
+      const manifestId = z.string().trim().min(3).max(120).parse(req.params.id);
+      res.json({
+        manifest: await contentPacks.getManifest(req.userId!, manifestId),
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.post(
+  "/content-packs/:id/claim",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const manifestId = z.string().trim().min(3).max(120).parse(req.params.id);
+      const manifest = await contentPacks.claimManifest(
+        req.userId!,
+        manifestId,
+      );
+      res.json({
+        message: "Manifest claimed. Review the exact candidate count.",
+        manifest,
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.post(
+  "/content-packs/:id/approve",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const manifestId = z.string().trim().min(3).max(120).parse(req.params.id);
       const input = z
         .object({
-          name: z.string().trim().min(1).max(255),
-          text: z.string().trim().min(20).max(150_000),
+          candidateIds: z
+            .array(z.string().trim().min(3).max(140))
+            .min(1)
+            .optional(),
         })
+        .default({})
         .parse(req.body);
-      const assessment = await automation.assessText(
+      const manifest = await contentPacks.approveManifest(
         req.userId!,
-        input.name,
-        input.text,
+        manifestId,
+        input.candidateIds,
       );
-      res.status(201).json({
-        message: "Assessment saved. Review the exact counts before approval.",
-        assessment,
+      res.json({
+        message:
+          "Approved candidates are saved automatically as validated ChatGPT batches arrive.",
+        manifest,
       });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.post(
+  "/content-packs/:id/verify",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const manifestId = z.string().trim().min(3).max(120).parse(req.params.id);
+      res.json(await contentPacks.verifyManifest(req.userId!, manifestId));
     } catch (error) {
       next(error);
     }
@@ -115,12 +202,8 @@ router.post(
         assessmentId,
         input.candidateIds,
       );
-      void automation
-        .processJob(req.userId!, generationJob.id)
-        .catch((error) => console.error("Generation job failed", error));
       res.status(202).json({
-        message:
-          "Approved candidates queued for ChatGPT-controlled generation.",
+        message: "Approved candidates are ready for ChatGPT content batches.",
         generationJob,
       });
     } catch (error) {
@@ -130,5 +213,3 @@ router.post(
 );
 
 export default router;
-
-export { automation as automatedVocabularyService };
