@@ -23,6 +23,7 @@ export interface ContentPackSyncResult {
   unchanged: number;
   committedEntries: number;
   errors: Array<{ path: string; message: string }>;
+  cleanupEligible: string[];
 }
 
 function readJson<T>(value: unknown, fallback: T): T {
@@ -90,6 +91,7 @@ export class ContentPackService {
       unchanged: 0,
       committedEntries: 0,
       errors: [],
+      cleanupEligible: [],
     };
     const parsed = documents.map((document) => {
       try {
@@ -274,6 +276,7 @@ export class ContentPackService {
 
     const claimed = await this.database("content_pack_manifests")
       .whereNotNull("owner_user_id")
+      .whereNull("inbox_cleaned_at")
       .select("id", "owner_user_id");
     for (const manifest of claimed) {
       const committed = await this.commitAvailableBatches(
@@ -281,6 +284,11 @@ export class ContentPackService {
         manifest.id,
       );
       result.committedEntries += committed;
+      const verification = await this.verifyManifest(
+        manifest.owner_user_id,
+        manifest.id,
+      );
+      if (verification.verified) result.cleanupEligible.push(manifest.id);
     }
     return result;
   }
@@ -770,14 +778,51 @@ export class ContentPackService {
 
   async verifyManifest(userId: string, manifestId: string) {
     const manifest = await this.getManifest(userId, manifestId);
+    const manifestRow = await this.database("content_pack_manifests")
+      .where({ id: manifestId, owner_user_id: userId })
+      .first();
+    const job = manifestRow?.assessment_run_id
+      ? await this.database("generation_jobs")
+          .where({
+            assessment_run_id: manifestRow.assessment_run_id,
+            owner_user_id: userId,
+          })
+          .first()
+      : null;
+    const issues: string[] = [];
+    if (manifest.status !== "completed") {
+      issues.push(`Import status is ${manifest.status}, not completed.`);
+    }
+    if (manifest.generation.missingBatches !== 0) {
+      issues.push(`${manifest.generation.missingBatches} planned batch(es) are missing.`);
+    }
+    if (manifest.generation.invalidBatches !== 0) {
+      issues.push(`${manifest.generation.invalidBatches} batch(es) are invalid or conflicting.`);
+    }
+    if (
+      manifest.generation.receivedBatches !==
+      manifest.generation.plannedBatches
+    ) {
+      issues.push("Received batch count does not match the generation plan.");
+    }
     const wordIds = manifest.batches.flatMap((batch: any) =>
       readJson<string[]>(batch.committed_word_ids, []),
     );
+    const uniqueWordIds = [...new Set(wordIds)];
+    if (uniqueWordIds.length !== wordIds.length) {
+      issues.push("Committed word IDs contain duplicates.");
+    }
+    if (wordIds.length !== manifest.generation.committedEntries) {
+      issues.push("Committed entry count does not match the batch ledger.");
+    }
+    if (!job || wordIds.length !== Number(job.total_items)) {
+      issues.push("Committed entry count does not match the approved import count.");
+    }
     if (!wordIds.length) {
       return {
         verified: false,
         entries: 0,
-        issues: ["No entries are committed yet."],
+        issues: [...issues, "No entries are committed yet."],
       };
     }
     const rows = await this.database("vocabulary_words as words")
@@ -796,7 +841,7 @@ export class ContentPackService {
           userId,
         );
       })
-      .whereIn("words.id", wordIds)
+      .whereIn("words.id", uniqueWordIds)
       .where("words.owner_user_id", userId)
       .select(
         "words.id",
@@ -805,16 +850,32 @@ export class ContentPackService {
         "progress.id as progress_id",
         "queue.id as queue_id",
       );
-    const issues: string[] = [];
     for (const row of rows) {
       if (!row.lesson_id) issues.push(`${row.word}: lesson row is missing`);
       if (!row.progress_id) issues.push(`${row.word}: progress row is missing`);
       if (!row.queue_id) issues.push(`${row.word}: review card is missing`);
     }
-    if (rows.length !== wordIds.length) {
+    if (rows.length !== uniqueWordIds.length) {
       issues.push("One or more committed word rows could not be read back.");
     }
     return { verified: issues.length === 0, entries: rows.length, issues };
+  }
+
+  async markInboxCleaned(manifestId: string, commitSha: string) {
+    const row = await this.database("content_pack_manifests")
+      .where({ id: manifestId })
+      .first();
+    if (!row) throw statusError("ChatGPT content manifest not found", 404);
+    if (row.status !== "completed") {
+      throw statusError("Only a completed manifest can be marked as cleaned.");
+    }
+    await this.database("content_pack_manifests")
+      .where({ id: manifestId })
+      .update({
+        inbox_cleaned_at: new Date(),
+        inbox_cleanup_commit: commitSha,
+        updated_at: new Date(),
+      });
   }
 
   private async manifestSummary(row: any) {
@@ -852,6 +913,8 @@ export class ContentPackService {
       createdAt: row.created_at,
       updatedAt: row.updated_at,
       completedAt: row.completed_at,
+      inboxCleanedAt: row.inbox_cleaned_at,
+      inboxCleanupCommit: row.inbox_cleanup_commit,
     };
   }
 
