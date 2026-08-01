@@ -39,6 +39,10 @@ export async function up(knex: any): Promise<void> {
       ADD CONSTRAINT vocabulary_words_sense_rank_positive
       CHECK (sense_rank > 0);
 
+    ALTER TABLE vocabulary_words
+      DROP CONSTRAINT IF EXISTS vocabulary_words_category_id_word_key;
+    ALTER TABLE vocabulary_words
+      DROP CONSTRAINT IF EXISTS vocabulary_words_category_id_word_unique;
     DROP INDEX IF EXISTS vocabulary_words_owned_category_word_unique;
     DROP INDEX IF EXISTS vocabulary_words_shared_category_word_unique;
 
