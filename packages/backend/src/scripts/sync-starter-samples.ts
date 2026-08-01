@@ -1,4 +1,5 @@
 import { synchronizeEnabledStarterSamples } from "../services/starter-samples.service";
+import { synchronizeContentPacks } from "../services/content-pack.service";
 import { database } from "../utils/db";
 
 async function main() {
@@ -7,6 +8,10 @@ async function main() {
   const updated = results.reduce((total, result) => total + result.updated, 0);
   console.log(
     `Built-in vocabulary synchronized for ${results.length} account(s): ${created} created, ${updated} updated.`,
+  );
+  const packs = await synchronizeContentPacks(database);
+  console.log(
+    `Local ChatGPT content packs: ${packs.manifestsAdded} manifest(s), ${packs.batchesAdded} batch(es), ${packs.committedEntries} committed entries.`,
   );
 }
 

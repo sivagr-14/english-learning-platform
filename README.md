@@ -3,21 +3,22 @@
 A personal, Mac-local English vocabulary learning platform controlled through
 ChatGPT.
 
-The local web app is the vocabulary-management and learning workspace. It can
-assess pasted content with OpenAI, require explicit approval, generate complete
-lessons, and save validated entries to local PostgreSQL.
+ChatGPT performs vocabulary assessment and complete lesson generation without
+an OpenAI API key. It sends structured content through a dedicated private
+GitHub inbox branch. The local app validates, approves and saves it to local
+PostgreSQL.
 
 ## Product workflow
 
-1. Paste learning text into **Automated Vocabulary**.
-2. The local backend assesses the content and compares it with saved vocabulary.
-3. Review exact counts for new, update, unchanged, filtered, Heavy-use, and
-   Medium-use candidates.
-4. Approve the proposed scope in the local app.
-5. The local generation worker creates complete lessons through the OpenAI
-   Responses API and validates them before saving.
-6. The platform accounts for every approved item as completed, failed, or
-   requiring manual review.
+1. Paste text or attach a PDF in ChatGPT.
+2. ChatGPT creates a complete page/chunk/candidate manifest in the private
+   `chatgpt-content-inbox` branch.
+3. Select **Sync ChatGPT content** and claim the import locally.
+4. Review exact counts and approve the intended candidates.
+5. ChatGPT creates complete eight-section batches in the same inbox.
+6. The local backend validates and commits each batch transactionally.
+7. Verify that words, lessons, categories, progress and review cards can all be
+   read back from PostgreSQL.
 
 Assessment never creates or updates vocabulary. Direct single-entry and JSON
 imports are disabled so they cannot bypass this workflow.
@@ -27,7 +28,7 @@ imports are disabled so they cannot bypass this workflow.
 - Email/password registration and authentication
 - ChatGPT-controlled assessment and approval API
 - Exact assessment counts and source traceability
-- Resumable automated generation jobs
+- Resumable ChatGPT content-pack generation jobs
 - User-owned vocabulary with version-history foundations
 - Hierarchical primary/secondary category foundations
 - Full vocabulary lesson storage with Tamil support
@@ -37,9 +38,9 @@ imports are disabled so they cannot bypass this workflow.
 - Control history for assessment and generation status
 - PostgreSQL and Redis running locally through Docker
 
-OpenAI API usage is paid separately from a ChatGPT subscription. The API never
-receives PostgreSQL credentials: it returns structured JSON to the local
-backend, and only the backend can write to the local database.
+No OpenAI API key or separate API billing is required. ChatGPT never receives
+PostgreSQL credentials. The GitHub inbox contains only structured manifests and
+lesson packs; only the authenticated local backend writes the database.
 
 ## Local Mac setup
 
@@ -97,6 +98,11 @@ GitHub `main`, back up PostgreSQL, install changed dependencies, run migrations,
 synchronize enabled built-in lessons, and restart. It refuses to overwrite local
 changes. **Restart current** reloads only the code already installed on the Mac.
 
+Vocabulary transport is independent of code updates. The launcher fetches
+`chatgpt-content-inbox` every five minutes without switching the local branch or
+changing the working tree. **Sync ChatGPT content** checks it immediately; a
+restart is not required for new entries.
+
 To run the control page in the foreground for troubleshooting, use
 `yarn app:start`. To remove automatic startup without deleting database data,
 use `yarn app:uninstall`.
@@ -126,9 +132,8 @@ CORS_ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
 JWT_SECRET=replace-with-openssl-rand-hex-32
 ```
 
-Add `OPENAI_API_KEY` to `.env.local` to enable automated assessment and lesson
-generation. The launcher keeps this file readable only by the local account and
-passes the key to the local backend process. Never commit `.env.local`.
+No AI credential belongs in `.env.local`. Keep database and authentication
+secrets local and never commit that file.
 
 ## Main API surfaces
 
@@ -142,8 +147,12 @@ passes the key to the local backend process. Never commit `.env.local`.
 ### ChatGPT control
 
 - `GET /api/control/overview`
-- `GET /api/control/automation-status`
-- `POST /api/control/assess-text`
+- `GET /api/control/connection-status`
+- `GET /api/control/content-packs`
+- `GET /api/control/content-packs/:id`
+- `POST /api/control/content-packs/:id/claim`
+- `POST /api/control/content-packs/:id/approve`
+- `POST /api/control/content-packs/:id/verify`
 - `POST /api/control/assessments`
 - `GET /api/control/assessments/:id`
 - `POST /api/control/assessments/:id/approve`
@@ -162,7 +171,7 @@ passes the key to the local backend process. Never commit `.env.local`.
 ## Validation
 
 ```bash
-yarn app:doctor
+npx --yes yarn@1.22.22 app:doctor
 ```
 
 ## Project structure

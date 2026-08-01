@@ -1,0 +1,58 @@
+name: Content pack validation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: english_learning
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d english_learning"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      NODE_ENV: test
+      DB_HOST: 127.0.0.1
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: english_learning
+      DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/english_learning
+      REDIS_URL: redis://127.0.0.1:6379
+      JWT_SECRET: github-actions-content-pack-smoke-secret
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: corepack enable
+      - run: corepack prepare yarn@1.22.22 --activate
+      - run: yarn install --frozen-lockfile
+      - run: yarn db:migrate
+      - run: yarn db:seed
+      - run: yarn workspace english-learning-backend test --runInBand
+      - run: yarn test:control
+      - run: yarn type-check
+      - run: yarn build
+      - run: yarn smoke:content-packs

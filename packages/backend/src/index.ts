@@ -6,6 +6,8 @@ import dotenv from "dotenv";
 import path from "path";
 import { logger } from "./utils/logger";
 import { errorHandler } from "./middleware/error.middleware";
+import { synchronizeContentPacks } from "./services/content-pack.service";
+import { database } from "./utils/db";
 
 // Load environment variables
 dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
@@ -73,12 +75,9 @@ app.use(errorHandler);
 app.listen(Number(PORT), HOST, () => {
   logger.info(`Server running on http://${HOST}:${PORT}`);
   logger.info(`Environment: ${process.env.NODE_ENV || "development"}`);
-  const { automatedVocabularyService } = require("./routes/control");
-  void automatedVocabularyService
-    .resumePendingJobs()
-    .catch((error: unknown) =>
-      logger.error("Could not resume generation jobs", error),
-    );
+  void synchronizeContentPacks(database).catch((error: unknown) =>
+    logger.error("Could not synchronize local ChatGPT content packs", error),
+  );
 });
 
 export default app;

@@ -123,8 +123,6 @@ function secureLocalEnvironment() {
     );
   }
 
-  // A bare "sk-" is the old example placeholder, not a usable API key.
-  content = content.replace(/^OPENAI_API_KEY=sk-\s*$/m, 'OPENAI_API_KEY=');
   fs.writeFileSync(envPath, content, { mode: 0o600 });
 
   console.log(

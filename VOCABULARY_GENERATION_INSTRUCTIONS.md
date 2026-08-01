@@ -1,5 +1,9 @@
 # Vocabulary Lesson Generation Contract
 
+For source assessment, page/chunk accounting, GitHub transport, approval and
+batch rules, first follow `docs/CHATGPT_CONTENT_PACK_WORKFLOW.md`. This file
+defines the lesson payload inside each approved content-pack batch.
+
 Use this contract for every vocabulary entry, whether it is new or an update.
 
 ## Core rule
