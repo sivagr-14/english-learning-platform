@@ -190,7 +190,10 @@ router.get(
         return res.status(404).json({ message: "Category not found" });
       }
 
-      const base = categoryWordsBase(req.userId as string, req.params.id);
+      const base = categoryWordsBase(
+        req.userId as string,
+        String(req.params.id),
+      );
       const [{ total }] = await base.clone().countDistinct({ total: "vw.id" });
       const words = await base
         .clone()
@@ -391,14 +394,14 @@ router.get(
           .select("vw.id", "vw.word")
           .orderByRaw("LOWER(vw.word)")
           .orderBy("vw.id");
-        navigation = buildNavigation(await rowsQuery, req.params.id);
+        navigation = buildNavigation(await rowsQuery, String(req.params.id));
       } else if (context.from === "search" && context.q) {
         const rowsQuery = searchWordsBase(
           req.userId as string,
           context.q,
         ).select("vw.id", "vw.word");
         addSearchOrder(rowsQuery, context.q);
-        navigation = buildNavigation(await rowsQuery, req.params.id);
+        navigation = buildNavigation(await rowsQuery, String(req.params.id));
       }
 
       res.json({
