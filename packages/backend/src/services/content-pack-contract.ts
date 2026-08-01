@@ -4,10 +4,18 @@ import {
   assertVocabularyLessonCompliant,
   VocabularyLessonSchema,
 } from "../data/vocabulary-lesson-template";
+import {
+  normalizeSenseKey,
+  normalizeVocabularyTerm,
+} from "./vocabulary-sense.service";
 
-export const CONTENT_MANIFEST_VERSION =
+export const LEGACY_CONTENT_MANIFEST_VERSION =
   "chatgpt-vocabulary-manifest-v1" as const;
-export const CONTENT_BATCH_VERSION = "chatgpt-vocabulary-batch-v1" as const;
+export const LEGACY_CONTENT_BATCH_VERSION =
+  "chatgpt-vocabulary-batch-v1" as const;
+export const CONTENT_MANIFEST_VERSION =
+  "chatgpt-vocabulary-manifest-v2" as const;
+export const CONTENT_BATCH_VERSION = "chatgpt-vocabulary-batch-v2" as const;
 
 const IdentifierSchema = z
   .string()
@@ -27,7 +35,7 @@ export const SourceOccurrenceSchema = z
   })
   .strict();
 
-export const ManifestCandidateSchema = z
+const LegacyManifestCandidateSchema = z
   .object({
     candidateId: IdentifierSchema,
     term: z.string().trim().min(1).max(255),
@@ -85,6 +93,101 @@ export const ManifestCandidateSchema = z
     }
   });
 
+const SenseEvidenceSchema = z
+  .object({
+    sentence: UsefulTextSchema,
+    explanation: UsefulTextSchema,
+  })
+  .strict();
+
+const SenseAwareManifestCandidateSchema = z
+  .object({
+    candidateId: IdentifierSchema,
+    term: z.string().trim().min(1).max(255),
+    baseForm: z.string().trim().min(1).max(255),
+    itemType: z.enum([
+      "word",
+      "phrasal verb",
+      "idiom",
+      "collocation",
+      "fixed phrase",
+      "conversational pattern",
+    ]),
+    decision: z.enum(["generate", "existing", "filtered", "rejected"]),
+    senseDecision: z.enum(["same_sense", "new_sense", "ambiguous"]),
+    senseKey: z.string().trim().min(3).max(180),
+    matchedWordId: z.string().uuid().optional(),
+    cefrLevel: CefrSchema.optional(),
+    usageFrequency: z.enum(["heavy", "medium", "low"]).optional(),
+    fluencyValue: z.enum(["essential", "useful", "specialized"]).optional(),
+    categoryName: z.string().trim().min(1).max(180).optional(),
+    contextualMeaning: UsefulTextSchema,
+    senseEvidence: SenseEvidenceSchema,
+    reason: UsefulTextSchema.optional(),
+    occurrences: z.array(SourceOccurrenceSchema).min(1).max(500),
+  })
+  .strict()
+  .superRefine((candidate, context) => {
+    if (!normalizeSenseKey(candidate.senseKey)) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["senseKey"],
+        message: "senseKey must contain a stable descriptive identity",
+      });
+    }
+    if (candidate.decision === "generate") {
+      for (const field of [
+        "cefrLevel",
+        "usageFrequency",
+        "fluencyValue",
+        "categoryName",
+      ] as const) {
+        if (!candidate[field]) {
+          context.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: [field],
+            message: `${field} is required for generated candidates`,
+          });
+        }
+      }
+      if (candidate.usageFrequency === "low") {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["usageFrequency"],
+          message: "low-frequency candidates must be filtered, not generated",
+        });
+      }
+      if (candidate.senseDecision === "ambiguous") {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["senseDecision"],
+          message: "ambiguous senses must be held, not generated",
+        });
+      }
+    } else if (!candidate.reason) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["reason"],
+        message: "a specific accounting reason is required",
+      });
+    }
+    if (
+      candidate.decision === "existing" &&
+      candidate.senseDecision !== "same_sense"
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["senseDecision"],
+        message: "existing candidates must identify the same stored sense",
+      });
+    }
+  });
+
+export const ManifestCandidateSchema = z.union([
+  LegacyManifestCandidateSchema,
+  SenseAwareManifestCandidateSchema,
+]);
+
 const PageCoverageSchema = z
   .object({
     page: z.number().int().positive(),
@@ -124,9 +227,9 @@ const BatchPlanSchema = z
   })
   .strict();
 
-export const ContentManifestSchema = z
+const LegacyContentManifestSchema = z
   .object({
-    formatVersion: z.literal(CONTENT_MANIFEST_VERSION),
+    formatVersion: z.literal(LEGACY_CONTENT_MANIFEST_VERSION),
     manifestId: IdentifierSchema,
     createdAt: z.string().datetime(),
     source: z
@@ -155,6 +258,21 @@ export const ContentManifestSchema = z
   })
   .strict();
 
+const SenseAwareContentManifestSchema = LegacyContentManifestSchema.omit({
+  formatVersion: true,
+  candidates: true,
+})
+  .extend({
+    formatVersion: z.literal(CONTENT_MANIFEST_VERSION),
+    candidates: z.array(SenseAwareManifestCandidateSchema).max(50_000),
+  })
+  .strict();
+
+export const ContentManifestSchema = z.union([
+  LegacyContentManifestSchema,
+  SenseAwareContentManifestSchema,
+]);
+
 export const GeneratedPackEntrySchema = z
   .object({
     candidateId: IdentifierSchema,
@@ -168,9 +286,9 @@ export const GeneratedPackEntrySchema = z
   })
   .strict();
 
-export const ContentBatchSchema = z
+const LegacyContentBatchSchema = z
   .object({
-    formatVersion: z.literal(CONTENT_BATCH_VERSION),
+    formatVersion: z.literal(LEGACY_CONTENT_BATCH_VERSION),
     batchId: IdentifierSchema,
     manifestId: IdentifierSchema,
     manifestHash: Sha256Schema,
@@ -179,6 +297,17 @@ export const ContentBatchSchema = z
     entries: z.array(GeneratedPackEntrySchema).min(1).max(10),
   })
   .strict();
+
+const SenseAwareContentBatchSchema = LegacyContentBatchSchema.omit({
+  formatVersion: true,
+})
+  .extend({ formatVersion: z.literal(CONTENT_BATCH_VERSION) })
+  .strict();
+
+export const ContentBatchSchema = z.union([
+  LegacyContentBatchSchema,
+  SenseAwareContentBatchSchema,
+]);
 
 export type ContentManifest = z.infer<typeof ContentManifestSchema>;
 export type ContentBatch = z.infer<typeof ContentBatchSchema>;
@@ -221,6 +350,16 @@ function duplicates(values: string[]): string[] {
   });
 }
 
+export function isSenseAwareManifest(
+  manifest: ContentManifest,
+): manifest is z.infer<typeof SenseAwareContentManifestSchema> {
+  return manifest.formatVersion === CONTENT_MANIFEST_VERSION;
+}
+
+function normalizedText(value: string): string {
+  return value.trim().replace(/\s+/g, " ").toLocaleLowerCase("en");
+}
+
 export function validateContentManifest(
   raw: unknown,
 ): PackValidationResult<ContentManifest> {
@@ -237,13 +376,29 @@ export function validateContentManifest(
       `candidates: duplicate candidate IDs: ${[...new Set(duplicateCandidates)].join(", ")}`,
     );
   }
-  const duplicateTerms = duplicates(
-    manifest.candidates.map((candidate) => candidate.term.trim().toLowerCase()),
-  );
-  if (duplicateTerms.length) {
-    issues.push(
-      "candidates: each normalized term may appear only once; merge repeated occurrences",
+  if (isSenseAwareManifest(manifest)) {
+    const duplicateSenses = duplicates(
+      manifest.candidates.map(
+        (candidate) =>
+          `${normalizeVocabularyTerm(candidate.term)}|${normalizeSenseKey(candidate.senseKey)}`,
+      ),
     );
+    if (duplicateSenses.length) {
+      issues.push(
+        "candidates: each normalized term and contextual sense may appear only once; merge same-sense occurrences",
+      );
+    }
+  } else {
+    const duplicateTerms = duplicates(
+      manifest.candidates.map((candidate) =>
+        candidate.term.trim().toLowerCase(),
+      ),
+    );
+    if (duplicateTerms.length) {
+      issues.push(
+        "candidates: each normalized term may appear only once; merge repeated occurrences",
+      );
+    }
   }
 
   const pageNumbers = manifest.coverage.pages.map((page) => page.page);
@@ -326,6 +481,17 @@ export function validateContentManifest(
       if (occurrence.page > manifest.source.totalPages) {
         issues.push(
           `${candidate.candidateId}: occurrence page is out of range`,
+        );
+      }
+    }
+    if (isSenseAwareManifest(manifest) && "senseEvidence" in candidate) {
+      const evidenceSentence = normalizedText(candidate.senseEvidence.sentence);
+      const occurrenceSentences = candidate.occurrences.map((occurrence) =>
+        normalizedText(occurrence.sentence),
+      );
+      if (!occurrenceSentences.includes(evidenceSentence)) {
+        issues.push(
+          `${candidate.candidateId}: senseEvidence.sentence must be one of the recorded source occurrences`,
         );
       }
     }
@@ -413,6 +579,14 @@ export function validateContentBatch(
   }
 
   if (manifest) {
+    const compatibleVersions =
+      (manifest.formatVersion === LEGACY_CONTENT_MANIFEST_VERSION &&
+        batch.formatVersion === LEGACY_CONTENT_BATCH_VERSION) ||
+      (manifest.formatVersion === CONTENT_MANIFEST_VERSION &&
+        batch.formatVersion === CONTENT_BATCH_VERSION);
+    if (!compatibleVersions) {
+      issues.push("formatVersion: manifest and batch contract versions differ");
+    }
     const manifestHash = contentPackHash(manifest);
     if (batch.manifestId !== manifest.manifestId) {
       issues.push("manifestId: does not match the manifest");
@@ -454,6 +628,44 @@ export function validateContentBatch(
         issues.push(
           `${entry.candidateId}: word does not match the assessed term`,
         );
+      }
+      if (
+        isSenseAwareManifest(manifest) &&
+        /\s+\([A-Z]{1,3}\)$/.test(entry.word.trim())
+      ) {
+        issues.push(
+          `${entry.candidateId}: word must contain the real unsuffixed term; the app assigns the sense label`,
+        );
+      }
+      if (
+        isSenseAwareManifest(manifest) &&
+        "senseEvidence" in candidate &&
+        candidate.contextualMeaning
+      ) {
+        if (
+          normalizedText(entry.englishMeaning) !==
+          normalizedText(candidate.contextualMeaning)
+        ) {
+          issues.push(
+            `${entry.candidateId}: English meaning must equal the assessed contextual meaning`,
+          );
+        }
+        if (
+          normalizedText(entry.lesson.meaning_in_context.contextual_meaning) !==
+          normalizedText(candidate.contextualMeaning)
+        ) {
+          issues.push(
+            `${entry.candidateId}: lesson contextual meaning must equal the assessed contextual meaning`,
+          );
+        }
+        if (
+          normalizedText(entry.lesson.meaning_in_context.source_sentence) !==
+          normalizedText(candidate.senseEvidence.sentence)
+        ) {
+          issues.push(
+            `${entry.candidateId}: lesson source sentence must equal the assessed sense evidence`,
+          );
+        }
       }
       try {
         assertVocabularyLessonCompliant(entry.lesson, candidate.term);

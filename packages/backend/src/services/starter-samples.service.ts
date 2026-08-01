@@ -9,6 +9,16 @@ import {
   vocabularyLessonQualityIssues,
 } from "../data/vocabulary-lesson-template";
 import { database } from "../utils/db";
+import {
+  allocatePersistentSenseRank,
+  lockVocabularyTerm,
+  normalizeSenseKey,
+  normalizeVocabularyTerm,
+} from "./vocabulary-sense.service";
+
+function starterSenseKey(sample: StarterSample) {
+  return normalizeSenseKey(`starter ${sample.englishMeaning}`);
+}
 
 function sampleSnapshot(sample: StarterSample) {
   return {
@@ -107,6 +117,8 @@ export async function loadStarterSamples(userId: string) {
 
     for (const sample of STARTER_SAMPLES) {
       assertVocabularyLessonCompliant(sample.lesson, sample.word);
+      const normalizedTerm = normalizeVocabularyTerm(sample.word);
+      await lockVocabularyTerm(trx, userId, normalizedTerm);
 
       const current = await trx("vocabulary_words")
         .leftJoin(
@@ -151,6 +163,9 @@ export async function loadStarterSamples(userId: string) {
           core_idea: sample.coreIdea,
           base_form: sample.word,
           item_type: sample.itemType,
+          normalized_term: normalizeVocabularyTerm(sample.word),
+          sense_key: starterSenseKey(sample),
+          sense_gloss: sample.englishMeaning,
           entry_version: nextVersion,
           updated_at: new Date(),
         });
@@ -194,6 +209,11 @@ export async function loadStarterSamples(userId: string) {
       }
 
       const categoryId = categoryIds.get(sample.categoryName);
+      const senseRank = await allocatePersistentSenseRank(
+        trx,
+        userId,
+        normalizedTerm,
+      );
       const [word] = await trx("vocabulary_words")
         .insert({
           owner_user_id: userId,
@@ -209,6 +229,10 @@ export async function loadStarterSamples(userId: string) {
           canonical_key: sample.canonicalKey,
           base_form: sample.word,
           item_type: sample.itemType,
+          normalized_term: normalizedTerm,
+          sense_rank: senseRank,
+          sense_key: starterSenseKey(sample),
+          sense_gloss: sample.englishMeaning,
           fluency_value: "High",
           learning_priority: "Starter",
           entry_version: 1,

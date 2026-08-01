@@ -3,6 +3,7 @@ import Link from "next/link";
 export interface VocabularyWordSummary {
   id: string;
   word: string;
+  display_label: string;
   word_type: string | null;
   cefr_level: string | null;
   frequency: string;
@@ -40,7 +41,7 @@ export default function VocabularyWordList({
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0">
               <h2 className="truncate font-semibold text-slate-950">
-                {word.word}
+                {word.display_label || word.word}
               </h2>
               <p className="mt-1 text-xs text-slate-500">
                 {word.word_type || "Word"} · {word.cefr_level || "CEFR pending"}

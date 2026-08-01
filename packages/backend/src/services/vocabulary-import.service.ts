@@ -6,6 +6,14 @@ import {
   VOCABULARY_SECTION_TEMPLATE,
 } from "../data/vocabulary-lesson-template";
 import { normalizeCefrLevel } from "./vocabulary-browse.service";
+import {
+  allocatePersistentSenseRank,
+  lockVocabularyTerm,
+  normalizeSenseKey,
+  normalizeVocabularyTerm,
+  resolveContextualSense,
+  SenseDecision,
+} from "./vocabulary-sense.service";
 
 export interface VocabularyImportRow {
   track?: string;
@@ -18,6 +26,12 @@ export interface VocabularyImportRow {
   cefr_level?: string;
   frequency?: "High" | "Medium" | "Low" | string;
   item_type?: string;
+  contextual_meaning?: string;
+  sense_decision?: SenseDecision;
+  sense_key?: string;
+  matched_word_id?: string;
+  assigned_sense_rank?: number;
+  sense_evidence?: { sentence: string; explanation: string };
   english_meaning: string;
   tamil_meaning?: string;
   core_idea?: string;
@@ -660,7 +674,17 @@ export class VocabularyImportService {
             (row as VocabularyImportRow).item_type!,
             (row as VocabularyImportRow).categoryId,
             userId,
-            (row as VocabularyImportRow)._categoryCandidates
+            (row as VocabularyImportRow)._categoryCandidates,
+            {
+              contextualMeaning: (row as VocabularyImportRow)
+                .contextual_meaning,
+              senseDecision: (row as VocabularyImportRow).sense_decision,
+              senseKey: (row as VocabularyImportRow).sense_key,
+              matchedWordId: (row as VocabularyImportRow).matched_word_id,
+              assignedSenseRank: (row as VocabularyImportRow)
+                .assigned_sense_rank,
+              senseEvidence: (row as VocabularyImportRow).sense_evidence,
+            },
           )
         );
       } catch (error: any) {
@@ -684,7 +708,15 @@ export class VocabularyImportService {
     itemType: string,
     categoryId?: string,
     userId?: string,
-    categoryCandidates: string[] = []
+    categoryCandidates: string[] = [],
+    senseMetadata: {
+      contextualMeaning?: string;
+      senseDecision?: SenseDecision;
+      senseKey?: string;
+      matchedWordId?: string;
+      assignedSenseRank?: number;
+      senseEvidence?: { sentence: string; explanation: string };
+    } = {},
   ) {
     return this.db.transaction(async (trx) => {
       const category = await resolveCategory(
@@ -694,20 +726,83 @@ export class VocabularyImportService {
         categoryCandidates
       );
 
-      const canonicalKey = `${lesson.word.trim().toLowerCase()}|${itemType
-        .trim()
-        .toLowerCase()}`;
-      const existingWordQuery = trx("vocabulary_words").where((builder) =>
-        builder
-          .where({ canonical_key: canonicalKey })
-          .orWhereRaw("LOWER(word) = LOWER(?)", [lesson.word])
+      const normalizedTerm = normalizeVocabularyTerm(lesson.word);
+      const normalizedItemType = itemType.trim().toLowerCase();
+      const senseAware = Boolean(
+        userId &&
+          senseMetadata.contextualMeaning &&
+          senseMetadata.senseDecision &&
+          senseMetadata.senseKey,
       );
-      if (userId) {
-        existingWordQuery.where({ owner_user_id: userId });
+      let existingWord: any;
+      let senseRank = 1;
+      let senseKey: string | null = null;
+      let senseGloss: string | null = null;
+
+      if (senseAware) {
+        senseKey = normalizeSenseKey(senseMetadata.senseKey!);
+        senseGloss = senseMetadata.contextualMeaning!.trim();
+        await lockVocabularyTerm(trx, userId!, normalizedTerm);
+        const existingSenses = await trx("vocabulary_words")
+          .where({ owner_user_id: userId, normalized_term: normalizedTerm })
+          .select(
+            "id",
+            "word",
+            "normalized_term",
+            "sense_rank",
+            "sense_key",
+            "sense_gloss",
+            "english_meaning",
+            "entry_version",
+          );
+        const resolution = resolveContextualSense(
+          {
+            term: lesson.word,
+            contextualMeaning: senseGloss,
+            senseKey,
+            declaredDecision: senseMetadata.senseDecision!,
+            matchedWordId: senseMetadata.matchedWordId,
+          },
+          existingSenses,
+        );
+        if (resolution.decision === "ambiguous") {
+          throw new Error(
+            `Contextual sense for "${lesson.word}" requires attention: ${resolution.reason}`,
+          );
+        }
+        if (resolution.decision === "same_sense") {
+          existingWord = resolution.matchedSense;
+          senseRank = Number(existingWord.sense_rank || 1);
+        } else {
+          senseRank = senseMetadata.assignedSenseRank
+            ? Number(senseMetadata.assignedSenseRank)
+            : await allocatePersistentSenseRank(
+                trx,
+                userId!,
+                normalizedTerm,
+              );
+        }
       } else {
-        existingWordQuery.whereNull("owner_user_id");
+        const legacyCanonicalKey = `${normalizedTerm}|${normalizedItemType}`;
+        const existingWordQuery = trx("vocabulary_words").where((builder) =>
+          builder
+            .where({ canonical_key: legacyCanonicalKey })
+            .orWhereRaw("LOWER(word) = LOWER(?)", [lesson.word]),
+        );
+        if (userId) {
+          existingWordQuery.where({ owner_user_id: userId });
+        } else {
+          existingWordQuery.whereNull("owner_user_id");
+        }
+        existingWord = await existingWordQuery.first();
+        senseRank = Number(existingWord?.sense_rank || 1);
+        senseKey = existingWord?.sense_key || null;
+        senseGloss = existingWord?.sense_gloss || null;
       }
-      const existingWord = await existingWordQuery.first();
+
+      const canonicalKey = senseAware
+        ? `${normalizedTerm}|${normalizedItemType}|sense:${senseRank}`
+        : `${normalizedTerm}|${normalizedItemType}`;
       const nextVersion = existingWord
         ? Number(existingWord.entry_version || 1) + 1
         : 1;
@@ -720,6 +815,10 @@ export class VocabularyImportService {
         item_type: itemType,
         canonical_key: canonicalKey,
         base_form: lesson.word,
+        normalized_term: normalizedTerm,
+        sense_rank: senseRank,
+        sense_key: senseKey,
+        sense_gloss: senseGloss,
         entry_version: nextVersion,
         cefr_level: lesson.cefr_level,
         frequency: lesson.frequency,
@@ -779,6 +878,11 @@ export class VocabularyImportService {
             category: category.category_name,
             cefrLevel: lesson.cefr_level,
             itemType,
+            normalizedTerm,
+            senseRank,
+            senseKey,
+            senseGloss,
+            senseEvidence: senseMetadata.senseEvidence,
             lesson: compliantLesson,
           }),
           change_reason: "Validated automated vocabulary import",
@@ -974,6 +1078,47 @@ function validateRow(row: VocabularyImportEntry) {
     throw new Error(
       `Vocabulary entry "${row.word}" has an invalid CEFR level. Use A1, A2, B1, B2, C1 or C2.`,
     );
+  }
+
+  const senseRow = row as VocabularyImportRow;
+  const hasSenseMetadata = Boolean(
+    senseRow.contextual_meaning ||
+      senseRow.sense_decision ||
+      senseRow.sense_key ||
+      senseRow.matched_word_id ||
+      senseRow.assigned_sense_rank ||
+      senseRow.sense_evidence,
+  );
+  if (hasSenseMetadata) {
+    const missingSenseFields = [
+      ["contextual_meaning", senseRow.contextual_meaning],
+      ["sense_decision", senseRow.sense_decision],
+      ["sense_key", senseRow.sense_key],
+      ["sense_evidence", senseRow.sense_evidence],
+    ]
+      .filter(([, value]) => !value)
+      .map(([field]) => field);
+    if (missingSenseFields.length) {
+      throw new Error(
+        `Vocabulary entry "${row.word}" is missing contextual sense fields: ${missingSenseFields.join(
+          ", ",
+        )}.`,
+      );
+    }
+    if (/\s+\([A-Z]{1,3}\)$/.test(row.word.trim())) {
+      throw new Error(
+        `Vocabulary entry "${row.word}" must store the real term without a sense suffix.`,
+      );
+    }
+    if (
+      senseRow.assigned_sense_rank !== undefined &&
+      (!Number.isInteger(senseRow.assigned_sense_rank) ||
+        senseRow.assigned_sense_rank < 1)
+    ) {
+      throw new Error(
+        `Vocabulary entry "${row.word}" has an invalid assigned sense rank.`,
+      );
+    }
   }
 }
 

@@ -74,4 +74,35 @@ describe("ChatGPT-controlled assessment contract", () => {
 
     expect(result.success).toBe(false);
   });
+
+  it("requires complete sense evidence and filters ambiguous meanings", () => {
+    expect(
+      AssessmentCandidateSchema.safeParse({
+        action: "new",
+        item: "bank",
+        contextualMeaning: "The land beside a river.",
+        senseDecision: "new_sense",
+        proposedCategories: [
+          { name: "Travel & Exploration", relationship: "primary" },
+        ],
+      }).success,
+    ).toBe(false);
+
+    expect(
+      AssessmentCandidateSchema.safeParse({
+        action: "new",
+        item: "bank",
+        contextualMeaning: "The source does not establish one meaning.",
+        senseDecision: "ambiguous",
+        senseKey: "unresolved-bank-sense",
+        senseEvidence: {
+          sentence: "They stopped near the bank.",
+          explanation: "The context does not identify which bank is intended.",
+        },
+        proposedCategories: [
+          { name: "Travel & Exploration", relationship: "primary" },
+        ],
+      }).success,
+    ).toBe(false);
+  });
 });

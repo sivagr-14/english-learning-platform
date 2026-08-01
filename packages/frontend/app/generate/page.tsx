@@ -21,6 +21,7 @@ interface PackCounts {
   assessedChunks: number;
   unreadableChunks: number;
   plannedBatches: number;
+  ambiguousSenses: number;
 }
 
 interface PackManifest {
@@ -52,6 +53,9 @@ interface PackCandidate {
   action: string;
   status: string;
   contextual_meaning: string;
+  sense_decision?: "same_sense" | "new_sense" | "ambiguous";
+  sense_key?: string;
+  decision_reason?: string;
   filter_reason?: string;
 }
 
@@ -361,6 +365,9 @@ export default function ChatGPTImportsPage() {
                 const proposed = (detail?.candidates || []).filter(
                   (candidate) => candidate.status === "proposed",
                 );
+                const senseAttention = (detail?.candidates || []).filter(
+                  (candidate) => candidate.status === "manual_review",
+                );
                 return (
                   <article
                     key={manifest.id}
@@ -395,6 +402,10 @@ export default function ChatGPTImportsPage() {
                         ["Candidates", manifest.counts.candidatesIdentified],
                         ["To generate", manifest.counts.totalEntriesToProcess],
                         ["Filtered", manifest.counts.lowValueFilteredOut],
+                        [
+                          "Sense attention",
+                          manifest.counts.ambiguousSenses || 0,
+                        ],
                         [
                           "Batches",
                           `${manifest.generation.receivedBatches}/${manifest.generation.plannedBatches}`,
@@ -501,6 +512,33 @@ export default function ChatGPTImportsPage() {
                           </button>
                         </div>
                       )}
+                    {detail && senseAttention.length > 0 && (
+                      <div className="mt-6 border-t border-amber-200 pt-5">
+                        <h4 className="font-semibold text-amber-950">
+                          Contextual meanings requiring attention
+                        </h4>
+                        <div className="mt-3 space-y-3">
+                          {senseAttention.map((candidate) => (
+                            <div
+                              key={candidate.id}
+                              className="rounded-lg border border-amber-200 bg-amber-50 p-3"
+                            >
+                              <p className="font-medium text-amber-950">
+                                {candidate.item}
+                              </p>
+                              <p className="mt-1 text-sm text-amber-900">
+                                {candidate.contextual_meaning}
+                              </p>
+                              <p className="mt-1 text-xs text-amber-800">
+                                {candidate.decision_reason ||
+                                  candidate.filter_reason ||
+                                  "The contextual sense could not be resolved safely."}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </article>
                 );
               })

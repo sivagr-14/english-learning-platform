@@ -6,6 +6,7 @@ import { AssessmentControlService } from "./assessment-control.service";
 import {
   ContentBatch,
   ContentManifest,
+  isSenseAwareManifest,
   parseContentPack,
   validateContentBatch,
   validateContentManifest,
@@ -15,6 +16,12 @@ import {
   importPolicySnapshot,
 } from "../config/import-policy";
 import { VocabularyImportService } from "./vocabulary-import.service";
+import {
+  allocatePersistentSenseRank,
+  lockVocabularyTerm,
+  normalizeVocabularyTerm,
+  resolveContextualSense,
+} from "./vocabulary-sense.service";
 
 export interface ContentPackDocument {
   path: string;
@@ -50,18 +57,29 @@ function statusError(
 }
 
 function manifestAssessmentCounts(manifest: ContentManifest) {
+  const senseAware = isSenseAwareManifest(manifest);
   return {
     candidatesIdentified: manifest.counts.totalCandidates,
     alreadyPresentUnchanged: manifest.counts.existing,
-    existingEntriesToUpdate: manifest.candidates.filter(
-      (candidate) =>
-        candidate.decision === "generate" && candidate.operation === "update",
-    ).length,
+    existingEntriesToUpdate: manifest.candidates.filter((candidate) => {
+      if (candidate.decision !== "generate") return false;
+      return senseAware
+        ? "senseDecision" in candidate &&
+            candidate.senseDecision === "same_sense"
+        : "operation" in candidate && candidate.operation === "update";
+    }).length,
     lowValueFilteredOut: manifest.counts.filtered + manifest.counts.rejected,
-    newEntriesProposed: manifest.candidates.filter(
-      (candidate) =>
-        candidate.decision === "generate" && candidate.operation === "new",
-    ).length,
+    newEntriesProposed: manifest.candidates.filter((candidate) => {
+      if (candidate.decision !== "generate") return false;
+      return senseAware
+        ? "senseDecision" in candidate && candidate.senseDecision === "new_sense"
+        : "operation" in candidate && candidate.operation === "new";
+    }).length,
+    ambiguousSenses: senseAware
+      ? manifest.candidates.filter(
+          (candidate) => candidate.senseDecision === "ambiguous",
+        ).length
+      : 0,
     totalEntriesToProcess: manifest.counts.generate,
     heavyUseSelections: manifest.counts.heavyUse,
     mediumUseSelections: manifest.counts.mediumUse,
@@ -378,7 +396,9 @@ export class ContentPackService {
       const initialStatus =
         counts.unreadablePages || counts.unreadableChunks
           ? "attention_required"
-          : counts.totalEntriesToProcess === 0
+          : counts.totalEntriesToProcess === 0 && counts.ambiguousSenses > 0
+            ? "attention_required"
+            : counts.totalEntriesToProcess === 0
             ? "completed"
             : "assessed";
       const [run] = await trx("assessment_runs")
@@ -422,22 +442,110 @@ export class ContentPackService {
         if (segment) segmentByExternalId.set(chunk.chunkId, segment.id);
       }
 
+      let resolvedSenseAttention = 0;
+      let resolvedProcessableCount = 0;
       for (const candidate of manifest.candidates) {
-        const existing = await trx("vocabulary_words")
-          .where((builder: any) =>
-            builder.where("owner_user_id", userId).orWhereNull("owner_user_id"),
-          )
-          .whereRaw("LOWER(word) = LOWER(?)", [candidate.term])
-          .first();
         const processable = candidate.decision === "generate";
-        const action = processable
-          ? existing
-            ? "update"
-            : "new"
-          : candidate.decision === "existing"
-            ? "unchanged"
-            : "filtered";
+        let existing: any;
+        let action: string;
+        let candidateStatus: string;
+        let decisionReason = candidate.reason;
+        let senseDecision: string | null = null;
+        let senseKey: string | null = null;
+        let senseEvidence: unknown = null;
+        let allocatedSenseRank: number | null = null;
+
+        if (isSenseAwareManifest(manifest) && "senseDecision" in candidate) {
+          const normalizedTerm = normalizeVocabularyTerm(candidate.term);
+          await lockVocabularyTerm(trx, userId, normalizedTerm);
+          const existingSenses = await trx("vocabulary_words")
+            .where({
+              owner_user_id: userId,
+              normalized_term: normalizedTerm,
+            })
+            .select(
+              "id",
+              "word",
+              "normalized_term",
+              "sense_rank",
+              "sense_key",
+              "sense_gloss",
+              "english_meaning",
+            );
+          const resolution = resolveContextualSense(
+            {
+              term: candidate.term,
+              contextualMeaning: candidate.contextualMeaning,
+              senseKey: candidate.senseKey,
+              declaredDecision: candidate.senseDecision,
+              matchedWordId: candidate.matchedWordId,
+            },
+            existingSenses,
+          );
+          senseDecision = resolution.decision;
+          senseKey = candidate.senseKey;
+          senseEvidence = candidate.senseEvidence;
+          decisionReason = candidate.reason || resolution.reason;
+          existing =
+            resolution.decision === "same_sense"
+              ? resolution.matchedSense
+              : undefined;
+          if (resolution.decision === "same_sense") {
+            allocatedSenseRank = Number(
+              resolution.matchedSense.sense_rank || 1,
+            );
+          } else if (resolution.decision === "new_sense" && processable) {
+            allocatedSenseRank = await allocatePersistentSenseRank(
+              trx,
+              userId,
+              normalizedTerm,
+            );
+          }
+
+          if (resolution.decision === "ambiguous") {
+            action = "filtered";
+            candidateStatus = "manual_review";
+            resolvedSenseAttention += 1;
+          } else if (processable) {
+            action = resolution.decision === "same_sense" ? "update" : "new";
+            candidateStatus = "proposed";
+          } else if (candidate.decision === "existing") {
+            if (resolution.decision !== "same_sense") {
+              action = "filtered";
+              candidateStatus = "manual_review";
+              resolvedSenseAttention += 1;
+            } else {
+              action = "unchanged";
+              candidateStatus = "unchanged";
+            }
+          } else {
+            action = "filtered";
+            candidateStatus = candidate.decision;
+          }
+        } else {
+          existing = await trx("vocabulary_words")
+            .where((builder: any) =>
+              builder
+                .where("owner_user_id", userId)
+                .orWhereNull("owner_user_id"),
+            )
+            .whereRaw("LOWER(word) = LOWER(?)", [candidate.term])
+            .first();
+          action = processable
+            ? existing
+              ? "update"
+              : "new"
+            : candidate.decision === "existing"
+              ? "unchanged"
+              : "filtered";
+          candidateStatus = processable
+            ? "proposed"
+            : candidate.decision === "existing"
+              ? "unchanged"
+              : candidate.decision;
+        }
         const firstOccurrence = candidate.occurrences[0];
+        if (candidateStatus === "proposed") resolvedProcessableCount += 1;
         await trx("assessment_candidates").insert({
           assessment_run_id: run.id,
           source_segment_id: segmentByExternalId.get(firstOccurrence.chunkId),
@@ -453,23 +561,51 @@ export class ContentPackService {
           learning_priority:
             candidate.usageFrequency === "heavy" ? "high" : "medium",
           contextual_meaning: candidate.contextualMeaning,
+          sense_decision: senseDecision,
+          sense_key: senseKey,
+          sense_evidence: senseEvidence
+            ? JSON.stringify(senseEvidence)
+            : null,
+          allocated_sense_rank: allocatedSenseRank,
           original_sentence: firstOccurrence.sentence,
           proposed_categories: candidate.categoryName
             ? JSON.stringify([
                 { name: candidate.categoryName, relationship: "primary" },
               ])
             : "[]",
-          status: processable
-            ? "proposed"
-            : candidate.decision === "existing"
-              ? "unchanged"
-              : candidate.decision,
-          filter_reason: candidate.reason,
+          status: candidateStatus,
+          filter_reason:
+            candidateStatus === "manual_review"
+              ? decisionReason
+              : candidate.reason,
           occurrence_count: candidate.occurrences.length,
           source_locations: JSON.stringify(candidate.occurrences),
-          decision_reason: candidate.reason,
+          decision_reason: decisionReason,
         });
       }
+
+      const effectiveCounts = {
+        ...counts,
+        ambiguousSenses: Math.max(
+          counts.ambiguousSenses,
+          resolvedSenseAttention,
+        ),
+      };
+      const effectiveStatus =
+        counts.unreadablePages || counts.unreadableChunks
+          ? "attention_required"
+          : resolvedProcessableCount === 0 &&
+              effectiveCounts.ambiguousSenses > 0
+            ? "attention_required"
+            : resolvedProcessableCount === 0
+              ? "completed"
+              : "assessed";
+      await trx("assessment_runs").where({ id: run.id }).update({
+        status: effectiveStatus,
+        counts: JSON.stringify(effectiveCounts),
+        completed_at: effectiveStatus === "completed" ? new Date() : null,
+        updated_at: new Date(),
+      });
 
       await trx("content_pack_manifests")
         .where({ id: manifestId })
@@ -477,10 +613,13 @@ export class ContentPackService {
           owner_user_id: userId,
           source_id: source.id,
           assessment_run_id: run.id,
+          counts: JSON.stringify(effectiveCounts),
           status:
-            initialStatus === "assessed" ? "awaiting_approval" : initialStatus,
+            effectiveStatus === "assessed"
+              ? "awaiting_approval"
+              : effectiveStatus,
           claimed_at: new Date(),
-          ...(initialStatus === "completed"
+          ...(effectiveStatus === "completed"
             ? { completed_at: new Date() }
             : {}),
           updated_at: new Date(),
@@ -491,7 +630,10 @@ export class ContentPackService {
         event_type: "content_pack.claimed",
         entity_type: "assessment_run",
         entity_id: run.id,
-        details: JSON.stringify({ manifestHash: row.manifest_hash, counts }),
+        details: JSON.stringify({
+          manifestHash: row.manifest_hash,
+          counts: effectiveCounts,
+        }),
       });
     });
     const claimed = await this.getManifest(userId, manifestId);
@@ -668,6 +810,17 @@ export class ContentPackService {
             tamil_meaning: entry.tamilMeaning,
             core_idea: entry.coreIdea,
             lesson_data: entry.lesson,
+            ...(candidate.sense_decision && candidate.sense_key
+              ? {
+                  contextual_meaning: candidate.contextual_meaning,
+                  sense_decision: candidate.sense_decision,
+                  sense_key: candidate.sense_key,
+                  matched_word_id: candidate.matched_word_id || undefined,
+                  assigned_sense_rank:
+                    candidate.allocated_sense_rank || undefined,
+                  sense_evidence: readJson(candidate.sense_evidence, undefined),
+                }
+              : {}),
           },
           userId,
         );
@@ -749,9 +902,21 @@ export class ContentPackService {
       .whereIn("status", ["invalid", "conflict"])
       .count({ count: "id" })
       .first();
-    const complete = completed === Number(job.total_items);
+    const unresolvedSenses = await this.database("assessment_candidates")
+      .where({
+        assessment_run_id: manifestRow.assessment_run_id,
+        status: "manual_review",
+      })
+      .count({ count: "id" })
+      .first();
+    const unresolvedSenseCount = Number(unresolvedSenses?.count || 0);
+    const complete =
+      completed === Number(job.total_items) && unresolvedSenseCount === 0;
     const attention =
-      manual > 0 || failed > 0 || Number(invalidBatches?.count) > 0;
+      manual > 0 ||
+      failed > 0 ||
+      unresolvedSenseCount > 0 ||
+      Number(invalidBatches?.count) > 0;
     const status = complete
       ? "completed"
       : attention
@@ -768,7 +933,7 @@ export class ContentPackService {
               : "processing",
           completed_items: completed,
           failed_items: failed,
-          manual_review_items: manual,
+          manual_review_items: manual + unresolvedSenseCount,
           updated_at: new Date(),
         });
       await trx("assessment_runs")
@@ -817,9 +982,13 @@ export class ContentPackService {
     ) {
       issues.push("Received batch count does not match the generation plan.");
     }
-    const wordIds = manifest.batches.flatMap((batch: any) =>
-      readJson<string[]>(batch.committed_word_ids, []),
-    );
+    const wordIds = [
+      ...new Set(
+        manifest.batches.flatMap((batch: any) =>
+          readJson<string[]>(batch.committed_word_ids, []),
+        ),
+      ),
+    ];
     const uniqueWordIds = [...new Set(wordIds)];
     if (uniqueWordIds.length !== wordIds.length) {
       issues.push("Committed word IDs contain duplicates.");

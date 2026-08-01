@@ -5,6 +5,7 @@ import {
   AuthenticatedRequest,
 } from "../middleware/auth.middleware";
 import { database } from "../utils/db";
+import { displayVocabularyLabel } from "../services/vocabulary-sense.service";
 
 const router: Router = express.Router();
 
@@ -154,6 +155,7 @@ router.get(
           "flashcard_queue.due_at",
           "vocabulary_words.id",
           "vocabulary_words.word",
+          "vocabulary_words.sense_rank",
           "vocabulary_words.pronunciation",
           "vocabulary_words.word_type",
           "vocabulary_words.cefr_level",
@@ -206,7 +208,12 @@ router.get(
 
       const cards = await query;
 
-      res.json({ cards });
+      res.json({
+        cards: cards.map((card: any) => ({
+          ...card,
+          display_label: displayVocabularyLabel(card.word, card.sense_rank),
+        })),
+      });
     } catch (error) {
       next(error);
     }

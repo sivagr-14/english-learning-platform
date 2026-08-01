@@ -56,4 +56,5 @@ jobs:
       - run: yarn type-check
       - run: yarn build
       - run: yarn smoke:content-packs
+      - run: yarn smoke:vocabulary-senses
       - run: yarn smoke:user-categories

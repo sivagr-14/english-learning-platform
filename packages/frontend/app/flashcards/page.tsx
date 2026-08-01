@@ -18,6 +18,7 @@ interface RecallCategory {
 interface Card {
   id: string;
   word: string;
+  display_label: string;
   pronunciation: string | null;
   word_type: string | null;
   cefr_level: string;
@@ -218,7 +219,7 @@ export default function FlashcardsPage() {
                   </p>
                   <h2 className="mt-2 text-xl font-semibold text-gray-900">
                     {showAnswer
-                      ? card.word
+                      ? card.display_label || card.word
                       : "Recall the English word or expression"}
                   </h2>
                   {showAnswer && (

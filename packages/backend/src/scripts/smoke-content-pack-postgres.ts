@@ -26,7 +26,7 @@ async function main() {
     .returning("*");
 
   const manifest: any = {
-    formatVersion: "chatgpt-vocabulary-manifest-v1",
+    formatVersion: "chatgpt-vocabulary-manifest-v2",
     manifestId: `postgres-smoke-${suffix}`,
     createdAt: new Date().toISOString(),
     source: {
@@ -55,12 +55,19 @@ async function main() {
         baseForm: sample.word,
         itemType: sample.itemType,
         decision: "generate",
-        operation: "new",
+        senseDecision: "new_sense",
+        senseKey: "clear-and-uncomplicated",
         cefrLevel: sample.cefrLevel,
         usageFrequency: "heavy",
         fluencyValue: "essential",
         categoryName: sample.categoryName,
-        contextualMeaning: sample.englishMeaning,
+        contextualMeaning:
+          sample.lesson.meaning_in_context.contextual_meaning,
+        senseEvidence: {
+          sentence: sample.lesson.meaning_in_context.source_sentence,
+          explanation:
+            "The source uses the adjective for a clear and uncomplicated process.",
+        },
         occurrences: [
           {
             page: 1,
@@ -75,6 +82,14 @@ async function main() {
         baseForm: "the",
         itemType: "word",
         decision: "filtered",
+        senseDecision: "new_sense",
+        senseKey: "basic-function-word",
+        contextualMeaning: "A grammatical article in the source sentence.",
+        senseEvidence: {
+          sentence: "The smoke source includes a basic function word.",
+          explanation:
+            "The occurrence is a grammatical article rather than useful vocabulary.",
+        },
         reason: "Basic function word excluded from active vocabulary lessons.",
         occurrences: [
           {
@@ -100,7 +115,7 @@ async function main() {
     },
   };
   const batch = {
-    formatVersion: "chatgpt-vocabulary-batch-v1",
+    formatVersion: "chatgpt-vocabulary-batch-v2",
     batchId: `${manifest.manifestId}-batch-001`,
     manifestId: manifest.manifestId,
     manifestHash: contentPackHash(manifest),
@@ -112,7 +127,8 @@ async function main() {
         word: sample.word,
         pronunciation: sample.pronunciation,
         wordType: sample.wordType,
-        englishMeaning: sample.englishMeaning,
+        englishMeaning:
+          sample.lesson.meaning_in_context.contextual_meaning,
         tamilMeaning: sample.tamilMeaning,
         coreIdea: sample.coreIdea,
         lesson: sample.lesson,

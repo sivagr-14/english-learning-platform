@@ -117,6 +117,53 @@ function validBatch(manifest: ReturnType<typeof validManifest>): any {
   };
 }
 
+function validSenseAwarePack(): { manifest: any; batch: any } {
+  const sample = STARTER_SAMPLES[0];
+  const contextualMeaning =
+    sample.lesson.meaning_in_context.contextual_meaning;
+  const sourceSentence = sample.lesson.meaning_in_context.source_sentence;
+  const manifest = validManifest();
+  manifest.formatVersion = "chatgpt-vocabulary-manifest-v2";
+  manifest.candidates[0] = {
+    candidateId: "candidate-001",
+    term: sample.word,
+    baseForm: sample.word,
+    itemType: sample.itemType,
+    decision: "generate",
+    senseDecision: "new_sense",
+    senseKey: "clear-and-uncomplicated",
+    cefrLevel: sample.cefrLevel,
+    usageFrequency: "heavy",
+    fluencyValue: "essential",
+    categoryName: sample.categoryName,
+    contextualMeaning,
+    senseEvidence: {
+      sentence: sourceSentence,
+      explanation:
+        "The adjective describes a process that is clear and uncomplicated.",
+    },
+    occurrences: [
+      { page: 1, chunkId: "chunk-001", sentence: sourceSentence },
+    ],
+  };
+  manifest.candidates[1] = {
+    ...manifest.candidates[1],
+    senseDecision: "ambiguous",
+    senseKey: "basic-function-word",
+    contextualMeaning: "A grammatical article in the source sentence.",
+    senseEvidence: {
+      sentence: manifest.candidates[1].occurrences[0].sentence,
+      explanation:
+        "The occurrence is a grammatical article rather than useful vocabulary.",
+    },
+  };
+  const batch = validBatch(manifest);
+  batch.formatVersion = "chatgpt-vocabulary-batch-v2";
+  batch.manifestHash = contentPackHash(manifest);
+  batch.entries[0].englishMeaning = contextualMeaning;
+  return { manifest, batch };
+}
+
 describe("ChatGPT content-pack contract", () => {
   it("accepts a fully reconciled manifest and its exact lesson batch", () => {
     const manifest = validManifest();
@@ -158,6 +205,83 @@ describe("ChatGPT content-pack contract", () => {
     expect(result.valid).toBe(false);
     expect(result.issues.join(" ")).toMatch(/manifestHash/i);
     expect(result.issues.join(" ")).toMatch(/assessed term/i);
+  });
+
+  it("accepts manifest v2 and an exact contextual lesson", () => {
+    const { manifest, batch } = validSenseAwarePack();
+    expect(validateContentManifest(manifest)).toMatchObject({
+      valid: true,
+      issues: [],
+    });
+    expect(validateContentBatch(batch, manifest)).toMatchObject({
+      valid: true,
+      issues: [],
+    });
+  });
+
+  it("allows one spelling to have different sense keys", () => {
+    const { manifest } = validSenseAwarePack();
+    const original = manifest.candidates[0];
+    manifest.candidates.push({
+      ...original,
+      candidateId: "candidate-003",
+      senseKey: "honest-and-direct-person",
+      contextualMeaning:
+        "A person who communicates honestly and directly without hiding the point.",
+      senseEvidence: {
+        sentence: "She was straightforward about the problem.",
+        explanation:
+          "Straightforward describes her direct and honest communication.",
+      },
+      occurrences: [
+        {
+          page: 2,
+          chunkId: "chunk-002",
+          sentence: "She was straightforward about the problem.",
+        },
+      ],
+    });
+    manifest.coverage.chunks[1].candidateIds.push("candidate-003");
+    manifest.counts.totalCandidates += 1;
+    manifest.counts.generate += 1;
+    manifest.counts.heavyUse += 1;
+    manifest.generationPlan.batches[0].candidateIds.push("candidate-003");
+
+    expect(validateContentManifest(manifest).valid).toBe(true);
+  });
+
+  it("rejects duplicate term-and-sense candidates and visible suffixes", () => {
+    const { manifest } = validSenseAwarePack();
+    const duplicate = {
+      ...manifest.candidates[0],
+      candidateId: "candidate-duplicate",
+    };
+    manifest.candidates.push(duplicate);
+    manifest.coverage.chunks[0].candidateIds.push(duplicate.candidateId);
+    manifest.counts.totalCandidates += 1;
+    manifest.counts.generate += 1;
+    manifest.counts.heavyUse += 1;
+    manifest.generationPlan.batches[0].candidateIds.push(
+      duplicate.candidateId,
+    );
+    expect(validateContentManifest(manifest).issues.join(" ")).toMatch(
+      /term and contextual sense/i,
+    );
+
+    const clean = validSenseAwarePack();
+    clean.batch.entries[0].word = `${clean.batch.entries[0].word} (B)`;
+    expect(validateContentBatch(clean.batch, clean.manifest).issues.join(" ")).toMatch(
+      /real unsuffixed term/i,
+    );
+  });
+
+  it("rejects a v2 batch that teaches a meaning not assessed in context", () => {
+    const { manifest, batch } = validSenseAwarePack();
+    batch.entries[0].englishMeaning =
+      "An unrelated dictionary meaning not demonstrated by the source.";
+    expect(validateContentBatch(batch, manifest).issues.join(" ")).toMatch(
+      /assessed contextual meaning/i,
+    );
   });
 
   it("validates a 10,000-candidate large-source ledger without losing coverage", () => {
