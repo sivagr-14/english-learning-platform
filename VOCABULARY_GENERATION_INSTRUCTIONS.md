@@ -6,6 +6,19 @@ defines the lesson payload inside each approved content-pack batch.
 
 Use this contract for every vocabulary entry, whether it is new or an update.
 
+## Default automatic selection
+
+After the learner claims an import, generate every valid new heavy/high- and
+medium-frequency candidate automatically without a separate approval step.
+Exclude low-frequency terms, proper names, extraction/OCR noise, malformed
+tokens, exact duplicates and already-complete entries, and record a reason for
+every exclusion. Hold unreadable or ambiguous material for attention.
+
+Candidate assessment uses bounded groups of 50 up to 500 candidates, then 100.
+Complete lesson generation uses adaptive batches of 5–10 entries, normally 8.
+These are per-operation safety bounds, not limits on the total import. The
+backend policy and stored import snapshot remain the source of truth.
+
 ## Core rule
 
 Generate exactly eight complete learning sections. Every value must teach
