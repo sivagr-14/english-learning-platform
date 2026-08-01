@@ -20,6 +20,8 @@ const envExamplePath = path.join(repoRoot, '.env.example');
 const controlHeader = 'x-english-mastery-control';
 const localPostgresUser = 'postgres';
 const localPostgresDatabase = 'english_learning';
+const yarnVersion = '1.22.22';
+const backupsDirectory = path.join(repoRoot, 'backups');
 
 process.chdir(repoRoot);
 
@@ -65,9 +67,10 @@ function resolvePackageManager() {
   if (commandAvailable('corepack')) {
     return { command: 'corepack', prefix: ['yarn'] };
   }
-  throw new Error(
-    'Yarn is unavailable. Install Node.js 20+, then enable Corepack once.',
-  );
+  if (commandAvailable('npx')) {
+    return { command: 'npx', prefix: ['--yes', `yarn@${yarnVersion}`] };
+  }
+  throw new Error('Yarn is unavailable. Install Node.js 20+ with npm.');
 }
 
 function run(command, args, onOutput) {
@@ -179,6 +182,7 @@ class ControlManager {
     this.serviceFailure = null;
     this.serviceOutput = { backend: [], frontend: [] };
     this.startPromise = null;
+    this.updatePromise = null;
     this.readyCache = { value: false, checkedAt: 0 };
   }
 
@@ -255,6 +259,15 @@ class ControlManager {
     if (required.every((file) => fs.existsSync(file))) return;
     const manager = resolvePackageManager();
     await run(
+      manager.command,
+      [...manager.prefix, 'install', '--frozen-lockfile'],
+      (output) => this.log(output),
+    );
+  }
+
+  async installDependencies() {
+    const manager = resolvePackageManager();
+    await this.runAsync(
       manager.command,
       [...manager.prefix, 'install', '--frozen-lockfile'],
       (output) => this.log(output),
@@ -406,6 +419,80 @@ class ControlManager {
     );
   }
 
+  async synchronizeBuiltInContent() {
+    const syncScript = path.join(
+      backendDirectory,
+      'src',
+      'scripts',
+      'sync-starter-samples.ts',
+    );
+    if (!fs.existsSync(syncScript)) return;
+    await this.runAsync(
+      process.execPath,
+      [
+        path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'),
+        '--transpile-only',
+        '--project',
+        path.join(backendDirectory, 'tsconfig.json'),
+        syncScript,
+      ],
+      (output) => this.log(output),
+    );
+  }
+
+  verifyUpdateWorkspace() {
+    const branch = commandOutput(this.execute('git', ['branch', '--show-current']));
+    if (branch !== 'main') {
+      throw new Error(`Updates require the main branch; this checkout is on ${branch || 'an unknown branch'}.`);
+    }
+    const status = commandOutput(
+      this.execute('git', ['status', '--porcelain', '--untracked-files=normal']),
+    );
+    if (status) {
+      throw new Error(
+        'The local repository has uncommitted changes. Preserve or commit them before using Update & restart.',
+      );
+    }
+  }
+
+  async backupDatabase() {
+    fs.mkdirSync(backupsDirectory, { recursive: true });
+    const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const containerFile = `/tmp/english-learning-${stamp}.dump`;
+    const localFile = path.join(backupsDirectory, `english-learning-${stamp}.dump`);
+    const dump = this.execute('docker', [
+      'exec',
+      'english_learning_postgres',
+      'pg_dump',
+      '-U',
+      localPostgresUser,
+      '-d',
+      localPostgresDatabase,
+      '-Fc',
+      '-f',
+      containerFile,
+    ]);
+    if (dump.status !== 0) {
+      throw new Error(`PostgreSQL backup failed: ${commandOutput(dump)}`);
+    }
+    const copied = this.execute('docker', [
+      'cp',
+      `english_learning_postgres:${containerFile}`,
+      localFile,
+    ]);
+    this.execute('docker', [
+      'exec',
+      'english_learning_postgres',
+      'rm',
+      '-f',
+      containerFile,
+    ]);
+    if (copied.status !== 0) {
+      throw new Error(`PostgreSQL backup could not be copied: ${commandOutput(copied)}`);
+    }
+    this.log(`Database backup: ${localFile}`);
+  }
+
   spawnServices() {
     const nextBin = path.join(repoRoot, 'node_modules', 'next', 'dist', 'bin', 'next');
     const backendBin = path.join(
@@ -550,6 +637,98 @@ class ControlManager {
     return this.startPromise;
   }
 
+  updateAndRestart() {
+    if (this.updatePromise) return this.updatePromise;
+    if (this.startPromise) return this.startPromise;
+    this.updatePromise = this.runUpdateAndRestart().finally(() => {
+      this.updatePromise = null;
+    });
+    return this.updatePromise;
+  }
+
+  async runUpdateAndRestart() {
+    this.phase = 'starting';
+    this.error = null;
+    this.logs = [];
+    this.startedAt = new Date().toISOString();
+    try {
+      this.step('Checking the local Git workspace');
+      this.verifyUpdateWorkspace();
+
+      this.step('Checking GitHub main for updates');
+      await this.runAsync('git', ['fetch', 'origin', 'main', '--prune'], (output) =>
+        this.log(output),
+      );
+      const local = commandOutput(this.execute('git', ['rev-parse', 'HEAD']));
+      const remote = commandOutput(
+        this.execute('git', ['rev-parse', 'origin/main']),
+      );
+
+      this.step('Checking Docker Desktop and PostgreSQL');
+      await this.ensureDocker();
+      await this.startInfrastructure();
+
+      if (local !== remote) {
+        const ancestor = this.execute('git', [
+          'merge-base',
+          '--is-ancestor',
+          local,
+          remote,
+        ]);
+        if (ancestor.status !== 0) {
+          throw new Error('Local main cannot be fast-forwarded safely to GitHub main.');
+        }
+        this.step('Backing up PostgreSQL before the update');
+        await this.backupDatabase();
+        this.step('Downloading the validated main version');
+        await this.runAsync('git', ['merge', '--ff-only', 'origin/main'], (output) =>
+          this.log(output),
+        );
+        this.step('Installing project dependencies');
+        await this.installDependencies();
+      } else {
+        this.log('Local main already matches GitHub main.');
+      }
+
+      this.step('Stopping the current backend and frontend');
+      this.stopServices();
+      for (let attempt = 0; attempt < 30; attempt += 1) {
+        const [backend, frontend] = await Promise.all([
+          this.backendReady(),
+          this.frontendReady(true),
+        ]);
+        if (!backend && !frontend) break;
+        if (attempt === 29) {
+          throw new Error(
+            'The old web services did not stop. Stop any separate app Terminal process and try again.',
+          );
+        }
+        await this.wait(250);
+      }
+
+      this.step('Applying database migrations');
+      await this.migrate();
+      this.step('Synchronizing built-in vocabulary');
+      await this.synchronizeBuiltInContent();
+      this.step('Starting the updated backend and frontend');
+      this.spawnServices();
+      await this.waitForServices();
+
+      this.phase = 'ready';
+      this.currentStep =
+        local === remote
+          ? 'Current version restarted and content synchronized'
+          : 'GitHub update installed and synchronized';
+      this.log('Update & restart completed.');
+    } catch (error) {
+      this.stopServices();
+      this.phase = 'error';
+      this.currentStep = 'Update stopped safely';
+      this.error = error instanceof Error ? error.message : String(error);
+      this.log(`Update failed: ${this.error}`);
+    }
+  }
+
   async runRestart() {
     this.phase = 'starting';
     this.error = null;
@@ -610,6 +789,9 @@ class ControlManager {
 
       this.step('Checking and applying database migrations');
       await this.migrate();
+
+      this.step('Synchronizing built-in vocabulary');
+      await this.synchronizeBuiltInContent();
 
       this.step('Checking existing web services');
       const [backend, frontend] = await Promise.all([
@@ -810,6 +992,13 @@ function createControlServer(manager = new ControlManager()) {
       manager.restart();
       return json(response, 202, { accepted: true });
     }
+    if (url.pathname === '/__control/update-restart' && request.method === 'POST') {
+      if (request.headers[controlHeader] !== '1') {
+        return json(response, 403, { error: 'Local control header required.' });
+      }
+      manager.updateAndRestart();
+      return json(response, 202, { accepted: true });
+    }
     if (url.pathname.startsWith('/__control')) {
       const body = controlPage();
       response.writeHead(200, {
@@ -885,4 +1074,3 @@ module.exports = {
   parseContainerState,
   parseEnvironment,
 };
-

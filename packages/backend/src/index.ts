@@ -73,6 +73,12 @@ app.use(errorHandler);
 app.listen(Number(PORT), HOST, () => {
   logger.info(`Server running on http://${HOST}:${PORT}`);
   logger.info(`Environment: ${process.env.NODE_ENV || "development"}`);
+  const { automatedVocabularyService } = require("./routes/control");
+  void automatedVocabularyService
+    .resumePendingJobs()
+    .catch((error: unknown) =>
+      logger.error("Could not resume generation jobs", error),
+    );
 });
 
 export default app;

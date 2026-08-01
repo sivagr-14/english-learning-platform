@@ -694,16 +694,23 @@ export class VocabularyImportService {
         categoryCandidates
       );
 
-      const existingWordQuery = trx("vocabulary_words").where({
-        category_id: category.id,
-        word: lesson.word,
-      });
+      const canonicalKey = `${lesson.word.trim().toLowerCase()}|${itemType
+        .trim()
+        .toLowerCase()}`;
+      const existingWordQuery = trx("vocabulary_words").where((builder) =>
+        builder
+          .where({ canonical_key: canonicalKey })
+          .orWhereRaw("LOWER(word) = LOWER(?)", [lesson.word])
+      );
       if (userId) {
         existingWordQuery.where({ owner_user_id: userId });
       } else {
         existingWordQuery.whereNull("owner_user_id");
       }
       const existingWord = await existingWordQuery.first();
+      const nextVersion = existingWord
+        ? Number(existingWord.entry_version || 1) + 1
+        : 1;
 
       const wordPayload = {
         category_id: category.id,
@@ -711,6 +718,9 @@ export class VocabularyImportService {
         pronunciation: lesson.pronunciation,
         word_type: lesson.word_type,
         item_type: itemType,
+        canonical_key: canonicalKey,
+        base_form: lesson.word,
+        entry_version: nextVersion,
         cefr_level: lesson.cefr_level,
         frequency: lesson.frequency,
         english_meaning: lesson.english_meaning,
@@ -757,6 +767,25 @@ export class VocabularyImportService {
         .onConflict("word_id")
         .merge(lessonPayload)
         .returning("*");
+
+      await trx("vocabulary_entry_versions")
+        .insert({
+          word_id: word.id,
+          changed_by_user_id: userId || null,
+          version_number: nextVersion,
+          change_type: existingWord ? "update" : "create",
+          snapshot: JSON.stringify({
+            word: lesson.word,
+            category: category.category_name,
+            cefrLevel: lesson.cefr_level,
+            itemType,
+            lesson: compliantLesson,
+          }),
+          change_reason: "Validated automated vocabulary import",
+          created_at: new Date(),
+        })
+        .onConflict(["word_id", "version_number"])
+        .ignore();
 
       if (userId) {
         const [progress] = await trx("user_progress")

@@ -199,6 +199,7 @@ test('web services start from their own workspaces and preserve clean-exit diagn
 test('control API requires the local control header before starting', async (context) => {
   let starts = 0;
   let restarts = 0;
+  let updates = 0;
   const manager = {
     snapshot: async () => ({
       phase: 'idle',
@@ -214,6 +215,9 @@ test('control API requires the local control header before starting', async (con
     },
     restart: () => {
       restarts += 1;
+    },
+    updateAndRestart: () => {
+      updates += 1;
     },
     shutdown: () => {},
   };
@@ -254,6 +258,19 @@ test('control API requires the local control header before starting', async (con
   });
   assert.equal(acceptedRestart.status, 202);
   assert.equal(restarts, 1);
+
+  const deniedUpdate = await fetch(`${base}/__control/update-restart`, {
+    method: 'POST',
+  });
+  assert.equal(deniedUpdate.status, 403);
+  assert.equal(updates, 0);
+
+  const acceptedUpdate = await fetch(`${base}/__control/update-restart`, {
+    method: 'POST',
+    headers: { 'x-english-mastery-control': '1' },
+  });
+  assert.equal(acceptedUpdate.status, 202);
+  assert.equal(updates, 1);
 });
 
 test('restart stops owned web services before running the validated startup flow', async () => {
@@ -279,4 +296,3 @@ test('restart stops owned web services before running the validated startup flow
   });
   assert.equal(manager.phase, 'ready');
 });
-

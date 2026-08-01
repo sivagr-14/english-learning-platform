@@ -3,19 +3,19 @@
 A personal, Mac-local English vocabulary learning platform controlled through
 ChatGPT.
 
-ChatGPT is the vocabulary-management entry point. The web app is the learning
-workspace for browsing lessons, active recall, spaced review, progress, and
-content-processing history.
+The local web app is the vocabulary-management and learning workspace. It can
+assess pasted content with OpenAI, require explicit approval, generate complete
+lessons, and save validated entries to local PostgreSQL.
 
 ## Product workflow
 
-1. Share text or a supported file with ChatGPT.
-2. ChatGPT assesses the complete content and compares it with saved vocabulary.
+1. Paste learning text into **Automated Vocabulary**.
+2. The local backend assesses the content and compares it with saved vocabulary.
 3. Review exact counts for new, update, unchanged, filtered, Heavy-use, and
    Medium-use candidates.
-4. Approve the proposed scope in ChatGPT.
-5. ChatGPT creates or updates complete lessons through authenticated control
-   tools.
+4. Approve the proposed scope in the local app.
+5. The local generation worker creates complete lessons through the OpenAI
+   Responses API and validates them before saving.
 6. The platform accounts for every approved item as completed, failed, or
    requiring manual review.
 
@@ -27,7 +27,7 @@ imports are disabled so they cannot bypass this workflow.
 - Email/password registration and authentication
 - ChatGPT-controlled assessment and approval API
 - Exact assessment counts and source traceability
-- Idempotent generation-job foundation
+- Resumable automated generation jobs
 - User-owned vocabulary with version-history foundations
 - Hierarchical primary/secondary category foundations
 - Full vocabulary lesson storage with Tamil support
@@ -37,8 +37,9 @@ imports are disabled so they cannot bypass this workflow.
 - Control history for assessment and generation status
 - PostgreSQL and Redis running locally through Docker
 
-The remote ChatGPT MCP connector and complete-entry job processor are the next
-implementation phase. The current app does not call the paid OpenAI API.
+OpenAI API usage is paid separately from a ChatGPT subscription. The API never
+receives PostgreSQL credentials: it returns structured JSON to the local
+backend, and only the backend can write to the local database.
 
 ## Local Mac setup
 
@@ -47,7 +48,7 @@ implementation phase. The current app does not call the paid OpenAI API.
 - Docker Desktop
 - Git
 - Node.js 20 or newer
-- Yarn 1.22
+- npm (included with Node.js)
 
 ### First setup
 
@@ -55,11 +56,8 @@ implementation phase. The current app does not call the paid OpenAI API.
 git clone https://github.com/sivagr-14/english-learning-platform.git
 cd english-learning-platform
 
-corepack enable
-corepack prepare yarn@1.22.22 --activate
-yarn install
-
-yarn app:install
+npx --yes yarn@1.22.22 install --frozen-lockfile
+npx --yes yarn@1.22.22 app:install
 ```
 
 `yarn app:install` performs the one-time macOS background-service setup. It
@@ -94,10 +92,10 @@ it preserves personal accounts and user-owned vocabulary.
 There is no daily Terminal command. After a Mac login or restart, open
 <http://localhost:3000> and select **Validate and start app**.
 
-After pulling code or lesson changes, select **Restart app** in the application
-header. The control service restarts only the backend and frontend, reruns its
-validation and migrations, and preserves vocabulary, review progress,
-PostgreSQL, and Redis data.
+Use **Update & restart** in the application header to fetch and fast-forward to
+GitHub `main`, back up PostgreSQL, install changed dependencies, run migrations,
+synchronize enabled built-in lessons, and restart. It refuses to overwrite local
+changes. **Restart current** reloads only the code already installed on the Mac.
 
 To run the control page in the foreground for troubleshooting, use
 `yarn app:start`. To remove automatic startup without deleting database data,
@@ -128,8 +126,9 @@ CORS_ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
 JWT_SECRET=replace-with-openssl-rand-hex-32
 ```
 
-OAuth, email delivery, Google Translate, and `OPENAI_API_KEY` are optional and
-may remain empty for the personal local version.
+Add `OPENAI_API_KEY` to `.env.local` to enable automated assessment and lesson
+generation. The launcher keeps this file readable only by the local account and
+passes the key to the local backend process. Never commit `.env.local`.
 
 ## Main API surfaces
 
@@ -143,6 +142,8 @@ may remain empty for the personal local version.
 ### ChatGPT control
 
 - `GET /api/control/overview`
+- `GET /api/control/automation-status`
+- `POST /api/control/assess-text`
 - `POST /api/control/assessments`
 - `GET /api/control/assessments/:id`
 - `POST /api/control/assessments/:id/approve`
