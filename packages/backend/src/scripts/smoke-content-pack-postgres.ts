@@ -82,7 +82,7 @@ async function main() {
         baseForm: "the",
         itemType: "word",
         decision: "filtered",
-        senseDecision: "ambiguous",
+        senseDecision: "new_sense",
         senseKey: "basic-function-word",
         contextualMeaning: "A grammatical article in the source sentence.",
         senseEvidence: {
