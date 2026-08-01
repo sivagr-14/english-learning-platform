@@ -20,6 +20,7 @@ interface Category {
 interface Word {
   id: string;
   word: string;
+  display_label: string;
   pronunciation: string | null;
   word_type: string | null;
   cefr_level: string;
@@ -348,7 +349,7 @@ export default function VocabularyPage() {
                         type="checkbox"
                         checked={selectedWordIds.includes(word.id)}
                         onChange={() => toggleWord(word.id)}
-                        aria-label={`Select ${word.word}`}
+                        aria-label={`Select ${word.display_label || word.word}`}
                         className="h-4 w-4 rounded border-slate-300 text-amber-600"
                       />
                     </label>
@@ -358,7 +359,7 @@ export default function VocabularyPage() {
                     >
                       <div className="min-w-0">
                         <h3 className="truncate text-base font-semibold text-gray-900">
-                          {word.word}
+                          {word.display_label || word.word}
                         </h3>
                         <p className="mt-1 text-xs text-gray-500">
                           {word.word_type || "Word"} · {word.cefr_level}
