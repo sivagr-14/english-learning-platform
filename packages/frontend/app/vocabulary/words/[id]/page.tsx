@@ -12,6 +12,7 @@ interface WordDetail {
   id: string;
   category_id: string;
   word: string;
+  display_label: string;
   pronunciation: string | null;
   word_type: string | null;
   cefr_level: string;
@@ -482,7 +483,7 @@ function VocabularyWordContent() {
 
   return (
     <AppShell
-      title={word?.word || "Vocabulary detail"}
+      title={word?.display_label || word?.word || "Vocabulary detail"}
       description={
         word ? `${word.track_name} / ${word.category_name}` : "Vocabulary"
       }
@@ -511,7 +512,7 @@ function VocabularyWordContent() {
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
                   <h2 className="text-4xl font-bold text-gray-900">
-                    {word.word}
+                    {word.display_label || word.word}
                   </h2>
                   <p className="mt-2 text-sm text-gray-600">
                     {word.pronunciation} · {word.word_type || "Word"} ·{" "}
