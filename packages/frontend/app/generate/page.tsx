@@ -39,7 +39,6 @@ interface PackManifest {
   };
   candidates?: PackCandidate[];
   createdAt: string;
-  inboxCleanedAt?: string | null;
 }
 
 interface PackCandidate {
@@ -126,11 +125,7 @@ export default function ChatGPTImportsPage() {
       setMessage(
         result.available === false
           ? "The ChatGPT content inbox has not been initialized yet."
-          : result.cleanup?.cleaned?.length
-            ? `Synchronized and removed ${result.cleanup.cleaned.length} verified pack(s) from the active inbox.`
-            : result.cleanup?.alreadyAbsent?.length
-              ? "Synchronized; the verified pack was already absent and is now recorded as cleaned."
-              : "ChatGPT content inbox synchronized and validated.",
+          : "ChatGPT content inbox synchronized and validated.",
       );
       await load();
     } catch (syncError) {
@@ -159,7 +154,9 @@ export default function ChatGPTImportsPage() {
     setError("");
     try {
       await getApiClient().post(`/api/control/content-packs/${id}/claim`);
-      setMessage("Import claimed. Review the exact terms before approval.");
+      setMessage(
+        "Import claimed. All eligible high- and medium-frequency entries were scheduled automatically.",
+      );
       await Promise.all([load(), loadDetail(id)]);
     } catch (requestError: any) {
       setError(
@@ -260,13 +257,13 @@ export default function ChatGPTImportsPage() {
               ["1", "Share source", "Paste text or attach the PDF in ChatGPT."],
               [
                 "2",
-                "Review assessment",
-                "ChatGPT accounts for pages, chunks and terms.",
+                "Assess automatically",
+                "ChatGPT accounts for every page, chunk and term.",
               ],
               [
                 "3",
-                "Approve exact terms",
-                "Claim the manifest here and select the entries.",
+                "Claim and start",
+                "Eligible high- and medium-frequency terms are scheduled automatically.",
               ],
               [
                 "4",
@@ -418,7 +415,7 @@ export default function ChatGPTImportsPage() {
                         >
                           {busy === `claim:${manifest.id}`
                             ? "Claiming…"
-                            : "Claim and review"}
+                            : "Claim and start"}
                         </button>
                       )}
                       {manifest.claimed && !detail && (
