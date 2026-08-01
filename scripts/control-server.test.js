@@ -200,6 +200,7 @@ test('control API requires the local control header before starting', async (con
   let starts = 0;
   let restarts = 0;
   let updates = 0;
+  let contentSyncs = 0;
   const manager = {
     snapshot: async () => ({
       phase: 'idle',
@@ -218,6 +219,10 @@ test('control API requires the local control header before starting', async (con
     },
     updateAndRestart: () => {
       updates += 1;
+    },
+    synchronizeChatGPTContent: async () => {
+      contentSyncs += 1;
+      return { available: true };
     },
     shutdown: () => {},
   };
@@ -271,6 +276,52 @@ test('control API requires the local control header before starting', async (con
   });
   assert.equal(acceptedUpdate.status, 202);
   assert.equal(updates, 1);
+
+  const deniedContentSync = await fetch(`${base}/__control/sync-content`, {
+    method: 'POST',
+  });
+  assert.equal(deniedContentSync.status, 403);
+  assert.equal(contentSyncs, 0);
+
+  const acceptedContentSync = await fetch(`${base}/__control/sync-content`, {
+    method: 'POST',
+    headers: { 'x-english-mastery-control': '1' },
+  });
+  assert.equal(acceptedContentSync.status, 200);
+  assert.equal((await acceptedContentSync.json()).available, true);
+  assert.equal(contentSyncs, 1);
+});
+
+test('ChatGPT content sync fetches only the dedicated inbox ref and runs the importer', async () => {
+  const commands = [];
+  const runCalls = [];
+  const manager = new ControlManager({
+    execute: (command, args) => {
+      commands.push([command, ...args]);
+      return { status: 0, stdout: '', stderr: '' };
+    },
+    runAsync: async (command, args) => {
+      runCalls.push([command, ...args]);
+    },
+  });
+
+  const result = await manager.synchronizeChatGPTContent();
+
+  assert.deepEqual(result, { available: true });
+  assert.ok(
+    commands.some((command) =>
+      command.join(' ').includes(
+        'refs/heads/chatgpt-content-inbox:refs/remotes/origin/chatgpt-content-inbox',
+      ),
+    ),
+  );
+  assert.ok(
+    runCalls.some(
+      (command) =>
+        command.includes('--git-ref') &&
+        command.includes('origin/chatgpt-content-inbox'),
+    ),
+  );
 });
 
 test('restart stops owned web services before running the validated startup flow', async () => {
