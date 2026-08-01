@@ -13,8 +13,9 @@ writes database rows.
    `chatgpt-content-inbox` branch.
 4. The Mac fetches that branch automatically every five minutes, or immediately
    when **Sync ChatGPT content** is selected.
-5. The learner claims the manifest in **ChatGPT Imports**, reviews exact counts
-   and selects the candidates to approve.
+5. The learner claims the manifest in **ChatGPT Imports** to establish account
+   ownership. The backend automatically schedules every eligible candidate; no
+   separate approval step is required.
 6. ChatGPT generates complete lessons in batches of at most ten and writes each
    batch to the same inbox branch.
 7. The local backend validates the manifest hash, planned batch membership,
@@ -25,10 +26,6 @@ writes database rows.
    back.
 9. The app reads every committed entry back from PostgreSQL before reporting a
    successful verification.
-10. After verification succeeds, the local control service removes only that
-    manifest folder from the active inbox branch and records the cleanup commit
-    and timestamp in PostgreSQL. Git history and the local ledger remain the
-    recovery and audit trail.
 
 ## Manifest guarantees
 
@@ -83,13 +80,36 @@ already assessed or saved data.
 - Generate five to ten lessons per batch. A large import may resume across many
   ChatGPT turns because the manifest and received batch numbers are durable.
 
+## Default automatic policy
+
+The backend policy in `packages/backend/src/config/import-policy.ts` is the
+source of truth. Every assessment stores an immutable policy snapshot so an
+interrupted import resumes with the rules it started with.
+
+- automatically generate every valid, new heavy/high- or medium-frequency
+  candidate;
+- include words, phrasal verbs, idioms, collocations, fixed expressions and
+  useful specialised terms when their usage frequency is heavy/high or medium;
+- filter low-frequency terms, proper names, OCR/extraction noise, malformed
+  tokens, exact duplicates and already-complete entries, recording a specific
+  reason for every exclusion;
+- hold unreadable or ambiguous source material for attention instead of
+  silently skipping it;
+- assess in bounded groups of 50 candidates up to 500 total candidates, then
+  100 candidates per group; these are processing bounds, not total limits;
+- generate complete lessons in adaptive batches of 5–10, normally 8, never
+  50–100 detailed lessons in one model response;
+- process one generation batch at a time, retry temporary failures up to three
+  times, and require PostgreSQL read-back verification before completion.
+
 ## Required ChatGPT behavior
 
 When asked to process a source for this application, ChatGPT must:
 
 1. inspect the complete source before proposing entries;
 2. show the page/chunk coverage and exact decision counts;
-3. wait for explicit approval before generating lessons;
+3. generate all policy-eligible candidates without asking for approval after
+   the learner has claimed the import; ask only for unresolved exceptions;
 4. use the manifest and batch runtime contracts in
    `packages/backend/src/services/content-pack-contract.ts`;
 5. validate files with `yarn content-packs:validate <directory>` before writing
@@ -113,14 +133,3 @@ missing or untracked items = 0
 
 If any value is nonzero or inconsistent, the UI reports **Processing** or
 **Attention required**, never **Completed**.
-
-## Inbox cleanup rule
-
-Cleanup is automatic during periodic or manual synchronization, but is allowed
-only after the import is completed, every planned batch is present and valid,
-the committed count matches the approved count, and every word, lesson,
-progress and review row is read back successfully. A guarded Git push prevents
-cleanup from overwriting a concurrently delivered pack. Failed cleanup is safe
-to retry, and an already-absent folder is recorded without changing PostgreSQL
-content.
-
