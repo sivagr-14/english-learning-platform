@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "featureId": "contextual-vocabulary-senses",
+  "title": "Contextual vocabulary senses and permanent display ranks",
+  "implementationPaths": [
+    "packages/backend/src/database/migrations/015_contextual_vocabulary_senses.ts",
+    "packages/backend/src/services/vocabulary-sense.service.ts",
+    "packages/backend/src/services/content-pack-contract.ts",
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/backend/src/services/vocabulary-import.service.ts",
+    "packages/frontend/components/VocabularyWordList.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/vocabulary-sense.service.test.ts",
+    "packages/backend/src/services/content-pack-contract.test.ts",
+    "packages/backend/src/services/vocabulary-import.service.test.ts",
+    "packages/backend/src/scripts/smoke-vocabulary-senses-postgres.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "chatgpt-vocabulary-manifest-v2",
+          "same term + different meaning -> create the next permanent sense",
+          "continuing through `(Z)`, `(AA)` and beyond"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "Same spelling with a different meaning is not a duplicate",
+          "rank 2 -> bank (B)",
+          "rank 27 -> bank (AA)"
+        ]
+      }
+    ]
+  },
+  "mergedEvidence": {
+    "pullRequest": 23,
+    "mergeCommit": "8103c8cd1fb5d6fb2024d47b07f8015061bbdd16",
+    "successfulWorkflowRun": 30714280902
+  }
+}
