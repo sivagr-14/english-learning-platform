@@ -131,6 +131,9 @@ function validateSourceRelease() {
     if (declared.sha256 !== actualHash) {
       fail(`${pair.projectSource} hash is ${actualHash}, not ${declared.sha256}`);
     }
+    if (declared.sizeBytes !== projectSource.length) {
+      fail(`${pair.projectSource} size is ${projectSource.length}, not ${declared.sizeBytes}`);
+    }
   }
   return release;
 }
@@ -202,9 +205,32 @@ function validateDeliveryRecord(item) {
       }
     }
   }
+
+  if (record.mergedEvidence) {
+    const { pullRequest, mergeCommit, successfulWorkflowRun } = record.mergedEvidence;
+    if (!Number.isInteger(pullRequest) || pullRequest < 1) {
+      fail(`${source}.mergedEvidence.pullRequest must be a positive integer`);
+    }
+    if (typeof mergeCommit !== 'string' || !/^[0-9a-f]{40}$/.test(mergeCommit)) {
+      fail(`${source}.mergedEvidence.mergeCommit must be a full commit SHA`);
+    }
+    if (!Number.isInteger(successfulWorkflowRun) || successfulWorkflowRun < 1) {
+      fail(`${source}.mergedEvidence.successfulWorkflowRun must be a positive integer`);
+    }
+    if (process.env.GITHUB_ACTIONS === 'true' && /^[0-9a-f]{40}$/.test(mergeCommit || '')) {
+      try {
+        execFileSync('git', ['merge-base', '--is-ancestor', mergeCommit, 'HEAD'], {
+          cwd: ROOT,
+          stdio: 'ignore',
+        });
+      } catch {
+        fail(`${source} merge commit ${mergeCommit} is not present in this branch history`);
+      }
+    }
+  }
 }
 
-function validatePullRequest(records, changed) {
+function validatePullRequest(records, changed, base) {
   const productFiles = changed.filter(isProductPath);
   if (productFiles.length === 0) return;
 
@@ -245,6 +271,18 @@ function validatePullRequest(records, changed) {
     }
     if (!changed.includes('chatgpt-sources/source-release.json')) {
       fail('chatgpt-sources/source-release.json must change with instruction-bearing features');
+    } else {
+      try {
+        const previousRelease = JSON.parse(
+          git(['show', `${base}:chatgpt-sources/source-release.json`]),
+        );
+        const currentRelease = readJson('chatgpt-sources/source-release.json');
+        if (currentRelease && previousRelease.releaseId === currentRelease.releaseId) {
+          fail('source-release.json.releaseId must change with instruction-bearing features');
+        }
+      } catch {
+        // The source release may be introduced by the current pull request.
+      }
     }
   }
 }
@@ -275,7 +313,7 @@ function main() {
   const records = loadDeliveryRecords();
   records.forEach(validateDeliveryRecord);
   const changed = changedFiles(base, head);
-  if (base && head) validatePullRequest(records, changed);
+  if (base && head) validatePullRequest(records, changed, base);
   if (evidence && !process.exitCode) writeEvidence(evidence, release, records);
 
   if (!process.exitCode) {
