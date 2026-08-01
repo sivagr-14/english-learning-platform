@@ -26,6 +26,10 @@ writes database rows.
    back.
 9. The app reads every committed entry back from PostgreSQL before reporting a
    successful verification.
+10. After verification succeeds, the local control service removes only that
+    manifest folder from the active inbox branch and records the cleanup commit
+    and timestamp in PostgreSQL. Git history and the local ledger remain the
+    recovery and audit trail.
 
 ## Manifest guarantees
 
@@ -133,3 +137,14 @@ missing or untracked items = 0
 
 If any value is nonzero or inconsistent, the UI reports **Processing** or
 **Attention required**, never **Completed**.
+
+## Inbox cleanup rule
+
+Cleanup is automatic during periodic or manual synchronization, but is allowed
+only after the import is completed, every planned batch is present and valid,
+the committed count matches the approved count, and every word, lesson,
+progress and review row is read back successfully. A guarded Git push prevents
+cleanup from overwriting a concurrently delivered pack. Failed cleanup is safe
+to retry, and an already-absent folder is recorded without changing PostgreSQL
+content.
+
