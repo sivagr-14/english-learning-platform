@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
 import { getApiClient } from "@/lib/api/client";
@@ -68,13 +68,26 @@ export default function ControlPage() {
   const [overview, setOverview] = useState<Overview | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+  const [sourceName, setSourceName] = useState("Pasted learning content");
+  const [sourceText, setSourceText] = useState("");
+  const [isAssessing, setIsAssessing] = useState(false);
+  const [approvingId, setApprovingId] = useState("");
+  const [automation, setAutomation] = useState({
+    configured: false,
+    model: "",
+  });
 
   const loadOverview = () => {
     setIsLoading(true);
     setError("");
-    getApiClient()
-      .get("/api/control/overview")
-      .then((response) => setOverview(response.data))
+    Promise.all([
+      getApiClient().get("/api/control/overview"),
+      getApiClient().get("/api/control/automation-status"),
+    ])
+      .then(([overviewResponse, automationResponse]) => {
+        setOverview(overviewResponse.data);
+        setAutomation(automationResponse.data);
+      })
       .catch(() =>
         setError(
           "The control history could not be loaded. Check the backend and try again.",
@@ -85,11 +98,59 @@ export default function ControlPage() {
 
   useEffect(loadOverview, []);
 
+  useEffect(() => {
+    if (!overview?.summary.activeJobs) return;
+    const timer = window.setInterval(loadOverview, 4000);
+    return () => window.clearInterval(timer);
+  }, [overview?.summary.activeJobs]);
+
+  const assessContent = async (event: FormEvent) => {
+    event.preventDefault();
+    setIsAssessing(true);
+    setError("");
+    try {
+      await getApiClient().post("/api/control/assess-text", {
+        name: sourceName,
+        text: sourceText,
+      });
+      setSourceText("");
+      loadOverview();
+    } catch (requestError: any) {
+      setError(
+        requestError?.response?.data?.message ||
+          requestError?.response?.data?.error ||
+          "The content could not be assessed.",
+      );
+    } finally {
+      setIsAssessing(false);
+    }
+  };
+
+  const approve = async (assessmentId: string) => {
+    setApprovingId(assessmentId);
+    setError("");
+    try {
+      await getApiClient().post(
+        `/api/control/assessments/${assessmentId}/approve`,
+        {},
+      );
+      loadOverview();
+    } catch (requestError: any) {
+      setError(
+        requestError?.response?.data?.message ||
+          requestError?.response?.data?.error ||
+          "The generation job could not be started.",
+      );
+    } finally {
+      setApprovingId("");
+    }
+  };
+
   return (
     <AuthenticatedPage>
       <AppShell
-        title="ChatGPT Content Control"
-        description="This is the inspection surface for ChatGPT-managed vocabulary changes. The app never creates entries directly: assessment and exact counts come first, followed by your approval and a reconciled generation job."
+        title="Automated Vocabulary"
+        description="Paste learning content, review the proposed count, approve it, and let the local backend validate and save complete lessons into PostgreSQL."
         actions={
           <button
             type="button"
@@ -107,7 +168,7 @@ export default function ControlPage() {
           </h2>
           <ol className="mt-4 grid gap-3 text-sm text-slate-700 md:grid-cols-4">
             {[
-              ["1", "Share content", "Paste text or attach a file in ChatGPT."],
+              ["1", "Paste content", "Add text directly in this local app."],
               [
                 "2",
                 "Review counts",
@@ -116,7 +177,7 @@ export default function ControlPage() {
               [
                 "3",
                 "Approve",
-                "Tell ChatGPT which proposed entries to process.",
+                "Start generation only after confirming the count.",
               ],
               [
                 "4",
@@ -133,7 +194,50 @@ export default function ControlPage() {
               </li>
             ))}
           </ol>
+          <p className="mt-4 text-xs font-medium text-blue-800">
+            {automation.configured
+              ? `OpenAI connection ready · ${automation.model}`
+              : "OpenAI connection not configured · add OPENAI_API_KEY to .env.local and restart current"}
+          </p>
         </section>
+
+        <form
+          onSubmit={assessContent}
+          className="mt-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+        >
+          <h2 className="text-lg font-semibold text-slate-950">
+            Assess new content
+          </h2>
+          <label className="mt-4 block text-sm font-medium text-slate-700">
+            Source name
+            <input
+              value={sourceName}
+              onChange={(event) => setSourceName(event.target.value)}
+              className="mt-2 w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-950"
+              required
+            />
+          </label>
+          <label className="mt-4 block text-sm font-medium text-slate-700">
+            Text
+            <textarea
+              value={sourceText}
+              onChange={(event) => setSourceText(event.target.value)}
+              rows={8}
+              minLength={20}
+              maxLength={150000}
+              placeholder="Paste a paragraph, article excerpt, subtitle text or other learning content…"
+              className="mt-2 w-full rounded-lg border border-slate-300 px-3 py-2 leading-6 text-slate-950"
+              required
+            />
+          </label>
+          <button
+            type="submit"
+            disabled={isAssessing || !automation.configured}
+            className="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {isAssessing ? "Assessing…" : "Assess content"}
+          </button>
+        </form>
 
         {error && (
           <p
@@ -219,6 +323,19 @@ export default function ControlPage() {
                         </div>
                       ))}
                     </dl>
+                    {assessment.status === "assessed" &&
+                      counts.totalEntriesToProcess > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => approve(assessment.id)}
+                          disabled={approvingId === assessment.id}
+                          className="mt-5 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 disabled:opacity-60"
+                        >
+                          {approvingId === assessment.id
+                            ? "Starting…"
+                            : `Approve and generate ${counts.totalEntriesToProcess}`}
+                        </button>
+                      )}
                   </article>
                 );
               })
