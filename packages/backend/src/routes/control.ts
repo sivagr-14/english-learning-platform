@@ -6,10 +6,12 @@ import {
   AuthenticatedRequest,
 } from "../middleware/auth.middleware";
 import { AssessmentControlService } from "../services/assessment-control.service";
+import { AutomatedVocabularyService } from "../services/openai-generation.service";
 import { database } from "../utils/db";
 
 const router: Router = express.Router();
 const service = new AssessmentControlService(database);
+const automation = new AutomatedVocabularyService(database);
 const controlRateLimiter = rateLimit({
   windowMs: 60_000,
   limit: 60,
@@ -23,6 +25,38 @@ router.use((_req, res, next) => {
   res.set("Cache-Control", "no-store");
   next();
 });
+
+router.get(
+  "/automation-status",
+  async (_req: AuthenticatedRequest, res: Response) => {
+    res.json(automation.status());
+  },
+);
+
+router.post(
+  "/assess-text",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const input = z
+        .object({
+          name: z.string().trim().min(1).max(255),
+          text: z.string().trim().min(20).max(150_000),
+        })
+        .parse(req.body);
+      const assessment = await automation.assessText(
+        req.userId!,
+        input.name,
+        input.text,
+      );
+      res.status(201).json({
+        message: "Assessment saved. Review the exact counts before approval.",
+        assessment,
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
 router.get(
   "/overview",
@@ -81,6 +115,9 @@ router.post(
         assessmentId,
         input.candidateIds,
       );
+      void automation
+        .processJob(req.userId!, generationJob.id)
+        .catch((error) => console.error("Generation job failed", error));
       res.status(202).json({
         message:
           "Approved candidates queued for ChatGPT-controlled generation.",
@@ -93,3 +130,5 @@ router.post(
 );
 
 export default router;
+
+export { automation as automatedVocabularyService };
