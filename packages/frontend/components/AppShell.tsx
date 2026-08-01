@@ -30,6 +30,7 @@ export default function AppShell({
   const router = useRouter();
   const { user, logout } = useAuthStore();
   const [isRestarting, setIsRestarting] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   const restartApp = async () => {
     const confirmed = window.confirm(
@@ -60,6 +61,35 @@ export default function AppShell({
     }
   };
 
+  const updateAndRestart = async () => {
+    const confirmed = window.confirm(
+      "Download the latest GitHub main version, back up PostgreSQL, apply migrations, synchronize built-in entries and restart?",
+    );
+    if (!confirmed) return;
+
+    setIsUpdating(true);
+    try {
+      const response = await fetch("/__control/update-restart", {
+        method: "POST",
+        headers: { "x-english-mastery-control": "1" },
+      });
+      if (!response.ok) {
+        const result = await response.json().catch(() => null);
+        throw new Error(
+          result?.error || "The update request was not accepted.",
+        );
+      }
+      window.location.assign(`/__control?update=${Date.now()}`);
+    } catch (error) {
+      setIsUpdating(false);
+      window.alert(
+        error instanceof Error
+          ? error.message
+          : "The app could not be updated.",
+      );
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
       <header className="border-b border-slate-200 bg-white">
@@ -76,11 +106,19 @@ export default function AppShell({
             </span>
             <button
               type="button"
+              onClick={updateAndRestart}
+              disabled={isUpdating || isRestarting}
+              className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm font-medium text-emerald-700 hover:bg-emerald-100 disabled:cursor-wait disabled:opacity-60"
+            >
+              {isUpdating ? "Updating…" : "Update & restart"}
+            </button>
+            <button
+              type="button"
               onClick={restartApp}
-              disabled={isRestarting}
+              disabled={isRestarting || isUpdating}
               className="rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-sm font-medium text-blue-700 hover:bg-blue-100 disabled:cursor-wait disabled:opacity-60"
             >
-              {isRestarting ? "Restarting…" : "Restart app"}
+              {isRestarting ? "Restarting…" : "Restart current"}
             </button>
             <button
               type="button"
