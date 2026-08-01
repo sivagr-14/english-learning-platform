@@ -10,6 +10,10 @@ import {
   validateContentBatch,
   validateContentManifest,
 } from "./content-pack-contract";
+import {
+  DEFAULT_IMPORT_POLICY,
+  importPolicySnapshot,
+} from "../config/import-policy";
 import { VocabularyImportService } from "./vocabulary-import.service";
 
 export interface ContentPackDocument {
@@ -385,6 +389,7 @@ export class ContentPackService {
           request_hash: row.manifest_hash,
           status: initialStatus,
           counts: JSON.stringify(counts),
+          import_policy: JSON.stringify(importPolicySnapshot()),
           ...(initialStatus === "completed"
             ? { completed_at: new Date() }
             : {}),
@@ -489,7 +494,14 @@ export class ContentPackService {
         details: JSON.stringify({ manifestHash: row.manifest_hash, counts }),
       });
     });
-    return this.getManifest(userId, manifestId);
+    const claimed = await this.getManifest(userId, manifestId);
+    if (
+      !DEFAULT_IMPORT_POLICY.approvalRequired &&
+      claimed.status === "awaiting_approval"
+    ) {
+      return this.approveManifest(userId, manifestId);
+    }
+    return claimed;
   }
 
   async approveManifest(

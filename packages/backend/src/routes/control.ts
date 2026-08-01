@@ -94,7 +94,8 @@ router.post(
         manifestId,
       );
       res.json({
-        message: "Manifest claimed. Review the exact candidate count.",
+        message:
+          "Manifest claimed. All policy-eligible candidates were scheduled automatically.",
         manifest,
       });
     } catch (error) {

@@ -1,5 +1,6 @@
 import { createHash } from "crypto";
 import { z } from "zod";
+import { importPolicySnapshot } from "../config/import-policy";
 
 export const CandidateActionSchema = z.enum([
   "new",
@@ -52,6 +53,18 @@ export const AssessmentCandidateSchema = z
         code: z.ZodIssueCode.custom,
         path: ["filterReason"],
         message: "filtered candidates must include a filter reason",
+      });
+    }
+
+    if (
+      candidate.usageFrequency?.toLowerCase() === "low" &&
+      candidate.action !== "filtered"
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["usageFrequency"],
+        message:
+          "low-frequency candidates must be filtered by the default import policy",
       });
     }
 
@@ -268,6 +281,7 @@ export class AssessmentControlService {
             request_hash: requestHash,
             status: "assessed",
             counts: JSON.stringify(counts),
+            import_policy: JSON.stringify(importPolicySnapshot()),
           })
           .returning("*")
       )[0];
