@@ -12,7 +12,7 @@ const navigation = [
   { href: "/search", label: "Search" },
   { href: "/flashcards", label: "Review" },
   { href: "/progress", label: "Progress" },
-  { href: "/generate", label: "ChatGPT Control" },
+  { href: "/generate", label: "ChatGPT Imports" },
 ];
 
 export default function AppShell({
