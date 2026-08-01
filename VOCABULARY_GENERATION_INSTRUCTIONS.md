@@ -14,16 +14,72 @@ Exclude low-frequency terms, proper names, extraction/OCR noise, malformed
 tokens, exact duplicates and already-complete entries, and record a reason for
 every exclusion. Hold unreadable or ambiguous material for attention.
 
+Here, an exact duplicate means the same normalized term and the same contextual
+sense. Same spelling with a different meaning is not a duplicate.
+
 Candidate assessment uses bounded groups of 50 up to 500 candidates, then 100.
 Complete lesson generation uses adaptive batches of 5–10 entries, normally 8.
 These are per-operation safety bounds, not limits on the total import. The
 backend policy and stored import snapshot remain the source of truth.
+
+## Contextual sense identity
+
+Generate one entry for exactly one meaning demonstrated by the supplied
+content. Determine that meaning from the complete source sentence, surrounding
+paragraph or dialogue, grammatical role, topic and situation. Do not add other
+dictionary meanings merely because the spelling can have them.
+
+For every candidate, provide:
+
+- `contextualMeaning`: the exact English meaning taught by the entry;
+- `senseKey`: a short, stable semantic identity such as
+  `financial-institution` or `land-beside-river`;
+- `senseDecision`: `same_sense`, `new_sense` or `ambiguous`; and
+- `senseEvidence.sentence` and `senseEvidence.explanation` showing why that
+  meaning applies in the source.
+
+Apply these rules:
+
+- Same normalized term and same contextual meaning: merge the occurrences and
+  reuse the existing sense.
+- Same normalized term but genuinely different contextual meaning: keep a
+  separate candidate; never filter it as a spelling duplicate.
+- Uncertain meaning or uncertain distinction: mark `ambiguous` and hold it for
+  attention; never guess.
+- Frequency is assessed per sense. A common meaning and a rare meaning of the
+  same word may receive different decisions.
+- `englishMeaning` and `lesson.meaning_in_context.contextual_meaning` must equal
+  the assessed `contextualMeaning`. The lesson source sentence must equal the
+  recorded sense-evidence sentence.
+
+Always put the real unsuffixed term in `term` and `word`, for example `bank`.
+Never generate `bank (A)`, `bank (B)` or `bank-B`. The app stores a permanent
+sense rank and derives the visible label:
+
+```text
+rank 1 -> bank
+rank 2 -> bank (B)
+rank 3 -> bank (C)
+rank 4 -> bank (D)
+rank 5 -> bank (E)
+...
+rank 26 -> bank (Z)
+rank 27 -> bank (AA)
+```
+
+Existing unsuffixed entries are internally sense A/rank 1, but `(A)` is never
+displayed. Later ranks are permanent: deleting `(B)` must not rename `(C)` or
+permit the next sense to reuse B.
 
 ## Core rule
 
 Generate exactly eight complete learning sections. Every value must teach
 something specific about the target word or expression. The app must reject the
 entry instead of saving partial, vague, generic, or placeholder content.
+
+Every section must remain inside the single assessed contextual sense. A short
+contrast with another sense is allowed only under Mistakes & Differences when
+it prevents confusion; it must not turn the lesson into a multi-meaning entry.
 
 Never use filler such as:
 
@@ -95,6 +151,8 @@ frequency-by-context sections.
 - All eight sections are mandatory, including Advanced Nuance.
 - No string, list, object, or nested value may be empty.
 - Every explanation must be concrete and specific to the target term.
+- Every explanation, example, collocation, practice item and nuance must fit
+  the one assessed contextual meaning.
 - The source sentence, main pattern and memory sentence must use the term.
 - At least two natural examples must use the term.
 - The mistake or correction must demonstrate the term.
