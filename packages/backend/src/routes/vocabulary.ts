@@ -15,6 +15,12 @@ import {
   removeStarterSamples,
   starterSampleStatus,
 } from "../services/starter-samples.service";
+import {
+  addWordsToUserCategory,
+  createUserCategory,
+  ensureFavoriteCategory,
+  listUserCategories,
+} from "../services/user-category.service";
 
 const router: Router = express.Router();
 const DEFAULT_PAGE_SIZE = 50;
@@ -35,6 +41,22 @@ const detailContextSchema = z.object({
   page: z.coerce.number().int().min(1).optional(),
   limit: z.coerce.number().int().min(1).max(100).optional(),
 });
+
+const createUserCategorySchema = z.object({
+  name: z.string().trim().min(1).max(100),
+  description: z.string().trim().max(500).optional(),
+});
+
+const addWordsToCategorySchema = z
+  .object({
+    wordIds: z.array(z.string().uuid()).min(1).max(100),
+    categoryId: z.string().uuid().optional(),
+    newCategoryName: z.string().trim().min(1).max(100).optional(),
+  })
+  .refine((input) => !(input.categoryId && input.newCategoryName), {
+    message: "Choose an existing category or create a new one, not both.",
+    path: ["categoryId"],
+  });
 
 router.use((_req, res, next) => {
   res.set("Cache-Control", "no-store");
@@ -57,7 +79,7 @@ function applyCategory(query: any, categoryId: string) {
   ]);
 }
 
-function applySearch(query: any, queryText: string) {
+function applySearch(query: any, queryText: string, userId: string) {
   const term = `%${queryText}%`;
 
   return query.where((builder: any) => {
@@ -78,6 +100,11 @@ function applySearch(query: any, queryText: string) {
             "search_vc.id",
           )
           .whereRaw("search_vec.word_id = vw.id")
+          .andWhere((categoryOwner: any) =>
+            categoryOwner
+              .where("search_vc.owner_user_id", userId)
+              .orWhereNull("search_vc.owner_user_id"),
+          )
           .andWhere((categoryMatch: any) =>
             categoryMatch
               .whereILike("search_vc.category_name", term)
@@ -120,21 +147,26 @@ function searchWordsBase(userId: string, queryText: string) {
     "vc.id",
   );
   applyOwnership(query, userId);
-  applySearch(query, queryText);
+  applySearch(query, queryText, userId);
   return query;
 }
 
 async function getCategories(userId: string) {
-  const query = database("vocabulary_words as vw")
-    .leftJoin("vocabulary_entry_categories as vec", "vw.id", "vec.word_id")
-    .join("vocabulary_categories as vc", function () {
-      this.on(
-        "vc.id",
-        "=",
-        database.raw("COALESCE(vec.category_id, vw.category_id)"),
-      );
-    })
+  await ensureFavoriteCategory(database, userId);
+
+  const query = database("vocabulary_categories as vc")
+    .leftJoin("vocabulary_entry_categories as vec", "vc.id", "vec.category_id")
+    .leftJoin("vocabulary_words as vw", "vec.word_id", "vw.id")
     .where("vc.is_active", true)
+    .where((builder: any) =>
+      builder.where("vc.owner_user_id", userId).orWhereNull("vc.owner_user_id"),
+    )
+    .where((builder: any) =>
+      builder
+        .whereNull("vw.id")
+        .orWhere("vw.owner_user_id", userId)
+        .orWhereNull("vw.owner_user_id"),
+    )
     .select(
       "vc.id",
       "vc.track_number",
@@ -143,15 +175,16 @@ async function getCategories(userId: string) {
       "vc.category_name",
       "vc.description",
       "vc.color_code",
+      "vc.is_user_category",
+      "vc.is_default",
     )
     .select(
       database.raw("ARRAY_AGG(DISTINCT UPPER(vw.cefr_level)) as cefr_levels"),
     )
     .countDistinct({ word_count: "vw.id" })
     .groupBy("vc.id")
+    .havingRaw("COUNT(DISTINCT vw.id) > 0 OR vc.owner_user_id = ?", [userId])
     .orderBy([{ column: "vc.track_number" }, { column: "vc.category_number" }]);
-
-  applyOwnership(query, userId);
   const rows = await query;
 
   return rows.map((category: any) => ({
@@ -167,6 +200,57 @@ router.get(
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
       res.json({ categories: await getCategories(req.userId as string) });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.get(
+  "/user-categories",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      res.json({
+        categories: await listUserCategories(database, req.userId as string),
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.post(
+  "/user-categories",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const input = createUserCategorySchema.parse(req.body);
+      const category = await createUserCategory(
+        database,
+        req.userId as string,
+        input,
+      );
+      res.status(201).json({ category });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.post(
+  "/words/categories",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const { wordIds, categoryId, newCategoryName } =
+        addWordsToCategorySchema.parse(req.body);
+      res.json(
+        await addWordsToUserCategory(database, req.userId as string, wordIds, {
+          categoryId,
+          newCategoryName,
+        }),
+      );
     } catch (error) {
       next(error);
     }

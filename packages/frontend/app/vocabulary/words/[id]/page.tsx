@@ -5,6 +5,7 @@ import { ReactNode, Suspense, useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
+import WordCategoryPicker from "@/components/WordCategoryPicker";
 import { getApiClient } from "@/lib/api/client";
 
 interface WordDetail {
@@ -556,6 +557,8 @@ function VocabularyWordContent() {
                 </div>
               )}
             </section>
+
+            <WordCategoryPicker wordIds={[word.id]} />
 
             <section className="rounded-lg border border-gray-200 bg-white p-6">
               <div className="mb-5 border-b border-gray-200 pb-4">

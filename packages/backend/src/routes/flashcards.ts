@@ -74,8 +74,13 @@ router.get(
           "vocabulary_words.id",
         )
         .join(
+          "vocabulary_entry_categories",
+          "vocabulary_words.id",
+          "vocabulary_entry_categories.word_id",
+        )
+        .join(
           "vocabulary_categories",
-          "vocabulary_words.category_id",
+          "vocabulary_entry_categories.category_id",
           "vocabulary_categories.id",
         )
         .select(
@@ -85,12 +90,17 @@ router.get(
           "vocabulary_categories.difficulty_level",
           "vocabulary_categories.color_code",
         )
-        .count({ due_count: "flashcard_queue.id" })
+        .countDistinct({ due_count: "flashcard_queue.id" })
         .where("flashcard_queue.user_id", req.userId)
         .where((builder) =>
           builder
             .where("vocabulary_words.owner_user_id", req.userId)
             .orWhereNull("vocabulary_words.owner_user_id"),
+        )
+        .where((builder) =>
+          builder
+            .where("vocabulary_categories.owner_user_id", req.userId)
+            .orWhereNull("vocabulary_categories.owner_user_id"),
         )
         .where("flashcard_queue.due_at", "<=", new Date())
         .groupBy("vocabulary_categories.id")
@@ -171,7 +181,27 @@ router.get(
         .limit(Number(req.query.limit || 20));
 
       if (categoryId) {
-        query.where("vocabulary_words.category_id", categoryId);
+        const category = await database("vocabulary_categories")
+          .where({ id: categoryId, is_active: true })
+          .where((builder) =>
+            builder
+              .where("owner_user_id", req.userId)
+              .orWhereNull("owner_user_id"),
+          )
+          .first();
+        if (!category) {
+          return res.status(404).json({ message: "Category not found" });
+        }
+
+        query.whereExists((linked) => {
+          linked
+            .select(database.raw("1"))
+            .from("vocabulary_entry_categories")
+            .whereRaw(
+              "vocabulary_entry_categories.word_id = vocabulary_words.id",
+            )
+            .where("vocabulary_entry_categories.category_id", categoryId);
+        });
       }
 
       const cards = await query;

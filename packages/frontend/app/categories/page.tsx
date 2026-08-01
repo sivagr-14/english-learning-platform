@@ -14,6 +14,8 @@ interface Category {
   color_code: string | null;
   word_count: string;
   cefr_range: string | null;
+  is_user_category: boolean;
+  is_default: boolean;
 }
 
 export default function CategoriesPage() {
@@ -71,6 +73,11 @@ export default function CategoriesPage() {
                     <h2 className="font-semibold text-slate-950">
                       {category.category_name}
                     </h2>
+                    {category.is_user_category && (
+                      <span className="mt-1 inline-flex rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-semibold text-amber-800">
+                        {category.is_default ? "Default personal" : "Personal"}
+                      </span>
+                    )}
                     <p className="mt-1 text-xs text-slate-500">
                       {category.track_name}
                     </p>

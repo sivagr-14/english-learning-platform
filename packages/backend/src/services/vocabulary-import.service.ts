@@ -838,11 +838,16 @@ async function resolveCategory(
   categoryCandidates: string[] = []
 ) {
   if (categoryId) {
-    const explicit = await trx("vocabulary_categories").where("id", categoryId).first();
+    const explicit = await trx("vocabulary_categories")
+      .where({ id: categoryId, is_user_category: false })
+      .whereNull("owner_user_id")
+      .first();
     if (explicit) return explicit;
   }
 
   const categories = await trx("vocabulary_categories")
+    .where({ is_user_category: false, is_active: true })
+    .whereNull("owner_user_id")
     .select("*")
     .orderBy([{ column: "track_number" }, { column: "category_number" }]);
 

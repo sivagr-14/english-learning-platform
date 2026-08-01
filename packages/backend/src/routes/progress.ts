@@ -56,10 +56,15 @@ router.get(
             .count({ due_now: "id" })
             .first(),
           database("vocabulary_categories")
-            .leftJoin(
-              "vocabulary_words",
+            .join(
+              "vocabulary_entry_categories",
               "vocabulary_categories.id",
-              "vocabulary_words.category_id",
+              "vocabulary_entry_categories.category_id",
+            )
+            .join(
+              "vocabulary_words",
+              "vocabulary_entry_categories.word_id",
+              "vocabulary_words.id",
             )
             .leftJoin("user_progress", (join) => {
               join
@@ -74,6 +79,11 @@ router.get(
               builder
                 .where("vocabulary_words.owner_user_id", userId)
                 .orWhereNull("vocabulary_words.owner_user_id"),
+            )
+            .where((builder) =>
+              builder
+                .where("vocabulary_categories.owner_user_id", userId)
+                .orWhereNull("vocabulary_categories.owner_user_id"),
             )
             .groupBy(
               "vocabulary_categories.id",
