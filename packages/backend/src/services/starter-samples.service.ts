@@ -70,6 +70,16 @@ export async function starterSampleStatus(userId: string) {
 
 export async function loadStarterSamples(userId: string) {
   return database.transaction(async (trx) => {
+    await trx("starter_sample_preferences")
+      .insert({
+        user_id: userId,
+        enabled: true,
+        content_version: 0,
+        created_at: new Date(),
+        updated_at: new Date(),
+      })
+      .onConflict("user_id")
+      .merge({ enabled: true, updated_at: new Date() });
     const categories = await trx("vocabulary_categories")
       .whereIn(
         "category_name",
@@ -266,6 +276,11 @@ export async function loadStarterSamples(userId: string) {
       .whereIn("canonical_key", STARTER_SAMPLE_KEYS)
       .count({ count: "id" });
 
+    await trx("starter_sample_preferences").where({ user_id: userId }).update({
+      content_version: STARTER_SAMPLE_VERSION,
+      updated_at: new Date(),
+    });
+
     return {
       available: STARTER_SAMPLES.length,
       loaded: Number(count || 0),
@@ -285,6 +300,32 @@ export async function removeStarterSamples(userId: string) {
       .whereIn("canonical_key", STARTER_SAMPLE_KEYS)
       .delete();
 
+    await trx("starter_sample_preferences")
+      .insert({
+        user_id: userId,
+        enabled: false,
+        content_version: STARTER_SAMPLE_VERSION,
+        created_at: new Date(),
+        updated_at: new Date(),
+      })
+      .onConflict("user_id")
+      .merge({
+        enabled: false,
+        content_version: STARTER_SAMPLE_VERSION,
+        updated_at: new Date(),
+      });
+
     return { removed: Number(removed || 0) };
   });
+}
+
+export async function synchronizeEnabledStarterSamples() {
+  const enabledUsers = await database("starter_sample_preferences")
+    .where({ enabled: true })
+    .select("user_id");
+  const results = [];
+  for (const { user_id: userId } of enabledUsers) {
+    results.push({ userId, ...(await loadStarterSamples(userId)) });
+  }
+  return results;
 }
