@@ -1,11 +1,11 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
 import { getApiClient } from "@/lib/api/client";
 
-interface AssessmentCounts {
+interface PackCounts {
   candidatesIdentified: number;
   alreadyPresentUnchanged: number;
   existingEntriesToUpdate: number;
@@ -14,175 +14,259 @@ interface AssessmentCounts {
   totalEntriesToProcess: number;
   heavyUseSelections: number;
   mediumUseSelections: number;
+  totalPages: number;
+  assessedPages: number;
+  unreadablePages: number;
+  totalChunks: number;
+  assessedChunks: number;
+  unreadableChunks: number;
+  plannedBatches: number;
 }
 
-interface Assessment {
+interface PackManifest {
   id: string;
-  source_name: string;
-  source_type: string;
+  sourceName: string;
+  sourceType: string;
   status: string;
-  counts: AssessmentCounts | string;
-  created_at: string;
-}
-
-interface GenerationJob {
-  id: string;
-  source_name: string;
-  status: string;
-  total_items: number;
-  completed_items: number;
-  failed_items: number;
-  manual_review_items: number;
-  created_at: string;
-}
-
-interface Overview {
-  summary: {
-    vocabularyEntries: number;
-    assessments: number;
-    pendingApproval: number;
-    activeJobs: number;
+  claimed: boolean;
+  counts: PackCounts;
+  generation: {
+    plannedBatches: number;
+    receivedBatches: number;
+    missingBatches: number;
+    invalidBatches: number;
+    committedEntries: number;
   };
-  assessments: Assessment[];
-  jobs: GenerationJob[];
+  candidates?: PackCandidate[];
+  createdAt: string;
 }
 
-function readCounts(value: Assessment["counts"]): AssessmentCounts {
-  return typeof value === "string" ? JSON.parse(value) : value;
+interface PackCandidate {
+  id: string;
+  external_candidate_id: string;
+  item: string;
+  item_type: string;
+  cefr_level: string;
+  usage_frequency: string;
+  action: string;
+  status: string;
+  contextual_meaning: string;
+  filter_reason?: string;
+}
+
+interface IngestError {
+  document_path: string;
+  pack_id?: string;
+  issues: string[] | string;
+  updated_at: string;
 }
 
 function statusTone(status: string) {
-  if (["completed", "reconciled"].includes(status)) {
-    return "bg-emerald-100 text-emerald-800";
-  }
-  if (["failed", "manual_review"].includes(status)) {
+  if (status === "completed") return "bg-emerald-100 text-emerald-800";
+  if (["attention_required", "invalid", "conflict"].includes(status)) {
     return "bg-red-100 text-red-800";
   }
-  if (["approved", "processing"].includes(status)) {
+  if (["processing", "approved"].includes(status)) {
     return "bg-blue-100 text-blue-800";
   }
   return "bg-amber-100 text-amber-800";
 }
 
-export default function ControlPage() {
-  const [overview, setOverview] = useState<Overview | null>(null);
+function readIssues(value: IngestError["issues"]): string[] {
+  if (Array.isArray(value)) return value;
+  try {
+    const parsed = JSON.parse(value);
+    return Array.isArray(parsed) ? parsed.map(String) : [String(parsed)];
+  } catch {
+    return [value];
+  }
+}
+
+export default function ChatGPTImportsPage() {
+  const [manifests, setManifests] = useState<PackManifest[]>([]);
+  const [ingestErrors, setIngestErrors] = useState<IngestError[]>([]);
+  const [details, setDetails] = useState<Record<string, PackManifest>>({});
+  const [selected, setSelected] = useState<Record<string, Set<string>>>({});
+  const [busy, setBusy] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const [sourceName, setSourceName] = useState("Pasted learning content");
-  const [sourceText, setSourceText] = useState("");
-  const [isAssessing, setIsAssessing] = useState(false);
-  const [approvingId, setApprovingId] = useState("");
-  const [automation, setAutomation] = useState({
-    configured: false,
-    model: "",
-  });
 
-  const loadOverview = () => {
-    setIsLoading(true);
+  const load = useCallback(async () => {
     setError("");
-    Promise.all([
-      getApiClient().get("/api/control/overview"),
-      getApiClient().get("/api/control/automation-status"),
-    ])
-      .then(([overviewResponse, automationResponse]) => {
-        setOverview(overviewResponse.data);
-        setAutomation(automationResponse.data);
-      })
-      .catch(() =>
-        setError(
-          "The control history could not be loaded. Check the backend and try again.",
-        ),
-      )
-      .finally(() => setIsLoading(false));
-  };
-
-  useEffect(loadOverview, []);
+    try {
+      const response = await getApiClient().get("/api/control/content-packs");
+      setManifests(response.data.manifests);
+      setIngestErrors(response.data.ingestErrors || []);
+    } catch {
+      setError(
+        "ChatGPT imports could not be loaded. Check the backend and retry.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
-    if (!overview?.summary.activeJobs) return;
-    const timer = window.setInterval(loadOverview, 4000);
-    return () => window.clearInterval(timer);
-  }, [overview?.summary.activeJobs]);
+    void load();
+  }, [load]);
 
-  const assessContent = async (event: FormEvent) => {
-    event.preventDefault();
-    setIsAssessing(true);
+  const remoteSync = async () => {
+    setBusy("sync");
+    setMessage("");
     setError("");
     try {
-      await getApiClient().post("/api/control/assess-text", {
-        name: sourceName,
-        text: sourceText,
+      const response = await fetch("/__control/sync-content", {
+        method: "POST",
+        headers: { "x-english-mastery-control": "1" },
       });
-      setSourceText("");
-      loadOverview();
-    } catch (requestError: any) {
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || "Content sync failed.");
+      setMessage(
+        result.available === false
+          ? "The ChatGPT content inbox has not been initialized yet."
+          : "ChatGPT content inbox synchronized and validated.",
+      );
+      await load();
+    } catch (syncError) {
       setError(
-        requestError?.response?.data?.message ||
-          requestError?.response?.data?.error ||
-          "The content could not be assessed.",
+        syncError instanceof Error ? syncError.message : "Content sync failed.",
       );
     } finally {
-      setIsAssessing(false);
+      setBusy("");
     }
   };
 
-  const approve = async (assessmentId: string) => {
-    setApprovingId(assessmentId);
+  const loadDetail = async (id: string) => {
+    const response = await getApiClient().get(
+      `/api/control/content-packs/${id}`,
+    );
+    const manifest = response.data.manifest as PackManifest;
+    setDetails((current) => ({ ...current, [id]: manifest }));
+    const proposed = (manifest.candidates || [])
+      .filter((candidate) => candidate.status === "proposed")
+      .map((candidate) => candidate.external_candidate_id);
+    setSelected((current) => ({ ...current, [id]: new Set(proposed) }));
+  };
+
+  const claim = async (id: string) => {
+    setBusy(`claim:${id}`);
     setError("");
     try {
-      await getApiClient().post(
-        `/api/control/assessments/${assessmentId}/approve`,
-        {},
-      );
-      loadOverview();
+      await getApiClient().post(`/api/control/content-packs/${id}/claim`);
+      setMessage("Import claimed. Review the exact terms before approval.");
+      await Promise.all([load(), loadDetail(id)]);
     } catch (requestError: any) {
       setError(
         requestError?.response?.data?.message ||
           requestError?.response?.data?.error ||
-          "The generation job could not be started.",
+          "The import could not be claimed.",
       );
     } finally {
-      setApprovingId("");
+      setBusy("");
     }
+  };
+
+  const approve = async (id: string) => {
+    const candidateIds = [...(selected[id] || new Set<string>())];
+    if (!candidateIds.length) {
+      setError("Select at least one proposed entry before approval.");
+      return;
+    }
+    if (!window.confirm(`Approve exactly ${candidateIds.length} entries?`))
+      return;
+    setBusy(`approve:${id}`);
+    setError("");
+    try {
+      await getApiClient().post(`/api/control/content-packs/${id}/approve`, {
+        candidateIds,
+      });
+      setMessage(
+        "Selection approved. Validated ChatGPT batches will now save automatically.",
+      );
+      await Promise.all([load(), loadDetail(id)]);
+    } catch (requestError: any) {
+      setError(
+        requestError?.response?.data?.message ||
+          requestError?.response?.data?.error ||
+          "Approval failed.",
+      );
+    } finally {
+      setBusy("");
+    }
+  };
+
+  const verify = async (id: string) => {
+    setBusy(`verify:${id}`);
+    setError("");
+    try {
+      const response = await getApiClient().post(
+        `/api/control/content-packs/${id}/verify`,
+      );
+      if (!response.data.verified) {
+        throw new Error(response.data.issues.join("; "));
+      }
+      setMessage(
+        `${response.data.entries} entries verified in words, lessons, progress and review tables.`,
+      );
+    } catch (requestError: any) {
+      setError(
+        requestError?.response?.data?.message ||
+          requestError?.response?.data?.error ||
+          requestError.message ||
+          "Verification failed.",
+      );
+    } finally {
+      setBusy("");
+    }
+  };
+
+  const toggle = (manifestId: string, candidateId: string) => {
+    setSelected((current) => {
+      const next = new Set(current[manifestId] || []);
+      if (next.has(candidateId)) next.delete(candidateId);
+      else next.add(candidateId);
+      return { ...current, [manifestId]: next };
+    });
   };
 
   return (
     <AuthenticatedPage>
       <AppShell
-        title="Automated Vocabulary"
-        description="Paste learning content, review the proposed count, approve it, and let the local backend validate and save complete lessons into PostgreSQL."
+        title="ChatGPT Imports"
+        description="ChatGPT assesses your PDF or text, creates complete lessons, and sends validated content packs through your private GitHub inbox. Only this local backend writes to PostgreSQL."
         actions={
           <button
             type="button"
-            onClick={loadOverview}
-            disabled={isLoading}
-            className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 disabled:opacity-60"
+            onClick={remoteSync}
+            disabled={busy === "sync"}
+            className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-60"
           >
-            Refresh status
+            {busy === "sync" ? "Synchronizing…" : "Sync ChatGPT content"}
           </button>
         }
       >
         <section className="rounded-xl border border-blue-200 bg-blue-50 p-6">
           <h2 className="text-lg font-semibold text-slate-950">
-            Add or update vocabulary
+            No API key or separate API billing
           </h2>
           <ol className="mt-4 grid gap-3 text-sm text-slate-700 md:grid-cols-4">
             {[
-              ["1", "Paste content", "Add text directly in this local app."],
+              ["1", "Share source", "Paste text or attach the PDF in ChatGPT."],
               [
                 "2",
-                "Review counts",
-                "Check new, update, duplicate and filtered totals.",
+                "Review assessment",
+                "ChatGPT accounts for pages, chunks and terms.",
               ],
               [
                 "3",
-                "Approve",
-                "Start generation only after confirming the count.",
+                "Approve exact terms",
+                "Claim the manifest here and select the entries.",
               ],
               [
                 "4",
-                "Reconcile",
-                "Every approved entry is completed, failed or held for review.",
+                "Sync lessons",
+                "Validated batches save locally and are read back.",
               ],
             ].map(([number, title, detail]) => (
               <li key={number} className="rounded-lg bg-white/80 p-4">
@@ -195,50 +279,16 @@ export default function ControlPage() {
             ))}
           </ol>
           <p className="mt-4 text-xs font-medium text-blue-800">
-            {automation.configured
-              ? `OpenAI connection ready · ${automation.model}`
-              : "OpenAI connection not configured · add OPENAI_API_KEY to .env.local and restart current"}
+            Transport: private GitHub branch · Storage: local PostgreSQL ·
+            Automatic check: every 5 minutes
           </p>
         </section>
 
-        <form
-          onSubmit={assessContent}
-          className="mt-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
-        >
-          <h2 className="text-lg font-semibold text-slate-950">
-            Assess new content
-          </h2>
-          <label className="mt-4 block text-sm font-medium text-slate-700">
-            Source name
-            <input
-              value={sourceName}
-              onChange={(event) => setSourceName(event.target.value)}
-              className="mt-2 w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-950"
-              required
-            />
-          </label>
-          <label className="mt-4 block text-sm font-medium text-slate-700">
-            Text
-            <textarea
-              value={sourceText}
-              onChange={(event) => setSourceText(event.target.value)}
-              rows={8}
-              minLength={20}
-              maxLength={150000}
-              placeholder="Paste a paragraph, article excerpt, subtitle text or other learning content…"
-              className="mt-2 w-full rounded-lg border border-slate-300 px-3 py-2 leading-6 text-slate-950"
-              required
-            />
-          </label>
-          <button
-            type="submit"
-            disabled={isAssessing || !automation.configured}
-            className="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            {isAssessing ? "Assessing…" : "Assess content"}
-          </button>
-        </form>
-
+        {message && (
+          <p className="mt-5 rounded-lg bg-emerald-50 p-4 text-sm text-emerald-800">
+            {message}
+          </p>
+        )}
         {error && (
           <p
             role="alert"
@@ -248,72 +298,102 @@ export default function ControlPage() {
           </p>
         )}
 
-        <section className="mt-7">
+        {ingestErrors.length > 0 && (
+          <section className="mt-5 rounded-xl border border-red-200 bg-red-50 p-5">
+            <h2 className="font-semibold text-red-950">
+              Content packs requiring correction
+            </h2>
+            <ul className="mt-3 space-y-3 text-sm text-red-800">
+              {ingestErrors.map((item) => {
+                const issues = readIssues(item.issues);
+                return (
+                  <li key={`${item.document_path}:${item.updated_at}`}>
+                    <span className="font-medium">{item.document_path}</span>
+                    <span className="mt-1 block">{issues.join("; ")}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
+
+        <section className="mt-8">
           <div className="flex items-end justify-between gap-4">
             <div>
               <h2 className="text-lg font-semibold text-slate-950">
-                Assessment history
+                Import ledger
               </h2>
               <p className="mt-1 text-sm text-slate-600">
-                Counts shown here are saved before any vocabulary mutation.
+                An import remains incomplete while any planned batch is missing
+                or invalid.
               </p>
             </div>
             <span className="text-sm text-slate-500">
-              {overview?.summary.assessments || 0} total
+              {manifests.length} imports
             </span>
           </div>
 
-          <div className="mt-4 space-y-4">
+          <div className="mt-4 space-y-5">
             {isLoading ? (
-              <div className="rounded-xl border border-slate-200 bg-white p-6 text-sm text-slate-500">
-                Loading control history…
+              <div className="rounded-xl border bg-white p-6 text-sm text-slate-500">
+                Loading…
               </div>
-            ) : !overview?.assessments.length ? (
+            ) : manifests.length === 0 ? (
               <div className="rounded-xl border border-dashed border-slate-300 bg-white p-8 text-center">
                 <h3 className="font-semibold text-slate-950">
-                  No assessments yet
+                  No ChatGPT imports yet
                 </h3>
-                <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-600">
-                  Share your first text, subtitle, PDF, document or vocabulary
-                  file with ChatGPT. The proposed counts will appear here after
-                  assessment.
+                <p className="mt-2 text-sm text-slate-600">
+                  For your practical test, paste a small text in ChatGPT and ask
+                  it to assess and prepare the import.
                 </p>
               </div>
             ) : (
-              overview.assessments.map((assessment) => {
-                const counts = readCounts(assessment.counts);
+              manifests.map((manifest) => {
+                const detail = details[manifest.id];
+                const proposed = (detail?.candidates || []).filter(
+                  (candidate) => candidate.status === "proposed",
+                );
                 return (
                   <article
-                    key={assessment.id}
+                    key={manifest.id}
                     className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
                   >
-                    <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
+                    <div className="flex flex-wrap items-start justify-between gap-3">
                       <div>
                         <h3 className="font-semibold text-slate-950">
-                          {assessment.source_name}
+                          {manifest.sourceName}
                         </h3>
                         <p className="mt-1 text-xs uppercase tracking-wide text-slate-500">
-                          {assessment.source_type} ·{" "}
-                          {new Date(assessment.created_at).toLocaleString()}
+                          {manifest.sourceType} · {manifest.id}
                         </p>
                       </div>
                       <span
-                        className={`self-start rounded-full px-3 py-1 text-xs font-semibold capitalize ${statusTone(
-                          assessment.status,
-                        )}`}
+                        className={`rounded-full px-3 py-1 text-xs font-semibold capitalize ${statusTone(manifest.status)}`}
                       >
-                        {assessment.status.replace(/_/g, " ")}
+                        {manifest.status.replace(/_/g, " ")}
                       </span>
                     </div>
-                    <dl className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
+
+                    <dl className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
                       {[
-                        ["Candidates", counts.candidatesIdentified],
-                        ["New", counts.newEntriesProposed],
-                        ["Updates", counts.existingEntriesToUpdate],
-                        ["Unchanged", counts.alreadyPresentUnchanged],
-                        ["Filtered", counts.lowValueFilteredOut],
-                        ["Heavy use", counts.heavyUseSelections],
-                        ["To process", counts.totalEntriesToProcess],
+                        [
+                          "Pages",
+                          `${manifest.counts.assessedPages}/${manifest.counts.totalPages}`,
+                        ],
+                        [
+                          "Chunks",
+                          `${manifest.counts.assessedChunks}/${manifest.counts.totalChunks}`,
+                        ],
+                        ["Candidates", manifest.counts.candidatesIdentified],
+                        ["To generate", manifest.counts.totalEntriesToProcess],
+                        ["Filtered", manifest.counts.lowValueFilteredOut],
+                        [
+                          "Batches",
+                          `${manifest.generation.receivedBatches}/${manifest.generation.plannedBatches}`,
+                        ],
+                        ["Saved", manifest.generation.committedEntries],
+                        ["Missing", manifest.generation.missingBatches],
                       ].map(([label, value]) => (
                         <div key={label}>
                           <dt className="text-xs text-slate-500">{label}</dt>
@@ -323,78 +403,100 @@ export default function ControlPage() {
                         </div>
                       ))}
                     </dl>
-                    {assessment.status === "assessed" &&
-                      counts.totalEntriesToProcess > 0 && (
+
+                    <div className="mt-5 flex flex-wrap gap-3">
+                      {!manifest.claimed && (
                         <button
-                          type="button"
-                          onClick={() => approve(assessment.id)}
-                          disabled={approvingId === assessment.id}
-                          className="mt-5 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 disabled:opacity-60"
+                          onClick={() => claim(manifest.id)}
+                          disabled={busy === `claim:${manifest.id}`}
+                          className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
                         >
-                          {approvingId === assessment.id
-                            ? "Starting…"
-                            : `Approve and generate ${counts.totalEntriesToProcess}`}
+                          {busy === `claim:${manifest.id}`
+                            ? "Claiming…"
+                            : "Claim and review"}
                         </button>
+                      )}
+                      {manifest.claimed && !detail && (
+                        <button
+                          onClick={() => loadDetail(manifest.id)}
+                          className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700"
+                        >
+                          Review candidates
+                        </button>
+                      )}
+                      {manifest.status === "completed" && (
+                        <button
+                          onClick={() => verify(manifest.id)}
+                          disabled={busy === `verify:${manifest.id}`}
+                          className="rounded-lg border border-emerald-300 px-4 py-2 text-sm font-medium text-emerald-700 disabled:opacity-60"
+                        >
+                          Verify PostgreSQL records
+                        </button>
+                      )}
+                    </div>
+
+                    {detail &&
+                      proposed.length > 0 &&
+                      manifest.status === "awaiting_approval" && (
+                        <div className="mt-6 border-t border-slate-200 pt-5">
+                          <div className="flex items-center justify-between gap-3">
+                            <h4 className="font-semibold text-slate-950">
+                              Select exact entries
+                            </h4>
+                            <span className="text-sm text-slate-600">
+                              {selected[manifest.id]?.size || 0} selected
+                            </span>
+                          </div>
+                          <div className="mt-3 max-h-80 divide-y divide-slate-100 overflow-auto rounded-lg border border-slate-200">
+                            {proposed.map((candidate) => (
+                              <label
+                                key={candidate.id}
+                                className="flex cursor-pointer gap-3 p-3 hover:bg-slate-50"
+                              >
+                                <input
+                                  type="checkbox"
+                                  checked={
+                                    selected[manifest.id]?.has(
+                                      candidate.external_candidate_id,
+                                    ) || false
+                                  }
+                                  onChange={() =>
+                                    toggle(
+                                      manifest.id,
+                                      candidate.external_candidate_id,
+                                    )
+                                  }
+                                  className="mt-1"
+                                />
+                                <span>
+                                  <span className="font-medium text-slate-950">
+                                    {candidate.item}
+                                  </span>
+                                  <span className="ml-2 text-xs uppercase text-slate-500">
+                                    {candidate.cefr_level} ·{" "}
+                                    {candidate.usage_frequency}
+                                  </span>
+                                  <span className="mt-1 block text-sm text-slate-600">
+                                    {candidate.contextual_meaning}
+                                  </span>
+                                </span>
+                              </label>
+                            ))}
+                          </div>
+                          <button
+                            onClick={() => approve(manifest.id)}
+                            disabled={busy === `approve:${manifest.id}`}
+                            className="mt-4 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
+                          >
+                            {busy === `approve:${manifest.id}`
+                              ? "Approving…"
+                              : `Approve ${selected[manifest.id]?.size || 0} entries`}
+                          </button>
+                        </div>
                       )}
                   </article>
                 );
               })
-            )}
-          </div>
-        </section>
-
-        <section className="mt-8">
-          <h2 className="text-lg font-semibold text-slate-950">
-            Generation jobs
-          </h2>
-          <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-white">
-            {!overview?.jobs.length ? (
-              <p className="p-6 text-sm text-slate-600">
-                No approved generation jobs yet.
-              </p>
-            ) : (
-              <div className="divide-y divide-slate-200">
-                {overview.jobs.map((job) => {
-                  const accounted =
-                    Number(job.completed_items) +
-                    Number(job.failed_items) +
-                    Number(job.manual_review_items);
-                  const percentage = job.total_items
-                    ? Math.round((accounted / job.total_items) * 100)
-                    : 0;
-                  return (
-                    <article key={job.id} className="p-5">
-                      <div className="flex flex-wrap items-center justify-between gap-3">
-                        <div>
-                          <h3 className="font-medium text-slate-950">
-                            {job.source_name}
-                          </h3>
-                          <p className="mt-1 text-xs text-slate-500">
-                            {job.completed_items} complete · {job.failed_items}{" "}
-                            failed · {job.manual_review_items} manual review
-                          </p>
-                        </div>
-                        <span
-                          className={`rounded-full px-3 py-1 text-xs font-semibold capitalize ${statusTone(
-                            job.status,
-                          )}`}
-                        >
-                          {job.status.replace(/_/g, " ")}
-                        </span>
-                      </div>
-                      <div
-                        className="mt-4 h-2 overflow-hidden rounded-full bg-slate-100"
-                        aria-label={`${percentage}% accounted for`}
-                      >
-                        <div
-                          className="h-full rounded-full bg-blue-600"
-                          style={{ width: `${percentage}%` }}
-                        />
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
             )}
           </div>
         </section>
