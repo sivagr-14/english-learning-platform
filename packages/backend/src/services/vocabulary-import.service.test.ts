@@ -55,4 +55,30 @@ describe("vocabulary import compliance", () => {
       "Use A1, A2, B1, B2, C1 or C2",
     );
   });
+
+  it("requires a complete contextual sense contract when sense metadata begins", () => {
+    const entry = compliantImport();
+    entry.sense_decision = "new_sense";
+
+    expect(() => validateVocabularyImportEntry(entry)).toThrow(
+      /missing contextual sense fields/i,
+    );
+  });
+
+  it("rejects a display suffix in the stored word", () => {
+    const entry = compliantImport();
+    entry.word = `${entry.word} (B)`;
+    entry.contextual_meaning = entry.english_meaning;
+    entry.sense_decision = "new_sense";
+    entry.sense_key = "clear-and-uncomplicated";
+    entry.sense_evidence = {
+      sentence: "The process was straightforward.",
+      explanation:
+        "Straightforward means that the process was clear and uncomplicated.",
+    };
+
+    expect(() => validateVocabularyImportEntry(entry)).toThrow(
+      /real term without a sense suffix/i,
+    );
+  });
 });
