@@ -24,6 +24,17 @@ export const AssessmentCandidateSchema = z
     learningPriority: z.string().trim().max(30).optional(),
     contextualMeaning: z.string().trim().optional(),
     originalSentence: z.string().trim().optional(),
+    senseDecision: z
+      .enum(["same_sense", "new_sense", "ambiguous"])
+      .optional(),
+    senseKey: z.string().trim().min(3).max(180).optional(),
+    senseEvidence: z
+      .object({
+        sentence: z.string().trim().min(8),
+        explanation: z.string().trim().min(8),
+      })
+      .strict()
+      .optional(),
     proposedCategories: z
       .array(
         z.object({
@@ -45,6 +56,55 @@ export const AssessmentCandidateSchema = z
         code: z.ZodIssueCode.custom,
         path: ["matchedWordId"],
         message: `${candidate.action} candidates must identify the existing entry`,
+      });
+    }
+
+    const hasSenseMetadata = Boolean(
+      candidate.senseDecision || candidate.senseKey || candidate.senseEvidence,
+    );
+    if (
+      hasSenseMetadata &&
+      (!candidate.senseDecision ||
+        !candidate.senseKey ||
+        !candidate.senseEvidence ||
+        !candidate.contextualMeaning)
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["senseDecision"],
+        message:
+          "contextual sense metadata must include decision, key, meaning and evidence",
+      });
+    }
+    if (
+      candidate.senseDecision === "ambiguous" &&
+      candidate.action !== "filtered"
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["action"],
+        message: "ambiguous senses must be filtered for attention",
+      });
+    }
+    if (
+      candidate.senseDecision === "new_sense" &&
+      candidate.action !== "new"
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["action"],
+        message: "new contextual senses must use the new action",
+      });
+    }
+    if (
+      candidate.senseDecision === "same_sense" &&
+      !["update", "unchanged"].includes(candidate.action)
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["action"],
+        message:
+          "same contextual senses must update or reuse the matched entry",
       });
     }
 
@@ -301,6 +361,11 @@ export class AssessmentControlService {
           learning_priority: candidate.learningPriority,
           contextual_meaning: candidate.contextualMeaning,
           original_sentence: candidate.originalSentence,
+          sense_decision: candidate.senseDecision,
+          sense_key: candidate.senseKey,
+          sense_evidence: candidate.senseEvidence
+            ? JSON.stringify(candidate.senseEvidence)
+            : null,
           proposed_categories: JSON.stringify(candidate.proposedCategories),
           status:
             candidate.action === "filtered"
