@@ -4,6 +4,14 @@ require("dotenv").config({ path: path.join(__dirname, ".env.local") });
 const backendSource = path.join(__dirname, "packages/backend/src/database");
 const backendBuild = path.join(__dirname, "packages/backend/dist/database");
 
+if (process.env.NODE_ENV !== "production") {
+  process.env.TS_NODE_PROJECT ||= path.join(
+    __dirname,
+    "packages/backend/tsconfig.json"
+  );
+  require("ts-node/register/transpile-only");
+}
+
 module.exports = {
   development: {
     client: "pg",
