@@ -22,6 +22,8 @@ const localPostgresUser = 'postgres';
 const localPostgresDatabase = 'english_learning';
 const yarnVersion = '1.22.22';
 const backupsDirectory = path.join(repoRoot, 'backups');
+const contentInboxBranch = 'chatgpt-content-inbox';
+const contentInboxRef = `origin/${contentInboxBranch}`;
 
 process.chdir(repoRoot);
 
@@ -156,7 +158,6 @@ function secureLocalEnvironment() {
       `JWT_SECRET=${crypto.randomBytes(32).toString('hex')}`,
     );
   }
-  content = content.replace(/^OPENAI_API_KEY=sk-\s*$/m, 'OPENAI_API_KEY=');
   fs.writeFileSync(envPath, content, { mode: 0o600 });
   Object.assign(process.env, parseEnvironment(content));
 }
@@ -183,6 +184,7 @@ class ControlManager {
     this.serviceOutput = { backend: [], frontend: [] };
     this.startPromise = null;
     this.updatePromise = null;
+    this.contentSyncPromise = null;
     this.readyCache = { value: false, checkedAt: 0 };
   }
 
@@ -438,6 +440,53 @@ class ControlManager {
       ],
       (output) => this.log(output),
     );
+  }
+
+  synchronizeChatGPTContent() {
+    if (this.contentSyncPromise) return this.contentSyncPromise;
+    this.contentSyncPromise = this.runChatGPTContentSync().finally(() => {
+      this.contentSyncPromise = null;
+    });
+    return this.contentSyncPromise;
+  }
+
+  async runChatGPTContentSync() {
+    const fetched = this.execute('git', [
+      'fetch',
+      'origin',
+      `refs/heads/${contentInboxBranch}:refs/remotes/origin/${contentInboxBranch}`,
+      '--depth=1',
+    ]);
+    if (fetched.status !== 0) {
+      const detail = commandOutput(fetched);
+      this.log(
+        detail.includes("couldn't find remote ref")
+          ? 'ChatGPT content inbox is not initialized yet.'
+          : `ChatGPT content sync skipped: ${detail || 'GitHub fetch failed.'}`,
+      );
+      return { available: false };
+    }
+    const syncScript = path.join(
+      backendDirectory,
+      'src',
+      'scripts',
+      'sync-content-packs.ts',
+    );
+    if (!fs.existsSync(syncScript)) return { available: false };
+    await this.runAsync(
+      process.execPath,
+      [
+        path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'),
+        '--transpile-only',
+        '--project',
+        path.join(backendDirectory, 'tsconfig.json'),
+        syncScript,
+        '--git-ref',
+        contentInboxRef,
+      ],
+      (output) => this.log(output),
+    );
+    return { available: true };
   }
 
   verifyUpdateWorkspace() {
@@ -708,6 +757,8 @@ class ControlManager {
 
       this.step('Applying database migrations');
       await this.migrate();
+      this.step('Synchronizing ChatGPT content inbox');
+      await this.synchronizeChatGPTContent();
       this.step('Synchronizing built-in vocabulary');
       await this.synchronizeBuiltInContent();
       this.step('Starting the updated backend and frontend');
@@ -789,6 +840,9 @@ class ControlManager {
 
       this.step('Checking and applying database migrations');
       await this.migrate();
+
+      this.step('Synchronizing ChatGPT content inbox');
+      await this.synchronizeChatGPTContent();
 
       this.step('Synchronizing built-in vocabulary');
       await this.synchronizeBuiltInContent();
@@ -999,6 +1053,19 @@ function createControlServer(manager = new ControlManager()) {
       manager.updateAndRestart();
       return json(response, 202, { accepted: true });
     }
+    if (url.pathname === '/__control/sync-content' && request.method === 'POST') {
+      if (request.headers[controlHeader] !== '1') {
+        return json(response, 403, { error: 'Local control header required.' });
+      }
+      try {
+        const result = await manager.synchronizeChatGPTContent();
+        return json(response, 200, { synchronized: true, ...result });
+      } catch (error) {
+        return json(response, 500, {
+          error: error instanceof Error ? error.message : String(error),
+        });
+      }
+    }
     if (url.pathname.startsWith('/__control')) {
       const body = controlPage();
       response.writeHead(200, {
@@ -1057,7 +1124,14 @@ if (require.main === module) {
   server.listen(controlPort, controlHost, () => {
     console.log(`English Mastery control page: http://localhost:${controlPort}`);
   });
+  const contentSyncTimer = setInterval(() => {
+    void manager.synchronizeChatGPTContent().catch((error) =>
+      manager.log(`Periodic ChatGPT content sync failed: ${error.message}`),
+    );
+  }, 5 * 60 * 1000);
+  contentSyncTimer.unref();
   const shutdown = () => {
+    clearInterval(contentSyncTimer);
     manager.shutdown();
     server.close(() => process.exit(0));
     setTimeout(() => process.exit(0), 1500).unref();
