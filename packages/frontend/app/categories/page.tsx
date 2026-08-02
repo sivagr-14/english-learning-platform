@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
 import { getApiClient } from "@/lib/api/client";
@@ -22,21 +22,142 @@ export default function CategoriesPage() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+  const [showCreateForm, setShowCreateForm] = useState(false);
+  const [newCategoryName, setNewCategoryName] = useState("");
+  const [newCategoryDescription, setNewCategoryDescription] = useState("");
+  const [isCreating, setIsCreating] = useState(false);
+  const [createError, setCreateError] = useState("");
+  const [createMessage, setCreateMessage] = useState("");
+
+  const loadCategories = useCallback(async () => {
+    const response = await getApiClient().get("/api/vocabulary/categories");
+    setCategories(response.data.categories);
+  }, []);
 
   useEffect(() => {
-    getApiClient()
-      .get("/api/vocabulary/categories")
-      .then((response) => setCategories(response.data.categories))
+    loadCategories()
       .catch(() => setError("Could not load your vocabulary categories."))
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [loadCategories]);
+
+  const createCategory = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const name = newCategoryName.trim();
+    if (!name) {
+      setCreateError("Enter a category name.");
+      return;
+    }
+
+    setIsCreating(true);
+    setCreateError("");
+    setCreateMessage("");
+    try {
+      const response = await getApiClient().post(
+        "/api/vocabulary/user-categories",
+        {
+          name,
+          description: newCategoryDescription.trim() || undefined,
+        },
+      );
+      await loadCategories();
+      setNewCategoryName("");
+      setNewCategoryDescription("");
+      setShowCreateForm(false);
+      setCreateMessage(
+        `${response.data.category.category_name} was created and is ready for words.`,
+      );
+    } catch (requestError: any) {
+      setCreateError(
+        requestError?.response?.data?.message ||
+          "Could not create the category.",
+      );
+    } finally {
+      setIsCreating(false);
+    }
+  };
 
   return (
     <AuthenticatedPage>
       <AppShell
         title="Categories"
-        description="Choose a category to see every linked word. CEFR ranges are calculated from the words inside each category."
+        description="Create personal categories and choose any category to see its linked words."
+        actions={
+          <button
+            type="button"
+            onClick={() => {
+              setShowCreateForm((current) => !current);
+              setCreateError("");
+              setCreateMessage("");
+            }}
+            className="rounded-lg bg-amber-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-amber-700"
+          >
+            {showCreateForm ? "Cancel" : "Create category"}
+          </button>
+        }
       >
+        {showCreateForm && (
+          <form
+            onSubmit={createCategory}
+            className="mb-6 rounded-xl border border-amber-200 bg-amber-50 p-5"
+          >
+            <h2 className="font-semibold text-slate-950">
+              Create a personal category
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              It will appear immediately in this page and in the category menu
+              for individual or selected words.
+            </p>
+            <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_2fr_auto] lg:items-end">
+              <label className="text-sm font-medium text-slate-800">
+                Category name
+                <input
+                  autoFocus
+                  value={newCategoryName}
+                  maxLength={100}
+                  disabled={isCreating}
+                  onChange={(event) => setNewCategoryName(event.target.value)}
+                  placeholder="For example: Travel phrases"
+                  className="mt-1 block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900"
+                />
+              </label>
+              <label className="text-sm font-medium text-slate-800">
+                Description (optional)
+                <input
+                  value={newCategoryDescription}
+                  maxLength={500}
+                  disabled={isCreating}
+                  onChange={(event) =>
+                    setNewCategoryDescription(event.target.value)
+                  }
+                  placeholder="What you want to collect in this category"
+                  className="mt-1 block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900"
+                />
+              </label>
+              <button
+                type="submit"
+                disabled={isCreating || !newCategoryName.trim()}
+                className="rounded-lg bg-amber-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-amber-700 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {isCreating ? "Creating…" : "Create"}
+              </button>
+            </div>
+            {createError && (
+              <p role="alert" className="mt-3 text-sm font-medium text-red-700">
+                {createError}
+              </p>
+            )}
+          </form>
+        )}
+
+        {createMessage && (
+          <p
+            role="status"
+            className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium text-emerald-700"
+          >
+            {createMessage}
+          </p>
+        )}
+
         {isLoading ? (
           <div className="rounded-xl border border-slate-200 bg-white p-8 text-sm text-slate-600">
             Loading categories…
@@ -47,11 +168,9 @@ export default function CategoriesPage() {
           </div>
         ) : !categories.length ? (
           <div className="rounded-xl border border-slate-200 bg-white p-8 text-center">
-            <h2 className="font-semibold text-slate-950">
-              No populated categories yet
-            </h2>
+            <h2 className="font-semibold text-slate-950">No categories yet</h2>
             <p className="mt-2 text-sm text-slate-600">
-              Categories appear here after approved vocabulary is added.
+              Create your first personal category using the button above.
             </p>
           </div>
         ) : (
