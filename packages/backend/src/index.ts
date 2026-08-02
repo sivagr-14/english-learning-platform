@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import path from "path";
 import { logger } from "./utils/logger";
 import { errorHandler } from "./middleware/error.middleware";
+import { appRevision } from "./services/app-version.service";
 import { synchronizeContentPacks } from "./services/content-pack.service";
 import { database } from "./utils/db";
 
@@ -49,6 +50,7 @@ app.get("/health", (req, res) => {
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
     environment: process.env.NODE_ENV || "development",
+    revision: appRevision,
   });
 });
 

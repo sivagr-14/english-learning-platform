@@ -197,6 +197,16 @@ async function main() {
     );
     const authorization = { Authorization: `Bearer ${token}` };
 
+    const emptyCategoryResponse = await request(app)
+      .post("/api/vocabulary/user-categories")
+      .set(authorization)
+      .send({
+        name: "Empty Study Focus",
+        description: "Created directly from the Categories page.",
+      })
+      .expect(201);
+    const emptyCategory = emptyCategoryResponse.body.category;
+
     const categoryListResponse = await request(app)
       .get("/api/vocabulary/categories")
       .set(authorization)
@@ -211,6 +221,14 @@ async function main() {
       categoryListResponse.body.categories.some(
         (category: any) =>
           category.id === custom.id && Number(category.word_count) === 2,
+      ),
+    );
+    assert(
+      categoryListResponse.body.categories.some(
+        (category: any) =>
+          category.id === emptyCategory.id &&
+          category.is_user_category &&
+          Number(category.word_count) === 0,
       ),
     );
 
@@ -298,6 +316,7 @@ async function main() {
         refreshPreservedPersonalLinks: "passed",
         accountIsolation: "passed",
         categoryBrowseReviewProgress: "passed",
+        emptyCategoryCreationAndListing: "passed",
         categoryDeletePreservedWords: "passed",
       }),
     );
