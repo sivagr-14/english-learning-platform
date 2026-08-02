@@ -221,7 +221,7 @@ async function getCategories(userId: string, includeEmpty = false) {
       userId,
     ]);
   }
-  const rows = await query;
+  const rows: any[] = await query;
 
   return rows.map((category: any) => ({
     ...category,
@@ -231,7 +231,7 @@ async function getCategories(userId: string, includeEmpty = false) {
 }
 
 async function getTaxonomy(userId: string) {
-  const rows = await database("vocabulary_taxonomy_domains as domain")
+  const rows: any[] = await database("vocabulary_taxonomy_domains as domain")
     .join(
       "vocabulary_taxonomy_usage_groups as usage_group",
       "usage_group.domain_key",
