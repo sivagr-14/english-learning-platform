@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
+import { getApiClient } from "@/lib/api/client";
 import useAuthStore from "@/lib/store/auth";
 
 const navigation = [
@@ -31,6 +32,14 @@ export default function AppShell({
   const { user, logout } = useAuthStore();
   const [isRestarting, setIsRestarting] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [appRevision, setAppRevision] = useState("");
+
+  useEffect(() => {
+    getApiClient()
+      .get("/health")
+      .then((response) => setAppRevision(response.data.revision || "unknown"))
+      .catch(() => setAppRevision("unknown"));
+  }, []);
 
   const restartApp = async () => {
     const confirmed = window.confirm(
@@ -94,12 +103,22 @@ export default function AppShell({
     <div className="min-h-screen bg-slate-50">
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-          <Link
-            href="/dashboard"
-            className="text-lg font-bold tracking-tight text-slate-950 hover:text-blue-700"
-          >
-            English Mastery
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/dashboard"
+              className="text-lg font-bold tracking-tight text-slate-950 hover:text-blue-700"
+            >
+              English Mastery
+            </Link>
+            {appRevision && (
+              <span
+                title="Installed GitHub commit"
+                className="rounded bg-slate-100 px-2 py-1 font-mono text-[11px] text-slate-500"
+              >
+                {appRevision}
+              </span>
+            )}
+          </div>
           <div className="flex items-center gap-3">
             <span className="hidden text-sm text-slate-500 sm:inline">
               {user?.first_name || user?.email}
