@@ -1,4 +1,5 @@
 import express, { Router, Request, Response, NextFunction } from "express";
+import rateLimit from "express-rate-limit";
 import { logger } from "../utils/logger";
 import { database } from "../utils/db";
 import { AuthService } from "../services/auth.service";
@@ -12,11 +13,41 @@ import { AppError } from "../middleware/error.middleware";
 
 const router = Router();
 
+// express-rate-limit was already a dependency (and already used for the
+// internal /__control endpoints) but was never applied to the public auth
+// surface, leaving /login and /register open to credential-stuffing and
+// brute-force attempts. Keyed on IP; email/password validity is checked
+// after this middleware runs, so failed attempts still count against the
+// limit even before the credentials are looked up.
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many login attempts. Try again in a few minutes." },
+});
+
+const registerLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  limit: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many registration attempts. Try again later." },
+});
+
+const magicLinkLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many magic-link requests. Try again later." },
+});
+
 /**
  * POST /api/auth/register
  * Register a new user with email and password
  */
-router.post("/register", async (req: Request, res: Response, next: NextFunction) => {
+router.post("/register", registerLimiter, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const input = RegisterSchema.parse(req.body);
     const authService = new AuthService(database);
@@ -47,7 +78,7 @@ router.post("/register", async (req: Request, res: Response, next: NextFunction)
  * POST /api/auth/login
  * Login with email and password
  */
-router.post("/login", async (req: Request, res: Response, next: NextFunction) => {
+router.post("/login", loginLimiter, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const input = LoginSchema.parse(req.body);
     const authService = new AuthService(database);
@@ -422,7 +453,7 @@ router.get('/oauth/github/callback', async (req: Request, res: Response, next: N
  * POST /api/auth/magic-link/send
  * Send magic link to user's email
  */
-router.post("/magic-link/send", async (req: Request, res: Response, next: NextFunction) => {
+router.post("/magic-link/send", magicLinkLimiter, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { MagicLinkSendSchema } = await import("../validations/auth.validations");
     const { MagicLinkService } = await import("../services/magic-link.service");

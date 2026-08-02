@@ -24,6 +24,7 @@ import {
   resolveContextualSense,
 } from "./vocabulary-sense.service";
 import { legacyTaxonomyPath } from "../data/vocabulary-taxonomy";
+import { cacheInvalidate } from "../utils/redis";
 
 export interface ContentPackDocument {
   path: string;
@@ -778,6 +779,9 @@ export class ContentPackService {
         batch,
       );
       committedTotal += committed;
+    }
+    if (committedTotal > 0) {
+      await cacheInvalidate(`taxonomy:${userId}`);
     }
     await this.reconcileManifest(userId, manifestId);
     return committedTotal;

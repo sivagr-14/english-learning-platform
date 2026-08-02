@@ -14,6 +14,28 @@ router.use((_req, res, next) => {
   next();
 });
 
+// A word isn't "due" until it's actually been introduced to the learner.
+// New words park here instead of new Date(), which is what previously made
+// every word due immediately on import. Far enough in the future that it
+// will never accidentally satisfy a `due_at <= now` filter.
+const NOT_YET_INTRODUCED = new Date("9999-12-31T00:00:00.000Z");
+
+// How many brand-new words are allowed to enter rotation per calendar day.
+// Matches the standard SRS practice (Anki/SuperMemo) of capping new-card
+// introduction independently of how many words a single import contains.
+const NEW_CARDS_PER_DAY = Number(process.env.NEW_CARDS_PER_DAY || 20);
+
+/**
+ * Ensures every word the user owns (or has global access to) has a
+ * user_progress row and a flashcard_queue row, and introduces up to
+ * NEW_CARDS_PER_DAY not-yet-seen words into today's due queue.
+ *
+ * Previously this ran two awaited queries per word in a sequential loop,
+ * meaning a 2,000-word import meant ~4,000 round trips to Postgres on
+ * every single call to GET /categories or GET /due. It's now three fixed
+ * batch queries regardless of vocabulary size, plus a small, quota-bounded
+ * update for newly-introduced cards.
+ */
 async function ensureFlashcards(userId: string) {
   const words = await database("vocabulary_words")
     .where((builder) =>
@@ -21,43 +43,83 @@ async function ensureFlashcards(userId: string) {
     )
     .select("id", "category_id");
 
-  for (const word of words) {
-    const [progress] = await database("user_progress")
-      .insert({
+  if (!words.length) return;
+
+  const now = new Date();
+
+  // 1. Batch-upsert user_progress for every owned word in one round trip.
+  //    On conflict, only refresh category_id/updated_at -- never touch an
+  //    existing learner's schedule, streaks, or introduced_at.
+  const progressRows = await database("user_progress")
+    .insert(
+      words.map((word) => ({
         user_id: userId,
         word_id: word.id,
         category_id: word.category_id,
         status: "not_started",
         proficiency_level: 0,
         times_reviewed: 0,
-        next_review_at: new Date(),
-        created_at: new Date(),
-        updated_at: new Date(),
-      })
-      .onConflict(["user_id", "word_id"])
-      .merge({
-        category_id: word.category_id,
-        updated_at: new Date(),
-      })
-      .returning("*");
+        next_review_at: NOT_YET_INTRODUCED,
+        introduced_at: null,
+        created_at: now,
+        updated_at: now,
+      })),
+    )
+    .onConflict(["user_id", "word_id"])
+    .merge(["category_id", "updated_at"])
+    .returning(["id", "word_id", "next_review_at"]);
 
-    await database("flashcard_queue")
-      .insert({
+  // 2. Batch-upsert flashcard_queue rows. Every committed word must have a
+  //    review-card row (the import verification step in content-pack.service
+  //    asserts this), but existing due_at values are intentionally left
+  //    alone on conflict so re-running this never resets a scheduled review.
+  await database("flashcard_queue")
+    .insert(
+      progressRows.map((progress: any) => ({
         user_id: userId,
-        word_id: word.id,
+        word_id: progress.word_id,
         progress_id: progress.id,
         queue_position: 0,
-        due_at: progress.next_review_at || new Date(),
+        due_at: progress.next_review_at || NOT_YET_INTRODUCED,
         card_type: "vocabulary",
-        created_at: new Date(),
-        updated_at: new Date(),
-      })
-      .onConflict(["user_id", "word_id"])
-      .merge({
-        progress_id: progress.id,
-        due_at: progress.next_review_at || new Date(),
-        updated_at: new Date(),
-      });
+        created_at: now,
+        updated_at: now,
+      })),
+    )
+    .onConflict(["user_id", "word_id"])
+    .merge(["progress_id", "updated_at"]);
+
+  // 3. Introduce up to today's remaining new-card quota. Bounded to a small
+  //    number of rows regardless of total vocabulary size.
+  const todayStart = new Date();
+  todayStart.setHours(0, 0, 0, 0);
+  const introducedTodayResult = await database("user_progress")
+    .where({ user_id: userId })
+    .where("introduced_at", ">=", todayStart)
+    .count<{ count: string }[]>({ count: "*" })
+    .first();
+  const introducedToday = Number(introducedTodayResult?.count || 0);
+  const quota = Math.max(0, NEW_CARDS_PER_DAY - introducedToday);
+
+  if (quota > 0) {
+    const toIntroduce = await database("user_progress")
+      .where({ user_id: userId, status: "not_started" })
+      .whereNull("introduced_at")
+      .orderBy("created_at", "asc")
+      .limit(quota)
+      .select("id", "word_id");
+
+    if (toIntroduce.length) {
+      const wordIds = toIntroduce.map((row: any) => row.word_id);
+      await database("user_progress")
+        .where({ user_id: userId })
+        .whereIn("word_id", wordIds)
+        .update({ next_review_at: now, introduced_at: now, updated_at: now });
+      await database("flashcard_queue")
+        .where({ user_id: userId })
+        .whereIn("word_id", wordIds)
+        .update({ due_at: now, updated_at: now });
+    }
   }
 }
 
@@ -243,12 +305,18 @@ router.post(
       let proficiency = Number(progress.proficiency_level || 0);
       let correct = Number(progress.times_correct || 0);
       let incorrect = Number(progress.times_incorrect || 0);
+      let relearnMinutes: number | null = null;
 
       if (rating === "again") {
         ease = Math.max(1.3, ease - 0.25);
         interval = 1;
         proficiency = 0;
         incorrect += 1;
+        // Standard SRS practice (Anki/SuperMemo): a missed card comes back
+        // within the same session, not a full day later. Pushing it a full
+        // day out means the learner never gets the corrective repetition
+        // that actually fixes the miss.
+        relearnMinutes = 10;
       } else {
         const modifier = rating === "hard" ? 0.8 : rating === "easy" ? 1.5 : 1;
         ease = Math.max(
@@ -268,7 +336,11 @@ router.post(
       }
 
       const nextReviewAt = new Date();
-      nextReviewAt.setDate(nextReviewAt.getDate() + interval);
+      if (relearnMinutes !== null) {
+        nextReviewAt.setMinutes(nextReviewAt.getMinutes() + relearnMinutes);
+      } else {
+        nextReviewAt.setDate(nextReviewAt.getDate() + interval);
+      }
 
       const [updated] = await database("user_progress")
         .where("id", progress.id)

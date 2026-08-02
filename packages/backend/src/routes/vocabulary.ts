@@ -10,6 +10,7 @@ import {
   normalizeCefrLevel,
 } from "../services/vocabulary-browse.service";
 import { database } from "../utils/db";
+import { cacheGetJson, cacheSetJson } from "../utils/redis";
 import {
   loadStarterSamples,
   removeStarterSamples,
@@ -230,7 +231,27 @@ async function getCategories(userId: string, includeEmpty = false) {
   }));
 }
 
+const TAXONOMY_CACHE_TTL_SECONDS = 300;
+
+function taxonomyCacheKey(userId: string) {
+  return `taxonomy:${userId}`;
+}
+
 async function getTaxonomy(userId: string) {
+  const cached = await cacheGetJson<ReturnType<typeof buildTaxonomyResponse>>(
+    taxonomyCacheKey(userId),
+  );
+  if (cached) return cached;
+
+  const result = await buildTaxonomyResponse(userId);
+  // Word counts only change when an import commits, so a short TTL is safe
+  // even without wiring explicit invalidation into every write path yet --
+  // worst case a learner sees counts up to 5 minutes stale.
+  await cacheSetJson(taxonomyCacheKey(userId), result, TAXONOMY_CACHE_TTL_SECONDS);
+  return result;
+}
+
+async function buildTaxonomyResponse(userId: string) {
   const rows: any[] = await database("vocabulary_taxonomy_domains as domain")
     .join(
       "vocabulary_taxonomy_usage_groups as usage_group",

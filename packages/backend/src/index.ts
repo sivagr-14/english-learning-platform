@@ -9,6 +9,7 @@ import { errorHandler } from "./middleware/error.middleware";
 import { appRevision } from "./services/app-version.service";
 import { synchronizeContentPacks } from "./services/content-pack.service";
 import { database } from "./utils/db";
+import { getRedisClient } from "./utils/redis";
 
 // Load environment variables
 dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
@@ -80,6 +81,11 @@ app.listen(Number(PORT), HOST, () => {
   void synchronizeContentPacks(database).catch((error: unknown) =>
     logger.error("Could not synchronize local ChatGPT content packs", error),
   );
+  // Redis was already provisioned in docker-compose.yml but nothing in the
+  // app ever connected to it. This makes the connection real; every caller
+  // (see utils/redis.ts) degrades gracefully if it's unreachable, so this
+  // is safe to attempt even before Docker/Redis is confirmed running.
+  void getRedisClient();
 });
 
 export default app;
