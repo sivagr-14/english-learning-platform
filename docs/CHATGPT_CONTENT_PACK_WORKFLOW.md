@@ -33,8 +33,9 @@ writes database rows.
 
 ## Manifest guarantees
 
-New imports use `chatgpt-vocabulary-manifest-v3`. Versions 1 and 2 remain
-readable only so already-started imports can finish. Version 3 must include:
+New imports use `chatgpt-vocabulary-manifest-v3`. Version 2
+(`chatgpt-vocabulary-manifest-v2`) and version 1 remain readable only so
+already-started imports can finish. Version 3 must include:
 
 - a stable `manifestId`, source SHA-256, source type and creation time;
 - `totalPages` and an ordered page ledger from page 1 through the last page;
