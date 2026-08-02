@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "featureId": "all-category-assignment-menu",
+  "title": "Assign one or multiple words to any category from the category menu",
+  "implementationPaths": [
+    "packages/backend/src/routes/vocabulary.ts",
+    "packages/backend/src/services/user-category.service.ts",
+    "packages/frontend/components/WordCategoryPicker.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/scripts/smoke-user-categories-postgres.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This changes authenticated application category selection and assignment only; it does not change source assessment, contextual meanings, content-pack transport, or vocabulary lesson generation."
+  }
+}
