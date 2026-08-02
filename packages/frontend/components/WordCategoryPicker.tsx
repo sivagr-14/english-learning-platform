@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import { getApiClient } from "@/lib/api/client";
 
-interface UserCategory {
+interface Category {
   id: string;
+  track_name: string;
   category_name: string;
   description: string | null;
   is_default: boolean;
+  is_user_category: boolean;
   word_count: number;
 }
 
@@ -20,7 +22,7 @@ export default function WordCategoryPicker({
   wordIds: string[];
   onUpdated?: () => void | Promise<void>;
 }) {
-  const [categories, setCategories] = useState<UserCategory[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
   const [newCategoryName, setNewCategoryName] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -30,9 +32,9 @@ export default function WordCategoryPicker({
 
   const loadCategories = async () => {
     const response = await getApiClient().get(
-      "/api/vocabulary/user-categories",
+      "/api/vocabulary/categories?includeEmpty=true",
     );
-    const nextCategories: UserCategory[] = response.data.categories;
+    const nextCategories: Category[] = response.data.categories;
     setCategories(nextCategories);
     setSelectedCategoryId((current) => {
       if (current && current !== CREATE_NEW_VALUE) {
@@ -42,7 +44,9 @@ export default function WordCategoryPicker({
         if (stillExists) return current;
       }
       return (
-        nextCategories.find((category) => category.is_default)?.id ||
+        nextCategories.find(
+          (category) => category.is_user_category && category.is_default,
+        )?.id ||
         nextCategories[0]?.id ||
         ""
       );
@@ -51,7 +55,7 @@ export default function WordCategoryPicker({
 
   useEffect(() => {
     loadCategories()
-      .catch(() => setError("Could not load your personal categories."))
+      .catch(() => setError("Could not load the available categories."))
       .finally(() => setIsLoading(false));
   }, []);
 
@@ -129,8 +133,13 @@ export default function WordCategoryPicker({
             {isLoading && <option value="">Loading categories…</option>}
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
+                {category.is_user_category
+                  ? "My Categories"
+                  : category.track_name}
+                {" — "}
                 {category.category_name}
                 {category.is_default ? " (default)" : ""}
+                {Number(category.word_count) === 0 ? " (empty)" : ""}
               </option>
             ))}
             <option value={CREATE_NEW_VALUE}>Create new category…</option>
@@ -168,8 +177,8 @@ export default function WordCategoryPicker({
       </div>
 
       <p className="mt-2 text-xs text-slate-600">
-        Adding is additive: the word stays in every category it already belongs
-        to.
+        Every available category is shown. Adding is additive, so existing
+        category links stay unchanged.
       </p>
       {message && (
         <p role="status" className="mt-2 text-sm font-medium text-emerald-700">
