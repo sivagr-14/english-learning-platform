@@ -1,3 +1,4 @@
+All matched files use Prettier code style!
 {
   "schemaVersion": 1,
   "featureId": "category-page-create-and-version",
@@ -17,5 +18,10 @@
   "chatgptInstructionImpact": {
     "status": "not_required",
     "rationale": "This corrects application category-management visibility and installed-version diagnostics only; it does not change source assessment, contextual meanings, content-pack transport, or vocabulary lesson generation."
+  },
+  "mergedEvidence": {
+    "pullRequest": 27,
+    "mergeCommit": "cca1a7f2e57fdcdd38482fe27b74c6496c4c41ab",
+    "successfulWorkflowRun": 30746350893
   }
 }
