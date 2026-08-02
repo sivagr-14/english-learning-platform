@@ -26,7 +26,7 @@ async function main() {
     .returning("*");
 
   const manifest: any = {
-    formatVersion: "chatgpt-vocabulary-manifest-v2",
+    formatVersion: "chatgpt-vocabulary-manifest-v3",
     manifestId: `postgres-smoke-${suffix}`,
     createdAt: new Date().toISOString(),
     source: {
@@ -60,9 +60,15 @@ async function main() {
         cefrLevel: sample.cefrLevel,
         usageFrequency: "heavy",
         fluencyValue: "essential",
-        categoryName: sample.categoryName,
-        contextualMeaning:
-          sample.lesson.meaning_in_context.contextual_meaning,
+        categoryName: "Starting and finishing",
+        taxonomy: {
+          taxonomyVersion: "2026.1",
+          domainKey: "everyday_life",
+          usageGroupKey: "everyday_life.practical_actions",
+          categoryKey: "everyday_life.practical_actions.starting_and_finishing",
+          confidence: "high",
+        },
+        contextualMeaning: sample.lesson.meaning_in_context.contextual_meaning,
         senseEvidence: {
           sentence: sample.lesson.meaning_in_context.source_sentence,
           explanation:
@@ -115,7 +121,7 @@ async function main() {
     },
   };
   const batch = {
-    formatVersion: "chatgpt-vocabulary-batch-v2",
+    formatVersion: "chatgpt-vocabulary-batch-v3",
     batchId: `${manifest.manifestId}-batch-001`,
     manifestId: manifest.manifestId,
     manifestHash: contentPackHash(manifest),
@@ -127,8 +133,7 @@ async function main() {
         word: sample.word,
         pronunciation: sample.pronunciation,
         wordType: sample.wordType,
-        englishMeaning:
-          sample.lesson.meaning_in_context.contextual_meaning,
+        englishMeaning: sample.lesson.meaning_in_context.contextual_meaning,
         tamilMeaning: sample.tamilMeaning,
         coreIdea: sample.coreIdea,
         lesson: sample.lesson,
@@ -174,6 +179,36 @@ async function main() {
       .count({ count: "id" })
       .first();
     assert.equal(Number(wordCount?.count), 1);
+    const taxonomyReadBack = await database("vocabulary_words as word")
+      .join(
+        "vocabulary_taxonomy_categories as category",
+        "category.category_key",
+        "word.taxonomy_category_key",
+      )
+      .join(
+        "vocabulary_taxonomy_usage_groups as usage_group",
+        "usage_group.usage_group_key",
+        "category.usage_group_key",
+      )
+      .join(
+        "vocabulary_taxonomy_domains as domain",
+        "domain.domain_key",
+        "category.domain_key",
+      )
+      .where("word.owner_user_id", owner.id)
+      .select(
+        "domain.domain_key",
+        "usage_group.usage_group_key",
+        "category.category_key",
+        "word.taxonomy_assignment_source",
+      )
+      .first();
+    assert.deepEqual(taxonomyReadBack, {
+      domain_key: "everyday_life",
+      usage_group_key: "everyday_life.practical_actions",
+      category_key: "everyday_life.practical_actions.starting_and_finishing",
+      taxonomy_assignment_source: "content-pack-v3",
+    });
 
     console.log(
       JSON.stringify({
@@ -183,6 +218,7 @@ async function main() {
         duplicateReplayCreated: 0,
         accountIsolation: "passed",
         postgresReadBack: "passed",
+        threeLevelTaxonomyReadBack: "passed",
       }),
     );
   } finally {

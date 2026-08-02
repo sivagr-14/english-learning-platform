@@ -7,6 +7,7 @@ import {
   ContentBatch,
   ContentManifest,
   isSenseAwareManifest,
+  isTaxonomyAwareManifest,
   parseContentPack,
   validateContentBatch,
   validateContentManifest,
@@ -22,6 +23,7 @@ import {
   normalizeVocabularyTerm,
   resolveContextualSense,
 } from "./vocabulary-sense.service";
+import { legacyTaxonomyPath } from "../data/vocabulary-taxonomy";
 
 export interface ContentPackDocument {
   path: string;
@@ -72,7 +74,8 @@ function manifestAssessmentCounts(manifest: ContentManifest) {
     newEntriesProposed: manifest.candidates.filter((candidate) => {
       if (candidate.decision !== "generate") return false;
       return senseAware
-        ? "senseDecision" in candidate && candidate.senseDecision === "new_sense"
+        ? "senseDecision" in candidate &&
+            candidate.senseDecision === "new_sense"
         : "operation" in candidate && candidate.operation === "new";
     }).length,
     ambiguousSenses: senseAware
@@ -133,8 +136,8 @@ export class ContentPackService {
       (item): item is NonNullable<typeof item> =>
         Boolean(
           item &&
-          !item.value?.formatVersion?.includes("manifest") &&
-          !item.value?.formatVersion?.includes("batch"),
+            !item.value?.formatVersion?.includes("manifest") &&
+            !item.value?.formatVersion?.includes("batch"),
         ),
     )) {
       result.errors.push({
@@ -399,8 +402,8 @@ export class ContentPackService {
           : counts.totalEntriesToProcess === 0 && counts.ambiguousSenses > 0
             ? "attention_required"
             : counts.totalEntriesToProcess === 0
-            ? "completed"
-            : "assessed";
+              ? "completed"
+              : "assessed";
       const [run] = await trx("assessment_runs")
         .insert({
           owner_user_id: userId,
@@ -454,6 +457,12 @@ export class ContentPackService {
         let senseKey: string | null = null;
         let senseEvidence: unknown = null;
         let allocatedSenseRank: number | null = null;
+        const taxonomy =
+          candidate.decision === "generate"
+            ? isTaxonomyAwareManifest(manifest) && candidate.taxonomy
+              ? candidate.taxonomy
+              : legacyTaxonomyPath(candidate.categoryName)
+            : null;
 
         if (isSenseAwareManifest(manifest) && "senseDecision" in candidate) {
           const normalizedTerm = normalizeVocabularyTerm(candidate.term);
@@ -563,10 +572,24 @@ export class ContentPackService {
           contextual_meaning: candidate.contextualMeaning,
           sense_decision: senseDecision,
           sense_key: senseKey,
-          sense_evidence: senseEvidence
-            ? JSON.stringify(senseEvidence)
-            : null,
+          sense_evidence: senseEvidence ? JSON.stringify(senseEvidence) : null,
           allocated_sense_rank: allocatedSenseRank,
+          taxonomy_version: taxonomy?.taxonomyVersion || null,
+          taxonomy_domain_key: taxonomy?.domainKey || null,
+          taxonomy_usage_group_key: taxonomy?.usageGroupKey || null,
+          taxonomy_category_key: taxonomy?.categoryKey || null,
+          taxonomy_confidence:
+            taxonomy && "confidence" in taxonomy
+              ? taxonomy.confidence
+              : taxonomy
+                ? "medium"
+                : null,
+          taxonomy_reason:
+            taxonomy && "reason" in taxonomy
+              ? taxonomy.reason || null
+              : taxonomy
+                ? "Assigned from the legacy broad category during compatibility import."
+                : null,
           original_sentence: firstOccurrence.sentence,
           proposed_categories: candidate.categoryName
             ? JSON.stringify([
@@ -600,12 +623,14 @@ export class ContentPackService {
             : resolvedProcessableCount === 0
               ? "completed"
               : "assessed";
-      await trx("assessment_runs").where({ id: run.id }).update({
-        status: effectiveStatus,
-        counts: JSON.stringify(effectiveCounts),
-        completed_at: effectiveStatus === "completed" ? new Date() : null,
-        updated_at: new Date(),
-      });
+      await trx("assessment_runs")
+        .where({ id: run.id })
+        .update({
+          status: effectiveStatus,
+          counts: JSON.stringify(effectiveCounts),
+          completed_at: effectiveStatus === "completed" ? new Date() : null,
+          updated_at: new Date(),
+        });
 
       await trx("content_pack_manifests")
         .where({ id: manifestId })
@@ -821,6 +846,14 @@ export class ContentPackService {
                   sense_evidence: readJson(candidate.sense_evidence, undefined),
                 }
               : {}),
+            taxonomy: {
+              taxonomyVersion: candidate.taxonomy_version,
+              domainKey: candidate.taxonomy_domain_key,
+              usageGroupKey: candidate.taxonomy_usage_group_key,
+              categoryKey: candidate.taxonomy_category_key,
+              confidence: candidate.taxonomy_confidence,
+              reason: candidate.taxonomy_reason || undefined,
+            },
           },
           userId,
         );
@@ -971,14 +1004,17 @@ export class ContentPackService {
       issues.push(`Import status is ${manifest.status}, not completed.`);
     }
     if (manifest.generation.missingBatches !== 0) {
-      issues.push(`${manifest.generation.missingBatches} planned batch(es) are missing.`);
+      issues.push(
+        `${manifest.generation.missingBatches} planned batch(es) are missing.`,
+      );
     }
     if (manifest.generation.invalidBatches !== 0) {
-      issues.push(`${manifest.generation.invalidBatches} batch(es) are invalid or conflicting.`);
+      issues.push(
+        `${manifest.generation.invalidBatches} batch(es) are invalid or conflicting.`,
+      );
     }
     if (
-      manifest.generation.receivedBatches !==
-      manifest.generation.plannedBatches
+      manifest.generation.receivedBatches !== manifest.generation.plannedBatches
     ) {
       issues.push("Received batch count does not match the generation plan.");
     }
@@ -997,7 +1033,9 @@ export class ContentPackService {
       issues.push("Committed entry count does not match the batch ledger.");
     }
     if (!job || wordIds.length !== Number(job.total_items)) {
-      issues.push("Committed entry count does not match the approved import count.");
+      issues.push(
+        "Committed entry count does not match the approved import count.",
+      );
     }
     if (!wordIds.length) {
       return {
@@ -1022,6 +1060,21 @@ export class ContentPackService {
           userId,
         );
       })
+      .leftJoin(
+        "vocabulary_taxonomy_categories as taxonomy_category",
+        "taxonomy_category.category_key",
+        "words.taxonomy_category_key",
+      )
+      .leftJoin(
+        "vocabulary_taxonomy_usage_groups as taxonomy_group",
+        "taxonomy_group.usage_group_key",
+        "taxonomy_category.usage_group_key",
+      )
+      .leftJoin(
+        "vocabulary_taxonomy_domains as taxonomy_domain",
+        "taxonomy_domain.domain_key",
+        "taxonomy_category.domain_key",
+      )
       .whereIn("words.id", uniqueWordIds)
       .where("words.owner_user_id", userId)
       .select(
@@ -1030,11 +1083,25 @@ export class ContentPackService {
         "lessons.id as lesson_id",
         "progress.id as progress_id",
         "queue.id as queue_id",
+        "words.taxonomy_category_key",
+        "taxonomy_category.name as taxonomy_category_name",
+        "taxonomy_group.usage_group_key as taxonomy_usage_group_key",
+        "taxonomy_domain.domain_key as taxonomy_domain_key",
       );
     for (const row of rows) {
       if (!row.lesson_id) issues.push(`${row.word}: lesson row is missing`);
       if (!row.progress_id) issues.push(`${row.word}: progress row is missing`);
       if (!row.queue_id) issues.push(`${row.word}: review card is missing`);
+      if (
+        !row.taxonomy_category_key ||
+        !row.taxonomy_category_name ||
+        !row.taxonomy_usage_group_key ||
+        !row.taxonomy_domain_key
+      ) {
+        issues.push(
+          `${row.word}: complete domain, usage group and specific category are required`,
+        );
+      }
     }
     if (rows.length !== uniqueWordIds.length) {
       issues.push("One or more committed word rows could not be read back.");

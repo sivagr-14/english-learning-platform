@@ -33,8 +33,8 @@ writes database rows.
 
 ## Manifest guarantees
 
-New imports use `chatgpt-vocabulary-manifest-v2`. Version 1 remains readable
-only so already-started imports can finish. Version 2 must include:
+New imports use `chatgpt-vocabulary-manifest-v3`. Versions 1 and 2 remain
+readable only so already-started imports can finish. Version 3 must include:
 
 - a stable `manifestId`, source SHA-256, source type and creation time;
 - `totalPages` and an ordered page ledger from page 1 through the last page;
@@ -44,6 +44,9 @@ only so already-started imports can finish. Version 2 must include:
   `generate`, `existing`, `filtered` or `rejected`;
 - one contextual meaning, stable `senseKey`, `senseDecision` and source-backed
   `senseEvidence` for every candidate;
+- one catalogue-valid `taxonomy` assignment for every generated candidate,
+  containing the taxonomy version, domain key, usage-group key, specific
+  category key and confidence;
 - a specific reason for every non-generated candidate;
 - source page, chunk and sentence for every candidate occurrence;
 - exact recomputable totals; and
@@ -61,9 +64,9 @@ are held for attention instead of guessed.
 
 ## Batch guarantees
 
-New batches use `chatgpt-vocabulary-batch-v2` and must match a version-2
-manifest. Version-1 batches remain compatible only with version-1 manifests.
-Each batch must include:
+New batches use `chatgpt-vocabulary-batch-v3` and must match a version-3
+manifest. Version-1 and version-2 batches remain compatible only with the same
+manifest version. Each batch must include:
 
 - an immutable `batchId`;
 - the manifest ID and exact manifest SHA-256;
@@ -112,6 +115,26 @@ matching, examples, sorting identity or the generated lesson.
 Reusing the same manifest or batch ID with identical content is safe and has no
 effect. Reusing it with changed content creates a conflict instead of modifying
 already assessed or saved data.
+
+## Controlled taxonomy guarantee
+
+The system catalogue contains 15 domains, 60 usage groups and 300 specific
+learning categories. ChatGPT must classify each generated contextual sense by
+choosing one exact chain:
+
+```text
+domainKey -> usageGroupKey -> categoryKey
+```
+
+The backend rejects a v3 manifest when a key is unknown, inactive, belongs to a
+different parent, or the free-text `categoryName` does not match the selected
+specific category. Generation never creates system categories. A genuine
+coverage gap is held for attention and proposed for catalogue review.
+
+The database stores the required specific-category key on every vocabulary
+word. Its foreign-key path determines the domain and usage group. Personal
+categories are additive learner-owned links and do not satisfy or replace this
+system classification.
 
 ## Large documents
 
@@ -163,11 +186,13 @@ When asked to process a source for this application, ChatGPT must:
    `packages/backend/src/services/content-pack-contract.ts`;
 5. preserve different contextual senses of the same spelling as separate
    candidates and merge only term-and-sense duplicates;
-6. validate files with `yarn content-packs:validate <directory>` before writing
+6. select one controlled domain, usage group and specific category for every
+   generated contextual sense;
+7. validate files with `yarn content-packs:validate <directory>` before writing
    them to the inbox branch;
-7. never place an OpenAI API key, PostgreSQL credential or personal database
+8. never place an OpenAI API key, PostgreSQL credential or personal database
    export in GitHub; and
-8. report any unreadable source area, ambiguous sense, rejected batch or
+9. report any unreadable source area, ambiguous sense, rejected batch or
    missing planned batch.
 
 ## Completion rule
@@ -179,6 +204,7 @@ declared pages = assessed pages + explicitly unreadable pages
 declared chunks = assessed chunks + explicitly unreadable chunks
 all candidates = generate + existing + filtered + rejected
 all contextual senses = resolved same/new senses + explicitly held ambiguities
+all generated senses = valid domain + usage group + specific category
 all approved candidates = committed PostgreSQL entries
 all planned batches = received and valid batches
 missing or untracked items = 0

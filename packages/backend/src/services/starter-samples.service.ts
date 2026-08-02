@@ -15,12 +15,14 @@ import {
   normalizeSenseKey,
   normalizeVocabularyTerm,
 } from "./vocabulary-sense.service";
+import { legacyTaxonomyPath } from "../data/vocabulary-taxonomy";
 
 function starterSenseKey(sample: StarterSample) {
   return normalizeSenseKey(`starter ${sample.englishMeaning}`);
 }
 
 function sampleSnapshot(sample: StarterSample) {
+  const taxonomy = legacyTaxonomyPath(sample.categoryName);
   return {
     word: sample.word,
     category: sample.categoryName,
@@ -28,6 +30,7 @@ function sampleSnapshot(sample: StarterSample) {
     itemType: sample.itemType,
     lesson: sample.lesson,
     starterSample: true,
+    taxonomy,
   };
 }
 
@@ -118,6 +121,7 @@ export async function loadStarterSamples(userId: string) {
     for (const sample of STARTER_SAMPLES) {
       assertVocabularyLessonCompliant(sample.lesson, sample.word);
       const normalizedTerm = normalizeVocabularyTerm(sample.word);
+      const taxonomy = legacyTaxonomyPath(sample.categoryName);
       await lockVocabularyTerm(trx, userId, normalizedTerm);
 
       const current = await trx("vocabulary_words")
@@ -151,24 +155,29 @@ export async function loadStarterSamples(userId: string) {
         const categoryId = categoryIds.get(sample.categoryName);
         const nextVersion = Number(current.entry_version || 1) + 1;
 
-        await trx("vocabulary_words").where({ id: current.id }).update({
-          category_id: categoryId,
-          word: sample.word,
-          pronunciation: sample.pronunciation,
-          word_type: sample.wordType,
-          cefr_level: sample.cefrLevel,
-          frequency: sample.frequency,
-          english_meaning: sample.englishMeaning,
-          tamil_meaning: sample.tamilMeaning,
-          core_idea: sample.coreIdea,
-          base_form: sample.word,
-          item_type: sample.itemType,
-          normalized_term: normalizeVocabularyTerm(sample.word),
-          sense_key: starterSenseKey(sample),
-          sense_gloss: sample.englishMeaning,
-          entry_version: nextVersion,
-          updated_at: new Date(),
-        });
+        await trx("vocabulary_words")
+          .where({ id: current.id })
+          .update({
+            category_id: categoryId,
+            word: sample.word,
+            pronunciation: sample.pronunciation,
+            word_type: sample.wordType,
+            cefr_level: sample.cefrLevel,
+            frequency: sample.frequency,
+            english_meaning: sample.englishMeaning,
+            tamil_meaning: sample.tamilMeaning,
+            core_idea: sample.coreIdea,
+            base_form: sample.word,
+            item_type: sample.itemType,
+            normalized_term: normalizeVocabularyTerm(sample.word),
+            sense_key: starterSenseKey(sample),
+            sense_gloss: sample.englishMeaning,
+            taxonomy_category_key: taxonomy.categoryKey,
+            taxonomy_assignment_source: "starter-sample",
+            taxonomy_assigned_at: new Date(),
+            entry_version: nextVersion,
+            updated_at: new Date(),
+          });
 
         if (current.lesson_id) {
           await trx("vocabulary_lessons")
@@ -233,6 +242,9 @@ export async function loadStarterSamples(userId: string) {
           sense_rank: senseRank,
           sense_key: starterSenseKey(sample),
           sense_gloss: sample.englishMeaning,
+          taxonomy_category_key: taxonomy.categoryKey,
+          taxonomy_assignment_source: "starter-sample",
+          taxonomy_assigned_at: new Date(),
           fluency_value: "High",
           learning_priority: "Starter",
           entry_version: 1,

@@ -41,7 +41,7 @@ async function main() {
       .where({ owner_user_id: owner.id })
       .orderBy("word")
       .limit(2)
-      .select("id", "category_id");
+      .select("id", "category_id", "taxonomy_category_key");
     assert.equal(words.length, 2);
     const wordIds = words.map((word) => word.id);
     const originalPrimaryIds = new Map(
@@ -242,6 +242,40 @@ async function main() {
       ),
     );
 
+    const taxonomyResponse = await request(app)
+      .get("/api/vocabulary/taxonomy")
+      .set(authorization)
+      .expect(200);
+    assert.deepEqual(taxonomyResponse.body.counts, {
+      domains: 15,
+      usage_groups: 60,
+      specific_categories: 300,
+    });
+    assert.equal(taxonomyResponse.body.domains.length, 15);
+    assert(
+      taxonomyResponse.body.domains.every(
+        (domain: any) =>
+          domain.usage_groups.length === 4 &&
+          domain.usage_groups.every(
+            (group: any) => group.categories.length === 5,
+          ),
+      ),
+    );
+
+    const taxonomyWordsResponse = await request(app)
+      .get(
+        `/api/vocabulary/taxonomy/${encodeURIComponent(
+          words[0].taxonomy_category_key,
+        )}/words`,
+      )
+      .set(authorization)
+      .expect(200);
+    assert(
+      taxonomyWordsResponse.body.words.some(
+        (word: any) => word.id === words[0].id,
+      ),
+    );
+
     const assignSystemCategoryResponse = await request(app)
       .post("/api/vocabulary/words/categories")
       .set(authorization)
@@ -317,6 +351,8 @@ async function main() {
         accountIsolation: "passed",
         categoryBrowseReviewProgress: "passed",
         emptyCategoryCreationAndListing: "passed",
+        taxonomyHierarchyApi: "passed",
+        taxonomyLeafBrowseApi: "passed",
         categoryDeletePreservedWords: "passed",
       }),
     );

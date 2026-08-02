@@ -8,14 +8,23 @@ import {
   normalizeSenseKey,
   normalizeVocabularyTerm,
 } from "./vocabulary-sense.service";
+import {
+  isValidTaxonomyPath,
+  TAXONOMY_VERSION,
+  taxonomyPathForCategoryKey,
+} from "../data/vocabulary-taxonomy";
 
 export const LEGACY_CONTENT_MANIFEST_VERSION =
   "chatgpt-vocabulary-manifest-v1" as const;
 export const LEGACY_CONTENT_BATCH_VERSION =
   "chatgpt-vocabulary-batch-v1" as const;
-export const CONTENT_MANIFEST_VERSION =
+export const SENSE_AWARE_CONTENT_MANIFEST_VERSION =
   "chatgpt-vocabulary-manifest-v2" as const;
-export const CONTENT_BATCH_VERSION = "chatgpt-vocabulary-batch-v2" as const;
+export const SENSE_AWARE_CONTENT_BATCH_VERSION =
+  "chatgpt-vocabulary-batch-v2" as const;
+export const CONTENT_MANIFEST_VERSION =
+  "chatgpt-vocabulary-manifest-v3" as const;
+export const CONTENT_BATCH_VERSION = "chatgpt-vocabulary-batch-v3" as const;
 
 const IdentifierSchema = z
   .string()
@@ -100,6 +109,34 @@ const SenseEvidenceSchema = z
   })
   .strict();
 
+export const TaxonomyAssignmentSchema = z
+  .object({
+    taxonomyVersion: z.literal(TAXONOMY_VERSION),
+    domainKey: IdentifierSchema,
+    usageGroupKey: IdentifierSchema,
+    categoryKey: IdentifierSchema,
+    confidence: z.enum(["high", "medium", "low"]),
+    reason: UsefulTextSchema.optional(),
+  })
+  .strict()
+  .superRefine((taxonomy, context) => {
+    if (!isValidTaxonomyPath(taxonomy)) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["categoryKey"],
+        message:
+          "domainKey, usageGroupKey and categoryKey must form one active controlled taxonomy path",
+      });
+    }
+    if (taxonomy.confidence === "low" && !taxonomy.reason) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["reason"],
+        message: "low-confidence categorization requires a specific reason",
+      });
+    }
+  });
+
 const SenseAwareManifestCandidateSchema = z
   .object({
     candidateId: IdentifierSchema,
@@ -123,6 +160,7 @@ const SenseAwareManifestCandidateSchema = z
     categoryName: z.string().trim().min(1).max(180).optional(),
     contextualMeaning: UsefulTextSchema,
     senseEvidence: SenseEvidenceSchema,
+    taxonomy: TaxonomyAssignmentSchema.optional(),
     reason: UsefulTextSchema.optional(),
     occurrences: z.array(SourceOccurrenceSchema).min(1).max(500),
   })
@@ -263,6 +301,16 @@ const SenseAwareContentManifestSchema = LegacyContentManifestSchema.omit({
   candidates: true,
 })
   .extend({
+    formatVersion: z.literal(SENSE_AWARE_CONTENT_MANIFEST_VERSION),
+    candidates: z.array(SenseAwareManifestCandidateSchema).max(50_000),
+  })
+  .strict();
+
+const TaxonomyAwareContentManifestSchema = LegacyContentManifestSchema.omit({
+  formatVersion: true,
+  candidates: true,
+})
+  .extend({
     formatVersion: z.literal(CONTENT_MANIFEST_VERSION),
     candidates: z.array(SenseAwareManifestCandidateSchema).max(50_000),
   })
@@ -271,6 +319,7 @@ const SenseAwareContentManifestSchema = LegacyContentManifestSchema.omit({
 export const ContentManifestSchema = z.union([
   LegacyContentManifestSchema,
   SenseAwareContentManifestSchema,
+  TaxonomyAwareContentManifestSchema,
 ]);
 
 export const GeneratedPackEntrySchema = z
@@ -301,12 +350,19 @@ const LegacyContentBatchSchema = z
 const SenseAwareContentBatchSchema = LegacyContentBatchSchema.omit({
   formatVersion: true,
 })
+  .extend({ formatVersion: z.literal(SENSE_AWARE_CONTENT_BATCH_VERSION) })
+  .strict();
+
+const TaxonomyAwareContentBatchSchema = LegacyContentBatchSchema.omit({
+  formatVersion: true,
+})
   .extend({ formatVersion: z.literal(CONTENT_BATCH_VERSION) })
   .strict();
 
 export const ContentBatchSchema = z.union([
   LegacyContentBatchSchema,
   SenseAwareContentBatchSchema,
+  TaxonomyAwareContentBatchSchema,
 ]);
 
 export type ContentManifest = z.infer<typeof ContentManifestSchema>;
@@ -352,7 +408,15 @@ function duplicates(values: string[]): string[] {
 
 export function isSenseAwareManifest(
   manifest: ContentManifest,
-): manifest is z.infer<typeof SenseAwareContentManifestSchema> {
+): manifest is
+  | z.infer<typeof SenseAwareContentManifestSchema>
+  | z.infer<typeof TaxonomyAwareContentManifestSchema> {
+  return manifest.formatVersion !== LEGACY_CONTENT_MANIFEST_VERSION;
+}
+
+export function isTaxonomyAwareManifest(
+  manifest: ContentManifest,
+): manifest is z.infer<typeof TaxonomyAwareContentManifestSchema> {
   return manifest.formatVersion === CONTENT_MANIFEST_VERSION;
 }
 
@@ -398,6 +462,31 @@ export function validateContentManifest(
       issues.push(
         "candidates: each normalized term may appear only once; merge repeated occurrences",
       );
+    }
+  }
+  if (isTaxonomyAwareManifest(manifest)) {
+    for (const candidate of manifest.candidates) {
+      if (candidate.decision !== "generate") continue;
+      if (!candidate.taxonomy) {
+        issues.push(
+          `${candidate.candidateId}: generated candidates require domain, usage group and specific category`,
+        );
+        continue;
+      }
+      const path = taxonomyPathForCategoryKey(candidate.taxonomy.categoryKey);
+      if (!path || !isValidTaxonomyPath(candidate.taxonomy)) {
+        issues.push(
+          `${candidate.candidateId}: taxonomy keys do not form a valid controlled path`,
+        );
+      } else if (
+        candidate.categoryName &&
+        normalizedText(candidate.categoryName) !==
+          normalizedText(path.categoryName)
+      ) {
+        issues.push(
+          `${candidate.candidateId}: categoryName must match the selected specific taxonomy category`,
+        );
+      }
     }
   }
 
@@ -582,6 +671,8 @@ export function validateContentBatch(
     const compatibleVersions =
       (manifest.formatVersion === LEGACY_CONTENT_MANIFEST_VERSION &&
         batch.formatVersion === LEGACY_CONTENT_BATCH_VERSION) ||
+      (manifest.formatVersion === SENSE_AWARE_CONTENT_MANIFEST_VERSION &&
+        batch.formatVersion === SENSE_AWARE_CONTENT_BATCH_VERSION) ||
       (manifest.formatVersion === CONTENT_MANIFEST_VERSION &&
         batch.formatVersion === CONTENT_BATCH_VERSION);
     if (!compatibleVersions) {

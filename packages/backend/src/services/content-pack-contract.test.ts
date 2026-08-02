@@ -119,8 +119,7 @@ function validBatch(manifest: ReturnType<typeof validManifest>): any {
 
 function validSenseAwarePack(): { manifest: any; batch: any } {
   const sample = STARTER_SAMPLES[0];
-  const contextualMeaning =
-    sample.lesson.meaning_in_context.contextual_meaning;
+  const contextualMeaning = sample.lesson.meaning_in_context.contextual_meaning;
   const sourceSentence = sample.lesson.meaning_in_context.source_sentence;
   const manifest = validManifest();
   manifest.formatVersion = "chatgpt-vocabulary-manifest-v2";
@@ -142,9 +141,7 @@ function validSenseAwarePack(): { manifest: any; batch: any } {
       explanation:
         "The adjective describes a process that is clear and uncomplicated.",
     },
-    occurrences: [
-      { page: 1, chunkId: "chunk-001", sentence: sourceSentence },
-    ],
+    occurrences: [{ page: 1, chunkId: "chunk-001", sentence: sourceSentence }],
   };
   manifest.candidates[1] = {
     ...manifest.candidates[1],
@@ -161,6 +158,22 @@ function validSenseAwarePack(): { manifest: any; batch: any } {
   batch.formatVersion = "chatgpt-vocabulary-batch-v2";
   batch.manifestHash = contentPackHash(manifest);
   batch.entries[0].englishMeaning = contextualMeaning;
+  return { manifest, batch };
+}
+
+function validTaxonomyAwarePack(): { manifest: any; batch: any } {
+  const { manifest, batch } = validSenseAwarePack();
+  manifest.formatVersion = "chatgpt-vocabulary-manifest-v3";
+  manifest.candidates[0].categoryName = "Practice and improvement";
+  manifest.candidates[0].taxonomy = {
+    taxonomyVersion: "2026.1",
+    domainKey: "education",
+    usageGroupKey: "education.study_skills",
+    categoryKey: "education.study_skills.practice_and_improvement",
+    confidence: "high",
+  };
+  batch.formatVersion = "chatgpt-vocabulary-batch-v3";
+  batch.manifestHash = contentPackHash(manifest);
   return { manifest, batch };
 }
 
@@ -219,6 +232,37 @@ describe("ChatGPT content-pack contract", () => {
     });
   });
 
+  it("accepts v3 only when every generated sense has one valid three-level path", () => {
+    const { manifest, batch } = validTaxonomyAwarePack();
+    expect(validateContentManifest(manifest)).toMatchObject({
+      valid: true,
+      issues: [],
+    });
+    expect(validateContentBatch(batch, manifest)).toMatchObject({
+      valid: true,
+      issues: [],
+    });
+  });
+
+  it("rejects missing, mismatched and invented v3 taxonomy paths", () => {
+    const missing = validTaxonomyAwarePack();
+    delete missing.manifest.candidates[0].taxonomy;
+    expect(validateContentManifest(missing.manifest).issues.join(" ")).toMatch(
+      /require domain, usage group and specific category/i,
+    );
+
+    const mismatched = validTaxonomyAwarePack();
+    mismatched.manifest.candidates[0].taxonomy.domainKey = "work";
+    expect(
+      validateContentManifest(mismatched.manifest).issues.join(" "),
+    ).toMatch(/controlled taxonomy path|valid controlled path/i);
+
+    const invented = validTaxonomyAwarePack();
+    invented.manifest.candidates[0].taxonomy.categoryKey =
+      "education.study_skills.invented_category";
+    expect(validateContentManifest(invented.manifest).valid).toBe(false);
+  });
+
   it("allows one spelling to have different sense keys", () => {
     const { manifest } = validSenseAwarePack();
     const original = manifest.candidates[0];
@@ -261,18 +305,16 @@ describe("ChatGPT content-pack contract", () => {
     manifest.counts.totalCandidates += 1;
     manifest.counts.generate += 1;
     manifest.counts.heavyUse += 1;
-    manifest.generationPlan.batches[0].candidateIds.push(
-      duplicate.candidateId,
-    );
+    manifest.generationPlan.batches[0].candidateIds.push(duplicate.candidateId);
     expect(validateContentManifest(manifest).issues.join(" ")).toMatch(
       /term and contextual sense/i,
     );
 
     const clean = validSenseAwarePack();
     clean.batch.entries[0].word = `${clean.batch.entries[0].word} (B)`;
-    expect(validateContentBatch(clean.batch, clean.manifest).issues.join(" ")).toMatch(
-      /real unsuffixed term/i,
-    );
+    expect(
+      validateContentBatch(clean.batch, clean.manifest).issues.join(" "),
+    ).toMatch(/real unsuffixed term/i);
   });
 
   it("rejects a v2 batch that teaches a meaning not assessed in context", () => {

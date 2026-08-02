@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "featureId": "three-level-vocabulary-taxonomy",
+  "title": "Controlled domain, usage-group and specific-category taxonomy",
+  "implementationPaths": [
+    "package.json",
+    "packages/backend/src/data/vocabulary-taxonomy.ts",
+    "packages/backend/src/data/vocabulary-taxonomy.test.ts",
+    "packages/backend/src/database/migrations/016_three_level_vocabulary_taxonomy.ts",
+    "packages/backend/src/database/seeds/004_vocabulary_taxonomy.ts",
+    "packages/backend/src/routes/vocabulary.ts",
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts",
+    "packages/backend/src/scripts/smoke-taxonomy-migration-postgres.ts",
+    "packages/backend/src/scripts/smoke-user-categories-postgres.ts",
+    "packages/backend/src/services/content-pack-contract.ts",
+    "packages/backend/src/services/content-pack-contract.test.ts",
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/backend/src/services/starter-samples.service.ts",
+    "packages/backend/src/services/vocabulary-import.service.ts",
+    "packages/frontend/app/categories/page.tsx",
+    "packages/frontend/app/taxonomy/[categoryKey]/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/data/vocabulary-taxonomy.test.ts",
+    "packages/backend/src/services/content-pack-contract.test.ts",
+    "packages/backend/src/scripts/smoke-taxonomy-migration-postgres.ts",
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts",
+    "packages/backend/src/scripts/smoke-user-categories-postgres.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "chatgpt-vocabulary-manifest-v3",
+          "15 domains, 60 usage groups and 300 specific",
+          "domainKey -> usageGroupKey -> categoryKey"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "## Required three-level categorization",
+          "Domain -> Usage group -> Specific category",
+          "taxonomy.categoryKey"
+        ]
+      }
+    ]
+  }
+}

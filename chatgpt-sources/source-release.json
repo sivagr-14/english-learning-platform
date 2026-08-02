@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "2026-08-01-contextual-senses-v2",
+  "releaseId": "2026-08-02-three-level-taxonomy-v3",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "150094d00b58ce3d846d202fac298d6a565f9788129e6248b338aa049f1de295",
-      "sizeBytes": 9572
+      "sha256": "56258d11a8ff1cc0cfc6d222d918e9c827744a56b5c52cf7aaadf09b92f87518",
+      "sizeBytes": 10779
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "a0c0768e103abb8001ec87ea6e5b9d55177fecb39723bae4d0b1c87129aa973c",
-      "sizeBytes": 7330
+      "sha256": "53f6df443d7a99ddb8db8722442fe23124c05a4c7b04092b31f061f306e22399",
+      "sizeBytes": 8677
     }
   ]
 }
