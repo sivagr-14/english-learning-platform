@@ -459,7 +459,9 @@ export class ContentPackService {
         let allocatedSenseRank: number | null = null;
         const taxonomy =
           candidate.decision === "generate"
-            ? isTaxonomyAwareManifest(manifest) && candidate.taxonomy
+            ? isTaxonomyAwareManifest(manifest) &&
+              "taxonomy" in candidate &&
+              candidate.taxonomy
               ? candidate.taxonomy
               : legacyTaxonomyPath(candidate.categoryName)
             : null;
