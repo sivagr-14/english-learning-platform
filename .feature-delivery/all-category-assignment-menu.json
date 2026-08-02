@@ -5,7 +5,8 @@
   "implementationPaths": [
     "packages/backend/src/routes/vocabulary.ts",
     "packages/backend/src/services/user-category.service.ts",
-    "packages/frontend/components/WordCategoryPicker.tsx"
+    "packages/frontend/components/WordCategoryPicker.tsx",
+    "packages/backend/src/scripts/smoke-user-categories-postgres.ts"
   ],
   "validationPaths": [
     "packages/backend/src/scripts/smoke-user-categories-postgres.ts"
