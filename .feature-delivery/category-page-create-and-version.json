@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "featureId": "category-page-create-and-version",
+  "title": "Create categories from the Categories page and show the installed GitHub version",
+  "implementationPaths": [
+    "packages/frontend/app/categories/page.tsx",
+    "packages/frontend/components/AppShell.tsx",
+    "packages/backend/src/index.ts",
+    "packages/backend/src/services/app-version.service.ts",
+    "packages/backend/src/services/app-version.service.test.ts",
+    "packages/backend/src/scripts/smoke-user-categories-postgres.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/app-version.service.test.ts",
+    "packages/backend/src/scripts/smoke-user-categories-postgres.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This corrects application category-management visibility and installed-version diagnostics only; it does not change source assessment, contextual meanings, content-pack transport, or vocabulary lesson generation."
+  }
+}
