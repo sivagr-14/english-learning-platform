@@ -1,5 +1,8 @@
 import { Knex } from "knex";
-import { Frequency, VocabularyLessonSample } from "../data/vocabulary-lesson-samples";
+import {
+  Frequency,
+  VocabularyLessonSample,
+} from "../data/vocabulary-lesson-samples";
 import {
   assertVocabularyLessonCompliant,
   VocabularyLesson,
@@ -14,6 +17,12 @@ import {
   resolveContextualSense,
   SenseDecision,
 } from "./vocabulary-sense.service";
+import {
+  isValidTaxonomyPath,
+  legacyBroadCategoryForDomain,
+  legacyTaxonomyPath,
+  taxonomyPathForCategoryKey,
+} from "../data/vocabulary-taxonomy";
 
 export interface VocabularyImportRow {
   track?: string;
@@ -32,6 +41,14 @@ export interface VocabularyImportRow {
   matched_word_id?: string;
   assigned_sense_rank?: number;
   sense_evidence?: { sentence: string; explanation: string };
+  taxonomy?: {
+    taxonomyVersion: string;
+    domainKey: string;
+    usageGroupKey: string;
+    categoryKey: string;
+    confidence?: "high" | "medium" | "low";
+    reason?: string;
+  };
   english_meaning: string;
   tamil_meaning?: string;
   core_idea?: string;
@@ -53,7 +70,9 @@ export interface VocabularyImportResult {
   errors: Array<{ row: number; message: string }>;
 }
 
-export type VocabularyImportEntry = VocabularyImportRow | VocabularyLessonSample;
+export type VocabularyImportEntry =
+  | VocabularyImportRow
+  | VocabularyLessonSample;
 
 const REMOVED_LESSON_SECTIONS = new Set([
   "Word / Phrase",
@@ -73,12 +92,16 @@ export function parseVocabularyJson(jsonText: string): VocabularyImportEntry[] {
   try {
     parsed = JSON.parse(jsonText);
   } catch {
-    throw new Error("Invalid JSON. Please import one vocabulary object or an array of vocabulary objects.");
+    throw new Error(
+      "Invalid JSON. Please import one vocabulary object or an array of vocabulary objects.",
+    );
   }
 
   if (isDeckJson(parsed)) {
     const deck = asRecord(parsed);
-    return (deck.cards as unknown[]).map((card) => normalizeDeckCard(card, deck));
+    return (deck.cards as unknown[]).map((card) =>
+      normalizeDeckCard(card, deck),
+    );
   }
 
   const entries = Array.isArray(parsed) ? parsed : [parsed];
@@ -99,24 +122,35 @@ function isDeckJson(value: unknown): value is { cards: unknown[] } {
   );
 }
 
-function normalizeDeckCard(card: unknown, deck: Record<string, any>): VocabularyImportEntry {
+function normalizeDeckCard(
+  card: unknown,
+  deck: Record<string, any>,
+): VocabularyImportEntry {
   const record = asRecord(card);
   const sections = asSectionArray(record.sections);
-  const trackCategory = asRecord(sectionContent(sections, "Track & Category", 6));
+  const trackCategory = asRecord(
+    sectionContent(sections, "Track & Category", 6),
+  );
   const memory = asRecord(sectionContent(sections, "Memory Mastery", 10));
   const meaningLayers = asArray(sectionContent(sections, "Meaning Layers", 11));
   const usageProfile = asArray(sectionContent(sections, "Usage Profile", 12));
   const usageZone = asRecord(sectionContent(sections, "Word Usage Zone", 13));
-  const domainRestrictions = asRecord(sectionContent(sections, "Domain Restrictions", 15));
-  const patterns = asArray(sectionContent(sections, "Common Patterns / Grammar", 16));
+  const domainRestrictions = asRecord(
+    sectionContent(sections, "Domain Restrictions", 15),
+  );
+  const patterns = asArray(
+    sectionContent(sections, "Common Patterns / Grammar", 16),
+  );
   const story = sectionContent(
     sections,
     "Paragraph-Based Real-Life Conversation / Story",
-    17
+    17,
   );
   const mistakes = asArray(sectionContent(sections, "Common Mistakes", 18));
   const tamilNotes = sectionContent(sections, "Tamil Usage Notes", 19);
-  const practiceEvaluation = asRecord(sectionContent(sections, "Practice + Evaluation", 20));
+  const practiceEvaluation = asRecord(
+    sectionContent(sections, "Practice + Evaluation", 20),
+  );
   const deckCategory = asString(deck.category);
   const cardCategory = asString(trackCategory.category);
   const cardTrack = asString(trackCategory.track);
@@ -130,14 +164,30 @@ function normalizeDeckCard(card: unknown, deck: Record<string, any>): Vocabulary
       cardTrack,
       asString(deck.deck_name),
     ].filter(Boolean),
-    word: asString(record.word || sectionContent(sections, "Word / Phrase", 1)).trim(),
-    pronunciation: asString(record.pronunciation ?? sectionContent(sections, "Pronunciation", 2)),
-    word_type: asString(record.word_type ?? sectionContent(sections, "Word Type", 3)),
-    cefr_level: asString(record.cefr_level ?? sectionContent(sections, "CEFR Level", 4)),
-    frequency: asString(record.frequency ?? sectionContent(sections, "Frequency", 5)),
-    english_meaning: asString(record.english_meaning ?? sectionContent(sections, "English Meaning", 7)),
-    tamil_meaning: asString(record.tamil_meaning ?? sectionContent(sections, "Tamil Meaning", 8)),
-    core_idea: asString(record.core_idea ?? sectionContent(sections, "Core Idea", 9)),
+    word: asString(
+      record.word || sectionContent(sections, "Word / Phrase", 1),
+    ).trim(),
+    pronunciation: asString(
+      record.pronunciation ?? sectionContent(sections, "Pronunciation", 2),
+    ),
+    word_type: asString(
+      record.word_type ?? sectionContent(sections, "Word Type", 3),
+    ),
+    cefr_level: asString(
+      record.cefr_level ?? sectionContent(sections, "CEFR Level", 4),
+    ),
+    frequency: asString(
+      record.frequency ?? sectionContent(sections, "Frequency", 5),
+    ),
+    english_meaning: asString(
+      record.english_meaning ?? sectionContent(sections, "English Meaning", 7),
+    ),
+    tamil_meaning: asString(
+      record.tamil_meaning ?? sectionContent(sections, "Tamil Meaning", 8),
+    ),
+    core_idea: asString(
+      record.core_idea ?? sectionContent(sections, "Core Idea", 9),
+    ),
     memory_mastery: {
       memory_trigger: asString(memory.memory_trigger),
       visual_scene: asString(memory.visual_scene),
@@ -155,19 +205,23 @@ function normalizeDeckCard(card: unknown, deck: Record<string, any>): Vocabulary
       layer_3_figurative: meaningLayerText(meaningLayers, "Figurative"),
       layer_4_professional_technical: meaningLayerText(
         meaningLayers,
-        "Professional"
+        "Professional",
       ),
     },
     usage_mastery: {
       usage_profile: usageProfile,
       word_usage_zone: usageZone,
-      natural_domains: asStringArray(sectionContent(sections, "Natural Domains", 14)),
+      natural_domains: asStringArray(
+        sectionContent(sections, "Natural Domains", 14),
+      ),
       domain_restrictions: domainRestrictions,
       context_switching_test: [],
       word_nature: "",
       word_nature_reason: "",
       register: "",
-      common_contexts: asStringArray(sectionContent(sections, "Natural Domains", 14)),
+      common_contexts: asStringArray(
+        sectionContent(sections, "Natural Domains", 14),
+      ),
       tamil_usage_notes: stringifyContent(tamilNotes),
       when_to_use: asStringArray(domainRestrictions.commonly_used),
       when_not_to_use: asStringArray(domainRestrictions.not_normally_used),
@@ -175,16 +229,20 @@ function normalizeDeckCard(card: unknown, deck: Record<string, any>): Vocabulary
     application: {
       examples: examplesFromUsageProfile(usageProfile),
       collocations: {
-        strong: patterns.map((item) => asString(asRecord(item).pattern)).filter(Boolean),
+        strong: patterns
+          .map((item) => asString(asRecord(item).pattern))
+          .filter(Boolean),
         acceptable: [],
         unnatural: [],
         explanation: "",
       },
-      native_usage_patterns: patterns.map((item) => {
-        const pattern = asString(asRecord(item).pattern);
-        const example = asString(asRecord(item).example);
-        return example ? `${pattern}: ${example}` : pattern;
-      }).filter(Boolean),
+      native_usage_patterns: patterns
+        .map((item) => {
+          const pattern = asString(asRecord(item).pattern);
+          const example = asString(asRecord(item).example);
+          return example ? `${pattern}: ${example}` : pattern;
+        })
+        .filter(Boolean),
       common_mistakes: mistakes,
       confusion_zone: "",
       alternatives_synonyms: {
@@ -198,17 +256,21 @@ function normalizeDeckCard(card: unknown, deck: Record<string, any>): Vocabulary
     },
     mastery: {
       mini_conversation: asString(story),
-      learn_the_pattern: patterns.map((item) => {
-        const pattern = asString(asRecord(item).pattern);
-        const example = asString(asRecord(item).example);
-        return example ? `${pattern}: ${example}` : pattern;
-      }).filter(Boolean),
-      guided_practice: asArray(practiceEvaluation.practice).map((item) => {
-        const practice = asRecord(item);
-        const question = asString(practice.question);
-        const answer = asString(practice.answer);
-        return answer ? `${question} ${answer}` : question;
-      }).filter(Boolean),
+      learn_the_pattern: patterns
+        .map((item) => {
+          const pattern = asString(asRecord(item).pattern);
+          const example = asString(asRecord(item).example);
+          return example ? `${pattern}: ${example}` : pattern;
+        })
+        .filter(Boolean),
+      guided_practice: asArray(practiceEvaluation.practice)
+        .map((item) => {
+          const practice = asRecord(item);
+          const question = asString(practice.question);
+          const answer = asString(practice.answer);
+          return answer ? `${question} ${answer}` : question;
+        })
+        .filter(Boolean),
       evaluation: asStringArray(practiceEvaluation.evaluation),
       feedback: "",
       mastery_notes: asString(practiceEvaluation.mastery_check),
@@ -227,7 +289,8 @@ function asSectionArray(value: unknown): VocabularyLessonSections {
       const record = asRecord(item);
       const rawNumber = Number(record.number ?? record.section ?? index + 1);
       const number = Number.isFinite(rawNumber) ? rawNumber : index + 1;
-      const title = asString(record.title ?? record.name) || `Section ${number}`;
+      const title =
+        asString(record.title ?? record.name) || `Section ${number}`;
       const content = Object.prototype.hasOwnProperty.call(record, "content")
         ? record.content
         : "";
@@ -243,10 +306,18 @@ function asSectionArray(value: unknown): VocabularyLessonSections {
 }
 
 function normalizeSectionContent(
-  content: unknown
-): string | string[] | Record<string, unknown> | Array<Record<string, unknown>> {
+  content: unknown,
+):
+  | string
+  | string[]
+  | Record<string, unknown>
+  | Array<Record<string, unknown>> {
   if (Array.isArray(content)) {
-    if (content.every((item) => item && typeof item === "object" && !Array.isArray(item))) {
+    if (
+      content.every(
+        (item) => item && typeof item === "object" && !Array.isArray(item),
+      )
+    ) {
       return content as Array<Record<string, unknown>>;
     }
     return content.map((item) => asString(item));
@@ -262,17 +333,17 @@ function normalizeSectionContent(
 function sectionContent(
   sections: VocabularyLessonSections,
   title: string,
-  number: number
+  number: number,
 ) {
-  const section = sections?.find(
-    (item) => item.title === title
-  );
+  const section = sections?.find((item) => item.title === title);
   return section?.content ?? "";
 }
 
 function meaningLayerText(layers: unknown[], layerName: string) {
   const layer = layers.find((item) =>
-    asString(asRecord(item).layer).toLowerCase().includes(layerName.toLowerCase())
+    asString(asRecord(item).layer)
+      .toLowerCase()
+      .includes(layerName.toLowerCase()),
   );
   const record = asRecord(layer);
   const meaning = asString(record.meaning);
@@ -305,7 +376,7 @@ function cleanFrequency(value?: string): "High" | "Medium" | "Low" {
 }
 
 export function buildImportedLesson(
-  row: VocabularyImportEntry
+  row: VocabularyImportEntry,
 ): VocabularyLessonSample {
   const input = row as Record<string, any>;
   const memory = asRecord(input.memory_mastery);
@@ -318,9 +389,13 @@ export function buildImportedLesson(
   const alternatives = asRecord(application.alternatives_synonyms);
   const word = asString(input.word).trim();
   const englishMeaning = asString(input.english_meaning).trim();
-  const naturalDomains = splitList(input.natural_domains ?? usage.natural_domains);
+  const naturalDomains = splitList(
+    input.natural_domains ?? usage.natural_domains,
+  );
   const whenToUse = splitList(input.when_to_use ?? usage.when_to_use);
-  const whenNotToUse = splitList(input.when_not_to_use ?? usage.when_not_to_use);
+  const whenNotToUse = splitList(
+    input.when_not_to_use ?? usage.when_not_to_use,
+  );
   const exampleList = splitList(input.examples);
 
   const lesson: VocabularyLessonSample = {
@@ -341,8 +416,12 @@ export function buildImportedLesson(
       sound_association: asString(memory.sound_association),
       tamil_connection: asString(memory.tamil_connection),
       emotional_hook: asString(memory.emotional_hook),
-      memory_sentence: asString(input.memory_sentence ?? memory.memory_sentence),
-      recall_question: asString(input.recall_question ?? memory.recall_question),
+      memory_sentence: asString(
+        input.memory_sentence ?? memory.memory_sentence,
+      ),
+      recall_question: asString(
+        input.recall_question ?? memory.recall_question,
+      ),
       pattern_family: asString(memory.pattern_family),
       notice: asString(memory.notice),
     },
@@ -351,35 +430,47 @@ export function buildImportedLesson(
       layer_2_abstract: asString(meaning.layer_2_abstract),
       layer_3_figurative: asString(meaning.layer_3_figurative),
       layer_4_professional_technical: asString(
-        meaning.layer_4_professional_technical
+        meaning.layer_4_professional_technical,
       ),
     },
     usage_mastery: {
       usage_profile: asUsageProfile(usage.usage_profile),
       word_usage_zone: {
-        natural_zones: asStringArray(asRecord(usage.word_usage_zone).natural_zones),
-        limited_zones: asStringArray(asRecord(usage.word_usage_zone).limited_zones),
-        unnatural_zones: asStringArray(
-          asRecord(usage.word_usage_zone).unnatural_zones
+        natural_zones: asStringArray(
+          asRecord(usage.word_usage_zone).natural_zones,
         ),
-        short_explanation: asString(asRecord(usage.word_usage_zone).short_explanation),
+        limited_zones: asStringArray(
+          asRecord(usage.word_usage_zone).limited_zones,
+        ),
+        unnatural_zones: asStringArray(
+          asRecord(usage.word_usage_zone).unnatural_zones,
+        ),
+        short_explanation: asString(
+          asRecord(usage.word_usage_zone).short_explanation,
+        ),
       },
       natural_domains: naturalDomains,
       domain_restrictions: {
-        commonly_used: asStringArray(asRecord(usage.domain_restrictions).commonly_used),
-        rarely_used: asStringArray(asRecord(usage.domain_restrictions).rarely_used),
+        commonly_used: asStringArray(
+          asRecord(usage.domain_restrictions).commonly_used,
+        ),
+        rarely_used: asStringArray(
+          asRecord(usage.domain_restrictions).rarely_used,
+        ),
         not_normally_used: asStringArray(
-          asRecord(usage.domain_restrictions).not_normally_used
+          asRecord(usage.domain_restrictions).not_normally_used,
         ),
         unnatural_example: asString(
-          asRecord(usage.domain_restrictions).unnatural_example
+          asRecord(usage.domain_restrictions).unnatural_example,
         ),
         natural_alternative: asString(
-          asRecord(usage.domain_restrictions).natural_alternative
+          asRecord(usage.domain_restrictions).natural_alternative,
         ),
         explanation: asString(asRecord(usage.domain_restrictions).explanation),
       },
-      context_switching_test: asContextSwitchingTest(usage.context_switching_test),
+      context_switching_test: asContextSwitchingTest(
+        usage.context_switching_test,
+      ),
       word_nature: asString(usage.word_nature),
       word_nature_reason: asString(usage.word_nature_reason),
       register: asString(usage.register),
@@ -411,13 +502,17 @@ export function buildImportedLesson(
       alternatives_synonyms: {
         near_synonyms: asStringArray(alternatives.near_synonyms),
         formal_alternatives: asStringArray(alternatives.formal_alternatives),
-        informal_alternatives: asStringArray(alternatives.informal_alternatives),
+        informal_alternatives: asStringArray(
+          alternatives.informal_alternatives,
+        ),
         stronger_c1_c2_alternatives: asStringArray(
-          alternatives.stronger_c1_c2_alternatives
+          alternatives.stronger_c1_c2_alternatives,
         ),
         nuance: asString(alternatives.nuance),
       },
-      frequency_by_context: asFrequencyByContext(application.frequency_by_context),
+      frequency_by_context: asFrequencyByContext(
+        application.frequency_by_context,
+      ),
     },
     mastery: {
       mini_conversation: asString(mastery.mini_conversation),
@@ -463,7 +558,10 @@ function stringifyContent(value: unknown): string {
   if (typeof value === "string") return value;
   if (value == null) return "";
   if (Array.isArray(value)) {
-    return value.map((item) => stringifyContent(item)).filter(Boolean).join("\n");
+    return value
+      .map((item) => stringifyContent(item))
+      .filter(Boolean)
+      .join("\n");
   }
   if (typeof value === "object") {
     return Object.entries(value as Record<string, unknown>)
@@ -484,10 +582,13 @@ function asStringArray(value: unknown): string[] {
 }
 
 function stringRecord(value: Record<string, any>): Record<string, string> {
-  return Object.entries(value).reduce<Record<string, string>>((result, [key, item]) => {
-    result[key] = asString(item);
-    return result;
-  }, {});
+  return Object.entries(value).reduce<Record<string, string>>(
+    (result, [key, item]) => {
+      result[key] = asString(item);
+      return result;
+    },
+    {},
+  );
 }
 
 function asUsageProfile(value: unknown) {
@@ -547,8 +648,13 @@ function toUsageStatus(value: unknown): "Yes" | "No" | "Limited" {
 function findSectionContent(
   sections: any[],
   title: string,
-  number: number
-): string | string[] | Record<string, unknown> | Array<Record<string, unknown>> | undefined {
+  number: number,
+):
+  | string
+  | string[]
+  | Record<string, unknown>
+  | Array<Record<string, unknown>>
+  | undefined {
   const section = sections.find((item) => {
     const record = asRecord(item);
     return record.title === title || record.number === number;
@@ -644,21 +750,21 @@ export class VocabularyImportService {
 
   async importSingle(
     row: VocabularyImportRow,
-    userId?: string
+    userId?: string,
   ): Promise<VocabularyImportResult> {
     return this.importRows([row], userId);
   }
 
   async importJson(
     jsonText: string,
-    userId?: string
+    userId?: string,
   ): Promise<VocabularyImportResult> {
     return this.importRows(parseVocabularyJson(jsonText), userId);
   }
 
   async importRows(
     rows: VocabularyImportEntry[],
-    userId?: string
+    userId?: string,
   ): Promise<VocabularyImportResult> {
     const items: VocabularyImportResult["items"] = [];
     const errors: VocabularyImportResult["errors"] = [];
@@ -685,7 +791,8 @@ export class VocabularyImportService {
                 .assigned_sense_rank,
               senseEvidence: (row as VocabularyImportRow).sense_evidence,
             },
-          )
+            (row as VocabularyImportRow).taxonomy,
+          ),
         );
       } catch (error: any) {
         errors.push({
@@ -717,17 +824,32 @@ export class VocabularyImportService {
       assignedSenseRank?: number;
       senseEvidence?: { sentence: string; explanation: string };
     } = {},
+    taxonomyMetadata?: VocabularyImportRow["taxonomy"],
   ) {
     return this.db.transaction(async (trx) => {
       const category = await resolveCategory(
         trx,
         lesson,
         categoryId,
-        categoryCandidates
+        [
+          ...categoryCandidates,
+          legacyBroadCategoryForDomain(taxonomyMetadata?.domainKey),
+        ].filter((value): value is string => Boolean(value)),
       );
 
       const normalizedTerm = normalizeVocabularyTerm(lesson.word);
       const normalizedItemType = itemType.trim().toLowerCase();
+      const taxonomy = taxonomyMetadata
+        ? taxonomyPathForCategoryKey(taxonomyMetadata.categoryKey)
+        : legacyTaxonomyPath(lesson.category);
+      if (
+        !taxonomy ||
+        (taxonomyMetadata && !isValidTaxonomyPath(taxonomyMetadata))
+      ) {
+        throw new Error(
+          `Invalid three-level taxonomy assignment for "${lesson.word}".`,
+        );
+      }
       const senseAware = Boolean(
         userId &&
           senseMetadata.contextualMeaning &&
@@ -776,11 +898,7 @@ export class VocabularyImportService {
         } else {
           senseRank = senseMetadata.assignedSenseRank
             ? Number(senseMetadata.assignedSenseRank)
-            : await allocatePersistentSenseRank(
-                trx,
-                userId!,
-                normalizedTerm,
-              );
+            : await allocatePersistentSenseRank(trx, userId!, normalizedTerm);
         }
       } else {
         const legacyCanonicalKey = `${normalizedTerm}|${normalizedItemType}`;
@@ -825,6 +943,11 @@ export class VocabularyImportService {
         english_meaning: lesson.english_meaning,
         tamil_meaning: lesson.tamil_meaning,
         core_idea: lesson.core_idea,
+        taxonomy_category_key: taxonomy.categoryKey,
+        taxonomy_assignment_source: taxonomyMetadata
+          ? "content-pack-v3"
+          : "legacy-fallback",
+        taxonomy_assigned_at: new Date(),
         updated_at: new Date(),
       };
 
@@ -883,6 +1006,17 @@ export class VocabularyImportService {
             senseKey,
             senseGloss,
             senseEvidence: senseMetadata.senseEvidence,
+            taxonomy: {
+              taxonomyVersion: taxonomy.taxonomyVersion,
+              domainKey: taxonomy.domainKey,
+              domainName: taxonomy.domainName,
+              usageGroupKey: taxonomy.usageGroupKey,
+              usageGroupName: taxonomy.usageGroupName,
+              categoryKey: taxonomy.categoryKey,
+              categoryName: taxonomy.categoryName,
+              confidence: taxonomyMetadata?.confidence || "medium",
+              reason: taxonomyMetadata?.reason,
+            },
             lesson: compliantLesson,
           }),
           change_reason: "Validated automated vocabulary import",
@@ -939,7 +1073,7 @@ async function resolveCategory(
   trx: Knex.Transaction,
   lesson: VocabularyLessonSample,
   categoryId?: string,
-  categoryCandidates: string[] = []
+  categoryCandidates: string[] = [],
 ) {
   if (categoryId) {
     const explicit = await trx("vocabulary_categories")
@@ -961,7 +1095,7 @@ async function resolveCategory(
 export function selectBestCategory(
   categories: any[],
   lesson: Pick<VocabularyLessonSample, "category" | "track">,
-  categoryCandidates: string[] = []
+  categoryCandidates: string[] = [],
 ) {
   if (!categories.length) {
     throw new Error("No vocabulary categories are available.");
@@ -976,7 +1110,7 @@ export function selectBestCategory(
   for (const candidate of candidates) {
     const exact = categories.find(
       (category: any) =>
-        normalizeName(category.category_name) === normalizeName(candidate)
+        normalizeName(category.category_name) === normalizeName(candidate),
     );
     if (exact) return exact;
   }
@@ -1004,12 +1138,17 @@ function categoryMatchScore(candidate: string, category: any) {
   if (!candidateName) return 0;
   if (candidateName === categoryName) return 100;
   if (candidateName === trackName) return 85;
-  if (categoryName.includes(candidateName) || candidateName.includes(categoryName)) {
+  if (
+    categoryName.includes(candidateName) ||
+    candidateName.includes(categoryName)
+  ) {
     return 80;
   }
 
-  return tokenOverlap(candidateName, categoryName) * 70 +
-    tokenOverlap(candidateName, trackName) * 20;
+  return (
+    tokenOverlap(candidateName, categoryName) * 70 +
+    tokenOverlap(candidateName, trackName) * 20
+  );
 }
 
 function normalizeName(value: string) {
@@ -1020,7 +1159,9 @@ function normalizeName(value: string) {
     .trim()
     .split(/\s+/)
     .filter(Boolean)
-    .map((part) => (part.length > 3 && part.endsWith("s") ? part.slice(0, -1) : part))
+    .map((part) =>
+      part.length > 3 && part.endsWith("s") ? part.slice(0, -1) : part,
+    )
     .join(" ");
 }
 

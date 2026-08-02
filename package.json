@@ -31,6 +31,7 @@
     "content-packs:sync": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/sync-content-packs.ts",
     "smoke:content-packs": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/smoke-content-pack-postgres.ts",
     "smoke:vocabulary-senses": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/smoke-vocabulary-senses-postgres.ts",
+    "smoke:taxonomy-migration": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/smoke-taxonomy-migration-postgres.ts",
     "smoke:user-categories": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/smoke-user-categories-postgres.ts",
     "lint": "yarn workspace english-learning-backend run lint && yarn workspace english-learning-frontend run lint",
     "type-check": "yarn workspace english-learning-backend run type-check && yarn workspace english-learning-frontend run type-check",

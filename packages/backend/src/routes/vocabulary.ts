@@ -53,6 +53,15 @@ const categoryListSchema = z.object({
     .transform((value) => value === "true"),
 });
 
+const taxonomyKeySchema = z.object({
+  categoryKey: z
+    .string()
+    .trim()
+    .min(5)
+    .max(240)
+    .regex(/^[a-z0-9_]+\.[a-z0-9_]+\.[a-z0-9_]+$/),
+});
+
 const createUserCategorySchema = z.object({
   name: z.string().trim().min(1).max(100),
   description: z.string().trim().max(500).optional(),
@@ -212,7 +221,7 @@ async function getCategories(userId: string, includeEmpty = false) {
       userId,
     ]);
   }
-  const rows = await query;
+  const rows: any[] = await query;
 
   return rows.map((category: any) => ({
     ...category,
@@ -220,6 +229,210 @@ async function getCategories(userId: string, includeEmpty = false) {
     cefr_levels: undefined,
   }));
 }
+
+async function getTaxonomy(userId: string) {
+  const rows: any[] = await database("vocabulary_taxonomy_domains as domain")
+    .join(
+      "vocabulary_taxonomy_usage_groups as usage_group",
+      "usage_group.domain_key",
+      "domain.domain_key",
+    )
+    .join(
+      "vocabulary_taxonomy_categories as category",
+      "category.usage_group_key",
+      "usage_group.usage_group_key",
+    )
+    .leftJoin("vocabulary_words as word", function () {
+      this.on("word.taxonomy_category_key", "=", "category.category_key").andOn(
+        function () {
+          this.on(
+            "word.owner_user_id",
+            "=",
+            database.raw("?", [userId]),
+          ).orOnNull("word.owner_user_id");
+        },
+      );
+    })
+    .where("domain.is_active", true)
+    .where("usage_group.is_active", true)
+    .where("category.status", "active")
+    .select(
+      "domain.domain_key",
+      "domain.name as domain_name",
+      "domain.description as domain_description",
+      "domain.sort_order as domain_sort_order",
+      "usage_group.usage_group_key",
+      "usage_group.name as usage_group_name",
+      "usage_group.description as usage_group_description",
+      "usage_group.sort_order as usage_group_sort_order",
+      "category.category_key",
+      "category.name as category_name",
+      "category.description as category_description",
+      "category.taxonomy_version",
+      "category.sort_order as category_sort_order",
+    )
+    .countDistinct({ word_count: "word.id" })
+    .groupBy(
+      "domain.domain_key",
+      "usage_group.usage_group_key",
+      "category.category_key",
+    )
+    .orderBy([
+      { column: "domain.sort_order" },
+      { column: "usage_group.sort_order" },
+      { column: "category.sort_order" },
+    ]);
+
+  const domains = new Map<string, any>();
+  for (const row of rows) {
+    let domain = domains.get(row.domain_key);
+    if (!domain) {
+      domain = {
+        key: row.domain_key,
+        name: row.domain_name,
+        description: row.domain_description,
+        word_count: 0,
+        usage_groups: [],
+      };
+      domains.set(row.domain_key, domain);
+    }
+    let group = domain.usage_groups.find(
+      (item: any) => item.key === row.usage_group_key,
+    );
+    if (!group) {
+      group = {
+        key: row.usage_group_key,
+        name: row.usage_group_name,
+        description: row.usage_group_description,
+        word_count: 0,
+        categories: [],
+      };
+      domain.usage_groups.push(group);
+    }
+    const wordCount = Number(row.word_count || 0);
+    group.categories.push({
+      key: row.category_key,
+      name: row.category_name,
+      description: row.category_description,
+      taxonomy_version: row.taxonomy_version,
+      word_count: wordCount,
+    });
+    group.word_count += wordCount;
+    domain.word_count += wordCount;
+  }
+
+  return {
+    domains: [...domains.values()],
+    counts: {
+      domains: domains.size,
+      usage_groups: rows.length
+        ? new Set(rows.map((row: any) => row.usage_group_key)).size
+        : 0,
+      specific_categories: rows.length,
+    },
+  };
+}
+
+router.get(
+  "/taxonomy",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      res.json(await getTaxonomy(req.userId as string));
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.get(
+  "/taxonomy/:categoryKey/words",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const { categoryKey } = taxonomyKeySchema.parse(req.params);
+      const { page = 1, limit = DEFAULT_PAGE_SIZE } = paginationSchema.parse(
+        req.query,
+      );
+      const category = await database(
+        "vocabulary_taxonomy_categories as category",
+      )
+        .join(
+          "vocabulary_taxonomy_usage_groups as usage_group",
+          "usage_group.usage_group_key",
+          "category.usage_group_key",
+        )
+        .join(
+          "vocabulary_taxonomy_domains as domain",
+          "domain.domain_key",
+          "category.domain_key",
+        )
+        .where("category.category_key", categoryKey)
+        .select(
+          "category.category_key as key",
+          "category.name",
+          "category.description",
+          "category.taxonomy_version",
+          "usage_group.usage_group_key",
+          "usage_group.name as usage_group_name",
+          "domain.domain_key",
+          "domain.name as domain_name",
+        )
+        .first();
+      if (!category) {
+        return res.status(404).json({ message: "Taxonomy category not found" });
+      }
+
+      const base = database("vocabulary_words as vw").where(
+        "vw.taxonomy_category_key",
+        categoryKey,
+      );
+      applyOwnership(base, req.userId as string);
+      const [{ total }] = await base.clone().count({ total: "vw.id" });
+      const words = await base
+        .clone()
+        .leftJoin("vocabulary_lessons as vl", "vw.id", "vl.word_id")
+        .select(
+          "vw.id",
+          "vw.category_id",
+          "vw.word",
+          "vw.sense_rank",
+          "vw.sense_gloss",
+          "vw.pronunciation",
+          "vw.word_type",
+          "vw.cefr_level",
+          "vw.frequency",
+          "vw.english_meaning",
+          "vw.tamil_meaning",
+          "vw.core_idea",
+          "vw.is_starter_sample",
+          "vw.taxonomy_category_key",
+          "vl.lesson_data",
+        )
+        .orderByRaw("LOWER(vw.word)")
+        .orderBy("vw.sense_rank")
+        .orderBy("vw.id")
+        .limit(limit)
+        .offset((page - 1) * limit);
+
+      res.json({
+        category,
+        words: words.map((word: any) => ({
+          ...withDisplayLabel(word),
+          cefr_level: normalizeCefrLevel(word.cefr_level),
+        })),
+        pagination: {
+          page,
+          limit,
+          total: Number(total || 0),
+          total_pages: Math.max(1, Math.ceil(Number(total || 0) / limit)),
+        },
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
 router.get(
   ["/", "/categories"],

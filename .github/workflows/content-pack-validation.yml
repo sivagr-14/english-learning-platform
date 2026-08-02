@@ -55,6 +55,7 @@ jobs:
       - run: yarn test:control
       - run: yarn type-check
       - run: yarn build
+      - run: yarn smoke:taxonomy-migration
       - run: yarn smoke:content-packs
       - run: yarn smoke:vocabulary-senses
       - run: yarn smoke:user-categories
