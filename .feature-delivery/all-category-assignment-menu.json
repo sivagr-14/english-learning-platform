@@ -14,5 +14,10 @@
   "chatgptInstructionImpact": {
     "status": "not_required",
     "rationale": "This changes authenticated application category selection and assignment only; it does not change source assessment, contextual meanings, content-pack transport, or vocabulary lesson generation."
+  },
+  "mergedEvidence": {
+    "pullRequest": 25,
+    "mergeCommit": "d2c696739241f90feabb5dcd921ae01d435da005",
+    "successfulWorkflowRun": 30745519393
   }
 }
