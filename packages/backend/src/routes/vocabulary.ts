@@ -46,6 +46,13 @@ const detailContextSchema = z.object({
   limit: z.coerce.number().int().min(1).max(100).optional(),
 });
 
+const categoryListSchema = z.object({
+  includeEmpty: z
+    .enum(["true", "false"])
+    .optional()
+    .transform((value) => value === "true"),
+});
+
 const createUserCategorySchema = z.object({
   name: z.string().trim().min(1).max(100),
   description: z.string().trim().max(500).optional(),
@@ -167,21 +174,21 @@ function searchWordsBase(userId: string, queryText: string) {
   return query;
 }
 
-async function getCategories(userId: string) {
+async function getCategories(userId: string, includeEmpty = false) {
   await ensureFavoriteCategory(database, userId);
 
   const query = database("vocabulary_categories as vc")
     .leftJoin("vocabulary_entry_categories as vec", "vc.id", "vec.category_id")
-    .leftJoin("vocabulary_words as vw", "vec.word_id", "vw.id")
+    .leftJoin("vocabulary_words as vw", function () {
+      this.on("vec.word_id", "=", "vw.id").andOn(function () {
+        this.on("vw.owner_user_id", "=", database.raw("?", [userId])).orOnNull(
+          "vw.owner_user_id",
+        );
+      });
+    })
     .where("vc.is_active", true)
     .where((builder: any) =>
       builder.where("vc.owner_user_id", userId).orWhereNull("vc.owner_user_id"),
-    )
-    .where((builder: any) =>
-      builder
-        .whereNull("vw.id")
-        .orWhere("vw.owner_user_id", userId)
-        .orWhereNull("vw.owner_user_id"),
     )
     .select(
       "vc.id",
@@ -199,8 +206,12 @@ async function getCategories(userId: string) {
     )
     .countDistinct({ word_count: "vw.id" })
     .groupBy("vc.id")
-    .havingRaw("COUNT(DISTINCT vw.id) > 0 OR vc.owner_user_id = ?", [userId])
     .orderBy([{ column: "vc.track_number" }, { column: "vc.category_number" }]);
+  if (!includeEmpty) {
+    query.havingRaw("COUNT(DISTINCT vw.id) > 0 OR vc.owner_user_id = ?", [
+      userId,
+    ]);
+  }
   const rows = await query;
 
   return rows.map((category: any) => ({
@@ -215,7 +226,10 @@ router.get(
   authMiddleware,
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-      res.json({ categories: await getCategories(req.userId as string) });
+      const { includeEmpty } = categoryListSchema.parse(req.query);
+      res.json({
+        categories: await getCategories(req.userId as string, includeEmpty),
+      });
     } catch (error) {
       next(error);
     }

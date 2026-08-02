@@ -126,17 +126,17 @@ export async function addWordsToUserCategory(
         })
       : target.categoryId
         ? await trx("vocabulary_categories")
-            .where({
-              id: target.categoryId,
-              owner_user_id: userId,
-              is_user_category: true,
-              is_active: true,
-            })
+            .where({ id: target.categoryId, is_active: true })
+            .where((builder) =>
+              builder
+                .where("owner_user_id", userId)
+                .orWhereNull("owner_user_id"),
+            )
             .first()
         : await ensureFavoriteCategory(trx, userId);
 
     if (!category) {
-      throw new AppError(404, "Personal category not found.");
+      throw new AppError(404, "Category not found for this account.");
     }
 
     const visibleWords = await trx("vocabulary_words")
@@ -158,7 +158,7 @@ export async function addWordsToUserCategory(
         uniqueWordIds.map((wordId) => ({
           word_id: wordId,
           category_id: category.id,
-          relationship: "personal",
+          relationship: category.is_user_category ? "personal" : "assigned",
           sort_order: 100,
           created_at: new Date(),
         })),

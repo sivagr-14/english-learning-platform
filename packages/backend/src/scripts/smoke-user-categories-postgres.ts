@@ -174,6 +174,17 @@ async function main() {
     assert.equal(personalCategories[0].id, favorite.id);
     assert.equal(personalCategories[0].word_count, 2);
 
+    const availableSystemCategory = await database("vocabulary_categories")
+      .whereNull("owner_user_id")
+      .where({ is_active: true })
+      .whereNotIn(
+        "id",
+        words.map((word) => word.category_id),
+      )
+      .orderBy("category_number")
+      .first();
+    assert(availableSystemCategory);
+
     const app = express();
     app.use(express.json());
     app.use("/api/vocabulary", vocabularyRouter);
@@ -202,6 +213,30 @@ async function main() {
           category.id === custom.id && Number(category.word_count) === 2,
       ),
     );
+
+    const completeCategoryListResponse = await request(app)
+      .get("/api/vocabulary/categories?includeEmpty=true")
+      .set(authorization)
+      .expect(200);
+    assert(
+      completeCategoryListResponse.body.categories.some(
+        (category: any) => category.id === availableSystemCategory.id,
+      ),
+    );
+
+    const assignSystemCategoryResponse = await request(app)
+      .post("/api/vocabulary/words/categories")
+      .set(authorization)
+      .send({ wordIds, categoryId: availableSystemCategory.id })
+      .expect(200);
+    assert.equal(assignSystemCategoryResponse.body.added, 2);
+    const assignedLinks = await database("vocabulary_entry_categories")
+      .whereIn("word_id", wordIds)
+      .where({
+        category_id: availableSystemCategory.id,
+        relationship: "assigned",
+      });
+    assert.equal(assignedLinks.length, 2);
 
     const favoriteWordsResponse = await request(app)
       .get(`/api/vocabulary/categories/${favorite.id}/words`)
@@ -258,6 +293,7 @@ async function main() {
         additiveMultiCategory: "passed",
         duplicateRetry: "passed",
         atomicCreateAndAdd: "passed",
+        allCategoriesVisibleAndAssignable: "passed",
         primaryCategoryPreserved: "passed",
         refreshPreservedPersonalLinks: "passed",
         accountIsolation: "passed",
