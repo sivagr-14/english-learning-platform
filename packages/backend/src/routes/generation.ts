@@ -14,11 +14,14 @@ const jobService = new GenerationJobService(database);
 
 // Generation is the expensive path (queues real work, will eventually call
 // paid APIs) -- tighter limit than the general control endpoints.
+// For local development, allow more requests so the import UI can be tested
+// without hitting the rate limiter too aggressively.
 const generationLimiter = rateLimit({
   windowMs: 60_000,
-  limit: 10,
+  limit: process.env.NODE_ENV === "production" ? 10 : 100,
   standardHeaders: "draft-7",
   legacyHeaders: false,
+  message: "Too many import requests. Please wait a moment and try again.",
 });
 
 router.use((_req, res, next) => {

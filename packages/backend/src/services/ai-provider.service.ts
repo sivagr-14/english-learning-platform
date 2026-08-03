@@ -31,14 +31,14 @@ interface GenerateJsonOptions {
  * rejects primary-tier output. Defaults: Gemini Flash primary, Gemini Pro
  * escalation (unset = skip escalation, just skip failed entries).
  */
-function configFor(tier: AiTier): AiProviderConfig {
+export function configFor(tier: AiTier): AiProviderConfig {
   const prefix = tier === "primary" ? "PRIMARY_AI" : "ESCALATION_AI";
   const provider = (process.env[`${prefix}_PROVIDER`] ||
     "gemini") as AiProviderConfig["provider"];
   const apiKey = process.env[`${prefix}_API_KEY`] || process.env.GEMINI_API_KEY || "";
   const model =
     process.env[`${prefix}_MODEL`] ||
-    (tier === "primary" ? "gemini-2.5-flash" : "gemini-2.5-pro");
+    (tier === "primary" ? "gemini-2.5-pro" : "gemini-2.5-pro");
   if (!apiKey) {
     throw new Error(
       `${prefix}_API_KEY is not set. Add it to .env.local before running the ` +
@@ -110,6 +110,72 @@ async function callGemini(
     inputTokens: Number(usage.promptTokenCount ?? 0),
     outputTokens: Number(usage.candidatesTokenCount ?? 0),
   };
+}
+
+/**
+ * Submit a batched generation request to Gemini's cached/batch endpoint.
+ * This is an opt-in, best-effort helper that returns a batch identifier
+ * which can be polled later for completion. It is implemented as a
+ * minimal stub to integrate with the worker; real-world use should
+ * follow the exact Google API spec and handle retries/quotas.
+ */
+export async function submitGeminiBatch(
+  config: AiProviderConfig,
+  requests: Array<{ id: string; systemPrompt: string; userPrompt: string }>,
+): Promise<{ batchId: string }>
+{
+  // Using the documented cachedBatches endpoint (v1beta)
+  const url = `https://generativelanguage.googleapis.com/v1beta/cachedBatches?key=${config.apiKey}`;
+  const body = {
+    model: config.model,
+    // Each request becomes an item in the batch. Structure may vary
+    // depending on Google's exact batch API; adapt when wiring for
+    // production.
+    requests: requests.map((r) => ({
+      id: r.id,
+      systemInstruction: { parts: [{ text: r.systemPrompt }] },
+      contents: [{ role: "user", parts: [{ text: r.userPrompt }] }],
+      generationConfig: { temperature: 0.4, responseMimeType: "application/json" },
+    })),
+  };
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`Gemini batch submit error (${response.status}): ${text.slice(0, 500)}`);
+  }
+  const data = (await response.json()) as any;
+  // The real response shape may be { name: "projects/.../batches/ID" } or
+  // { batchId: "..." }. Try to pick a reasonable identifier.
+  const batchId = data?.name || data?.batchId || data?.id || JSON.stringify(data).slice(0, 80);
+  return { batchId };
+}
+
+/**
+ * Poll batch status. Minimal helper returning a status string and
+ * optionally a results object. Production code should follow API shape.
+ */
+export async function pollGeminiBatchStatus(
+  config: AiProviderConfig,
+  batchId: string,
+): Promise<{ status: string; result?: any }>
+{
+  // Best-effort: attempt to GET the batch resource. The exact endpoint
+  // depends on the returned batchId shape; adapt as needed.
+  const url = `https://generativelanguage.googleapis.com/v1beta/${batchId}?key=${config.apiKey}`;
+  const response = await fetch(url, { method: "GET" });
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`Gemini batch status error (${response.status}): ${text.slice(0, 500)}`);
+  }
+  const data = await response.json();
+  // Map to a simple status for worker usage.
+  const status = data?.state || data?.status || (data?.done ? "done" : "pending");
+  return { status, result: data };
 }
 
 async function callOpenAiCompatible(

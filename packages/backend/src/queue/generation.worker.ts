@@ -18,6 +18,7 @@ import {
   buildBatchDocument,
   chunkIntoBatches,
 } from "../services/in-app-generation.service";
+import { submitGeminiBatch, configFor } from "../services/ai-provider.service";
 import { extractText, SourceType } from "../services/document-parser.service";
 import { database } from "../utils/db";
 import { logger } from "../utils/logger";

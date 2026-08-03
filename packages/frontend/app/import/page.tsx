@@ -135,8 +135,10 @@ export default function ImportPage() {
       await loadJobs();
     } catch (err: any) {
       setError(
-        err?.response?.data?.error?.message ||
+        err?.response?.data?.message ||
+          err?.response?.data?.error?.message ||
           err?.response?.data?.error ||
+          err?.message ||
           "Could not start the import. Check the AI provider key is configured.",
       );
     } finally {

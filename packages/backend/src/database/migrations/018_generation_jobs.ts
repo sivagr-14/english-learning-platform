@@ -37,8 +37,8 @@ export async function up(knex: any): Promise<void> {
     // accumulated as generation calls complete. Mirrors the columns already
     // present on chatgpt_generation_history so both flows report the same
     // shape to the UI.
-    table.numeric("estimated_cost", 10, 4);
-    table.numeric("actual_cost", 10, 4).notNullable().defaultTo(0);
+    table.decimal("estimated_cost", 10, 4);
+    table.decimal("actual_cost", 10, 4).notNullable().defaultTo(0);
     table.integer("tokens_used").notNullable().defaultTo(0);
 
     table.text("error_message");
