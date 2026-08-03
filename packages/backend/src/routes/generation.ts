@@ -39,7 +39,7 @@ router.get("/config-check", (_req: Request, res: Response) => {
     primaryConfigured: primaryKeySet,
     escalationConfigured: escalationKeySet,
     primaryProvider: process.env.PRIMARY_AI_PROVIDER || "gemini",
-    primaryModel: process.env.PRIMARY_AI_MODEL || "gemini-2.5-flash",
+    primaryModel: process.env.PRIMARY_AI_MODEL || "gemini-2.0-flash",
     escalationProvider: process.env.ESCALATION_AI_PROVIDER || "gemini",
     escalationModel: process.env.ESCALATION_AI_MODEL || "gemini-2.5-pro",
   });
@@ -195,7 +195,7 @@ router.get(
         estimatedInputTokens,
         estimatedOutputTokens,
         estimatedCostUsd: Number(estimatedCostUsd.toFixed(4)),
-        model: process.env.PRIMARY_AI_MODEL || "gemini-2.5-flash",
+        model: process.env.PRIMARY_AI_MODEL || "gemini-2.0-flash",
       });
     } catch (error) {
       next(error);

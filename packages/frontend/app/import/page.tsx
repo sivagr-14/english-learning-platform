@@ -65,12 +65,22 @@ function fileToBase64(file: File): Promise<string> {
   });
 }
 
+interface ConfigCheck {
+  primaryConfigured: boolean;
+  escalationConfigured: boolean;
+  primaryProvider: string;
+  primaryModel: string;
+  escalationProvider: string;
+  escalationModel: string;
+}
+
 export default function ImportPage() {
   const [pastedText, setPastedText] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [jobs, setJobs] = useState<GenerationJob[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [config, setConfig] = useState<ConfigCheck | null>(null);
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const loadJobs = useCallback(async () => {
@@ -80,6 +90,15 @@ export default function ImportPage() {
     } catch {
       // Polling failures shouldn't interrupt the page -- just skip this tick.
     }
+  }, []);
+
+  useEffect(() => {
+    // Check once on mount so the user finds out about a missing/misconfigured
+    // AI key before they paste in a document and wait for a job to fail.
+    getApiClient()
+      .get("/api/generation/config-check")
+      .then(({ data }) => setConfig(data))
+      .catch(() => setConfig(null));
   }, []);
 
   useEffect(() => {
@@ -159,6 +178,19 @@ export default function ImportPage() {
               your environment (see .env.example).
             </p>
           </div>
+
+          {config && !config.primaryConfigured && (
+            <div className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-800">
+              No AI provider key is configured on the server, so imports will
+              fail at the "Reading document" step. Set{" "}
+              <code className="rounded bg-amber-100 px-1">
+                PRIMARY_AI_API_KEY
+              </code>{" "}
+              in <code className="rounded bg-amber-100 px-1">.env.local</code>{" "}
+              (see <code className="rounded bg-amber-100 px-1">.env.example</code>
+              ) and restart the backend/worker.
+            </div>
+          )}
 
           <form
             onSubmit={handleSubmit}

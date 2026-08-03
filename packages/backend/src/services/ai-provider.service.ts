@@ -38,15 +38,27 @@ export function configFor(tier: AiTier): AiProviderConfig {
   const apiKey = process.env[`${prefix}_API_KEY`] || process.env.GEMINI_API_KEY || "";
   const model =
     process.env[`${prefix}_MODEL`] ||
-    (tier === "primary" ? "gemini-2.5-pro" : "gemini-2.5-pro");
+    (tier === "primary" ? "gemini-2.0-flash" : "gemini-2.5-pro");
   if (!apiKey) {
     throw new Error(
       `${prefix}_API_KEY is not set. Add it to .env.local before running the ` +
         `in-app generation pipeline (see .env.example).`,
     );
   }
+  if (DEPRECATED_MODELS.has(model)) {
+    logger.warn(
+      `${prefix}_MODEL is set to "${model}", which Google no longer serves to new ` +
+        `API keys. Update ${prefix}_MODEL in .env.local (e.g. to "gemini-2.0-flash" ` +
+        `or "gemini-2.5-pro") before running the pipeline.`,
+    );
+  }
   return { provider, apiKey, model };
 }
+
+// Models that Google has retired for new API keys. Kept as an explicit list
+// (rather than trying to detect 404s generically) so we can warn proactively
+// at config-read time instead of only after burning a failed job.
+const DEPRECATED_MODELS = new Set(["gemini-2.5-flash", "gemini-1.0-pro"]);
 
 /**
  * Strips markdown code fences that some model versions wrap around JSON
