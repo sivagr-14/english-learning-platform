@@ -1,4 +1,5 @@
 import { Worker, Job } from "bullmq";
+import pLimit from "p-limit";
 import { createQueueConnection } from "./connection";
 import {
   GENERATION_QUEUE_NAME,
@@ -20,21 +21,9 @@ import {
 import { extractText, SourceType } from "../services/document-parser.service";
 import { database } from "../utils/db";
 import { logger } from "../utils/logger";
+import { readJson } from "../utils/json";
 
 const jobService = new GenerationJobService(database);
-
-// Mirrors the readJson helper in content-pack.service.ts: jsonb columns
-// come back already-parsed from pg in most configs, but some drivers/tests
-// return the raw string, so this handles both rather than assuming one.
-function readJson<T>(value: unknown, fallback: T): T {
-  if (value === null || value === undefined) return fallback;
-  if (typeof value !== "string") return value as T;
-  try {
-    return JSON.parse(value) as T;
-  } catch {
-    return fallback;
-  }
-}
 
 /**
  * Splits into ~1,000-1,500 word chunks with paragraph boundaries preserved,
@@ -102,8 +91,12 @@ async function handleAssess(job: Job<GenerationJobData, void, GenerationJobName>
   const chunks = chunkText(job.data.sourceContent || "");
   const chunkIds = chunks.map((_, i) => `chunk-${String(i + 1).padStart(4, "0")}`);
 
+  // Cap concurrent Gemini calls at 5 to avoid 429 rate-limit errors.
+  // A 30-chunk document with Promise.all would fire 30 simultaneous requests;
+  // this keeps it to at most 5 in flight at any time.
+  const limit = pLimit(5);
   const rawCandidatesPerChunk = await Promise.all(
-    chunks.map((chunk, index) => assessChunk(chunk, chunkIds[index])),
+    chunks.map((chunk, index) => limit(() => assessChunk(chunk, chunkIds[index]))),
   );
 
   const manifestCandidates = rawCandidatesPerChunk.flatMap((rawCandidates, chunkIndex) =>
@@ -192,26 +185,35 @@ async function handleGenerate(job: Job<GenerationJobData, void, GenerationJobNam
     (c: any) => c.decision === "generate",
   );
 
-  let lessonsGenerated = 0;
-  let lessonsFailedValidation = 0;
+  // Resume support (B9): on a BullMQ retry the progress JSON may already
+  // contain candidateIds that succeeded before the crash. Skip them rather
+  // than re-paying for duplicate generation.
+  const completedIds = new Set<string>(progress.completedCandidateIds ?? []);
+
+  let lessonsGenerated = Number(progress.lessonsGenerated ?? 0);
+  let lessonsFailedValidation = Number(progress.lessonsFailedValidation ?? 0);
+  let totalInputTokens = Number(progress.totalInputTokens ?? 0);
+  let totalOutputTokens = Number(progress.totalOutputTokens ?? 0);
+  let totalCostUsd = Number(progress.totalCostUsd ?? 0);
   const entries: any[] = [];
 
-  // Sequential, not parallel: keeps concurrent primary-tier API calls
-  // bounded to GENERATION_WORKER_CONCURRENCY (one worker slot per job)
-  // rather than fanning out N simultaneous requests per job on top of
-  // that. Parallelizing within a job is a reasonable later optimization
-  // once real-world rate limits are known.
   for (const candidate of generateCandidates) {
-    const entry = await generateLessonEntry({
+    if (completedIds.has(candidate.candidateId)) continue;
+
+    const result = await generateLessonEntry({
       candidateId: candidate.candidateId,
       term: candidate.term,
       contextualMeaning: candidate.contextualMeaning,
       cefrLevel: candidate.cefrLevel,
       categoryName: candidate.categoryName,
     });
-    if (entry) {
-      entries.push(entry);
+    if (result) {
+      entries.push(result.entry);
       lessonsGenerated += 1;
+      totalInputTokens += result.inputTokens;
+      totalOutputTokens += result.outputTokens;
+      totalCostUsd += result.estimatedCostUsd;
+      completedIds.add(candidate.candidateId);
     } else {
       lessonsFailedValidation += 1;
     }
@@ -221,7 +223,13 @@ async function handleGenerate(job: Job<GenerationJobData, void, GenerationJobNam
         lessonsGenerated,
         lessonsFailedValidation,
         lessonsTotal: generateCandidates.length,
+        completedCandidateIds: Array.from(completedIds),
+        totalInputTokens,
+        totalOutputTokens,
+        totalCostUsd: Number(totalCostUsd.toFixed(6)),
       },
+      tokensUsedDelta: result?.inputTokens ?? 0 + (result?.outputTokens ?? 0),
+      actualCostDelta: result?.estimatedCostUsd ?? 0,
     });
   }
 
@@ -256,6 +264,9 @@ async function handleGenerate(job: Job<GenerationJobData, void, GenerationJobNam
       lessonsGenerated,
       lessonsFailedValidation,
       lessonsTotal: generateCandidates.length,
+      totalInputTokens,
+      totalOutputTokens,
+      totalCostUsd: Number(totalCostUsd.toFixed(6)),
     },
   });
 

@@ -79,6 +79,17 @@ app.use(errorHandler);
 app.listen(Number(PORT), HOST, () => {
   logger.info(`Server running on http://${HOST}:${PORT}`);
   logger.info(`Environment: ${process.env.NODE_ENV || "development"}`);
+
+  const primaryKeySet = Boolean(
+    process.env.PRIMARY_AI_API_KEY || process.env.GEMINI_API_KEY,
+  );
+  if (!primaryKeySet) {
+    logger.warn(
+      "PRIMARY_AI_API_KEY (or GEMINI_API_KEY) is not set. " +
+        "The in-app generation pipeline will fail when a job is processed. " +
+        "Add the key to .env.local — see .env.example for details.",
+    );
+  }
   void synchronizeContentPacks(database).catch((error: unknown) =>
     logger.error("Could not synchronize local ChatGPT content packs", error),
   );

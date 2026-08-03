@@ -8,6 +8,14 @@ export interface AiProviderConfig {
   model: string;
 }
 
+export interface GenerateJsonResult<T> {
+  data: T;
+  inputTokens: number;
+  outputTokens: number;
+  /** Estimated USD cost using published rates for the model. */
+  estimatedCostUsd: number;
+}
+
 interface GenerateJsonOptions {
   systemPrompt: string;
   userPrompt: string;
@@ -18,18 +26,15 @@ interface GenerateJsonOptions {
  * Reads provider config from env at call time (not module load time) so
  * tests/worker restarts pick up .env.local changes without a rebuild.
  *
- * PRIMARY_AI_* -> the cheap, high-volume tier (assessment + first-pass
- * generation). ESCALATION_AI_* -> only called when the deterministic
- * validator (vocabularyLessonQualityIssues / assertVocabularyLessonCompliant)
- * rejects primary-tier output, or when assessment flags a sense as
- * "ambiguous". Defaults match the cost analysis from earlier in this
- * project: Gemini Flash as the global default, no escalation configured
- * unless the operator opts in.
+ * PRIMARY_AI_* -> cheap, high-volume tier (assessment + first-pass generation).
+ * ESCALATION_AI_* -> only called when the deterministic quality validator
+ * rejects primary-tier output. Defaults: Gemini Flash primary, Gemini Pro
+ * escalation (unset = skip escalation, just skip failed entries).
  */
 function configFor(tier: AiTier): AiProviderConfig {
   const prefix = tier === "primary" ? "PRIMARY_AI" : "ESCALATION_AI";
   const provider = (process.env[`${prefix}_PROVIDER`] ||
-    (tier === "primary" ? "gemini" : "gemini")) as AiProviderConfig["provider"];
+    "gemini") as AiProviderConfig["provider"];
   const apiKey = process.env[`${prefix}_API_KEY`] || process.env.GEMINI_API_KEY || "";
   const model =
     process.env[`${prefix}_MODEL`] ||
@@ -43,11 +48,42 @@ function configFor(tier: AiTier): AiProviderConfig {
   return { provider, apiKey, model };
 }
 
+/**
+ * Strips markdown code fences that some model versions wrap around JSON
+ * even when responseMimeType: "application/json" is requested.
+ * e.g. ```json\n{...}\n``` → {...}
+ */
+function stripJsonFences(raw: string): string {
+  const fenced = raw.match(/^```(?:json)?\s*\n?([\s\S]*?)\n?```\s*$/);
+  return fenced ? fenced[1].trim() : raw.trim();
+}
+
+/**
+ * Rough cost estimate (USD) based on published Gemini pricing per 1M tokens.
+ * These approximate published rates; actual billing may differ.
+ */
+function estimateCostUsd(model: string, inputTokens: number, outputTokens: number): number {
+  const rates: Record<string, { in: number; out: number }> = {
+    "gemini-2.5-flash": { in: 0.30,  out: 2.50  },
+    "gemini-2.5-pro":   { in: 1.25,  out: 10.00 },
+    "gemini-1.5-flash": { in: 0.075, out: 0.30  },
+    "gemini-1.5-pro":   { in: 3.50,  out: 10.50 },
+  };
+  const rate = rates[model] ?? { in: 0.30, out: 2.50 };
+  return (inputTokens * rate.in + outputTokens * rate.out) / 1_000_000;
+}
+
+interface CallResult {
+  text: string;
+  inputTokens: number;
+  outputTokens: number;
+}
+
 async function callGemini(
   config: AiProviderConfig,
   systemPrompt: string,
   userPrompt: string,
-): Promise<string> {
+): Promise<CallResult> {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${config.model}:generateContent?key=${config.apiKey}`;
   const response = await fetch(url, {
     method: "POST",
@@ -68,7 +104,12 @@ async function callGemini(
   const data = (await response.json()) as any;
   const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!text) throw new Error("Gemini response contained no text output");
-  return text;
+  const usage = data?.usageMetadata ?? {};
+  return {
+    text,
+    inputTokens: Number(usage.promptTokenCount ?? 0),
+    outputTokens: Number(usage.candidatesTokenCount ?? 0),
+  };
 }
 
 async function callOpenAiCompatible(
@@ -76,7 +117,7 @@ async function callOpenAiCompatible(
   systemPrompt: string,
   userPrompt: string,
   baseUrl: string,
-): Promise<string> {
+): Promise<CallResult> {
   const response = await fetch(`${baseUrl}/chat/completions`, {
     method: "POST",
     headers: {
@@ -100,58 +141,19 @@ async function callOpenAiCompatible(
   const data = (await response.json()) as any;
   const text = data?.choices?.[0]?.message?.content;
   if (!text) throw new Error("Response contained no text output");
-  return text;
-}
-
-/**
- * Calls the configured model for a tier and parses the result as JSON.
- * Throws on malformed JSON rather than attempting to repair it -- the
- * caller (assessment/generation stage) is responsible for deciding whether
- * a parse failure should retry same-tier or escalate.
- */
-export async function generateJson<T>(options: GenerateJsonOptions): Promise<T> {
-  const config = configFor(options.tier);
-  let raw: string;
-
-  switch (config.provider) {
-    case "gemini":
-      raw = await callGemini(config, options.systemPrompt, options.userPrompt);
-      break;
-    case "openai":
-      raw = await callOpenAiCompatible(
-        config,
-        options.systemPrompt,
-        options.userPrompt,
-        "https://api.openai.com/v1",
-      );
-      break;
-    case "anthropic":
-      // Anthropic's API shape differs enough (no OpenAI-compatible
-      // endpoint, system prompt is a top-level field, no response_format)
-      // that it needs its own path rather than reusing callOpenAiCompatible.
-      raw = await callAnthropic(config, options.systemPrompt, options.userPrompt);
-      break;
-    default:
-      throw new Error(`Unsupported AI provider: ${config.provider}`);
-  }
-
-  try {
-    return JSON.parse(raw) as T;
-  } catch (error) {
-    logger.warn(`Failed to parse ${tierLabel(options.tier)} model output as JSON`, {
-      raw: raw.slice(0, 1000),
-    });
-    throw new Error(
-      `${tierLabel(options.tier)} model (${config.model}) did not return valid JSON`,
-    );
-  }
+  const usage = data?.usage ?? {};
+  return {
+    text,
+    inputTokens: Number(usage.prompt_tokens ?? 0),
+    outputTokens: Number(usage.completion_tokens ?? 0),
+  };
 }
 
 async function callAnthropic(
   config: AiProviderConfig,
   systemPrompt: string,
   userPrompt: string,
-): Promise<string> {
+): Promise<CallResult> {
   const response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
@@ -173,7 +175,68 @@ async function callAnthropic(
   const data = (await response.json()) as any;
   const text = data?.content?.find((block: any) => block.type === "text")?.text;
   if (!text) throw new Error("Anthropic response contained no text output");
-  return text;
+  const usage = data?.usage ?? {};
+  return {
+    text,
+    inputTokens: Number(usage.input_tokens ?? 0),
+    outputTokens: Number(usage.output_tokens ?? 0),
+  };
+}
+
+/**
+ * Calls the configured model for a tier and parses the result as JSON.
+ * Returns the parsed data PLUS token-usage telemetry for cost tracking.
+ * Throws on malformed JSON -- the caller decides whether to retry or escalate.
+ */
+export async function generateJson<T>(options: GenerateJsonOptions): Promise<GenerateJsonResult<T>> {
+  const config = configFor(options.tier);
+  let callResult: CallResult;
+
+  switch (config.provider) {
+    case "gemini":
+      callResult = await callGemini(config, options.systemPrompt, options.userPrompt);
+      break;
+    case "openai":
+      callResult = await callOpenAiCompatible(
+        config,
+        options.systemPrompt,
+        options.userPrompt,
+        "https://api.openai.com/v1",
+      );
+      break;
+    case "anthropic":
+      callResult = await callAnthropic(config, options.systemPrompt, options.userPrompt);
+      break;
+    default:
+      throw new Error(`Unsupported AI provider: ${config.provider}`);
+  }
+
+  const cleaned = stripJsonFences(callResult.text);
+  let data: T;
+  try {
+    data = JSON.parse(cleaned) as T;
+  } catch {
+    logger.warn(`Failed to parse ${tierLabel(options.tier)} model output as JSON`, {
+      raw: callResult.text.slice(0, 1000),
+    });
+    throw new Error(
+      `${tierLabel(options.tier)} model (${config.model}) did not return valid JSON`,
+    );
+  }
+
+  const estimatedCostUsd = estimateCostUsd(
+    config.model,
+    callResult.inputTokens,
+    callResult.outputTokens,
+  );
+
+  logger.debug(`AI call [${options.tier}/${config.model}]`, {
+    inputTokens: callResult.inputTokens,
+    outputTokens: callResult.outputTokens,
+    estimatedCostUsd: estimatedCostUsd.toFixed(6),
+  });
+
+  return { data, inputTokens: callResult.inputTokens, outputTokens: callResult.outputTokens, estimatedCostUsd };
 }
 
 function tierLabel(tier: AiTier) {

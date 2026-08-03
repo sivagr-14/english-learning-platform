@@ -83,7 +83,7 @@ ${TAXONOMY_CATALOG_PROMPT}`;
     userPrompt: `Passage (chunkId: ${chunkId}):\n\n${chunkText}`,
   });
 
-  return (result.candidates || []).filter((candidate) => {
+  return (result.data.candidates || []).filter((candidate) => {
     const valid = taxonomyPathForCategoryKey(candidate.categoryKey);
     if (!valid) {
       logger.warn(
@@ -156,7 +156,7 @@ export async function generateLessonEntry(candidate: {
   contextualMeaning: string;
   cefrLevel?: string;
   categoryName?: string;
-}) {
+}): Promise<{ entry: ReturnType<typeof GeneratedPackEntrySchema.parse>; inputTokens: number; outputTokens: number; estimatedCostUsd: number } | null> {
   const systemPrompt = `You write a complete vocabulary lesson for an English learner. Follow this exact structure and field names.
 
 ${VOCABULARY_SECTION_TEMPLATE_PROMPT}
@@ -182,7 +182,7 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
   const userPrompt = `Term: ${candidate.term}\nContextual meaning: ${candidate.contextualMeaning}\nCEFR level: ${candidate.cefrLevel || "B1"}\nCategory: ${candidate.categoryName || "general"}`;
 
   async function attempt(tier: "primary" | "escalation") {
-    const raw = await generateJson<Record<string, unknown>>({
+    const result = await generateJson<Record<string, unknown>>({
       tier,
       systemPrompt,
       userPrompt,
@@ -195,7 +195,7 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
       tamilMeaning,
       coreIdea,
       ...lesson
-    } = raw;
+    } = result.data;
     const issues = vocabularyLessonQualityIssues(lesson, candidate.term);
     if (issues.length) {
       throw new Error(`Quality validator rejected output:\n- ${issues.join("\n- ")}`);
@@ -218,7 +218,12 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
           .join("; ")}`,
       );
     }
-    return validation.data;
+    return {
+      entry: validation.data,
+      inputTokens: result.inputTokens,
+      outputTokens: result.outputTokens,
+      estimatedCostUsd: result.estimatedCostUsd,
+    };
   }
 
   try {
