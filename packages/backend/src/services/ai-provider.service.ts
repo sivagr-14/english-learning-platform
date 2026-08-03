@@ -184,7 +184,7 @@ export async function pollGeminiBatchStatus(
     const text = await response.text();
     throw new Error(`Gemini batch status error (${response.status}): ${text.slice(0, 500)}`);
   }
-  const data = await response.json();
+  const data = (await response.json()) as any;
   // Map to a simple status for worker usage.
   const status = data?.state || data?.status || (data?.done ? "done" : "pending");
   return { status, result: data };

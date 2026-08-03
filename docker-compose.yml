@@ -39,7 +39,7 @@ services:
     ports:
       - "5001:5000"
     env_file:
-      - ./.env
+      - ./.env.local
     environment:
       DATABASE_URL: ${DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/english_learning}
       REDIS_URL: ${REDIS_URL:-redis://redis:6379}
@@ -69,14 +69,14 @@ services:
       dockerfile: Dockerfile
     container_name: english_learning_worker
     env_file:
-      - ./.env
+      - ./.env.local
     environment:
       DATABASE_URL: ${DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/english_learning}
       REDIS_URL: ${REDIS_URL:-redis://redis:6379}
       NODE_ENV: ${NODE_ENV:-development}
       JWT_SECRET: ${JWT_SECRET:-dev-secret-key-change-in-production}
       PRIMARY_AI_PROVIDER: ${PRIMARY_AI_PROVIDER:-gemini}
-      PRIMARY_AI_MODEL: ${PRIMARY_AI_MODEL:-gemini-2.5-flash}
+      PRIMARY_AI_MODEL: ${PRIMARY_AI_MODEL:-gemini-2.0-flash}
       PRIMARY_AI_API_KEY: ${PRIMARY_AI_API_KEY:-}
       ESCALATION_AI_PROVIDER: ${ESCALATION_AI_PROVIDER:-gemini}
       ESCALATION_AI_MODEL: ${ESCALATION_AI_MODEL:-gemini-2.5-pro}
@@ -101,7 +101,7 @@ services:
     ports:
       - "3000:3000"
     env_file:
-      - ./.env
+      - ./.env.local
     environment:
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://backend:5000}
       NODE_ENV: ${NODE_ENV:-development}

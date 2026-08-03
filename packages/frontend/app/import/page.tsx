@@ -182,7 +182,7 @@ export default function ImportPage() {
           {config && !config.primaryConfigured && (
             <div className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-800">
               No AI provider key is configured on the server, so imports will
-              fail at the "Reading document" step. Set{" "}
+              fail at the &quot;Reading document&quot; step. Set{" "}
               <code className="rounded bg-amber-100 px-1">
                 PRIMARY_AI_API_KEY
               </code>{" "}
@@ -223,7 +223,7 @@ export default function ImportPage() {
             {hasActiveJob && (
               <p className="text-xs text-gray-400">
                 An import is already in progress -- you can start another one,
-                it'll queue behind it.
+                it&apos;ll queue behind it.
               </p>
             )}
           </form>
