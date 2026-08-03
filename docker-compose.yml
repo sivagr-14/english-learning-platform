@@ -63,6 +63,36 @@ services:
       retries: 5
     command: npm run dev
 
+  worker:
+    build:
+      context: ./packages/backend
+      dockerfile: Dockerfile
+    container_name: english_learning_worker
+    env_file:
+      - ./.env
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/english_learning}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379}
+      NODE_ENV: ${NODE_ENV:-development}
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-key-change-in-production}
+      PRIMARY_AI_PROVIDER: ${PRIMARY_AI_PROVIDER:-gemini}
+      PRIMARY_AI_MODEL: ${PRIMARY_AI_MODEL:-gemini-2.5-flash}
+      PRIMARY_AI_API_KEY: ${PRIMARY_AI_API_KEY:-}
+      ESCALATION_AI_PROVIDER: ${ESCALATION_AI_PROVIDER:-gemini}
+      ESCALATION_AI_MODEL: ${ESCALATION_AI_MODEL:-gemini-2.5-pro}
+      ESCALATION_AI_API_KEY: ${ESCALATION_AI_API_KEY:-}
+      GENERATION_WORKER_CONCURRENCY: ${GENERATION_WORKER_CONCURRENCY:-2}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    # Separate process from the API server on purpose: a slow or expensive
+    # generation job (an hour-long book import) should never be able to
+    # block request handling on the backend service.
+    command: npm run worker
+
   frontend:
     build:
       context: ./packages/frontend

@@ -61,6 +61,7 @@ app.use("/api/vocabulary", require("./routes/vocabulary").default);
 app.use("/api/progress", require("./routes/progress").default);
 app.use("/api/flashcards", require("./routes/flashcards").default);
 app.use("/api/control", require("./routes/control").default);
+app.use("/api/generation", require("./routes/generation").default);
 
 // 404 handler
 app.use((req, res) => {

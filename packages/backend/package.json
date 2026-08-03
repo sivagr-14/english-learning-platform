@@ -5,6 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "HOST=127.0.0.1 PORT=5001 ts-node-dev --respawn --transpile-only src/index.ts",
+    "worker": "ts-node-dev --respawn --transpile-only src/worker.ts",
+    "worker:build": "node dist/worker.js",
     "build": "tsc",
     "start": "HOST=127.0.0.1 PORT=5001 node dist/index.js",
     "setup:db": "yarn run db:migrate && yarn run db:seed",
@@ -40,7 +42,13 @@
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-github2": "^0.1.12",
-    "express-session": "^1.17.3"
+    "express-session": "^1.17.3",
+    "bullmq": "^5.12.12",
+    "ioredis": "^5.4.1",
+    "pdf-parse": "^1.1.1",
+    "mammoth": "^1.8.0",
+    "srt-parser-2": "^1.2.3",
+    "epub2": "^3.0.2"
   },
   "devDependencies": {
     "@types/node": "^20.10.6",
@@ -53,6 +61,7 @@
     "@types/passport-github2": "^1.0.5",
     "@types/express-session": "^1.17.10",
     "@types/nodemailer": "^6.4.14",
+    "@types/pdf-parse": "^1.1.4",
     "typescript": "^5.3.3",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
