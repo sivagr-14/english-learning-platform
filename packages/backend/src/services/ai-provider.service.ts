@@ -38,7 +38,7 @@ function configFor(tier: AiTier): AiProviderConfig {
   const apiKey = process.env[`${prefix}_API_KEY`] || process.env.GEMINI_API_KEY || "";
   const model =
     process.env[`${prefix}_MODEL`] ||
-    (tier === "primary" ? "gemini-2.5-flash" : "gemini-2.5-pro");
+    (tier === "primary" ? "gemini-2.0-flash" : "gemini-2.5-pro");
   if (!apiKey) {
     throw new Error(
       `${prefix}_API_KEY is not set. Add it to .env.local before running the ` +
