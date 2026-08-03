@@ -27,6 +27,7 @@ export interface RegisterInput {
   username?: string;
   first_name?: string;
   last_name?: string;
+  native_language?: string;
 }
 
 export interface LoginInput {
@@ -48,7 +49,7 @@ export class AuthService {
   }
 
   async register(input: RegisterInput): Promise<AuthResponse> {
-    const { email, password, username, first_name, last_name } = input;
+    const { email, password, username, first_name, last_name, native_language } = input;
 
     const existingUserQuery = this.db("users").where("email", email);
     if (username) {
@@ -77,7 +78,7 @@ export class AuthService {
         password_hash: hashedPassword,
         first_name: first_name || null,
         last_name: last_name || null,
-        native_language: "Tamil",
+        native_language: native_language || null,
         current_level: "A1",
         email_verified: false,
         created_at: now,

@@ -96,6 +96,10 @@ export default function ChatGPTImportsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [confirmApprove, setConfirmApprove] = useState<{
+    id: string;
+    count: number;
+  } | null>(null);
 
   const load = useCallback(async () => {
     setError("");
@@ -184,8 +188,12 @@ export default function ChatGPTImportsPage() {
       setError("Select at least one proposed entry before approval.");
       return;
     }
-    if (!window.confirm(`Approve exactly ${candidateIds.length} entries?`))
-      return;
+    setConfirmApprove({ id, count: candidateIds.length });
+  };
+
+  const doApprove = async (id: string) => {
+    setConfirmApprove(null);
+    const candidateIds = [...(selected[id] || new Set<string>())];
     setBusy(`approve:${id}`);
     setError("");
     try {
@@ -546,6 +554,48 @@ export default function ChatGPTImportsPage() {
           </div>
         </section>
       </AppShell>
+
+      {/* Inline confirmation modal replacing window.confirm (B7) */}
+      {confirmApprove && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="confirm-title"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
+        >
+          <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
+            <h2
+              id="confirm-title"
+              className="text-base font-semibold text-slate-900"
+            >
+              Confirm approval
+            </h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Approve exactly{" "}
+              <strong>{confirmApprove.count}</strong>{" "}
+              {confirmApprove.count === 1 ? "entry" : "entries"}? Validated
+              batches will save automatically after this.
+            </p>
+            <div className="mt-5 flex justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => setConfirmApprove(null)}
+                className="rounded-lg px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={() => void doApprove(confirmApprove.id)}
+                className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+              >
+                Approve {confirmApprove.count}{" "}
+                {confirmApprove.count === 1 ? "entry" : "entries"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </AuthenticatedPage>
   );
 }

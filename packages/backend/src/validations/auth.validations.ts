@@ -15,6 +15,7 @@ export const RegisterSchema = z.object({
     .optional(),
   first_name: z.string().max(100, "First name is too long").optional(),
   last_name: z.string().max(100, "Last name is too long").optional(),
+  native_language: z.string().max(100, "Native language is too long").optional(),
 });
 
 export const LoginSchema = z.object({

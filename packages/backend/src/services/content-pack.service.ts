@@ -25,6 +25,7 @@ import {
 } from "./vocabulary-sense.service";
 import { legacyTaxonomyPath } from "../data/vocabulary-taxonomy";
 import { cacheInvalidate } from "../utils/redis";
+import { readJson } from "../utils/json";
 
 export interface ContentPackDocument {
   path: string;
@@ -38,16 +39,6 @@ export interface ContentPackSyncResult {
   committedEntries: number;
   errors: Array<{ path: string; message: string }>;
   cleanupEligible: string[];
-}
-
-function readJson<T>(value: unknown, fallback: T): T {
-  if (value === null || value === undefined) return fallback;
-  if (typeof value !== "string") return value as T;
-  try {
-    return JSON.parse(value) as T;
-  } catch {
-    return fallback;
-  }
 }
 
 function statusError(
