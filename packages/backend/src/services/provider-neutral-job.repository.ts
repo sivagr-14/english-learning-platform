@@ -262,6 +262,9 @@ export class ProviderNeutralJobRepository {
     entry: unknown;
     inputTokens: number;
     outputTokens: number;
+    cachedTokens?: number;
+    latencyMs?: number;
+    model?: string;
     costUsd: number;
   }): Promise<"inserted" | "existing"> {
     const hash = durableHash(input.entry);
@@ -295,6 +298,9 @@ export class ProviderNeutralJobRepository {
         status: "succeeded",
         input_tokens: input.inputTokens,
         output_tokens: input.outputTokens,
+        cached_tokens: input.cachedTokens ?? 0,
+        latency_ms: input.latencyMs ?? 0,
+        ...(input.model ? { model: input.model } : {}),
         cost_usd: input.costUsd,
         completed_at: new Date(),
       });

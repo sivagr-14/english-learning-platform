@@ -253,9 +253,11 @@ async function handleAssess(
                 (occurrence) => occurrence.segmentId === segmentId,
               ),
             )
-            .map(
-              (candidate) => `${candidate.baseForm} [${candidate.itemType}]`,
-            ),
+            .map((candidate) => ({
+              candidateId: candidate.candidateId,
+              term: candidate.baseForm,
+              itemType: candidate.itemType,
+            })),
         );
       }),
     ),
@@ -413,6 +415,22 @@ async function handleGenerate(
     await assertNotCancelled(generationJobId);
     if (member.result_id && member.validation_status === "valid") continue;
 
+    const hardBudget = Number(record.hard_budget_usd || 0);
+    const estimatedNextCall = Number(process.env.GEMINI_ESTIMATED_LESSON_COST_USD || 0.02);
+    if (hardBudget > 0 && totalCostUsd + estimatedNextCall > hardBudget) {
+      await jobService.updateStatus(generationJobId, "attention_required", {
+        stageProgress: {
+          ...progress,
+          lessonsGenerated: initialPlan.length - pendingPlanMembers(await repository.loadGenerationPlan(generationJobId)).length,
+          lessonsTotal: initialPlan.length,
+          totalCostUsd: Number(totalCostUsd.toFixed(6)),
+          budgetBlocked: true,
+          hardBudgetUsd: hardBudget,
+        },
+      });
+      return;
+    }
+
     const candidate = readJson<any>(member.snapshot, null);
     if (!candidate) {
       throw new Error(
@@ -433,6 +451,8 @@ async function handleGenerate(
         batch_id: member.batch_id,
         candidate_decision_id: member.candidate_decision_id,
         stage: "generate",
+        request_type: "lesson_generation",
+        prompt_version: record.prompt_version,
         attempt_number: Number(previousAttempts?.count ?? 0) + 1,
         provider: record.provider,
         model: record.provider_model,
@@ -448,6 +468,8 @@ async function handleGenerate(
           candidateId: member.external_candidate_id,
           term: candidate.term,
           contextualMeaning: candidate.contextualMeaning,
+          sourceSentence: candidate.senseEvidence?.sentence,
+          surroundingContext: candidate.occurrences?.[0]?.sentence,
           cefrLevel: candidate.cefrLevel,
           categoryName: candidate.categoryName,
         },
@@ -498,6 +520,9 @@ async function handleGenerate(
       inputTokens: result.inputTokens,
       outputTokens: result.outputTokens,
       costUsd: result.estimatedCostUsd,
+      cachedTokens: result.cachedTokens,
+      latencyMs: result.latencyMs,
+      model: result.model,
     });
     if (persisted === "inserted") {
       totalInputTokens += result.inputTokens;

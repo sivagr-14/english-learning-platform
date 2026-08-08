@@ -1,4 +1,3 @@
-import { createHash } from "crypto";
 import {
   TAXONOMY_SPECIFIC_CATEGORIES,
   taxonomyPathForCategoryKey,
@@ -30,7 +29,35 @@ const TAXONOMY_CATALOG_PROMPT = TAXONOMY_SPECIFIC_CATEGORIES.map(
     `${category.domainKey} -> ${category.usageGroupKey} -> ${category.key} :: ${category.name}`,
 ).join("\n");
 
+const GEMINI_CANDIDATE_RESPONSE_SCHEMA = {
+  type: "OBJECT",
+  required: ["candidates"],
+  properties: {
+    candidates: {
+      type: "ARRAY",
+      items: {
+        type: "OBJECT",
+        required: [
+          "candidateId", "term", "baseForm", "itemType", "contextualMeaning",
+          "domainKey", "usageGroupKey", "categoryKey", "taxonomyConfidence",
+          "cefrLevel", "usageFrequency", "fluencyValue", "sourceSentence",
+          "senseExplanation", "decision",
+        ],
+        properties: {
+          candidateId: { type: "STRING" }, term: { type: "STRING" }, baseForm: { type: "STRING" },
+          itemType: { type: "STRING" }, contextualMeaning: { type: "STRING" }, domainKey: { type: "STRING" },
+          usageGroupKey: { type: "STRING" }, categoryKey: { type: "STRING" }, taxonomyConfidence: { type: "STRING" },
+          taxonomyReason: { type: "STRING" }, cefrLevel: { type: "STRING" }, usageFrequency: { type: "STRING" },
+          fluencyValue: { type: "STRING" }, sourceSentence: { type: "STRING" }, senseExplanation: { type: "STRING" },
+          decision: { type: "STRING" }, reason: { type: "STRING" },
+        },
+      },
+    },
+  },
+} as const;
+
 interface RawCandidate {
+  candidateId: string;
   term: string;
   baseForm: string;
   itemType: string;
@@ -45,6 +72,8 @@ interface RawCandidate {
   fluencyValue: "essential" | "useful" | "specialized";
   sourceSentence: string;
   senseExplanation: string;
+  decision: "generate" | "filtered" | "rejected";
+  reason?: string;
 }
 
 /**
@@ -60,12 +89,17 @@ export async function assessChunk(
   chunkText: string,
   chunkId: string,
   signal?: AbortSignal,
-  deterministicCandidates: string[] = [],
+  deterministicCandidates: Array<{
+    candidateId: string;
+    term: string;
+    itemType: string;
+  }> = [],
 ): Promise<RawCandidate[]> {
   const systemPrompt = `You identify English vocabulary worth teaching an intermediate-to-advanced learner from a passage of text. You only propose words/phrases that are genuinely useful to learn -- not every word in the passage. Skip basic A1 vocabulary a learner already knows (e.g. "the", "go", "happy"). Prefer collocations, phrasal verbs, idioms, and words used in a non-obvious sense over isolated common words.
 
-Return ONLY a JSON object: { "candidates": [ ... ] }. Each candidate:
+Return ONLY a JSON object: { "candidates": [ ... ] }. Return exactly one result for every supplied candidate ID; never add, remove, merge or rename IDs. Each candidate:
 {
+  "candidateId": string (copy the supplied stable ID exactly),
   "term": string (as it appears or its dictionary form),
   "baseForm": string (dictionary/lemma form),
   "itemType": one of "word" | "phrasal verb" | "idiom" | "collocation" | "fixed phrase" | "conversational pattern",
@@ -77,10 +111,12 @@ Return ONLY a JSON object: { "candidates": [ ... ] }. Each candidate:
   "usageFrequency": "heavy" | "medium" (never "low" -- if it's low-frequency, omit the candidate entirely),
   "fluencyValue": "essential" | "useful" | "specialized",
   "sourceSentence": string (the exact sentence from the passage containing the term),
-  "senseExplanation": string (at least 8 characters, why this sense/usage matters)
+  "senseExplanation": string (at least 8 characters, why this sense/usage matters),
+  "decision": "generate" | "filtered" | "rejected",
+  "reason": string (required for filtered or rejected)
 }
 
-Propose at most 15 candidates for this passage. Quality over quantity.
+Assess the complete bounded inventory. Quality over quantity.
 
 Valid categoryKey values (format "key :: display name"):
 ${TAXONOMY_CATALOG_PROMPT}`;
@@ -88,35 +124,56 @@ ${TAXONOMY_CATALOG_PROMPT}`;
   const result = await generateJson<{ candidates: RawCandidate[] }>({
     tier: "primary",
     systemPrompt,
-    userPrompt: `Passage (chunkId: ${chunkId}):\n\n${chunkText}\n\nDeterministically enumerated terms/expressions (classify each; do not silently omit -- return useful heavy/medium items and let policy account for the rest):\n${deterministicCandidates.join("\n")}`,
+    userPrompt: `Passage (chunkId: ${chunkId}):\n\n${chunkText}\n\nDeterministic inventory (classify every ID):\n${JSON.stringify(deterministicCandidates)}`,
     signal,
+    responseSchema: GEMINI_CANDIDATE_RESPONSE_SCHEMA,
   });
 
-  return (result.data.candidates || []).filter((candidate) => {
+  const expected = new Set(deterministicCandidates.map((item) => item.candidateId));
+  const returned = result.data.candidates || [];
+  const returnedIds = returned.map((item) => item.candidateId);
+  if (
+    returnedIds.length !== expected.size ||
+    new Set(returnedIds).size !== returnedIds.length ||
+    returnedIds.some((id) => !expected.has(id))
+  ) {
+    throw new ProviderRequestError(
+      "validation_failed",
+      "Gemini candidate IDs did not exactly match the deterministic inventory",
+      false,
+    );
+  }
+
+  for (const candidate of returned) {
     const path = taxonomyPathForCategoryKey(candidate.categoryKey);
     const valid =
       path &&
       candidate.domainKey === path.domainKey &&
       candidate.usageGroupKey === path.usageGroupKey;
     if (!valid) {
-      logger.warn(
-        `Assessment proposed an invented or mismatched taxonomy path for "${candidate.term}"; dropping candidate`,
+      throw new ProviderRequestError(
+        "validation_failed",
+        `Assessment proposed an invented or mismatched taxonomy path for candidate ${candidate.candidateId}`,
+        false,
       );
     }
     if (
       candidate.taxonomyConfidence === "low" &&
       !candidate.taxonomyReason?.trim()
     )
-      return false;
-    return Boolean(valid);
-  });
+      throw new ProviderRequestError(
+        "validation_failed",
+        `Low-confidence taxonomy requires a reason for candidate ${candidate.candidateId}`,
+        false,
+      );
+  }
+  return returned;
 }
 
 /**
  * Builds a schema-valid manifest candidate from a raw assessment result.
- * Returns null (and logs) if the resulting object still fails validation
- * after assembly -- callers should drop it rather than fail the whole
- * manifest over one bad candidate.
+ * Fails the assessment if assembly is invalid. Silently dropping a stable
+ * deterministic candidate would make completion reconciliation impossible.
  */
 export function toManifestCandidate(
   raw: RawCandidate,
@@ -125,16 +182,11 @@ export function toManifestCandidate(
 ) {
   const taxonomyPath = taxonomyPathForCategoryKey(raw.categoryKey)!;
   const candidate = {
-    candidateId: `cand-${createHash("sha256")
-      .update(
-        `${(raw.baseForm || raw.term).normalize("NFKC").toLowerCase()}\u0000${raw.contextualMeaning.normalize("NFKC").toLowerCase()}`,
-      )
-      .digest("hex")
-      .slice(0, 24)}`,
+    candidateId: `cand-${raw.candidateId.slice(0, 32)}`,
     term: raw.term,
     baseForm: raw.baseForm || raw.term,
     itemType: raw.itemType as any,
-    decision: "generate" as const,
+    decision: raw.decision,
     senseDecision: "new_sense" as const,
     senseKey: `${raw.baseForm || raw.term}:${raw.categoryKey}`.slice(0, 180),
     cefrLevel: raw.cefrLevel as any,
@@ -157,16 +209,20 @@ export function toManifestCandidate(
         : {}),
     },
     occurrences: [{ page, chunkId, sentence: raw.sourceSentence }],
+    ...(raw.decision === "generate"
+      ? {}
+      : { reason: raw.reason || "Provider-neutral policy excluded this candidate." }),
   };
 
   const validation = ManifestCandidateSchema.safeParse(candidate);
   if (!validation.success) {
-    logger.warn(
-      `Dropping candidate "${raw.term}": ${validation.error.issues
-        .map((i) => i.message)
+    throw new ProviderRequestError(
+      "validation_failed",
+      `Candidate ${raw.candidateId} failed manifest validation: ${validation.error.issues
+        .map((issue) => issue.message)
         .join("; ")}`,
+      false,
     );
-    return null;
   }
   return validation.data;
 }
@@ -185,6 +241,8 @@ export async function generateLessonEntry(
     candidateId: string;
     term: string;
     contextualMeaning: string;
+    sourceSentence: string;
+    surroundingContext?: string;
     cefrLevel?: string;
     categoryName?: string;
   },
@@ -193,6 +251,9 @@ export async function generateLessonEntry(
   entry: ReturnType<typeof GeneratedPackEntrySchema.parse>;
   inputTokens: number;
   outputTokens: number;
+  cachedTokens: number;
+  model: string;
+  latencyMs: number;
   estimatedCostUsd: number;
 } | null> {
   const systemPrompt = `You write a complete vocabulary lesson for an English learner. Follow this exact structure and field names.
@@ -219,9 +280,11 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
 
   const userPrompt = `Term: ${candidate.term}\nContextual meaning: ${
     candidate.contextualMeaning
+  }\nExact source sentence: ${candidate.sourceSentence}\nSurrounding context: ${
+    candidate.surroundingContext || candidate.sourceSentence
   }\nCEFR level: ${candidate.cefrLevel || "B1"}\nCategory: ${
     candidate.categoryName || "general"
-  }`;
+  }\nTamil must naturally translate only this contextual sense. Do not translate an unrelated dictionary sense.`;
 
   async function attempt(tier: "primary" | "escalation") {
     const result = await generateJson<Record<string, unknown>>({
@@ -240,6 +303,16 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
       ...lesson
     } = result.data;
     const issues = vocabularyLessonQualityIssues(lesson, candidate.term);
+    if (String(word || "").trim() !== candidate.term.trim())
+      issues.push("word must be the real unsuffixed assessed term");
+    if (String(englishMeaning || "").trim() !== candidate.contextualMeaning.trim())
+      issues.push("englishMeaning must exactly equal the assessed contextual meaning");
+    if ((lesson as any)?.meaning_in_context?.source_sentence !== candidate.sourceSentence)
+      issues.push("source sentence must exactly equal the recorded evidence sentence");
+    if ((lesson as any)?.meaning_in_context?.contextual_meaning !== candidate.contextualMeaning)
+      issues.push("lesson contextual meaning must exactly equal the assessed meaning");
+    if (!/[\u0B80-\u0BFF]/u.test(String(tamilMeaning || "")))
+      issues.push("Tamil meaning must contain natural Tamil text");
     if (issues.length) {
       throw new ProviderRequestError(
         "validation_failed",
@@ -271,6 +344,9 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
       entry: validation.data,
       inputTokens: result.inputTokens,
       outputTokens: result.outputTokens,
+      cachedTokens: result.cachedTokens,
+      model: result.model,
+      latencyMs: result.latencyMs,
       estimatedCostUsd: result.estimatedCostUsd,
     };
   }
@@ -363,12 +439,11 @@ export function buildManifestDocument(params: {
       ).length,
     },
     generationPlan: {
-      batchSize: 10,
-      batches: chunkIntoBatches(
+      batchSize: 8,
+      batches: planGenerationBatches(
         validCandidates
           .filter((c) => c.decision === "generate")
           .map((c) => c.candidateId),
-        10,
       ).map((candidateIds, index) => ({
         batchNumber: index + 1,
         candidateIds,
@@ -383,6 +458,24 @@ export function chunkIntoBatches<T>(items: T[], size: number): T[][] {
     batches.push(items.slice(i, i + size));
   }
   return batches;
+}
+
+/** Deterministically balances normal batches around 8 without a 1-4 item tail. */
+export function planGenerationBatches<T>(items: T[]): T[][] {
+  if (items.length <= 10) return items.length ? [items.slice()] : [];
+  const batchCount = Math.ceil(items.length / 8);
+  const base = Math.floor(items.length / batchCount);
+  const larger = items.length % batchCount;
+  const result: T[][] = [];
+  let offset = 0;
+  for (let index = 0; index < batchCount; index += 1) {
+    const size = base + (index < larger ? 1 : 0);
+    if (size < 5 || size > 10)
+      throw new Error("Generation plan cannot satisfy the 5-10 batch contract");
+    result.push(items.slice(offset, offset + size));
+    offset += size;
+  }
+  return result;
 }
 
 export function buildBatchDocument(params: {
