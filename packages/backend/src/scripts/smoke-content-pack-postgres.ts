@@ -4,6 +4,7 @@ import { STARTER_SAMPLES } from "../data/starter-samples";
 import { contentPackHash } from "../services/content-pack-contract";
 import { ContentPackService } from "../services/content-pack.service";
 import { database } from "../utils/db";
+import { closeRedis } from "../utils/redis";
 
 async function main() {
   const suffix = randomUUID().slice(0, 8);
@@ -232,5 +233,6 @@ main()
     process.exitCode = 1;
   })
   .finally(async () => {
+    await closeRedis();
     await database.destroy();
   });
