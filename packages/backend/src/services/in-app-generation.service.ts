@@ -1,5 +1,4 @@
-import { randomUUID } from "crypto";
-import { Knex } from "knex";
+import { createHash } from "crypto";
 import {
   TAXONOMY_SPECIFIC_CATEGORIES,
   taxonomyPathForCategoryKey,
@@ -43,10 +42,6 @@ interface RawCandidate {
   senseExplanation: string;
 }
 
-function shortId(prefix: string) {
-  return `${prefix}-${randomUUID().slice(0, 12)}`;
-}
-
 /**
  * Stage 1 (assess): asks the primary-tier model to identify vocabulary
  * worth teaching in a chunk. Deliberately does NOT attempt sense-matching
@@ -60,6 +55,7 @@ export async function assessChunk(
   chunkText: string,
   chunkId: string,
   signal?: AbortSignal,
+  deterministicCandidates: string[] = [],
 ): Promise<RawCandidate[]> {
   const systemPrompt = `You identify English vocabulary worth teaching an intermediate-to-advanced learner from a passage of text. You only propose words/phrases that are genuinely useful to learn -- not every word in the passage. Skip basic A1 vocabulary a learner already knows (e.g. "the", "go", "happy"). Prefer collocations, phrasal verbs, idioms, and words used in a non-obvious sense over isolated common words.
 
@@ -85,7 +81,7 @@ ${TAXONOMY_CATALOG_PROMPT}`;
   const result = await generateJson<{ candidates: RawCandidate[] }>({
     tier: "primary",
     systemPrompt,
-    userPrompt: `Passage (chunkId: ${chunkId}):\n\n${chunkText}`,
+    userPrompt: `Passage (chunkId: ${chunkId}):\n\n${chunkText}\n\nDeterministically enumerated terms/expressions (classify each; do not silently omit -- return useful heavy/medium items and let policy account for the rest):\n${deterministicCandidates.join("\n")}`,
     signal,
   });
 
@@ -113,7 +109,12 @@ export function toManifestCandidate(
 ) {
   const taxonomyPath = taxonomyPathForCategoryKey(raw.categoryKey)!;
   const candidate = {
-    candidateId: shortId("cand"),
+    candidateId: `cand-${createHash("sha256")
+      .update(
+        `${(raw.baseForm || raw.term).normalize("NFKC").toLowerCase()}\u0000${raw.contextualMeaning.normalize("NFKC").toLowerCase()}`,
+      )
+      .digest("hex")
+      .slice(0, 24)}`,
     term: raw.term,
     baseForm: raw.baseForm || raw.term,
     itemType: raw.itemType as any,

@@ -59,7 +59,16 @@ router.use(generationLimiter as unknown as express.RequestHandler);
 
 const CreateJobSchema = z.object({
   sourceName: z.string().min(1).max(255),
-  sourceType: z.enum(["text", "pdf", "srt", "docx", "epub"]),
+  sourceType: z.enum([
+    "text",
+    "md",
+    "html",
+    "vtt",
+    "pdf",
+    "srt",
+    "docx",
+    "epub",
+  ]),
   // ~500 KB of plain text ≈ a 350-page book. Larger uploads should use
   // a multipart file endpoint (Phase 4) rather than a JSON string field.
   sourceContent: z.string().min(1).max(500_000),
@@ -104,20 +113,16 @@ router.post(
     let stagedPath: string | undefined;
     try {
       if (!(await generationWorkerReady()))
-        return res
-          .status(503)
-          .json({
-            error:
-              "Generation worker is unavailable. Restart the app and try again.",
-            code: "GENERATION_WORKER_UNAVAILABLE",
-          });
+        return res.status(503).json({
+          error:
+            "Generation worker is unavailable. Restart the app and try again.",
+          code: "GENERATION_WORKER_UNAVAILABLE",
+        });
       if (!req.is("multipart/form-data"))
-        return res
-          .status(415)
-          .json({
-            error: "Use multipart/form-data for file uploads.",
-            code: "MULTIPART_REQUIRED",
-          });
+        return res.status(415).json({
+          error: "Use multipart/form-data for file uploads.",
+          code: "MULTIPART_REQUIRED",
+        });
       const sourceType = String(req.header("x-source-type") || "");
       const expectedHash = req.header("x-content-sha256") || undefined;
       const busboy = Busboy({
@@ -125,8 +130,7 @@ router.post(
         limits: { files: 1, fileSize: 25 * 1024 * 1024, fields: 0 },
       });
       let uploadPromise:
-        | Promise<Awaited<ReturnType<typeof stageUpload>>>
-        | undefined;
+        Promise<Awaited<ReturnType<typeof stageUpload>>> | undefined;
       let sourceName = "";
       let truncated = false;
       busboy.on("file", (_field, stream, info) => {
@@ -308,7 +312,7 @@ router.get(
       const progress =
         typeof job.stage_progress === "string"
           ? JSON.parse(job.stage_progress)
-          : job.stage_progress ?? {};
+          : (job.stage_progress ?? {});
 
       const candidateCount: number = progress.candidatesFound ?? 0;
       // Rough estimate: ~3,000 tokens input + 2,000 tokens output per lesson

@@ -5,7 +5,8 @@ import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
 import { getApiClient } from "@/lib/api/client";
 
-type SourceType = "text" | "pdf" | "srt" | "docx" | "epub";
+type SourceType =
+  "text" | "md" | "html" | "vtt" | "pdf" | "srt" | "docx" | "epub";
 
 interface GenerationJob {
   id: string;
@@ -51,6 +52,9 @@ const EXTENSION_TO_TYPE: Record<string, SourceType> = {
   srt: "srt",
   docx: "docx",
   epub: "epub",
+  html: "html",
+  htm: "html",
+  vtt: "vtt",
 };
 
 interface ConfigCheck {
@@ -121,7 +125,7 @@ export default function ImportPage() {
         sourceType = EXTENSION_TO_TYPE[extension];
         if (!sourceType) {
           setError(
-            `Unsupported file type ".${extension}". Supported: txt, md, pdf, srt, docx, epub.`,
+            `Unsupported file type ".${extension}". Supported: txt, md, html, vtt, pdf, srt, docx, epub.`,
           );
           setSubmitting(false);
           return;
@@ -208,7 +212,7 @@ export default function ImportPage() {
               <span>or</span>
               <input
                 type="file"
-                accept=".txt,.md,.pdf,.srt,.docx,.epub"
+                accept=".txt,.md,.html,.htm,.vtt,.pdf,.srt,.docx,.epub"
                 onChange={(event) => setFile(event.target.files?.[0] || null)}
                 disabled={Boolean(pastedText.trim())}
               />
