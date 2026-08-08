@@ -1,4 +1,10 @@
 import { logger } from "../utils/logger";
+import {
+  classifyHttpFailure,
+  ProviderRequestError,
+  timeoutSignal,
+  withProviderRetry,
+} from "./provider-reliability";
 
 export type AiTier = "primary" | "escalation";
 
@@ -20,6 +26,8 @@ interface GenerateJsonOptions {
   systemPrompt: string;
   userPrompt: string;
   tier: AiTier;
+  signal?: AbortSignal;
+  timeoutMs?: number;
 }
 
 /**
@@ -35,7 +43,8 @@ export function configFor(tier: AiTier): AiProviderConfig {
   const prefix = tier === "primary" ? "PRIMARY_AI" : "ESCALATION_AI";
   const provider = (process.env[`${prefix}_PROVIDER`] ||
     "gemini") as AiProviderConfig["provider"];
-  const apiKey = process.env[`${prefix}_API_KEY`] || process.env.GEMINI_API_KEY || "";
+  const apiKey =
+    process.env[`${prefix}_API_KEY`] || process.env.GEMINI_API_KEY || "";
   const model =
     process.env[`${prefix}_MODEL`] ||
     (tier === "primary" ? "gemini-2.0-flash" : "gemini-2.5-pro");
@@ -74,14 +83,18 @@ function stripJsonFences(raw: string): string {
  * Rough cost estimate (USD) based on published Gemini pricing per 1M tokens.
  * These approximate published rates; actual billing may differ.
  */
-function estimateCostUsd(model: string, inputTokens: number, outputTokens: number): number {
+function estimateCostUsd(
+  model: string,
+  inputTokens: number,
+  outputTokens: number,
+): number {
   const rates: Record<string, { in: number; out: number }> = {
-    "gemini-2.5-flash": { in: 0.30,  out: 2.50  },
-    "gemini-2.5-pro":   { in: 1.25,  out: 10.00 },
-    "gemini-1.5-flash": { in: 0.075, out: 0.30  },
-    "gemini-1.5-pro":   { in: 3.50,  out: 10.50 },
+    "gemini-2.5-flash": { in: 0.3, out: 2.5 },
+    "gemini-2.5-pro": { in: 1.25, out: 10.0 },
+    "gemini-1.5-flash": { in: 0.075, out: 0.3 },
+    "gemini-1.5-pro": { in: 3.5, out: 10.5 },
   };
-  const rate = rates[model] ?? { in: 0.30, out: 2.50 };
+  const rate = rates[model] ?? { in: 0.3, out: 2.5 };
   return (inputTokens * rate.in + outputTokens * rate.out) / 1_000_000;
 }
 
@@ -95,6 +108,7 @@ async function callGemini(
   config: AiProviderConfig,
   systemPrompt: string,
   userPrompt: string,
+  signal?: AbortSignal,
 ): Promise<CallResult> {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${config.model}:generateContent?key=${config.apiKey}`;
   const response = await fetch(url, {
@@ -108,10 +122,11 @@ async function callGemini(
         responseMimeType: "application/json",
       },
     }),
+    signal,
   });
   if (!response.ok) {
     const body = await response.text();
-    throw new Error(`Gemini API error (${response.status}): ${body.slice(0, 500)}`);
+    throw classifyHttpFailure(response.status, body);
   }
   const data = (await response.json()) as any;
   const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
@@ -134,8 +149,7 @@ async function callGemini(
 export async function submitGeminiBatch(
   config: AiProviderConfig,
   requests: Array<{ id: string; systemPrompt: string; userPrompt: string }>,
-): Promise<{ batchId: string }>
-{
+): Promise<{ batchId: string }> {
   // Using the documented cachedBatches endpoint (v1beta)
   const url = `https://generativelanguage.googleapis.com/v1beta/cachedBatches?key=${config.apiKey}`;
   const body = {
@@ -147,7 +161,10 @@ export async function submitGeminiBatch(
       id: r.id,
       systemInstruction: { parts: [{ text: r.systemPrompt }] },
       contents: [{ role: "user", parts: [{ text: r.userPrompt }] }],
-      generationConfig: { temperature: 0.4, responseMimeType: "application/json" },
+      generationConfig: {
+        temperature: 0.4,
+        responseMimeType: "application/json",
+      },
     })),
   };
 
@@ -158,12 +175,18 @@ export async function submitGeminiBatch(
   });
   if (!response.ok) {
     const text = await response.text();
-    throw new Error(`Gemini batch submit error (${response.status}): ${text.slice(0, 500)}`);
+    throw new Error(
+      `Gemini batch submit error (${response.status}): ${text.slice(0, 500)}`,
+    );
   }
   const data = (await response.json()) as any;
   // The real response shape may be { name: "projects/.../batches/ID" } or
   // { batchId: "..." }. Try to pick a reasonable identifier.
-  const batchId = data?.name || data?.batchId || data?.id || JSON.stringify(data).slice(0, 80);
+  const batchId =
+    data?.name ||
+    data?.batchId ||
+    data?.id ||
+    JSON.stringify(data).slice(0, 80);
   return { batchId };
 }
 
@@ -174,19 +197,21 @@ export async function submitGeminiBatch(
 export async function pollGeminiBatchStatus(
   config: AiProviderConfig,
   batchId: string,
-): Promise<{ status: string; result?: any }>
-{
+): Promise<{ status: string; result?: any }> {
   // Best-effort: attempt to GET the batch resource. The exact endpoint
   // depends on the returned batchId shape; adapt as needed.
   const url = `https://generativelanguage.googleapis.com/v1beta/${batchId}?key=${config.apiKey}`;
   const response = await fetch(url, { method: "GET" });
   if (!response.ok) {
     const text = await response.text();
-    throw new Error(`Gemini batch status error (${response.status}): ${text.slice(0, 500)}`);
+    throw new Error(
+      `Gemini batch status error (${response.status}): ${text.slice(0, 500)}`,
+    );
   }
   const data = (await response.json()) as any;
   // Map to a simple status for worker usage.
-  const status = data?.state || data?.status || (data?.done ? "done" : "pending");
+  const status =
+    data?.state || data?.status || (data?.done ? "done" : "pending");
   return { status, result: data };
 }
 
@@ -195,6 +220,7 @@ async function callOpenAiCompatible(
   systemPrompt: string,
   userPrompt: string,
   baseUrl: string,
+  signal?: AbortSignal,
 ): Promise<CallResult> {
   const response = await fetch(`${baseUrl}/chat/completions`, {
     method: "POST",
@@ -211,10 +237,11 @@ async function callOpenAiCompatible(
         { role: "user", content: userPrompt },
       ],
     }),
+    signal,
   });
   if (!response.ok) {
     const body = await response.text();
-    throw new Error(`API error (${response.status}): ${body.slice(0, 500)}`);
+    throw classifyHttpFailure(response.status, body);
   }
   const data = (await response.json()) as any;
   const text = data?.choices?.[0]?.message?.content;
@@ -231,6 +258,7 @@ async function callAnthropic(
   config: AiProviderConfig,
   systemPrompt: string,
   userPrompt: string,
+  signal?: AbortSignal,
 ): Promise<CallResult> {
   const response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
@@ -245,10 +273,11 @@ async function callAnthropic(
       system: systemPrompt,
       messages: [{ role: "user", content: userPrompt }],
     }),
+    signal,
   });
   if (!response.ok) {
     const body = await response.text();
-    throw new Error(`Anthropic API error (${response.status}): ${body.slice(0, 500)}`);
+    throw classifyHttpFailure(response.status, body);
   }
   const data = (await response.json()) as any;
   const text = data?.content?.find((block: any) => block.type === "text")?.text;
@@ -266,39 +295,73 @@ async function callAnthropic(
  * Returns the parsed data PLUS token-usage telemetry for cost tracking.
  * Throws on malformed JSON -- the caller decides whether to retry or escalate.
  */
-export async function generateJson<T>(options: GenerateJsonOptions): Promise<GenerateJsonResult<T>> {
+export async function generateJson<T>(
+  options: GenerateJsonOptions,
+): Promise<GenerateJsonResult<T>> {
   const config = configFor(options.tier);
-  let callResult: CallResult;
-
-  switch (config.provider) {
-    case "gemini":
-      callResult = await callGemini(config, options.systemPrompt, options.userPrompt);
-      break;
-    case "openai":
-      callResult = await callOpenAiCompatible(
-        config,
-        options.systemPrompt,
-        options.userPrompt,
-        "https://api.openai.com/v1",
-      );
-      break;
-    case "anthropic":
-      callResult = await callAnthropic(config, options.systemPrompt, options.userPrompt);
-      break;
-    default:
-      throw new Error(`Unsupported AI provider: ${config.provider}`);
-  }
+  const callResult = await withProviderRetry(async () => {
+    const timeout = timeoutSignal(options.signal, options.timeoutMs ?? 90_000);
+    try {
+      switch (config.provider) {
+        case "gemini":
+          return await callGemini(
+            config,
+            options.systemPrompt,
+            options.userPrompt,
+            timeout.signal,
+          );
+        case "openai":
+          return await callOpenAiCompatible(
+            config,
+            options.systemPrompt,
+            options.userPrompt,
+            "https://api.openai.com/v1",
+            timeout.signal,
+          );
+        case "anthropic":
+          return await callAnthropic(
+            config,
+            options.systemPrompt,
+            options.userPrompt,
+            timeout.signal,
+          );
+        default:
+          throw new ProviderRequestError(
+            "permanent_failure",
+            `Unsupported AI provider: ${config.provider}`,
+            false,
+          );
+      }
+    } catch (error) {
+      if (timeout.timedOut())
+        throw new ProviderRequestError(
+          "timeout",
+          `Provider request exceeded ${options.timeoutMs ?? 90_000} ms`,
+          true,
+        );
+      throw error;
+    } finally {
+      timeout.dispose();
+    }
+  });
 
   const cleaned = stripJsonFences(callResult.text);
   let data: T;
   try {
     data = JSON.parse(cleaned) as T;
   } catch {
-    logger.warn(`Failed to parse ${tierLabel(options.tier)} model output as JSON`, {
-      raw: callResult.text.slice(0, 1000),
-    });
-    throw new Error(
-      `${tierLabel(options.tier)} model (${config.model}) did not return valid JSON`,
+    logger.warn(
+      `Failed to parse ${tierLabel(options.tier)} model output as JSON`,
+      {
+        raw: callResult.text.slice(0, 1000),
+      },
+    );
+    throw new ProviderRequestError(
+      "malformed_json",
+      `${tierLabel(options.tier)} model (${
+        config.model
+      }) did not return valid JSON`,
+      false,
     );
   }
 
@@ -314,7 +377,12 @@ export async function generateJson<T>(options: GenerateJsonOptions): Promise<Gen
     estimatedCostUsd: estimatedCostUsd.toFixed(6),
   });
 
-  return { data, inputTokens: callResult.inputTokens, outputTokens: callResult.outputTokens, estimatedCostUsd };
+  return {
+    data,
+    inputTokens: callResult.inputTokens,
+    outputTokens: callResult.outputTokens,
+    estimatedCostUsd,
+  };
 }
 
 function tierLabel(tier: AiTier) {

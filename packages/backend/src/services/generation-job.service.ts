@@ -13,7 +13,8 @@ export type GenerationJobStatus =
   | "generating"
   | "validating"
   | "committed"
-  | "failed";
+  | "failed"
+  | "cancelled";
 
 export interface StageProgress {
   chunksTotal?: number;
@@ -30,6 +31,13 @@ export interface CreateGenerationJobInput {
   sourceName: string;
   sourceType: "text" | "pdf" | "srt" | "docx" | "epub";
   sourceContent: string;
+}
+
+export interface CreateStagedGenerationJobInput
+  extends Omit<CreateGenerationJobInput, "sourceContent"> {
+  sourceHash: string;
+  stagedUploadPath: string;
+  stagedUploadSize: number;
 }
 
 function statusError(
@@ -126,6 +134,83 @@ export class GenerationJobService {
     return { job: result, isNew: true };
   }
 
+  async createFromStagedUpload(input: CreateStagedGenerationJobInput) {
+    const existing = await this.database("generation_jobs")
+      .where({ user_id: input.userId, source_hash: input.sourceHash })
+      .first();
+    if (existing) return { job: existing, isNew: false };
+    const policySnapshot = importPolicySnapshot();
+    const promptVersion = "in-app-generation-v1";
+    const contractVersion = "chatgpt-vocabulary-manifest-v3/simplified-v2";
+    const job = await this.database.transaction(async (trx: any) => {
+      const [source] = await trx("content_sources")
+        .insert({
+          owner_user_id: input.userId,
+          source_type: input.sourceType,
+          name: input.sourceName,
+          content_hash: input.sourceHash,
+          metadata: JSON.stringify({ origin: "in-app", staged: true }),
+        })
+        .onConflict(["owner_user_id", "content_hash"])
+        .merge(["name", "source_type", "updated_at"])
+        .returning("*");
+      const [created] = await trx("generation_jobs")
+        .insert({
+          user_id: input.userId,
+          owner_user_id: input.userId,
+          operation_id: `in-app:${input.sourceHash}`,
+          source_name: input.sourceName,
+          source_type: input.sourceType,
+          source_hash: input.sourceHash,
+          status: "queued",
+          total_items: 0,
+          stage_progress: JSON.stringify({}),
+          provider: "gemini",
+          provider_model: process.env.PRIMARY_AI_MODEL || "gemini-2.0-flash",
+          prompt_version: promptVersion,
+          contract_version: contractVersion,
+          manifest_identity: manifestIdentity({
+            sourceHash: input.sourceHash,
+            promptVersion,
+            contractVersion,
+            policySnapshot,
+          }),
+          policy_hash: durableHash(policySnapshot),
+          policy_snapshot: JSON.stringify(policySnapshot),
+          staged_upload_path: input.stagedUploadPath,
+          staged_upload_size: input.stagedUploadSize,
+          staged_upload_hash: input.sourceHash,
+        })
+        .returning("*");
+      await trx("generation_job_events").insert({
+        generation_job_id: created.id,
+        event_type: "upload.staged",
+        stage: "queued",
+        details: JSON.stringify({
+          sourceId: source.id,
+          bytes: input.stagedUploadSize,
+          sha256: input.sourceHash,
+        }),
+      });
+      return created;
+    });
+    return { job, isNew: true };
+  }
+
+  async requestCancellation(userId: string, jobId: string) {
+    const job = await this.get(userId, jobId);
+    if (["committed", "failed", "cancelled"].includes(job.status)) return job;
+    const [updated] = await this.database("generation_jobs")
+      .where({ id: jobId, user_id: userId })
+      .update({
+        cancellation_requested_at: new Date(),
+        terminal_reason: "user_cancelled",
+        updated_at: new Date(),
+      })
+      .returning("*");
+    return updated;
+  }
+
   async get(userId: string, jobId: string) {
     const job = await this.database("generation_jobs")
       .where({ id: jobId, user_id: userId })
@@ -161,7 +246,11 @@ export class GenerationJobService {
     if (patch.errorMessage !== undefined) {
       updates.error_message = patch.errorMessage;
     }
-    if (status === "committed" || status === "failed") {
+    if (
+      status === "committed" ||
+      status === "failed" ||
+      status === "cancelled"
+    ) {
       updates.completed_at = new Date();
     }
     if (patch.actualCostDelta) {
