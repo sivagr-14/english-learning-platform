@@ -14,9 +14,32 @@ const {
 
 test('control page presents the browser-based startup action', () => {
   const page = controlPage();
-  assert.match(page, /Validate and start app/);
+  assert.match(page, /Update from GitHub &amp; start/);
+  assert.match(page, /Start installed version/);
   assert.match(page, /\/__control\/start/);
+  assert.match(page, /\/__control\/update-restart/);
   assert.match(page, /same address/);
+});
+
+test('migration verification rejects remaining pending migrations', async () => {
+  const manager = new ControlManager({
+    runAsync: async () =>
+      'Found 20 Completed Migration file/files.\nFound 1 Pending Migration file/files.',
+  });
+
+  await assert.rejects(
+    manager.verifyMigrations(),
+    /found pending migrations/i,
+  );
+});
+
+test('migration verification accepts a fully applied schema', async () => {
+  const manager = new ControlManager({
+    runAsync: async () =>
+      'Found 21 Completed Migration file/files.\nNo Pending Migration files found.',
+  });
+
+  await manager.verifyMigrations();
 });
 
 test('environment parser ignores comments and preserves URLs', () => {
@@ -235,7 +258,7 @@ test('control API requires the local control header before starting', async (con
 
   const page = await fetch(base);
   assert.equal(page.status, 200);
-  assert.match(await page.text(), /Validate and start app/);
+  assert.match(await page.text(), /Update from GitHub &amp; start/);
 
   const status = await fetch(`${base}/__control/status`);
   assert.equal(status.status, 200);

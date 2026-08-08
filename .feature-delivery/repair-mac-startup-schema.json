@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "featureId": "repair-mac-startup-schema",
+  "title": "Repair legacy generation schema and integrate safe startup checks into the GUI",
+  "implementationPaths": [
+    "packages/backend/src/database/migrations/020_repair_generation_jobs_schema.ts",
+    "packages/backend/src/services/generation-job.service.ts",
+    "packages/backend/src/__tests__/repair-generation-jobs-schema.test.ts",
+    "scripts/control-server.js",
+    "scripts/control-server.test.js"
+  ],
+  "validationPaths": [
+    "packages/backend/src/__tests__/repair-generation-jobs-schema.test.ts",
+    "scripts/control-server.test.js"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This feature repairs local database schema drift and automates application startup, update, dependency, infrastructure, migration, synchronization and health checks. It does not change source assessment, content-pack contracts, contextual sense selection, lesson structure or vocabulary generation instructions."
+  }
+}

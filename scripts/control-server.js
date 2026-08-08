@@ -261,7 +261,7 @@ class ControlManager {
     ];
     if (required.every((file) => fs.existsSync(file))) return;
     const manager = resolvePackageManager();
-    await run(
+    await this.runAsync(
       manager.command,
       [...manager.prefix, 'install', '--frozen-lockfile'],
       (output) => this.log(output),
@@ -420,6 +420,24 @@ class ControlManager {
       ],
       (output) => this.log(output),
     );
+  }
+
+  async verifyMigrations() {
+    const output = await this.runAsync(
+      process.execPath,
+      [
+        path.join(repoRoot, 'node_modules', 'knex', 'bin', 'cli.js'),
+        '--knexfile',
+        path.join(repoRoot, 'knexfile.js'),
+        'migrate:status',
+      ],
+      (value) => this.log(value),
+    );
+    if (/Found\s+[1-9]\d*\s+Pending Migration/i.test(output)) {
+      throw new Error(
+        'Database migration verification found pending migrations after migrate:latest.',
+      );
+    }
   }
 
   async synchronizeBuiltInContent() {
@@ -770,6 +788,13 @@ class ControlManager {
     this.logs = [];
     this.startedAt = new Date().toISOString();
     try {
+      this.step('Checking Node.js and local configuration');
+      const major = Number(process.versions.node.split('.')[0]);
+      if (!Number.isFinite(major) || major < 20) {
+        throw new Error(`Node.js ${process.versions.node} is unsupported; install 20+.`);
+      }
+      secureLocalEnvironment();
+
       this.step('Checking the local Git workspace');
       this.verifyUpdateWorkspace();
 
@@ -802,10 +827,12 @@ class ControlManager {
         await this.runAsync('git', ['merge', '--ff-only', 'origin/main'], (output) =>
           this.log(output),
         );
-        this.step('Installing project dependencies');
+        this.step('Installing locked project dependencies');
         await this.installDependencies();
       } else {
         this.log('Local main already matches GitHub main.');
+        this.step('Checking locked project dependencies');
+        await this.ensureDependencies();
       }
 
       this.step('Stopping the current backend and frontend');
@@ -826,6 +853,8 @@ class ControlManager {
 
       this.step('Applying database migrations');
       await this.migrate();
+      this.step('Verifying database migration status');
+      await this.verifyMigrations();
       this.step('Synchronizing ChatGPT content inbox');
       await this.synchronizeChatGPTContent();
       this.step('Synchronizing built-in vocabulary');
@@ -909,6 +938,8 @@ class ControlManager {
 
       this.step('Checking and applying database migrations');
       await this.migrate();
+      this.step('Verifying database migration status');
+      await this.verifyMigrations();
 
       this.step('Synchronizing ChatGPT content inbox');
       await this.synchronizeChatGPTContent();
@@ -985,7 +1016,9 @@ function controlPage() {
     .error .dot { background: #d34747; box-shadow: 0 0 0 6px #fde5e5; }
     .status strong, .status span { display: block; }
     .status span { margin-top: 3px; color: #6c7588; font-size: .9rem; }
-    button { width: 100%; margin-top: 18px; border: 0; border-radius: 14px; padding: 15px 18px; background: #4058cf; color: white; font: inherit; font-weight: 750; cursor: pointer; box-shadow: 0 10px 24px rgba(64,88,207,.24); }
+    .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+    button { width: 100%; border: 0; border-radius: 14px; padding: 15px 18px; background: #4058cf; color: white; font: inherit; font-weight: 750; cursor: pointer; box-shadow: 0 10px 24px rgba(64,88,207,.24); }
+    button.secondary { color: #3145a6; background: #edf1ff; box-shadow: none; border: 1px solid #d6defe; }
     button:hover { background: #344abb; }
     button:focus-visible { outline: 3px solid #aebcff; outline-offset: 3px; }
     button:disabled { cursor: wait; opacity: .65; }
@@ -994,6 +1027,7 @@ function controlPage() {
     summary { cursor: pointer; color: #526078; font-weight: 650; }
     pre { white-space: pre-wrap; max-height: 230px; overflow: auto; margin: 13px 0 0; padding: 14px; border-radius: 12px; background: #172033; color: #e9edff; font: .78rem/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; }
     .note { margin: 20px 0 0; color: #788195; font-size: .84rem; text-align: center; }
+    @media (max-width: 560px) { .actions { grid-template-columns: 1fr; } }
     @keyframes pulse { 50% { transform: scale(.74); opacity: .62; } }
   </style>
 </head>
@@ -1001,13 +1035,16 @@ function controlPage() {
   <main>
     <div class="eyebrow">Local learning workspace</div>
     <h1>English Mastery</h1>
-    <p class="intro">Validate the local database and application services, then start your learning workspace here.</p>
+    <p class="intro">Update from GitHub main or start the installed version. The app checks configuration, dependencies, Docker, PostgreSQL, Redis, migrations, content and web-service health for you.</p>
     <section id="status" class="status idle" aria-live="polite">
       <div class="dot" aria-hidden="true"></div>
       <div><strong id="phase">Ready to start</strong><span id="step">No services have been started yet.</span></div>
     </section>
     <p id="error" class="errorText" hidden></p>
-    <button id="start" type="button">Validate and start app</button>
+    <div class="actions">
+      <button id="update" type="button">Update from GitHub &amp; start</button>
+      <button id="start" class="secondary" type="button">Start installed version</button>
+    </div>
     <details id="details">
       <summary>Startup details</summary>
       <pre id="logs">Waiting for Start…</pre>
@@ -1020,6 +1057,7 @@ function controlPage() {
     const step = document.getElementById('step');
     const errorBox = document.getElementById('error');
     const startButton = document.getElementById('start');
+    const updateButton = document.getElementById('update');
     const logs = document.getElementById('logs');
     let wasStarting = false;
 
@@ -1039,7 +1077,9 @@ function controlPage() {
         logs.textContent = state.logs.length ? state.logs.join('\\n') : 'Waiting for Start…';
         logs.scrollTop = logs.scrollHeight;
         startButton.disabled = state.phase === 'starting';
-        startButton.textContent = state.phase === 'error' ? 'Validate and try again' : 'Validate and start app';
+        updateButton.disabled = state.phase === 'starting';
+        startButton.textContent = state.phase === 'error' ? 'Retry installed version' : 'Start installed version';
+        updateButton.textContent = state.phase === 'error' ? 'Retry update & start' : 'Update from GitHub & start';
         if (state.phase === 'starting') wasStarting = true;
         if (state.phase === 'ready' && (wasStarting || state.frontend)) {
           window.location.replace('/?started=' + Date.now());
@@ -1057,6 +1097,17 @@ function controlPage() {
       startButton.disabled = true;
       wasStarting = true;
       await fetch('/__control/start', {
+        method: 'POST',
+        headers: { '${controlHeader}': '1' },
+      });
+      refresh();
+    });
+    updateButton.addEventListener('click', async () => {
+      if (!window.confirm('Fetch and safely fast-forward local main, back up PostgreSQL when code changes, validate everything, and start the app?')) return;
+      updateButton.disabled = true;
+      startButton.disabled = true;
+      wasStarting = true;
+      await fetch('/__control/update-restart', {
         method: 'POST',
         headers: { '${controlHeader}': '1' },
       });
