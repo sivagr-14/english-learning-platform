@@ -59,10 +59,34 @@ app.get("/health", (_req, res) => {
 // Readiness is separate from liveness so the GUI can identify an unavailable
 // auxiliary worker without incorrectly reporting that the backend never started.
 app.get("/ready", async (_req, res) => {
-  const workerReady = await generationWorkerReady();
-  res.status(workerReady ? 200 : 503).json({
-    status: workerReady ? "READY" : "DEGRADED",
-    services: { generationWorker: workerReady ? "ready" : "unavailable" },
+  const [workerReady, databaseReady, redisReady] = await Promise.all([
+    generationWorkerReady(),
+    database.raw("select 1").then(() => true).catch(() => false),
+    getRedisClient()
+      .then(async (redis) => {
+        if (!redis) return false;
+        return (await redis.ping()) === "PONG";
+      })
+      .catch(() => false),
+  ]);
+  const infrastructureReady = workerReady && databaseReady && redisReady;
+  const geminiEnabled = process.env.GEMINI_ENABLED === "true";
+  const geminiConfigured = Boolean(
+    process.env.PRIMARY_AI_API_KEY || process.env.GEMINI_API_KEY,
+  );
+  res.status(infrastructureReady ? 200 : 503).json({
+    status: infrastructureReady ? "READY" : "DEGRADED",
+    services: {
+      postgresql: databaseReady ? "ready" : "unavailable",
+      redis: redisReady ? "ready" : "unavailable",
+      generationWorker: workerReady ? "ready" : "unavailable",
+      chatgptContentPack: "ready",
+      gemini: !geminiEnabled
+        ? "disabled"
+        : geminiConfigured
+          ? "configured"
+          : "missing_key",
+    },
   });
 });
 
