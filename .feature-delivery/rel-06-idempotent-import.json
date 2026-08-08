@@ -8,6 +8,7 @@
     "packages/backend/src/services/provider-neutral-job.repository.ts"
   ],
   "validationPaths": [
+    "packages/backend/src/database/migrations/024_rel_06_idempotent_import.test.ts",
     "packages/backend/src/services/content-pack.service.test.ts",
     "packages/backend/src/services/provider-neutral-job.repository.test.ts"
   ],
