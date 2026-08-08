@@ -16,6 +16,7 @@ const frontendUrl = `http://${frontendHost}:${frontendPort}`;
 const frontendDirectory = path.join(repoRoot, 'packages', 'frontend');
 const backendDirectory = path.join(repoRoot, 'packages', 'backend');
 const backendUrl = 'http://127.0.0.1:5001/health';
+const backendReadinessUrl = 'http://127.0.0.1:5001/ready';
 const envPath = path.join(repoRoot, '.env.local');
 const envExamplePath = path.join(repoRoot, '.env.example');
 const controlHeader = 'x-english-mastery-control';
@@ -32,16 +33,35 @@ function delay(milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
-async function urlHealthy(url, timeout = 2500) {
+async function probeUrl(url, timeout = 2500) {
   try {
     const response = await fetch(url, {
       redirect: 'manual',
       signal: AbortSignal.timeout(timeout),
     });
-    return response.status >= 200 && response.status < 500;
-  } catch {
-    return false;
+    let body = '';
+    try { body = await response.text(); } catch {}
+    return { ok: response.ok, status: response.status, body };
+  } catch (error) {
+    return {
+      ok: false,
+      status: null,
+      body: error instanceof Error ? error.message : String(error),
+    };
   }
+}
+
+async function urlHealthy(url, timeout = 2500) {
+  return (await probeUrl(url, timeout)).ok;
+}
+
+function useLocalServiceHosts(environment = process.env) {
+  return {
+    ...environment,
+    DB_HOST: '127.0.0.1',
+    DB_PORT: environment.DB_PORT || '5432',
+    REDIS_URL: 'redis://127.0.0.1:6379',
+  };
 }
 
 function commandResult(command, args, options = {}) {
@@ -219,6 +239,10 @@ class ControlManager {
 
   async backendReady() {
     return urlHealthy(backendUrl);
+  }
+
+  async workerReady() {
+    return probeUrl(backendReadinessUrl);
   }
 
   async appReady() {
@@ -410,7 +434,10 @@ class ControlManager {
   }
 
   async migrate() {
-    await this.runAsync(
+    const previousEnvironment = process.env;
+    process.env = useLocalServiceHosts(process.env);
+    try {
+      await this.runAsync(
       process.execPath,
       [
         path.join(repoRoot, 'node_modules', 'knex', 'bin', 'cli.js'),
@@ -421,7 +448,10 @@ class ControlManager {
         'migrate:latest',
       ],
       (output) => this.log(output),
-    );
+      );
+    } finally {
+      process.env = previousEnvironment;
+    }
   }
 
   async verifyMigrations() {
@@ -659,7 +689,7 @@ class ControlManager {
       'bin.js',
     );
     const childEnvironment = {
-      ...process.env,
+      ...useLocalServiceHosts(process.env),
       NODE_ENV: 'development',
       HOST: '127.0.0.1',
       PORT: '5001',
@@ -759,13 +789,15 @@ class ControlManager {
   async waitForServices() {
     let lastBackend = false;
     let lastFrontend = false;
+    let lastWorker = { ok: false, status: null, body: '' };
     for (let attempt = 0; attempt < 75; attempt += 1) {
       if (this.serviceFailure) throw this.serviceFailure;
       [lastBackend, lastFrontend] = await Promise.all([
         this.backendReady(),
         this.frontendReady(true),
       ]);
-      if (lastBackend && lastFrontend) return;
+      if (lastBackend) lastWorker = await this.workerReady();
+      if (lastBackend && lastFrontend && lastWorker.ok) return;
       if (this.services?.some((child) => child.exitCode !== null)) {
         throw new Error('A web service stopped before the app became ready.');
       }
@@ -773,10 +805,18 @@ class ControlManager {
     }
     const unavailable = [
       !lastBackend && 'backend',
+      lastBackend && !lastWorker.ok && 'generation worker',
       !lastFrontend && 'frontend',
     ].filter(Boolean);
     const diagnostics = unavailable
       .map((name) => {
+        if (name === 'generation worker') {
+          const workerOutput = this.serviceOutput.worker || [];
+          const readiness = lastWorker.status
+            ? `readiness HTTP ${lastWorker.status}: ${lastWorker.body || '(empty body)'}`
+            : `readiness request failed: ${lastWorker.body || 'no response'}`;
+          return `${readiness}. worker last output: ${workerOutput.slice(-8).join(' | ') || '(no output)'}`;
+        }
         const output = this.serviceOutput[name] || [];
         return output.length
           ? `${name} last output: ${output.slice(-6).join(' | ')}`
