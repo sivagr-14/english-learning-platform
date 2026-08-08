@@ -5,6 +5,8 @@ import {
   GENERATION_QUEUE_NAME,
   GenerationJobData,
   GenerationJobName,
+  enqueueAfterCommit,
+  generationStageJobId,
   getGenerationQueue,
 } from "./generation.queue";
 import { GenerationJobService } from "../services/generation-job.service";
@@ -23,6 +25,10 @@ import { database } from "../utils/db";
 import { logger } from "../utils/logger";
 import { readJson } from "../utils/json";
 import { ProviderNeutralJobRepository } from "../services/provider-neutral-job.repository";
+import {
+  GENERATION_WORKER_HEALTH_KEY,
+  GENERATION_WORKER_HEALTH_TTL_SECONDS,
+} from "./worker-health";
 
 const jobService = new GenerationJobService(database);
 
@@ -114,6 +120,20 @@ async function handleAssess(
 ) {
   const { generationJobId, userId } = job.data;
   const record = await jobService.get(userId, generationJobId);
+  const existingProgress = readJson<Record<string, unknown>>(
+    record.stage_progress,
+    {},
+  );
+
+  // A previous delivery may have committed the assessment handoff but failed
+  // before (or while) adding the deterministic BullMQ job. Do not assess or
+  // persist twice; simply repair the queue delivery from durable state.
+  if (existingProgress.manifestId && existingProgress.manifestHash) {
+    await getGenerationQueue().add("generate", job.data, {
+      jobId: generationStageJobId(generationJobId, "generate"),
+    });
+    return;
+  }
 
   // Chunking is re-derived rather than passed through the job payload a
   // second time, to keep queue payloads small. See handleExtract for the
@@ -186,46 +206,42 @@ async function handleAssess(
   if (!durableManifest?.assessment_run_id) {
     throw new Error("Claimed manifest is missing its durable assessment run.");
   }
-  await database("generation_jobs").where({ id: generationJobId }).update({
-    assessment_run_id: durableManifest.assessment_run_id,
-    manifest_id: manifestId,
-    updated_at: new Date(),
-  });
-  await new ProviderNeutralJobRepository(database).recordManifest(
-    generationJobId,
-    manifestDoc,
-  );
-
-  await jobService.updateStatus(generationJobId, "generating", {
-    stageProgress: {
-      chunksTotal: chunks.length,
-      chunksProcessed: chunks.length,
-      candidatesFound: manifestDoc.candidates.length,
-    },
-  });
-
-  await getGenerationQueue().add(
-    "generate",
-    { ...job.data } as GenerationJobData,
-    { jobId: `${generationJobId}:generate` },
-  );
-  const existingProgress = readJson<Record<string, unknown>>(
-    record.stage_progress,
-    {},
-  );
-  await database("generation_jobs")
-    .where({ id: generationJobId })
-    .update({
-      stage_progress: JSON.stringify({
-        ...existingProgress,
-        chunksTotal: chunks.length,
-        chunksProcessed: chunks.length,
-        candidatesFound: manifestDoc.candidates.length,
-        manifestId,
-        manifestHash,
+  const durableProgress = {
+    ...existingProgress,
+    chunksTotal: chunks.length,
+    chunksProcessed: chunks.length,
+    candidatesFound: manifestDoc.candidates.length,
+    manifestId,
+    manifestHash,
+  };
+  await enqueueAfterCommit(
+    () =>
+      database.transaction(async (trx: any) => {
+        await new ProviderNeutralJobRepository(trx).recordManifest(
+          generationJobId,
+          manifestDoc,
+        );
+        await trx("generation_jobs")
+          .where({ id: generationJobId })
+          .update({
+            assessment_run_id: durableManifest.assessment_run_id,
+            manifest_id: manifestId,
+            status: "generating",
+            stage_progress: JSON.stringify(durableProgress),
+            updated_at: new Date(),
+          });
+        await trx("generation_job_events").insert({
+          generation_job_id: generationJobId,
+          event_type: "job.generating",
+          stage: "generating",
+          details: JSON.stringify(durableProgress),
+        });
       }),
-      updated_at: new Date(),
-    });
+    () =>
+      getGenerationQueue().add("generate", job.data, {
+        jobId: generationStageJobId(generationJobId, "generate"),
+      }),
+  );
 }
 
 async function handleGenerate(
@@ -488,6 +504,28 @@ export function startGenerationWorker() {
     },
     { connection: createQueueConnection(), concurrency },
   );
+
+  const healthConnection = createQueueConnection();
+  const publishHealth = async () => {
+    try {
+      await healthConnection.set(
+        GENERATION_WORKER_HEALTH_KEY,
+        JSON.stringify({ pid: process.pid, readyAt: new Date().toISOString() }),
+        "EX",
+        GENERATION_WORKER_HEALTH_TTL_SECONDS,
+      );
+    } catch (error) {
+      logger.error("Could not publish generation worker readiness", error);
+    }
+  };
+  const healthTimer = setInterval(() => void publishHealth(), 5_000);
+  healthTimer.unref();
+  void worker.waitUntilReady().then(publishHealth);
+  worker.on("closing", () => {
+    clearInterval(healthTimer);
+    void healthConnection.del(GENERATION_WORKER_HEALTH_KEY).catch(() => {});
+    healthConnection.disconnect();
+  });
 
   worker.on("failed", async (job, error) => {
     if (!job) return;

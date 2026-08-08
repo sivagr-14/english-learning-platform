@@ -179,6 +179,33 @@ test('mock startup reports an exited PostgreSQL container immediately with logs'
   );
 });
 
+test('normal startup supervises backend, generation worker, and frontend', () => {
+  const spawned = [];
+  const fakeChild = () => {
+    const child = new EventEmitter();
+    child.stdout = new EventEmitter();
+    child.stderr = new EventEmitter();
+    child.killed = false;
+    child.exitCode = null;
+    child.kill = () => { child.killed = true; };
+    return child;
+  };
+  const manager = new ControlManager({
+    spawnChild: (_command, args, options) => {
+      spawned.push({ args, cwd: options.cwd });
+      return fakeChild();
+    },
+  });
+
+  manager.spawnServices();
+
+  assert.equal(spawned.length, 3);
+  assert.ok(spawned.some(({ args }) => args.some((arg) => /src\/worker\.ts$/.test(arg))));
+  assert.ok(spawned.some(({ args }) => args.some((arg) => /src\/index\.ts$/.test(arg))));
+  assert.ok(spawned.some(({ args }) => args.includes('dev')));
+  manager.stopServices();
+});
+
 test('web services start from their own workspaces and preserve clean-exit diagnostics', async () => {
   const launches = [];
   const spawnChild = (command, args, options) => {

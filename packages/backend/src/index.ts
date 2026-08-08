@@ -10,6 +10,7 @@ import { appRevision } from "./services/app-version.service";
 import { synchronizeContentPacks } from "./services/content-pack.service";
 import { database } from "./utils/db";
 import { getRedisClient } from "./utils/redis";
+import { generationWorkerReady } from "./queue/worker-health";
 
 // Load environment variables
 dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
@@ -45,13 +46,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Health check endpoint
-app.get("/health", (req, res) => {
-  res.json({
-    status: "OK",
+app.get("/health", async (_req, res) => {
+  const workerReady = await generationWorkerReady();
+  res.status(workerReady ? 200 : 503).json({
+    status: workerReady ? "OK" : "DEGRADED",
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
     environment: process.env.NODE_ENV || "development",
     revision: appRevision,
+    services: { generationWorker: workerReady ? "ready" : "unavailable" },
   });
 });
 

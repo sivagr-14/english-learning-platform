@@ -51,8 +51,8 @@ wait_for_url() {
   done
 }
 
-# Wait for common services
-# Backend health endpoint
+# The backend health endpoint includes generation-worker readiness. A 200
+# therefore proves backend, Redis and the BullMQ worker are all available.
 BACKEND_HEALTH_URL="${BACKEND_HEALTH_URL:-http://localhost:5001/health}"
 FRONTEND_URL="${FRONTEND_URL:-http://localhost:3000}"
 
