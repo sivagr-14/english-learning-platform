@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "featureId": "ext-07-ext-08-taxonomy-review",
+  "title": "Strict taxonomy validation and auditable candidate review workspace",
+  "implementationPaths": [
+    "packages/backend/src/database/migrations/025_ext_07_08_candidate_review.ts",
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/backend/src/routes/generation.ts",
+    "packages/backend/src/services/candidate-review.service.ts",
+    "packages/backend/src/services/generation-job.service.ts",
+    "packages/backend/src/services/in-app-generation.service.ts",
+    "packages/backend/src/services/provider-neutral-job.repository.ts",
+    "packages/frontend/app/candidate-review/page.tsx",
+    "packages/frontend/components/AppShell.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/candidate-review.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "EXT-07 and EXT-08 enforce the approved three-level taxonomy, confidence routing and auditable candidate-review workflow already required by the canonical ChatGPT workflow and vocabulary-generation instructions; they do not change either instruction contract."
+  }
+}
