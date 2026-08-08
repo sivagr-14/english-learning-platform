@@ -156,17 +156,6 @@ export class ContentPackService {
         .first();
       if (existing) {
         if (existing.manifest_hash !== validation.hash) {
-          await this.database("content_pack_manifests")
-            .where({ id: validation.value.manifestId })
-            .update({
-              status: "conflict",
-              validation_report: JSON.stringify({
-                issues: [
-                  "The same manifestId was reused with different content.",
-                ],
-              }),
-              updated_at: new Date(),
-            });
           result.errors.push({
             path: document.path,
             message: "The manifest ID already exists with different content.",
@@ -224,15 +213,6 @@ export class ContentPackService {
         .first();
       if (existing) {
         if (existing.content_hash !== contentHash) {
-          await this.database("content_pack_batches")
-            .where({ id: existing.id })
-            .update({
-              status: "conflict",
-              validation_report: JSON.stringify({
-                issues: ["The same batchId was reused with different content."],
-              }),
-              updated_at: new Date(),
-            });
           result.errors.push({
             path: document.path,
             message: "The batch ID already exists with different content.",
@@ -249,17 +229,6 @@ export class ContentPackService {
         })
         .first();
       if (occupiedPlanSlot) {
-        await this.database("content_pack_batches")
-          .where({ id: occupiedPlanSlot.id })
-          .update({
-            status: "conflict",
-            validation_report: JSON.stringify({
-              issues: [
-                "A different batchId already occupies this planned batch number.",
-              ],
-            }),
-            updated_at: new Date(),
-          });
         result.errors.push({
           path: document.path,
           message:
@@ -793,13 +762,18 @@ export class ContentPackService {
     batchRow: any,
     batch: ContentBatch,
   ) {
-    return this.database.transaction(async (trx: any) => {
+    const committed = await this.database.transaction(async (trx: any) => {
       const lockedBatch = await trx("content_pack_batches")
         .where({ id: batchRow.id })
         .forUpdate()
         .first();
-      if (lockedBatch.status === "committed") return 0;
-      if (lockedBatch.status !== "staged") return 0;
+      if (lockedBatch.status === "committed") {
+        return {
+          count: 0,
+          wordIds: readJson<string[]>(lockedBatch.committed_word_ids, []),
+        };
+      }
+      if (lockedBatch.status !== "staged") return { count: 0, wordIds: [] };
       const candidates = await trx("assessment_candidates")
         .where({ assessment_run_id: manifestRow.assessment_run_id })
         .whereIn(
@@ -818,11 +792,28 @@ export class ContentPackService {
           owner_user_id: userId,
         })
         .first();
-      if (!job) return 0;
+      if (!job) return { count: 0, wordIds: [] };
       const committedWordIds: string[] = [];
       for (const entry of batch.entries) {
         const candidate: any = candidateByExternalId.get(entry.candidateId);
         if (!candidate || candidate.status !== "approved") continue;
+        const entryHash = createHash("sha256")
+          .update(JSON.stringify(entry))
+          .digest("hex");
+        const receipt = await trx("content_pack_entry_receipts")
+          .where({ manifest_id: manifestRow.id, candidate_id: entry.candidateId })
+          .forUpdate()
+          .first();
+        if (receipt) {
+          if (receipt.content_hash !== entryHash) {
+            throw statusError(
+              `Candidate ${entry.candidateId} was reused with different content.`,
+              409,
+            );
+          }
+          committedWordIds.push(receipt.word_id);
+          continue;
+        }
         const categories = readJson<any[]>(candidate.proposed_categories, []);
         const primary = categories.find(
           (category) => category.relationship === "primary",
@@ -870,6 +861,16 @@ export class ContentPackService {
         }
         const wordId = imported.items[0].word.id;
         committedWordIds.push(wordId);
+        await trx("content_pack_entry_receipts").insert({
+          manifest_id: manifestRow.id,
+          batch_id: batch.batchId,
+          candidate_id: entry.candidateId,
+          content_hash: entryHash,
+          word_id: wordId,
+          verification_report: JSON.stringify({}),
+          created_at: new Date(),
+          updated_at: new Date(),
+        });
         await trx("generation_job_items")
           .where({
             generation_job_id: job.id,
@@ -910,7 +911,76 @@ export class ContentPackService {
           committed_at: new Date(),
           updated_at: new Date(),
         });
-      return committedWordIds.length;
+      return { count: committedWordIds.length, wordIds: committedWordIds };
+    });
+    if (committed.wordIds.length) {
+      await this.verifyCommittedBatch(userId, batch.batchId, committed.wordIds);
+    }
+    return committed.count;
+  }
+
+  private async verifyCommittedBatch(
+    userId: string,
+    batchId: string,
+    wordIds: string[],
+  ) {
+    const rows = await this.database("vocabulary_words as words")
+      .join("vocabulary_lessons as lessons", "lessons.word_id", "words.id")
+      .join("vocabulary_entry_versions as versions", function (this: any) {
+        this.on("versions.word_id", "=", "words.id").andOn(
+          "versions.version_number",
+          "=",
+          "words.entry_version",
+        );
+      })
+      .join("user_progress as progress", function (this: any) {
+        this.on("progress.word_id", "=", "words.id").andOnVal(
+          "progress.user_id",
+          "=",
+          userId,
+        );
+      })
+      .join("flashcard_queue as queue", function (this: any) {
+        this.on("queue.word_id", "=", "words.id").andOnVal(
+          "queue.user_id",
+          "=",
+          userId,
+        );
+      })
+      .join(
+        "vocabulary_taxonomy_categories as taxonomy",
+        "taxonomy.category_key",
+        "words.taxonomy_category_key",
+      )
+      .whereIn("words.id", [...new Set(wordIds)])
+      .where("words.owner_user_id", userId)
+      .select("words.id");
+    const verifiedIds = new Set(rows.map((row: any) => row.id));
+    const missing = [...new Set(wordIds)].filter((id) => !verifiedIds.has(id));
+    if (missing.length) {
+      throw statusError(
+        `Post-commit read-back failed for ${missing.length} entr${missing.length === 1 ? "y" : "ies"}.`,
+        500,
+      );
+    }
+    const now = new Date();
+    await this.database.transaction(async (trx: any) => {
+      await trx("content_pack_entry_receipts")
+        .where({ batch_id: batchId })
+        .whereIn("word_id", wordIds)
+        .update({
+          verified_at: now,
+          verification_report: JSON.stringify({ verified: true }),
+          updated_at: now,
+        });
+      await trx("content_pack_batches").where({ id: batchId }).update({
+        readback_verified_at: now,
+        readback_report: JSON.stringify({
+          verified: true,
+          entryCount: new Set(wordIds).size,
+        }),
+        updated_at: now,
+      });
     });
   }
 
@@ -949,8 +1019,15 @@ export class ContentPackService {
       .count({ count: "id" })
       .first();
     const unresolvedSenseCount = Number(unresolvedSenses?.count || 0);
+    const unverifiedBatches = await this.database("content_pack_batches")
+      .where({ manifest_id: manifestId, status: "committed" })
+      .whereNull("readback_verified_at")
+      .count({ count: "id" })
+      .first();
     const complete =
-      completed === Number(job.total_items) && unresolvedSenseCount === 0;
+      completed === Number(job.total_items) &&
+      unresolvedSenseCount === 0 &&
+      Number(unverifiedBatches?.count || 0) === 0;
     const attention =
       manual > 0 ||
       failed > 0 ||

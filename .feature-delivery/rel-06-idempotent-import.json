@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "featureId": "rel-06-idempotent-import",
+  "title": "Idempotent atomic imports with post-commit read-back proof",
+  "implementationPaths": [
+    "packages/backend/src/database/migrations/024_rel_06_idempotent_import.ts",
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/backend/src/services/provider-neutral-job.repository.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/database/rel-06-idempotent-import.test.ts",
+    "packages/backend/src/services/content-pack.service.test.ts",
+    "packages/backend/src/services/provider-neutral-job.repository.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "REL-06 enforces the idempotency, atomic transaction, learner-history preservation and PostgreSQL read-back guarantees already required by the canonical ChatGPT workflow; it does not change assessment or lesson-generation instructions."
+  }
+}

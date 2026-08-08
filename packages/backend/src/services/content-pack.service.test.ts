@@ -196,7 +196,7 @@ describe("ChatGPT content-pack staging ledger", () => {
     expect(database.memory.tables.content_pack_batches).toHaveLength(1);
   });
 
-  it("marks a reused batch ID with changed content as a conflict", async () => {
+  it("rejects a changed reused batch ID without mutating saved content", async () => {
     const database = databaseDouble();
     const service = new ContentPackService(database);
     const { documents, batch } = smokeDocuments();
@@ -210,7 +210,26 @@ describe("ChatGPT content-pack staging ledger", () => {
 
     expect(conflict.errors[0].message).toMatch(/different content/i);
     expect(database.memory.tables.content_pack_batches[0].status).toBe(
-      "conflict",
+      "staged",
     );
+    expect(database.memory.tables.content_pack_batches[0].payload).toBe(
+      documents[1].content,
+    );
+  });
+
+  it("rejects a changed reused manifest ID without mutating saved content", async () => {
+    const database = databaseDouble();
+    const service = new ContentPackService(database);
+    const { documents, manifest } = smokeDocuments();
+    await service.ingestDocuments(documents);
+    const original = { ...database.memory.tables.content_pack_manifests[0] };
+
+    manifest.source.name = "Changed immutable source";
+    const conflict = await service.ingestDocuments([
+      { path: "manifest.json", content: JSON.stringify(manifest) },
+    ]);
+
+    expect(conflict.errors[0].message).toMatch(/different content/i);
+    expect(database.memory.tables.content_pack_manifests[0]).toEqual(original);
   });
 });

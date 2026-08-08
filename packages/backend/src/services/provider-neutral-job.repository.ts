@@ -30,6 +30,22 @@ export function durableHash(value: unknown): string {
   return createHash("sha256").update(stableJson(value)).digest("hex");
 }
 
+export function assertImmutableContent(
+  kind: string,
+  immutableId: string,
+  stored: unknown,
+  incoming: unknown,
+): void {
+  if (durableHash(stored) !== durableHash(incoming)) {
+    const error = new Error(
+      `${kind} ${immutableId} was reused with different content.`,
+    ) as Error & { status: number; code: string };
+    error.status = 409;
+    error.code = "IMMUTABLE_ID_CONFLICT";
+    throw error;
+  }
+}
+
 /** Provider and model are deliberately excluded from manifest identity. */
 export function manifestIdentity(input: JobIdentityInput): string {
   return durableHash({
@@ -112,6 +128,16 @@ export class ProviderNeutralJobRepository {
               external_candidate_id: candidate.candidateId,
             })
             .first());
+        if (!decision) {
+          assertImmutableContent(
+            "Candidate",
+            candidate.candidateId,
+            typeof stored.snapshot === "string"
+              ? JSON.parse(stored.snapshot)
+              : stored.snapshot,
+            candidate,
+          );
+        }
         decisionIdByExternal.set(candidate.candidateId, stored.id);
 
         const occurrences = candidate.occurrences ?? [];
@@ -151,6 +177,15 @@ export class ProviderNeutralJobRepository {
               batch_number: planned.batchNumber,
             })
             .first());
+        const incomingBatchHash = durableHash(candidateIds);
+        if (!batch && storedBatch.immutable_hash !== incomingBatchHash) {
+          const error = new Error(
+            `Planned batch ${planned.batchNumber} was reused with different candidate membership.`,
+          ) as Error & { status: number; code: string };
+          error.status = 409;
+          error.code = "IMMUTABLE_ID_CONFLICT";
+          throw error;
+        }
         const members = candidateIds
           .map((candidateId: string, index: number) => ({
             batch_id: storedBatch.id,

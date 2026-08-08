@@ -1,4 +1,5 @@
 import {
+  assertImmutableContent,
   durableHash,
   manifestIdentity,
 } from "./provider-neutral-job.repository";
@@ -39,5 +40,27 @@ describe("provider-neutral durable job identity", () => {
     expect(durableHash(identity.policySnapshot)).not.toBe(
       durableHash({ frequencies: ["heavy"], maxBatch: 10 }),
     );
+  });
+
+  it("accepts identical immutable content regardless of object key order", () => {
+    expect(() =>
+      assertImmutableContent(
+        "Candidate",
+        "candidate-001",
+        { decision: "generate", term: "bank" },
+        { term: "bank", decision: "generate" },
+      ),
+    ).not.toThrow();
+  });
+
+  it("rejects changed content under the same immutable ID", () => {
+    expect(() =>
+      assertImmutableContent(
+        "Candidate",
+        "candidate-001",
+        { term: "bank", meaning: "financial institution" },
+        { term: "bank", meaning: "land beside a river" },
+      ),
+    ).toThrow(/reused with different content/i);
   });
 });
