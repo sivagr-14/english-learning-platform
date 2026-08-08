@@ -22,6 +22,7 @@ import {
   validateUploadMetadata,
 } from "../services/staged-upload.service";
 import { CandidateReviewService } from "../services/candidate-review.service";
+import { GeminiAdapter } from "../services/ai-provider.service";
 
 const router: Router = express.Router();
 const jobService = new GenerationJobService(database);
@@ -51,6 +52,7 @@ router.get("/config-check", (_req: Request, res: Response) => {
   );
   const escalationKeySet = Boolean(process.env.ESCALATION_AI_API_KEY);
   res.json({
+    enabled: primaryKeySet && process.env.GEMINI_ENABLED === "true",
     primaryConfigured: primaryKeySet,
     escalationConfigured: escalationKeySet,
     primaryProvider: process.env.PRIMARY_AI_PROVIDER || "gemini",
@@ -62,6 +64,20 @@ router.get("/config-check", (_req: Request, res: Response) => {
 
 router.use(authMiddleware);
 router.use(generationLimiter as unknown as express.RequestHandler);
+
+router.post(
+  "/provider/test",
+  async (_req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      if (process.env.GEMINI_ENABLED !== "true")
+        return res.status(409).json({ error: "Gemini is disabled in local configuration." });
+      const result = await new GeminiAdapter().testConnection();
+      res.json({ connected: true, ...result });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
 const CreateJobSchema = z.object({
   sourceName: z.string().min(1).max(255),
@@ -78,12 +94,19 @@ const CreateJobSchema = z.object({
   // ~500 KB of plain text ≈ a 350-page book. Larger uploads should use
   // a multipart file endpoint (Phase 4) rather than a JSON string field.
   sourceContent: z.string().min(1).max(500_000),
-});
+  warningBudgetUsd: z.number().positive().max(100).optional(),
+  hardBudgetUsd: z.number().positive().max(100).optional(),
+}).refine(
+  (value) => !value.warningBudgetUsd || !value.hardBudgetUsd || value.warningBudgetUsd <= value.hardBudgetUsd,
+  { message: "Warning budget cannot exceed hard budget" },
+);
 
 router.post(
   "/jobs",
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
+      if (process.env.GEMINI_ENABLED !== "true")
+        return res.status(409).json({ error: "Gemini imports are disabled. Set GEMINI_ENABLED=true in local secret configuration." });
       if (!(await generationWorkerReady())) {
         return res.status(503).json({
           error:
@@ -97,6 +120,8 @@ router.post(
         sourceName: input.sourceName,
         sourceType: input.sourceType,
         sourceContent: input.sourceContent,
+        warningBudgetUsd: input.warningBudgetUsd,
+        hardBudgetUsd: input.hardBudgetUsd,
       });
 
       if (isNew) {
@@ -118,6 +143,8 @@ router.post(
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     let stagedPath: string | undefined;
     try {
+      if (process.env.GEMINI_ENABLED !== "true")
+        return res.status(409).json({ error: "Gemini imports are disabled. Set GEMINI_ENABLED=true in local secret configuration." });
       if (!(await generationWorkerReady()))
         return res.status(503).json({
           error:

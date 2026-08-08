@@ -32,6 +32,8 @@ export interface CreateGenerationJobInput {
   sourceName: string;
   sourceType: "text" | "md" | "html" | "vtt" | "pdf" | "srt" | "docx" | "epub";
   sourceContent: string;
+  warningBudgetUsd?: number;
+  hardBudgetUsd?: number;
 }
 
 export interface CreateStagedGenerationJobInput extends Omit<
@@ -111,6 +113,8 @@ export class GenerationJobService {
           }),
           policy_hash: durableHash(policySnapshot),
           policy_snapshot: JSON.stringify(policySnapshot),
+          warning_budget_usd: input.warningBudgetUsd ?? Number(process.env.GEMINI_WARNING_BUDGET_USD || 1),
+          hard_budget_usd: input.hardBudgetUsd ?? Number(process.env.GEMINI_HARD_BUDGET_USD || 2),
         })
         .returning("*");
 

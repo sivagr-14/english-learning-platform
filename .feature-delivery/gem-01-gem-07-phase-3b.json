@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "featureId": "gem-01-gem-07-phase-3b",
+  "title": "Implement the controlled Gemini generation workflow",
+  "implementationPaths": [
+    "packages/backend/src/database/migrations/027_gemini_phase_3b.ts",
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/backend/src/routes/generation.ts",
+    "packages/backend/src/services/ai-provider.service.ts",
+    "packages/backend/src/services/generation-job.service.ts",
+    "packages/backend/src/services/in-app-generation.service.ts",
+    "packages/backend/src/services/provider-neutral-job.repository.ts",
+    "packages/frontend/app/import/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/in-app-generation.phase3b.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "Phase 3B adds the in-application Gemini provider workflow without changing the separate ChatGPT content-pack or vocabulary-generation contracts."
+  }
+}

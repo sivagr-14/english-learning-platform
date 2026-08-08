@@ -18,6 +18,7 @@ interface GenerationJob {
     | "assessing"
     | "generating"
     | "validating"
+    | "attention_required"
     | "committed"
     | "failed"
     | "cancelled";
@@ -29,6 +30,11 @@ interface GenerationJob {
     lessonsFailedValidation?: number;
     lessonsTotal?: number;
     lessonsCommitted?: number;
+    totalInputTokens?: number;
+    totalOutputTokens?: number;
+    totalCostUsd?: number;
+    attentionCount?: number;
+    budgetBlocked?: boolean;
   };
   error_message?: string | null;
   created_at: string;
@@ -43,6 +49,7 @@ const STAGE_LABELS: Record<GenerationJob["status"], string> = {
   committed: "Done",
   failed: "Failed",
   cancelled: "Cancelled",
+  attention_required: "Attention required",
 };
 
 const EXTENSION_TO_TYPE: Record<string, SourceType> = {
@@ -58,6 +65,7 @@ const EXTENSION_TO_TYPE: Record<string, SourceType> = {
 };
 
 interface ConfigCheck {
+  enabled: boolean;
   primaryConfigured: boolean;
   escalationConfigured: boolean;
   primaryProvider: string;
@@ -73,6 +81,10 @@ export default function ImportPage() {
   const [jobs, setJobs] = useState<GenerationJob[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [config, setConfig] = useState<ConfigCheck | null>(null);
+  const [testingProvider, setTestingProvider] = useState(false);
+  const [providerMessage, setProviderMessage] = useState("");
+  const [warningBudget, setWarningBudget] = useState("1.00");
+  const [hardBudget, setHardBudget] = useState("2.00");
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const loadJobs = useCallback(async () => {
@@ -149,6 +161,8 @@ export default function ImportPage() {
         sourceName,
         sourceType,
         sourceContent,
+        warningBudgetUsd: Number(warningBudget),
+        hardBudgetUsd: Number(hardBudget),
       });
 
       setPastedText("");
@@ -164,6 +178,19 @@ export default function ImportPage() {
       );
     } finally {
       setSubmitting(false);
+    }
+  }
+
+  async function testProvider() {
+    setTestingProvider(true);
+    setProviderMessage("");
+    try {
+      const { data } = await getApiClient().post("/api/generation/provider/test");
+      setProviderMessage(`Connected to ${data.model} in ${data.latencyMs} ms.`);
+    } catch (err: any) {
+      setProviderMessage(err?.response?.data?.error || "Gemini connection failed.");
+    } finally {
+      setTestingProvider(false);
     }
   }
 
@@ -196,6 +223,17 @@ export default function ImportPage() {
               and restart the backend/worker.
             </div>
           )}
+          {config && (
+            <div className="rounded-md border border-slate-200 bg-white p-3 text-sm">
+              <div className="flex items-center justify-between gap-3">
+                <span>Gemini: {config.enabled ? `enabled · ${config.primaryModel}` : "disabled"} · key {config.primaryConfigured ? "configured" : "missing"}</span>
+                <button type="button" onClick={testProvider} disabled={!config.enabled || testingProvider} className="rounded border px-3 py-1 disabled:opacity-50">
+                  {testingProvider ? "Testing…" : "Test connection"}
+                </button>
+              </div>
+              {providerMessage && <p className="mt-2 text-slate-600">{providerMessage}</p>}
+            </div>
+          )}
 
           <form
             onSubmit={handleSubmit}
@@ -216,6 +254,10 @@ export default function ImportPage() {
                 onChange={(event) => setFile(event.target.files?.[0] || null)}
                 disabled={Boolean(pastedText.trim())}
               />
+            </div>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              <label>Warning budget (USD)<input className="mt-1 w-full rounded border p-2" type="number" min="0.01" step="0.01" value={warningBudget} onChange={(e) => setWarningBudget(e.target.value)} /></label>
+              <label>Hard budget (USD)<input className="mt-1 w-full rounded border p-2" type="number" min="0.01" step="0.01" value={hardBudget} onChange={(e) => setHardBudget(e.target.value)} /></label>
             </div>
             {error && <p className="text-sm text-red-600">{error}</p>}
             <button
@@ -298,6 +340,13 @@ function JobRow({
             Cancel
           </button>
         </div>
+      )}
+
+      {(progress.totalInputTokens !== undefined || progress.totalCostUsd !== undefined) && (
+        <p className="mt-2 text-xs text-gray-500">
+          Tokens: {(progress.totalInputTokens ?? 0) + (progress.totalOutputTokens ?? 0)} · Estimated cost: ${(progress.totalCostUsd ?? 0).toFixed(4)}
+          {progress.budgetBlocked ? " · Hard budget reached; valid work is preserved." : ""}
+        </p>
       )}
 
       {job.status === "committed" && (

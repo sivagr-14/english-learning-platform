@@ -18,6 +18,9 @@ export interface GenerateJsonResult<T> {
   data: T;
   inputTokens: number;
   outputTokens: number;
+  cachedTokens: number;
+  model: string;
+  latencyMs: number;
   /** Estimated USD cost using published rates for the model. */
   estimatedCostUsd: number;
 }
@@ -28,6 +31,12 @@ interface GenerateJsonOptions {
   tier: AiTier;
   signal?: AbortSignal;
   timeoutMs?: number;
+  responseSchema?: Record<string, unknown>;
+}
+
+export interface JsonProviderAdapter {
+  generate<T>(options: GenerateJsonOptions): Promise<GenerateJsonResult<T>>;
+  testConnection(signal?: AbortSignal): Promise<{ model: string; latencyMs: number }>;
 }
 
 /**
@@ -102,6 +111,7 @@ interface CallResult {
   text: string;
   inputTokens: number;
   outputTokens: number;
+  cachedTokens: number;
 }
 
 async function callGemini(
@@ -109,6 +119,7 @@ async function callGemini(
   systemPrompt: string,
   userPrompt: string,
   signal?: AbortSignal,
+  responseSchema?: Record<string, unknown>,
 ): Promise<CallResult> {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${config.model}:generateContent?key=${config.apiKey}`;
   const response = await fetch(url, {
@@ -118,8 +129,9 @@ async function callGemini(
       systemInstruction: { parts: [{ text: systemPrompt }] },
       contents: [{ role: "user", parts: [{ text: userPrompt }] }],
       generationConfig: {
-        temperature: 0.4,
+        temperature: 0,
         responseMimeType: "application/json",
+        ...(responseSchema ? { responseSchema } : {}),
       },
     }),
     signal,
@@ -136,6 +148,7 @@ async function callGemini(
     text,
     inputTokens: Number(usage.promptTokenCount ?? 0),
     outputTokens: Number(usage.candidatesTokenCount ?? 0),
+    cachedTokens: Number(usage.cachedContentTokenCount ?? 0),
   };
 }
 
@@ -251,6 +264,7 @@ async function callOpenAiCompatible(
     text,
     inputTokens: Number(usage.prompt_tokens ?? 0),
     outputTokens: Number(usage.completion_tokens ?? 0),
+    cachedTokens: Number(usage.cached_tokens ?? 0),
   };
 }
 
@@ -287,6 +301,7 @@ async function callAnthropic(
     text,
     inputTokens: Number(usage.input_tokens ?? 0),
     outputTokens: Number(usage.output_tokens ?? 0),
+    cachedTokens: Number(usage.cache_read_input_tokens ?? 0),
   };
 }
 
@@ -299,6 +314,7 @@ export async function generateJson<T>(
   options: GenerateJsonOptions,
 ): Promise<GenerateJsonResult<T>> {
   const config = configFor(options.tier);
+  const startedAt = Date.now();
   const callResult = await withProviderRetry(async () => {
     const timeout = timeoutSignal(options.signal, options.timeoutMs ?? 90_000);
     try {
@@ -309,6 +325,7 @@ export async function generateJson<T>(
             options.systemPrompt,
             options.userPrompt,
             timeout.signal,
+            options.responseSchema,
           );
         case "openai":
           return await callOpenAiCompatible(
@@ -350,12 +367,8 @@ export async function generateJson<T>(
   try {
     data = JSON.parse(cleaned) as T;
   } catch {
-    logger.warn(
-      `Failed to parse ${tierLabel(options.tier)} model output as JSON`,
-      {
-        raw: callResult.text.slice(0, 1000),
-      },
-    );
+    // Never log provider output: it can contain private source text.
+    logger.warn(`Failed to parse ${tierLabel(options.tier)} model output as JSON`);
     throw new ProviderRequestError(
       "malformed_json",
       `${tierLabel(options.tier)} model (${
@@ -381,8 +394,35 @@ export async function generateJson<T>(
     data,
     inputTokens: callResult.inputTokens,
     outputTokens: callResult.outputTokens,
+    cachedTokens: callResult.cachedTokens,
+    model: config.model,
+    latencyMs: Date.now() - startedAt,
     estimatedCostUsd,
   };
+}
+
+export class GeminiAdapter implements JsonProviderAdapter {
+  generate<T>(options: GenerateJsonOptions) {
+    return generateJson<T>(options);
+  }
+
+  async testConnection(signal?: AbortSignal) {
+    const startedAt = Date.now();
+    const result = await generateJson<{ ok: boolean }>({
+      tier: "primary",
+      systemPrompt: "Return JSON only.",
+      userPrompt: 'Return {"ok":true}. Do not repeat any supplied data.',
+      responseSchema: {
+        type: "OBJECT",
+        properties: { ok: { type: "BOOLEAN" } },
+        required: ["ok"],
+      },
+      signal,
+      timeoutMs: 15_000,
+    });
+    if (result.data.ok !== true) throw new Error("Gemini connectivity response was invalid");
+    return { model: result.model, latencyMs: Date.now() - startedAt };
+  }
 }
 
 function tierLabel(tier: AiTier) {
