@@ -245,7 +245,10 @@ function validatePullRequest(records, changed, base) {
 
   for (const file of productFiles) {
     const covered = changedRecords.some(({ record }) =>
-      (record.implementationPaths || []).some((declaredPath) => pathCovered(file, declaredPath)),
+      [
+        ...(record.implementationPaths || []),
+        ...(record.validationPaths || []),
+      ].some((declaredPath) => pathCovered(file, declaredPath)),
     );
     if (!covered) fail(`changed product file ${file} is not covered by a changed delivery record`);
   }
@@ -321,4 +324,6 @@ function main() {
   }
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = { isProductPath, pathCovered };
