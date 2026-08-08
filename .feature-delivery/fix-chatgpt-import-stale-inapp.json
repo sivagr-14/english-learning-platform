@@ -3,8 +3,8 @@
   "featureId": "fix-chatgpt-import-stale-inapp",
   "title": "Separate in-app generation records from ChatGPT Imports",
   "implementationPaths": [
-    "packages/backend/src/database/migrations/20260808000000_repair_inapp_content_pack_records.ts",
-    "packages/backend/src/services/in-app-generation.worker.ts",
+    "packages/backend/src/database/migrations/999_repair_inapp_content_pack_boundary.ts",
+    "packages/backend/src/queue/generation.worker.ts",
     "packages/backend/src/services/content-pack.service.ts"
   ],
   "validationPaths": [
