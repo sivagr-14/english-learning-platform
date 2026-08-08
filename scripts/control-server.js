@@ -1334,4 +1334,6 @@ module.exports = {
   commandOutput,
   parseContainerState,
   parseEnvironment,
+  probeUrl,
+  useLocalServiceHosts,
 };
