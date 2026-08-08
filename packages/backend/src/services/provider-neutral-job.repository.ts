@@ -168,6 +168,98 @@ export class ProviderNeutralJobRepository {
     });
   }
 
+  /**
+   * Loads the immutable generation plan in exact batch/position order and
+   * attaches any already-persisted valid result. This is the only resume
+   * source: mutable progress JSON and provider response order are ignored.
+   */
+  async loadGenerationPlan(jobId: string) {
+    return this.database("generation_plan_members as member")
+      .join("generation_plan_batches as batch", "member.batch_id", "batch.id")
+      .join(
+        "generation_candidate_decisions as candidate",
+        "member.candidate_decision_id",
+        "candidate.id",
+      )
+      .leftJoin("generation_results as result", function (this: any) {
+        this.on("result.generation_job_id", "=", "batch.generation_job_id").andOn(
+          "result.candidate_decision_id",
+          "=",
+          "candidate.id",
+        );
+      })
+      .where("batch.generation_job_id", jobId)
+      .select(
+        "batch.id as batch_id",
+        "batch.batch_number",
+        "batch.immutable_hash as batch_hash",
+        "member.position",
+        "candidate.id as candidate_decision_id",
+        "candidate.external_candidate_id",
+        "candidate.snapshot",
+        "result.id as result_id",
+        "result.content_hash as result_hash",
+        "result.entry_payload",
+        "result.validation_status",
+      )
+      .orderBy([
+        { column: "batch.batch_number", order: "asc" },
+        { column: "member.position", order: "asc" },
+      ]);
+  }
+
+  /**
+   * Atomically records the successful attempt and schema-valid entry. A
+   * repeated identical result is a no-op; changed content for the same
+   * candidate is an immutable-ID conflict.
+   */
+  async persistValidEntry(input: {
+    jobId: string;
+    candidateDecisionId: string;
+    attemptId: string;
+    entry: unknown;
+    inputTokens: number;
+    outputTokens: number;
+    costUsd: number;
+  }): Promise<"inserted" | "existing"> {
+    const hash = durableHash(input.entry);
+    return this.database.transaction(async (trx: any) => {
+      const existing = await trx("generation_results")
+        .where({
+          generation_job_id: input.jobId,
+          candidate_decision_id: input.candidateDecisionId,
+        })
+        .forUpdate()
+        .first();
+
+      if (existing && existing.content_hash !== hash) {
+        throw new Error(
+          "Durable generation result conflict: candidate already has different content.",
+        );
+      }
+
+      if (!existing) {
+        await trx("generation_results").insert({
+          generation_job_id: input.jobId,
+          candidate_decision_id: input.candidateDecisionId,
+          attempt_id: input.attemptId,
+          content_hash: hash,
+          entry_payload: JSON.stringify(input.entry),
+          validation_status: "valid",
+        });
+      }
+
+      await trx("generation_attempts").where({ id: input.attemptId }).update({
+        status: "succeeded",
+        input_tokens: input.inputTokens,
+        output_tokens: input.outputTokens,
+        cost_usd: input.costUsd,
+        completed_at: new Date(),
+      });
+      return existing ? "existing" : "inserted";
+    });
+  }
+
   async reconstruct(jobId: string) {
     const job = await this.database("generation_jobs")
       .where({ id: jobId })
