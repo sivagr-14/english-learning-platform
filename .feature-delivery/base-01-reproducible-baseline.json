@@ -6,11 +6,11 @@
     "scripts/baseline/build-gold-corpus.js",
     "scripts/baseline/validate-gold-corpus.js",
     "packages/backend/src/database/migrations/018_generation_jobs.ts",
-    "packages/backend/src/database/migrations/018_generation_jobs.test.ts"
+    "packages/backend/src/__tests__/generation-jobs-migration.test.ts"
   ],
   "validationPaths": [
     "scripts/baseline/validate-gold-corpus.js",
-    "packages/backend/src/database/migrations/018_generation_jobs.test.ts"
+    "packages/backend/src/__tests__/generation-jobs-migration.test.ts"
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
