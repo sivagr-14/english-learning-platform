@@ -267,9 +267,21 @@ async function handleGenerate(
     throw new Error("Immutable generation plan is empty -- cannot generate.");
   }
 
-  let totalInputTokens = 0;
-  let totalOutputTokens = 0;
-  let totalCostUsd = 0;
+  const durableAttempts = await database("generation_attempts")
+    .where({ generation_job_id: generationJobId, status: "succeeded" })
+    .select("input_tokens", "output_tokens", "cost_usd");
+  let totalInputTokens = durableAttempts.reduce(
+    (sum: number, attempt: any) => sum + Number(attempt.input_tokens ?? 0),
+    0,
+  );
+  let totalOutputTokens = durableAttempts.reduce(
+    (sum: number, attempt: any) => sum + Number(attempt.output_tokens ?? 0),
+    0,
+  );
+  let totalCostUsd = durableAttempts.reduce(
+    (sum: number, attempt: any) => sum + Number(attempt.cost_usd ?? 0),
+    0,
+  );
 
   // Generate in immutable batch/position order. A row with result_id is
   // already complete and is never sent to the provider again.
