@@ -6,7 +6,8 @@
     "scripts/baseline/build-gold-corpus.js",
     "scripts/baseline/validate-gold-corpus.js",
     "packages/backend/src/database/migrations/018_generation_jobs.ts",
-    "packages/backend/src/__tests__/generation-jobs-migration.test.ts"
+    "packages/backend/src/__tests__/generation-jobs-migration.test.ts",
+    "packages/backend/src/routes/auth.ts"
   ],
   "validationPaths": [
     "scripts/baseline/validate-gold-corpus.js",
@@ -14,6 +15,6 @@
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
-    "rationale": "BASE-01 adds a reproducible test corpus, baseline evidence templates, and a compatibility repair for an existing migration; it does not change source assessment rules, content-pack transport, contextual meanings, taxonomy, or lesson generation."
+    "rationale": "BASE-01 adds a reproducible test corpus and baseline evidence templates. Its CI compatibility repairs preserve the existing generation-jobs schema and auth rate-limit runtime behavior; they do not change source assessment rules, content-pack transport, contextual meanings, taxonomy, or lesson generation."
   }
 }
