@@ -239,6 +239,17 @@ test('normal startup supervises backend, generation worker, and frontend', () =>
   manager.stopServices();
 });
 
+test('failed update identifies its exact stage and gives non-destructive recovery', async () => {
+  const manager = new ControlManager();
+  manager.verifyUpdateWorkspace = () => {
+    throw new Error('working tree is not clean');
+  };
+  await manager.runUpdateAndRestart();
+  assert.match(manager.currentStep, /Checking the local Git workspace/);
+  assert.match(manager.error, /not clean/);
+  assert.match(manager.recovery, /No destructive rollback.*Durable queued\/active jobs/s);
+});
+
 test('web services start from their own workspaces and preserve clean-exit diagnostics', async () => {
   const launches = [];
   const spawnChild = (command, args, options) => {
