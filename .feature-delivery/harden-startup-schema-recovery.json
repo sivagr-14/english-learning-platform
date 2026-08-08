@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "featureId": "harden-startup-schema-recovery",
+  "title": "Enforce and verify the live database schema before application startup",
+  "implementationPaths": [
+    "packages/backend/src/database/migrations/021_enforce_generation_jobs_schema.ts",
+    "packages/backend/src/scripts/verify-startup-schema.ts",
+    "scripts/control-server.js",
+    "scripts/control-server.test.js"
+  ],
+  "validationPaths": ["scripts/control-server.test.js"],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This repairs migration environment selection and validates the live local database before content synchronization; content assessment and vocabulary generation contracts are unchanged."
+  }
+}

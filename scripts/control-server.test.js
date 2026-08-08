@@ -34,12 +34,26 @@ test('migration verification rejects remaining pending migrations', async () => 
 });
 
 test('migration verification accepts a fully applied schema', async () => {
+  const calls = [];
   const manager = new ControlManager({
-    runAsync: async () =>
-      'Found 21 Completed Migration file/files.\nNo Pending Migration files found.',
+    runAsync: async (command, args) => {
+      calls.push([command, ...args]);
+      return 'Found 21 Completed Migration file/files.\nNo Pending Migration files found.';
+    },
   });
 
   await manager.verifyMigrations();
+  assert.ok(calls[0].includes('development'));
+  assert.ok(calls.some((call) => call.some((arg) => /verify-startup-schema\.ts$/.test(arg))));
+});
+
+test('migration commands always use source migrations despite inherited NODE_ENV', async () => {
+  const calls = [];
+  const manager = new ControlManager({
+    runAsync: async (command, args) => calls.push([command, ...args]),
+  });
+  await manager.migrate();
+  assert.deepEqual(calls[0].slice(-3), ['--env', 'development', 'migrate:latest']);
 });
 
 test('environment parser ignores comments and preserves URLs', () => {

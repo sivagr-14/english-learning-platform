@@ -416,6 +416,8 @@ class ControlManager {
         path.join(repoRoot, 'node_modules', 'knex', 'bin', 'cli.js'),
         '--knexfile',
         path.join(repoRoot, 'knexfile.js'),
+        '--env',
+        'development',
         'migrate:latest',
       ],
       (output) => this.log(output),
@@ -429,6 +431,8 @@ class ControlManager {
         path.join(repoRoot, 'node_modules', 'knex', 'bin', 'cli.js'),
         '--knexfile',
         path.join(repoRoot, 'knexfile.js'),
+        '--env',
+        'development',
         'migrate:status',
       ],
       (value) => this.log(value),
@@ -438,6 +442,22 @@ class ControlManager {
         'Database migration verification found pending migrations after migrate:latest.',
       );
     }
+    await this.verifyStartupSchema();
+  }
+
+  async verifyStartupSchema() {
+    const verifyScript = path.join(backendDirectory, 'src', 'scripts', 'verify-startup-schema.ts');
+    await this.runAsync(
+      process.execPath,
+      [
+        path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'),
+        '--transpile-only',
+        '--project',
+        path.join(backendDirectory, 'tsconfig.json'),
+        verifyScript,
+      ],
+      (output) => this.log(output),
+    );
   }
 
   async synchronizeBuiltInContent() {
