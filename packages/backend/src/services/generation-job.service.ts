@@ -1,5 +1,10 @@
 import { Knex } from "knex";
 import { createHash } from "crypto";
+import { importPolicySnapshot } from "../config/import-policy";
+import {
+  durableHash,
+  manifestIdentity,
+} from "./provider-neutral-job.repository";
 
 export type GenerationJobStatus =
   | "queued"
@@ -27,7 +32,10 @@ export interface CreateGenerationJobInput {
   sourceContent: string;
 }
 
-function statusError(message: string, status = 400): Error & { status: number } {
+function statusError(
+  message: string,
+  status = 400,
+): Error & { status: number } {
   const error = new Error(message) as Error & { status: number };
   error.status = status;
   return error;
@@ -52,20 +60,70 @@ export class GenerationJobService {
       .first();
     if (existing) return { job: existing, isNew: false };
 
-    const [job] = await this.database("generation_jobs")
-      .insert({
-        user_id: input.userId,
-        owner_user_id: input.userId,
-        operation_id: `in-app:${sourceHash}`,
-        source_name: input.sourceName,
-        source_type: input.sourceType,
-        source_hash: sourceHash,
-        status: "queued",
-        total_items: 0,
-        stage_progress: JSON.stringify({}),
-      })
-      .returning("*");
-    return { job, isNew: true };
+    const policySnapshot = importPolicySnapshot();
+    const promptVersion = "in-app-generation-v1";
+    const contractVersion = "chatgpt-vocabulary-manifest-v3/simplified-v2";
+
+    const result = await this.database.transaction(async (trx: any) => {
+      const [source] = await trx("content_sources")
+        .insert({
+          owner_user_id: input.userId,
+          source_type: input.sourceType,
+          name: input.sourceName,
+          content_hash: sourceHash,
+          metadata: JSON.stringify({ origin: "in-app" }),
+        })
+        .onConflict(["owner_user_id", "content_hash"])
+        .merge(["name", "source_type", "updated_at"])
+        .returning("*");
+
+      const [job] = await trx("generation_jobs")
+        .insert({
+          user_id: input.userId,
+          owner_user_id: input.userId,
+          operation_id: `in-app:${sourceHash}`,
+          source_name: input.sourceName,
+          source_type: input.sourceType,
+          source_hash: sourceHash,
+          status: "queued",
+          total_items: 0,
+          stage_progress: JSON.stringify({}),
+          provider: "gemini",
+          provider_model: process.env.PRIMARY_AI_MODEL || "gemini-2.0-flash",
+          prompt_version: promptVersion,
+          contract_version: contractVersion,
+          manifest_identity: manifestIdentity({
+            sourceHash,
+            promptVersion,
+            contractVersion,
+            policySnapshot,
+          }),
+          policy_hash: durableHash(policySnapshot),
+          policy_snapshot: JSON.stringify(policySnapshot),
+        })
+        .returning("*");
+
+      const segmentHash = createHash("sha256")
+        .update(input.sourceContent)
+        .digest("hex");
+      await trx("generation_job_segments").insert({
+        generation_job_id: job.id,
+        sequence_number: 0,
+        content_hash: segmentHash,
+        original_text: input.sourceContent,
+        normalized_text: null,
+        locator: JSON.stringify({ sourceId: source.id, kind: "staged-source" }),
+        status: "staged",
+      });
+      await trx("generation_job_events").insert({
+        generation_job_id: job.id,
+        event_type: "job.created",
+        stage: "queued",
+        details: JSON.stringify({ sourceId: source.id }),
+      });
+      return job;
+    });
+    return { job: result, isNew: true };
   }
 
   async get(userId: string, jobId: string) {
@@ -116,7 +174,15 @@ export class GenerationJobService {
         patch.tokensUsedDelta,
       ]);
     }
-    await this.database("generation_jobs").where({ id: jobId }).update(updates);
+    await this.database.transaction(async (trx: any) => {
+      await trx("generation_jobs").where({ id: jobId }).update(updates);
+      await trx("generation_job_events").insert({
+        generation_job_id: jobId,
+        event_type: `job.${status}`,
+        stage: status,
+        details: JSON.stringify(patch.stageProgress ?? {}),
+      });
+    });
   }
 
   async incrementAttempt(jobId: string) {

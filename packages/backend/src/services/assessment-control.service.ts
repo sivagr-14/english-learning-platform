@@ -1,6 +1,11 @@
 import { createHash } from "crypto";
 import { z } from "zod";
 import { importPolicySnapshot } from "../config/import-policy";
+import {
+  durableHash,
+  manifestIdentity,
+} from "./provider-neutral-job.repository";
+import { readJson } from "../utils/json";
 
 export const CandidateActionSchema = z.enum([
   "new",
@@ -24,9 +29,7 @@ export const AssessmentCandidateSchema = z
     learningPriority: z.string().trim().max(30).optional(),
     contextualMeaning: z.string().trim().optional(),
     originalSentence: z.string().trim().optional(),
-    senseDecision: z
-      .enum(["same_sense", "new_sense", "ambiguous"])
-      .optional(),
+    senseDecision: z.enum(["same_sense", "new_sense", "ambiguous"]).optional(),
     senseKey: z.string().trim().min(3).max(180).optional(),
     senseEvidence: z
       .object({
@@ -86,10 +89,7 @@ export const AssessmentCandidateSchema = z
         message: "ambiguous senses must be filtered for attention",
       });
     }
-    if (
-      candidate.senseDecision === "new_sense" &&
-      candidate.action !== "new"
-    ) {
+    if (candidate.senseDecision === "new_sense" && candidate.action !== "new") {
       context.addIssue({
         code: z.ZodIssueCode.custom,
         path: ["action"],
@@ -469,6 +469,15 @@ export class AssessmentControlService {
       }
 
       const operationId = `${run.operation_id}:generation`;
+      const policySnapshot = readJson(
+        run.import_policy,
+        importPolicySnapshot(),
+      );
+      const source = await trx("content_sources")
+        .where({ id: run.source_id })
+        .first();
+      const promptVersion = "chatgpt-content-pack-v3";
+      const contractVersion = "chatgpt-vocabulary-manifest-v3/simplified-v2";
       const job = (
         await trx("generation_jobs")
           .insert({
@@ -477,6 +486,24 @@ export class AssessmentControlService {
             operation_id: operationId,
             status: "approved",
             total_items: candidates.length,
+            user_id: userId,
+            source_name: source?.name ?? null,
+            source_type: source?.source_type ?? null,
+            source_hash: source?.content_hash ?? null,
+            provider: "chatgpt",
+            provider_model: "chatgpt",
+            prompt_version: promptVersion,
+            contract_version: contractVersion,
+            manifest_identity: source?.content_hash
+              ? manifestIdentity({
+                  sourceHash: source.content_hash,
+                  promptVersion,
+                  contractVersion,
+                  policySnapshot,
+                })
+              : null,
+            policy_hash: durableHash(policySnapshot),
+            policy_snapshot: JSON.stringify(policySnapshot),
           })
           .returning("*")
       )[0];

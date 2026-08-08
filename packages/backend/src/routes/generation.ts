@@ -72,7 +72,6 @@ router.post(
         await enqueueExtraction({
           generationJobId: job.id,
           userId: req.userId as string,
-          sourceContent: input.sourceContent,
         });
       }
 
@@ -176,9 +175,10 @@ router.get(
       const id = z.string().uuid().parse(req.params.id);
       const job = await jobService.get(req.userId as string, id);
 
-      const progress = typeof job.stage_progress === "string"
-        ? JSON.parse(job.stage_progress)
-        : (job.stage_progress ?? {});
+      const progress =
+        typeof job.stage_progress === "string"
+          ? JSON.parse(job.stage_progress)
+          : (job.stage_progress ?? {});
 
       const candidateCount: number = progress.candidatesFound ?? 0;
       // Rough estimate: ~3,000 tokens input + 2,000 tokens output per lesson
@@ -186,7 +186,7 @@ router.get(
       const estimatedInputTokens = candidateCount * 3_000;
       const estimatedOutputTokens = candidateCount * 2_000;
       const estimatedCostUsd =
-        (estimatedInputTokens * 0.30 + estimatedOutputTokens * 2.50) / 1_000_000;
+        (estimatedInputTokens * 0.3 + estimatedOutputTokens * 2.5) / 1_000_000;
 
       res.json({
         jobId: id,

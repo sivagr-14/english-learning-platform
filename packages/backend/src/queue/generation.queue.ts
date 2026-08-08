@@ -26,15 +26,6 @@ export type GenerationJobName = "extract" | "assess" | "generate" | "commit";
 export interface GenerationJobData {
   generationJobId: string;
   userId: string;
-  // Carried through the job payload only (not persisted on the
-  // generation_jobs row, to keep that table small) -- for "text" sources
-  // this is the raw pasted text. Phase 3's PDF/SRT/etc. parsers will read
-  // from a staged upload path instead of carrying full file contents
-  // through Redis.
-  sourceContent?: string;
-  // Present on assess/generate/commit once extract has produced them.
-  chunkIndex?: number;
-  totalChunks?: number;
 }
 
 let queue: Queue<GenerationJobData, void, GenerationJobName> | null = null;
@@ -58,5 +49,7 @@ export function getGenerationQueue() {
 }
 
 export async function enqueueExtraction(data: GenerationJobData) {
-  await getGenerationQueue().add("extract", data);
+  await getGenerationQueue().add("extract", data, {
+    jobId: `${data.generationJobId}:extract`,
+  });
 }

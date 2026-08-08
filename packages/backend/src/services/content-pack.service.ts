@@ -26,6 +26,7 @@ import {
 import { legacyTaxonomyPath } from "../data/vocabulary-taxonomy";
 import { cacheInvalidate } from "../utils/redis";
 import { readJson } from "../utils/json";
+import { ProviderNeutralJobRepository } from "./provider-neutral-job.repository";
 
 export interface ContentPackDocument {
   path: string;
@@ -128,8 +129,8 @@ export class ContentPackService {
       (item): item is NonNullable<typeof item> =>
         Boolean(
           item &&
-            !item.value?.formatVersion?.includes("manifest") &&
-            !item.value?.formatVersion?.includes("batch"),
+          !item.value?.formatVersion?.includes("manifest") &&
+          !item.value?.formatVersion?.includes("batch"),
         ),
     )) {
       result.errors.push({
@@ -710,6 +711,14 @@ export class ContentPackService {
     const job = await new AssessmentControlService(
       this.database,
     ).approveAssessment(userId, row.assessment_run_id, selectedIds);
+    await this.database("generation_jobs").where({ id: job.id }).update({
+      manifest_id: manifestId,
+      updated_at: new Date(),
+    });
+    await new ProviderNeutralJobRepository(this.database).recordManifest(
+      job.id,
+      readJson(row.payload, {}),
+    );
     await this.database.transaction(async (trx: any) => {
       await trx("assessment_candidates")
         .where({ assessment_run_id: row.assessment_run_id, status: "proposed" })
