@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fix-chatgpt-import-stale-inapp",
+  "title": "Separate in-app generation records from ChatGPT Imports",
+  "implementationPaths": [
+    "packages/backend/src/database/migrations/20260808000000_repair_inapp_content_pack_records.ts",
+    "packages/backend/src/services/in-app-generation.worker.ts",
+    "packages/backend/src/services/content-pack.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/content-pack.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This correction enforces the existing transport boundary and stale-error lifecycle without changing source assessment, contextual sense, generation, batch, or lesson contracts."
+  }
+}
