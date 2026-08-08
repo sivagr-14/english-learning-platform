@@ -5,7 +5,9 @@
   "implementationPaths": [
     "packages/backend/src/database/migrations/020_repair_generation_jobs_schema.ts",
     "packages/backend/src/services/generation-job.service.ts",
-    "scripts/control-server.js"
+    "packages/backend/src/__tests__/repair-generation-jobs-schema.test.ts",
+    "scripts/control-server.js",
+    "scripts/control-server.test.js"
   ],
   "validationPaths": [
     "packages/backend/src/__tests__/repair-generation-jobs-schema.test.ts",
