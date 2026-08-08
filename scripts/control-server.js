@@ -182,7 +182,7 @@ class ControlManager {
     this.services = null;
     this.servicesStopping = false;
     this.serviceFailure = null;
-    this.serviceOutput = { backend: [], frontend: [] };
+    this.serviceOutput = { backend: [], worker: [], frontend: [] };
     this.startPromise = null;
     this.updatePromise = null;
     this.contentSyncPromise = null;
@@ -678,6 +678,17 @@ class ControlManager {
         ],
       },
       {
+        name: 'worker',
+        cwd: backendDirectory,
+        args: [
+          backendBin,
+          '--transpile-only',
+          '--project',
+          path.join(backendDirectory, 'tsconfig.json'),
+          path.join(backendDirectory, 'src', 'worker.ts'),
+        ],
+      },
+      {
         name: 'frontend',
         cwd: frontendDirectory,
         args: [
@@ -692,7 +703,7 @@ class ControlManager {
     ];
     this.servicesStopping = false;
     this.serviceFailure = null;
-    this.serviceOutput = { backend: [], frontend: [] };
+    this.serviceOutput = { backend: [], worker: [], frontend: [] };
     this.services = definitions.map(({ name, args, cwd }) => {
       const recentOutput = this.serviceOutput[name];
       const child = this.spawnChild(process.execPath, args, {

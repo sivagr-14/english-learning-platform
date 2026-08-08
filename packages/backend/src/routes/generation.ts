@@ -8,6 +8,7 @@ import {
 import { GenerationJobService } from "../services/generation-job.service";
 import { enqueueExtraction } from "../queue/generation.queue";
 import { database } from "../utils/db";
+import { generationWorkerReady } from "../queue/worker-health";
 
 const router: Router = express.Router();
 const jobService = new GenerationJobService(database);
@@ -60,6 +61,12 @@ router.post(
   "/jobs",
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
+      if (!(await generationWorkerReady())) {
+        return res.status(503).json({
+          error: "Generation worker is unavailable. Restart the app and try again.",
+          code: "GENERATION_WORKER_UNAVAILABLE",
+        });
+      }
       const input = CreateJobSchema.parse(req.body);
       const { job, isNew } = await jobService.create({
         userId: req.userId as string,

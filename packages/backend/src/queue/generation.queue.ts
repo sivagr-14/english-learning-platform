@@ -28,6 +28,22 @@ export interface GenerationJobData {
   userId: string;
 }
 
+export function generationStageJobId(
+  generationJobId: string,
+  stage: GenerationJobName,
+): string {
+  return `${generationJobId}:${stage}`;
+}
+
+/** Enforces the durable-state-before-delivery boundary for stage handoffs. */
+export async function enqueueAfterCommit(
+  persist: () => Promise<void>,
+  enqueue: () => Promise<unknown>,
+): Promise<void> {
+  await persist();
+  await enqueue();
+}
+
 let queue: Queue<GenerationJobData, void, GenerationJobName> | null = null;
 
 export function getGenerationQueue() {
@@ -50,6 +66,6 @@ export function getGenerationQueue() {
 
 export async function enqueueExtraction(data: GenerationJobData) {
   await getGenerationQueue().add("extract", data, {
-    jobId: `${data.generationJobId}:extract`,
+    jobId: generationStageJobId(data.generationJobId, "extract"),
   });
 }
