@@ -302,12 +302,15 @@ async function handleAssess(
   });
 
   const contentPackService = new ContentPackService(database);
-  const ingestResult = await contentPackService.ingestDocuments([
-    {
-      path: `inapp/${manifestId}/manifest.json`,
-      content: JSON.stringify(manifestDoc),
-    },
-  ]);
+  const ingestResult = await contentPackService.ingestDocuments(
+    [
+      {
+        path: `inapp/${manifestId}/manifest.json`,
+        content: JSON.stringify(manifestDoc),
+      },
+    ],
+    { inboxBranch: "inapp" },
+  );
   if (ingestResult.errors.length) {
     throw new Error(
       `Manifest ingestion failed: ${ingestResult.errors
@@ -579,6 +582,7 @@ async function handleGenerate(
       path: `inapp/${manifestId}/batch-${batchNumber}.json`,
       content: JSON.stringify(document),
     })),
+    { inboxBranch: "inapp" },
   );
   if (ingestResult.errors.length) {
     throw new Error(
