@@ -25,6 +25,10 @@ import { logger } from "../utils/logger";
 import { readJson } from "../utils/json";
 import { ProviderNeutralJobRepository } from "../services/provider-neutral-job.repository";
 import {
+  pendingPlanMembers,
+  reconstructDurableBatches,
+} from "../services/durable-generation-plan";
+import {
   GENERATION_WORKER_HEALTH_KEY,
   GENERATION_WORKER_HEALTH_TTL_SECONDS,
 } from "./worker-health";
@@ -379,10 +383,7 @@ async function handleGenerate(
   // Reconstruct final batches only from durable results joined to the
   // immutable plan. This preserves membership across every crash boundary.
   const finalPlan = await repository.loadGenerationPlan(generationJobId);
-  const missing = finalPlan.filter(
-    (member: any) =>
-      !member.result_id || member.validation_status !== "valid",
-  );
+  const missing = pendingPlanMembers(finalPlan);
   if (missing.length) {
     throw new Error(
       `Generation incomplete: ${missing.length} of ${finalPlan.length} planned entries have no durable valid result.`,
@@ -390,27 +391,23 @@ async function handleGenerate(
   }
 
   const contentPackService = new ContentPackService(database);
-  const batches = new Map<number, any[]>();
-  for (const member of finalPlan) {
-    const entries = batches.get(member.batch_number) ?? [];
-    entries.push(readJson(member.entry_payload, member.entry_payload));
-    batches.set(member.batch_number, entries);
-  }
-  const batchDocs = Array.from(batches.entries()).map(
-    ([batchNumber, entries]) =>
-      buildBatchDocument({
+  const batchDocs = reconstructDurableBatches(finalPlan).map(
+    ({ batchNumber, entries }) => ({
+      batchNumber,
+      document: buildBatchDocument({
         batchId: `${manifestId}-batch-${batchNumber}`,
         manifestId,
         manifestHash,
         batchNumber,
         entries,
       }),
+    }),
   );
 
   const ingestResult = await contentPackService.ingestDocuments(
-    batchDocs.map((doc) => ({
-      path: `inapp/${manifestId}/batch-${doc.batchNumber}.json`,
-      content: JSON.stringify(doc),
+    batchDocs.map(({ batchNumber, document }) => ({
+      path: `inapp/${manifestId}/batch-${batchNumber}.json`,
+      content: JSON.stringify(document),
     })),
   );
   if (ingestResult.errors.length) {
