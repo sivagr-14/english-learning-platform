@@ -55,10 +55,13 @@ export class GenerationJobService {
     const [job] = await this.database("generation_jobs")
       .insert({
         user_id: input.userId,
+        owner_user_id: input.userId,
+        operation_id: `in-app:${sourceHash}`,
         source_name: input.sourceName,
         source_type: input.sourceType,
         source_hash: sourceHash,
         status: "queued",
+        total_items: 0,
         stage_progress: JSON.stringify({}),
       })
       .returning("*");
