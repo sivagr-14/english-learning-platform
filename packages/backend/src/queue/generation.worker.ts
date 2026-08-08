@@ -19,7 +19,8 @@ import {
   buildManifestDocument,
   buildBatchDocument,
 } from "../services/in-app-generation.service";
-import { extractText, SourceType } from "../services/document-parser.service";
+import { parseSource, SourceType } from "../services/document-parser.service";
+import { enumerateCandidates } from "../services/extraction-foundation.service";
 import { database } from "../utils/db";
 import { logger } from "../utils/logger";
 import { readJson } from "../utils/json";
@@ -67,32 +68,6 @@ function cancellationSignal(jobId: string) {
   return { signal: controller.signal, dispose: () => clearInterval(timer) };
 }
 
-/**
- * Splits into ~1,000-1,500 word chunks with paragraph boundaries preserved,
- * per the sizing already specified in docs/CHATGPT_CONTENT_PACK_WORKFLOW.md
- * for the manual ChatGPT flow. Kept identical here so both pipelines
- * produce comparable chunk granularity.
- */
-function chunkText(text: string, targetWords = 1200): string[] {
-  const paragraphs = text.split(/\n\s*\n/).filter((p) => p.trim().length > 0);
-  const chunks: string[] = [];
-  let current: string[] = [];
-  let wordCount = 0;
-
-  for (const paragraph of paragraphs) {
-    const words = paragraph.trim().split(/\s+/).length;
-    if (wordCount + words > targetWords && current.length > 0) {
-      chunks.push(current.join("\n\n"));
-      current = [];
-      wordCount = 0;
-    }
-    current.push(paragraph);
-    wordCount += words;
-  }
-  if (current.length > 0) chunks.push(current.join("\n\n"));
-  return chunks;
-}
-
 async function handleExtract(
   job: Job<GenerationJobData, void, GenerationJobName>,
 ) {
@@ -130,40 +105,67 @@ async function handleExtract(
       ? stagedBuffer.toString("utf8")
       : stagedBuffer.toString("base64")
     : stagedSource.original_text;
-  const extractedText = await extractText(
+  const parsedSegments = await parseSource(
     record.source_type as SourceType,
     sourceContent,
   );
-  const chunks = chunkText(extractedText);
+  const unreadable = parsedSegments.filter(
+    (segment) => segment.status === "unreadable",
+  );
+  const chunks = parsedSegments.filter(
+    (segment) => segment.status === "readable",
+  );
 
   await database.transaction(async (trx: any) => {
     if (chunks.length) {
       await trx("generation_job_segments")
         .insert(
-          chunks.map((content, index) => ({
+          chunks.map((segment, index) => ({
             generation_job_id: generationJobId,
             sequence_number: index + 1,
-            content_hash: contentPackHash(content),
-            original_text: content,
-            normalized_text: content,
-            locator: JSON.stringify({ chunk: index + 1 }),
+            content_hash: segment.contentHash,
+            original_text: segment.originalText,
+            normalized_text: segment.normalizedText,
+            locator: JSON.stringify(segment.locator),
             status: "extracted",
           })),
         )
         .onConflict(["generation_job_id", "sequence_number"])
         .ignore();
     }
+    if (unreadable.length) {
+      await trx("generation_job_events").insert({
+        generation_job_id: generationJobId,
+        event_type: "source_attention_required",
+        stage: "extract",
+        details: JSON.stringify({
+          units: unreadable.map((segment) => ({
+            locator: segment.locator,
+            error: segment.error,
+          })),
+        }),
+      });
+    }
     if (record.staged_upload_path) {
-      await trx("generation_jobs")
-        .where({ id: generationJobId })
-        .update({
-          staged_upload_parsed_at: new Date(),
-          staged_upload_path: null,
-        });
+      await trx("generation_jobs").where({ id: generationJobId }).update({
+        staged_upload_parsed_at: new Date(),
+        staged_upload_path: null,
+      });
     }
   });
   if (record.staged_upload_path)
     await removeStagedUpload(record.staged_upload_path);
+
+  if (unreadable.length) {
+    await jobService.updateStatus(generationJobId, "attention_required", {
+      stageProgress: {
+        chunksTotal: parsedSegments.length,
+        chunksProcessed: chunks.length,
+        unreadableUnits: unreadable.length,
+      },
+    });
+    return;
+  }
 
   await jobService.updateStatus(generationJobId, "assessing", {
     stageProgress: { chunksTotal: chunks.length, chunksProcessed: 0 },
@@ -212,6 +214,22 @@ async function handleAssess(
   const chunks = segmentRows.map(
     (segment: any) => segment.normalized_text || segment.original_text || "",
   );
+  const deterministic = enumerateCandidates(
+    segmentRows.map((row: any, index: number) => ({
+      segmentId: row.id,
+      sequence: index + 1,
+      originalText: row.original_text || "",
+      normalizedText: row.normalized_text || "",
+      locator: readJson(row.locator, {
+        unit: "document",
+        unitIndex: index + 1,
+        startOffset: 0,
+        endOffset: String(row.original_text || "").length,
+      }),
+      status: "readable" as const,
+      contentHash: row.content_hash,
+    })),
+  );
   const chunkIds = chunks.map(
     (_, i) => `chunk-${String(i + 1).padStart(4, "0")}`,
   );
@@ -224,17 +242,41 @@ async function handleAssess(
     chunks.map((chunk, index) =>
       limit(async () => {
         await assertNotCancelled(generationJobId);
-        return assessChunk(chunk, chunkIds[index]);
+        const segmentId = segmentRows[index].id;
+        return assessChunk(
+          chunk,
+          chunkIds[index],
+          undefined,
+          deterministic
+            .filter((candidate) =>
+              candidate.occurrences.some(
+                (occurrence) => occurrence.segmentId === segmentId,
+              ),
+            )
+            .map(
+              (candidate) => `${candidate.baseForm} [${candidate.itemType}]`,
+            ),
+        );
       }),
     ),
   );
 
-  const manifestCandidates = rawCandidatesPerChunk.flatMap(
+  const unmergedManifestCandidates = rawCandidatesPerChunk.flatMap(
     (rawCandidates, chunkIndex) =>
       rawCandidates.map((raw) =>
         toManifestCandidate(raw, chunkIds[chunkIndex], chunkIndex + 1),
       ),
   );
+  const manifestCandidates = [
+    ...new Map(
+      unmergedManifestCandidates
+        .filter(Boolean)
+        .map((candidate: any) => [
+          `${candidate.term.normalize("NFKC").toLowerCase()}\u0000${candidate.senseKey}`,
+          candidate,
+        ]),
+    ).values(),
+  ] as typeof unmergedManifestCandidates;
 
   const manifestId = `inapp-${generationJobId}`;
   const manifestDoc = buildManifestDocument({

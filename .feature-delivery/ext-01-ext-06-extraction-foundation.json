@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "featureId": "ext-01-ext-06-extraction-foundation",
+  "title": "Source-located deterministic extraction and contextual-sense discovery foundation",
+  "implementationPaths": [
+    "packages/backend/src/services/extraction-foundation.service.ts",
+    "packages/backend/src/services/document-parser.service.ts",
+    "packages/backend/src/services/in-app-generation.service.ts",
+    "packages/backend/src/services/generation-job.service.ts",
+    "packages/backend/src/services/staged-upload.service.ts",
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/backend/src/routes/generation.ts",
+    "packages/frontend/app/import/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/extraction-foundation.service.test.ts",
+    "packages/backend/src/services/document-parser.service.test.ts",
+    "packages/backend/src/services/vocabulary-sense.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "EXT-01 through EXT-06 implement the local provider-neutral extraction, enumeration, policy, contextual-sense matching and occurrence-preserving deduplication controls already required by the canonical ChatGPT workflow and vocabulary-generation instructions; those instruction contracts are unchanged."
+  }
+}

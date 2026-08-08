@@ -10,7 +10,16 @@ export const STAGED_UPLOAD_ROOT = path.resolve(
   process.env.GENERATION_STAGING_DIR ||
     path.join(process.cwd(), "var", "generation-staging"),
 );
-const SUPPORTED = new Set(["text", "pdf", "srt", "docx", "epub"]);
+const SUPPORTED = new Set([
+  "text",
+  "md",
+  "html",
+  "vtt",
+  "pdf",
+  "srt",
+  "docx",
+  "epub",
+]);
 
 export class UploadValidationError extends Error {
   constructor(
@@ -38,6 +47,9 @@ export function validateUploadMetadata(
   const extension = path.extname(filename).slice(1).toLowerCase();
   const allowedExtensions: Record<string, string[]> = {
     text: ["txt", "md"],
+    md: ["md"],
+    html: ["html", "htm"],
+    vtt: ["vtt"],
     pdf: ["pdf"],
     srt: ["srt"],
     docx: ["docx"],
@@ -82,7 +94,10 @@ export async function validateStagedFileContent(
         415,
         "FILE_CONTENT_MISMATCH",
       );
-    if (["text", "srt"].includes(sourceType) && head.includes(0))
+    if (
+      ["text", "md", "html", "vtt", "srt"].includes(sourceType) &&
+      head.includes(0)
+    )
       throw new UploadValidationError(
         "Text upload contains binary data",
         415,

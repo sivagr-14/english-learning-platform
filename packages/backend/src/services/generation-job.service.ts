@@ -13,6 +13,7 @@ export type GenerationJobStatus =
   | "generating"
   | "validating"
   | "committed"
+  | "attention_required"
   | "failed"
   | "cancelled";
 
@@ -29,12 +30,14 @@ export interface StageProgress {
 export interface CreateGenerationJobInput {
   userId: string;
   sourceName: string;
-  sourceType: "text" | "pdf" | "srt" | "docx" | "epub";
+  sourceType: "text" | "md" | "html" | "vtt" | "pdf" | "srt" | "docx" | "epub";
   sourceContent: string;
 }
 
-export interface CreateStagedGenerationJobInput
-  extends Omit<CreateGenerationJobInput, "sourceContent"> {
+export interface CreateStagedGenerationJobInput extends Omit<
+  CreateGenerationJobInput,
+  "sourceContent"
+> {
   sourceHash: string;
   stagedUploadPath: string;
   stagedUploadSize: number;
