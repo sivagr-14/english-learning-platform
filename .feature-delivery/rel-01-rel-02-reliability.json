@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "featureId": "rel-01-rel-02-reliability",
+  "title": "Start and health-check the generation worker and remove the queue handoff race",
+  "implementationPaths": [
+    "packages/backend/src/index.ts",
+    "packages/backend/src/queue/generation.queue.ts",
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/backend/src/queue/worker-health.ts",
+    "packages/backend/src/routes/generation.ts",
+    "packages/backend/src/__tests__/generation-queue-handoff.test.ts",
+    "packages/backend/src/__tests__/worker-health.test.ts",
+    "scripts/control-server.js",
+    "scripts/control-server.test.js",
+    "scripts/start_services.sh"
+  ],
+  "validationPaths": [
+    "packages/backend/src/__tests__/generation-queue-handoff.test.ts",
+    "packages/backend/src/__tests__/worker-health.test.ts",
+    "scripts/control-server.test.js"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "REL-01 and REL-02 change local process readiness and the durable BullMQ handoff only; source assessment, contextual-sense rules, content-pack transport, taxonomy, and lesson generation contracts are unchanged."
+  }
+}
