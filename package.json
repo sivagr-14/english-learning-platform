@@ -26,7 +26,7 @@
     "dev:frontend": "yarn workspace english-learning-frontend run dev",
     "build": "yarn workspace english-learning-backend run build && yarn workspace english-learning-frontend run build",
     "test": "yarn workspace english-learning-backend run test",
-    "test:control": "node --test scripts/control-server.test.js",
+    "test:control": "node --test scripts/control-server.test.js scripts/validate-feature-delivery.test.js",
     "content-packs:validate": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/validate-content-packs.ts",
     "content-packs:sync": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/sync-content-packs.ts",
     "smoke:content-packs": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/smoke-content-pack-postgres.ts",

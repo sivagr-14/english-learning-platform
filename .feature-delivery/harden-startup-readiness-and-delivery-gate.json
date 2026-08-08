@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "featureId": "harden-startup-readiness-and-delivery-gate",
+  "title": "Make GUI startup readiness actionable and delivery coverage consistent",
+  "implementationPaths": [
+    "packages/backend/src/index.ts",
+    "scripts/control-server.js",
+    "scripts/validate-feature-delivery.js",
+    "package.json"
+  ],
+  "validationPaths": [
+    "scripts/control-server.test.js",
+    "scripts/validate-feature-delivery.test.js"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This change separates runtime liveness/readiness, normalizes local service addresses, and corrects CI evidence coverage; vocabulary assessment and lesson-generation contracts are unchanged."
+  }
+}
