@@ -10,6 +10,7 @@ const {
   createControlServer,
   parseContainerState,
   parseEnvironment,
+  useLocalServiceHosts,
 } = require('./control-server');
 
 test('control page presents the browser-based startup action', () => {
@@ -64,6 +65,38 @@ test('environment parser ignores comments and preserves URLs', () => {
       DATABASE_URL: 'postgresql://local/db',
       EMPTY: '',
     },
+  );
+});
+
+test('local GUI services replace Docker-only hostnames with loopback', () => {
+  const environment = useLocalServiceHosts({
+    DB_HOST: 'postgres',
+    DB_PORT: '5544',
+    DB_NAME: 'custom_db',
+    DB_PASSWORD: 'secret',
+    REDIS_URL: 'redis://redis:6379',
+  });
+  assert.equal(environment.DB_HOST, '127.0.0.1');
+  assert.equal(environment.DB_PORT, '5544');
+  assert.equal(environment.REDIS_URL, 'redis://127.0.0.1:6379');
+  assert.equal(environment.DB_NAME, 'custom_db');
+  assert.equal(environment.DB_PASSWORD, 'secret');
+});
+
+test('service readiness reports worker HTTP response and worker logs', async () => {
+  const manager = new ControlManager({ wait: async () => {} });
+  manager.backendReady = async () => true;
+  manager.frontendReady = async () => true;
+  manager.workerReady = async () => ({
+    ok: false,
+    status: 503,
+    body: '{"services":{"generationWorker":"unavailable"}}',
+  });
+  manager.serviceOutput.worker = ['BullMQ Redis connection error'];
+
+  await assert.rejects(
+    manager.waitForServices(),
+    /generation worker.*HTTP 503.*generationWorker.*BullMQ Redis connection error/i,
   );
 });
 
