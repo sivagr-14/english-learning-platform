@@ -18,7 +18,6 @@ import {
   generateLessonEntry,
   buildManifestDocument,
   buildBatchDocument,
-  chunkIntoBatches,
 } from "../services/in-app-generation.service";
 import { extractText, SourceType } from "../services/document-parser.service";
 import { database } from "../utils/db";
@@ -258,69 +257,40 @@ async function handleGenerate(
     );
   }
 
-  const contentPackService = new ContentPackService(database);
-  const manifestRow = await database("content_pack_manifests")
-    .where({ id: manifestId })
-    .first();
-  if (!manifestRow) throw new Error(`Manifest ${manifestId} not found`);
-  const manifest = readJson<any>(manifestRow.payload, null);
-  if (!manifest)
-    throw new Error(`Manifest ${manifestId} payload could not be read`);
+  const repository = new ProviderNeutralJobRepository(database);
+  const initialPlan = await repository.loadGenerationPlan(generationJobId);
+  if (!initialPlan.length) {
+    throw new Error("Immutable generation plan is empty -- cannot generate.");
+  }
 
-  const generateCandidates = manifest.candidates.filter(
-    (c: any) => c.decision === "generate",
-  );
+  let totalInputTokens = 0;
+  let totalOutputTokens = 0;
+  let totalCostUsd = 0;
 
-  // Resume support (B9): on a BullMQ retry the progress JSON may already
-  // contain candidateIds that succeeded before the crash. Skip them rather
-  // than re-paying for duplicate generation.
-  const durableResults = await database("generation_results")
-    .join(
-      "generation_candidate_decisions",
-      "generation_results.candidate_decision_id",
-      "generation_candidate_decisions.id",
-    )
-    .select(
-      "generation_results.entry_payload",
-      "generation_candidate_decisions.external_candidate_id",
-    )
-    .where("generation_results.generation_job_id", generationJobId);
-  const completedIds = new Set<string>([
-    ...(progress.completedCandidateIds ?? []),
-    ...durableResults.map((row: any) => row.external_candidate_id),
-  ]);
+  // Generate in immutable batch/position order. A row with result_id is
+  // already complete and is never sent to the provider again.
+  for (const member of initialPlan) {
+    if (member.result_id && member.validation_status === "valid") continue;
 
-  let lessonsGenerated = Number(progress.lessonsGenerated ?? 0);
-  let lessonsFailedValidation = Number(progress.lessonsFailedValidation ?? 0);
-  let totalInputTokens = Number(progress.totalInputTokens ?? 0);
-  let totalOutputTokens = Number(progress.totalOutputTokens ?? 0);
-  let totalCostUsd = Number(progress.totalCostUsd ?? 0);
-  const entries: any[] = durableResults.map((row: any) =>
-    readJson(row.entry_payload, row.entry_payload),
-  );
+    const candidate = readJson<any>(member.snapshot, null);
+    if (!candidate) {
+      throw new Error(
+        `Durable candidate ${member.external_candidate_id} cannot be reconstructed.`,
+      );
+    }
 
-  for (const candidate of generateCandidates) {
-    if (completedIds.has(candidate.candidateId)) continue;
-
-    const decision = await database("generation_candidate_decisions")
-      .where({
-        generation_job_id: generationJobId,
-        external_candidate_id: candidate.candidateId,
-      })
-      .first();
-    if (!decision)
-      throw new Error(`Durable candidate ${candidate.candidateId} is missing`);
     const previousAttempts = await database("generation_attempts")
       .where({
         generation_job_id: generationJobId,
-        candidate_decision_id: decision.id,
+        candidate_decision_id: member.candidate_decision_id,
       })
       .count("id as count")
       .first();
     const [attempt] = await database("generation_attempts")
       .insert({
         generation_job_id: generationJobId,
-        candidate_decision_id: decision.id,
+        batch_id: member.batch_id,
+        candidate_decision_id: member.candidate_decision_id,
         stage: "generate",
         attempt_number: Number(previousAttempts?.count ?? 0) + 1,
         provider: record.provider,
@@ -328,54 +298,26 @@ async function handleGenerate(
         status: "started",
       })
       .returning("*");
+
     let result: Awaited<ReturnType<typeof generateLessonEntry>>;
     try {
       result = await generateLessonEntry({
-        candidateId: candidate.candidateId,
+        candidateId: member.external_candidate_id,
         term: candidate.term,
         contextualMeaning: candidate.contextualMeaning,
         cefrLevel: candidate.cefrLevel,
         categoryName: candidate.categoryName,
       });
     } catch (error) {
-      await database("generation_attempts")
-        .where({ id: attempt.id })
-        .update({
-          status: "failed",
-          error_message: error instanceof Error ? error.message : String(error),
-          completed_at: new Date(),
-        });
+      await database("generation_attempts").where({ id: attempt.id }).update({
+        status: "failed",
+        error_message: error instanceof Error ? error.message : String(error),
+        completed_at: new Date(),
+      });
       throw error;
     }
-    if (result) {
-      entries.push(result.entry);
-      lessonsGenerated += 1;
-      totalInputTokens += result.inputTokens;
-      totalOutputTokens += result.outputTokens;
-      totalCostUsd += result.estimatedCostUsd;
-      completedIds.add(candidate.candidateId);
-      await database.transaction(async (trx: any) => {
-        await trx("generation_attempts").where({ id: attempt.id }).update({
-          status: "succeeded",
-          input_tokens: result.inputTokens,
-          output_tokens: result.outputTokens,
-          cost_usd: result.estimatedCostUsd,
-          completed_at: new Date(),
-        });
-        await trx("generation_results")
-          .insert({
-            generation_job_id: generationJobId,
-            candidate_decision_id: decision.id,
-            attempt_id: attempt.id,
-            content_hash: contentPackHash(result.entry),
-            entry_payload: JSON.stringify(result.entry),
-            validation_status: "valid",
-          })
-          .onConflict(["generation_job_id", "candidate_decision_id"])
-          .ignore();
-      });
-    } else {
-      lessonsFailedValidation += 1;
+
+    if (!result) {
       await database.transaction(async (trx: any) => {
         await trx("generation_attempts").where({ id: attempt.id }).update({
           status: "validation_failed",
@@ -383,61 +325,110 @@ async function handleGenerate(
         });
         await trx("generation_validation_failures").insert({
           generation_job_id: generationJobId,
-          candidate_decision_id: decision.id,
+          candidate_decision_id: member.candidate_decision_id,
           attempt_id: attempt.id,
           code: "lesson_contract_invalid",
           message: "Generated lesson failed the shared content-pack contract.",
-          details: JSON.stringify({ candidateId: candidate.candidateId }),
+          details: JSON.stringify({
+            candidateId: member.external_candidate_id,
+            plannedBatch: member.batch_number,
+            position: member.position,
+          }),
         });
       });
+      continue;
     }
+
+    // This transaction is the completion boundary. The worker never marks a
+    // candidate complete from the in-memory provider payload.
+    const persisted = await repository.persistValidEntry({
+      jobId: generationJobId,
+      candidateDecisionId: member.candidate_decision_id,
+      attemptId: attempt.id,
+      entry: result.entry,
+      inputTokens: result.inputTokens,
+      outputTokens: result.outputTokens,
+      costUsd: result.estimatedCostUsd,
+    });
+    if (persisted === "inserted") {
+      totalInputTokens += result.inputTokens;
+      totalOutputTokens += result.outputTokens;
+      totalCostUsd += result.estimatedCostUsd;
+    }
+
+    const completed = (await repository.loadGenerationPlan(generationJobId)).filter(
+      (row: any) => row.result_id && row.validation_status === "valid",
+    ).length;
     await jobService.updateStatus(generationJobId, "generating", {
       stageProgress: {
         ...progress,
-        lessonsGenerated,
-        lessonsFailedValidation,
-        lessonsTotal: generateCandidates.length,
-        completedCandidateIds: Array.from(completedIds),
+        lessonsGenerated: completed,
+        lessonsTotal: initialPlan.length,
         totalInputTokens,
         totalOutputTokens,
         totalCostUsd: Number(totalCostUsd.toFixed(6)),
       },
-      tokensUsedDelta: (result?.inputTokens ?? 0) + (result?.outputTokens ?? 0),
-      actualCostDelta: result?.estimatedCostUsd ?? 0,
+      tokensUsedDelta:
+        persisted === "inserted"
+          ? result.inputTokens + result.outputTokens
+          : 0,
+      actualCostDelta: persisted === "inserted" ? result.estimatedCostUsd : 0,
     });
   }
 
-  const batches = chunkIntoBatches(entries, 10);
-  const batchDocs = batches.map((batchEntries, index) =>
-    buildBatchDocument({
-      batchId: `${manifestId}-batch-${index + 1}`,
-      manifestId,
-      manifestHash,
-      batchNumber: index + 1,
-      entries: batchEntries,
-    }),
+  // Reconstruct final batches only from durable results joined to the
+  // immutable plan. This preserves membership across every crash boundary.
+  const finalPlan = await repository.loadGenerationPlan(generationJobId);
+  const missing = finalPlan.filter(
+    (member: any) =>
+      !member.result_id || member.validation_status !== "valid",
   );
-
-  if (batchDocs.length) {
-    const ingestResult = await contentPackService.ingestDocuments(
-      batchDocs.map((doc, index) => ({
-        path: `inapp/${manifestId}/batch-${index + 1}.json`,
-        content: JSON.stringify(doc),
-      })),
+  if (missing.length) {
+    throw new Error(
+      `Generation incomplete: ${missing.length} of ${finalPlan.length} planned entries have no durable valid result.`,
     );
-    if (ingestResult.errors.length) {
-      throw new Error(
-        `Batch ingestion failed: ${ingestResult.errors.map((e) => e.message).join("; ")}`,
-      );
-    }
   }
 
+  const contentPackService = new ContentPackService(database);
+  const batches = new Map<number, any[]>();
+  for (const member of finalPlan) {
+    const entries = batches.get(member.batch_number) ?? [];
+    entries.push(readJson(member.entry_payload, member.entry_payload));
+    batches.set(member.batch_number, entries);
+  }
+  const batchDocs = Array.from(batches.entries()).map(
+    ([batchNumber, entries]) =>
+      buildBatchDocument({
+        batchId: `${manifestId}-batch-${batchNumber}`,
+        manifestId,
+        manifestHash,
+        batchNumber,
+        entries,
+      }),
+  );
+
+  const ingestResult = await contentPackService.ingestDocuments(
+    batchDocs.map((doc) => ({
+      path: `inapp/${manifestId}/batch-${doc.batchNumber}.json`,
+      content: JSON.stringify(doc),
+    })),
+  );
+  if (ingestResult.errors.length) {
+    throw new Error(
+      `Batch ingestion failed: ${ingestResult.errors.map((e) => e.message).join("; ")}`,
+    );
+  }
+
+  const durableCompleted = finalPlan.length;
+  if (durableCompleted !== initialPlan.length) {
+    throw new Error("Final durable generation counts do not reconcile.");
+  }
   await jobService.updateStatus(generationJobId, "validating", {
     stageProgress: {
       ...progress,
-      lessonsGenerated,
-      lessonsFailedValidation,
-      lessonsTotal: generateCandidates.length,
+      lessonsGenerated: durableCompleted,
+      lessonsFailedValidation: 0,
+      lessonsTotal: initialPlan.length,
       totalInputTokens,
       totalOutputTokens,
       totalCostUsd: Number(totalCostUsd.toFixed(6)),
@@ -445,7 +436,7 @@ async function handleGenerate(
   });
 
   await getGenerationQueue().add("commit", job.data, {
-    jobId: `${generationJobId}:commit`,
+    jobId: generationStageJobId(generationJobId, "commit"),
   });
 }
 
