@@ -226,3 +226,14 @@ progress and review row is read back successfully. A guarded Git push prevents
 cleanup from overwriting a concurrently delivered pack. Failed cleanup is safe
 to retry, and an already-absent folder is recorded without changing PostgreSQL
 content.
+
+## Status and recovery guarantees
+
+The local import ledger records the exact private inbox branch, fetched commit,
+last synchronization time, database verification report, cleanup attempts and
+cleanup commit. Manual synchronization and the five-minute timer must read only
+`chatgpt-content-inbox`. Revalidation may recompute contract and PostgreSQL
+read-back status, but must never mutate the immutable manifest or batch payload.
+The UI must show a specific next action for missing batches, invalid batches,
+attention items, failed read-back and retryable cleanup instead of reporting an
+inconsistent import as Completed.
