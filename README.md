@@ -115,6 +115,9 @@ The older terminal launcher remains available as `yarn app:start:legacy`. Use
 `yarn app:doctor` to run its comprehensive validation without starting the web
 services.
 
+For the exact first-install, manual update, schema-recovery, and verification
+commands, see [the macOS startup runbook](docs/MAC_STARTUP_RUNBOOK.md).
+
 `yarn db:seed` is now non-destructive. It updates the standardized category
 definitions and never deletes or creates vocabulary.
 
