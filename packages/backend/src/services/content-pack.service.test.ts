@@ -17,6 +17,22 @@ class MemoryQuery {
     return this;
   }
 
+  whereNot(column: string, operator: string, value: unknown) {
+    this.predicates.push((row) => {
+      if (operator === "like" && typeof value === "string") {
+        const prefix = value.endsWith("%") ? value.slice(0, -1) : value;
+        return !String(row[column] || "").startsWith(prefix);
+      }
+      return row[column] !== value;
+    });
+    return this;
+  }
+
+  whereNotIn(column: string, values: unknown[]) {
+    this.predicates.push((row) => !values.includes(row[column]));
+    return this;
+  }
+
   whereNotNull(column: string) {
     this.predicates.push(
       (row) => row[column] !== null && row[column] !== undefined,
@@ -68,6 +84,7 @@ class MemoryDatabase {
   tables: Record<string, any[]> = {
     content_pack_manifests: [],
     content_pack_batches: [],
+    content_pack_ingest_errors: [],
   };
 
   query(table: string) {
@@ -194,6 +211,51 @@ describe("ChatGPT content-pack staging ledger", () => {
     expect(retry.unchanged).toBe(2);
     expect(database.memory.tables.content_pack_manifests).toHaveLength(1);
     expect(database.memory.tables.content_pack_batches).toHaveLength(1);
+  });
+
+  it("resolves disappeared ChatGPT errors without resolving in-app diagnostics", async () => {
+    const database = databaseDouble();
+    database.memory.tables.content_pack_ingest_errors.push(
+      {
+        id: "chatgpt-stale",
+        document_path: "removed/manifest.json",
+        status: "active",
+      },
+      {
+        id: "inapp-stale",
+        document_path: "inapp/internal/manifest.json",
+        status: "active",
+      },
+    );
+    const service = new ContentPackService(database);
+    const { documents } = smokeDocuments();
+
+    await service.ingestDocuments(documents);
+
+    expect(database.memory.tables.content_pack_ingest_errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ id: "chatgpt-stale", status: "resolved" }),
+        expect.objectContaining({ id: "inapp-stale", status: "active" }),
+      ]),
+    );
+  });
+
+  it("does not reconcile ChatGPT errors during an in-app ingestion", async () => {
+    const database = databaseDouble();
+    database.memory.tables.content_pack_ingest_errors.push({
+      id: "chatgpt-stale",
+      document_path: "removed/manifest.json",
+      status: "active",
+    });
+    const service = new ContentPackService(database);
+    const { documents } = smokeDocuments();
+
+    await service.ingestDocuments(documents, { inboxBranch: "inapp" });
+
+    expect(database.memory.tables.content_pack_ingest_errors[0]).toMatchObject({
+      id: "chatgpt-stale",
+      status: "active",
+    });
   });
 
   it("rejects a changed reused batch ID without mutating saved content", async () => {

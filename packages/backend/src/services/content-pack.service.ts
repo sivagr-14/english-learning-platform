@@ -287,9 +287,12 @@ export class ContentPackService {
       }
     }
 
-    await this.recordIngestErrors(result.errors, documents, parsed);
+    await this.recordIngestErrors(result.errors, documents, parsed, context);
 
     const claimed = await this.database("content_pack_manifests")
+      .where({
+        inbox_branch: context.inboxBranch || "chatgpt-content-inbox",
+      })
       .whereNotNull("owner_user_id")
       .whereNull("inbox_cleaned_at")
       .select("id", "owner_user_id");
@@ -310,6 +313,7 @@ export class ContentPackService {
 
   async listManifests(userId: string) {
     const rows = await this.database("content_pack_manifests")
+      .where({ inbox_branch: "chatgpt-content-inbox" })
       .where((builder: any) =>
         builder.whereNull("owner_user_id").orWhere("owner_user_id", userId),
       )
@@ -377,7 +381,7 @@ export class ContentPackService {
             name: manifest.source.name,
             content_hash: manifest.source.contentHash,
             metadata: JSON.stringify({
-              transport: "chatgpt-content-inbox",
+              transport: row.inbox_branch || "chatgpt-content-inbox",
               manifestId,
               coverage: manifest.coverage,
             }),
@@ -1366,6 +1370,7 @@ export class ContentPackService {
     errors: Array<{ path: string; message: string }>,
     documents: ContentPackDocument[],
     parsed: Array<(ContentPackDocument & { value: any }) | null>,
+    context: ContentPackIngestContext,
   ) {
     const documentByPath = new Map(
       documents.map((document) => [document.path, document]),
@@ -1418,6 +1423,23 @@ export class ContentPackService {
       await this.database("content_pack_ingest_errors")
         .where({ document_path: documentPath, status: "active" })
         .update({ status: "resolved", updated_at: new Date() });
+    }
+
+    // A GitHub inbox synchronization is a complete snapshot. Resolve active
+    // errors for ChatGPT documents that are no longer present, while keeping
+    // internal in-app diagnostics isolated from this reconciliation.
+    if (
+      (context.inboxBranch || "chatgpt-content-inbox") ===
+      "chatgpt-content-inbox"
+    ) {
+      const currentPaths = documents.map((document) => document.path);
+      const staleErrors = this.database("content_pack_ingest_errors")
+        .where({ status: "active" })
+        .whereNot("document_path", "like", "inapp/%");
+      if (currentPaths.length) {
+        staleErrors.whereNotIn("document_path", currentPaths);
+      }
+      await staleErrors.update({ status: "resolved", updated_at: new Date() });
     }
   }
 }
