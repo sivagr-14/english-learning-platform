@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "featureId": "cgpt-01-cgpt-05-phase-3a",
+  "title": "Harden the existing ChatGPT content-pack workflow",
+  "implementationPaths": [
+    "packages/backend/src/database/migrations/026_cgpt_01_05_workflow_state.ts",
+    "packages/backend/src/services/content-pack-contract.ts",
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/backend/src/scripts/sync-content-packs.ts",
+    "packages/frontend/app/generate/page.tsx",
+    "scripts/control-server.js"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/content-pack-contract.test.ts",
+    "packages/backend/src/services/content-pack.service.test.ts",
+    "scripts/control-server.test.js"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": ["docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "## Status and recovery guarantees",
+          "last synchronization time",
+          "must never mutate the immutable manifest or batch payload"
+        ]
+      }
+    ]
+  }
+}
