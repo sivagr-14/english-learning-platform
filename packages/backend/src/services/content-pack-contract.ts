@@ -510,6 +510,23 @@ export function validateContentManifest(
     issues.push("coverage.chunks: every chunk ID must be unique");
   }
   const knownChunks = new Set(chunkIds);
+  const pageChunkReferences = manifest.coverage.pages.flatMap(
+    (page) => page.chunkIds,
+  );
+  const duplicatePageChunkReferences = duplicates(pageChunkReferences);
+  if (duplicatePageChunkReferences.length) {
+    issues.push(
+      `coverage.pages: chunk IDs may appear only once: ${[...new Set(duplicatePageChunkReferences)].join(", ")}`,
+    );
+  }
+  const missingPageChunks = chunkIds.filter(
+    (chunkId) => !pageChunkReferences.includes(chunkId),
+  );
+  if (missingPageChunks.length) {
+    issues.push(
+      `coverage.pages: every chunk must be assigned to a page: ${missingPageChunks.join(", ")}`,
+    );
+  }
   const chunkStatus = new Map(
     manifest.coverage.chunks.map((chunk) => [chunk.chunkId, chunk.status]),
   );
@@ -555,6 +572,18 @@ export function validateContentManifest(
     }
   }
 
+  const chunkCandidateReferences = manifest.coverage.chunks.flatMap(
+    (chunk) => chunk.candidateIds,
+  );
+  const missingChunkCandidates = candidateIds.filter(
+    (candidateId) => !chunkCandidateReferences.includes(candidateId),
+  );
+  if (missingChunkCandidates.length) {
+    issues.push(
+      `coverage.chunks: every candidate must be assigned to at least one chunk: ${missingChunkCandidates.join(", ")}`,
+    );
+  }
+
   for (const candidate of manifest.candidates) {
     for (const occurrence of candidate.occurrences) {
       if (!knownChunks.has(occurrence.chunkId)) {
@@ -570,6 +599,26 @@ export function validateContentManifest(
       if (occurrence.page > manifest.source.totalPages) {
         issues.push(
           `${candidate.candidateId}: occurrence page is out of range`,
+        );
+      }
+      const occurrenceChunk = manifest.coverage.chunks.find(
+        (chunk) => chunk.chunkId === occurrence.chunkId,
+      );
+      if (
+        occurrenceChunk &&
+        (occurrence.page < occurrenceChunk.pageStart ||
+          occurrence.page > occurrenceChunk.pageEnd)
+      ) {
+        issues.push(
+          `${candidate.candidateId}: occurrence page is outside chunk ${occurrence.chunkId} page range`,
+        );
+      }
+      if (
+        occurrenceChunk &&
+        !occurrenceChunk.candidateIds.includes(candidate.candidateId)
+      ) {
+        issues.push(
+          `${candidate.candidateId}: occurrence chunk ${occurrence.chunkId} does not list the candidate`,
         );
       }
     }

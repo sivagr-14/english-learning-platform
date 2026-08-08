@@ -41,6 +41,17 @@ interface PackManifest {
   candidates?: PackCandidate[];
   createdAt: string;
   inboxCleanedAt?: string | null;
+  inboxCleanupCommit?: string | null;
+  inboxBranch?: string | null;
+  fetchedCommit?: string | null;
+  lastSyncedAt?: string | null;
+  syncStatus?: string | null;
+  syncError?: string | null;
+  lastVerifiedAt?: string | null;
+  verification?: { verified?: boolean; entries?: number; issues?: string[] };
+  cleanupAttempts?: number;
+  cleanupError?: string | null;
+  nextAction?: string;
 }
 
 interface PackCandidate {
@@ -430,6 +441,64 @@ export default function ChatGPTImportsPage() {
                       ))}
                     </dl>
 
+                    <div className="mt-5 rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+                      <p className="font-semibold text-slate-950">
+                        Exact next action
+                      </p>
+                      <p className="mt-1">
+                        {manifest.nextAction ||
+                          "Refresh this import to load its recovery state."}
+                      </p>
+                      <dl className="mt-3 grid gap-2 text-xs sm:grid-cols-2 lg:grid-cols-4">
+                        <div>
+                          <dt className="text-slate-500">Inbox branch</dt>
+                          <dd className="font-mono">
+                            {manifest.inboxBranch || "chatgpt-content-inbox"}
+                          </dd>
+                        </div>
+                        <div>
+                          <dt className="text-slate-500">Fetched commit</dt>
+                          <dd className="font-mono">
+                            {manifest.fetchedCommit?.slice(0, 12) ||
+                              "Not recorded"}
+                          </dd>
+                        </div>
+                        <div>
+                          <dt className="text-slate-500">
+                            Database verification
+                          </dt>
+                          <dd>
+                            {manifest.verification?.verified
+                              ? "Passed"
+                              : "Pending or failed"}
+                          </dd>
+                        </div>
+                        <div>
+                          <dt className="text-slate-500">Inbox cleanup</dt>
+                          <dd>
+                            {manifest.inboxCleanedAt
+                              ? "Recorded"
+                              : `Pending (${manifest.cleanupAttempts || 0} attempts)`}
+                          </dd>
+                        </div>
+                      </dl>
+                      {(manifest.syncError ||
+                        manifest.cleanupError ||
+                        manifest.verification?.issues?.length) && (
+                        <ul className="mt-3 list-disc space-y-1 pl-5 text-red-700">
+                          {manifest.syncError && <li>{manifest.syncError}</li>}
+                          {manifest.cleanupError && (
+                            <li>{manifest.cleanupError}</li>
+                          )}
+                          {(manifest.verification?.issues || []).map(
+                            (issue) => (
+                              <li key={issue}>{issue}</li>
+                            ),
+                          )}
+                        </ul>
+                      )}
+                    </div>
+
                     <div className="mt-5 flex flex-wrap gap-3">
                       {!manifest.claimed && (
                         <button
@@ -456,7 +525,7 @@ export default function ChatGPTImportsPage() {
                           disabled={busy === `verify:${manifest.id}`}
                           className="rounded-lg border border-emerald-300 px-4 py-2 text-sm font-medium text-emerald-700 disabled:opacity-60"
                         >
-                          Verify PostgreSQL records
+                          Revalidate PostgreSQL records
                         </button>
                       )}
                     </div>
@@ -571,8 +640,7 @@ export default function ChatGPTImportsPage() {
               Confirm approval
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              Approve exactly{" "}
-              <strong>{confirmApprove.count}</strong>{" "}
+              Approve exactly <strong>{confirmApprove.count}</strong>{" "}
               {confirmApprove.count === 1 ? "entry" : "entries"}? Validated
               batches will save automatically after this.
             </p>

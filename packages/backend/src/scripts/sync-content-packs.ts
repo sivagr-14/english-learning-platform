@@ -31,6 +31,22 @@ export function loadContentPacksFromGit(
 }
 
 async function main() {
+  const cleanupFailedIndex = process.argv.indexOf("--mark-cleanup-failed");
+  if (cleanupFailedIndex >= 0) {
+    const manifestId = process.argv[cleanupFailedIndex + 1];
+    const message = process.argv[cleanupFailedIndex + 2];
+    if (!manifestId || !message) {
+      throw new Error(
+        "--mark-cleanup-failed requires a manifest ID and message.",
+      );
+    }
+    await new ContentPackService(database).markInboxCleanupFailed(
+      manifestId,
+      message,
+    );
+    console.log(JSON.stringify({ cleanupFailed: manifestId }));
+    return;
+  }
   const cleanedIndex = process.argv.indexOf("--mark-cleaned");
   if (cleanedIndex >= 0) {
     const manifestId = process.argv[cleanedIndex + 1];
@@ -47,6 +63,9 @@ async function main() {
   }
   const refIndex = process.argv.indexOf("--git-ref");
   const gitRef = refIndex >= 0 ? process.argv[refIndex + 1] : undefined;
+  const commitIndex = process.argv.indexOf("--fetched-commit");
+  const fetchedCommit =
+    commitIndex >= 0 ? process.argv[commitIndex + 1] : undefined;
   const directoryIndex = process.argv.indexOf("--directory");
   const directory =
     directoryIndex >= 0
@@ -57,6 +76,10 @@ async function main() {
     : loadContentPackDocuments(directory);
   const result = await new ContentPackService(database).ingestDocuments(
     documents,
+    {
+      inboxBranch: gitRef?.replace(/^refs\/remotes\/origin\//, ""),
+      fetchedCommit,
+    },
   );
   console.log(
     JSON.stringify(

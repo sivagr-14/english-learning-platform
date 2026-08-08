@@ -396,7 +396,11 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
   const manager = new ControlManager({
     execute: (command, args) => {
       commands.push([command, ...args]);
-      return { status: 0, stdout: '', stderr: '' };
+      return {
+        status: 0,
+        stdout: args.includes('rev-parse') ? 'abc123def456\n' : '',
+        stderr: '',
+      };
     },
     runAsync: async (command, args) => {
       runCalls.push([command, ...args]);
@@ -407,6 +411,8 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
 
   assert.deepEqual(result, {
     available: true,
+    fetchedCommit: 'abc123def456',
+    result: {},
     cleanup: { cleaned: [], alreadyAbsent: [], failed: [] },
   });
   assert.ok(
@@ -420,7 +426,9 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
     runCalls.some(
       (command) =>
         command.includes('--git-ref') &&
-        command.includes('origin/chatgpt-content-inbox'),
+        command.includes('origin/chatgpt-content-inbox') &&
+        command.includes('--fetched-commit') &&
+        command.includes('abc123def456'),
     ),
   );
 });
