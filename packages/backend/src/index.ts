@@ -46,14 +46,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Health check endpoint
-app.get("/health", async (_req, res) => {
-  const workerReady = await generationWorkerReady();
-  res.status(workerReady ? 200 : 503).json({
-    status: workerReady ? "OK" : "DEGRADED",
+app.get("/health", (_req, res) => {
+  res.json({
+    status: "OK",
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
     environment: process.env.NODE_ENV || "development",
     revision: appRevision,
+  });
+});
+
+// Readiness is separate from liveness so the GUI can identify an unavailable
+// auxiliary worker without incorrectly reporting that the backend never started.
+app.get("/ready", async (_req, res) => {
+  const workerReady = await generationWorkerReady();
+  res.status(workerReady ? 200 : 503).json({
+    status: workerReady ? "READY" : "DEGRADED",
     services: { generationWorker: workerReady ? "ready" : "unavailable" },
   });
 });
