@@ -1,13 +1,63 @@
-name: Content pack validation
+name: Application build and integration checklist
 
 on:
   pull_request:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: application-checklist-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  validate:
+  content-pack-contract:
+    name: Content-pack contract validation
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Activate Yarn 1
+        run: |
+          corepack enable
+          corepack prepare yarn@1.22.22 --activate
+      - name: Install locked dependencies
+        run: yarn install --frozen-lockfile
+      - name: Validate committed content packs
+        run: yarn content-packs:validate
+
+  base-01-gold-corpus:
+    name: BASE-01 gold-corpus validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Build deterministic gold corpus
+        run: |
+          node scripts/baseline/build-gold-corpus.js
+          sha256sum test/fixtures/gold-corpus/generated/* > /tmp/base-01-first.sha256
+      - name: Validate gold corpus
+        run: node scripts/baseline/validate-gold-corpus.js
+      - name: Confirm generated fixtures are reproducible
+        run: |
+          node scripts/baseline/build-gold-corpus.js
+          sha256sum test/fixtures/gold-corpus/generated/* > /tmp/base-01-second.sha256
+          diff -u /tmp/base-01-first.sha256 /tmp/base-01-second.sha256
+
+  application-checklist:
+    name: Application build and integration checklist
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
     services:
       postgres:
         image: postgres:16
@@ -42,20 +92,37 @@ jobs:
       REDIS_URL: redis://127.0.0.1:6379
       JWT_SECRET: github-actions-content-pack-smoke-secret
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: corepack enable
-      - run: corepack prepare yarn@1.22.22 --activate
-      - run: yarn install --frozen-lockfile
-      - run: yarn db:migrate
-      - run: yarn db:seed
-      - run: yarn workspace english-learning-backend test --runInBand
-      - run: yarn test:control
-      - run: yarn type-check
-      - run: yarn build
-      - run: yarn smoke:taxonomy-migration
-      - run: yarn smoke:content-packs
-      - run: yarn smoke:vocabulary-senses
-      - run: yarn smoke:user-categories
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Activate Yarn 1
+        run: |
+          corepack enable
+          corepack prepare yarn@1.22.22 --activate
+      - name: Install locked dependencies
+        run: yarn install --frozen-lockfile
+      - name: Apply database migrations
+        run: yarn db:migrate
+      - name: Seed reference data
+        run: yarn db:seed
+      - name: Run backend tests
+        run: yarn workspace english-learning-backend test --runInBand
+      - name: Run control-server tests
+        run: yarn test:control
+      - name: Type-check backend and frontend
+        run: yarn type-check
+      - name: Build backend and frontend
+        run: yarn build
+      - name: Smoke-test taxonomy migration
+        run: yarn smoke:taxonomy-migration
+      - name: Smoke-test content-pack import
+        run: yarn smoke:content-packs
+      - name: Smoke-test vocabulary senses
+        run: yarn smoke:vocabulary-senses
+      - name: Smoke-test user categories
+        run: yarn smoke:user-categories

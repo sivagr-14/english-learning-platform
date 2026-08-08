@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "base-01-results-v1",
+  "runId": "replace-with-non-personal-id",
+  "startedAt": null,
+  "finishedAt": null,
+  "gitCommit": null,
+  "environment": {
+    "macOS": null,
+    "architecture": null,
+    "node": null,
+    "npm": null,
+    "yarn": "1.22.22",
+    "dockerDesktop": null,
+    "dockerEngine": null,
+    "dockerCompose": null,
+    "postgresql": null,
+    "redis": null
+  },
+  "flows": {
+    "appStartup": { "status": "not_run", "evidence": null, "failure": null },
+    "postgresqlReadiness": { "status": "not_run", "evidence": null, "failure": null },
+    "redisReadiness": { "status": "not_run", "evidence": null, "failure": null },
+    "chatgptSync": { "status": "not_run", "evidence": null, "failure": null },
+    "chatgptClaim": { "status": "not_run", "evidence": null, "failure": null },
+    "chatgptImport": { "status": "not_run", "evidence": null, "failure": null },
+    "inAppUpload": { "status": "not_run", "evidence": null, "failure": null },
+    "workerProcessing": { "status": "not_run", "evidence": null, "failure": null },
+    "databaseReadBack": { "status": "not_run", "evidence": null, "failure": null },
+    "search": { "status": "not_run", "evidence": null, "failure": null },
+    "categories": { "status": "not_run", "evidence": null, "failure": null },
+    "flashcards": { "status": "not_run", "evidence": null, "failure": null }
+  },
+  "metrics": {
+    "candidatePrecision": null,
+    "candidateRecall": null,
+    "multiWordRecall": null,
+    "contextualSenseAccuracy": null,
+    "tamilSemanticAccuracy": null,
+    "schemaCompliance": null,
+    "completionSeconds": null,
+    "userInterventions": null,
+    "providerCost": null,
+    "currency": null
+  },
+  "notes": []
+}
+

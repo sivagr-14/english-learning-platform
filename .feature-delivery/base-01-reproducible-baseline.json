@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "featureId": "base-01-reproducible-baseline",
+  "title": "BASE-01 reproducible baseline and privacy-safe gold corpus",
+  "implementationPaths": [
+    "scripts/baseline/build-gold-corpus.js",
+    "scripts/baseline/validate-gold-corpus.js",
+    "packages/backend/src/database/migrations/018_generation_jobs.ts",
+    "packages/backend/src/__tests__/generation-jobs-migration.test.ts",
+    "packages/backend/src/routes/auth.ts",
+    "packages/frontend/app/import/page.tsx",
+    ".github/workflows/content-pack-validation.yml",
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts",
+    "packages/backend/src/scripts/smoke-user-categories-postgres.ts"
+  ],
+  "validationPaths": [
+    "scripts/baseline/validate-gold-corpus.js",
+    "packages/backend/src/__tests__/generation-jobs-migration.test.ts",
+    ".github/workflows/content-pack-validation.yml",
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts",
+    "packages/backend/src/scripts/smoke-user-categories-postgres.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "BASE-01 adds a reproducible test corpus and explicit CI validation. The import-page and compatibility repairs restore existing type, migration and rate-limit contracts; they do not change source assessment, content-pack transport, contextual meanings, taxonomy or lesson generation."
+  }
+}

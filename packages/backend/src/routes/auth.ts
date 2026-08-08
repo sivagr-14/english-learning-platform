@@ -1,4 +1,4 @@
-import express, { Router, Request, Response, NextFunction } from "express";
+import express, { Router, Request, Response, NextFunction, RequestHandler } from "express";
 import rateLimit from "express-rate-limit";
 import { logger } from "../utils/logger";
 import { database } from "../utils/db";
@@ -25,7 +25,7 @@ const loginLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: "Too many login attempts. Try again in a few minutes." },
-});
+}) as unknown as RequestHandler;
 
 const registerLimiter = rateLimit({
   windowMs: 60 * 60 * 1000,
@@ -33,7 +33,7 @@ const registerLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: "Too many registration attempts. Try again later." },
-});
+}) as unknown as RequestHandler;
 
 const magicLinkLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -41,7 +41,7 @@ const magicLinkLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: "Too many magic-link requests. Try again later." },
-});
+}) as unknown as RequestHandler;
 
 /**
  * POST /api/auth/register
