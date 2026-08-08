@@ -209,6 +209,21 @@ describe("ChatGPT content-pack contract", () => {
     expect(result.issues.join(" ")).toMatch(/multiple batches|exactly once/i);
   });
 
+  it("rejects inconsistent page, chunk and occurrence cross-ledgers", () => {
+    const manifest = validManifest();
+    manifest.coverage.pages[1].chunkIds = ["chunk-001"];
+    manifest.candidates[1].occurrences[0] = {
+      page: 1,
+      chunkId: "chunk-002",
+      sentence: "The source sentence contains a basic function word.",
+    };
+    const result = validateContentManifest(manifest);
+    expect(result.valid).toBe(false);
+    expect(result.issues.join(" ")).toMatch(/chunk IDs may appear only once/i);
+    expect(result.issues.join(" ")).toMatch(/every chunk must be assigned/i);
+    expect(result.issues.join(" ")).toMatch(/outside chunk .* page range/i);
+  });
+
   it("rejects a batch that does not match the immutable manifest", () => {
     const manifest = validManifest();
     const batch = validBatch(manifest);
