@@ -536,6 +536,9 @@ class ControlManager {
       'sync-content-packs.ts',
     );
     if (!fs.existsSync(syncScript)) return { available: false };
+    const fetchedCommit = commandOutput(
+      this.execute('git', ['rev-parse', contentInboxRef]),
+    );
     const syncOutput = await this.runAsync(
       process.execPath,
       [
@@ -546,6 +549,8 @@ class ControlManager {
         syncScript,
         '--git-ref',
         contentInboxRef,
+        '--fetched-commit',
+        fetchedCommit,
       ],
       (output) => this.log(output),
     );
@@ -554,7 +559,7 @@ class ControlManager {
       syncResult.cleanupEligible || [],
       syncScript,
     );
-    return { available: true, cleanup };
+    return { available: true, fetchedCommit, result: syncResult, cleanup };
   }
 
   parseLastJsonObject(output = '') {
@@ -611,7 +616,17 @@ class ControlManager {
         );
         cleaned.push(manifestId);
       } catch (error) {
-        failed.push({ manifestId, error: error instanceof Error ? error.message : String(error) });
+        const message = error instanceof Error ? error.message : String(error);
+        failed.push({ manifestId, error: message });
+        try {
+          await this.runAsync(
+            process.execPath,
+            [path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'), '--transpile-only', '--project', path.join(backendDirectory, 'tsconfig.json'), syncScript, '--mark-cleanup-failed', manifestId, message],
+            (output) => this.log(output),
+          );
+        } catch (recordError) {
+          this.log(`Could not record cleanup failure for ${manifestId}: ${recordError instanceof Error ? recordError.message : String(recordError)}`);
+        }
       } finally {
         this.execute('git', ['worktree', 'remove', '--force', worktree]);
         fs.rmSync(worktree, { recursive: true, force: true });
