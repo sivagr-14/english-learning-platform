@@ -434,10 +434,7 @@ class ControlManager {
   }
 
   async migrate() {
-    const previousEnvironment = process.env;
-    process.env = useLocalServiceHosts(process.env);
-    try {
-      await this.runAsync(
+    await this.runAsync(
       process.execPath,
       [
         path.join(repoRoot, 'node_modules', 'knex', 'bin', 'cli.js'),
@@ -448,10 +445,7 @@ class ControlManager {
         'migrate:latest',
       ],
       (output) => this.log(output),
-      );
-    } finally {
-      process.env = previousEnvironment;
-    }
+    );
   }
 
   async verifyMigrations() {
@@ -865,6 +859,7 @@ class ControlManager {
         throw new Error(`Node.js ${process.versions.node} is unsupported; install 20+.`);
       }
       secureLocalEnvironment();
+      Object.assign(process.env, useLocalServiceHosts(process.env));
 
       this.step('Checking the local Git workspace');
       this.verifyUpdateWorkspace();
@@ -997,6 +992,7 @@ class ControlManager {
         throw new Error(`Node.js ${process.versions.node} is unsupported; install 20+.`);
       }
       secureLocalEnvironment();
+      Object.assign(process.env, useLocalServiceHosts(process.env));
 
       this.step('Checking project dependencies');
       await this.ensureDependencies();
