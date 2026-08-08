@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "featureId": "base-02-provider-neutral-job-model",
+  "title": "Add the provider-neutral durable generation job and result model",
+  "implementationPaths": [
+    "docs/BASE-02_PROVIDER_NEUTRAL_JOB_MODEL.md",
+    "packages/backend/src/__tests__/provider-neutral-generation-migration.test.ts",
+    "packages/backend/src/database/migrations/022_provider_neutral_generation_model.ts",
+    "packages/backend/src/queue/generation.queue.ts",
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/backend/src/routes/generation.ts",
+    "packages/backend/src/services/assessment-control.service.ts",
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/backend/src/services/generation-job.service.ts",
+    "packages/backend/src/services/provider-neutral-job.repository.test.ts",
+    "packages/backend/src/services/provider-neutral-job.repository.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/__tests__/provider-neutral-generation-migration.test.ts",
+    "packages/backend/src/services/provider-neutral-job.repository.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "BASE-02 changes durable storage, reconstruction, queue payloads, and provider metadata only. It preserves the existing content-pack assessment, contextual-sense, taxonomy, and simplified-v2 lesson contracts without changing ChatGPT generation instructions."
+  }
+}

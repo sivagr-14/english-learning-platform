@@ -18,11 +18,11 @@ import {
   buildBatchDocument,
   chunkIntoBatches,
 } from "../services/in-app-generation.service";
-import { submitGeminiBatch, configFor } from "../services/ai-provider.service";
 import { extractText, SourceType } from "../services/document-parser.service";
 import { database } from "../utils/db";
 import { logger } from "../utils/logger";
 import { readJson } from "../utils/json";
+import { ProviderNeutralJobRepository } from "../services/provider-neutral-job.repository";
 
 const jobService = new GenerationJobService(database);
 
@@ -52,9 +52,17 @@ function chunkText(text: string, targetWords = 1200): string[] {
   return chunks;
 }
 
-async function handleExtract(job: Job<GenerationJobData, void, GenerationJobName>) {
+async function handleExtract(
+  job: Job<GenerationJobData, void, GenerationJobName>,
+) {
   const { generationJobId, userId } = job.data;
   const record = await jobService.get(userId, generationJobId);
+  const stagedSource = await database("generation_job_segments")
+    .where({ generation_job_id: generationJobId, sequence_number: 0 })
+    .first();
+  if (!stagedSource?.original_text) {
+    throw new Error("Durable staged source is missing -- cannot extract.");
+  }
 
   await jobService.updateStatus(generationJobId, "extracting", {
     stageProgress: { chunksTotal: 0, chunksProcessed: 0 },
@@ -62,9 +70,28 @@ async function handleExtract(job: Job<GenerationJobData, void, GenerationJobName
 
   const extractedText = await extractText(
     record.source_type as SourceType,
-    job.data.sourceContent || "",
+    stagedSource.original_text,
   );
   const chunks = chunkText(extractedText);
+
+  await database.transaction(async (trx: any) => {
+    if (chunks.length) {
+      await trx("generation_job_segments")
+        .insert(
+          chunks.map((content, index) => ({
+            generation_job_id: generationJobId,
+            sequence_number: index + 1,
+            content_hash: contentPackHash(content),
+            original_text: content,
+            normalized_text: content,
+            locator: JSON.stringify({ chunk: index + 1 }),
+            status: "extracted",
+          })),
+        )
+        .onConflict(["generation_job_id", "sequence_number"])
+        .ignore();
+    }
+  });
 
   await jobService.updateStatus(generationJobId, "assessing", {
     stageProgress: { chunksTotal: chunks.length, chunksProcessed: 0 },
@@ -75,33 +102,48 @@ async function handleExtract(job: Job<GenerationJobData, void, GenerationJobName
   // the original source was a PDF, SRT, or plain text again after this
   // point, which is the whole point of doing format handling here rather
   // than threading it through every downstream stage.
-  await getGenerationQueue().add("assess", {
-    ...job.data,
-    sourceContent: extractedText,
-    totalChunks: chunks.length,
-  });
+  await getGenerationQueue().add(
+    "assess",
+    { ...job.data },
+    { jobId: `${generationJobId}:assess` },
+  );
 }
 
-async function handleAssess(job: Job<GenerationJobData, void, GenerationJobName>) {
-  const { generationJobId, userId, totalChunks } = job.data;
+async function handleAssess(
+  job: Job<GenerationJobData, void, GenerationJobName>,
+) {
+  const { generationJobId, userId } = job.data;
   const record = await jobService.get(userId, generationJobId);
 
   // Chunking is re-derived rather than passed through the job payload a
   // second time, to keep queue payloads small. See handleExtract for the
   // chunking function itself.
-  const chunks = chunkText(job.data.sourceContent || "");
-  const chunkIds = chunks.map((_, i) => `chunk-${String(i + 1).padStart(4, "0")}`);
+  const segmentRows = await database("generation_job_segments")
+    .where({ generation_job_id: generationJobId })
+    .andWhere("sequence_number", ">", 0)
+    .orderBy("sequence_number");
+  const chunks = segmentRows.map(
+    (segment: any) => segment.normalized_text || segment.original_text || "",
+  );
+  const chunkIds = chunks.map(
+    (_, i) => `chunk-${String(i + 1).padStart(4, "0")}`,
+  );
 
   // Cap concurrent Gemini calls at 5 to avoid 429 rate-limit errors.
   // A 30-chunk document with Promise.all would fire 30 simultaneous requests;
   // this keeps it to at most 5 in flight at any time.
   const limit = pLimit(5);
   const rawCandidatesPerChunk = await Promise.all(
-    chunks.map((chunk, index) => limit(() => assessChunk(chunk, chunkIds[index]))),
+    chunks.map((chunk, index) =>
+      limit(() => assessChunk(chunk, chunkIds[index])),
+    ),
   );
 
-  const manifestCandidates = rawCandidatesPerChunk.flatMap((rawCandidates, chunkIndex) =>
-    rawCandidates.map((raw) => toManifestCandidate(raw, chunkIds[chunkIndex], chunkIndex + 1)),
+  const manifestCandidates = rawCandidatesPerChunk.flatMap(
+    (rawCandidates, chunkIndex) =>
+      rawCandidates.map((raw) =>
+        toManifestCandidate(raw, chunkIds[chunkIndex], chunkIndex + 1),
+      ),
   );
 
   const manifestId = `inapp-${generationJobId}`;
@@ -127,7 +169,10 @@ async function handleAssess(job: Job<GenerationJobData, void, GenerationJobName>
 
   const contentPackService = new ContentPackService(database);
   const ingestResult = await contentPackService.ingestDocuments([
-    { path: `inapp/${manifestId}/manifest.json`, content: JSON.stringify(manifestDoc) },
+    {
+      path: `inapp/${manifestId}/manifest.json`,
+      content: JSON.stringify(manifestDoc),
+    },
   ]);
   if (ingestResult.errors.length) {
     throw new Error(
@@ -135,6 +180,21 @@ async function handleAssess(job: Job<GenerationJobData, void, GenerationJobName>
     );
   }
   await contentPackService.claimManifest(userId, manifestId);
+  const durableManifest = await database("content_pack_manifests")
+    .where({ id: manifestId })
+    .first();
+  if (!durableManifest?.assessment_run_id) {
+    throw new Error("Claimed manifest is missing its durable assessment run.");
+  }
+  await database("generation_jobs").where({ id: generationJobId }).update({
+    assessment_run_id: durableManifest.assessment_run_id,
+    manifest_id: manifestId,
+    updated_at: new Date(),
+  });
+  await new ProviderNeutralJobRepository(database).recordManifest(
+    generationJobId,
+    manifestDoc,
+  );
 
   await jobService.updateStatus(generationJobId, "generating", {
     stageProgress: {
@@ -144,11 +204,15 @@ async function handleAssess(job: Job<GenerationJobData, void, GenerationJobName>
     },
   });
 
-  await getGenerationQueue().add("generate", {
-    ...job.data,
-    totalChunks: totalChunks ?? chunks.length,
-  } as GenerationJobData);
-  const existingProgress = readJson<Record<string, unknown>>(record.stage_progress, {});
+  await getGenerationQueue().add(
+    "generate",
+    { ...job.data } as GenerationJobData,
+    { jobId: `${generationJobId}:generate` },
+  );
+  const existingProgress = readJson<Record<string, unknown>>(
+    record.stage_progress,
+    {},
+  );
   await database("generation_jobs")
     .where({ id: generationJobId })
     .update({
@@ -164,14 +228,18 @@ async function handleAssess(job: Job<GenerationJobData, void, GenerationJobName>
     });
 }
 
-async function handleGenerate(job: Job<GenerationJobData, void, GenerationJobName>) {
+async function handleGenerate(
+  job: Job<GenerationJobData, void, GenerationJobName>,
+) {
   const { generationJobId, userId } = job.data;
   const record = await jobService.get(userId, generationJobId);
   const progress = readJson<Record<string, any>>(record.stage_progress, {});
   const manifestId: string = progress.manifestId;
   const manifestHash: string = progress.manifestHash;
   if (!manifestId || !manifestHash) {
-    throw new Error("Missing manifestId/manifestHash from assess stage -- cannot generate.");
+    throw new Error(
+      "Missing manifestId/manifestHash from assess stage -- cannot generate.",
+    );
   }
 
   const contentPackService = new ContentPackService(database);
@@ -180,7 +248,8 @@ async function handleGenerate(job: Job<GenerationJobData, void, GenerationJobNam
     .first();
   if (!manifestRow) throw new Error(`Manifest ${manifestId} not found`);
   const manifest = readJson<any>(manifestRow.payload, null);
-  if (!manifest) throw new Error(`Manifest ${manifestId} payload could not be read`);
+  if (!manifest)
+    throw new Error(`Manifest ${manifestId} payload could not be read`);
 
   const generateCandidates = manifest.candidates.filter(
     (c: any) => c.decision === "generate",
@@ -189,25 +258,79 @@ async function handleGenerate(job: Job<GenerationJobData, void, GenerationJobNam
   // Resume support (B9): on a BullMQ retry the progress JSON may already
   // contain candidateIds that succeeded before the crash. Skip them rather
   // than re-paying for duplicate generation.
-  const completedIds = new Set<string>(progress.completedCandidateIds ?? []);
+  const durableResults = await database("generation_results")
+    .join(
+      "generation_candidate_decisions",
+      "generation_results.candidate_decision_id",
+      "generation_candidate_decisions.id",
+    )
+    .select(
+      "generation_results.entry_payload",
+      "generation_candidate_decisions.external_candidate_id",
+    )
+    .where("generation_results.generation_job_id", generationJobId);
+  const completedIds = new Set<string>([
+    ...(progress.completedCandidateIds ?? []),
+    ...durableResults.map((row: any) => row.external_candidate_id),
+  ]);
 
   let lessonsGenerated = Number(progress.lessonsGenerated ?? 0);
   let lessonsFailedValidation = Number(progress.lessonsFailedValidation ?? 0);
   let totalInputTokens = Number(progress.totalInputTokens ?? 0);
   let totalOutputTokens = Number(progress.totalOutputTokens ?? 0);
   let totalCostUsd = Number(progress.totalCostUsd ?? 0);
-  const entries: any[] = [];
+  const entries: any[] = durableResults.map((row: any) =>
+    readJson(row.entry_payload, row.entry_payload),
+  );
 
   for (const candidate of generateCandidates) {
     if (completedIds.has(candidate.candidateId)) continue;
 
-    const result = await generateLessonEntry({
-      candidateId: candidate.candidateId,
-      term: candidate.term,
-      contextualMeaning: candidate.contextualMeaning,
-      cefrLevel: candidate.cefrLevel,
-      categoryName: candidate.categoryName,
-    });
+    const decision = await database("generation_candidate_decisions")
+      .where({
+        generation_job_id: generationJobId,
+        external_candidate_id: candidate.candidateId,
+      })
+      .first();
+    if (!decision)
+      throw new Error(`Durable candidate ${candidate.candidateId} is missing`);
+    const previousAttempts = await database("generation_attempts")
+      .where({
+        generation_job_id: generationJobId,
+        candidate_decision_id: decision.id,
+      })
+      .count("id as count")
+      .first();
+    const [attempt] = await database("generation_attempts")
+      .insert({
+        generation_job_id: generationJobId,
+        candidate_decision_id: decision.id,
+        stage: "generate",
+        attempt_number: Number(previousAttempts?.count ?? 0) + 1,
+        provider: record.provider,
+        model: record.provider_model,
+        status: "started",
+      })
+      .returning("*");
+    let result: Awaited<ReturnType<typeof generateLessonEntry>>;
+    try {
+      result = await generateLessonEntry({
+        candidateId: candidate.candidateId,
+        term: candidate.term,
+        contextualMeaning: candidate.contextualMeaning,
+        cefrLevel: candidate.cefrLevel,
+        categoryName: candidate.categoryName,
+      });
+    } catch (error) {
+      await database("generation_attempts")
+        .where({ id: attempt.id })
+        .update({
+          status: "failed",
+          error_message: error instanceof Error ? error.message : String(error),
+          completed_at: new Date(),
+        });
+      throw error;
+    }
     if (result) {
       entries.push(result.entry);
       lessonsGenerated += 1;
@@ -215,8 +338,42 @@ async function handleGenerate(job: Job<GenerationJobData, void, GenerationJobNam
       totalOutputTokens += result.outputTokens;
       totalCostUsd += result.estimatedCostUsd;
       completedIds.add(candidate.candidateId);
+      await database.transaction(async (trx: any) => {
+        await trx("generation_attempts").where({ id: attempt.id }).update({
+          status: "succeeded",
+          input_tokens: result.inputTokens,
+          output_tokens: result.outputTokens,
+          cost_usd: result.estimatedCostUsd,
+          completed_at: new Date(),
+        });
+        await trx("generation_results")
+          .insert({
+            generation_job_id: generationJobId,
+            candidate_decision_id: decision.id,
+            attempt_id: attempt.id,
+            content_hash: contentPackHash(result.entry),
+            entry_payload: JSON.stringify(result.entry),
+            validation_status: "valid",
+          })
+          .onConflict(["generation_job_id", "candidate_decision_id"])
+          .ignore();
+      });
     } else {
       lessonsFailedValidation += 1;
+      await database.transaction(async (trx: any) => {
+        await trx("generation_attempts").where({ id: attempt.id }).update({
+          status: "validation_failed",
+          completed_at: new Date(),
+        });
+        await trx("generation_validation_failures").insert({
+          generation_job_id: generationJobId,
+          candidate_decision_id: decision.id,
+          attempt_id: attempt.id,
+          code: "lesson_contract_invalid",
+          message: "Generated lesson failed the shared content-pack contract.",
+          details: JSON.stringify({ candidateId: candidate.candidateId }),
+        });
+      });
     }
     await jobService.updateStatus(generationJobId, "generating", {
       stageProgress: {
@@ -229,7 +386,7 @@ async function handleGenerate(job: Job<GenerationJobData, void, GenerationJobNam
         totalOutputTokens,
         totalCostUsd: Number(totalCostUsd.toFixed(6)),
       },
-      tokensUsedDelta: result?.inputTokens ?? 0 + (result?.outputTokens ?? 0),
+      tokensUsedDelta: (result?.inputTokens ?? 0) + (result?.outputTokens ?? 0),
       actualCostDelta: result?.estimatedCostUsd ?? 0,
     });
   }
@@ -271,13 +428,20 @@ async function handleGenerate(job: Job<GenerationJobData, void, GenerationJobNam
     },
   });
 
-  await getGenerationQueue().add("commit", job.data);
+  await getGenerationQueue().add("commit", job.data, {
+    jobId: `${generationJobId}:commit`,
+  });
 }
 
-async function handleCommit(job: Job<GenerationJobData, void, GenerationJobName>) {
+async function handleCommit(
+  job: Job<GenerationJobData, void, GenerationJobName>,
+) {
   const { generationJobId, userId } = job.data;
   const record = await jobService.get(userId, generationJobId);
-  const stageProgress = readJson<Record<string, any>>(record.stage_progress, {});
+  const stageProgress = readJson<Record<string, any>>(
+    record.stage_progress,
+    {},
+  );
   const manifestId: string = stageProgress.manifestId;
   if (!manifestId) throw new Error("Missing manifestId -- cannot commit.");
 
@@ -295,9 +459,12 @@ async function handleCommit(job: Job<GenerationJobData, void, GenerationJobName>
       lessonsCommitted: stageProgress.lessonsGenerated ?? 0,
     },
   });
-  logger.info(`Generation job ${generationJobId} committed via manifest ${manifestId}`, {
-    manifestStatus: result?.status,
-  });
+  logger.info(
+    `Generation job ${generationJobId} committed via manifest ${manifestId}`,
+    {
+      manifestStatus: result?.status,
+    },
+  );
 }
 
 const handlers: Record<
