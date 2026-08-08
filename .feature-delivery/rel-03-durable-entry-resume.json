@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "featureId": "rel-03-durable-entry-resume",
+  "title": "Persist each valid generated entry and resume from the immutable generation plan",
+  "implementationPaths": [
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/backend/src/services/durable-generation-plan.ts",
+    "packages/backend/src/services/provider-neutral-job.repository.ts",
+    "packages/backend/src/__tests__/durable-generation-resume.test.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/__tests__/durable-generation-resume.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "REL-03 changes only durable local Gemini generation persistence, crash resume, immutable batch reconstruction, and count reconciliation. The attached ChatGPT workflow and eight-section vocabulary generation contract remain unchanged."
+  }
+}
