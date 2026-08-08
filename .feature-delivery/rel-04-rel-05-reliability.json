@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "featureId": "rel-04-rel-05-reliability",
+  "title": "Classified provider retries, cancellation and streaming upload staging",
+  "implementationPaths": [
+    "packages/backend/package.json",
+    "packages/backend/src/database/migrations/023_rel_04_05_reliability.ts",
+    "packages/backend/src/services/ai-provider.service.ts",
+    "packages/backend/src/services/generation-job.service.ts",
+    "packages/backend/src/services/in-app-generation.service.ts",
+    "packages/backend/src/services/provider-reliability.ts",
+    "packages/backend/src/services/staged-upload.service.ts",
+    "packages/backend/src/routes/generation.ts",
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/frontend/app/import/page.tsx",
+    "yarn.lock"
+  ],
+  "validationPaths": [
+    "packages/backend/src/__tests__/provider-reliability.test.ts",
+    "packages/backend/src/__tests__/staged-upload.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "REL-04 and REL-05 affect only Gemini provider request reliability and in-app upload transport/staging. The ChatGPT content-pack workflow and eight-section lesson contract remain unchanged."
+  }
+}

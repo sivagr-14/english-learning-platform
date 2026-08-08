@@ -18,7 +18,8 @@ interface GenerationJob {
     | "generating"
     | "validating"
     | "committed"
-    | "failed";
+    | "failed"
+    | "cancelled";
   stage_progress: {
     chunksTotal?: number;
     chunksProcessed?: number;
@@ -40,6 +41,7 @@ const STAGE_LABELS: Record<GenerationJob["status"], string> = {
   validating: "Checking quality",
   committed: "Done",
   failed: "Failed",
+  cancelled: "Cancelled",
 };
 
 const EXTENSION_TO_TYPE: Record<string, SourceType> = {
@@ -50,20 +52,6 @@ const EXTENSION_TO_TYPE: Record<string, SourceType> = {
   docx: "docx",
   epub: "epub",
 };
-
-function fileToBase64(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      const result = reader.result as string;
-      // Strip the "data:<mime>;base64," prefix -- the backend only wants
-      // the raw base64 payload.
-      resolve(result.split(",")[1] || "");
-    };
-    reader.onerror = () => reject(reader.error);
-    reader.readAsDataURL(file);
-  });
-}
 
 interface ConfigCheck {
   primaryConfigured: boolean;
@@ -139,8 +127,18 @@ export default function ImportPage() {
           return;
         }
         sourceName = file.name;
-        sourceContent =
-          sourceType === "text" ? await file.text() : await fileToBase64(file);
+        const form = new FormData();
+        form.append("file", file, file.name);
+        await getApiClient().post("/api/generation/uploads", form, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            "X-Source-Type": sourceType,
+          },
+        });
+        setPastedText("");
+        setFile(null);
+        await loadJobs();
+        return;
       }
 
       await getApiClient().post("/api/generation/jobs", {
@@ -165,6 +163,15 @@ export default function ImportPage() {
     }
   }
 
+  async function cancelJob(id: string) {
+    try {
+      await getApiClient().post(`/api/generation/jobs/${id}/cancel`);
+      await loadJobs();
+    } catch (err: any) {
+      setError(err?.response?.data?.error || "Could not cancel the import.");
+    }
+  }
+
   return (
     <AuthenticatedPage>
       <AppShell
@@ -172,7 +179,6 @@ export default function ImportPage() {
         description="Paste text or upload a supported file to generate vocabulary lessons directly in the app."
       >
         <div className="mx-auto max-w-3xl space-y-8 p-6">
-
           {config && !config.primaryConfigured && (
             <div className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-800">
               No AI provider key is configured on the server, so imports will
@@ -181,8 +187,9 @@ export default function ImportPage() {
                 PRIMARY_AI_API_KEY
               </code>{" "}
               in <code className="rounded bg-amber-100 px-1">.env.local</code>{" "}
-              (see <code className="rounded bg-amber-100 px-1">.env.example</code>
-              ) and restart the backend/worker.
+              (see{" "}
+              <code className="rounded bg-amber-100 px-1">.env.example</code>)
+              and restart the backend/worker.
             </div>
           )}
 
@@ -228,7 +235,7 @@ export default function ImportPage() {
               <p className="text-sm text-gray-500">No imports yet.</p>
             )}
             {jobs.map((job) => (
-              <JobRow key={job.id} job={job} />
+              <JobRow key={job.id} job={job} onCancel={cancelJob} />
             ))}
           </div>
         </div>
@@ -237,9 +244,15 @@ export default function ImportPage() {
   );
 }
 
-function JobRow({ job }: { job: GenerationJob }) {
+function JobRow({
+  job,
+  onCancel,
+}: {
+  job: GenerationJob;
+  onCancel: (id: string) => void;
+}) {
   const progress = job.stage_progress || {};
-  const isTerminal = job.status === "committed" || job.status === "failed";
+  const isTerminal = ["committed", "failed", "cancelled"].includes(job.status);
 
   return (
     <div className="rounded-lg border border-gray-200 p-4">
@@ -259,14 +272,27 @@ function JobRow({ job }: { job: GenerationJob }) {
       </div>
 
       {!isTerminal && (
-        <div className="mt-2 text-xs text-gray-500">
-          {progress.lessonsTotal
-            ? `Writing lessons: ${progress.lessonsGenerated ?? 0} / ${progress.lessonsTotal}`
-            : progress.candidatesFound !== undefined
-              ? `Found ${progress.candidatesFound} candidate words across ${progress.chunksTotal ?? 0} chunks`
-              : progress.chunksTotal
-                ? `Reading document (${progress.chunksTotal} chunks)`
-                : "Getting started..."}
+        <div className="mt-2 flex items-center justify-between text-xs text-gray-500">
+          <span>
+            {progress.lessonsTotal
+              ? `Writing lessons: ${progress.lessonsGenerated ?? 0} / ${
+                  progress.lessonsTotal
+                }`
+              : progress.candidatesFound !== undefined
+                ? `Found ${progress.candidatesFound} candidate words across ${
+                    progress.chunksTotal ?? 0
+                  } chunks`
+                : progress.chunksTotal
+                  ? `Reading document (${progress.chunksTotal} chunks)`
+                  : "Getting started..."}
+          </span>
+          <button
+            type="button"
+            onClick={() => onCancel(job.id)}
+            className="rounded border border-gray-300 px-2 py-1 text-gray-700 hover:bg-gray-50"
+          >
+            Cancel
+          </button>
         </div>
       )}
 

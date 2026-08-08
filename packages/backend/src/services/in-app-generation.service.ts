@@ -17,6 +17,10 @@ import {
 } from "./content-pack-contract";
 import { generateJson } from "./ai-provider.service";
 import { logger } from "../utils/logger";
+import {
+  classifyProviderFailure,
+  ProviderRequestError,
+} from "./provider-reliability";
 
 // Sent once per assessment call. Compact on purpose (key + name only, no
 // descriptions) to keep the primary-tier prompt cheap even though the full
@@ -55,6 +59,7 @@ function shortId(prefix: string) {
 export async function assessChunk(
   chunkText: string,
   chunkId: string,
+  signal?: AbortSignal,
 ): Promise<RawCandidate[]> {
   const systemPrompt = `You identify English vocabulary worth teaching an intermediate-to-advanced learner from a passage of text. You only propose words/phrases that are genuinely useful to learn -- not every word in the passage. Skip basic A1 vocabulary a learner already knows (e.g. "the", "go", "happy"). Prefer collocations, phrasal verbs, idioms, and words used in a non-obvious sense over isolated common words.
 
@@ -81,6 +86,7 @@ ${TAXONOMY_CATALOG_PROMPT}`;
     tier: "primary",
     systemPrompt,
     userPrompt: `Passage (chunkId: ${chunkId}):\n\n${chunkText}`,
+    signal,
   });
 
   return (result.data.candidates || []).filter((candidate) => {
@@ -100,7 +106,11 @@ ${TAXONOMY_CATALOG_PROMPT}`;
  * after assembly -- callers should drop it rather than fail the whole
  * manifest over one bad candidate.
  */
-export function toManifestCandidate(raw: RawCandidate, chunkId: string, page: number) {
+export function toManifestCandidate(
+  raw: RawCandidate,
+  chunkId: string,
+  page: number,
+) {
   const taxonomyPath = taxonomyPathForCategoryKey(raw.categoryKey)!;
   const candidate = {
     candidateId: shortId("cand"),
@@ -150,13 +160,21 @@ export function toManifestCandidate(raw: RawCandidate, chunkId: string, page: nu
  * discussed earlier: pay for the strong model only on the entries that
  * need it, not on the whole batch.
  */
-export async function generateLessonEntry(candidate: {
-  candidateId: string;
-  term: string;
-  contextualMeaning: string;
-  cefrLevel?: string;
-  categoryName?: string;
-}): Promise<{ entry: ReturnType<typeof GeneratedPackEntrySchema.parse>; inputTokens: number; outputTokens: number; estimatedCostUsd: number } | null> {
+export async function generateLessonEntry(
+  candidate: {
+    candidateId: string;
+    term: string;
+    contextualMeaning: string;
+    cefrLevel?: string;
+    categoryName?: string;
+  },
+  signal?: AbortSignal,
+): Promise<{
+  entry: ReturnType<typeof GeneratedPackEntrySchema.parse>;
+  inputTokens: number;
+  outputTokens: number;
+  estimatedCostUsd: number;
+} | null> {
   const systemPrompt = `You write a complete vocabulary lesson for an English learner. Follow this exact structure and field names.
 
 ${VOCABULARY_SECTION_TEMPLATE_PROMPT}
@@ -179,13 +197,18 @@ Also include, as sibling top-level fields outside "lesson" is wrong -- instead r
 
 Never use placeholder text, "TBD", generic advice, or content that doesn't specifically demonstrate "${candidate.term}".`;
 
-  const userPrompt = `Term: ${candidate.term}\nContextual meaning: ${candidate.contextualMeaning}\nCEFR level: ${candidate.cefrLevel || "B1"}\nCategory: ${candidate.categoryName || "general"}`;
+  const userPrompt = `Term: ${candidate.term}\nContextual meaning: ${
+    candidate.contextualMeaning
+  }\nCEFR level: ${candidate.cefrLevel || "B1"}\nCategory: ${
+    candidate.categoryName || "general"
+  }`;
 
   async function attempt(tier: "primary" | "escalation") {
     const result = await generateJson<Record<string, unknown>>({
       tier,
       systemPrompt,
       userPrompt,
+      signal,
     });
     const {
       word,
@@ -198,7 +221,11 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
     } = result.data;
     const issues = vocabularyLessonQualityIssues(lesson, candidate.term);
     if (issues.length) {
-      throw new Error(`Quality validator rejected output:\n- ${issues.join("\n- ")}`);
+      throw new ProviderRequestError(
+        "validation_failed",
+        `Quality validator rejected output:\n- ${issues.join("\n- ")}`,
+        false,
+      );
     }
     const entry = {
       candidateId: candidate.candidateId,
@@ -212,10 +239,12 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
     };
     const validation = GeneratedPackEntrySchema.safeParse(entry);
     if (!validation.success) {
-      throw new Error(
+      throw new ProviderRequestError(
+        "validation_failed",
         `Entry failed schema validation: ${validation.error.issues
           .map((i) => i.message)
           .join("; ")}`,
+        false,
       );
     }
     return {
@@ -229,6 +258,9 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
   try {
     return await attempt("primary");
   } catch (primaryError) {
+    const classified = classifyProviderFailure(primaryError);
+    if (!["validation_failed", "malformed_json"].includes(classified.code))
+      throw classified;
     logger.warn(
       `Primary-tier generation failed for "${candidate.term}", escalating: ${
         (primaryError as Error).message
@@ -237,6 +269,13 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
     try {
       return await attempt("escalation");
     } catch (escalationError) {
+      const classifiedEscalation = classifyProviderFailure(escalationError);
+      if (
+        !["validation_failed", "malformed_json"].includes(
+          classifiedEscalation.code,
+        )
+      )
+        throw classifiedEscalation;
       logger.error(
         `Escalation-tier generation also failed for "${candidate.term}"`,
         escalationError,
@@ -258,7 +297,9 @@ export function buildManifestDocument(params: {
   const validCandidates = params.candidates.filter(
     (c): c is NonNullable<typeof c> => c !== null,
   );
-  const generateCount = validCandidates.filter((c) => c.decision === "generate").length;
+  const generateCount = validCandidates.filter(
+    (c) => c.decision === "generate",
+  ).length;
 
   return {
     formatVersion: CONTENT_MANIFEST_VERSION,
@@ -294,15 +335,24 @@ export function buildManifestDocument(params: {
       existing: 0,
       filtered: 0,
       rejected: 0,
-      heavyUse: validCandidates.filter((c) => "usageFrequency" in c && c.usageFrequency === "heavy").length,
-      mediumUse: validCandidates.filter((c) => "usageFrequency" in c && c.usageFrequency === "medium").length,
+      heavyUse: validCandidates.filter(
+        (c) => "usageFrequency" in c && c.usageFrequency === "heavy",
+      ).length,
+      mediumUse: validCandidates.filter(
+        (c) => "usageFrequency" in c && c.usageFrequency === "medium",
+      ).length,
     },
     generationPlan: {
       batchSize: 10,
       batches: chunkIntoBatches(
-        validCandidates.filter((c) => c.decision === "generate").map((c) => c.candidateId),
+        validCandidates
+          .filter((c) => c.decision === "generate")
+          .map((c) => c.candidateId),
         10,
-      ).map((candidateIds, index) => ({ batchNumber: index + 1, candidateIds })),
+      ).map((candidateIds, index) => ({
+        batchNumber: index + 1,
+        candidateIds,
+      })),
     },
   };
 }

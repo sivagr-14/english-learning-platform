@@ -23,6 +23,12 @@ import { extractText, SourceType } from "../services/document-parser.service";
 import { database } from "../utils/db";
 import { logger } from "../utils/logger";
 import { readJson } from "../utils/json";
+import { readFile } from "fs/promises";
+import { removeStagedUpload } from "../services/staged-upload.service";
+import {
+  classifyProviderFailure,
+  ProviderRequestError,
+} from "../services/provider-reliability";
 import { ProviderNeutralJobRepository } from "../services/provider-neutral-job.repository";
 import {
   pendingPlanMembers,
@@ -34,6 +40,32 @@ import {
 } from "./worker-health";
 
 const jobService = new GenerationJobService(database);
+
+async function assertNotCancelled(jobId: string) {
+  const row = await database("generation_jobs")
+    .where({ id: jobId })
+    .select("cancellation_requested_at")
+    .first();
+  if (row?.cancellation_requested_at)
+    throw new ProviderRequestError(
+      "cancelled",
+      "Generation was cancelled by the user",
+      false,
+    );
+}
+
+function cancellationSignal(jobId: string) {
+  const controller = new AbortController();
+  const timer = setInterval(async () => {
+    const row = await database("generation_jobs")
+      .where({ id: jobId })
+      .select("cancellation_requested_at")
+      .first();
+    if (row?.cancellation_requested_at) controller.abort();
+  }, 500);
+  timer.unref();
+  return { signal: controller.signal, dispose: () => clearInterval(timer) };
+}
 
 /**
  * Splits into ~1,000-1,500 word chunks with paragraph boundaries preserved,
@@ -66,10 +98,23 @@ async function handleExtract(
 ) {
   const { generationJobId, userId } = job.data;
   const record = await jobService.get(userId, generationJobId);
+  await assertNotCancelled(generationJobId);
+  if (record.staged_upload_parsed_at) {
+    const durableChunk = await database("generation_job_segments")
+      .where({ generation_job_id: generationJobId })
+      .andWhere("sequence_number", ">", 0)
+      .first();
+    if (durableChunk) {
+      await getGenerationQueue().add("assess", job.data, {
+        jobId: generationStageJobId(generationJobId, "assess"),
+      });
+      return;
+    }
+  }
   const stagedSource = await database("generation_job_segments")
     .where({ generation_job_id: generationJobId, sequence_number: 0 })
     .first();
-  if (!stagedSource?.original_text) {
+  if (!stagedSource?.original_text && !record.staged_upload_path) {
     throw new Error("Durable staged source is missing -- cannot extract.");
   }
 
@@ -77,9 +122,17 @@ async function handleExtract(
     stageProgress: { chunksTotal: 0, chunksProcessed: 0 },
   });
 
+  const stagedBuffer = record.staged_upload_path
+    ? await readFile(record.staged_upload_path)
+    : null;
+  const sourceContent = stagedBuffer
+    ? record.source_type === "text"
+      ? stagedBuffer.toString("utf8")
+      : stagedBuffer.toString("base64")
+    : stagedSource.original_text;
   const extractedText = await extractText(
     record.source_type as SourceType,
-    stagedSource.original_text,
+    sourceContent,
   );
   const chunks = chunkText(extractedText);
 
@@ -100,7 +153,17 @@ async function handleExtract(
         .onConflict(["generation_job_id", "sequence_number"])
         .ignore();
     }
+    if (record.staged_upload_path) {
+      await trx("generation_jobs")
+        .where({ id: generationJobId })
+        .update({
+          staged_upload_parsed_at: new Date(),
+          staged_upload_path: null,
+        });
+    }
   });
+  if (record.staged_upload_path)
+    await removeStagedUpload(record.staged_upload_path);
 
   await jobService.updateStatus(generationJobId, "assessing", {
     stageProgress: { chunksTotal: chunks.length, chunksProcessed: 0 },
@@ -122,6 +185,7 @@ async function handleAssess(
   job: Job<GenerationJobData, void, GenerationJobName>,
 ) {
   const { generationJobId, userId } = job.data;
+  await assertNotCancelled(generationJobId);
   const record = await jobService.get(userId, generationJobId);
   const existingProgress = readJson<Record<string, unknown>>(
     record.stage_progress,
@@ -158,7 +222,10 @@ async function handleAssess(
   const limit = pLimit(5);
   const rawCandidatesPerChunk = await Promise.all(
     chunks.map((chunk, index) =>
-      limit(() => assessChunk(chunk, chunkIds[index])),
+      limit(async () => {
+        await assertNotCancelled(generationJobId);
+        return assessChunk(chunk, chunkIds[index]);
+      }),
     ),
   );
 
@@ -199,7 +266,9 @@ async function handleAssess(
   ]);
   if (ingestResult.errors.length) {
     throw new Error(
-      `Manifest ingestion failed: ${ingestResult.errors.map((e) => e.message).join("; ")}`,
+      `Manifest ingestion failed: ${ingestResult.errors
+        .map((e) => e.message)
+        .join("; ")}`,
     );
   }
   await contentPackService.claimManifest(userId, manifestId);
@@ -251,6 +320,7 @@ async function handleGenerate(
   job: Job<GenerationJobData, void, GenerationJobName>,
 ) {
   const { generationJobId, userId } = job.data;
+  await assertNotCancelled(generationJobId);
   const record = await jobService.get(userId, generationJobId);
   const progress = readJson<Record<string, any>>(record.stage_progress, {});
   const manifestId: string = progress.manifestId;
@@ -286,6 +356,7 @@ async function handleGenerate(
   // Generate in immutable batch/position order. A row with result_id is
   // already complete and is never sent to the provider again.
   for (const member of initialPlan) {
+    await assertNotCancelled(generationJobId);
     if (member.result_id && member.validation_status === "valid") continue;
 
     const candidate = readJson<any>(member.snapshot, null);
@@ -316,21 +387,29 @@ async function handleGenerate(
       .returning("*");
 
     let result: Awaited<ReturnType<typeof generateLessonEntry>>;
+    const cancellation = cancellationSignal(generationJobId);
     try {
-      result = await generateLessonEntry({
-        candidateId: member.external_candidate_id,
-        term: candidate.term,
-        contextualMeaning: candidate.contextualMeaning,
-        cefrLevel: candidate.cefrLevel,
-        categoryName: candidate.categoryName,
-      });
+      result = await generateLessonEntry(
+        {
+          candidateId: member.external_candidate_id,
+          term: candidate.term,
+          contextualMeaning: candidate.contextualMeaning,
+          cefrLevel: candidate.cefrLevel,
+          categoryName: candidate.categoryName,
+        },
+        cancellation.signal,
+      );
     } catch (error) {
+      const classified = classifyProviderFailure(error);
       await database("generation_attempts").where({ id: attempt.id }).update({
         status: "failed",
-        error_message: error instanceof Error ? error.message : String(error),
+        error_code: classified.code,
+        error_message: classified.message,
         completed_at: new Date(),
       });
-      throw error;
+      throw classified;
+    } finally {
+      cancellation.dispose();
     }
 
     if (!result) {
@@ -372,7 +451,9 @@ async function handleGenerate(
       totalCostUsd += result.estimatedCostUsd;
     }
 
-    const completed = (await repository.loadGenerationPlan(generationJobId)).filter(
+    const completed = (
+      await repository.loadGenerationPlan(generationJobId)
+    ).filter(
       (row: any) => row.result_id && row.validation_status === "valid",
     ).length;
     await jobService.updateStatus(generationJobId, "generating", {
@@ -385,9 +466,7 @@ async function handleGenerate(
         totalCostUsd: Number(totalCostUsd.toFixed(6)),
       },
       tokensUsedDelta:
-        persisted === "inserted"
-          ? result.inputTokens + result.outputTokens
-          : 0,
+        persisted === "inserted" ? result.inputTokens + result.outputTokens : 0,
       actualCostDelta: persisted === "inserted" ? result.estimatedCostUsd : 0,
     });
   }
@@ -424,7 +503,9 @@ async function handleGenerate(
   );
   if (ingestResult.errors.length) {
     throw new Error(
-      `Batch ingestion failed: ${ingestResult.errors.map((e) => e.message).join("; ")}`,
+      `Batch ingestion failed: ${ingestResult.errors
+        .map((e) => e.message)
+        .join("; ")}`,
     );
   }
 
@@ -500,7 +581,13 @@ export function startGenerationWorker() {
     GENERATION_QUEUE_NAME,
     async (job) => {
       await jobService.incrementAttempt(job.data.generationJobId);
-      await handlers[job.name](job);
+      try {
+        await handlers[job.name](job);
+      } catch (error) {
+        const classified = classifyProviderFailure(error);
+        if (!classified.retryable) job.discard();
+        throw classified;
+      }
     },
     { connection: createQueueConnection(), concurrency },
   );
@@ -537,10 +624,23 @@ export function startGenerationWorker() {
     // its own retries (attempts: 3 with backoff, set in generation.queue.ts)
     // -- an intermediate retry attempt shouldn't surface as a failure to
     // the user-facing status.
-    if (job.attemptsMade >= (job.opts.attempts || 1)) {
-      await jobService.updateStatus(job.data.generationJobId, "failed", {
-        errorMessage: error.message,
-      });
+    const classified = classifyProviderFailure(error);
+    if (!classified.retryable || job.attemptsMade >= (job.opts.attempts || 1)) {
+      const cancelled = classified.code === "cancelled";
+      await jobService.updateStatus(
+        job.data.generationJobId,
+        cancelled ? "cancelled" : "failed",
+        {
+          errorMessage: classified.message,
+        },
+      );
+      await database("generation_jobs")
+        .where({ id: job.data.generationJobId })
+        .update({ terminal_reason: classified.code });
+      const record = await database("generation_jobs")
+        .where({ id: job.data.generationJobId })
+        .first();
+      if (cancelled) await removeStagedUpload(record?.staged_upload_path);
     }
   });
 

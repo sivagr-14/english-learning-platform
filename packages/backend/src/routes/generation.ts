@@ -9,6 +9,14 @@ import { GenerationJobService } from "../services/generation-job.service";
 import { enqueueExtraction } from "../queue/generation.queue";
 import { database } from "../utils/db";
 import { generationWorkerReady } from "../queue/worker-health";
+import Busboy from "busboy";
+import {
+  removeStagedUpload,
+  stageUpload,
+  UploadValidationError,
+  validateStagedFileContent,
+  validateUploadMetadata,
+} from "../services/staged-upload.service";
 
 const router: Router = express.Router();
 const jobService = new GenerationJobService(database);
@@ -63,7 +71,8 @@ router.post(
     try {
       if (!(await generationWorkerReady())) {
         return res.status(503).json({
-          error: "Generation worker is unavailable. Restart the app and try again.",
+          error:
+            "Generation worker is unavailable. Restart the app and try again.",
           code: "GENERATION_WORKER_UNAVAILABLE",
         });
       }
@@ -83,6 +92,120 @@ router.post(
       }
 
       res.status(isNew ? 201 : 200).json({ job, alreadyExisted: !isNew });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.post(
+  "/uploads",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    let stagedPath: string | undefined;
+    try {
+      if (!(await generationWorkerReady()))
+        return res
+          .status(503)
+          .json({
+            error:
+              "Generation worker is unavailable. Restart the app and try again.",
+            code: "GENERATION_WORKER_UNAVAILABLE",
+          });
+      if (!req.is("multipart/form-data"))
+        return res
+          .status(415)
+          .json({
+            error: "Use multipart/form-data for file uploads.",
+            code: "MULTIPART_REQUIRED",
+          });
+      const sourceType = String(req.header("x-source-type") || "");
+      const expectedHash = req.header("x-content-sha256") || undefined;
+      const busboy = Busboy({
+        headers: req.headers,
+        limits: { files: 1, fileSize: 25 * 1024 * 1024, fields: 0 },
+      });
+      let uploadPromise:
+        | Promise<Awaited<ReturnType<typeof stageUpload>>>
+        | undefined;
+      let sourceName = "";
+      let truncated = false;
+      busboy.on("file", (_field, stream, info) => {
+        sourceName = info.filename;
+        validateUploadMetadata(sourceType, sourceName);
+        stream.on("limit", () => {
+          truncated = true;
+        });
+        uploadPromise = stageUpload({
+          stream,
+          ownerId: req.userId as string,
+          filename: sourceName,
+          sourceType,
+          expectedHash,
+        });
+      });
+      await new Promise<void>((resolve, reject) => {
+        busboy.once("close", resolve);
+        busboy.once("error", reject);
+        req.once("aborted", () =>
+          reject(
+            new UploadValidationError(
+              "Upload was interrupted",
+              400,
+              "UPLOAD_INTERRUPTED",
+            ),
+          ),
+        );
+        req.pipe(busboy);
+      });
+      if (!uploadPromise)
+        throw new UploadValidationError(
+          "Multipart request did not contain a file",
+        );
+      const staged = await uploadPromise;
+      stagedPath = staged.path;
+      if (truncated)
+        throw new UploadValidationError(
+          "File exceeds the 25 MB limit",
+          413,
+          "FILE_TOO_LARGE",
+        );
+      await validateStagedFileContent(staged.path, sourceType);
+      const { job, isNew } = await jobService.createFromStagedUpload({
+        userId: req.userId as string,
+        sourceName,
+        sourceType: sourceType as any,
+        sourceHash: staged.hash,
+        stagedUploadPath: staged.path,
+        stagedUploadSize: staged.size,
+      });
+      if (!isNew) await removeStagedUpload(staged.path);
+      if (isNew)
+        await enqueueExtraction({
+          generationJobId: job.id,
+          userId: req.userId as string,
+        });
+      res.status(isNew ? 201 : 200).json({ job, alreadyExisted: !isNew });
+    } catch (error) {
+      if (stagedPath) await removeStagedUpload(stagedPath);
+      if (error instanceof UploadValidationError)
+        return res
+          .status(error.status)
+          .json({ error: error.message, code: error.code });
+      next(error);
+    }
+  },
+);
+
+router.post(
+  "/jobs/:id/cancel",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const id = z.string().uuid().parse(req.params.id);
+      const job = await jobService.requestCancellation(
+        req.userId as string,
+        id,
+      );
+      res.status(202).json({ job });
     } catch (error) {
       next(error);
     }
@@ -185,7 +308,7 @@ router.get(
       const progress =
         typeof job.stage_progress === "string"
           ? JSON.parse(job.stage_progress)
-          : (job.stage_progress ?? {});
+          : job.stage_progress ?? {};
 
       const candidateCount: number = progress.candidatesFound ?? 0;
       // Rough estimate: ~3,000 tokens input + 2,000 tokens output per lesson
