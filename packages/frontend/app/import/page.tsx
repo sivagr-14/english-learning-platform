@@ -167,17 +167,11 @@ export default function ImportPage() {
 
   return (
     <AuthenticatedPage>
-      <AppShell>
+      <AppShell
+        title="Import content"
+        description="Paste text or upload a supported file to generate vocabulary lessons directly in the app."
+      >
         <div className="mx-auto max-w-3xl space-y-8 p-6">
-          <div>
-            <h1 className="text-2xl font-semibold">Import content</h1>
-            <p className="mt-1 text-sm text-gray-500">
-              Paste text or upload a file (.txt, .pdf, .srt, .docx, .epub) to
-              generate vocabulary lessons directly in-app -- no ChatGPT
-              round-trip needed. Requires an AI provider key configured in
-              your environment (see .env.example).
-            </p>
-          </div>
 
           {config && !config.primaryConfigured && (
             <div className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-800">
