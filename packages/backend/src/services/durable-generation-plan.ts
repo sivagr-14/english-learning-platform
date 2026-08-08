@@ -5,7 +5,7 @@ export interface DurablePlanMember {
   position: number;
   external_candidate_id: string;
   result_id?: string | null;
-  entry_payload?: unknown;
+  entry_payload?: any;
   validation_status?: string | null;
 }
 
@@ -23,7 +23,7 @@ export function reconstructDurableBatches(plan: DurablePlanMember[]) {
     );
   }
 
-  const batches = new Map<number, unknown[]>();
+  const batches = new Map<number, any[]>();
   const seenPositions = new Set<string>();
   for (const member of plan) {
     const key = `${member.batch_number}:${member.position}`;
