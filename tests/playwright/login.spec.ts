@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from 'playwright/test';
 
 test('login with email/password stores tokens and redirects', async ({ page }) => {
   await page.goto('http://localhost:3000/login');
