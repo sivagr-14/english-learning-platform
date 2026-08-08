@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "featureId": "base-01-reproducible-baseline",
+  "title": "BASE-01 reproducible baseline and privacy-safe gold corpus",
+  "implementationPaths": [
+    "scripts/baseline/build-gold-corpus.js",
+    "scripts/baseline/validate-gold-corpus.js",
+    "packages/backend/src/database/migrations/018_generation_jobs.ts",
+    "packages/backend/src/database/migrations/018_generation_jobs.test.ts"
+  ],
+  "validationPaths": [
+    "scripts/baseline/validate-gold-corpus.js",
+    "packages/backend/src/database/migrations/018_generation_jobs.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "BASE-01 adds a reproducible test corpus, baseline evidence templates, and a compatibility repair for an existing migration; it does not change source assessment rules, content-pack transport, contextual meanings, taxonomy, or lesson generation."
+  }
+}
