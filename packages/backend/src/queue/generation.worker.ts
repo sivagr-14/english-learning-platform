@@ -328,6 +328,11 @@ async function handleAssess(
     manifestId,
     manifestHash,
   };
+  const attentionCount = manifestDoc.candidates.filter(
+    (candidate: any) =>
+      candidate.senseDecision === "ambiguous" ||
+      candidate.taxonomy?.confidence === "low",
+  ).length;
   await enqueueAfterCommit(
     () =>
       database.transaction(async (trx: any) => {
@@ -340,21 +345,28 @@ async function handleAssess(
           .update({
             assessment_run_id: durableManifest.assessment_run_id,
             manifest_id: manifestId,
-            status: "generating",
-            stage_progress: JSON.stringify(durableProgress),
+            status: attentionCount ? "attention_required" : "generating",
+            stage_progress: JSON.stringify({
+              ...durableProgress,
+              attentionCount,
+            }),
             updated_at: new Date(),
           });
         await trx("generation_job_events").insert({
           generation_job_id: generationJobId,
-          event_type: "job.generating",
-          stage: "generating",
-          details: JSON.stringify(durableProgress),
+          event_type: attentionCount
+            ? "job.attention_required"
+            : "job.generating",
+          stage: attentionCount ? "review" : "generating",
+          details: JSON.stringify({ ...durableProgress, attentionCount }),
         });
       }),
     () =>
-      getGenerationQueue().add("generate", job.data, {
-        jobId: generationStageJobId(generationJobId, "generate"),
-      }),
+      attentionCount
+        ? Promise.resolve()
+        : getGenerationQueue().add("generate", job.data, {
+            jobId: generationStageJobId(generationJobId, "generate"),
+          }),
   );
 }
 
