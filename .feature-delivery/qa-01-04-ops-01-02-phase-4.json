@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "featureId": "qa-01-04-ops-01-02-phase-4",
+  "title": "Add shared Phase 4 quality, rollout and operations controls",
+  "implementationPaths": [
+    ".env.example",
+    "README.md",
+    "package.json",
+    "docs/PHASE_4_OPERATIONS_RUNBOOK.md",
+    "docs/benchmark",
+    "packages/backend/src/index.ts",
+    "packages/backend/src/routes/generation.ts",
+    "packages/backend/src/services/provider-rollout.service.ts",
+    "packages/frontend/app/import/page.tsx",
+    "playwright.config.ts",
+    "scripts/benchmark-providers.js",
+    "scripts/control-server.js"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/provider-contract-parity.test.ts",
+    "packages/backend/src/services/provider-rollout.service.test.ts",
+    "scripts/benchmark-providers.test.js",
+    "scripts/control-server.test.js",
+    "tests/playwright/phase4-workflows.spec.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "Phase 4 validates and operates the existing shared contracts; it does not change source assessment, contextual-sense, taxonomy, batch or eight-section generation rules."
+  }
+}

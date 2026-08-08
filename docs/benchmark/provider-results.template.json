@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "provider-benchmark-input-v1",
+  "thresholds": {
+    "candidateRecall": 0.9,
+    "phraseRecall": 0.85,
+    "taxonomyAccuracy": 0.9,
+    "schemaCompliance": 1,
+    "tamilSemanticScore": 4,
+    "tamilNaturalnessScore": 4
+  },
+  "cases": []
+}

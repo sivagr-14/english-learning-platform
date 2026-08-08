@@ -197,6 +197,7 @@ class ControlManager {
     this.phase = 'idle';
     this.currentStep = 'Ready to validate and start';
     this.error = null;
+    this.recovery = null;
     this.startedAt = null;
     this.logs = [];
     this.services = null;
@@ -270,6 +271,7 @@ class ControlManager {
       phase: this.phase,
       currentStep: this.currentStep,
       error: this.error,
+      recovery: this.recovery,
       startedAt: this.startedAt,
       frontend,
       backend,
@@ -865,6 +867,7 @@ class ControlManager {
   async runUpdateAndRestart() {
     this.phase = 'starting';
     this.error = null;
+    this.recovery = null;
     this.logs = [];
     this.startedAt = new Date().toISOString();
     try {
@@ -951,11 +954,15 @@ class ControlManager {
           : 'GitHub update installed and synchronized';
       this.log('Update & restart completed.');
     } catch (error) {
+      const failedStage = this.currentStep;
       this.stopServices();
       this.phase = 'error';
-      this.currentStep = 'Update stopped safely';
+      this.currentStep = `Update stopped safely at: ${failedStage}`;
       this.error = error instanceof Error ? error.message : String(error);
+      this.recovery =
+        'No destructive rollback was performed. Correct the reported problem, confirm git status is clean and main is checked out, then select Retry update & start. Durable queued/active jobs remain in PostgreSQL and will resume when the worker is ready.';
       this.log(`Update failed: ${this.error}`);
+      this.log(`Safe recovery: ${this.recovery}`);
     }
   }
 

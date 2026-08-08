@@ -23,6 +23,7 @@ import {
 } from "../services/staged-upload.service";
 import { CandidateReviewService } from "../services/candidate-review.service";
 import { GeminiAdapter } from "../services/ai-provider.service";
+import { providerRolloutConfig } from "../services/provider-rollout.service";
 
 const router: Router = express.Router();
 const jobService = new GenerationJobService(database);
@@ -52,6 +53,7 @@ router.get("/config-check", (_req: Request, res: Response) => {
   );
   const escalationKeySet = Boolean(process.env.ESCALATION_AI_API_KEY);
   res.json({
+    ...providerRolloutConfig(),
     enabled: primaryKeySet && process.env.GEMINI_ENABLED === "true",
     primaryConfigured: primaryKeySet,
     escalationConfigured: escalationKeySet,
