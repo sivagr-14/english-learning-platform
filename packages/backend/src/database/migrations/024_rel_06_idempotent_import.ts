@@ -10,7 +10,7 @@ export async function up(knex: any): Promise<void> {
       .notNullable()
       .references("id")
       .inTable("vocabulary_words")
-      .onDelete("RESTRICT");
+      .onDelete("CASCADE");
     table.timestamp("verified_at").nullable();
     table.jsonb("verification_report").notNullable().defaultTo("{}");
     table.timestamps(true, true);
