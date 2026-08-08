@@ -26,7 +26,8 @@ import {
 // catalogue is ~300 entries -- this is a one-time-per-chunk cost, not
 // per-word, so it stays a small fraction of overall token spend.
 const TAXONOMY_CATALOG_PROMPT = TAXONOMY_SPECIFIC_CATEGORIES.map(
-  (category) => `${category.key} :: ${category.name}`,
+  (category) =>
+    `${category.domainKey} -> ${category.usageGroupKey} -> ${category.key} :: ${category.name}`,
 ).join("\n");
 
 interface RawCandidate {
@@ -35,6 +36,10 @@ interface RawCandidate {
   itemType: string;
   contextualMeaning: string;
   categoryKey: string;
+  domainKey: string;
+  usageGroupKey: string;
+  taxonomyConfidence: "high" | "medium" | "low";
+  taxonomyReason?: string;
   cefrLevel: string;
   usageFrequency: "heavy" | "medium";
   fluencyValue: "essential" | "useful" | "specialized";
@@ -65,7 +70,9 @@ Return ONLY a JSON object: { "candidates": [ ... ] }. Each candidate:
   "baseForm": string (dictionary/lemma form),
   "itemType": one of "word" | "phrasal verb" | "idiom" | "collocation" | "fixed phrase" | "conversational pattern",
   "contextualMeaning": string (at least 8 characters, explains the meaning AS USED in this passage),
-  "categoryKey": string (pick the single best match from the taxonomy list below -- copy the key exactly),
+  "domainKey": string, "usageGroupKey": string, "categoryKey": string (copy one complete hierarchy below exactly),
+  "taxonomyConfidence": one of "high" | "medium" | "low",
+  "taxonomyReason": string (required when confidence is low),
   "cefrLevel": one of "A1"|"A2"|"B1"|"B2"|"C1"|"C2",
   "usageFrequency": "heavy" | "medium" (never "low" -- if it's low-frequency, omit the candidate entirely),
   "fluencyValue": "essential" | "useful" | "specialized",
@@ -86,12 +93,21 @@ ${TAXONOMY_CATALOG_PROMPT}`;
   });
 
   return (result.data.candidates || []).filter((candidate) => {
-    const valid = taxonomyPathForCategoryKey(candidate.categoryKey);
+    const path = taxonomyPathForCategoryKey(candidate.categoryKey);
+    const valid =
+      path &&
+      candidate.domainKey === path.domainKey &&
+      candidate.usageGroupKey === path.usageGroupKey;
     if (!valid) {
       logger.warn(
-        `Assessment proposed unknown categoryKey "${candidate.categoryKey}" for "${candidate.term}"; dropping candidate`,
+        `Assessment proposed an invented or mismatched taxonomy path for "${candidate.term}"; dropping candidate`,
       );
     }
+    if (
+      candidate.taxonomyConfidence === "low" &&
+      !candidate.taxonomyReason?.trim()
+    )
+      return false;
     return Boolean(valid);
   });
 }
@@ -135,7 +151,10 @@ export function toManifestCandidate(
       domainKey: taxonomyPath.domainKey,
       usageGroupKey: taxonomyPath.usageGroupKey,
       categoryKey: taxonomyPath.categoryKey,
-      confidence: "medium" as const,
+      confidence: raw.taxonomyConfidence,
+      ...(raw.taxonomyConfidence === "low"
+        ? { reason: raw.taxonomyReason }
+        : {}),
     },
     occurrences: [{ page, chunkId, sentence: raw.sourceSentence }],
   };

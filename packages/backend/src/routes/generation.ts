@@ -6,7 +6,11 @@ import {
   AuthenticatedRequest,
 } from "../middleware/auth.middleware";
 import { GenerationJobService } from "../services/generation-job.service";
-import { enqueueExtraction } from "../queue/generation.queue";
+import {
+  enqueueExtraction,
+  generationStageJobId,
+  getGenerationQueue,
+} from "../queue/generation.queue";
 import { database } from "../utils/db";
 import { generationWorkerReady } from "../queue/worker-health";
 import Busboy from "busboy";
@@ -17,9 +21,11 @@ import {
   validateStagedFileContent,
   validateUploadMetadata,
 } from "../services/staged-upload.service";
+import { CandidateReviewService } from "../services/candidate-review.service";
 
 const router: Router = express.Router();
 const jobService = new GenerationJobService(database);
+const reviewService = new CandidateReviewService(database);
 
 // Generation is the expensive path (queues real work, will eventually call
 // paid APIs) -- tighter limit than the general control endpoints.
@@ -235,6 +241,92 @@ router.get(
       const id = z.string().uuid().parse(req.params.id);
       const job = await jobService.get(req.userId as string, id);
       res.json({ job });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.get(
+  "/jobs/:id/candidates",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const id = z.string().uuid().parse(req.params.id);
+      const result = await reviewService.list(req.userId as string, id, {
+        decision:
+          typeof req.query.decision === "string"
+            ? req.query.decision
+            : undefined,
+        reviewStatus:
+          typeof req.query.reviewStatus === "string"
+            ? req.query.reviewStatus
+            : undefined,
+      });
+      res.json(result);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+const ReviewActionSchema = z.object({
+  candidateIds: z.array(z.string().uuid()).min(1).max(500),
+  action: z.enum(["approve", "reject", "correct", "retry"]),
+  patch: z.record(z.unknown()).default({}),
+  reason: z.string().trim().min(3).max(500),
+});
+
+router.post(
+  "/jobs/:id/candidates/review",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const id = z.string().uuid().parse(req.params.id);
+      const input = ReviewActionSchema.parse(req.body);
+      res.json(
+        await reviewService.act(
+          req.userId as string,
+          id,
+          input.candidateIds,
+          input.action,
+          input.patch,
+          input.reason,
+        ),
+      );
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.post(
+  "/jobs/:id/resume",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const id = z.string().uuid().parse(req.params.id);
+      const job = await jobService.get(req.userId as string, id);
+      const review = await reviewService.list(req.userId as string, id, {});
+      if (review.completionBlocked)
+        return res
+          .status(409)
+          .json({
+            error:
+              "Resolve every attention-required candidate before resuming.",
+          });
+      if (!job.manifest_id)
+        return res
+          .status(409)
+          .json({
+            error: "Assessment has not produced a durable manifest yet.",
+          });
+      await database("generation_jobs")
+        .where({ id })
+        .update({ status: "generating", updated_at: new Date() });
+      await getGenerationQueue().add(
+        "generate",
+        { generationJobId: id, userId: req.userId as string },
+        { jobId: generationStageJobId(id, "generate") },
+      );
+      res.status(202).json({ resumed: true });
     } catch (error) {
       next(error);
     }

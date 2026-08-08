@@ -239,6 +239,20 @@ export class GenerationJobService {
       tokensUsedDelta: number;
     }> = {},
   ) {
+    if (status === "committed") {
+      const unresolved = await this.database("generation_candidate_decisions")
+        .where({
+          generation_job_id: jobId,
+          review_status: "attention_required",
+        })
+        .count("id as count")
+        .first();
+      if (Number(unresolved?.count || 0) > 0)
+        throw statusError(
+          "Unresolved attention-required candidates block completion.",
+          409,
+        );
+    }
     const updates: Record<string, unknown> = {
       status,
       updated_at: new Date(),

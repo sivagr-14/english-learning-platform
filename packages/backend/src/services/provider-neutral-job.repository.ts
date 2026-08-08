@@ -116,6 +116,11 @@ export class ProviderNeutralJobRepository {
             reason_code: candidate.reasonCode ?? null,
             reason: candidate.reason ?? candidate.decisionReason ?? null,
             snapshot: JSON.stringify(candidate),
+            review_status:
+              candidate.senseDecision === "ambiguous" ||
+              candidate.taxonomy?.confidence === "low"
+                ? "attention_required"
+                : "not_required",
           })
           .onConflict(["generation_job_id", "external_candidate_id"])
           .ignore()
@@ -217,11 +222,11 @@ export class ProviderNeutralJobRepository {
         "candidate.id",
       )
       .leftJoin("generation_results as result", function (this: any) {
-        this.on("result.generation_job_id", "=", "batch.generation_job_id").andOn(
-          "result.candidate_decision_id",
+        this.on(
+          "result.generation_job_id",
           "=",
-          "candidate.id",
-        );
+          "batch.generation_job_id",
+        ).andOn("result.candidate_decision_id", "=", "candidate.id");
       })
       .where("batch.generation_job_id", jobId)
       .select(
@@ -231,7 +236,9 @@ export class ProviderNeutralJobRepository {
         "member.position",
         "candidate.id as candidate_decision_id",
         "candidate.external_candidate_id",
-        "candidate.snapshot",
+        this.database.raw(
+          "COALESCE(candidate.review_override, candidate.snapshot) as snapshot",
+        ),
         "result.id as result_id",
         "result.content_hash as result_hash",
         "result.entry_payload",
