@@ -40,6 +40,13 @@ export interface ContentPackSyncResult {
   committedEntries: number;
   errors: Array<{ path: string; message: string }>;
   cleanupEligible: string[];
+  fetchedCommit?: string;
+}
+
+export interface ContentPackIngestContext {
+  inboxBranch?: string;
+  fetchedCommit?: string;
+  syncedAt?: Date;
 }
 
 function statusError(
@@ -102,6 +109,7 @@ export class ContentPackService {
 
   async ingestDocuments(
     documents: ContentPackDocument[],
+    context: ContentPackIngestContext = {},
   ): Promise<ContentPackSyncResult> {
     const result: ContentPackSyncResult = {
       manifestsAdded: 0,
@@ -110,6 +118,9 @@ export class ContentPackService {
       committedEntries: 0,
       errors: [],
       cleanupEligible: [],
+      ...(context.fetchedCommit
+        ? { fetchedCommit: context.fetchedCommit }
+        : {}),
     };
     const parsed = documents.map((document) => {
       try {
@@ -161,6 +172,18 @@ export class ContentPackService {
             message: "The manifest ID already exists with different content.",
           });
         } else {
+          if (context.fetchedCommit) {
+            await this.database("content_pack_manifests")
+              .where({ id: validation.value.manifestId })
+              .update({
+                inbox_branch: context.inboxBranch || "chatgpt-content-inbox",
+                fetched_commit: context.fetchedCommit,
+                last_synced_at: context.syncedAt || new Date(),
+                sync_status: "synchronized",
+                sync_error: null,
+                updated_at: new Date(),
+              });
+          }
           result.unchanged += 1;
         }
         continue;
@@ -174,6 +197,11 @@ export class ContentPackService {
         counts: JSON.stringify(manifestAssessmentCounts(validation.value)),
         payload: JSON.stringify(validation.value),
         validation_report: JSON.stringify({ issues: [] }),
+        inbox_branch: context.inboxBranch || "chatgpt-content-inbox",
+        fetched_commit: context.fetchedCommit || null,
+        last_synced_at: context.syncedAt || new Date(),
+        sync_status: "synchronized",
+        sync_error: null,
         created_at: new Date(validation.value.createdAt),
         updated_at: new Date(),
       });
@@ -801,7 +829,10 @@ export class ContentPackService {
           .update(JSON.stringify(entry))
           .digest("hex");
         const receipt = await trx("content_pack_entry_receipts")
-          .where({ manifest_id: manifestRow.id, candidate_id: entry.candidateId })
+          .where({
+            manifest_id: manifestRow.id,
+            candidate_id: entry.candidateId,
+          })
           .forUpdate()
           .first();
         if (receipt) {
@@ -973,14 +1004,16 @@ export class ContentPackService {
           verification_report: JSON.stringify({ verified: true }),
           updated_at: now,
         });
-      await trx("content_pack_batches").where({ id: batchId }).update({
-        readback_verified_at: now,
-        readback_report: JSON.stringify({
-          verified: true,
-          entryCount: new Set(wordIds).size,
-        }),
-        updated_at: now,
-      });
+      await trx("content_pack_batches")
+        .where({ id: batchId })
+        .update({
+          readback_verified_at: now,
+          readback_report: JSON.stringify({
+            verified: true,
+            entryCount: new Set(wordIds).size,
+          }),
+          updated_at: now,
+        });
     });
   }
 
@@ -1121,11 +1154,13 @@ export class ContentPackService {
       );
     }
     if (!wordIds.length) {
-      return {
+      const report = {
         verified: false,
         entries: 0,
         issues: [...issues, "No entries are committed yet."],
       };
+      await this.storeVerification(manifestId, report);
+      return report;
     }
     const rows = await this.database("vocabulary_words as words")
       .leftJoin("vocabulary_lessons as lessons", "lessons.word_id", "words.id")
@@ -1189,7 +1224,26 @@ export class ContentPackService {
     if (rows.length !== uniqueWordIds.length) {
       issues.push("One or more committed word rows could not be read back.");
     }
-    return { verified: issues.length === 0, entries: rows.length, issues };
+    const report = {
+      verified: issues.length === 0,
+      entries: rows.length,
+      issues,
+    };
+    await this.storeVerification(manifestId, report);
+    return report;
+  }
+
+  private async storeVerification(
+    manifestId: string,
+    report: { verified: boolean; entries: number; issues: string[] },
+  ) {
+    await this.database("content_pack_manifests")
+      .where({ id: manifestId })
+      .update({
+        last_verified_at: new Date(),
+        verification_report: JSON.stringify(report),
+        updated_at: new Date(),
+      });
   }
 
   async markInboxCleaned(manifestId: string, commitSha: string) {
@@ -1200,11 +1254,36 @@ export class ContentPackService {
     if (row.status !== "completed") {
       throw statusError("Only a completed manifest can be marked as cleaned.");
     }
+    const verification = readJson<{
+      verified?: boolean;
+      issues?: string[];
+    }>(row.verification_report, {});
+    if (!verification.verified) {
+      throw statusError(
+        "Inbox cleanup requires a successful database read-back verification.",
+      );
+    }
     await this.database("content_pack_manifests")
       .where({ id: manifestId })
       .update({
         inbox_cleaned_at: new Date(),
         inbox_cleanup_commit: commitSha,
+        cleanup_attempts: Number(row.cleanup_attempts || 0) + 1,
+        cleanup_error: null,
+        updated_at: new Date(),
+      });
+  }
+
+  async markInboxCleanupFailed(manifestId: string, message: string) {
+    const row = await this.database("content_pack_manifests")
+      .where({ id: manifestId })
+      .first();
+    if (!row) throw statusError("ChatGPT content manifest not found", 404);
+    await this.database("content_pack_manifests")
+      .where({ id: manifestId })
+      .update({
+        cleanup_attempts: Number(row.cleanup_attempts || 0) + 1,
+        cleanup_error: message.slice(0, 10_000),
         updated_at: new Date(),
       });
   }
@@ -1246,7 +1325,41 @@ export class ContentPackService {
       completedAt: row.completed_at,
       inboxCleanedAt: row.inbox_cleaned_at,
       inboxCleanupCommit: row.inbox_cleanup_commit,
+      inboxBranch: row.inbox_branch,
+      fetchedCommit: row.fetched_commit,
+      lastSyncedAt: row.last_synced_at,
+      syncStatus: row.sync_status,
+      syncError: row.sync_error,
+      lastVerifiedAt: row.last_verified_at,
+      verification: readJson(row.verification_report, {}),
+      cleanupAttempts: Number(row.cleanup_attempts || 0),
+      cleanupError: row.cleanup_error,
+      nextAction: this.nextAction(row, planned, received, invalid),
     };
+  }
+
+  private nextAction(
+    row: any,
+    planned: number,
+    received: number,
+    invalid: number,
+  ) {
+    if (!row.owner_user_id)
+      return "Claim this manifest to establish account ownership.";
+    if (invalid > 0)
+      return "Fix the reported batch validation errors, then revalidate.";
+    if (received < planned)
+      return `Deliver ${planned - received} missing planned batch(es), then synchronize again.`;
+    if (row.status !== "completed")
+      return "Revalidate the import and resolve every attention item.";
+    const verification = readJson<{ verified?: boolean }>(
+      row.verification_report,
+      {},
+    );
+    if (!verification.verified) return "Run PostgreSQL read-back verification.";
+    if (!row.inbox_cleaned_at)
+      return "Synchronize again to retry verified inbox cleanup.";
+    return "Completed, verified and removed from the active inbox.";
   }
 
   private async recordIngestErrors(
