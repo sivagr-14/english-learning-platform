@@ -26,3 +26,5 @@ backups/
 *.tsbuildinfo
 public/uploads/
 tmp/
+docs/baseline/results.local.json
+test/fixtures/gold-corpus/generated/
