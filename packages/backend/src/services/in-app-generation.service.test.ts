@@ -38,7 +38,20 @@ function candidate(overrides: Record<string, unknown> = {}) {
 }
 
 describe("Gemini Phase 1 contract and contextual-sense parity", () => {
-  it("accepts exact short source evidence and records the generated operation", () => {\n    const parsed = candidate({\n      senseEvidence: {\n        sentence: "Go now.",\n        explanation: "The imperative meaning is explicit in the source.",\n      },\n      occurrences: [{ page: 2, chunkId: "chunk-0002", sentence: "Go now." }],\n    });\n\n    expect(parsed.operation).toBe("new");\n    expect(parsed.senseEvidence.sentence).toBe("Go now.");\n  });\n\n  it("reuses an existing stored sense by stable sense key", () => {
+  it("accepts exact short source evidence and records the generated operation", () => {
+    const parsed = candidate({
+      senseEvidence: {
+        sentence: "Go now.",
+        explanation: "The imperative meaning is explicit in the source.",
+      },
+      occurrences: [{ page: 2, chunkId: "chunk-0002", sentence: "Go now." }],
+    });
+
+    expect(parsed.operation).toBe("new");
+    expect(parsed.senseEvidence.sentence).toBe("Go now.");
+  });
+
+  it("reuses an existing stored sense by stable sense key", () => {
     const resolved = resolveManifestCandidateAgainstExisting(candidate(), [{
       id: "11111111-1111-4111-8111-111111111111",
       word: "bank",
