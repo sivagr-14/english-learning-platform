@@ -173,6 +173,20 @@ function validTaxonomyAwarePack(): { manifest: any; batch: any } {
     categoryKey: "education.study_skills.practice_and_improvement",
     confidence: "high",
   };
+  manifest.inventoryAudit = {
+    items: manifest.candidates.map((candidate: any, index: number) => ({
+      inventoryId: `inventory-${index + 1}`,
+      kind: "token",
+      surfaceForm: candidate.term,
+      normalizedForm: candidate.baseForm,
+      chunkId: candidate.occurrences[0].chunkId,
+      sentence: candidate.occurrences[0].sentence,
+      disposition: "candidate",
+      candidateId: candidate.candidateId,
+    })),
+    counts: { total: 2, candidateLinked: 2, excluded: 0, untracked: 0 },
+    recallPass: { completed: true, unresolvedInventoryIds: [], missedFindings: [] },
+  };
   batch.formatVersion = "chatgpt-vocabulary-batch-v3";
   batch.manifestHash = contentPackHash(manifest);
   return { manifest, batch };
@@ -277,6 +291,20 @@ describe("ChatGPT content-pack contract", () => {
     invented.manifest.candidates[0].taxonomy.categoryKey =
       "education.study_skills.invented_category";
     expect(validateContentManifest(invented.manifest).valid).toBe(false);
+  });
+
+  it("rejects v3 manifests without exhaustive inventory proof", () => {
+    const { manifest } = validTaxonomyAwarePack();
+    delete manifest.inventoryAudit;
+    expect(validateContentManifest(manifest).issues.join(" ")).toMatch(
+      /invalid input|inventoryAudit/i,
+    );
+  });
+
+  it("rejects unlinked inventory and candidates", () => {
+    const { manifest } = validTaxonomyAwarePack();
+    manifest.inventoryAudit.items[0].candidateId = "unknown-candidate";
+    expect(validateContentManifest(manifest).issues.join(" ")).toMatch(/unknown candidate|no deterministic inventory link/i);
   });
 
   it("allows one spelling to have different sense keys", () => {
