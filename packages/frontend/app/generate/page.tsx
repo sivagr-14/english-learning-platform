@@ -280,7 +280,7 @@ export default function ChatGPTImportsPage() {
             disabled={busy === "sync"}
             className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-60"
           >
-            {busy === "sync" ? "Synchronizing…" : "Sync ChatGPT content"}
+            {busy === "sync" ? "Checking…" : "Check imports now"}
           </button>
         }
       >
@@ -298,8 +298,8 @@ export default function ChatGPTImportsPage() {
               ],
               [
                 "3",
-                "Sync once",
-                "The app claims and processes eligible terms automatically.",
+                "Import automatically",
+                "The signed-in app assigns ownership, imports, verifies and cleans up automatically.",
               ],
               [
                 "4",
@@ -510,7 +510,7 @@ export default function ChatGPTImportsPage() {
                           onClick={() => loadDetail(manifest.id)}
                           className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700"
                         >
-                          Review candidates
+                          View candidate audit
                         </button>
                       )}
                       {manifest.status === "completed" && (
