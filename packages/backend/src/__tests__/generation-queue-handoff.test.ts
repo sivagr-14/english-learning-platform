@@ -38,7 +38,13 @@ describe("assessment to generation handoff", () => {
       generationStageJobId("job-123", "generate"),
     );
     expect(generationStageJobId("job-123", "generate")).toBe(
-      "job-123:generate",
+      "job-123--generate",
     );
+  });
+
+  it("never emits BullMQ-reserved colons in custom stage IDs", () => {
+    for (const stage of ["extract", "assess", "generate", "batch-poll", "commit"] as const) {
+      expect(generationStageJobId("550e8400-e29b-41d4-a716-446655440000", stage)).not.toContain(":");
+    }
   });
 });

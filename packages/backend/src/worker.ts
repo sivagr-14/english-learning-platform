@@ -29,8 +29,15 @@ if (dotenvPath) {
 
 import { startGenerationWorker } from "./queue/generation.worker";
 import { logger } from "./utils/logger";
+import { recoverGenerationDeliveries } from "./services/generation-delivery-recovery.service";
 
 const worker = startGenerationWorker();
+void worker
+  .waitUntilReady()
+  .then(() => recoverGenerationDeliveries())
+  .catch((error) => {
+    logger.error("Generation delivery recovery failed during worker startup", error);
+  });
 
 process.on("SIGTERM", async () => {
   logger.info("Worker received SIGTERM, shutting down gracefully");

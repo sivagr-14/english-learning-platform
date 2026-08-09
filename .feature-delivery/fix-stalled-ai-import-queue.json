@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fix-stalled-ai-import-queue",
+  "title": "Recover stalled Import AI queue deliveries",
+  "implementationPaths": [
+    "packages/backend/src/queue/generation.queue.ts",
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/backend/src/services/generation-delivery-recovery.service.ts",
+    "packages/backend/src/worker.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/__tests__/generation-queue-handoff.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This fix changes only internal BullMQ delivery identifiers and worker startup recovery. It preserves the existing source reconciliation, contextual-sense, eight-section lesson, validation, transaction and read-back contracts."
+  }
+}
