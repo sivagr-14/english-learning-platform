@@ -1,12 +1,1 @@
-{
-  "schemaVersion": "provider-benchmark-input-v1",
-  "thresholds": {
-    "candidateRecall": 0.9,
-    "phraseRecall": 0.85,
-    "taxonomyAccuracy": 0.9,
-    "schemaCompliance": 1,
-    "tamilSemanticScore": 4,
-    "tamilNaturalnessScore": 4
-  },
-  "cases": []
-}
+{"schemaVersion":"provider-benchmark-input-v2","benchmarkVersion":"base-01-gold-v1","thresholds":{"candidateRecall":0.9,"phraseRecall":0.85,"contextualMeaningAccuracy":0.95,"senseDecisionAccuracy":0.95,"taxonomyAccuracy":0.9,"eightSectionQuality":0.9,"schemaCompliance":1,"tamilSemanticScore":4,"tamilNaturalnessScore":4},"cases":[]}
