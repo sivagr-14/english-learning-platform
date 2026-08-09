@@ -8,6 +8,7 @@
     "scripts/control-server.js"
   ],
   "validationPaths": [
+    "packages/backend/src/services/content-pack-contract.test.ts",
     "packages/backend/src/services/in-app-generation.service.test.ts",
     "scripts/control-server.test.js"
   ],
