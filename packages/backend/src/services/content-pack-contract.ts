@@ -40,7 +40,7 @@ export const SourceOccurrenceSchema = z
   .object({
     page: z.number().int().positive(),
     chunkId: IdentifierSchema,
-    sentence: UsefulTextSchema,
+    sentence: SourceTextSchema,
   })
   .strict();
 
@@ -104,7 +104,7 @@ const LegacyManifestCandidateSchema = z
 
 const SenseEvidenceSchema = z
   .object({
-    sentence: UsefulTextSchema,
+    sentence: SourceTextSchema,
     explanation: UsefulTextSchema,
   })
   .strict();
