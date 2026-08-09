@@ -26,6 +26,10 @@ const yarnVersion = '1.22.22';
 const backupsDirectory = path.join(repoRoot, 'backups');
 const contentInboxBranch = 'chatgpt-content-inbox';
 const contentInboxRef = `origin/${contentInboxBranch}`;
+const controlResumePath = path.join(
+  os.tmpdir(),
+  `english-mastery-resume-${crypto.createHash('sha256').update(repoRoot).digest('hex').slice(0, 16)}.json`,
+);
 
 process.chdir(repoRoot);
 
@@ -271,11 +275,20 @@ class ControlManager {
     runAsync = run,
     spawnChild = spawn,
     wait = delay,
+    reloadControl = null,
+    markControlResume = (remote) =>
+      fs.writeFileSync(
+        controlResumePath,
+        JSON.stringify({ requestedAt: new Date().toISOString(), remote }),
+        { mode: 0o600 },
+      ),
   } = {}) {
     this.execute = execute;
     this.runAsync = runAsync;
     this.spawnChild = spawnChild;
     this.wait = wait;
+    this.reloadControl = reloadControl;
+    this.markControlResume = markControlResume;
     this.phase = 'idle';
     this.currentStep = 'Ready to validate and start';
     this.error = null;
@@ -1033,6 +1046,13 @@ class ControlManager {
         await this.wait(250);
       }
 
+      if (local !== remote && this.reloadControl) {
+        this.step('Reloading the updated control service');
+        this.markControlResume(remote);
+        await this.reloadControl();
+        return;
+      }
+
       this.step('Applying database migrations');
       await this.migrate();
       this.step('Verifying database migration status');
@@ -1439,13 +1459,44 @@ function createControlServer(manager = new ControlManager()) {
 }
 
 if (require.main === module) {
-  const { server, manager } = createControlServer();
+  let server;
+  const manager = new ControlManager({
+    reloadControl: async () => {
+      manager.stopServices();
+      if (server?.listening) {
+        await new Promise((resolve) => server.close(resolve));
+      }
+      const userId = typeof process.getuid === 'function' ? process.getuid() : null;
+      const launchdManaged =
+        process.platform === 'darwin' &&
+        userId !== null &&
+        commandResult('launchctl', [
+          'print',
+          `gui/${userId}/com.englishmastery.control`,
+        ]).status === 0;
+      if (!launchdManaged) {
+        const replacement = spawn(process.execPath, [__filename], {
+          cwd: repoRoot,
+          env: process.env,
+          detached: true,
+          stdio: 'ignore',
+        });
+        replacement.unref();
+      }
+      process.exit(0);
+    },
+  });
+  ({ server } = createControlServer(manager));
   server.once('error', (error) => {
     console.error(`Control server failed: ${error.message}`);
     process.exit(1);
   });
   server.listen(controlPort, controlHost, () => {
     console.log(`English Mastery control page: http://localhost:${controlPort}`);
+    if (fs.existsSync(controlResumePath)) {
+      fs.rmSync(controlResumePath, { force: true });
+      manager.start();
+    }
   });
   const contentSyncTimer = setInterval(() => {
     void manager.synchronizeChatGPTContent().catch((error) =>

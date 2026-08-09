@@ -53,8 +53,13 @@ async function main() {
     directoryIndex >= 0
       ? path.resolve(process.argv[directoryIndex + 1])
       : path.resolve(process.cwd(), "content-packs", "inbox");
-  const documents = gitRef
-    ? loadContentPacksFromGit(gitRef)
+  // An already-running older control process can invoke this newly updated
+  // script with the logical branch plus an exact fetched commit. Always prefer
+  // that immutable commit so the first Update & Restart remains compatible
+  // across controller/script versions.
+  const immutableGitRef = fetchedCommit || gitRef;
+  const documents = immutableGitRef
+    ? loadContentPacksFromGit(immutableGitRef)
     : loadContentPackDocuments(directory);
   const result = await new ContentPackService(database).ingestDocuments(
     documents,

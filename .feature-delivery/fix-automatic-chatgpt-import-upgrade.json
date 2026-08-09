@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fix-automatic-chatgpt-import-upgrade",
+  "title": "Make ChatGPT import updates version-safe and automatic",
+  "implementationPaths": [
+    "packages/backend/src/scripts/sync-content-packs.ts",
+    "packages/frontend/app/generate/page.tsx",
+    "packages/frontend/components/AuthenticatedPage.tsx",
+    "scripts/control-server.js",
+    "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+    "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md"
+  ],
+  "validationPaths": [
+    "scripts/control-server.test.js",
+    "packages/backend/src/services/content-pack-recovery.test.ts",
+    "packages/backend/src/services/content-pack.service.test.ts",
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": ["docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "No claim or approval action is shown to the learner.",
+          "automatically assigns unowned packs"
+        ]
+      }
+    ]
+  }
+}
