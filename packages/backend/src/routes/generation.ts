@@ -100,6 +100,7 @@ const CreateJobSchema = z.object({
   sourceContent: z.string().min(1).max(500_000),
   warningBudgetUsd: z.number().positive().max(100).optional(),
   hardBudgetUsd: z.number().positive().max(100).optional(),
+  executionMode: z.enum(["auto", "standard", "batch"]).default("auto"),
 }).refine(
   (value) => !value.warningBudgetUsd || !value.hardBudgetUsd || value.warningBudgetUsd <= value.hardBudgetUsd,
   { message: "Warning budget cannot exceed hard budget" },
@@ -126,6 +127,7 @@ router.post(
         sourceContent: input.sourceContent,
         warningBudgetUsd: input.warningBudgetUsd,
         hardBudgetUsd: input.hardBudgetUsd,
+        executionMode: input.executionMode,
       });
 
       if (isNew) {
@@ -162,6 +164,7 @@ router.post(
         });
       const sourceType = String(req.header("x-source-type") || "");
       const expectedHash = req.header("x-content-sha256") || undefined;
+      const executionMode = z.enum(["auto", "standard", "batch"]).default("auto").parse(req.header("x-execution-mode") || "auto");
       const busboy = Busboy({
         headers: req.headers,
         limits: { files: 1, fileSize: 25 * 1024 * 1024, fields: 0 },
@@ -218,6 +221,7 @@ router.post(
         sourceHash: staged.hash,
         stagedUploadPath: staged.path,
         stagedUploadSize: staged.size,
+        executionMode,
       });
       if (!isNew) await removeStagedUpload(staged.path);
       if (isNew)
