@@ -1,7 +1,7 @@
 export type GeminiExecutionMode = "standard" | "batch";
 export type GeminiRequestType = "assessment" | "lesson_generation" | "lesson_generation_batch";
 
-export const GEMINI_PRICING_VERSION = "2026-08-09";
+export const GEMINI_PRICING_VERSION = "2026-08-09-gemini-3.6";
 
 export interface GeminiUsage {
   inputTokens: number;
@@ -17,6 +17,9 @@ interface Rates {
 }
 
 const STANDARD_RATES: Record<string, Rates> = {
+  // Google Gemini API paid-tier text rates published for Gemini 3.6 Flash.
+  // Batch/Flex are 50% of Standard, which calculateGeminiCost applies below.
+  "gemini-3.6-flash": { input: 1.5, cachedInput: 0.15, output: 7.5 },
   "gemini-2.5-flash": { input: 0.3, cachedInput: 0.03, output: 2.5 },
   "gemini-2.5-flash-lite": { input: 0.1, cachedInput: 0.01, output: 0.4 },
   "gemini-2.5-pro": { input: 1.25, cachedInput: 0.125, output: 10 },
