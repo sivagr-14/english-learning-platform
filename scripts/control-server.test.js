@@ -604,6 +604,7 @@ test('verified content cleanup deletes only its inbox folder and records the com
       commands.push([command, ...args]);
       if (args[0] === 'worktree' && args[1] === 'add') {
         const worktree = args[3];
+        assert.match(path.basename(worktree), /^english-content-cleanup-/);
         fs.mkdirSync(
           path.join(worktree, 'content-packs', 'inbox', 'pack-001'),
           { recursive: true },
