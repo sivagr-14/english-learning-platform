@@ -682,7 +682,10 @@ async function handleGenerate(
     throw new Error("Immutable generation plan is empty -- cannot generate.");
   }
 
-  const resolvedMode = record.execution_mode_resolved || resolveGenerationExecutionMode(record.execution_mode_requested || "auto", initialPlan.length);
+  const resolvedMode = record.execution_mode_resolved ||
+    (record.provider === "ollama"
+      ? "standard"
+      : resolveGenerationExecutionMode(record.execution_mode_requested || "auto", initialPlan.length));
   if (!record.execution_mode_resolved) {
     await database("generation_jobs").where({ id: generationJobId }).update({ execution_mode_resolved: resolvedMode, updated_at: new Date() });
   }
@@ -714,7 +717,9 @@ async function handleGenerate(
     if (member.result_id && member.validation_status === "valid") continue;
 
     const hardBudget = Number(record.hard_budget_usd || 0);
-    const estimatedNextCall = Number(process.env.GEMINI_ESTIMATED_LESSON_COST_USD || 0.02);
+    const estimatedNextCall = record.provider === "ollama"
+      ? 0
+      : Number(process.env.GEMINI_ESTIMATED_LESSON_COST_USD || 0.02);
     if (hardBudget > 0 && totalCostUsd + estimatedNextCall > hardBudget) {
       await jobService.updateStatus(generationJobId, "attention_required", {
         stageProgress: {
