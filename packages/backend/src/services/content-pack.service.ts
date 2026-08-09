@@ -296,25 +296,11 @@ export class ContentPackService {
 
     await this.recordIngestErrors(result.errors, documents, parsed, context);
 
-    const claimed = await this.database("content_pack_manifests")
-      .where({
-        inbox_branch: context.inboxBranch || "chatgpt-content-inbox",
-      })
-      .whereNotNull("owner_user_id")
-      .whereNull("inbox_cleaned_at")
-      .select("id", "owner_user_id");
-    for (const manifest of claimed) {
-      const committed = await this.commitAvailableBatches(
-        manifest.owner_user_id,
-        manifest.id,
-      );
-      result.committedEntries += committed;
-      const verification = await this.verifyManifest(
-        manifest.owner_user_id,
-        manifest.id,
-      );
-      if (verification.verified) result.cleanupEligible.push(manifest.id);
-    }
+    // Ingestion is deliberately account-neutral: it only discovers, validates,
+    // and stages immutable files. Claiming, committing, read-back verification,
+    // and cleanup must run through the authenticated processing request. This
+    // prevents a background/control sync from processing another local
+    // account's manifest and removes the stage/process cleanup race.
     return result;
   }
 
