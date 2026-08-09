@@ -11,11 +11,11 @@ writes database rows.
 2. ChatGPT reads every page and divides the source into traceable chunks.
 3. ChatGPT creates an immutable assessment manifest on the private
    `chatgpt-content-inbox` branch.
-4. The Mac fetches that branch automatically every five minutes, or immediately
-   when **Sync ChatGPT content** is selected.
-5. The learner claims the manifest in **ChatGPT Imports** to establish account
-   ownership. The backend automatically schedules every eligible candidate; no
-   separate approval step is required.
+4. The Mac fetches that branch automatically every five minutes. Opening the
+   authenticated **ChatGPT Imports** page also starts synchronization immediately.
+5. The backend atomically assigns each unowned manifest to the signed-in local
+   account, schedules every eligible candidate and imports every available valid
+   batch. No claim or approval action is shown to the learner.
 6. ChatGPT generates complete lessons in batches of at most ten and writes each
    batch to the same inbox branch.
 7. The local backend validates the manifest hash, planned batch membership,
@@ -181,8 +181,8 @@ When asked to process a source for this application, ChatGPT must:
 
 1. inspect the complete source before proposing entries;
 2. show the page/chunk coverage and exact decision counts;
-3. generate all policy-eligible candidates without asking for approval after
-   the learner has claimed the import; ask only for unresolved exceptions;
+3. generate all policy-eligible candidates without asking for claim or approval;
+   ask only for unresolved exceptions;
 4. use the manifest and batch runtime contracts in
    `packages/backend/src/services/content-pack-contract.ts`;
 5. preserve different contextual senses of the same spelling as separate
@@ -238,7 +238,7 @@ synchronization and the five-minute timer must read only
 read-back status, but must never mutate the immutable manifest or batch payload.
 The UI must show a specific next action for missing batches, invalid batches,
 attention items, failed read-back and retryable cleanup instead of reporting an
-inconsistent import as Completed. A user-triggered synchronization claims
-unowned packs for the signed-in local account, applies the no-approval policy,
+inconsistent import as Completed. Authenticated synchronization automatically
+assigns unowned packs to the signed-in local account, applies the no-approval policy,
 saves available batches, verifies PostgreSQL read-back and retries guarded
 inbox cleanup as one operation.
