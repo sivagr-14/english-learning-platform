@@ -56,6 +56,7 @@ async function main() {
         baseForm: sample.word,
         itemType: sample.itemType,
         decision: "generate",
+        operation: "new",
         senseDecision: "new_sense",
         senseKey: "clear-and-uncomplicated",
         cefrLevel: sample.cefrLevel,

@@ -1,17 +1,20 @@
 {
   "schemaVersion": 1,
   "featureId": "fix-gemini-invalid-argument-schema",
-  "title": "Keep Gemini assessment response schema within provider limits",
+  "title": "Keep Gemini assessment and v3 manifest assembly contract-valid",
   "implementationPaths": [
+    "packages/backend/src/services/content-pack-contract.ts",
     "packages/backend/src/services/in-app-generation.service.ts",
     "scripts/control-server.js"
   ],
   "validationPaths": [
+    "packages/backend/src/services/content-pack-contract.test.ts",
     "packages/backend/src/services/in-app-generation.service.test.ts",
-    "scripts/control-server.test.js"
+    "scripts/control-server.test.js",
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts"
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
-    "rationale": "This corrects the Gemini transport schema and restores the existing guarded inbox-cleanup path. The immutable manifest, contextual-sense, approved taxonomy, lesson-quality, atomic persistence, read-back, and cleanup eligibility contracts remain unchanged."
+    "rationale": "This maps Gemini assessment results into the existing v3 manifest contract by deriving generated-candidate operations server-side and distinguishing exact source evidence from explanatory prose. Immutable identity, contextual-sense, taxonomy, lesson-quality, atomic persistence, read-back, and cleanup eligibility rules remain unchanged."
   }
 }

@@ -17,6 +17,7 @@ function candidate(overrides: Record<string, unknown> = {}) {
     baseForm: "bank",
     itemType: "word",
     decision: "generate",
+    operation: "new",
     senseDecision: "new_sense",
     senseKey: "financial-institution",
     cefrLevel: "B1",
@@ -38,6 +39,22 @@ function candidate(overrides: Record<string, unknown> = {}) {
 }
 
 describe("Gemini Phase 1 contract and contextual-sense parity", () => {
+  it("accepts exact short source evidence and records the generated operation", () => {
+    const parsed = candidate({
+      senseEvidence: {
+        sentence: "Go now.",
+        explanation: "The imperative meaning is explicit in the source.",
+      },
+      occurrences: [{ page: 2, chunkId: "chunk-0002", sentence: "Go now." }],
+    });
+
+    expect(parsed.operation).toBe("new");
+    if (!("senseEvidence" in parsed)) {
+      throw new Error("Expected a sense-aware generated candidate");
+    }
+    expect(parsed.senseEvidence.sentence).toBe("Go now.");
+  });
+
   it("reuses an existing stored sense by stable sense key", () => {
     const resolved = resolveManifestCandidateAgainstExisting(candidate(), [{
       id: "11111111-1111-4111-8111-111111111111",

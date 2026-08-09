@@ -32,6 +32,7 @@ const IdentifierSchema = z
   .min(3)
   .max(140)
   .regex(/^[a-zA-Z0-9][a-zA-Z0-9._:-]*$/);
+const SourceTextSchema = z.string().trim().min(1).max(10_000);
 const UsefulTextSchema = z.string().trim().min(8).max(10_000);
 const Sha256Schema = z.string().regex(/^[a-f0-9]{64}$/i);
 const CefrSchema = z.enum(["A1", "A2", "B1", "B2", "C1", "C2"]);
@@ -40,7 +41,7 @@ export const SourceOccurrenceSchema = z
   .object({
     page: z.number().int().positive(),
     chunkId: IdentifierSchema,
-    sentence: UsefulTextSchema,
+    sentence: SourceTextSchema,
   })
   .strict();
 
@@ -104,7 +105,7 @@ const LegacyManifestCandidateSchema = z
 
 const SenseEvidenceSchema = z
   .object({
-    sentence: UsefulTextSchema,
+    sentence: SourceTextSchema,
     explanation: UsefulTextSchema,
   })
   .strict();
@@ -151,6 +152,7 @@ const SenseAwareManifestCandidateSchema = z
       "conversational pattern",
     ]),
     decision: z.enum(["generate", "existing", "filtered", "rejected"]),
+    operation: z.enum(["new", "update"]).optional(),
     senseDecision: z.enum(["same_sense", "new_sense", "ambiguous"]),
     senseKey: z.string().trim().min(3).max(180),
     matchedWordId: z.string().uuid().optional(),
@@ -175,6 +177,7 @@ const SenseAwareManifestCandidateSchema = z
     }
     if (candidate.decision === "generate") {
       for (const field of [
+        "operation",
         "cefrLevel",
         "usageFrequency",
         "fluencyValue",
