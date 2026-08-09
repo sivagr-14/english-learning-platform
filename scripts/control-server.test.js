@@ -349,6 +349,7 @@ test('control API requires the local control header before starting', async (con
   let restarts = 0;
   let updates = 0;
   let contentSyncs = 0;
+  let contentCleanups = 0;
   const manager = {
     snapshot: async () => ({
       phase: 'idle',
@@ -371,6 +372,10 @@ test('control API requires the local control header before starting', async (con
     synchronizeChatGPTContent: async () => {
       contentSyncs += 1;
       return { available: true };
+    },
+    cleanupChatGPTContent: async (manifestIds) => {
+      contentCleanups += 1;
+      return { cleaned: manifestIds, alreadyAbsent: [], failed: [] };
     },
     shutdown: () => {},
   };
@@ -438,6 +443,24 @@ test('control API requires the local control header before starting', async (con
   assert.equal(acceptedContentSync.status, 200);
   assert.equal((await acceptedContentSync.json()).available, true);
   assert.equal(contentSyncs, 1);
+
+  const deniedCleanup = await fetch(
+    `${base}/__control/cleanup-content?manifestId=pack-001`,
+    { method: 'POST' },
+  );
+  assert.equal(deniedCleanup.status, 403);
+  assert.equal(contentCleanups, 0);
+
+  const acceptedCleanup = await fetch(
+    `${base}/__control/cleanup-content?manifestId=pack-001`,
+    {
+      method: 'POST',
+      headers: { 'x-english-mastery-control': '1' },
+    },
+  );
+  assert.equal(acceptedCleanup.status, 200);
+  assert.deepEqual((await acceptedCleanup.json()).cleaned, ['pack-001']);
+  assert.equal(contentCleanups, 1);
 });
 
 test('ChatGPT content sync fetches only the dedicated inbox ref and runs the importer', async () => {
@@ -465,7 +488,6 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
     available: true,
     fetchedCommit: 'a'.repeat(40),
     result: { documents: 0, errors: [], cleanupEligible: [] },
-    cleanup: { cleaned: [], alreadyAbsent: [], failed: [] },
   });
   assert.ok(
     commands.some((command) =>
