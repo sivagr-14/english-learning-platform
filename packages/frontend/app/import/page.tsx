@@ -136,8 +136,13 @@ export default function ImportPage() {
     };
   }, [loadJobs]);
 
-  const hasActiveJob = jobs.some(
-    (job) => !["committed", "failed"].includes(job.status),
+  const hasActiveJob = jobs.some((job) =>
+    ["queued", "extracting", "assessing", "generating", "validating"].includes(
+      job.status,
+    ),
+  );
+  const hasClearableJobs = jobs.some((job) =>
+    ["failed", "cancelled"].includes(job.status),
   );
 
   async function handleSubmit(event: React.FormEvent) {
@@ -168,21 +173,32 @@ export default function ImportPage() {
         sourceName = file.name;
         const form = new FormData();
         form.append("file", file, file.name);
-        await getApiClient().post("/api/generation/uploads", form, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            "X-Source-Type": sourceType,
-            "X-Execution-Mode": workflow === "ollama" ? "standard" : executionMode,
-            "X-AI-Provider": workflow,
+        const { data } = await getApiClient().post(
+          "/api/generation/uploads",
+          form,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              "X-Source-Type": sourceType,
+              "X-Execution-Mode":
+                workflow === "ollama" ? "standard" : executionMode,
+              "X-AI-Provider": workflow,
+            },
           },
-        });
+        );
+        await loadJobs();
+        if (data.alreadyExisted) {
+          setError(
+            `This exact file already has an import in status "${data.job.status}". Cancel it or use its existing result.`,
+          );
+          return;
+        }
         setPastedText("");
         setFile(null);
-        await loadJobs();
         return;
       }
 
-      await getApiClient().post("/api/generation/jobs", {
+      const { data } = await getApiClient().post("/api/generation/jobs", {
         sourceName,
         sourceType,
         sourceContent,
@@ -192,9 +208,15 @@ export default function ImportPage() {
         provider: workflow,
       });
 
+      await loadJobs();
+      if (data.alreadyExisted) {
+        setError(
+          `This exact pasted content already has an import in status "${data.job.status}". Cancel it or use its existing result.`,
+        );
+        return;
+      }
       setPastedText("");
       setFile(null);
-      await loadJobs();
     } catch (err: any) {
       setError(
         err?.response?.data?.message ||
@@ -223,6 +245,19 @@ export default function ImportPage() {
       );
     } finally {
       setTestingProvider(false);
+    }
+  }
+
+  async function clearFailedJobs() {
+    try {
+      await getApiClient().delete("/api/generation/jobs/failed");
+      await loadJobs();
+    } catch (err: any) {
+      setError(
+        err?.response?.data?.message ||
+          err?.response?.data?.error ||
+          "Could not clear failed imports.",
+      );
     }
   }
 
@@ -382,7 +417,18 @@ export default function ImportPage() {
           </form>}
 
           <div className="space-y-3">
-            <h2 className="text-lg font-medium">Recent imports</h2>
+            <div className="flex items-center justify-between gap-3">
+              <h2 className="text-lg font-medium">Recent imports</h2>
+              {hasClearableJobs && (
+                <button
+                  type="button"
+                  onClick={clearFailedJobs}
+                  className="rounded border border-red-200 px-3 py-1 text-sm text-red-700 hover:bg-red-50"
+                >
+                  Clear failed imports
+                </button>
+              )}
+            </div>
             {jobs.length === 0 && (
               <p className="text-sm text-gray-500">No imports yet.</p>
             )}

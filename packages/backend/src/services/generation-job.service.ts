@@ -74,7 +74,12 @@ export class GenerationJobService {
     const existing = await this.database("generation_jobs")
       .where({ user_id: input.userId, source_hash: sourceHash, provider: input.provider })
       .first();
-    if (existing) return { job: existing, isNew: false };
+    if (existing) {
+      if (!["failed", "cancelled"].includes(existing.status)) {
+        return { job: existing, isNew: false };
+      }
+      await this.clearTerminal(input.userId, existing.id);
+    }
 
     const policySnapshot = importPolicySnapshot();
     const promptVersion = "in-app-generation-v1";
@@ -151,7 +156,12 @@ export class GenerationJobService {
     const existing = await this.database("generation_jobs")
       .where({ user_id: input.userId, source_hash: input.sourceHash, provider: input.provider })
       .first();
-    if (existing) return { job: existing, isNew: false };
+    if (existing) {
+      if (!["failed", "cancelled"].includes(existing.status)) {
+        return { job: existing, isNew: false };
+      }
+      await this.clearTerminal(input.userId, existing.id);
+    }
     const policySnapshot = importPolicySnapshot();
     const promptVersion = "in-app-generation-v1";
     const contractVersion = "chatgpt-vocabulary-manifest-v3/simplified-v2";
@@ -225,6 +235,27 @@ export class GenerationJobService {
       })
       .returning("*");
     return updated;
+  }
+
+  async clearTerminal(userId: string, jobId: string) {
+    const job = await this.get(userId, jobId);
+    if (!["failed", "cancelled"].includes(job.status)) {
+      throw statusError(
+        "Only failed or cancelled imports can be cleared.",
+        409,
+      );
+    }
+    await this.database("generation_jobs")
+      .where({ id: jobId, user_id: userId })
+      .delete();
+  }
+
+  async clearFailed(userId: string) {
+    const result = await this.database("generation_jobs")
+      .where({ user_id: userId })
+      .whereIn("status", ["failed", "cancelled"])
+      .delete();
+    return Number(result || 0);
   }
 
   async get(userId: string, jobId: string) {
