@@ -1,5 +1,12 @@
 import { AiProviderConfig } from "./ai-provider.service";
 import { classifyHttpFailure, ProviderRequestError } from "./provider-reliability";
+import {
+  VOCABULARY_SECTION_TEMPLATE_PROMPT,
+  VOCABULARY_LESSON_FORMAT_VERSION,
+  VOCABULARY_ENTRY_RESPONSE_SCHEMA,
+  generatedVocabularyEntryQualityIssues,
+} from "../data/vocabulary-lesson-template";
+import { GeneratedPackEntrySchema } from "./content-pack-contract";
 
 export type GenerationExecutionMode = "auto" | "standard" | "batch";
 export type ResolvedGenerationExecutionMode = Exclude<GenerationExecutionMode, "auto">;
@@ -179,5 +186,73 @@ export function reconcileGeminiBatchResults(
     succeeded,
     failed,
     missingCandidateIds: expectedCandidateIds.filter((id) => !seen.has(id)),
+  };
+}
+
+
+export interface LessonBatchCandidate {
+  candidateId: string;
+  term: string;
+  contextualMeaning: string;
+  sourceSentence: string;
+  surroundingContext?: string;
+  cefrLevel?: string;
+  categoryName?: string;
+}
+
+export function buildGeminiLessonBatchRequest(
+  candidate: LessonBatchCandidate,
+): GeminiBatchRequest {
+  return {
+    candidateId: candidate.candidateId,
+    responseSchema: VOCABULARY_ENTRY_RESPONSE_SCHEMA as unknown as Record<string, unknown>,
+    systemPrompt: `You write a complete vocabulary lesson for an English learner.
+
+${VOCABULARY_SECTION_TEMPLATE_PROMPT}
+
+Return only the exact structured JSON requested. Use the real unsuffixed term "${candidate.term}", exactly one contextual sense, all eight ${VOCABULARY_LESSON_FORMAT_VERSION} sections, natural Tamil, and no placeholders or generic advice.`,
+    userPrompt: `Term: ${candidate.term}
+Contextual meaning: ${candidate.contextualMeaning}
+Exact source sentence: ${candidate.sourceSentence}
+Surrounding context: ${candidate.surroundingContext || candidate.sourceSentence}
+CEFR level: ${candidate.cefrLevel || "B1"}
+Category: ${candidate.categoryName || "general"}
+Tamil must naturally translate only this contextual sense.`,
+  };
+}
+
+export function parseGeminiLessonBatchResponse(
+  candidate: LessonBatchCandidate,
+  response: Record<string, any>,
+) {
+  const text = response?.candidates?.[0]?.content?.parts?.[0]?.text;
+  if (!text) throw new ProviderRequestError("malformed_json", "Gemini Batch response contained no text output.", false);
+  let raw: Record<string, unknown>;
+  try {
+    raw = JSON.parse(String(text).replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, ""));
+  } catch {
+    throw new ProviderRequestError("malformed_json", "Gemini Batch response was not valid JSON.", false);
+  }
+  const { word, pronunciation, wordType, englishMeaning, tamilMeaning, coreIdea, ...lesson } = raw;
+  const issues = generatedVocabularyEntryQualityIssues(
+    { word, pronunciation, wordType, englishMeaning, tamilMeaning, coreIdea, lesson },
+    { term: candidate.term, contextualMeaning: candidate.contextualMeaning, sourceSentence: candidate.sourceSentence },
+  );
+  if (issues.length)
+    throw new ProviderRequestError("validation_failed", `Gemini Batch lesson failed quality validation: ${issues.join("; ")}`, false);
+  return {
+    entry: GeneratedPackEntrySchema.parse({
+      candidateId: candidate.candidateId,
+      word: String(word || ""),
+      pronunciation: String(pronunciation || ""),
+      wordType: String(wordType || ""),
+      englishMeaning: String(englishMeaning || ""),
+      tamilMeaning: String(tamilMeaning || ""),
+      coreIdea: String(coreIdea || ""),
+      lesson,
+    }),
+    inputTokens: Number(response?.usageMetadata?.promptTokenCount ?? 0),
+    outputTokens: Number(response?.usageMetadata?.candidatesTokenCount ?? 0),
+    cachedTokens: Number(response?.usageMetadata?.cachedContentTokenCount ?? 0),
   };
 }
