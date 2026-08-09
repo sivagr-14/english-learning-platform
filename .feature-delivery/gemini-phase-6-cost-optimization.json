@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "featureId": "gemini-phase-6-cost-optimization",
+  "title": "Add measured Gemini cost telemetry and benchmark-controlled optimization",
+  "implementationPaths": [
+    "packages/backend/src/services/gemini-cost-optimization.service.ts",
+    "packages/backend/src/database/migrations/030_gemini_cost_telemetry.ts",
+    "docs/GEMINI_PHASE_6.md"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/gemini-cost-optimization.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This changes Gemini accounting and routing only; the shared content-pack and eight-section lesson contracts are unchanged."
+  }
+}
