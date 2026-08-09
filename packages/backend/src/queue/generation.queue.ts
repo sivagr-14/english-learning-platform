@@ -69,3 +69,27 @@ export async function enqueueExtraction(data: GenerationJobData) {
     jobId: generationStageJobId(data.generationJobId, "extract"),
   });
 }
+
+/**
+ * Re-deliver one durable pipeline stage without being defeated by BullMQ's
+ * retained completed/failed job IDs. Active delivery is left alone; terminal
+ * delivery records are removed only after PostgreSQL has selected the exact
+ * resume stage.
+ */
+export async function enqueueGenerationResume(
+  stage: GenerationJobName,
+  data: GenerationJobData,
+): Promise<"enqueued" | "already_running"> {
+  const queue = getGenerationQueue();
+  const jobId = generationStageJobId(data.generationJobId, stage);
+  const existing = await queue.getJob(jobId);
+  if (existing) {
+    const state = await existing.getState();
+    if (["active", "waiting", "delayed", "prioritized", "waiting-children"].includes(state)) {
+      return "already_running";
+    }
+    await existing.remove();
+  }
+  await queue.add(stage, data, { jobId });
+  return "enqueued";
+}
