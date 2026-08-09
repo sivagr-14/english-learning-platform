@@ -5,14 +5,14 @@ import {
   timeoutSignal,
   withProviderRetry,
 } from "./provider-reliability";
-import { calculateGeminiCost } from "./gemini-cost-optimization.service";
 
 export type AiTier = "primary" | "escalation";
 
 export interface AiProviderConfig {
-  provider: "gemini" | "openai" | "anthropic";
+  provider: "gemini" | "openai" | "anthropic" | "ollama";
   apiKey: string;
   model: string;
+  baseUrl?: string;
 }
 
 export interface GenerateJsonResult<T> {
@@ -26,13 +26,14 @@ export interface GenerateJsonResult<T> {
   estimatedCostUsd: number;
 }
 
-interface GenerateJsonOptions {
+export interface GenerateJsonOptions {
   systemPrompt: string;
   userPrompt: string;
   tier: AiTier;
   signal?: AbortSignal;
   timeoutMs?: number;
   responseSchema?: Record<string, unknown>;
+  provider?: AiProviderConfig["provider"];
 }
 
 export interface JsonProviderAdapter {
@@ -49,15 +50,26 @@ export interface JsonProviderAdapter {
  * rejects primary-tier output. Defaults: Gemini Flash primary, Gemini Pro
  * escalation (unset = skip escalation, just skip failed entries).
  */
-export function configFor(tier: AiTier): AiProviderConfig {
+export function configFor(
+  tier: AiTier,
+  providerOverride?: AiProviderConfig["provider"],
+): AiProviderConfig {
+  if (providerOverride === "ollama") {
+    return {
+      provider: "ollama",
+      apiKey: "",
+      model: process.env.OLLAMA_MODEL || "qwen3:14b",
+      baseUrl: (process.env.OLLAMA_BASE_URL || "http://127.0.0.1:11434").replace(/\/$/, ""),
+    };
+  }
   const prefix = tier === "primary" ? "PRIMARY_AI" : "ESCALATION_AI";
-  const provider = (process.env[`${prefix}_PROVIDER`] ||
+  const provider = (providerOverride || process.env[`${prefix}_PROVIDER`] ||
     "gemini") as AiProviderConfig["provider"];
   const apiKey =
     process.env[`${prefix}_API_KEY`] || process.env.GEMINI_API_KEY || "";
   const model =
     process.env[`${prefix}_MODEL`] ||
-    (tier === "primary" ? "gemini-2.5-flash" : "gemini-2.5-pro");
+    (tier === "primary" ? "gemini-2.0-flash" : "gemini-2.5-pro");
   if (!apiKey) {
     throw new Error(
       `${prefix}_API_KEY is not set. Add it to .env.local before running the ` +
@@ -77,7 +89,7 @@ export function configFor(tier: AiTier): AiProviderConfig {
 // Models that Google has retired for new API keys. Kept as an explicit list
 // (rather than trying to detect 404s generically) so we can warn proactively
 // at config-read time instead of only after burning a failed job.
-const DEPRECATED_MODELS = new Set(["gemini-2.0-flash", "gemini-1.0-pro"]);
+const DEPRECATED_MODELS = new Set(["gemini-2.5-flash", "gemini-1.0-pro"]);
 
 /**
  * Strips markdown code fences that some model versions wrap around JSON
@@ -97,9 +109,15 @@ function estimateCostUsd(
   model: string,
   inputTokens: number,
   outputTokens: number,
-  cachedTokens = 0,
 ): number {
-  return calculateGeminiCost(model, { inputTokens, outputTokens, cachedTokens }, "standard");
+  const rates: Record<string, { in: number; out: number }> = {
+    "gemini-2.5-flash": { in: 0.3, out: 2.5 },
+    "gemini-2.5-pro": { in: 1.25, out: 10.0 },
+    "gemini-1.5-flash": { in: 0.075, out: 0.3 },
+    "gemini-1.5-pro": { in: 3.5, out: 10.5 },
+  };
+  const rate = rates[model] ?? { in: 0.3, out: 2.5 };
+  return (inputTokens * rate.in + outputTokens * rate.out) / 1_000_000;
 }
 
 interface CallResult {
@@ -300,6 +318,62 @@ async function callAnthropic(
   };
 }
 
+function ollamaSchema(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(ollamaSchema);
+  if (!value || typeof value !== "object") return value;
+  return Object.fromEntries(
+    Object.entries(value as Record<string, unknown>).map(([key, entry]) => [
+      key,
+      key === "type" && typeof entry === "string"
+        ? entry.toLowerCase()
+        : ollamaSchema(entry),
+    ]),
+  );
+}
+
+async function callOllama(
+  config: AiProviderConfig,
+  systemPrompt: string,
+  userPrompt: string,
+  signal?: AbortSignal,
+  responseSchema?: Record<string, unknown>,
+): Promise<CallResult> {
+  const response = await fetch(`${config.baseUrl}/api/chat`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: config.model,
+      stream: false,
+      think: false,
+      keep_alive: process.env.OLLAMA_KEEP_ALIVE || "10m",
+      format: responseSchema ? ollamaSchema(responseSchema) : "json",
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: `${userPrompt}\n/no_think` },
+      ],
+      options: {
+        temperature: Number(process.env.OLLAMA_TEMPERATURE || 0),
+        num_ctx: Number(process.env.OLLAMA_CONTEXT_LENGTH || 16384),
+        num_predict: Number(process.env.OLLAMA_MAX_OUTPUT_TOKENS || 8192),
+      },
+    }),
+    signal,
+  });
+  if (!response.ok) {
+    const body = await response.text();
+    throw classifyHttpFailure(response.status, body);
+  }
+  const data = (await response.json()) as any;
+  const text = data?.message?.content;
+  if (!text) throw new Error("Ollama response contained no text output");
+  return {
+    text,
+    inputTokens: Number(data.prompt_eval_count ?? 0),
+    outputTokens: Number(data.eval_count ?? 0),
+    cachedTokens: 0,
+  };
+}
+
 /**
  * Calls the configured model for a tier and parses the result as JSON.
  * Returns the parsed data PLUS token-usage telemetry for cost tracking.
@@ -308,10 +382,14 @@ async function callAnthropic(
 export async function generateJson<T>(
   options: GenerateJsonOptions,
 ): Promise<GenerateJsonResult<T>> {
-  const config = configFor(options.tier);
+  const config = configFor(options.tier, options.provider);
   const startedAt = Date.now();
+  const requestTimeoutMs = options.timeoutMs ??
+    (config.provider === "ollama"
+      ? Number(process.env.OLLAMA_REQUEST_TIMEOUT_MS || 300_000)
+      : 90_000);
   const callResult = await withProviderRetry(async () => {
-    const timeout = timeoutSignal(options.signal, options.timeoutMs ?? 90_000);
+    const timeout = timeoutSignal(options.signal, requestTimeoutMs);
     try {
       switch (config.provider) {
         case "gemini":
@@ -337,6 +415,14 @@ export async function generateJson<T>(
             options.userPrompt,
             timeout.signal,
           );
+        case "ollama":
+          return await callOllama(
+            config,
+            options.systemPrompt,
+            options.userPrompt,
+            timeout.signal,
+            options.responseSchema,
+          );
         default:
           throw new ProviderRequestError(
             "permanent_failure",
@@ -348,7 +434,7 @@ export async function generateJson<T>(
       if (timeout.timedOut())
         throw new ProviderRequestError(
           "timeout",
-          `Provider request exceeded ${options.timeoutMs ?? 90_000} ms`,
+          `Provider request exceeded ${requestTimeoutMs} ms`,
           true,
         );
       throw error;
@@ -373,12 +459,9 @@ export async function generateJson<T>(
     );
   }
 
-  const estimatedCostUsd = estimateCostUsd(
-    config.model,
-    callResult.inputTokens,
-    callResult.outputTokens,
-    callResult.cachedTokens,
-  );
+  const estimatedCostUsd = config.provider === "ollama"
+    ? 0
+    : estimateCostUsd(config.model, callResult.inputTokens, callResult.outputTokens);
 
   logger.debug(`AI call [${options.tier}/${config.model}]`, {
     inputTokens: callResult.inputTokens,
@@ -417,6 +500,32 @@ export class GeminiAdapter implements JsonProviderAdapter {
       timeoutMs: 15_000,
     });
     if (result.data.ok !== true) throw new Error("Gemini connectivity response was invalid");
+    return { model: result.model, latencyMs: Date.now() - startedAt };
+  }
+}
+
+export class OllamaAdapter implements JsonProviderAdapter {
+  generate<T>(options: GenerateJsonOptions) {
+    return generateJson<T>({ ...options, provider: "ollama" });
+  }
+
+  async testConnection(signal?: AbortSignal) {
+    const startedAt = Date.now();
+    const result = await generateJson<{ ok: boolean }>({
+      tier: "primary",
+      provider: "ollama",
+      systemPrompt: "Return JSON only.",
+      userPrompt: 'Return {"ok":true}.',
+      responseSchema: {
+        type: "object",
+        additionalProperties: false,
+        properties: { ok: { type: "boolean" } },
+        required: ["ok"],
+      },
+      signal,
+      timeoutMs: Number(process.env.OLLAMA_CONNECTION_TIMEOUT_MS || 120_000),
+    });
+    if (result.data.ok !== true) throw new Error("Ollama connectivity response was invalid");
     return { model: result.model, latencyMs: Date.now() - startedAt };
   }
 }
