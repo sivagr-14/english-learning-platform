@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
 import { getApiClient } from "@/lib/api/client";
@@ -102,15 +102,11 @@ export default function ChatGPTImportsPage() {
   const [manifests, setManifests] = useState<PackManifest[]>([]);
   const [ingestErrors, setIngestErrors] = useState<IngestError[]>([]);
   const [details, setDetails] = useState<Record<string, PackManifest>>({});
-  const [selected, setSelected] = useState<Record<string, Set<string>>>({});
   const [busy, setBusy] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const [confirmApprove, setConfirmApprove] = useState<{
-    id: string;
-    count: number;
-  } | null>(null);
+  const automaticSyncStarted = useRef(false);
 
   const load = useCallback(async () => {
     setError("");
@@ -131,7 +127,7 @@ export default function ChatGPTImportsPage() {
     void load();
   }, [load]);
 
-  const remoteSync = async () => {
+  const remoteSync = useCallback(async () => {
     setBusy("sync");
     setMessage("");
     setError("");
@@ -217,7 +213,13 @@ export default function ChatGPTImportsPage() {
     } finally {
       setBusy("");
     }
-  };
+  }, [load]);
+
+  useEffect(() => {
+    if (isLoading || automaticSyncStarted.current) return;
+    automaticSyncStarted.current = true;
+    void remoteSync();
+  }, [isLoading, remoteSync]);
 
   const loadDetail = async (id: string) => {
     const response = await getApiClient().get(
@@ -225,63 +227,6 @@ export default function ChatGPTImportsPage() {
     );
     const manifest = response.data.manifest as PackManifest;
     setDetails((current) => ({ ...current, [id]: manifest }));
-    const proposed = (manifest.candidates || [])
-      .filter((candidate) => candidate.status === "proposed")
-      .map((candidate) => candidate.external_candidate_id);
-    setSelected((current) => ({ ...current, [id]: new Set(proposed) }));
-  };
-
-  const claim = async (id: string) => {
-    setBusy(`claim:${id}`);
-    setError("");
-    try {
-      await getApiClient().post(`/api/control/content-packs/${id}/claim`);
-      setMessage(
-        "Import claimed. All eligible high- and medium-frequency entries were scheduled automatically.",
-      );
-      await Promise.all([load(), loadDetail(id)]);
-    } catch (requestError: any) {
-      setError(
-        requestError?.response?.data?.message ||
-          requestError?.response?.data?.error ||
-          "The import could not be claimed.",
-      );
-    } finally {
-      setBusy("");
-    }
-  };
-
-  const approve = async (id: string) => {
-    const candidateIds = [...(selected[id] || new Set<string>())];
-    if (!candidateIds.length) {
-      setError("Select at least one proposed entry before approval.");
-      return;
-    }
-    setConfirmApprove({ id, count: candidateIds.length });
-  };
-
-  const doApprove = async (id: string) => {
-    setConfirmApprove(null);
-    const candidateIds = [...(selected[id] || new Set<string>())];
-    setBusy(`approve:${id}`);
-    setError("");
-    try {
-      await getApiClient().post(`/api/control/content-packs/${id}/approve`, {
-        candidateIds,
-      });
-      setMessage(
-        "Selection approved. Validated ChatGPT batches will now save automatically.",
-      );
-      await Promise.all([load(), loadDetail(id)]);
-    } catch (requestError: any) {
-      setError(
-        requestError?.response?.data?.message ||
-          requestError?.response?.data?.error ||
-          "Approval failed.",
-      );
-    } finally {
-      setBusy("");
-    }
   };
 
   const verify = async (id: string) => {
@@ -307,15 +252,6 @@ export default function ChatGPTImportsPage() {
     } finally {
       setBusy("");
     }
-  };
-
-  const toggle = (manifestId: string, candidateId: string) => {
-    setSelected((current) => {
-      const next = new Set(current[manifestId] || []);
-      if (next.has(candidateId)) next.delete(candidateId);
-      else next.add(candidateId);
-      return { ...current, [manifestId]: next };
-    });
   };
 
   return (
@@ -439,9 +375,6 @@ export default function ChatGPTImportsPage() {
             ) : (
               manifests.map((manifest) => {
                 const detail = details[manifest.id];
-                const proposed = (detail?.candidates || []).filter(
-                  (candidate) => candidate.status === "proposed",
-                );
                 const senseAttention = (detail?.candidates || []).filter(
                   (candidate) => candidate.status === "manual_review",
                 );
@@ -558,18 +491,7 @@ export default function ChatGPTImportsPage() {
                     </div>
 
                     <div className="mt-5 flex flex-wrap gap-3">
-                      {!manifest.claimed && (
-                        <button
-                          onClick={() => claim(manifest.id)}
-                          disabled={busy === `claim:${manifest.id}`}
-                          className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
-                        >
-                          {busy === `claim:${manifest.id}`
-                            ? "Claiming…"
-                            : "Claim and start"}
-                        </button>
-                      )}
-                      {manifest.claimed && !detail && (
+                      {!detail && (
                         <button
                           onClick={() => loadDetail(manifest.id)}
                           className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700"
@@ -588,65 +510,6 @@ export default function ChatGPTImportsPage() {
                       )}
                     </div>
 
-                    {detail &&
-                      proposed.length > 0 &&
-                      manifest.status === "awaiting_approval" && (
-                        <div className="mt-6 border-t border-slate-200 pt-5">
-                          <div className="flex items-center justify-between gap-3">
-                            <h4 className="font-semibold text-slate-950">
-                              Select exact entries
-                            </h4>
-                            <span className="text-sm text-slate-600">
-                              {selected[manifest.id]?.size || 0} selected
-                            </span>
-                          </div>
-                          <div className="mt-3 max-h-80 divide-y divide-slate-100 overflow-auto rounded-lg border border-slate-200">
-                            {proposed.map((candidate) => (
-                              <label
-                                key={candidate.id}
-                                className="flex cursor-pointer gap-3 p-3 hover:bg-slate-50"
-                              >
-                                <input
-                                  type="checkbox"
-                                  checked={
-                                    selected[manifest.id]?.has(
-                                      candidate.external_candidate_id,
-                                    ) || false
-                                  }
-                                  onChange={() =>
-                                    toggle(
-                                      manifest.id,
-                                      candidate.external_candidate_id,
-                                    )
-                                  }
-                                  className="mt-1"
-                                />
-                                <span>
-                                  <span className="font-medium text-slate-950">
-                                    {candidate.item}
-                                  </span>
-                                  <span className="ml-2 text-xs uppercase text-slate-500">
-                                    {candidate.cefr_level} ·{" "}
-                                    {candidate.usage_frequency}
-                                  </span>
-                                  <span className="mt-1 block text-sm text-slate-600">
-                                    {candidate.contextual_meaning}
-                                  </span>
-                                </span>
-                              </label>
-                            ))}
-                          </div>
-                          <button
-                            onClick={() => approve(manifest.id)}
-                            disabled={busy === `approve:${manifest.id}`}
-                            className="mt-4 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
-                          >
-                            {busy === `approve:${manifest.id}`
-                              ? "Approving…"
-                              : `Approve ${selected[manifest.id]?.size || 0} entries`}
-                          </button>
-                        </div>
-                      )}
                     {detail && senseAttention.length > 0 && (
                       <div className="mt-6 border-t border-amber-200 pt-5">
                         <h4 className="font-semibold text-amber-950">
@@ -681,47 +544,6 @@ export default function ChatGPTImportsPage() {
           </div>
         </section>
       </AppShell>
-
-      {/* Inline confirmation modal replacing window.confirm (B7) */}
-      {confirmApprove && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="confirm-title"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
-        >
-          <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
-            <h2
-              id="confirm-title"
-              className="text-base font-semibold text-slate-900"
-            >
-              Confirm approval
-            </h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Approve exactly <strong>{confirmApprove.count}</strong>{" "}
-              {confirmApprove.count === 1 ? "entry" : "entries"}? Validated
-              batches will save automatically after this.
-            </p>
-            <div className="mt-5 flex justify-end gap-3">
-              <button
-                type="button"
-                onClick={() => setConfirmApprove(null)}
-                className="rounded-lg px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                onClick={() => void doApprove(confirmApprove.id)}
-                className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
-              >
-                Approve {confirmApprove.count}{" "}
-                {confirmApprove.count === 1 ? "entry" : "entries"}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </AuthenticatedPage>
   );
 }
