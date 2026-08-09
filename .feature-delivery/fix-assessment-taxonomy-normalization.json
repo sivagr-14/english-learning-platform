@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fix-assessment-taxonomy-normalization",
+  "title": "Derive assessment taxonomy parents from approved leaf categories",
+  "implementationPaths": [
+    "packages/backend/src/services/in-app-generation.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/in-app-generation.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This enforces the existing approved 15/60/300 taxonomy more reliably by deriving canonical Domain and Usage Group parents from the provider-selected approved leaf. Unknown leaves still fail before manifest creation or persistence; the governing workflow and vocabulary contracts are unchanged."
+  }
+}

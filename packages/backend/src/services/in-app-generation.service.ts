@@ -45,14 +45,14 @@ const GEMINI_CANDIDATE_RESPONSE_SCHEMA = {
         type: "OBJECT",
         required: [
           "candidateId", "term", "baseForm", "itemType", "contextualMeaning", "senseKey",
-          "domainKey", "usageGroupKey", "categoryKey", "taxonomyConfidence",
+          "categoryKey", "taxonomyConfidence",
           "cefrLevel", "usageFrequency", "fluencyValue", "sourceSentence",
           "senseExplanation", "decision",
         ],
         properties: {
           candidateId: { type: "STRING" }, term: { type: "STRING" }, baseForm: { type: "STRING" },
-          itemType: { type: "STRING" }, contextualMeaning: { type: "STRING" }, senseKey: { type: "STRING" }, domainKey: { type: "STRING" },
-          usageGroupKey: { type: "STRING" }, categoryKey: { type: "STRING" }, taxonomyConfidence: { type: "STRING" },
+          itemType: { type: "STRING" }, contextualMeaning: { type: "STRING" }, senseKey: { type: "STRING" },
+          categoryKey: { type: "STRING", enum: TAXONOMY_SPECIFIC_CATEGORIES.map((category) => category.key) }, taxonomyConfidence: { type: "STRING" },
           taxonomyReason: { type: "STRING" }, cefrLevel: { type: "STRING" }, usageFrequency: { type: "STRING" },
           fluencyValue: { type: "STRING" }, sourceSentence: { type: "STRING" }, senseExplanation: { type: "STRING" },
           decision: { type: "STRING" }, reason: { type: "STRING" },
@@ -70,8 +70,8 @@ interface RawCandidate {
   contextualMeaning: string;
   senseKey: string;
   categoryKey: string;
-  domainKey: string;
-  usageGroupKey: string;
+  domainKey?: string;
+  usageGroupKey?: string;
   taxonomyConfidence: "high" | "medium" | "low";
   taxonomyReason?: string;
   cefrLevel: string;
@@ -114,7 +114,7 @@ Return ONLY a JSON object: { "candidates": [ ... ] }. Return exactly one result 
   "itemType": one of "word" | "phrasal verb" | "idiom" | "collocation" | "fixed phrase" | "conversational pattern",
   "contextualMeaning": string (at least 8 characters, explains the meaning AS USED in this passage),
   "senseKey": string (stable semantic identity such as "financial-institution"; never derive it from taxonomy),
-  "domainKey": string, "usageGroupKey": string, "categoryKey": string (copy one complete hierarchy below exactly),
+  "categoryKey": string (copy exactly one approved leaf key from the hierarchy below; the server derives its Domain and Usage Group),
   "taxonomyConfidence": one of "high" | "medium" | "low",
   "taxonomyReason": string (required when confidence is low),
   "cefrLevel": one of "A1"|"A2"|"B1"|"B2"|"C1"|"C2",
@@ -156,19 +156,8 @@ ${TAXONOMY_CATALOG_PROMPT}`;
     );
   }
 
-  for (const candidate of returned) {
-    const path = taxonomyPathForCategoryKey(candidate.categoryKey);
-    const valid =
-      path &&
-      candidate.domainKey === path.domainKey &&
-      candidate.usageGroupKey === path.usageGroupKey;
-    if (!valid) {
-      throw new ProviderRequestError(
-        "validation_failed",
-        `Assessment proposed an invented or mismatched taxonomy path for candidate ${candidate.candidateId}`,
-        false,
-      );
-    }
+  const normalized = returned.map(normalizeCandidateTaxonomy);
+  for (const candidate of normalized) {
     if (
       candidate.taxonomyConfidence === "low" &&
       !candidate.taxonomyReason?.trim()
@@ -179,7 +168,31 @@ ${TAXONOMY_CATALOG_PROMPT}`;
         false,
       );
   }
-  return returned;
+  return normalized;
+}
+
+/**
+ * Providers choose one approved leaf. Parent labels are canonical catalogue
+ * data, not independent model output: deriving them here prevents a valid leaf
+ * from being rejected because a model copied one parent key incorrectly.
+ * Unknown leaves still fail closed before manifest creation or persistence.
+ */
+export function normalizeCandidateTaxonomy(
+  candidate: RawCandidate,
+): RawCandidate {
+  const path = taxonomyPathForCategoryKey(candidate.categoryKey);
+  if (!path) {
+    throw new ProviderRequestError(
+      "validation_failed",
+      `Assessment proposed an invented taxonomy category for candidate ${candidate.candidateId}`,
+      false,
+    );
+  }
+  return {
+    ...candidate,
+    domainKey: path.domainKey,
+    usageGroupKey: path.usageGroupKey,
+  };
 }
 
 /**
