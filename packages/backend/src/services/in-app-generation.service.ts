@@ -251,7 +251,7 @@ export function toManifestCandidate(
     throw new ProviderRequestError(
       "validation_failed",
       `Candidate ${raw.candidateId} failed manifest validation: ${validation.error.issues
-        .map((issue) => issue.message)
+        .map((issue) => `${issue.path.join(".") || "candidate"}: ${issue.message}`)
         .join("; ")}`,
       false,
     );
