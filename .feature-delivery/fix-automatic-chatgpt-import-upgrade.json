@@ -16,7 +16,18 @@
     "packages/backend/src/scripts/smoke-content-pack-postgres.ts"
   ],
   "chatgptInstructionImpact": {
-    "status": "updated",
-    "rationale": "The workflow now documents automatic signed-in ownership assignment and removes the obsolete learner claim and approval steps."
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "No claim or approval action is shown to the learner.",
+          "automatically assigns unowned packs"
+        ]
+      }
+    ]
   }
 }
