@@ -1,0 +1,506 @@
+{
+  "formatVersion": "chatgpt-vocabulary-batch-v3",
+  "batchId": "ml-engineering-exhaustive-resume-20260809-v1-batch-8",
+  "manifestId": "ml-engineering-exhaustive-resume-20260809-v1",
+  "manifestHash": "3df49d5eecd51b5eb545d04a30586c8bd38062b63c3180e25cdea02bab1986ab",
+  "batchNumber": 8,
+  "createdAt": "2026-08-09T20:31:00.000Z",
+  "entries": [
+    {
+      "candidateId": "resume-new-060-attributes",
+      "word": "attributes",
+      "pronunciation": "/attributes/",
+      "wordType": "word",
+      "englishMeaning": "measurable characteristics or properties of an entity",
+      "tamilMeaning": "அளவிடக்கூடிய பண்புகள்",
+      "coreIdea": "attributes expresses measurable characteristics or properties of an entity.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Just to name some examples, we have SHAP, which breaks down a prediction and attributes it to each input feature.",
+          "contextual_meaning": "measurable characteristics or properties of an entity",
+          "simple_explanation": "The author uses attributes to describe measurable characteristics or properties of an entity."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use attributes when you need to describe measurable characteristics or properties of an entity."
+          ],
+          "when_not_to_use": [
+            "Avoid attributes when you mean a different process rather than measurable characteristics or properties of an entity."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes attributes in a machine-learning workflow",
+          "common_collocations": [
+            "attributes in practice",
+            "attributes in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified attributes as an important consideration.",
+            "technical": "Engineers documented attributes before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention attributes? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: attributes means that every part of the system is automatically correct.",
+          "correction": "Correct: attributes specifically means measurable characteristics or properties of an entity.",
+          "important_difference": "attributes is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link attributes to this idea: measurable characteristics or properties of an entity.",
+          "memory_sentence": "I remembered attributes by connecting it to the course example.",
+          "recall_question": "What does attributes mean in this source?",
+          "recognition_task": "Find the sentence in which attributes expresses measurable characteristics or properties of an entity.",
+          "production_task": "Write a new professional sentence using attributes in the same sense."
+        },
+        "advanced_nuance": [
+          "attributes is taught here specifically as measurable characteristics or properties of an entity; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-061-systematically",
+      "word": "systematically",
+      "pronunciation": "/systematically/",
+      "wordType": "word",
+      "englishMeaning": "according to a consistent method or recurring pattern",
+      "tamilMeaning": "ஒழுங்கான அல்லது தொடர்ச்சியான முறையில்",
+      "coreIdea": "systematically expresses according to a consistent method or recurring pattern.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "A model is biased if it produces systematically unfair outcomes for certain groups.",
+          "contextual_meaning": "according to a consistent method or recurring pattern",
+          "simple_explanation": "The author uses systematically to describe according to a consistent method or recurring pattern."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use systematically when you need to describe according to a consistent method or recurring pattern."
+          ],
+          "when_not_to_use": [
+            "Avoid systematically when you mean a different process rather than according to a consistent method or recurring pattern."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes systematically in a machine-learning workflow",
+          "common_collocations": [
+            "systematically in practice",
+            "systematically in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified systematically as an important consideration.",
+            "technical": "Engineers documented systematically before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention systematically? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: systematically means that every part of the system is automatically correct.",
+          "correction": "Correct: systematically specifically means according to a consistent method or recurring pattern.",
+          "important_difference": "systematically is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link systematically to this idea: according to a consistent method or recurring pattern.",
+          "memory_sentence": "I remembered systematically by connecting it to the course example.",
+          "recall_question": "What does systematically mean in this source?",
+          "recognition_task": "Find the sentence in which systematically expresses according to a consistent method or recurring pattern.",
+          "production_task": "Write a new professional sentence using systematically in the same sense."
+        },
+        "advanced_nuance": [
+          "systematically is taught here specifically as according to a consistent method or recurring pattern; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-062-reinforced",
+      "word": "reinforced",
+      "pronunciation": "/reinforced/",
+      "wordType": "word",
+      "englishMeaning": "made stronger through repeated support or feedback",
+      "tamilMeaning": "மீண்டும் மீண்டும் வலுப்படுத்தப்பட்ட",
+      "coreIdea": "reinforced expresses made stronger through repeated support or feedback.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "The training data may reflect historical inequalities, which are picked up by the system and reinforced by the system.",
+          "contextual_meaning": "made stronger through repeated support or feedback",
+          "simple_explanation": "The author uses reinforced to describe made stronger through repeated support or feedback."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use reinforced when you need to describe made stronger through repeated support or feedback."
+          ],
+          "when_not_to_use": [
+            "Avoid reinforced when you mean a different process rather than made stronger through repeated support or feedback."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes reinforced in a machine-learning workflow",
+          "common_collocations": [
+            "reinforced in practice",
+            "reinforced in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified reinforced as an important consideration.",
+            "technical": "Engineers documented reinforced before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention reinforced? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: reinforced means that every part of the system is automatically correct.",
+          "correction": "Correct: reinforced specifically means made stronger through repeated support or feedback.",
+          "important_difference": "reinforced is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link reinforced to this idea: made stronger through repeated support or feedback.",
+          "memory_sentence": "I remembered reinforced by connecting it to the course example.",
+          "recall_question": "What does reinforced mean in this source?",
+          "recognition_task": "Find the sentence in which reinforced expresses made stronger through repeated support or feedback.",
+          "production_task": "Write a new professional sentence using reinforced in the same sense."
+        },
+        "advanced_nuance": [
+          "reinforced is taught here specifically as made stronger through repeated support or feedback; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-063-proxy",
+      "word": "proxy",
+      "pronunciation": "/proxy/",
+      "wordType": "word",
+      "englishMeaning": "an indirect substitute used to represent another variable",
+      "tamilMeaning": "மற்றொரு மாறியை பிரதிநிதித்துவப்படுத்தும் மறைமுக மாற்று",
+      "coreIdea": "proxy expresses an indirect substitute used to represent another variable.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Some features are a proxy for others, and it can be unclear and unintended.",
+          "contextual_meaning": "an indirect substitute used to represent another variable",
+          "simple_explanation": "The author uses proxy to describe an indirect substitute used to represent another variable."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use proxy when you need to describe an indirect substitute used to represent another variable."
+          ],
+          "when_not_to_use": [
+            "Avoid proxy when you mean a different process rather than an indirect substitute used to represent another variable."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes proxy in a machine-learning workflow",
+          "common_collocations": [
+            "proxy in practice",
+            "proxy in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified proxy as an important consideration.",
+            "technical": "Engineers documented proxy before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention proxy? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: proxy means that every part of the system is automatically correct.",
+          "correction": "Correct: proxy specifically means an indirect substitute used to represent another variable.",
+          "important_difference": "proxy is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link proxy to this idea: an indirect substitute used to represent another variable.",
+          "memory_sentence": "I remembered proxy by connecting it to the course example.",
+          "recall_question": "What does proxy mean in this source?",
+          "recognition_task": "Find the sentence in which proxy expresses an indirect substitute used to represent another variable.",
+          "production_task": "Write a new professional sentence using proxy in the same sense."
+        },
+        "advanced_nuance": [
+          "proxy is taught here specifically as an indirect substitute used to represent another variable; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-064-underrepresented",
+      "word": "underrepresented",
+      "pronunciation": "/underrepresented/",
+      "wordType": "word",
+      "englishMeaning": "present in a smaller proportion than is fair or expected",
+      "tamilMeaning": "எதிர்பார்த்ததைவிட குறைவாக பிரதிநிதித்துவம் பெற்ற",
+      "coreIdea": "underrepresented expresses present in a smaller proportion than is fair or expected.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "We can have the representation bias, where certain groups are underrepresented in the data, leading to poor generalization.",
+          "contextual_meaning": "present in a smaller proportion than is fair or expected",
+          "simple_explanation": "The author uses underrepresented to describe present in a smaller proportion than is fair or expected."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use underrepresented when you need to describe present in a smaller proportion than is fair or expected."
+          ],
+          "when_not_to_use": [
+            "Avoid underrepresented when you mean a different process rather than present in a smaller proportion than is fair or expected."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes underrepresented in a machine-learning workflow",
+          "common_collocations": [
+            "underrepresented in practice",
+            "underrepresented in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified underrepresented as an important consideration.",
+            "technical": "Engineers documented underrepresented before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention underrepresented? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: underrepresented means that every part of the system is automatically correct.",
+          "correction": "Correct: underrepresented specifically means present in a smaller proportion than is fair or expected.",
+          "important_difference": "underrepresented is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link underrepresented to this idea: present in a smaller proportion than is fair or expected.",
+          "memory_sentence": "I remembered underrepresented by connecting it to the course example.",
+          "recall_question": "What does underrepresented mean in this source?",
+          "recognition_task": "Find the sentence in which underrepresented expresses present in a smaller proportion than is fair or expected.",
+          "production_task": "Write a new professional sentence using underrepresented in the same sense."
+        },
+        "advanced_nuance": [
+          "underrepresented is taught here specifically as present in a smaller proportion than is fair or expected; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-065-mitigate",
+      "word": "mitigate",
+      "pronunciation": "/mitigate/",
+      "wordType": "word",
+      "englishMeaning": "reduce the severity, harm, or risk of something",
+      "tamilMeaning": "தீவிரம் அல்லது ஆபத்தை குறைத்தல்",
+      "coreIdea": "mitigate expresses reduce the severity, harm, or risk of something.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "To detect and mitigate bias, they monitor fairness metrics for every client.",
+          "contextual_meaning": "reduce the severity, harm, or risk of something",
+          "simple_explanation": "The author uses mitigate to describe reduce the severity, harm, or risk of something."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use mitigate when you need to describe reduce the severity, harm, or risk of something."
+          ],
+          "when_not_to_use": [
+            "Avoid mitigate when you mean a different process rather than reduce the severity, harm, or risk of something."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes mitigate in a machine-learning workflow",
+          "common_collocations": [
+            "mitigate in practice",
+            "mitigate in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified mitigate as an important consideration.",
+            "technical": "Engineers documented mitigate before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention mitigate? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: mitigate means that every part of the system is automatically correct.",
+          "correction": "Correct: mitigate specifically means reduce the severity, harm, or risk of something.",
+          "important_difference": "mitigate is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link mitigate to this idea: reduce the severity, harm, or risk of something.",
+          "memory_sentence": "I remembered mitigate by connecting it to the course example.",
+          "recall_question": "What does mitigate mean in this source?",
+          "recognition_task": "Find the sentence in which mitigate expresses reduce the severity, harm, or risk of something.",
+          "production_task": "Write a new professional sentence using mitigate in the same sense."
+        },
+        "advanced_nuance": [
+          "mitigate is taught here specifically as reduce the severity, harm, or risk of something; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-066-transparency",
+      "word": "transparency",
+      "pronunciation": "/transparency/",
+      "wordType": "word",
+      "englishMeaning": "openness that makes decisions and processes understandable",
+      "tamilMeaning": "முடிவுகளை புரிந்துகொள்ளச் செய்யும் வெளிப்படைத்தன்மை",
+      "coreIdea": "transparency expresses openness that makes decisions and processes understandable.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "This improves transparency and trust.",
+          "contextual_meaning": "openness that makes decisions and processes understandable",
+          "simple_explanation": "The author uses transparency to describe openness that makes decisions and processes understandable."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use transparency when you need to describe openness that makes decisions and processes understandable."
+          ],
+          "when_not_to_use": [
+            "Avoid transparency when you mean a different process rather than openness that makes decisions and processes understandable."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes transparency in a machine-learning workflow",
+          "common_collocations": [
+            "transparency in practice",
+            "transparency in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified transparency as an important consideration.",
+            "technical": "Engineers documented transparency before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention transparency? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: transparency means that every part of the system is automatically correct.",
+          "correction": "Correct: transparency specifically means openness that makes decisions and processes understandable.",
+          "important_difference": "transparency is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link transparency to this idea: openness that makes decisions and processes understandable.",
+          "memory_sentence": "I remembered transparency by connecting it to the course example.",
+          "recall_question": "What does transparency mean in this source?",
+          "recognition_task": "Find the sentence in which transparency expresses openness that makes decisions and processes understandable.",
+          "production_task": "Write a new professional sentence using transparency in the same sense."
+        },
+        "advanced_nuance": [
+          "transparency is taught here specifically as openness that makes decisions and processes understandable; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-067-sneak-in",
+      "word": "sneak in",
+      "pronunciation": "/sneak in/",
+      "wordType": "phrasal verb",
+      "englishMeaning": "enter or develop without being noticed",
+      "tamilMeaning": "கவனிக்காமல் நுழைதல்",
+      "coreIdea": "sneak in expresses enter or develop without being noticed.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Bias might sneak in later as well.",
+          "contextual_meaning": "enter or develop without being noticed",
+          "simple_explanation": "The author uses sneak in to describe enter or develop without being noticed."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use sneak in when you need to describe enter or develop without being noticed."
+          ],
+          "when_not_to_use": [
+            "Avoid sneak in when you mean a different process rather than enter or develop without being noticed."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes sneak in in a machine-learning workflow",
+          "common_collocations": [
+            "sneak in in practice",
+            "sneak in in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified sneak in as an important consideration.",
+            "technical": "Engineers documented sneak in before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention sneak in? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: sneak in means that every part of the system is automatically correct.",
+          "correction": "Correct: sneak in specifically means enter or develop without being noticed.",
+          "important_difference": "sneak in is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link sneak in to this idea: enter or develop without being noticed.",
+          "memory_sentence": "I remembered sneak in by connecting it to the course example.",
+          "recall_question": "What does sneak in mean in this source?",
+          "recognition_task": "Find the sentence in which sneak in expresses enter or develop without being noticed.",
+          "production_task": "Write a new professional sentence using sneak in in the same sense."
+        },
+        "advanced_nuance": [
+          "sneak in is taught here specifically as enter or develop without being noticed; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    }
+  ]
+}
