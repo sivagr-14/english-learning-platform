@@ -1,0 +1,506 @@
+{
+  "formatVersion": "chatgpt-vocabulary-batch-v3",
+  "batchId": "ml-engineering-exhaustive-resume-20260809-v1-batch-9",
+  "manifestId": "ml-engineering-exhaustive-resume-20260809-v1",
+  "manifestHash": "3df49d5eecd51b5eb545d04a30586c8bd38062b63c3180e25cdea02bab1986ab",
+  "batchNumber": 9,
+  "createdAt": "2026-08-09T20:31:00.000Z",
+  "entries": [
+    {
+      "candidateId": "resume-new-068-degradation",
+      "word": "degradation",
+      "pronunciation": "/degradation/",
+      "wordType": "word",
+      "englishMeaning": "a decline in quality or performance over time",
+      "tamilMeaning": "காலப்போக்கில் தரம் குறைதல்",
+      "coreIdea": "degradation expresses a decline in quality or performance over time.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Before we dive into the specific challenges of fairness, explainability, feature engineering, or model degradation, it's important to keep in mind what businesses actually expect from a production‑grade machine learning system.",
+          "contextual_meaning": "a decline in quality or performance over time",
+          "simple_explanation": "The author uses degradation to describe a decline in quality or performance over time."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use degradation when you need to describe a decline in quality or performance over time."
+          ],
+          "when_not_to_use": [
+            "Avoid degradation when you mean a different process rather than a decline in quality or performance over time."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes degradation in a machine-learning workflow",
+          "common_collocations": [
+            "degradation in practice",
+            "degradation in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified degradation as an important consideration.",
+            "technical": "Engineers documented degradation before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention degradation? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: degradation means that every part of the system is automatically correct.",
+          "correction": "Correct: degradation specifically means a decline in quality or performance over time.",
+          "important_difference": "degradation is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link degradation to this idea: a decline in quality or performance over time.",
+          "memory_sentence": "I remembered degradation by connecting it to the course example.",
+          "recall_question": "What does degradation mean in this source?",
+          "recognition_task": "Find the sentence in which degradation expresses a decline in quality or performance over time.",
+          "production_task": "Write a new professional sentence using degradation in the same sense."
+        },
+        "advanced_nuance": [
+          "degradation is taught here specifically as a decline in quality or performance over time; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-069-consequences",
+      "word": "consequences",
+      "pronunciation": "/consequences/",
+      "wordType": "word",
+      "englishMeaning": "results of an action, especially serious or unwanted ones",
+      "tamilMeaning": "ஒரு செயலின் விளைவுகள்",
+      "coreIdea": "consequences expresses results of an action, especially serious or unwanted ones.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "And if we don't detect those changes early, the consequences can be serious, especially when we have a critical system, such as one that influences healthcare, finance, security, and hiring, of course.",
+          "contextual_meaning": "results of an action, especially serious or unwanted ones",
+          "simple_explanation": "The author uses consequences to describe results of an action, especially serious or unwanted ones."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use consequences when you need to describe results of an action, especially serious or unwanted ones."
+          ],
+          "when_not_to_use": [
+            "Avoid consequences when you mean a different process rather than results of an action, especially serious or unwanted ones."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes consequences in a machine-learning workflow",
+          "common_collocations": [
+            "consequences in practice",
+            "consequences in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified consequences as an important consideration.",
+            "technical": "Engineers documented consequences before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention consequences? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: consequences means that every part of the system is automatically correct.",
+          "correction": "Correct: consequences specifically means results of an action, especially serious or unwanted ones.",
+          "important_difference": "consequences is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link consequences to this idea: results of an action, especially serious or unwanted ones.",
+          "memory_sentence": "I remembered consequences by connecting it to the course example.",
+          "recall_question": "What does consequences mean in this source?",
+          "recognition_task": "Find the sentence in which consequences expresses results of an action, especially serious or unwanted ones.",
+          "production_task": "Write a new professional sentence using consequences in the same sense."
+        },
+        "advanced_nuance": [
+          "consequences is taught here specifically as results of an action, especially serious or unwanted ones; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-070-distribution",
+      "word": "distribution",
+      "pronunciation": "/distribution/",
+      "wordType": "word",
+      "englishMeaning": "the statistical pattern showing how values are spread",
+      "tamilMeaning": "மதிப்புகள் எவ்வாறு பரவியுள்ளன என்பதன் வடிவம்",
+      "coreIdea": "distribution expresses the statistical pattern showing how values are spread.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Prediction distribution, which means we're checking if the scores are shifting.",
+          "contextual_meaning": "the statistical pattern showing how values are spread",
+          "simple_explanation": "The author uses distribution to describe the statistical pattern showing how values are spread."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use distribution when you need to describe the statistical pattern showing how values are spread."
+          ],
+          "when_not_to_use": [
+            "Avoid distribution when you mean a different process rather than the statistical pattern showing how values are spread."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes distribution in a machine-learning workflow",
+          "common_collocations": [
+            "distribution in practice",
+            "distribution in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified distribution as an important consideration.",
+            "technical": "Engineers documented distribution before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention distribution? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: distribution means that every part of the system is automatically correct.",
+          "correction": "Correct: distribution specifically means the statistical pattern showing how values are spread.",
+          "important_difference": "distribution is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link distribution to this idea: the statistical pattern showing how values are spread.",
+          "memory_sentence": "I remembered distribution by connecting it to the course example.",
+          "recall_question": "What does distribution mean in this source?",
+          "recognition_task": "Find the sentence in which distribution expresses the statistical pattern showing how values are spread.",
+          "production_task": "Write a new professional sentence using distribution in the same sense."
+        },
+        "advanced_nuance": [
+          "distribution is taught here specifically as the statistical pattern showing how values are spread; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-071-oversight",
+      "word": "oversight",
+      "pronunciation": "/oversight/",
+      "wordType": "word",
+      "englishMeaning": "human supervision and checking of a process",
+      "tamilMeaning": "மனித மேற்பார்வை",
+      "coreIdea": "oversight expresses human supervision and checking of a process.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "You can do this with human oversight to validate the performance of the model.",
+          "contextual_meaning": "human supervision and checking of a process",
+          "simple_explanation": "The author uses oversight to describe human supervision and checking of a process."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use oversight when you need to describe human supervision and checking of a process."
+          ],
+          "when_not_to_use": [
+            "Avoid oversight when you mean a different process rather than human supervision and checking of a process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes oversight in a machine-learning workflow",
+          "common_collocations": [
+            "oversight in practice",
+            "oversight in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified oversight as an important consideration.",
+            "technical": "Engineers documented oversight before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention oversight? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: oversight means that every part of the system is automatically correct.",
+          "correction": "Correct: oversight specifically means human supervision and checking of a process.",
+          "important_difference": "oversight is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link oversight to this idea: human supervision and checking of a process.",
+          "memory_sentence": "I remembered oversight by connecting it to the course example.",
+          "recall_question": "What does oversight mean in this source?",
+          "recognition_task": "Find the sentence in which oversight expresses human supervision and checking of a process.",
+          "production_task": "Write a new professional sentence using oversight in the same sense."
+        },
+        "advanced_nuance": [
+          "oversight is taught here specifically as human supervision and checking of a process; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-072-adaptability",
+      "word": "adaptability",
+      "pronunciation": "/adaptability/",
+      "wordType": "word",
+      "englishMeaning": "the ability to adjust successfully to changing conditions",
+      "tamilMeaning": "மாற்றங்களுக்கு ஏற்ப தழுவும் திறன்",
+      "coreIdea": "adaptability expresses the ability to adjust successfully to changing conditions.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "This loops allows the model to stay aligned with real‑world outcomes, improving accuracy and adaptability over time.",
+          "contextual_meaning": "the ability to adjust successfully to changing conditions",
+          "simple_explanation": "The author uses adaptability to describe the ability to adjust successfully to changing conditions."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use adaptability when you need to describe the ability to adjust successfully to changing conditions."
+          ],
+          "when_not_to_use": [
+            "Avoid adaptability when you mean a different process rather than the ability to adjust successfully to changing conditions."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes adaptability in a machine-learning workflow",
+          "common_collocations": [
+            "adaptability in practice",
+            "adaptability in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified adaptability as an important consideration.",
+            "technical": "Engineers documented adaptability before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention adaptability? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: adaptability means that every part of the system is automatically correct.",
+          "correction": "Correct: adaptability specifically means the ability to adjust successfully to changing conditions.",
+          "important_difference": "adaptability is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link adaptability to this idea: the ability to adjust successfully to changing conditions.",
+          "memory_sentence": "I remembered adaptability by connecting it to the course example.",
+          "recall_question": "What does adaptability mean in this source?",
+          "recognition_task": "Find the sentence in which adaptability expresses the ability to adjust successfully to changing conditions.",
+          "production_task": "Write a new professional sentence using adaptability in the same sense."
+        },
+        "advanced_nuance": [
+          "adaptability is taught here specifically as the ability to adjust successfully to changing conditions; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-073-terminology",
+      "word": "terminology",
+      "pronunciation": "/terminology/",
+      "wordType": "word",
+      "englishMeaning": "the specialized vocabulary used in a field",
+      "tamilMeaning": "ஒரு துறையின் சிறப்புச் சொற்கள்",
+      "coreIdea": "terminology expresses the specialized vocabulary used in a field.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "For example, if a new wave of applicants start using different resume formats or terminology, the model might start to degrade.",
+          "contextual_meaning": "the specialized vocabulary used in a field",
+          "simple_explanation": "The author uses terminology to describe the specialized vocabulary used in a field."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use terminology when you need to describe the specialized vocabulary used in a field."
+          ],
+          "when_not_to_use": [
+            "Avoid terminology when you mean a different process rather than the specialized vocabulary used in a field."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes terminology in a machine-learning workflow",
+          "common_collocations": [
+            "terminology in practice",
+            "terminology in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified terminology as an important consideration.",
+            "technical": "Engineers documented terminology before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention terminology? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: terminology means that every part of the system is automatically correct.",
+          "correction": "Correct: terminology specifically means the specialized vocabulary used in a field.",
+          "important_difference": "terminology is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link terminology to this idea: the specialized vocabulary used in a field.",
+          "memory_sentence": "I remembered terminology by connecting it to the course example.",
+          "recall_question": "What does terminology mean in this source?",
+          "recognition_task": "Find the sentence in which terminology expresses the specialized vocabulary used in a field.",
+          "production_task": "Write a new professional sentence using terminology in the same sense."
+        },
+        "advanced_nuance": [
+          "terminology is taught here specifically as the specialized vocabulary used in a field; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-074-benchmarks",
+      "word": "benchmarks",
+      "pronunciation": "/benchmarks/",
+      "wordType": "word",
+      "englishMeaning": "reference standards used to compare performance",
+      "tamilMeaning": "செயல்திறனை ஒப்பிடும் தரநிலைகள்",
+      "coreIdea": "benchmarks expresses reference standards used to compare performance.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "They also schedule periodic evaluations for each client to make sure the system continues to meet fairness and performance benchmarks.",
+          "contextual_meaning": "reference standards used to compare performance",
+          "simple_explanation": "The author uses benchmarks to describe reference standards used to compare performance."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use benchmarks when you need to describe reference standards used to compare performance."
+          ],
+          "when_not_to_use": [
+            "Avoid benchmarks when you mean a different process rather than reference standards used to compare performance."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes benchmarks in a machine-learning workflow",
+          "common_collocations": [
+            "benchmarks in practice",
+            "benchmarks in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified benchmarks as an important consideration.",
+            "technical": "Engineers documented benchmarks before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention benchmarks? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: benchmarks means that every part of the system is automatically correct.",
+          "correction": "Correct: benchmarks specifically means reference standards used to compare performance.",
+          "important_difference": "benchmarks is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link benchmarks to this idea: reference standards used to compare performance.",
+          "memory_sentence": "I remembered benchmarks by connecting it to the course example.",
+          "recall_question": "What does benchmarks mean in this source?",
+          "recognition_task": "Find the sentence in which benchmarks expresses reference standards used to compare performance.",
+          "production_task": "Write a new professional sentence using benchmarks in the same sense."
+        },
+        "advanced_nuance": [
+          "benchmarks is taught here specifically as reference standards used to compare performance; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-075-inevitable",
+      "word": "inevitable",
+      "pronunciation": "/inevitable/",
+      "wordType": "word",
+      "englishMeaning": "certain to happen and impossible to avoid",
+      "tamilMeaning": "தவிர்க்க முடியாத",
+      "coreIdea": "inevitable expresses certain to happen and impossible to avoid.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Model drift and degradation are inevitable.",
+          "contextual_meaning": "certain to happen and impossible to avoid",
+          "simple_explanation": "The author uses inevitable to describe certain to happen and impossible to avoid."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use inevitable when you need to describe certain to happen and impossible to avoid."
+          ],
+          "when_not_to_use": [
+            "Avoid inevitable when you mean a different process rather than certain to happen and impossible to avoid."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes inevitable in a machine-learning workflow",
+          "common_collocations": [
+            "inevitable in practice",
+            "inevitable in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified inevitable as an important consideration.",
+            "technical": "Engineers documented inevitable before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention inevitable? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: inevitable means that every part of the system is automatically correct.",
+          "correction": "Correct: inevitable specifically means certain to happen and impossible to avoid.",
+          "important_difference": "inevitable is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link inevitable to this idea: certain to happen and impossible to avoid.",
+          "memory_sentence": "I remembered inevitable by connecting it to the course example.",
+          "recall_question": "What does inevitable mean in this source?",
+          "recognition_task": "Find the sentence in which inevitable expresses certain to happen and impossible to avoid.",
+          "production_task": "Write a new professional sentence using inevitable in the same sense."
+        },
+        "advanced_nuance": [
+          "inevitable is taught here specifically as certain to happen and impossible to avoid; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    }
+  ]
+}
