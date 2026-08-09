@@ -350,6 +350,11 @@ export class ContentPackService {
   async listIngestErrors() {
     return this.database("content_pack_ingest_errors")
       .where({ status: "active" })
+      // Internal Gemini/Ollama transactions share validation storage but are
+      // never ChatGPT inbox documents. Keep their diagnostics in the provider
+      // workflow that created them instead of presenting them as packs that
+      // ChatGPT must correct.
+      .whereNot("document_path", "like", "inapp/%")
       .orderBy("updated_at", "desc")
       .select("document_path", "pack_id", "issues", "created_at", "updated_at");
   }
