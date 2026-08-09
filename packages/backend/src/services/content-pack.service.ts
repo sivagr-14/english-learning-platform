@@ -50,6 +50,17 @@ export interface ContentPackIngestContext {
   syncedAt?: Date;
 }
 
+export function shouldAutomaticallyApproveManifest(
+  row: { owner_user_id?: string | null; status?: string | null },
+  approvalRequired = DEFAULT_IMPORT_POLICY.approvalRequired,
+): boolean {
+  return Boolean(
+    row.owner_user_id &&
+      !approvalRequired &&
+      row.status === "awaiting_approval",
+  );
+}
+
 function statusError(
   message: string,
   status = 400,
@@ -350,10 +361,7 @@ export class ContentPackService {
     for (const row of rows) {
       if (!row.owner_user_id) {
         await this.claimManifest(userId, row.id);
-      } else if (
-        !DEFAULT_IMPORT_POLICY.approvalRequired &&
-        row.status === "awaiting_approval"
-      ) {
+      } else if (shouldAutomaticallyApproveManifest(row)) {
         // Recover imports claimed by an older/manual workflow. Automatic
         // selection is idempotent, and approveManifest resumes an existing job
         // when one was already created before an interrupted restart.
