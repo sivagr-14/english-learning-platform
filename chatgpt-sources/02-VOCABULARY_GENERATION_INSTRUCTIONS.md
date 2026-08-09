@@ -1,20 +1,21 @@
 # Vocabulary Lesson Generation Contract
 
-For source assessment, page/chunk accounting, GitHub transport, approval and
-batch rules, first follow `docs/CHATGPT_CONTENT_PACK_WORKFLOW.md`. This file
-defines the lesson payload inside each approved content-pack batch.
+For source assessment, page/chunk accounting, GitHub transport, automatic
+selection and batch rules, first follow `docs/CHATGPT_CONTENT_PACK_WORKFLOW.md`.
+This file defines the lesson payload inside each selected content-pack batch.
 
 Use this contract for every vocabulary entry, whether it is new or an update.
 
 The ChatGPT manifest and batch contract is canonical. Gemini, Ollama and other
-local-AI providers must generate the same fields and pass the same validation;
-provider-specific limitations never justify weakening this lesson structure,
-contextual-sense identity, taxonomy, exact evidence or quality requirements.
+local-AI providers must emit the same fields and pass the same validation;
+provider limitations never weaken lesson structure, contextual-sense identity,
+taxonomy, exact evidence or quality requirements.
 
 ## Default automatic selection
 
-After the learner claims an import, generate every valid new heavy/high- and
-medium-frequency candidate automatically without a separate approval step.
+Generate every valid new heavy/high- and medium-frequency candidate
+automatically. The authenticated backend assigns ownership and imports valid
+batches without a learner claim or approval step.
 Exclude low-frequency terms, proper names, extraction/OCR noise, malformed
 tokens, exact duplicates and already-complete entries, and record a reason for
 every exclusion. Hold unreadable or ambiguous material for attention.
@@ -63,6 +64,8 @@ For every candidate, provide:
 - `senseEvidence.sentence` and `senseEvidence.explanation` showing why that
   meaning applies in the source.
 
+### Exact evidence derivation
+
 `senseEvidence.sentence` must be selected directly from the candidate's stored
 source occurrences. Do not paraphrase or generate it separately. The lesson
 `source_sentence` must copy the identical stored sentence.
@@ -100,6 +103,44 @@ Existing unsuffixed entries are internally sense A/rank 1, but `(A)` is never
 displayed. Later ranks are permanent: deleting `(B)` must not rename `(C)` or
 permit the next sense to reuse B.
 
+## Required three-level categorization
+
+Categorize the assessed contextual sense, not the spelling alone. Every
+generated candidate in a new import must select exactly one active path from
+the application catalogue:
+
+```text
+Domain -> Usage group -> Specific category
+```
+
+Write all of these fields into the v3 manifest candidate:
+
+- `taxonomy.taxonomyVersion`
+- `taxonomy.domainKey`
+- `taxonomy.usageGroupKey`
+- `taxonomy.categoryKey`
+- `taxonomy.confidence`: `high`, `medium` or `low`
+- `taxonomy.reason` when confidence is low
+
+`categoryName` must equal the selected specific category's catalogue name.
+Use only stable keys from
+`packages/backend/src/data/vocabulary-taxonomy.ts`. Never invent, rename or
+silently approximate a system key. If no path fits, hold the candidate for
+attention and propose a catalogue addition separately.
+
+Examples:
+
+```text
+check in (airline baggage)
+Travel -> Airports & Flights -> Check-in and baggage
+
+check in (contact a manager)
+Work -> Meetings & Collaboration -> Progress updates
+```
+
+Personal categories remain optional learner-managed links. They never replace
+the required system taxonomy path.
+
 ## Core rule
 
 Generate exactly eight complete learning sections. Every value must teach
@@ -131,7 +172,10 @@ Keep these fields at the entry/header level:
 - `item_type`
 - `cefr_level`
 - `frequency`
-- `category`
+- `domain`
+- `usage_group`
+- `specific_category`
+- stable taxonomy keys and taxonomy version
 - `english_meaning`
 - `tamil_meaning`
 - `core_idea`
@@ -215,6 +259,8 @@ When an entry already exists:
 3. Replace all eight lesson sections together in one transaction.
 4. Preserve the learner’s review history and mastery progress.
 5. Record a new entry version so the earlier lesson remains auditable.
+6. Preserve or replace its taxonomy only with one complete, catalogue-valid
+   domain, usage-group and specific-category path.
 
 Starter samples follow the same rules. Increasing the starter sample version
 must cause already-loaded samples to refresh through this validation gate.
