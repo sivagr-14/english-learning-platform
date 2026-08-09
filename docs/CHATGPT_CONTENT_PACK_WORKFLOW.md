@@ -25,11 +25,11 @@ mutate an existing ChatGPT manifest.
 2. ChatGPT reads every page and divides the source into traceable chunks.
 3. ChatGPT creates an immutable assessment manifest on the private
    `chatgpt-content-inbox` branch.
-4. The Mac fetches that branch automatically every five minutes, or immediately
-   when **Sync ChatGPT content** is selected.
-5. The learner claims the manifest in **ChatGPT Imports** to establish account
-   ownership. The backend automatically schedules every eligible candidate; no
-   separate approval step is required.
+4. The Mac fetches that branch automatically every five minutes. Loading any
+   authenticated app page also starts synchronization immediately.
+5. The backend atomically assigns each unowned manifest to the signed-in local
+   account, schedules every eligible candidate and imports every available valid
+   batch. No claim or approval action is shown to the learner.
 6. ChatGPT generates complete lessons in batches of at most ten and writes each
    batch to the same inbox branch.
 7. The local backend validates the manifest hash, planned batch membership,
@@ -42,13 +42,14 @@ mutate an existing ChatGPT manifest.
    successful verification.
 10. After verification succeeds, the local control service removes only that
     manifest folder from the active inbox branch and records the cleanup commit
-    and timestamp in PostgreSQL. Git history and the local ledger remain the
-    recovery and audit trail.
+    and timestamp in PostgreSQL. The completed import then disappears from the
+    active import ledger; only actionable, failed or resumable work remains.
 
 ## Manifest guarantees
 
-New imports use `chatgpt-vocabulary-manifest-v2`. Version 1 remains readable
-only so already-started imports can finish. Version 2 must include:
+New imports use `chatgpt-vocabulary-manifest-v3`. Version 2
+(`chatgpt-vocabulary-manifest-v2`) and version 1 remain readable only so
+already-started imports can finish. Version 3 must include:
 
 - a stable `manifestId`, source SHA-256, source type and creation time;
 - `totalPages` and an ordered page ledger from page 1 through the last page;
@@ -58,6 +59,9 @@ only so already-started imports can finish. Version 2 must include:
   `generate`, `existing`, `filtered` or `rejected`;
 - one contextual meaning, stable `senseKey`, `senseDecision` and source-backed
   `senseEvidence` for every candidate;
+- one catalogue-valid `taxonomy` assignment for every generated candidate,
+  containing the taxonomy version, domain key, usage-group key, specific
+  category key and confidence;
 - a specific reason for every non-generated candidate;
 - source page, chunk and sentence for every candidate occurrence;
 - exact recomputable totals; and
@@ -75,9 +79,9 @@ are held for attention instead of guessed.
 
 ## Batch guarantees
 
-New batches use `chatgpt-vocabulary-batch-v2` and must match a version-2
-manifest. Version-1 batches remain compatible only with version-1 manifests.
-Each batch must include:
+New batches use `chatgpt-vocabulary-batch-v3` and must match a version-3
+manifest. Version-1 and version-2 batches remain compatible only with the same
+manifest version. Each batch must include:
 
 - an immutable `batchId`;
 - the manifest ID and exact manifest SHA-256;
@@ -126,6 +130,26 @@ matching, examples, sorting identity or the generated lesson.
 Reusing the same manifest or batch ID with identical content is safe and has no
 effect. Reusing it with changed content creates a conflict instead of modifying
 already assessed or saved data.
+
+## Controlled taxonomy guarantee
+
+The system catalogue contains 15 domains, 60 usage groups and 300 specific
+learning categories. ChatGPT must classify each generated contextual sense by
+choosing one exact chain:
+
+```text
+domainKey -> usageGroupKey -> categoryKey
+```
+
+The backend rejects a v3 manifest when a key is unknown, inactive, belongs to a
+different parent, or the free-text `categoryName` does not match the selected
+specific category. Generation never creates system categories. A genuine
+coverage gap is held for attention and proposed for catalogue review.
+
+The database stores the required specific-category key on every vocabulary
+word. Its foreign-key path determines the domain and usage group. Personal
+categories are additive learner-owned links and do not satisfy or replace this
+system classification.
 
 ## Large documents
 
@@ -239,18 +263,16 @@ interrupted import resumes with the rules it started with.
 When asked to process a source for this application, ChatGPT must:
 
 1. inspect the complete source before proposing entries;
-2. construct the source ledger, deterministic candidate inventory, two-pass
-   chunk assessment and omission audits before lesson generation;
-3. show page/source-unit/chunk coverage, inventory totals and exact decision
-   counts, including exclusions and attention items;
-4. generate all policy-eligible candidates without asking for approval after
-   the learner has claimed the import; ask only for unresolved exceptions;
-5. use the manifest and batch runtime contracts in
+2. show the page/chunk coverage and exact decision counts;
+3. generate all policy-eligible candidates without asking for claim or approval;
+   ask only for unresolved exceptions;
+4. use the manifest and batch runtime contracts in
    `packages/backend/src/services/content-pack-contract.ts`;
-6. preserve different contextual senses of the same spelling as separate
+5. preserve different contextual senses of the same spelling as separate
    candidates and merge only term-and-sense duplicates;
-7. derive evidence only from recorded occurrences and validate files with
-   `yarn content-packs:validate <directory>` before writing
+6. select one controlled domain, usage group and specific category for every
+   generated contextual sense;
+7. validate files with `yarn content-packs:validate <directory>` before writing
    them to the inbox branch;
 8. never place an OpenAI API key, PostgreSQL credential or personal database
    export in GitHub; and
@@ -266,6 +288,7 @@ declared pages = assessed pages + explicitly unreadable pages
 declared chunks = assessed chunks + explicitly unreadable chunks
 all candidates = generate + existing + filtered + rejected
 all contextual senses = resolved same/new senses + explicitly held ambiguities
+all generated senses = valid domain + usage group + specific category
 all approved candidates = committed PostgreSQL entries
 all planned batches = received and valid batches
 missing or untracked items = 0
@@ -286,3 +309,24 @@ progress and review row is read back successfully. A guarded Git push prevents
 cleanup from overwriting a concurrently delivered pack. Failed cleanup is safe
 to retry, and an already-absent folder is recorded without changing PostgreSQL
 content.
+
+## Status and recovery guarantees
+
+The local recovery ledger records the exact private inbox branch, fetched commit,
+last synchronization time, database verification report, cleanup attempts and
+cleanup commit while an import needs action or recovery. Completed, verified
+and inbox-cleaned imports are omitted from the active ledger. Manual
+synchronization and the five-minute timer must read only
+`chatgpt-content-inbox`. Revalidation may recompute contract and PostgreSQL
+read-back status, but must never mutate the immutable manifest or batch payload.
+The UI must show a specific next action for missing batches, invalid batches,
+attention items, failed read-back and retryable cleanup instead of reporting an
+inconsistent import as Completed. A user-triggered synchronization claims no
+manual action: the authenticated backend automatically assigns unowned packs to
+the signed-in local account, applies the no-approval policy,
+saves available batches, verifies PostgreSQL read-back and retries guarded
+inbox cleanup as one operation. Imports left in the retired
+`awaiting_approval` state are automatically promoted and resumed on the next
+synchronization; they never require learner intervention. A clear
+source-backed `new_sense` decision is not converted into manual review merely
+because its wording overlaps moderately with an existing sense.
