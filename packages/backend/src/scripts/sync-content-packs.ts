@@ -86,6 +86,7 @@ async function main() {
       {
         source: gitRef || directory,
         documents: documents.length,
+        documentPaths: documents.map((document) => document.path),
         ...result,
       },
       null,
