@@ -610,53 +610,39 @@ class ControlManager {
       this.log(`ChatGPT content sync failed [${failure.code}]: ${failure.technicalDetail}`);
       return failure;
     }
-    const syncScript = path.join(
-      backendDirectory,
-      'src',
-      'scripts',
-      'sync-content-packs.ts',
-    );
-    if (!fs.existsSync(syncScript)) {
-      return {
-        synchronized: false, available: true, stage: 'import',
-        code: 'SYNC_SCRIPT_MISSING', error: 'The ChatGPT content synchronizer is missing.',
-        technicalDetail: syncScript, retryable: false, httpStatus: 500,
-      };
-    }
     const resolved = this.execute('git', ['rev-parse', '--verify', contentInboxRef]);
     const fetchedCommit = String(resolved.stdout || '').trim();
     if (resolved.status !== 0 || !/^[0-9a-f]{40}$/i.test(fetchedCommit)) {
       return classifyGitFailure(resolved, 'ref_resolution');
     }
-    let syncOutput;
-    try {
-      syncOutput = await this.runAsync(
-        process.execPath,
-        [
-          path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'),
-          '--transpile-only', '--project', path.join(backendDirectory, 'tsconfig.json'),
-          syncScript,
-          '--git-ref', fetchedCommit,
-          '--inbox-branch', contentInboxBranch,
-          '--fetched-commit', fetchedCommit,
-        ],
-        (output) => this.log(output),
-      );
-    } catch (error) {
-      return {
-        synchronized: false, available: true, stage: 'import', code: 'IMPORT_FAILED',
-        error: 'ChatGPT content was fetched, but the importer failed.',
-        technicalDetail: error instanceof Error ? error.message : String(error),
-        retryable: true, httpStatus: 422,
-      };
+    const listed = this.execute('git', [
+      'ls-tree',
+      '-r',
+      '--name-only',
+      fetchedCommit,
+      'content-packs/inbox',
+    ]);
+    if (listed.status !== 0) {
+      return classifyGitFailure(listed, 'ref_resolution');
     }
-    const syncResult = this.parseLastJsonObject(syncOutput);
-    const invalidResult = validateContentSyncResult(syncResult);
-    if (invalidResult) return invalidResult;
-    // Fetch/import is staging-only. Account-owned processing happens through
-    // the authenticated backend endpoint, which returns the exact verified
-    // manifests that may be cleaned.
-    return { synchronized: true, available: true, fetchedCommit, result: syncResult };
+    const documentPaths = String(listed.stdout || '')
+      .split(/\r?\n/)
+      .map((item) => item.trim())
+      .filter((item) => item.endsWith('.json'));
+    // Git synchronization is transport-only. The authenticated backend loads
+    // this exact commit and performs staging, claim/resume, commit and read-back
+    // against its own database connection.
+    return {
+      synchronized: true,
+      available: true,
+      fetchedCommit,
+      result: {
+        documents: documentPaths.length,
+        documentPaths,
+        errors: [],
+        cleanupEligible: [],
+      },
+    };
   }
 
   async cleanupChatGPTContent(manifestIds) {

@@ -463,21 +463,25 @@ test('control API requires the local control header before starting', async (con
   assert.equal(contentCleanups, 1);
 });
 
-test('ChatGPT content sync fetches only the dedicated inbox ref and runs the importer', async () => {
+test('ChatGPT content sync fetches the dedicated ref without writing PostgreSQL', async () => {
   const commands = [];
-  const runCalls = [];
+  let runCalls = 0;
   const manager = new ControlManager({
     execute: (command, args) => {
       commands.push([command, ...args]);
       return {
         status: 0,
-        stdout: args.includes('rev-parse') ? `${'a'.repeat(40)}\n` : '',
+        stdout: args.includes('rev-parse')
+          ? `${'a'.repeat(40)}\n`
+          : args.includes('ls-tree')
+            ? 'content-packs/inbox/pack-001/manifest.json\ncontent-packs/inbox/pack-001/batch-1.json\n'
+            : '',
         stderr: '',
       };
     },
-    runAsync: async (command, args) => {
-      runCalls.push([command, ...args]);
-      return JSON.stringify({ documents: 0, errors: [], cleanupEligible: [] });
+    runAsync: async () => {
+      runCalls += 1;
+      return '';
     },
   });
 
@@ -487,7 +491,15 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
     synchronized: true,
     available: true,
     fetchedCommit: 'a'.repeat(40),
-    result: { documents: 0, errors: [], cleanupEligible: [] },
+    result: {
+      documents: 2,
+      documentPaths: [
+        'content-packs/inbox/pack-001/manifest.json',
+        'content-packs/inbox/pack-001/batch-1.json',
+      ],
+      errors: [],
+      cleanupEligible: [],
+    },
   });
   assert.ok(
     commands.some((command) =>
@@ -497,17 +509,8 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
     ),
   );
   assert.ok(commands.some((command) => command.includes('--force')));
-  assert.ok(
-    runCalls.some(
-      (command) =>
-        command.includes('--git-ref') &&
-        command.includes('a'.repeat(40)) &&
-        command.includes('--inbox-branch') &&
-        command.includes('chatgpt-content-inbox') &&
-        command.includes('--fetched-commit') &&
-        command.includes('a'.repeat(40)),
-    ),
-  );
+  assert.ok(commands.some((command) => command.includes('ls-tree')));
+  assert.equal(runCalls, 0);
 });
 
 test('ChatGPT content sync returns the real spawn failure instead of an initialization state', async () => {
@@ -525,22 +528,6 @@ test('ChatGPT content sync returns the real spawn failure instead of an initiali
   assert.equal(result.available, true);
   assert.equal(result.code, 'GIT_UNAVAILABLE');
   assert.match(result.technicalDetail, /ENOENT/);
-});
-
-test('ChatGPT content sync rejects malformed importer output', async () => {
-  const manager = new ControlManager({
-    execute: (_command, args) => ({
-      status: 0,
-      stdout: args.includes('rev-parse') ? 'd'.repeat(40) : '',
-      stderr: '',
-    }),
-    runAsync: async () => 'import finished without a JSON result',
-  });
-
-  const result = await manager.synchronizeChatGPTContent();
-
-  assert.equal(result.code, 'INVALID_IMPORTER_OUTPUT');
-  assert.equal(result.httpStatus, 500);
 });
 
 test('ChatGPT content sync rejects importer validation errors instead of reporting success', () => {

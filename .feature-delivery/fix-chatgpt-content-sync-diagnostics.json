@@ -1,12 +1,13 @@
 {
   "schemaVersion": 1,
   "featureId": "fix-chatgpt-content-sync-diagnostics",
-  "title": "Make ChatGPT import staging, ownership and cleanup deterministic",
+  "title": "Run ChatGPT import staging and processing in one authenticated backend",
   "implementationPaths": [
     "packages/frontend/app/generate/page.tsx",
     "scripts/control-server.js",
     "packages/backend/src/scripts/sync-content-packs.ts",
-    "packages/backend/src/services/content-pack.service.ts"
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/backend/src/routes/control.ts"
   ],
   "validationPaths": [
     "scripts/control-server.test.js",
@@ -16,6 +17,6 @@
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
-    "rationale": "This change makes Git synchronization staging-only, keeps account-owned claim/commit/verification in the authenticated backend request, and cleans only the manifest IDs returned by successful PostgreSQL read-back. Vocabulary generation and content-pack contracts are unchanged."
+    "rationale": "This change keeps Git synchronization transport-only and moves exact-commit staging, account-owned claim/resume, commit and verification into one authenticated backend process using one database connection. Vocabulary generation and content-pack contracts are unchanged."
   }
 }

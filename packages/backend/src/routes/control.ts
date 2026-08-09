@@ -8,6 +8,7 @@ import {
 import { AssessmentControlService } from "../services/assessment-control.service";
 import {
   ContentPackService,
+  loadContentPacksFromGit,
   synchronizeContentPacks,
 } from "../services/content-pack.service";
 import { database } from "../utils/db";
@@ -74,7 +75,52 @@ router.post(
   "/content-packs/process",
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-      res.json(await contentPacks.processAvailableManifests(req.userId!));
+      const input = z
+        .object({
+          fetchedCommit: z.string().regex(/^[0-9a-f]{40}$/i).optional(),
+        })
+        .default({})
+        .parse(req.body);
+      let staged:
+        | (Awaited<ReturnType<ContentPackService["ingestDocuments"]>> & {
+            documents: number;
+            documentPaths: string[];
+          })
+        | undefined;
+      if (input.fetchedCommit) {
+        const documents = loadContentPacksFromGit(input.fetchedCommit);
+        const result = await contentPacks.ingestDocuments(documents, {
+          inboxBranch: "chatgpt-content-inbox",
+          fetchedCommit: input.fetchedCommit,
+        });
+        staged = {
+          documents: documents.length,
+          documentPaths: documents.map((document) => document.path),
+          ...result,
+        };
+        if (result.errors.length > 0) {
+          return res.status(422).json({
+            code: "CONTENT_PACK_REJECTED",
+            message: "One or more ChatGPT content-pack files were rejected.",
+            staged,
+          });
+        }
+      }
+      const processed = await contentPacks.processAvailableManifests(
+        req.userId!,
+      );
+      res.json({
+        ...processed,
+        staged,
+        outcome:
+          processed.blockedByAccount.length > 0
+            ? "blocked_by_account"
+            : processed.processed.length > 0
+              ? "processed"
+              : staged?.documents === 0
+                ? "empty"
+                : "no_eligible_manifest",
+      });
     } catch (error) {
       next(error);
     }
