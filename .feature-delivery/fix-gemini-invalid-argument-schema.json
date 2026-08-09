@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fix-gemini-invalid-argument-schema",
+  "title": "Keep Gemini assessment response schema within provider limits",
+  "implementationPaths": [
+    "packages/backend/src/services/in-app-generation.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/in-app-generation.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This corrects the Gemini transport schema only. The existing immutable manifest, contextual-sense, approved taxonomy, lesson-quality, atomic persistence, and read-back contracts remain unchanged."
+  }
+}
