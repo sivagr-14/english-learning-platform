@@ -35,7 +35,7 @@ const TAXONOMY_CATALOG_PROMPT = TAXONOMY_SPECIFIC_CATEGORIES.map(
     `${category.domainKey} -> ${category.usageGroupKey} -> ${category.key} :: ${category.name}`,
 ).join("\n");
 
-const GEMINI_CANDIDATE_RESPONSE_SCHEMA = {
+export const GEMINI_CANDIDATE_RESPONSE_SCHEMA = {
   type: "OBJECT",
   required: ["candidates"],
   properties: {
