@@ -1,4 +1,5 @@
 import {
+  GEMINI_CANDIDATE_RESPONSE_SCHEMA,
   buildManifestDocument,
   normalizeCandidateTaxonomy,
   resolveManifestCandidateAgainstExisting,
@@ -134,6 +135,20 @@ describe("Gemini Phase 1 contract and contextual-sense parity", () => {
     expect(manifest.coverage.pages[0].chunkIds).toEqual(["chunk-0001"]);
     expect(manifest.coverage.pages[1].chunkIds).toEqual(["chunk-0002"]);
     expect(manifest.generationPlan.batches).toEqual([]);
+  });
+});
+
+describe("Gemini assessment wire schema", () => {
+  it("keeps categoryKey compact instead of embedding the taxonomy catalogue", () => {
+    const candidateProperties =
+      GEMINI_CANDIDATE_RESPONSE_SCHEMA.properties.candidates.items.properties;
+    const categorySchema = candidateProperties.categoryKey as {
+      type: string;
+      enum?: readonly string[];
+    };
+
+    expect(categorySchema).toEqual({ type: "STRING" });
+    expect(categorySchema.enum).toBeUndefined();
   });
 });
 

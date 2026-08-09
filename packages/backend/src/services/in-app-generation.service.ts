@@ -35,7 +35,7 @@ const TAXONOMY_CATALOG_PROMPT = TAXONOMY_SPECIFIC_CATEGORIES.map(
     `${category.domainKey} -> ${category.usageGroupKey} -> ${category.key} :: ${category.name}`,
 ).join("\n");
 
-const GEMINI_CANDIDATE_RESPONSE_SCHEMA = {
+export const GEMINI_CANDIDATE_RESPONSE_SCHEMA = {
   type: "OBJECT",
   required: ["candidates"],
   properties: {
@@ -52,7 +52,11 @@ const GEMINI_CANDIDATE_RESPONSE_SCHEMA = {
         properties: {
           candidateId: { type: "STRING" }, term: { type: "STRING" }, baseForm: { type: "STRING" },
           itemType: { type: "STRING" }, contextualMeaning: { type: "STRING" }, senseKey: { type: "STRING" },
-          categoryKey: { type: "STRING", enum: TAXONOMY_SPECIFIC_CATEGORIES.map((category) => category.key) }, taxonomyConfidence: { type: "STRING" },
+          // Keep the wire schema compact. Sending the full ~300-key catalogue as an
+          // enum makes Gemini reject the request with INVALID_ARGUMENT. The prompt
+          // constrains selection and normalizeCandidateTaxonomy validates the returned
+          // leaf against the authoritative catalogue before any manifest is persisted.
+          categoryKey: { type: "STRING" }, taxonomyConfidence: { type: "STRING" },
           taxonomyReason: { type: "STRING" }, cefrLevel: { type: "STRING" }, usageFrequency: { type: "STRING" },
           fluencyValue: { type: "STRING" }, sourceSentence: { type: "STRING" }, senseExplanation: { type: "STRING" },
           decision: { type: "STRING" }, reason: { type: "STRING" },
