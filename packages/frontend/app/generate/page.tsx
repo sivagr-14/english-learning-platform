@@ -149,19 +149,23 @@ export default function ChatGPTImportsPage() {
         );
       const processResponse = await getApiClient().post(
         "/api/control/content-packs/process",
+        { fetchedCommit: firstResult.fetchedCommit },
       );
       const processed = processResponse.data?.processed || [];
       const verified = processResponse.data?.cleanupEligible || [];
       const blockedByAccount = processResponse.data?.blockedByAccount || [];
-      const discoveredDocuments = firstResult.result?.documents || 0;
+      const staged = processResponse.data?.staged;
+      const outcome = processResponse.data?.outcome;
+      const discoveredDocuments =
+        staged?.documents ?? firstResult.result?.documents ?? 0;
       if (blockedByAccount.length > 0) {
         throw new Error(
           `The fetched import ${blockedByAccount.join(", ")} is claimed by a different local account. Sign in with the account that originally claimed it; account ownership cannot be reassigned automatically.`,
         );
       }
-      if (discoveredDocuments > 0 && processed.length === 0) {
+      if (outcome === "no_eligible_manifest") {
         throw new Error(
-          "Content-pack files were fetched, but no import was claimed or resumed.",
+          `Fetched ${discoveredDocuments} content-pack file(s) and staged them in the authenticated backend, but no eligible manifest remained. Staging reconciliation: ${staged?.manifestsAdded || 0} manifest(s) added, ${staged?.batchesAdded || 0} batch(es) added, ${staged?.unchanged || 0} unchanged. Refresh the import ledger for its exact ownership or completion state.`,
         );
       }
       const cleanupParams = new URLSearchParams();
