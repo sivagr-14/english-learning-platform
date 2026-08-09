@@ -1387,6 +1387,22 @@ function createControlServer(manager = new ControlManager()) {
         });
       }
     }
+    if (url.pathname === '/__control/cleanup-content' && request.method === 'POST') {
+      if (request.headers[controlHeader] !== '1') {
+        return json(response, 403, { error: 'Local control header required.' });
+      }
+      const manifestIds = url.searchParams.getAll('manifestId');
+      if (manifestIds.length === 0) {
+        return json(response, 400, { error: 'At least one manifest ID is required.' });
+      }
+      try {
+        return json(response, 200, await manager.cleanupChatGPTContent(manifestIds));
+      } catch (error) {
+        return json(response, 500, {
+          error: error instanceof Error ? error.message : String(error),
+        });
+      }
+    }
     if (url.pathname.startsWith('/__control')) {
       const body = controlPage();
       response.writeHead(200, {
