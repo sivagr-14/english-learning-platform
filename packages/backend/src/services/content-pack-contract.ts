@@ -152,6 +152,7 @@ const SenseAwareManifestCandidateSchema = z
       "conversational pattern",
     ]),
     decision: z.enum(["generate", "existing", "filtered", "rejected"]),
+    operation: z.enum(["new", "update"]).optional(),
     senseDecision: z.enum(["same_sense", "new_sense", "ambiguous"]),
     senseKey: z.string().trim().min(3).max(180),
     matchedWordId: z.string().uuid().optional(),
@@ -176,6 +177,7 @@ const SenseAwareManifestCandidateSchema = z
     }
     if (candidate.decision === "generate") {
       for (const field of [
+        "operation",
         "cefrLevel",
         "usageFrequency",
         "fluencyValue",
