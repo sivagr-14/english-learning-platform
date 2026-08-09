@@ -13,6 +13,12 @@ describe("Gemini Phase 6 cost optimization", () => {
     expect(calculateGeminiCost("gemini-2.5-flash", usage, "batch")).toBeCloseTo(0.27);
   });
 
+  test("prices Gemini 3.6 Flash without breaking connection tests or generation", () => {
+    const usage = { inputTokens: 1_000_000, cachedTokens: 200_000, outputTokens: 100_000 };
+    expect(calculateGeminiCost("gemini-3.6-flash", usage, "standard")).toBeCloseTo(1.98);
+    expect(calculateGeminiCost("gemini-3.6-flash", usage, "batch")).toBeCloseTo(0.99);
+  });
+
   test("aggregates retries instead of hiding their cost", () => {
     expect(aggregateGeminiUsage([
       { model: "gemini-2.5-flash", requestType: "assessment", inputTokens: 10, outputTokens: 20, cachedTokens: 3, thinkingTokens: 2, latencyMs: 100, costUsd: 0.01 },
