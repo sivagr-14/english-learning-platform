@@ -132,6 +132,36 @@ function classifyGitFailure(result, stage = 'fetch') {
   );
 }
 
+function validateContentSyncResult(result) {
+  if (
+    !result ||
+    typeof result !== 'object' ||
+    Array.isArray(result) ||
+    !Number.isInteger(result.documents) ||
+    !Array.isArray(result.errors) ||
+    !Array.isArray(result.cleanupEligible)
+  ) {
+    return {
+      synchronized: false, available: true, stage: 'import',
+      code: 'INVALID_IMPORTER_OUTPUT', error: 'The content importer returned an invalid result.',
+      technicalDetail: 'Expected document, error, and cleanup reconciliation was missing.',
+      retryable: false, httpStatus: 500,
+    };
+  }
+  if (result.errors.length > 0) {
+    return {
+      synchronized: false, available: true, stage: 'import',
+      code: 'CONTENT_PACK_REJECTED', error: 'One or more ChatGPT content-pack files were rejected.',
+      technicalDetail: result.errors
+        .map((item) => `${item.path || 'unknown file'}: ${item.message || 'validation failed'}`)
+        .join('\n'),
+      retryable: false, httpStatus: 422,
+      result,
+    };
+  }
+  return null;
+}
+
 function commandAvailable(command) {
   const result = commandResult(command, ['--version']);
   return result.status === 0;
@@ -617,14 +647,8 @@ class ControlManager {
       };
     }
     const syncResult = this.parseLastJsonObject(syncOutput);
-    if (!syncResult || typeof syncResult !== 'object' || Array.isArray(syncResult)) {
-      return {
-        synchronized: false, available: true, stage: 'import',
-        code: 'INVALID_IMPORTER_OUTPUT', error: 'The content importer returned an invalid result.',
-        technicalDetail: 'No valid final JSON object was found in importer output.',
-        retryable: false, httpStatus: 500,
-      };
-    }
+    const invalidResult = validateContentSyncResult(syncResult);
+    if (invalidResult) return invalidResult;
     const cleanup = await this.cleanupVerifiedContentPacks(
       syncResult.cleanupEligible || [],
       syncScript,
@@ -1423,6 +1447,7 @@ module.exports = {
   createControlServer,
   commandOutput,
   classifyGitFailure,
+  validateContentSyncResult,
   parseContainerState,
   parseEnvironment,
   probeUrl,
