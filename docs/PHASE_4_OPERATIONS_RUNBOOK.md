@@ -17,7 +17,7 @@ Open **Import content**.
 
 - Cost: the ChatGPT conversation workflow needs no API key in this app.
 - Privacy: GitHub transports validated JSON on private `chatgpt-content-inbox`; PostgreSQL credentials and exports never leave the Mac.
-- Use: follow the governing workflow, open **ChatGPT Imports**, select **Sync ChatGPT content**, claim and monitor planned/received/committed counts. Search the saved word and open Flashcards after read-back succeeds.
+- Use: follow the governing workflow, open **ChatGPT Imports**, and select **Sync ChatGPT content** once. The app claims, imports, verifies and cleans up automatically. Only failed, incomplete or resumable work remains in the active ledger. Search the saved word and open Flashcards after the sync succeeds.
 - Cleanup happens only after every batch and database row reconciles. Git history and the local ledger remain the audit trail.
 
 ### Gemini API
