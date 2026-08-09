@@ -242,4 +242,8 @@ inconsistent import as Completed. A user-triggered synchronization claims no
 manual action: the authenticated backend automatically assigns unowned packs to
 the signed-in local account, applies the no-approval policy,
 saves available batches, verifies PostgreSQL read-back and retries guarded
-inbox cleanup as one operation.
+inbox cleanup as one operation. Imports left in the retired
+`awaiting_approval` state are automatically promoted and resumed on the next
+synchronization; they never require learner intervention. A clear
+source-backed `new_sense` decision is not converted into manual review merely
+because its wording overlaps moderately with an existing sense.
