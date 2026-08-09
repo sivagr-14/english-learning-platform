@@ -21,7 +21,10 @@ import {
   resolveManifestCandidateAgainstExisting,
 } from "../services/in-app-generation.service";
 import { parseSource, SourceType } from "../services/document-parser.service";
-import { enumerateCandidates } from "../services/extraction-foundation.service";
+import {
+  enumerateCandidates,
+  SourceLocator,
+} from "../services/extraction-foundation.service";
 import { database } from "../utils/db";
 import { logger } from "../utils/logger";
 import { readJson } from "../utils/json";
@@ -271,7 +274,7 @@ async function handleAssess(
       startOffset: 0,
       endOffset: String(row.original_text || "").length,
     }),
-  );
+  ) as SourceLocator[];
   const pageForSegment = (index: number) =>
     Number(segmentLocators[index]?.page || index + 1);
   const unmergedManifestCandidates = rawCandidatesPerChunk.flatMap(
@@ -306,7 +309,7 @@ async function handleAssess(
   const mergedCandidates = new Map<string, any>();
   for (const candidate of unmergedManifestCandidates) {
     const key =
-      `${candidate.term.normalize("NFKC").toLowerCase()}\u0000${candidate.senseKey}`;
+      `${candidate.term.normalize("NFKC").toLowerCase()}\u0000${"senseKey" in candidate ? candidate.senseKey : candidate.contextualMeaning || candidate.term}`;
     const current = mergedCandidates.get(key);
     if (!current) {
       mergedCandidates.set(key, candidate);
