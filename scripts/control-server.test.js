@@ -289,6 +289,28 @@ test('failed update identifies its exact stage and gives non-destructive recover
   assert.match(manager.recovery, /No destructive rollback.*Durable queued\/active jobs/s);
 });
 
+test('ordinary application updates do not reload the unchanged control service', () => {
+  const commands = [];
+  const manager = new ControlManager({
+    execute: (command, args) => {
+      commands.push([command, ...args]);
+      return { status: 0, stdout: '', stderr: '' };
+    },
+  });
+
+  assert.equal(manager.controlServiceChanged('a'.repeat(40), 'b'.repeat(40)), false);
+  assert.deepEqual(commands[0].slice(0, 3), ['git', 'diff', '--quiet']);
+  assert.deepEqual(commands[0].slice(-2), ['--', 'scripts/control-server.js']);
+});
+
+test('control-service source changes still require a safe process handoff', () => {
+  const manager = new ControlManager({
+    execute: () => ({ status: 1, stdout: '', stderr: '' }),
+  });
+
+  assert.equal(manager.controlServiceChanged('a'.repeat(40), 'b'.repeat(40)), true);
+});
+
 test('code update reloads control before running newly updated scripts', async () => {
   const runCalls = [];
   let reloaded = 0;
@@ -299,6 +321,9 @@ test('code update reloads control before running newly updated scripts', async (
       }
       if (args[0] === 'rev-parse' && args[1] === 'origin/main') {
         return { status: 0, stdout: 'b'.repeat(40), stderr: '' };
+      }
+      if (args[0] === 'diff') {
+        return { status: 1, stdout: '', stderr: '' };
       }
       return { status: 0, stdout: '', stderr: '' };
     },
