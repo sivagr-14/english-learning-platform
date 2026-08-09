@@ -238,7 +238,8 @@ synchronization and the five-minute timer must read only
 read-back status, but must never mutate the immutable manifest or batch payload.
 The UI must show a specific next action for missing batches, invalid batches,
 attention items, failed read-back and retryable cleanup instead of reporting an
-inconsistent import as Completed. Authenticated synchronization automatically
-assigns unowned packs to the signed-in local account, applies the no-approval policy,
+inconsistent import as Completed. A user-triggered synchronization claims no
+manual action: the authenticated backend automatically assigns unowned packs to
+the signed-in local account, applies the no-approval policy,
 saves available batches, verifies PostgreSQL read-back and retries guarded
 inbox cleanup as one operation.
