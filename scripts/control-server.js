@@ -653,11 +653,27 @@ class ControlManager {
     const syncResult = this.parseLastJsonObject(syncOutput);
     const invalidResult = validateContentSyncResult(syncResult);
     if (invalidResult) return invalidResult;
-    const cleanup = await this.cleanupVerifiedContentPacks(
-      syncResult.cleanupEligible || [],
-      syncScript,
+    // Fetch/import is staging-only. Account-owned processing happens through
+    // the authenticated backend endpoint, which returns the exact verified
+    // manifests that may be cleaned.
+    return { synchronized: true, available: true, fetchedCommit, result: syncResult };
+  }
+
+  async cleanupChatGPTContent(manifestIds) {
+    const uniqueIds = [...new Set(Array.isArray(manifestIds) ? manifestIds : [])];
+    if (uniqueIds.length === 0) {
+      return { cleaned: [], alreadyAbsent: [], failed: [] };
+    }
+    const syncScript = path.join(
+      backendDirectory,
+      'src',
+      'scripts',
+      'sync-content-packs.ts',
     );
-    return { synchronized: true, available: true, fetchedCommit, result: syncResult, cleanup };
+    if (!fs.existsSync(syncScript)) {
+      throw new Error('The ChatGPT content synchronizer is missing.');
+    }
+    return this.cleanupVerifiedContentPacks(uniqueIds, syncScript);
   }
 
   parseLastJsonObject(output = '') {
@@ -1365,6 +1381,22 @@ function createControlServer(manager = new ControlManager()) {
       try {
         const result = await manager.synchronizeChatGPTContent();
         return json(response, result.httpStatus || 200, result);
+      } catch (error) {
+        return json(response, 500, {
+          error: error instanceof Error ? error.message : String(error),
+        });
+      }
+    }
+    if (url.pathname === '/__control/cleanup-content' && request.method === 'POST') {
+      if (request.headers[controlHeader] !== '1') {
+        return json(response, 403, { error: 'Local control header required.' });
+      }
+      const manifestIds = url.searchParams.getAll('manifestId');
+      if (manifestIds.length === 0) {
+        return json(response, 400, { error: 'At least one manifest ID is required.' });
+      }
+      try {
+        return json(response, 200, await manager.cleanupChatGPTContent(manifestIds));
       } catch (error) {
         return json(response, 500, {
           error: error instanceof Error ? error.message : String(error),

@@ -164,19 +164,40 @@ export default function ChatGPTImportsPage() {
           "Content-pack files were fetched, but no import was claimed or resumed.",
         );
       }
-      // Processing can make newly claimed packs cleanup-eligible. A second
-      // guarded sync removes them in the same one-click workflow.
-      const cleanupResponse = await fetch("/__control/sync-content", {
-        method: "POST",
-        headers: { "x-english-mastery-control": "1" },
-      });
-      const result = await cleanupResponse.json().catch(() => ({}));
-      if (!cleanupResponse.ok)
-        throw new Error(result.error || "Inbox cleanup failed.");
+      const cleanupParams = new URLSearchParams();
+      for (const manifestId of verified) {
+        cleanupParams.append("manifestId", manifestId);
+      }
+      const cleanup =
+        verified.length > 0
+          ? await fetch(
+              `/__control/cleanup-content?${cleanupParams.toString()}`,
+              {
+                method: "POST",
+                headers: { "x-english-mastery-control": "1" },
+              },
+            ).then(async (response) => {
+              const body = await response.json().catch(() => ({}));
+              if (!response.ok) {
+                throw new Error(body.error || "Inbox cleanup failed.");
+              }
+              return body;
+            })
+          : { cleaned: [], alreadyAbsent: [], failed: [] };
+      if (cleanup.failed?.length) {
+        throw new Error(
+          `The import passed PostgreSQL verification, but inbox cleanup failed: ${cleanup.failed
+            .map(
+              (item: { manifestId?: string; error?: string }) =>
+                `${item.manifestId || "unknown manifest"}: ${item.error || "cleanup failed"}`,
+            )
+            .join("; ")}`,
+        );
+      }
       setMessage(
-        result.cleanup?.cleaned?.length
-          ? `Imported and PostgreSQL-verified ${verified.length} pack(s); removed ${result.cleanup.cleaned.length} completed pack(s) from the inbox.`
-          : result.cleanup?.alreadyAbsent?.length
+        cleanup.cleaned?.length
+          ? `Imported and PostgreSQL-verified ${verified.length} pack(s); removed ${cleanup.cleaned.length} completed pack(s) from the inbox.`
+          : cleanup.alreadyAbsent?.length
             ? "Synchronized; the verified pack was already absent and is now recorded as cleaned."
             : processed.length > 0
               ? `Processed ${processed.length} pack(s); ${verified.length} passed PostgreSQL read-back verification. Check any remaining import attention below.`

@@ -213,6 +213,41 @@ describe("ChatGPT content-pack staging ledger", () => {
     expect(database.memory.tables.content_pack_batches).toHaveLength(1);
   });
 
+  it("does not process an owned manifest during account-neutral staging", async () => {
+    const database = databaseDouble();
+    const service = new ContentPackService(database);
+    const { documents } = smokeDocuments();
+    await service.ingestDocuments(documents, {
+      inboxBranch: "chatgpt-content-inbox",
+      fetchedCommit: "a".repeat(40),
+    });
+    Object.assign(database.memory.tables.content_pack_manifests[0], {
+      owner_user_id: "user-1",
+      approved_at: new Date(),
+    });
+    const commit = jest
+      .spyOn(service, "commitAvailableBatches")
+      .mockResolvedValue(1);
+    const verify = jest.spyOn(service, "verifyManifest").mockResolvedValue({
+      verified: true,
+      entries: 1,
+      issues: [],
+    });
+
+    const retry = await service.ingestDocuments(documents, {
+      inboxBranch: "chatgpt-content-inbox",
+      fetchedCommit: "b".repeat(40),
+    });
+
+    expect(retry).toMatchObject({
+      committedEntries: 0,
+      cleanupEligible: [],
+      errors: [],
+    });
+    expect(commit).not.toHaveBeenCalled();
+    expect(verify).not.toHaveBeenCalled();
+  });
+
   it("reopens a stale cleanup marker when the pack is fetched again", async () => {
     const database = databaseDouble();
     const service = new ContentPackService(database);
