@@ -49,7 +49,7 @@ describe("Gemini Phase 1 contract and contextual-sense parity", () => {
     });
   });
 
-  it("holds a partially overlapping stored sense for attention", () => {
+  it("keeps a declared new sense automatic despite partial wording overlap", () => {
     const resolved = resolveManifestCandidateAgainstExisting(
       candidate({
         senseKey: "money-service",
@@ -66,8 +66,8 @@ describe("Gemini Phase 1 contract and contextual-sense parity", () => {
     );
 
     expect(resolved).toMatchObject({
-      decision: "rejected",
-      senseDecision: "ambiguous",
+      decision: "generate",
+      senseDecision: "new_sense",
     });
   });
 
