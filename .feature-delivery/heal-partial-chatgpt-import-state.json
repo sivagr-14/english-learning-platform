@@ -10,6 +10,7 @@
   ],
   "validationPaths": [
     "packages/backend/src/services/content-pack.service.test.ts",
+    "packages/backend/src/services/content-pack-recovery.test.ts",
     "packages/backend/src/scripts/smoke-content-pack-postgres.ts"
   ],
   "chatgptInstructionImpact": {
