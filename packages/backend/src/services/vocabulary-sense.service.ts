@@ -301,7 +301,7 @@ export function resolveContextualSense(
     .sort((left, right) => right.similarity - left.similarity);
   const closest = ranked[0];
 
-  if (closest && closest.similarity >= 0.6) {
+  if (closest && closest.similarity >= 0.5) {
     return {
       decision: "same_sense",
       matchedSense: closest.sense,
