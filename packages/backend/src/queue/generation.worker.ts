@@ -735,6 +735,20 @@ async function handleCommit(
   // in-app pipeline gets identical transactional-write + read-back
   // verification guarantees.
   const result = await contentPackService.approveManifest(userId, manifestId);
+  const verification = result?.verification as
+    | { verified?: boolean }
+    | undefined;
+
+  if (
+    result?.status !== "completed" ||
+    verification?.verified !== true ||
+    Number(result?.generation?.missingBatches || 0) !== 0 ||
+    Number(result?.generation?.invalidBatches || 0) !== 0
+  ) {
+    throw new Error(
+      `PostgreSQL commit/read-back did not reconcile for ${manifestId}: ${result?.nextAction || "verification is incomplete"}`,
+    );
+  }
 
   await jobService.updateStatus(generationJobId, "committed", {
     stageProgress: {
