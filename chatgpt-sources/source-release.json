@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "2026-08-09-automatic-chatgpt-import-upgrade",
+  "releaseId": "2026-08-09-automatic-import-approval-recovery",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "70002de05b77a0f9339e40f31d210b77b3307b8141100aae32f78026c9ac0557",
-      "sizeBytes": 11921
+      "sha256": "19bc2f4887c2ab64ffc3da29869bacc61f4b2917f53da8044bdfe8b11428b374",
+      "sizeBytes": 12234
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "53f6df443d7a99ddb8db8722442fe23124c05a4c7b04092b31f061f306e22399",
-      "sizeBytes": 8677
+      "sha256": "46c739c8e23c666fed83f507645df1993b9b0d7b643f70fbf6ef65f5e0208b8a",
+      "sizeBytes": 8731
     }
   ]
 }
