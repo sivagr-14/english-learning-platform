@@ -8,6 +8,7 @@
   ],
   "validationPaths": [
     "packages/backend/src/services/in-app-generation.service.test.ts",
+    "packages/backend/src/services/in-app-generation.phase3b.test.ts",
     "packages/backend/src/services/content-pack-contract.test.ts",
     "packages/backend/src/services/vocabulary-sense.service.test.ts",
     "packages/backend/src/services/provider-contract-parity.test.ts"
