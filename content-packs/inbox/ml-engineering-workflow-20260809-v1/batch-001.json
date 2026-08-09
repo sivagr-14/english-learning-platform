@@ -1,0 +1,538 @@
+{
+  "formatVersion": "chatgpt-vocabulary-batch-v3",
+  "batchId": "ml-engineering-workflow-20260809-v1-batch-1",
+  "manifestId": "ml-engineering-workflow-20260809-v1",
+  "manifestHash": "845a6c581852694886ed24323c0b7f61771f0339dc5ec9ca879dcbb5ffd077f9",
+  "batchNumber": 1,
+  "createdAt": "2026-08-09T19:31:00.000Z",
+  "entries": [
+    {
+      "candidateId": "mlw-001-classification",
+      "word": "classification",
+      "pronunciation": "/ˌklæsɪfɪˈkeɪʃən/",
+      "wordType": "noun",
+      "englishMeaning": "the task of assigning an input to a defined class",
+      "tamilMeaning": "வகைப்பாடு",
+      "coreIdea": "Classification focuses on the task of assigning an input to a defined class.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "This is called classification.",
+          "contextual_meaning": "the task of assigning an input to a defined class",
+          "simple_explanation": "Here, classification means the task of assigning an input to a defined class; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use classification when discussing the task of assigning an input to a defined class.",
+            "Use classification when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use classification as a vague substitute for general model quality.",
+            "Do not use classification when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve classification in a machine-learning system",
+          "common_collocations": [
+            "classification metric",
+            "classification requirement",
+            "classification in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured classification before releasing the model.",
+            "business": "The review explained how classification affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking classification? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved classification, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved classification, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Classification names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect classification with the course example: the task of assigning an input to a defined class.",
+          "memory_sentence": "The engineers checked classification before they deployed the model.",
+          "recall_question": "What does classification measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates classification: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why classification matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Classification is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving classification alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-002-regression",
+      "word": "regression",
+      "pronunciation": "/rɪˈɡreʃən/",
+      "wordType": "noun",
+      "englishMeaning": "the machine-learning task of predicting a numerical value",
+      "tamilMeaning": "எண் மதிப்பைக் கணிக்கும் முறை",
+      "coreIdea": "Regression focuses on the machine-learning task of predicting a numerical value.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Predicting a numeric value like this is what we call regression in machine learning.",
+          "contextual_meaning": "the machine-learning task of predicting a numerical value",
+          "simple_explanation": "Here, regression means the machine-learning task of predicting a numerical value; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use regression when discussing the machine-learning task of predicting a numerical value.",
+            "Use regression when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use regression as a vague substitute for general model quality.",
+            "Do not use regression when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve regression in a machine-learning system",
+          "common_collocations": [
+            "regression metric",
+            "regression requirement",
+            "regression in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured regression before releasing the model.",
+            "business": "The review explained how regression affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking regression? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved regression, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved regression, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Regression names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect regression with the course example: the machine-learning task of predicting a numerical value.",
+          "memory_sentence": "The engineers checked regression before they deployed the model.",
+          "recall_question": "What does regression measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates regression: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why regression matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Regression is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving regression alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-003-clustering",
+      "word": "clustering",
+      "pronunciation": "/ˈklʌstərɪŋ/",
+      "wordType": "noun",
+      "englishMeaning": "grouping similar data points without predefined labels",
+      "tamilMeaning": "ஒத்த தரவுகளை குழுவாக்குதல்",
+      "coreIdea": "Clustering focuses on grouping similar data points without predefined labels.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "That sounds a bit vague, but you can think of grouping customers into segments based on their behavior, which we call clustering.",
+          "contextual_meaning": "grouping similar data points without predefined labels",
+          "simple_explanation": "Here, clustering means grouping similar data points without predefined labels; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use clustering when discussing grouping similar data points without predefined labels.",
+            "Use clustering when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use clustering as a vague substitute for general model quality.",
+            "Do not use clustering when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve clustering in a machine-learning system",
+          "common_collocations": [
+            "clustering metric",
+            "clustering requirement",
+            "clustering in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured clustering before releasing the model.",
+            "business": "The review explained how clustering affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking clustering? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved clustering, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved clustering, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Clustering names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect clustering with the course example: grouping similar data points without predefined labels.",
+          "memory_sentence": "The engineers checked clustering before they deployed the model.",
+          "recall_question": "What does clustering measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates clustering: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why clustering matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Clustering is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving clustering alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-004-accuracy",
+      "word": "accuracy",
+      "pronunciation": "/ˈækjərəsi/",
+      "wordType": "noun",
+      "englishMeaning": "the proportion of all predictions that are correct",
+      "tamilMeaning": "ஒட்டுமொத்த சரியான கணிப்புகளின் விகிதம்",
+      "coreIdea": "Accuracy focuses on the proportion of all predictions that are correct.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "What is this really about? It's not just about training a model and getting a high accuracy score, though that is part of it, but only that is merely enough for a demo.",
+          "contextual_meaning": "the proportion of all predictions that are correct",
+          "simple_explanation": "Here, accuracy means the proportion of all predictions that are correct; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use accuracy when discussing the proportion of all predictions that are correct.",
+            "Use accuracy when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use accuracy as a vague substitute for general model quality.",
+            "Do not use accuracy when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve accuracy in a machine-learning system",
+          "common_collocations": [
+            "accuracy metric",
+            "accuracy requirement",
+            "accuracy in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured accuracy before releasing the model.",
+            "business": "The review explained how accuracy affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking accuracy? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved accuracy, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved accuracy, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Accuracy names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect accuracy with the course example: the proportion of all predictions that are correct.",
+          "memory_sentence": "The engineers checked accuracy before they deployed the model.",
+          "recall_question": "What does accuracy measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates accuracy: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why accuracy matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Accuracy is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving accuracy alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-005-precision",
+      "word": "precision",
+      "pronunciation": "/prɪˈsɪʒən/",
+      "wordType": "noun",
+      "englishMeaning": "the proportion of predicted positive cases that are truly positive",
+      "tamilMeaning": "கணிக்கப்பட்ட நேர்மறைகளில் உண்மையானவற்றின் விகிதம்",
+      "coreIdea": "Precision focuses on the proportion of predicted positive cases that are truly positive.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "But what we really want to know is when the model predicts someone will repay, how often is it right? And that's precision.",
+          "contextual_meaning": "the proportion of predicted positive cases that are truly positive",
+          "simple_explanation": "Here, precision means the proportion of predicted positive cases that are truly positive; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use precision when discussing the proportion of predicted positive cases that are truly positive.",
+            "Use precision when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use precision as a vague substitute for general model quality.",
+            "Do not use precision when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve precision in a machine-learning system",
+          "common_collocations": [
+            "precision metric",
+            "precision requirement",
+            "precision in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured precision before releasing the model.",
+            "business": "The review explained how precision affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking precision? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved precision, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved precision, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Precision names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect precision with the course example: the proportion of predicted positive cases that are truly positive.",
+          "memory_sentence": "The engineers checked precision before they deployed the model.",
+          "recall_question": "What does precision measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates precision: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why precision matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Precision is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving precision alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-006-recall",
+      "word": "recall",
+      "pronunciation": "/rɪˈkɔːl/",
+      "wordType": "noun",
+      "englishMeaning": "the proportion of actual positive cases the model correctly identifies",
+      "tamilMeaning": "உண்மையான நேர்மறைகளில் கண்டறியப்பட்டவற்றின் விகிதம்",
+      "coreIdea": "Recall focuses on the proportion of actual positive cases the model correctly identifies.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Then we want to ask, out of all the people who would actually repay, how many did we correctly identify? And that's recall.",
+          "contextual_meaning": "the proportion of actual positive cases the model correctly identifies",
+          "simple_explanation": "Here, recall means the proportion of actual positive cases the model correctly identifies; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use recall when discussing the proportion of actual positive cases the model correctly identifies.",
+            "Use recall when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use recall as a vague substitute for general model quality.",
+            "Do not use recall when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve recall in a machine-learning system",
+          "common_collocations": [
+            "recall metric",
+            "recall requirement",
+            "recall in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured recall before releasing the model.",
+            "business": "The review explained how recall affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking recall? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved recall, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved recall, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Recall names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect recall with the course example: the proportion of actual positive cases the model correctly identifies.",
+          "memory_sentence": "The engineers checked recall before they deployed the model.",
+          "recall_question": "What does recall measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates recall: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why recall matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Recall is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving recall alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-007--1-score",
+      "word": "F1 score",
+      "pronunciation": "/ˌef ˈwʌn skɔːr/",
+      "wordType": "noun phrase",
+      "englishMeaning": "a single metric that balances precision and recall using their harmonic mean",
+      "tamilMeaning": "துல்லியமும் மீட்பும் சமநிலைப்படுத்தும் அளவீடு",
+      "coreIdea": "F1 score focuses on a single metric that balances precision and recall using their harmonic mean.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Both precision and recall are important, but they often trade off against each other, and that's where the F1 score comes in.",
+          "contextual_meaning": "a single metric that balances precision and recall using their harmonic mean",
+          "simple_explanation": "Here, F1 score means a single metric that balances precision and recall using their harmonic mean; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use F1 score when discussing a single metric that balances precision and recall using their harmonic mean.",
+            "Use F1 score when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use F1 score as a vague substitute for general model quality.",
+            "Do not use F1 score when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve F1 score in a machine-learning system",
+          "common_collocations": [
+            "F1 score metric",
+            "F1 score requirement",
+            "F1 score in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured F1 score before releasing the model.",
+            "business": "The review explained how F1 score affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking F1 score? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved F1 score, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved F1 score, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "F1 score names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect F1 score with the course example: a single metric that balances precision and recall using their harmonic mean.",
+          "memory_sentence": "The engineers checked F1 score before they deployed the model.",
+          "recall_question": "What does F1 score measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates F1 score: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why F1 score matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "F1 score is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving F1 score alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-008-latency",
+      "word": "latency",
+      "pronunciation": "/ˈleɪtənsi/",
+      "wordType": "noun",
+      "englishMeaning": "the delay between a request and the model response",
+      "tamilMeaning": "கோரிக்கைக்கும் பதிலுக்கும் இடையிலான தாமதம்",
+      "coreIdea": "Latency focuses on the delay between a request and the model response.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "And then there's latency.",
+          "contextual_meaning": "the delay between a request and the model response",
+          "simple_explanation": "Here, latency means the delay between a request and the model response; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use latency when discussing the delay between a request and the model response.",
+            "Use latency when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use latency as a vague substitute for general model quality.",
+            "Do not use latency when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve latency in a machine-learning system",
+          "common_collocations": [
+            "latency metric",
+            "latency requirement",
+            "latency in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured latency before releasing the model.",
+            "business": "The review explained how latency affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking latency? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved latency, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved latency, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Latency names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect latency with the course example: the delay between a request and the model response.",
+          "memory_sentence": "The engineers checked latency before they deployed the model.",
+          "recall_question": "What does latency measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates latency: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why latency matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Latency is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving latency alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    }
+  ]
+}
