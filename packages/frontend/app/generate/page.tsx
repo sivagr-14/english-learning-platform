@@ -136,20 +136,34 @@ export default function ChatGPTImportsPage() {
     setMessage("");
     setError("");
     try {
-      const response = await fetch("/__control/sync-content", {
+      const firstResponse = await fetch("/__control/sync-content", {
         method: "POST",
         headers: { "x-english-mastery-control": "1" },
       });
-      const result = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(result.error || "Content sync failed.");
+      const firstResult = await firstResponse.json().catch(() => ({}));
+      if (!firstResponse.ok)
+        throw new Error(firstResult.error || "Content sync failed.");
+      if (firstResult.available === false) {
+        setMessage("The ChatGPT content inbox has not been initialized yet.");
+        await load();
+        return;
+      }
+      await getApiClient().post("/api/control/content-packs/process");
+      // Processing can make newly claimed packs cleanup-eligible. A second
+      // guarded sync removes them in the same one-click workflow.
+      const cleanupResponse = await fetch("/__control/sync-content", {
+        method: "POST",
+        headers: { "x-english-mastery-control": "1" },
+      });
+      const result = await cleanupResponse.json().catch(() => ({}));
+      if (!cleanupResponse.ok)
+        throw new Error(result.error || "Inbox cleanup failed.");
       setMessage(
-        result.available === false
-          ? "The ChatGPT content inbox has not been initialized yet."
-          : result.cleanup?.cleaned?.length
-            ? `Synchronized and removed ${result.cleanup.cleaned.length} verified pack(s) from the active inbox.`
-            : result.cleanup?.alreadyAbsent?.length
-              ? "Synchronized; the verified pack was already absent and is now recorded as cleaned."
-              : "ChatGPT content inbox synchronized and validated.",
+        result.cleanup?.cleaned?.length
+          ? `Synchronized and removed ${result.cleanup.cleaned.length} verified pack(s) from the active inbox.`
+          : result.cleanup?.alreadyAbsent?.length
+            ? "Synchronized; the verified pack was already absent and is now recorded as cleaned."
+            : "ChatGPT imports were processed, verified and synchronized.",
       );
       await load();
     } catch (syncError) {
@@ -290,13 +304,13 @@ export default function ChatGPTImportsPage() {
               ],
               [
                 "3",
-                "Claim and start",
-                "Eligible high- and medium-frequency terms are scheduled automatically.",
+                "Sync once",
+                "The app claims and processes eligible terms automatically.",
               ],
               [
                 "4",
-                "Sync lessons",
-                "Validated batches save locally and are read back.",
+                "Ready to learn",
+                "Lessons are saved, verified and removed from the active import ledger.",
               ],
             ].map(([number, title, detail]) => (
               <li key={number} className="rounded-lg bg-white/80 p-4">
