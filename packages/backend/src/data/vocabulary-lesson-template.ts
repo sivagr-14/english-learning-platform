@@ -87,6 +87,65 @@ export const VocabularyLessonSchema = z
 
 export type VocabularyLesson = z.infer<typeof VocabularyLessonSchema>;
 
+export const VOCABULARY_ENTRY_RESPONSE_SCHEMA = {
+  type: "OBJECT",
+  required: ["word", "pronunciation", "wordType", "englishMeaning", "tamilMeaning", "coreIdea", "format_version", "overview", "meaning_in_context", "usage_guide", "patterns_collocations", "natural_examples", "mistakes_differences", "memory_practice", "advanced_nuance"],
+  properties: {
+    word: { type: "STRING" }, pronunciation: { type: "STRING" },
+    wordType: { type: "STRING" }, englishMeaning: { type: "STRING" },
+    tamilMeaning: { type: "STRING" }, coreIdea: { type: "STRING" },
+    format_version: { type: "STRING", enum: [VOCABULARY_LESSON_FORMAT_VERSION] },
+    overview: { type: "OBJECT", required: ["meaning_usage_profile"], properties: {
+      meaning_usage_profile: { type: "OBJECT", required: ["meaning_type", "connotation", "tone", "register"], properties: {
+        meaning_type: { type: "STRING" }, connotation: { type: "STRING" },
+        tone: { type: "STRING" }, register: { type: "STRING" },
+      }},
+    }},
+    meaning_in_context: { type: "OBJECT", required: ["source_sentence", "contextual_meaning", "simple_explanation"], properties: {
+      source_sentence: { type: "STRING" }, contextual_meaning: { type: "STRING" },
+      simple_explanation: { type: "STRING" },
+    }},
+    usage_guide: { type: "OBJECT", required: ["when_to_use", "when_not_to_use"], properties: {
+      when_to_use: { type: "ARRAY", items: { type: "STRING" } },
+      when_not_to_use: { type: "ARRAY", items: { type: "STRING" } },
+    }},
+    patterns_collocations: { type: "OBJECT", required: ["main_pattern", "common_collocations"], properties: {
+      main_pattern: { type: "STRING" },
+      common_collocations: { type: "ARRAY", items: { type: "STRING" } },
+    }},
+    natural_examples: { type: "OBJECT", required: ["examples", "mini_conversation"], properties: {
+      examples: { type: "OBJECT", additionalProperties: { type: "STRING" } },
+      mini_conversation: { type: "STRING" },
+    }},
+    mistakes_differences: { type: "OBJECT", required: ["common_mistake", "correction", "important_difference"], properties: {
+      common_mistake: { type: "STRING" }, correction: { type: "STRING" },
+      important_difference: { type: "STRING" },
+    }},
+    memory_practice: { type: "OBJECT", required: ["memory_trigger", "memory_sentence", "recall_question", "recognition_task", "production_task"], properties: {
+      memory_trigger: { type: "STRING" }, memory_sentence: { type: "STRING" },
+      recall_question: { type: "STRING" }, recognition_task: { type: "STRING" },
+      production_task: { type: "STRING" },
+    }},
+    advanced_nuance: { type: "ARRAY", items: { type: "STRING" } },
+  },
+} as const;
+
+export interface VocabularyEntryQualityContext {
+  term: string;
+  contextualMeaning: string;
+  sourceSentence: string;
+}
+
+export interface GeneratedVocabularyEntryLike {
+  word?: unknown;
+  pronunciation?: unknown;
+  wordType?: unknown;
+  englishMeaning?: unknown;
+  tamilMeaning?: unknown;
+  coreIdea?: unknown;
+  lesson?: unknown;
+}
+
 const FORBIDDEN_FILLER_PATTERNS: Array<[RegExp, string]> = [
   [/\b(?:todo|tbd|placeholder|lorem ipsum|coming soon)\b/i, "placeholder text"],
   [
@@ -236,6 +295,56 @@ export function vocabularyLessonQualityIssues(
   }
 
   return issues;
+}
+
+
+export function generatedVocabularyEntryQualityIssues(
+  entry: GeneratedVocabularyEntryLike,
+  expected: VocabularyEntryQualityContext,
+): string[] {
+  const issues = vocabularyLessonQualityIssues(entry.lesson, expected.term);
+  const requiredHeaders: Array<[keyof GeneratedVocabularyEntryLike, number]> = [
+    ["pronunciation", 2], ["wordType", 2], ["englishMeaning", 8],
+    ["tamilMeaning", 2], ["coreIdea", 8],
+  ];
+  for (const [field, minimum] of requiredHeaders) {
+    if (String(entry[field] ?? "").trim().length < minimum) {
+      issues.push(String(field) + ": must contain useful content");
+    }
+  }
+  if (String(entry.word ?? "").trim() !== expected.term.trim()) {
+    issues.push("word must be the real unsuffixed assessed term");
+  }
+  if (String(entry.englishMeaning ?? "").trim() !== expected.contextualMeaning.trim()) {
+    issues.push("englishMeaning must exactly equal the assessed contextual meaning");
+  }
+  const lesson = entry.lesson as Partial<VocabularyLesson> | undefined;
+  if (lesson?.meaning_in_context?.source_sentence !== expected.sourceSentence) {
+    issues.push("source sentence must exactly equal the recorded evidence sentence");
+  }
+  if (lesson?.meaning_in_context?.contextual_meaning !== expected.contextualMeaning) {
+    issues.push("lesson contextual meaning must exactly equal the assessed meaning");
+  }
+  const tamilMeaning = String(entry.tamilMeaning ?? "").trim();
+  if (!/[\u0B80-\u0BFF]/u.test(tamilMeaning)) {
+    issues.push("Tamil meaning must contain natural Tamil text");
+  }
+  if (tamilMeaning && normalizeForMatch(tamilMeaning) === normalizeForMatch(String(entry.englishMeaning ?? ""))) {
+    issues.push("Tamil meaning must not repeat the English meaning");
+  }
+  for (const leaf of collectTextLeaves({
+    pronunciation: entry.pronunciation, wordType: entry.wordType,
+    englishMeaning: entry.englishMeaning, tamilMeaning: entry.tamilMeaning,
+    coreIdea: entry.coreIdea,
+  }, "entry")) {
+    for (const [pattern, label] of FORBIDDEN_FILLER_PATTERNS) {
+      if (pattern.test(leaf.value)) {
+        issues.push(leaf.path + ": contains " + label);
+        break;
+      }
+    }
+  }
+  return [...new Set(issues)];
 }
 
 export function assertVocabularyLessonCompliant(
