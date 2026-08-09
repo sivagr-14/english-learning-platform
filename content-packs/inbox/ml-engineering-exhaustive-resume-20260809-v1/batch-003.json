@@ -1,0 +1,506 @@
+{
+  "formatVersion": "chatgpt-vocabulary-batch-v3",
+  "batchId": "ml-engineering-exhaustive-resume-20260809-v1-batch-3",
+  "manifestId": "ml-engineering-exhaustive-resume-20260809-v1",
+  "manifestHash": "3df49d5eecd51b5eb545d04a30586c8bd38062b63c3180e25cdea02bab1986ab",
+  "batchNumber": 3,
+  "createdAt": "2026-08-09T20:31:00.000Z",
+  "entries": [
+    {
+      "candidateId": "resume-new-017-stakeholders",
+      "word": "stakeholders",
+      "pronunciation": "/stakeholders/",
+      "wordType": "word",
+      "englishMeaning": "people or groups affected by or able to influence a project",
+      "tamilMeaning": "திட்டத்தில் அக்கறையுள்ள தரப்பினர்",
+      "coreIdea": "stakeholders expresses people or groups affected by or able to influence a project.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Especially in the enterprise settings, it often also involves working with stakeholders to understand what data is available and what permissions are needed to use it.",
+          "contextual_meaning": "people or groups affected by or able to influence a project",
+          "simple_explanation": "The author uses stakeholders to describe people or groups affected by or able to influence a project."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use stakeholders when you need to describe people or groups affected by or able to influence a project."
+          ],
+          "when_not_to_use": [
+            "Avoid stakeholders when you mean a different process rather than people or groups affected by or able to influence a project."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes stakeholders in a machine-learning workflow",
+          "common_collocations": [
+            "stakeholders in practice",
+            "stakeholders in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified stakeholders as an important consideration.",
+            "technical": "Engineers documented stakeholders before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention stakeholders? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: stakeholders means that every part of the system is automatically correct.",
+          "correction": "Correct: stakeholders specifically means people or groups affected by or able to influence a project.",
+          "important_difference": "stakeholders is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link stakeholders to this idea: people or groups affected by or able to influence a project.",
+          "memory_sentence": "I remembered stakeholders by connecting it to the course example.",
+          "recall_question": "What does stakeholders mean in this source?",
+          "recognition_task": "Find the sentence in which stakeholders expresses people or groups affected by or able to influence a project.",
+          "production_task": "Write a new professional sentence using stakeholders in the same sense."
+        },
+        "advanced_nuance": [
+          "stakeholders is taught here specifically as people or groups affected by or able to influence a project; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-018-supervised-learning",
+      "word": "supervised learning",
+      "pronunciation": "/supervised learning/",
+      "wordType": "collocation",
+      "englishMeaning": "machine learning based on examples with known outputs",
+      "tamilMeaning": "குறியிடப்பட்ட எடுத்துக்காட்டுகளிலிருந்து கற்றல்",
+      "coreIdea": "supervised learning expresses machine learning based on examples with known outputs.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "For supervised learning, where your model learns from examples, you'll need labeled data.",
+          "contextual_meaning": "machine learning based on examples with known outputs",
+          "simple_explanation": "The author uses supervised learning to describe machine learning based on examples with known outputs."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use supervised learning when you need to describe machine learning based on examples with known outputs."
+          ],
+          "when_not_to_use": [
+            "Avoid supervised learning when you mean a different process rather than machine learning based on examples with known outputs."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes supervised learning in a machine-learning workflow",
+          "common_collocations": [
+            "supervised learning in practice",
+            "supervised learning in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified supervised learning as an important consideration.",
+            "technical": "Engineers documented supervised learning before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention supervised learning? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: supervised learning means that every part of the system is automatically correct.",
+          "correction": "Correct: supervised learning specifically means machine learning based on examples with known outputs.",
+          "important_difference": "supervised learning is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link supervised learning to this idea: machine learning based on examples with known outputs.",
+          "memory_sentence": "I remembered supervised learning by connecting it to the course example.",
+          "recall_question": "What does supervised learning mean in this source?",
+          "recognition_task": "Find the sentence in which supervised learning expresses machine learning based on examples with known outputs.",
+          "production_task": "Write a new professional sentence using supervised learning in the same sense."
+        },
+        "advanced_nuance": [
+          "supervised learning is taught here specifically as machine learning based on examples with known outputs; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-019-categorical-variables",
+      "word": "categorical variables",
+      "pronunciation": "/categorical variables/",
+      "wordType": "collocation",
+      "englishMeaning": "data fields whose values represent distinct groups",
+      "tamilMeaning": "தனி வகைகளை குறிக்கும் தரவு மாறிகள்",
+      "coreIdea": "categorical variables expresses data fields whose values represent distinct groups.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "That might include converting text to lowercase, normalizing numerical skills and dates, and encoding categorical variables.",
+          "contextual_meaning": "data fields whose values represent distinct groups",
+          "simple_explanation": "The author uses categorical variables to describe data fields whose values represent distinct groups."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use categorical variables when you need to describe data fields whose values represent distinct groups."
+          ],
+          "when_not_to_use": [
+            "Avoid categorical variables when you mean a different process rather than data fields whose values represent distinct groups."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes categorical variables in a machine-learning workflow",
+          "common_collocations": [
+            "categorical variables in practice",
+            "categorical variables in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified categorical variables as an important consideration.",
+            "technical": "Engineers documented categorical variables before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention categorical variables? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: categorical variables means that every part of the system is automatically correct.",
+          "correction": "Correct: categorical variables specifically means data fields whose values represent distinct groups.",
+          "important_difference": "categorical variables is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link categorical variables to this idea: data fields whose values represent distinct groups.",
+          "memory_sentence": "I remembered categorical variables by connecting it to the course example.",
+          "recall_question": "What does categorical variables mean in this source?",
+          "recognition_task": "Find the sentence in which categorical variables expresses data fields whose values represent distinct groups.",
+          "production_task": "Write a new professional sentence using categorical variables in the same sense."
+        },
+        "advanced_nuance": [
+          "categorical variables is taught here specifically as data fields whose values represent distinct groups; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-020-subtle",
+      "word": "subtle",
+      "pronunciation": "/subtle/",
+      "wordType": "word",
+      "englishMeaning": "not obvious and therefore easy to miss",
+      "tamilMeaning": "எளிதில் கவனிக்க முடியாத நுண்மையான",
+      "coreIdea": "subtle expresses not obvious and therefore easy to miss.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Each of these steps can introduce subtle issues and future problems with the model, so this stage requires close attention.",
+          "contextual_meaning": "not obvious and therefore easy to miss",
+          "simple_explanation": "The author uses subtle to describe not obvious and therefore easy to miss."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use subtle when you need to describe not obvious and therefore easy to miss."
+          ],
+          "when_not_to_use": [
+            "Avoid subtle when you mean a different process rather than not obvious and therefore easy to miss."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes subtle in a machine-learning workflow",
+          "common_collocations": [
+            "subtle in practice",
+            "subtle in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified subtle as an important consideration.",
+            "technical": "Engineers documented subtle before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention subtle? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: subtle means that every part of the system is automatically correct.",
+          "correction": "Correct: subtle specifically means not obvious and therefore easy to miss.",
+          "important_difference": "subtle is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link subtle to this idea: not obvious and therefore easy to miss.",
+          "memory_sentence": "I remembered subtle by connecting it to the course example.",
+          "recall_question": "What does subtle mean in this source?",
+          "recognition_task": "Find the sentence in which subtle expresses not obvious and therefore easy to miss.",
+          "production_task": "Write a new professional sentence using subtle in the same sense."
+        },
+        "advanced_nuance": [
+          "subtle is taught here specifically as not obvious and therefore easy to miss; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-021-ingest",
+      "word": "ingest",
+      "pronunciation": "/ingest/",
+      "wordType": "word",
+      "englishMeaning": "bring data into a system for storage or processing",
+      "tamilMeaning": "தரவை அமைப்பிற்குள் கொண்டு வருதல்",
+      "coreIdea": "ingest expresses bring data into a system for storage or processing.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "The TalentFlow team first works to ingest this data, and then they clean it up by removing duplicates, handling typos, and filling in missing data where possible.",
+          "contextual_meaning": "bring data into a system for storage or processing",
+          "simple_explanation": "The author uses ingest to describe bring data into a system for storage or processing."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use ingest when you need to describe bring data into a system for storage or processing."
+          ],
+          "when_not_to_use": [
+            "Avoid ingest when you mean a different process rather than bring data into a system for storage or processing."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes ingest in a machine-learning workflow",
+          "common_collocations": [
+            "ingest in practice",
+            "ingest in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified ingest as an important consideration.",
+            "technical": "Engineers documented ingest before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention ingest? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: ingest means that every part of the system is automatically correct.",
+          "correction": "Correct: ingest specifically means bring data into a system for storage or processing.",
+          "important_difference": "ingest is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link ingest to this idea: bring data into a system for storage or processing.",
+          "memory_sentence": "I remembered ingest by connecting it to the course example.",
+          "recall_question": "What does ingest mean in this source?",
+          "recognition_task": "Find the sentence in which ingest expresses bring data into a system for storage or processing.",
+          "production_task": "Write a new professional sentence using ingest in the same sense."
+        },
+        "advanced_nuance": [
+          "ingest is taught here specifically as bring data into a system for storage or processing; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-022-identifiable-information",
+      "word": "identifiable information",
+      "pronunciation": "/identifiable information/",
+      "wordType": "collocation",
+      "englishMeaning": "information that can reveal a particular person's identity",
+      "tamilMeaning": "ஒரு நபரை அடையாளம் காணக்கூடிய தகவல்",
+      "coreIdea": "identifiable information expresses information that can reveal a particular person's identity.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "They also remove or anonymize personal identifiable information, like names, birth dates, and photos, unless it's needed for fairness checks later on.",
+          "contextual_meaning": "information that can reveal a particular person's identity",
+          "simple_explanation": "The author uses identifiable information to describe information that can reveal a particular person's identity."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use identifiable information when you need to describe information that can reveal a particular person's identity."
+          ],
+          "when_not_to_use": [
+            "Avoid identifiable information when you mean a different process rather than information that can reveal a particular person's identity."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes identifiable information in a machine-learning workflow",
+          "common_collocations": [
+            "identifiable information in practice",
+            "identifiable information in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified identifiable information as an important consideration.",
+            "technical": "Engineers documented identifiable information before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention identifiable information? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: identifiable information means that every part of the system is automatically correct.",
+          "correction": "Correct: identifiable information specifically means information that can reveal a particular person's identity.",
+          "important_difference": "identifiable information is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link identifiable information to this idea: information that can reveal a particular person's identity.",
+          "memory_sentence": "I remembered identifiable information by connecting it to the course example.",
+          "recall_question": "What does identifiable information mean in this source?",
+          "recognition_task": "Find the sentence in which identifiable information expresses information that can reveal a particular person's identity.",
+          "production_task": "Write a new professional sentence using identifiable information in the same sense."
+        },
+        "advanced_nuance": [
+          "identifiable information is taught here specifically as information that can reveal a particular person's identity; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-023-retention",
+      "word": "retention",
+      "pronunciation": "/retention/",
+      "wordType": "word",
+      "englishMeaning": "the act or rate of keeping employees over time",
+      "tamilMeaning": "ஊழியர்களை தொடர்ந்து வைத்திருத்தல்",
+      "coreIdea": "retention expresses the act or rate of keeping employees over time.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "This can include past resumes, interview notes, job descriptions, employee retention metrics, and performance reviews.",
+          "contextual_meaning": "the act or rate of keeping employees over time",
+          "simple_explanation": "The author uses retention to describe the act or rate of keeping employees over time."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use retention when you need to describe the act or rate of keeping employees over time."
+          ],
+          "when_not_to_use": [
+            "Avoid retention when you mean a different process rather than the act or rate of keeping employees over time."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes retention in a machine-learning workflow",
+          "common_collocations": [
+            "retention in practice",
+            "retention in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified retention as an important consideration.",
+            "technical": "Engineers documented retention before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention retention? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: retention means that every part of the system is automatically correct.",
+          "correction": "Correct: retention specifically means the act or rate of keeping employees over time.",
+          "important_difference": "retention is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link retention to this idea: the act or rate of keeping employees over time.",
+          "memory_sentence": "I remembered retention by connecting it to the course example.",
+          "recall_question": "What does retention mean in this source?",
+          "recognition_task": "Find the sentence in which retention expresses the act or rate of keeping employees over time.",
+          "production_task": "Write a new professional sentence using retention in the same sense."
+        },
+        "advanced_nuance": [
+          "retention is taught here specifically as the act or rate of keeping employees over time; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    },
+    {
+      "candidateId": "resume-new-024-binary-label",
+      "word": "binary label",
+      "pronunciation": "/binary label/",
+      "wordType": "collocation",
+      "englishMeaning": "a category represented by one of exactly two values",
+      "tamilMeaning": "இரண்டு மதிப்புகளில் ஒன்றால் குறிக்கப்படும் வகை",
+      "coreIdea": "binary label expresses a category represented by one of exactly two values.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Abstract or technical meaning.",
+            "connotation": "Neutral in this professional course context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Retention might be encoded as a binary label.",
+          "contextual_meaning": "a category represented by one of exactly two values",
+          "simple_explanation": "The author uses binary label to describe a category represented by one of exactly two values."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use binary label when you need to describe a category represented by one of exactly two values."
+          ],
+          "when_not_to_use": [
+            "Avoid binary label when you mean a different process rather than a category represented by one of exactly two values."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "the course describes binary label in a machine-learning workflow",
+          "common_collocations": [
+            "binary label in practice",
+            "binary label in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The review identified binary label as an important consideration.",
+            "technical": "Engineers documented binary label before changing the production pipeline."
+          },
+          "mini_conversation": "A: Why did you mention binary label? B: Because it affects how we understand and operate the system."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: binary label means that every part of the system is automatically correct.",
+          "correction": "Correct: binary label specifically means a category represented by one of exactly two values.",
+          "important_difference": "binary label is narrower than a general claim that the whole system works well."
+        },
+        "memory_practice": {
+          "memory_trigger": "Link binary label to this idea: a category represented by one of exactly two values.",
+          "memory_sentence": "I remembered binary label by connecting it to the course example.",
+          "recall_question": "What does binary label mean in this source?",
+          "recognition_task": "Find the sentence in which binary label expresses a category represented by one of exactly two values.",
+          "production_task": "Write a new professional sentence using binary label in the same sense."
+        },
+        "advanced_nuance": [
+          "binary label is taught here specifically as a category represented by one of exactly two values; its precise implication depends on the surrounding operational decision."
+        ]
+      }
+    }
+  ]
+}
