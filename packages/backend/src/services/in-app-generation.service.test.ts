@@ -49,6 +49,9 @@ describe("Gemini Phase 1 contract and contextual-sense parity", () => {
     });
 
     expect(parsed.operation).toBe("new");
+    if (!("senseEvidence" in parsed)) {
+      throw new Error("Expected a sense-aware generated candidate");
+    }
     expect(parsed.senseEvidence.sentence).toBe("Go now.");
   });
 
