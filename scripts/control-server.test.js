@@ -289,31 +289,10 @@ test('failed update identifies its exact stage and gives non-destructive recover
   assert.match(manager.recovery, /No destructive rollback.*Durable queued\/active jobs/s);
 });
 
-test('ordinary application updates do not reload the unchanged control service', () => {
-  const commands = [];
-  const manager = new ControlManager({
-    execute: (command, args) => {
-      commands.push([command, ...args]);
-      return { status: 0, stdout: '', stderr: '' };
-    },
-  });
-
-  assert.equal(manager.controlServiceChanged('a'.repeat(40), 'b'.repeat(40)), false);
-  assert.deepEqual(commands[0].slice(0, 3), ['git', 'diff', '--quiet']);
-  assert.deepEqual(commands[0].slice(-2), ['--', 'scripts/control-server.js']);
-});
-
-test('control-service source changes still require a safe process handoff', () => {
-  const manager = new ControlManager({
-    execute: () => ({ status: 1, stdout: '', stderr: '' }),
-  });
-
-  assert.equal(manager.controlServiceChanged('a'.repeat(40), 'b'.repeat(40)), true);
-});
-
-test('code update reloads control before running newly updated scripts', async () => {
+test('controller updates finish startup without a launchd handoff', async () => {
   const runCalls = [];
   let reloaded = 0;
+  const completed = [];
   const manager = new ControlManager({
     execute: (_command, args) => {
       if (args[0] === 'rev-parse' && args[1] === 'HEAD') {
@@ -322,9 +301,6 @@ test('code update reloads control before running newly updated scripts', async (
       if (args[0] === 'rev-parse' && args[1] === 'origin/main') {
         return { status: 0, stdout: 'b'.repeat(40), stderr: '' };
       }
-      if (args[0] === 'diff') {
-        return { status: 1, stdout: '', stderr: '' };
-      }
       return { status: 0, stdout: '', stderr: '' };
     },
     runAsync: async (command, args) => {
@@ -332,7 +308,9 @@ test('code update reloads control before running newly updated scripts', async (
       return '';
     },
     reloadControl: async () => { reloaded += 1; },
-    markControlResume: () => {},
+    markControlResume: () => {
+      throw new Error('a resume handoff must not be created');
+    },
     wait: async () => {},
   });
   manager.verifyUpdateWorkspace = () => {};
@@ -342,18 +320,27 @@ test('code update reloads control before running newly updated scripts', async (
   manager.installDependencies = async () => {};
   manager.backendReady = async () => false;
   manager.frontendReady = async () => false;
-  manager.migrate = async () => {
-    throw new Error('old controller must not run new migrations');
-  };
-  manager.synchronizeChatGPTContent = async () => {
-    throw new Error('old controller must not run the new sync script');
-  };
+  manager.migrate = async () => { completed.push('migrate'); };
+  manager.verifyMigrations = async () => { completed.push('verify'); };
+  manager.synchronizeChatGPTContent = async () => { completed.push('content'); };
+  manager.synchronizeBuiltInContent = async () => { completed.push('built-in'); };
+  manager.spawnServices = () => { completed.push('services'); };
+  manager.waitForServices = async () => { completed.push('ready'); };
 
   await manager.runUpdateAndRestart();
 
-  assert.equal(reloaded, 1);
+  assert.equal(reloaded, 0);
   assert.ok(runCalls.some((call) => call.includes('--ff-only')));
-  assert.match(manager.currentStep, /Reloading the updated control service/);
+  assert.deepEqual(completed, [
+    'migrate',
+    'verify',
+    'content',
+    'built-in',
+    'services',
+    'ready',
+  ]);
+  assert.equal(manager.phase, 'ready');
+  assert.match(manager.currentStep, /GitHub update installed and synchronized/);
 });
 
 test('web services start from their own workspaces and preserve clean-exit diagnostics', async () => {
