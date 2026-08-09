@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fast-update-startup",
+  "title": "Start ordinary application updates without a control-service handoff",
+  "implementationPaths": [
+    "scripts/control-server.js"
+  ],
+  "validationPaths": [
+    "scripts/control-server.test.js"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This changes only local application startup orchestration. Content-pack manifests, contextual vocabulary generation, validation, delivery, import and PostgreSQL read-back contracts are unchanged."
+  }
+}
