@@ -52,7 +52,7 @@ export interface ContentPackIngestContext {
 
 export function shouldAutomaticallyApproveManifest(
   row: { owner_user_id?: string | null; status?: string | null },
-  approvalRequired = DEFAULT_IMPORT_POLICY.approvalRequired,
+  approvalRequired: boolean = DEFAULT_IMPORT_POLICY.approvalRequired,
 ): boolean {
   return Boolean(
     row.owner_user_id &&
