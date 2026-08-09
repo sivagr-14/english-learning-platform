@@ -17,6 +17,7 @@ function candidate(overrides: Record<string, unknown> = {}) {
     baseForm: "bank",
     itemType: "word",
     decision: "generate",
+    operation: "new",
     senseDecision: "new_sense",
     senseKey: "financial-institution",
     cefrLevel: "B1",
