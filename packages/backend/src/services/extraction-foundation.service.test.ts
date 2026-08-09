@@ -48,6 +48,16 @@ describe("Phase 2 extraction foundation", () => {
     );
   });
 
+  test("open n-gram discovery is not limited to the curated expression list", () => {
+    const candidates = enumerateCandidates([
+      segment("Engineers carefully reconcile every lexical inventory item."),
+    ]);
+    expect(candidates.some((candidate) =>
+      candidate.baseForm === "reconcile every lexical inventory" &&
+      candidate.detection.includes("open-ngram-4"),
+    )).toBe(true);
+  });
+
   test("policy accounts for low frequency and malformed candidates with stable reasons", () => {
     const candidate = enumerateCandidates([
       segment("Researchers investigate evidence."),
