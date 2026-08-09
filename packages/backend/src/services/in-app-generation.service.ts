@@ -102,6 +102,7 @@ export async function assessChunk(
     itemType: string;
   }> = [],
   provider: "gemini" | "ollama" = "gemini",
+  timeoutMs?: number,
 ): Promise<RawCandidate[]> {
   const systemPrompt = `You identify English vocabulary worth teaching an intermediate-to-advanced learner from a passage of text. You only propose words/phrases that are genuinely useful to learn -- not every word in the passage. Skip basic A1 vocabulary a learner already knows (e.g. "the", "go", "happy"). Prefer collocations, phrasal verbs, idioms, and words used in a non-obvious sense over isolated common words.
 
@@ -137,6 +138,7 @@ ${TAXONOMY_CATALOG_PROMPT}`;
     signal,
     responseSchema: GEMINI_CANDIDATE_RESPONSE_SCHEMA,
     provider,
+    timeoutMs,
   });
 
   const expected = new Set(deterministicCandidates.map((item) => item.candidateId));
