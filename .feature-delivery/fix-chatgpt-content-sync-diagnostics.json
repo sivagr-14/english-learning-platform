@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fix-chatgpt-content-sync-diagnostics",
+  "title": "Expose actionable ChatGPT content sync failures",
+  "implementationPaths": [
+    "packages/frontend/app/generate/page.tsx",
+    "scripts/control-server.js"
+  ],
+  "validationPaths": [
+    "scripts/control-server.test.js"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This change classifies and displays repository synchronization and importer failures; vocabulary assessment, contextual meaning generation, batching, and content-pack contracts are unchanged."
+  }
+}
