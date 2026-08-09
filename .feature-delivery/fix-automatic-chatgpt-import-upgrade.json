@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fix-automatic-chatgpt-import-upgrade",
+  "title": "Make ChatGPT import updates version-safe and automatic",
+  "implementationPaths": [
+    "packages/backend/src/scripts/sync-content-packs.ts",
+    "packages/frontend/app/generate/page.tsx",
+    "scripts/control-server.js",
+    "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+    "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md"
+  ],
+  "validationPaths": [
+    "scripts/control-server.test.js",
+    "packages/backend/src/services/content-pack-recovery.test.ts",
+    "packages/backend/src/services/content-pack.service.test.ts",
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "updated",
+    "rationale": "The workflow now documents automatic signed-in ownership assignment and removes the obsolete learner claim and approval steps."
+  }
+}
