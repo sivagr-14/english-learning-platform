@@ -18,8 +18,8 @@ export async function up(knex: any): Promise<void> {
     throw new Error("generation_jobs is missing; apply the foundation migrations first");
   }
 
-  const allowed = GENERATION_JOB_STATUSES.map((status) =>
-    knex.raw("?", [status]),
+  const allowed = GENERATION_JOB_STATUSES.map(
+    (status) => `'${status}'`,
   ).join(", ");
 
   // Older installations retained a narrower check constraint even after later
