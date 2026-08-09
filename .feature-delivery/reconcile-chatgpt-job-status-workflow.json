@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "featureId": "reconcile-chatgpt-job-status-workflow",
+  "title": "Repair automatic ChatGPT imports blocked by legacy job status constraints",
+  "implementationPaths": [
+    "packages/backend/src/services/assessment-control.service.ts",
+    "packages/backend/src/database/migrations/9999_reconcile_generation_job_status_contract.ts",
+    "packages/backend/src/scripts/verify-startup-schema.ts",
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/frontend/app/generate/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/__tests__/generation-job-status-migration.test.ts",
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This repairs the local durable job lifecycle, legacy PostgreSQL constraint drift, automatic-recovery diagnostics, and UI wording. It does not change immutable content-pack identity, contextual-sense classification, candidate selection, or lesson-generation contracts."
+  }
+}

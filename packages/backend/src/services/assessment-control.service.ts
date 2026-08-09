@@ -484,7 +484,11 @@ export class AssessmentControlService {
             owner_user_id: userId,
             assessment_run_id: assessmentId,
             operation_id: operationId,
-            status: "approved",
+            // A content-pack assessment is approved, but its durable generation
+            // job starts in the shared operational state machine. "approved"
+            // is not a generation_jobs status and legacy database constraints
+            // correctly reject it.
+            status: "queued",
             total_items: candidates.length,
             user_id: userId,
             source_name: source?.name ?? null,
