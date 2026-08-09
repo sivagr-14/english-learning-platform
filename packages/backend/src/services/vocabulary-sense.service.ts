@@ -285,6 +285,20 @@ export function resolveContextualSense(
     };
   }
 
+  // A source-backed new-sense decision is authoritative once exact keys and
+  // strong semantic matches have been ruled out. Moderate token overlap often
+  // occurs between genuinely different meanings and must not manufacture a
+  // manual-approval gate in the automatic import workflow.
+  if (input.declaredDecision === "new_sense") {
+    return {
+      decision: "new_sense",
+      matchedSense: null,
+      reason: senses.length
+        ? "The declared contextual sense is distinct from every strongly matching stored sense."
+        : "This is the first stored sense for the term.",
+    };
+  }
+
   if (closest && closest.similarity >= 0.3) {
     return {
       decision: "ambiguous",
