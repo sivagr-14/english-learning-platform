@@ -1,0 +1,538 @@
+{
+  "formatVersion": "chatgpt-vocabulary-batch-v3",
+  "batchId": "ml-engineering-workflow-20260809-v1-batch-2",
+  "manifestId": "ml-engineering-workflow-20260809-v1",
+  "manifestHash": "845a6c581852694886ed24323c0b7f61771f0339dc5ec9ca879dcbb5ffd077f9",
+  "batchNumber": 2,
+  "createdAt": "2026-08-09T19:31:01.000Z",
+  "entries": [
+    {
+      "candidateId": "mlw-009-scalability",
+      "word": "scalability",
+      "pronunciation": "/ˌskeɪləˈbɪləti/",
+      "wordType": "noun",
+      "englishMeaning": "the ability of a system to handle growth without unacceptable performance loss",
+      "tamilMeaning": "செயல்திறன் குறையாமல் வளர்ச்சியை கையாளும் திறன்",
+      "coreIdea": "Scalability focuses on the ability of a system to handle growth without unacceptable performance loss.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Next up is scalability.",
+          "contextual_meaning": "the ability of a system to handle growth without unacceptable performance loss",
+          "simple_explanation": "Here, scalability means the ability of a system to handle growth without unacceptable performance loss; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use scalability when discussing the ability of a system to handle growth without unacceptable performance loss.",
+            "Use scalability when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use scalability as a vague substitute for general model quality.",
+            "Do not use scalability when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve scalability in a machine-learning system",
+          "common_collocations": [
+            "scalability metric",
+            "scalability requirement",
+            "scalability in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured scalability before releasing the model.",
+            "business": "The review explained how scalability affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking scalability? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved scalability, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved scalability, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Scalability names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect scalability with the course example: the ability of a system to handle growth without unacceptable performance loss.",
+          "memory_sentence": "The engineers checked scalability before they deployed the model.",
+          "recall_question": "What does scalability measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates scalability: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why scalability matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Scalability is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving scalability alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-010-fairness",
+      "word": "fairness",
+      "pronunciation": "/ˈfeənəs/",
+      "wordType": "noun",
+      "englishMeaning": "the quality of producing equitable model outcomes across groups",
+      "tamilMeaning": "குழுக்களுக்கிடையே சமமான முடிவுகள்",
+      "coreIdea": "Fairness focuses on the quality of producing equitable model outcomes across groups.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "And then we also care about fairness, a hard one to measure and regulate.",
+          "contextual_meaning": "the quality of producing equitable model outcomes across groups",
+          "simple_explanation": "Here, fairness means the quality of producing equitable model outcomes across groups; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use fairness when discussing the quality of producing equitable model outcomes across groups.",
+            "Use fairness when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use fairness as a vague substitute for general model quality.",
+            "Do not use fairness when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve fairness in a machine-learning system",
+          "common_collocations": [
+            "fairness metric",
+            "fairness requirement",
+            "fairness in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured fairness before releasing the model.",
+            "business": "The review explained how fairness affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking fairness? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved fairness, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved fairness, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Fairness names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect fairness with the course example: the quality of producing equitable model outcomes across groups.",
+          "memory_sentence": "The engineers checked fairness before they deployed the model.",
+          "recall_question": "What does fairness measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates fairness: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why fairness matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Fairness is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving fairness alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-011-explainability",
+      "word": "explainability",
+      "pronunciation": "/ɪkˌspleɪnəˈbɪləti/",
+      "wordType": "noun",
+      "englishMeaning": "the ability to explain why a model produced a prediction",
+      "tamilMeaning": "மாதிரி ஏன் ஒரு கணிப்பை செய்தது என்பதை விளக்கும் திறன்",
+      "coreIdea": "Explainability focuses on the ability to explain why a model produced a prediction.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "And then there's explainability.",
+          "contextual_meaning": "the ability to explain why a model produced a prediction",
+          "simple_explanation": "Here, explainability means the ability to explain why a model produced a prediction; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use explainability when discussing the ability to explain why a model produced a prediction.",
+            "Use explainability when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use explainability as a vague substitute for general model quality.",
+            "Do not use explainability when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve explainability in a machine-learning system",
+          "common_collocations": [
+            "explainability metric",
+            "explainability requirement",
+            "explainability in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured explainability before releasing the model.",
+            "business": "The review explained how explainability affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking explainability? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved explainability, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved explainability, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Explainability names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect explainability with the course example: the ability to explain why a model produced a prediction.",
+          "memory_sentence": "The engineers checked explainability before they deployed the model.",
+          "recall_question": "What does explainability measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates explainability: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why explainability matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Explainability is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving explainability alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-012-reliability",
+      "word": "reliability",
+      "pronunciation": "/rɪˌlaɪəˈbɪləti/",
+      "wordType": "noun",
+      "englishMeaning": "the ability of a system to work consistently and be trusted over time",
+      "tamilMeaning": "காலப்போக்கில் நம்பகமாக இயங்கும் தன்மை",
+      "coreIdea": "Reliability focuses on the ability of a system to work consistently and be trusted over time.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Can we explain why the model made a certain prediction? And finally, reliability.",
+          "contextual_meaning": "the ability of a system to work consistently and be trusted over time",
+          "simple_explanation": "Here, reliability means the ability of a system to work consistently and be trusted over time; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use reliability when discussing the ability of a system to work consistently and be trusted over time.",
+            "Use reliability when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use reliability as a vague substitute for general model quality.",
+            "Do not use reliability when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve reliability in a machine-learning system",
+          "common_collocations": [
+            "reliability metric",
+            "reliability requirement",
+            "reliability in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured reliability before releasing the model.",
+            "business": "The review explained how reliability affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking reliability? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved reliability, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved reliability, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Reliability names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect reliability with the course example: the ability of a system to work consistently and be trusted over time.",
+          "memory_sentence": "The engineers checked reliability before they deployed the model.",
+          "recall_question": "What does reliability measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates reliability: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why reliability matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Reliability is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving reliability alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-013-problem-formulation",
+      "word": "problem formulation",
+      "pronunciation": "/ˈprɒbləm ˌfɔːmjəˈleɪʃən/",
+      "wordType": "noun phrase",
+      "englishMeaning": "the stage of defining what should be predicted and why it matters",
+      "tamilMeaning": "பிரச்சினையையும் கணிப்பு இலக்கையும் வரையறுத்தல்",
+      "coreIdea": "Problem formulation focuses on the stage of defining what should be predicted and why it matters.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "First, there's the problem formulation.",
+          "contextual_meaning": "the stage of defining what should be predicted and why it matters",
+          "simple_explanation": "Here, problem formulation means the stage of defining what should be predicted and why it matters; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use problem formulation when discussing the stage of defining what should be predicted and why it matters.",
+            "Use problem formulation when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use problem formulation as a vague substitute for general model quality.",
+            "Do not use problem formulation when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve problem formulation in a machine-learning system",
+          "common_collocations": [
+            "problem formulation metric",
+            "problem formulation requirement",
+            "problem formulation in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured problem formulation before releasing the model.",
+            "business": "The review explained how problem formulation affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking problem formulation? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved problem formulation, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved problem formulation, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Problem formulation names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect problem formulation with the course example: the stage of defining what should be predicted and why it matters.",
+          "memory_sentence": "The engineers checked problem formulation before they deployed the model.",
+          "recall_question": "What does problem formulation measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates problem formulation: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why problem formulation matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Problem formulation is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving problem formulation alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-014-data-preparation",
+      "word": "data preparation",
+      "pronunciation": "/ˈdeɪtə ˌprepəˈreɪʃən/",
+      "wordType": "noun phrase",
+      "englishMeaning": "the process of cleaning, transforming, labeling, and splitting data for modeling",
+      "tamilMeaning": "மாதிரிக்காக தரவைத் தயாரிக்கும் செயல்முறை",
+      "coreIdea": "Data preparation focuses on the process of cleaning, transforming, labeling, and splitting data for modeling.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "What data is available and how can we get it? Once we have the data, it's time for data preparation.",
+          "contextual_meaning": "the process of cleaning, transforming, labeling, and splitting data for modeling",
+          "simple_explanation": "Here, data preparation means the process of cleaning, transforming, labeling, and splitting data for modeling; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use data preparation when discussing the process of cleaning, transforming, labeling, and splitting data for modeling.",
+            "Use data preparation when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use data preparation as a vague substitute for general model quality.",
+            "Do not use data preparation when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve data preparation in a machine-learning system",
+          "common_collocations": [
+            "data preparation metric",
+            "data preparation requirement",
+            "data preparation in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured data preparation before releasing the model.",
+            "business": "The review explained how data preparation affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking data preparation? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved data preparation, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved data preparation, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Data preparation names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect data preparation with the course example: the process of cleaning, transforming, labeling, and splitting data for modeling.",
+          "memory_sentence": "The engineers checked data preparation before they deployed the model.",
+          "recall_question": "What does data preparation measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates data preparation: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why data preparation matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Data preparation is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving data preparation alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-015-normalization",
+      "word": "normalization",
+      "pronunciation": "/ˌnɔːməlaɪˈzeɪʃən/",
+      "wordType": "noun",
+      "englishMeaning": "transforming values into a consistent scale or format",
+      "tamilMeaning": "மதிப்புகளை ஒரே அளவு அல்லது வடிவத்திற்கு மாற்றுதல்",
+      "coreIdea": "Normalization focuses on transforming values into a consistent scale or format.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Then we have normalization and encoding.",
+          "contextual_meaning": "transforming values into a consistent scale or format",
+          "simple_explanation": "Here, normalization means transforming values into a consistent scale or format; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use normalization when discussing transforming values into a consistent scale or format.",
+            "Use normalization when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use normalization as a vague substitute for general model quality.",
+            "Do not use normalization when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve normalization in a machine-learning system",
+          "common_collocations": [
+            "normalization metric",
+            "normalization requirement",
+            "normalization in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured normalization before releasing the model.",
+            "business": "The review explained how normalization affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking normalization? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved normalization, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved normalization, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Normalization names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect normalization with the course example: transforming values into a consistent scale or format.",
+          "memory_sentence": "The engineers checked normalization before they deployed the model.",
+          "recall_question": "What does normalization measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates normalization: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why normalization matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Normalization is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving normalization alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-016-encoding",
+      "word": "encoding",
+      "pronunciation": "/ɪnˈkəʊdɪŋ/",
+      "wordType": "noun",
+      "englishMeaning": "representing categories or information in a numerical form a model can process",
+      "tamilMeaning": "தகவலை எண் வடிவில் குறியிடுதல்",
+      "coreIdea": "Encoding focuses on representing categories or information in a numerical form a model can process.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Then we have normalization and encoding.",
+          "contextual_meaning": "representing categories or information in a numerical form a model can process",
+          "simple_explanation": "Here, encoding means representing categories or information in a numerical form a model can process; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use encoding when discussing representing categories or information in a numerical form a model can process.",
+            "Use encoding when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use encoding as a vague substitute for general model quality.",
+            "Do not use encoding when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve encoding in a machine-learning system",
+          "common_collocations": [
+            "encoding metric",
+            "encoding requirement",
+            "encoding in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured encoding before releasing the model.",
+            "business": "The review explained how encoding affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking encoding? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved encoding, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved encoding, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Encoding names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect encoding with the course example: representing categories or information in a numerical form a model can process.",
+          "memory_sentence": "The engineers checked encoding before they deployed the model.",
+          "recall_question": "What does encoding measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates encoding: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why encoding matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Encoding is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving encoding alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    }
+  ]
+}
