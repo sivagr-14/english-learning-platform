@@ -6,6 +6,7 @@ const test = require('node:test');
 const {
   ControlManager,
   classifyGitFailure,
+  validateContentSyncResult,
   commandOutput,
   controlPage,
   createControlServer,
@@ -453,7 +454,7 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
     },
     runAsync: async (command, args) => {
       runCalls.push([command, ...args]);
-      return '{}';
+      return JSON.stringify({ documents: 0, errors: [], cleanupEligible: [] });
     },
   });
 
@@ -463,7 +464,7 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
     synchronized: true,
     available: true,
     fetchedCommit: 'a'.repeat(40),
-    result: {},
+    result: { documents: 0, errors: [], cleanupEligible: [] },
     cleanup: { cleaned: [], alreadyAbsent: [], failed: [] },
   });
   assert.ok(
@@ -515,6 +516,18 @@ test('ChatGPT content sync rejects malformed importer output', async () => {
 
   assert.equal(result.code, 'INVALID_IMPORTER_OUTPUT');
   assert.equal(result.httpStatus, 500);
+});
+
+test('ChatGPT content sync rejects importer validation errors instead of reporting success', () => {
+  const result = validateContentSyncResult({
+    documents: 3,
+    errors: [{ path: 'pack/batch-1.json', message: 'Manifest hash mismatch.' }],
+    cleanupEligible: [],
+  });
+
+  assert.equal(result.code, 'CONTENT_PACK_REJECTED');
+  assert.equal(result.httpStatus, 422);
+  assert.match(result.technicalDetail, /batch-1\.json: Manifest hash mismatch/);
 });
 
 test('verified content cleanup deletes only its inbox folder and records the commit', async () => {
