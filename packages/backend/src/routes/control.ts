@@ -70,6 +70,17 @@ router.post(
   },
 );
 
+router.post(
+  "/content-packs/process",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      res.json(await contentPacks.processAvailableManifests(req.userId!));
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
 router.get(
   "/content-packs/:id",
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
