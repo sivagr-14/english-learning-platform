@@ -317,6 +317,14 @@ export class ContentPackService {
       .where((builder: any) =>
         builder.whereNull("owner_user_id").orWhere("owner_user_id", userId),
       )
+      // The ledger is a recovery queue, not an import-history screen. Once a
+      // verified pack has been removed from the inbox there is no action left
+      // for the learner, so keep it out of the active list.
+      .where((builder: any) =>
+        builder
+          .whereNull("inbox_cleaned_at")
+          .orWhereNot("status", "completed"),
+      )
       .orderBy("created_at", "desc");
     return Promise.all(rows.map((row: any) => this.manifestSummary(row)));
   }
@@ -326,6 +334,27 @@ export class ContentPackService {
       .where({ status: "active" })
       .orderBy("updated_at", "desc")
       .select("document_path", "pack_id", "issues", "created_at", "updated_at");
+  }
+
+  async processAvailableManifests(userId: string) {
+    const rows = await this.database("content_pack_manifests")
+      .where({ inbox_branch: "chatgpt-content-inbox" })
+      .where((builder: any) =>
+        builder.whereNull("owner_user_id").orWhere("owner_user_id", userId),
+      )
+      .whereNull("inbox_cleaned_at")
+      .orderBy("created_at", "asc")
+      .select("id", "owner_user_id");
+    const processed: string[] = [];
+    const cleanupEligible: string[] = [];
+    for (const row of rows) {
+      if (!row.owner_user_id) await this.claimManifest(userId, row.id);
+      else await this.commitAvailableBatches(userId, row.id);
+      const verification = await this.verifyManifest(userId, row.id);
+      processed.push(row.id);
+      if (verification.verified) cleanupEligible.push(row.id);
+    }
+    return { processed, cleanupEligible };
   }
 
   async getManifest(userId: string, manifestId: string) {
@@ -1138,13 +1167,9 @@ export class ContentPackService {
     ) {
       issues.push("Received batch count does not match the generation plan.");
     }
-    const wordIds = [
-      ...new Set(
-        manifest.batches.flatMap((batch: any) =>
-          readJson<string[]>(batch.committed_word_ids, []),
-        ),
-      ),
-    ];
+    const wordIds = manifest.batches.flatMap((batch: any) =>
+      readJson<string[]>(batch.committed_word_ids, []),
+    );
     const uniqueWordIds = [...new Set(wordIds)];
     if (uniqueWordIds.length !== wordIds.length) {
       issues.push("Committed word IDs contain duplicates.");
@@ -1152,16 +1177,40 @@ export class ContentPackService {
     if (wordIds.length !== manifest.generation.committedEntries) {
       issues.push("Committed entry count does not match the batch ledger.");
     }
-    if (!job || wordIds.length !== Number(job.total_items)) {
+    const jobItems = job
+      ? await this.database("generation_job_items")
+          .where({ generation_job_id: job.id })
+          .select("status", "committed_word_id", "source_batch_id")
+      : [];
+    const approvedEntryCount = jobItems.length;
+    if (!job || wordIds.length !== approvedEntryCount) {
       issues.push(
         "Committed entry count does not match the approved import count.",
       );
     }
+    if (
+      job &&
+      jobItems.some(
+        (item: any) =>
+          item.status !== "completed" ||
+          !item.committed_word_id ||
+          !item.source_batch_id,
+      )
+    ) {
+      issues.push("One or more approved entries are not fully committed.");
+    }
     if (!wordIds.length) {
+      const emptyImportVerified =
+        manifest.status === "completed" &&
+        manifest.generation.plannedBatches === 0 &&
+        approvedEntryCount === 0 &&
+        issues.length === 0;
       const report = {
-        verified: false,
+        verified: emptyImportVerified,
         entries: 0,
-        issues: [...issues, "No entries are committed yet."],
+        issues: emptyImportVerified
+          ? []
+          : [...issues, "No entries are committed yet."],
       };
       await this.storeVerification(manifestId, report);
       return report;
@@ -1230,7 +1279,9 @@ export class ContentPackService {
     }
     const report = {
       verified: issues.length === 0,
-      entries: rows.length,
+      // Report logical imported entries. Database word rows are unique and can
+      // be fewer only when an existing sense was updated.
+      entries: wordIds.length,
       issues,
     };
     await this.storeVerification(manifestId, report);
