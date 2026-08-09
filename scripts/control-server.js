@@ -74,10 +74,62 @@ function commandResult(command, args, options = {}) {
 }
 
 function commandOutput(result) {
-  return [result.stdout, result.stderr]
+  return [
+    result.error && (result.error.message || String(result.error)),
+    result.stdout,
+    result.stderr,
+    result.status !== null && result.status !== undefined && result.status !== 0
+      ? `Exit status: ${result.status}`
+      : null,
+    result.signal ? `Signal: ${result.signal}` : null,
+  ]
     .filter(Boolean)
     .join('\n')
     .trim();
+}
+
+function classifyGitFailure(result, stage = 'fetch') {
+  const detail = commandOutput(result) || 'Git did not provide diagnostic output.';
+  const normalized = detail.toLowerCase();
+  const failure = (code, error, httpStatus, retryable) => ({
+    synchronized: false,
+    available: code !== 'BRANCH_MISSING',
+    stage,
+    code,
+    error,
+    technicalDetail: detail,
+    retryable,
+    httpStatus,
+  });
+  if (/couldn't find remote ref|remote ref does not exist/.test(normalized)) {
+    return failure('BRANCH_MISSING', 'The ChatGPT content inbox branch does not exist yet.', 404, false);
+  }
+  if (/not found|enoent/.test(normalized) && /git/.test(normalized)) {
+    return failure('GIT_UNAVAILABLE', 'Git is unavailable on this Mac.', 500, false);
+  }
+  if (/authentication failed|could not read username|terminal prompts disabled/.test(normalized)) {
+    return failure('AUTHENTICATION_FAILED', 'GitHub authentication failed. Reauthorize GitHub, then retry.', 401, false);
+  }
+  if (/permission denied|access denied|repository not found/.test(normalized)) {
+    return failure('PERMISSION_DENIED', 'GitHub denied access to the content inbox.', 403, false);
+  }
+  if (/does not appear to be a git repository|no such remote|remote origin/.test(normalized)) {
+    return failure('REMOTE_MISSING', 'The Git remote "origin" is missing or invalid.', 500, false);
+  }
+  if (/could not resolve host|failed to connect|timed out|timeout|network is unreachable/.test(normalized)) {
+    return failure('NETWORK_FAILED', 'GitHub could not be reached. Check the connection and retry.', 503, true);
+  }
+  if (/cannot lock ref|would clobber existing tag|non-fast-forward/.test(normalized)) {
+    return failure('FETCH_CONFLICT', 'The local inbox reference could not be updated safely.', 409, true);
+  }
+  return failure(
+    stage === 'ref_resolution' ? 'REF_RESOLUTION_FAILED' : 'FETCH_FAILED',
+    stage === 'ref_resolution'
+      ? 'The fetched ChatGPT inbox commit could not be resolved.'
+      : 'The ChatGPT content inbox could not be fetched.',
+    500,
+    true,
+  );
 }
 
 function commandAvailable(command) {
@@ -523,13 +575,9 @@ class ControlManager {
       '--depth=1',
     ]);
     if (fetched.status !== 0) {
-      const detail = commandOutput(fetched);
-      this.log(
-        detail.includes("couldn't find remote ref")
-          ? 'ChatGPT content inbox is not initialized yet.'
-          : `ChatGPT content sync skipped: ${detail || 'GitHub fetch failed.'}`,
-      );
-      return { available: false };
+      const failure = classifyGitFailure(fetched);
+      this.log(`ChatGPT content sync failed [${failure.code}]: ${failure.technicalDetail}`);
+      return failure;
     }
     const syncScript = path.join(
       backendDirectory,
@@ -537,31 +585,51 @@ class ControlManager {
       'scripts',
       'sync-content-packs.ts',
     );
-    if (!fs.existsSync(syncScript)) return { available: false };
-    const fetchedCommit = commandOutput(
-      this.execute('git', ['rev-parse', contentInboxRef]),
-    );
-    const syncOutput = await this.runAsync(
-      process.execPath,
-      [
-        path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'),
-        '--transpile-only',
-        '--project',
-        path.join(backendDirectory, 'tsconfig.json'),
-        syncScript,
-        '--git-ref',
-        contentInboxRef,
-        '--fetched-commit',
-        fetchedCommit,
-      ],
-      (output) => this.log(output),
-    );
+    if (!fs.existsSync(syncScript)) {
+      return {
+        synchronized: false, available: true, stage: 'import',
+        code: 'SYNC_SCRIPT_MISSING', error: 'The ChatGPT content synchronizer is missing.',
+        technicalDetail: syncScript, retryable: false, httpStatus: 500,
+      };
+    }
+    const resolved = this.execute('git', ['rev-parse', '--verify', contentInboxRef]);
+    const fetchedCommit = String(resolved.stdout || '').trim();
+    if (resolved.status !== 0 || !/^[0-9a-f]{40}$/i.test(fetchedCommit)) {
+      return classifyGitFailure(resolved, 'ref_resolution');
+    }
+    let syncOutput;
+    try {
+      syncOutput = await this.runAsync(
+        process.execPath,
+        [
+          path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'),
+          '--transpile-only', '--project', path.join(backendDirectory, 'tsconfig.json'),
+          syncScript, '--git-ref', contentInboxRef, '--fetched-commit', fetchedCommit,
+        ],
+        (output) => this.log(output),
+      );
+    } catch (error) {
+      return {
+        synchronized: false, available: true, stage: 'import', code: 'IMPORT_FAILED',
+        error: 'ChatGPT content was fetched, but the importer failed.',
+        technicalDetail: error instanceof Error ? error.message : String(error),
+        retryable: true, httpStatus: 422,
+      };
+    }
     const syncResult = this.parseLastJsonObject(syncOutput);
+    if (!syncResult || typeof syncResult !== 'object' || Array.isArray(syncResult)) {
+      return {
+        synchronized: false, available: true, stage: 'import',
+        code: 'INVALID_IMPORTER_OUTPUT', error: 'The content importer returned an invalid result.',
+        technicalDetail: 'No valid final JSON object was found in importer output.',
+        retryable: false, httpStatus: 500,
+      };
+    }
     const cleanup = await this.cleanupVerifiedContentPacks(
       syncResult.cleanupEligible || [],
       syncScript,
     );
-    return { available: true, fetchedCommit, result: syncResult, cleanup };
+    return { synchronized: true, available: true, fetchedCommit, result: syncResult, cleanup };
   }
 
   parseLastJsonObject(output = '') {
@@ -572,7 +640,7 @@ class ControlManager {
         return JSON.parse(candidate);
       } catch {}
     }
-    return {};
+    return null;
   }
 
   async cleanupVerifiedContentPacks(manifestIds, syncScript) {
@@ -1268,7 +1336,7 @@ function createControlServer(manager = new ControlManager()) {
       }
       try {
         const result = await manager.synchronizeChatGPTContent();
-        return json(response, 200, { synchronized: true, ...result });
+        return json(response, result.httpStatus || 200, result);
       } catch (error) {
         return json(response, 500, {
           error: error instanceof Error ? error.message : String(error),
@@ -1354,6 +1422,7 @@ module.exports = {
   controlPage,
   createControlServer,
   commandOutput,
+  classifyGitFailure,
   parseContainerState,
   parseEnvironment,
   probeUrl,
