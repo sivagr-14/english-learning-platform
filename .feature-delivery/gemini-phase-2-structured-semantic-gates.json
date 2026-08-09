@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "featureId": "gemini-phase-2-structured-semantic-gates",
+  "title": "Constrain Gemini lessons and reject semantically invalid generation",
+  "implementationPaths": [
+    "packages/backend/src/data/vocabulary-lesson-template.ts",
+    "packages/backend/src/services/in-app-generation.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/in-app-generation.phase2.test.ts",
+    "packages/backend/src/services/in-app-generation.phase3b.test.ts",
+    "packages/backend/src/services/content-pack-contract.test.ts",
+    "packages/backend/src/services/provider-contract-parity.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This phase constrains and validates the in-app Gemini provider output against the existing simplified-v2 lesson and content-pack contracts. It does not change the ChatGPT workflow, manifest/batch format, or vocabulary-generation instructions."
+  }
+}
