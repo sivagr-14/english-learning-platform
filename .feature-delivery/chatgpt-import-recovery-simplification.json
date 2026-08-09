@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "featureId": "chatgpt-import-recovery-simplification",
+  "title": "Verified one-click ChatGPT import recovery and transient ledger",
+  "implementationPaths": [
+    "packages/backend/src/routes/control.ts",
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/frontend/app/generate/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/content-pack-recovery.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "inbox-cleaned imports are omitted from the active ledger.",
+          "A user-triggered synchronization claims"
+        ]
+      }
+    ]
+  }
+}
