@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "featureId": "fix-chatgpt-content-sync-diagnostics",
-  "title": "Expose actionable ChatGPT content sync failures, reconciliation and exact-ref discovery",
+  "title": "Make exact-ref ChatGPT imports claimable by their logical inbox branch",
   "implementationPaths": [
     "packages/frontend/app/generate/page.tsx",
     "scripts/control-server.js",
@@ -11,10 +11,11 @@
   "validationPaths": [
     "scripts/control-server.test.js",
     "packages/backend/src/services/content-pack-recovery.test.ts",
-    "packages/backend/src/services/content-pack.service.test.ts"
+    "packages/backend/src/services/content-pack.service.test.ts",
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts"
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
-    "rationale": "This change imports from the exact fetched inbox commit, reopens stale cleanup state when a pack is present again, reports account-ownership conflicts, classifies importer failures, and displays PostgreSQL reconciliation; vocabulary generation and content-pack contracts are unchanged."
+    "rationale": "This change keeps the exact fetched commit used to read files separate from the logical chatgpt-content-inbox branch used for PostgreSQL claim and resume queries. It also extends the live PostgreSQL smoke through stage, automatic claim, commit and read-back. Vocabulary generation and content-pack contracts are unchanged."
   }
 }

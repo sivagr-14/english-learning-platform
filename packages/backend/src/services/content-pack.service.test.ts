@@ -232,6 +232,7 @@ describe("ChatGPT content-pack staging ledger", () => {
     });
 
     expect(database.memory.tables.content_pack_manifests[0]).toMatchObject({
+      inbox_branch: "chatgpt-content-inbox",
       fetched_commit: "c".repeat(40),
       inbox_cleaned_at: null,
       inbox_cleanup_commit: null,

@@ -480,6 +480,8 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
       (command) =>
         command.includes('--git-ref') &&
         command.includes('a'.repeat(40)) &&
+        command.includes('--inbox-branch') &&
+        command.includes('chatgpt-content-inbox') &&
         command.includes('--fetched-commit') &&
         command.includes('a'.repeat(40)),
     ),

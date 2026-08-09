@@ -635,7 +635,10 @@ class ControlManager {
         [
           path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'),
           '--transpile-only', '--project', path.join(backendDirectory, 'tsconfig.json'),
-          syncScript, '--git-ref', fetchedCommit, '--fetched-commit', fetchedCommit,
+          syncScript,
+          '--git-ref', fetchedCommit,
+          '--inbox-branch', contentInboxBranch,
+          '--fetched-commit', fetchedCommit,
         ],
         (output) => this.log(output),
       );
