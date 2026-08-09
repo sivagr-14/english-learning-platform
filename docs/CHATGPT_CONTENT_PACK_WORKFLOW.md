@@ -28,8 +28,8 @@ writes database rows.
    successful verification.
 10. After verification succeeds, the local control service removes only that
     manifest folder from the active inbox branch and records the cleanup commit
-    and timestamp in PostgreSQL. Git history and the local ledger remain the
-    recovery and audit trail.
+    and timestamp in PostgreSQL. The completed import then disappears from the
+    active import ledger; only actionable, failed or resumable work remains.
 
 ## Manifest guarantees
 
@@ -229,11 +229,16 @@ content.
 
 ## Status and recovery guarantees
 
-The local import ledger records the exact private inbox branch, fetched commit,
+The local recovery ledger records the exact private inbox branch, fetched commit,
 last synchronization time, database verification report, cleanup attempts and
-cleanup commit. Manual synchronization and the five-minute timer must read only
+cleanup commit while an import needs action or recovery. Completed, verified
+and inbox-cleaned imports are omitted from the active ledger. Manual
+synchronization and the five-minute timer must read only
 `chatgpt-content-inbox`. Revalidation may recompute contract and PostgreSQL
 read-back status, but must never mutate the immutable manifest or batch payload.
 The UI must show a specific next action for missing batches, invalid batches,
 attention items, failed read-back and retryable cleanup instead of reporting an
-inconsistent import as Completed.
+inconsistent import as Completed. A user-triggered synchronization claims
+unowned packs for the signed-in local account, applies the no-approval policy,
+saves available batches, verifies PostgreSQL read-back and retries guarded
+inbox cleanup as one operation.
