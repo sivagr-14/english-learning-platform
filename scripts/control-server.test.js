@@ -5,6 +5,7 @@ const path = require('node:path');
 const test = require('node:test');
 const {
   ControlManager,
+  classifyGitFailure,
   commandOutput,
   controlPage,
   createControlServer,
@@ -107,6 +108,43 @@ test('command output combines captured stdout and stderr for browser diagnostics
       stderr: 'database error\n',
     }),
     'container status\n\ndatabase error',
+  );
+});
+
+test('command output preserves spawn-level errors, exit status, and signal', () => {
+  assert.equal(
+    commandOutput({
+      error: new Error('spawn git ENOENT'),
+      stdout: '',
+      stderr: '',
+      status: null,
+      signal: 'SIGTERM',
+    }),
+    'spawn git ENOENT\nSignal: SIGTERM',
+  );
+});
+
+test('Git failures distinguish missing branch, authentication, and network errors', () => {
+  assert.deepEqual(
+    classifyGitFailure({ status: 128, stderr: "fatal: couldn't find remote ref refs/heads/chatgpt-content-inbox" }),
+    {
+      synchronized: false,
+      available: false,
+      stage: 'fetch',
+      code: 'BRANCH_MISSING',
+      error: 'The ChatGPT content inbox branch does not exist yet.',
+      technicalDetail: "fatal: couldn't find remote ref refs/heads/chatgpt-content-inbox\nExit status: 128",
+      retryable: false,
+      httpStatus: 404,
+    },
+  );
+  assert.equal(
+    classifyGitFailure({ status: 128, stderr: 'fatal: Authentication failed' }).code,
+    'AUTHENTICATION_FAILED',
+  );
+  assert.equal(
+    classifyGitFailure({ status: 128, stderr: 'fatal: Could not resolve host: github.com' }).code,
+    'NETWORK_FAILED',
   );
 });
 
@@ -409,20 +447,22 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
       commands.push([command, ...args]);
       return {
         status: 0,
-        stdout: args.includes('rev-parse') ? 'abc123def456\n' : '',
+        stdout: args.includes('rev-parse') ? `${'a'.repeat(40)}\n` : '',
         stderr: '',
       };
     },
     runAsync: async (command, args) => {
       runCalls.push([command, ...args]);
+      return '{}';
     },
   });
 
   const result = await manager.synchronizeChatGPTContent();
 
   assert.deepEqual(result, {
+    synchronized: true,
     available: true,
-    fetchedCommit: 'abc123def456',
+    fetchedCommit: 'a'.repeat(40),
     result: {},
     cleanup: { cleaned: [], alreadyAbsent: [], failed: [] },
   });
@@ -439,9 +479,42 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
         command.includes('--git-ref') &&
         command.includes('origin/chatgpt-content-inbox') &&
         command.includes('--fetched-commit') &&
-        command.includes('abc123def456'),
+        command.includes('a'.repeat(40)),
     ),
   );
+});
+
+test('ChatGPT content sync returns the real spawn failure instead of an initialization state', async () => {
+  const manager = new ControlManager({
+    execute: () => ({
+      status: null,
+      stdout: '',
+      stderr: '',
+      error: new Error('spawnSync git ENOENT'),
+    }),
+  });
+
+  const result = await manager.synchronizeChatGPTContent();
+
+  assert.equal(result.available, true);
+  assert.equal(result.code, 'GIT_UNAVAILABLE');
+  assert.match(result.technicalDetail, /ENOENT/);
+});
+
+test('ChatGPT content sync rejects malformed importer output', async () => {
+  const manager = new ControlManager({
+    execute: (_command, args) => ({
+      status: 0,
+      stdout: args.includes('rev-parse') ? 'd'.repeat(40) : '',
+      stderr: '',
+    }),
+    runAsync: async () => 'import finished without a JSON result',
+  });
+
+  const result = await manager.synchronizeChatGPTContent();
+
+  assert.equal(result.code, 'INVALID_IMPORTER_OUTPUT');
+  assert.equal(result.httpStatus, 500);
 });
 
 test('verified content cleanup deletes only its inbox folder and records the commit', async () => {
