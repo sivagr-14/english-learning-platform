@@ -18,9 +18,13 @@ import {
   generateLessonEntry,
   buildManifestDocument,
   buildBatchDocument,
+  resolveManifestCandidateAgainstExisting,
 } from "../services/in-app-generation.service";
 import { parseSource, SourceType } from "../services/document-parser.service";
-import { enumerateCandidates } from "../services/extraction-foundation.service";
+import {
+  enumerateCandidates,
+  SourceLocator,
+} from "../services/extraction-foundation.service";
 import { database } from "../utils/db";
 import { logger } from "../utils/logger";
 import { readJson } from "../utils/json";
@@ -263,22 +267,120 @@ async function handleAssess(
     ),
   );
 
+  const segmentLocators = segmentRows.map((row: any, index: number) =>
+    readJson(row.locator, {
+      unit: "document",
+      unitIndex: index + 1,
+      startOffset: 0,
+      endOffset: String(row.original_text || "").length,
+    }),
+  ) as SourceLocator[];
+  const pageForSegment = (index: number) =>
+    Number(segmentLocators[index]?.page || index + 1);
   const unmergedManifestCandidates = rawCandidatesPerChunk.flatMap(
-    (rawCandidates, chunkIndex) =>
-      rawCandidates.map((raw) =>
-        toManifestCandidate(raw, chunkIds[chunkIndex], chunkIndex + 1),
-      ),
+    (rawCandidates, chunkIndex) => {
+      const segmentId = segmentRows[chunkIndex].id;
+      return rawCandidates.map((raw) => {
+        const sourceCandidate = deterministic.find(
+          (candidate) => candidate.candidateId === raw.candidateId,
+        );
+        const occurrences = (sourceCandidate?.occurrences || [])
+          .filter((occurrence) => occurrence.segmentId === segmentId)
+          .map((occurrence) => ({
+            page: Number(occurrence.locator.page || pageForSegment(chunkIndex)),
+            chunkId: chunkIds[chunkIndex],
+            sentence: occurrence.sentence,
+          }));
+        return toManifestCandidate(
+          raw,
+          chunkIds[chunkIndex],
+          pageForSegment(chunkIndex),
+          occurrences.length
+            ? occurrences
+            : [{
+                page: pageForSegment(chunkIndex),
+                chunkId: chunkIds[chunkIndex],
+                sentence: raw.sourceSentence,
+              }],
+        );
+      });
+    },
   );
-  const manifestCandidates = [
-    ...new Map(
-      unmergedManifestCandidates
-        .filter(Boolean)
-        .map((candidate: any) => [
-          `${candidate.term.normalize("NFKC").toLowerCase()}\u0000${candidate.senseKey}`,
-          candidate,
-        ]),
-    ).values(),
-  ] as typeof unmergedManifestCandidates;
+  const mergedCandidates = new Map<string, any>();
+  for (const candidate of unmergedManifestCandidates) {
+    const key =
+      `${candidate.term.normalize("NFKC").toLowerCase()}\u0000${"senseKey" in candidate ? candidate.senseKey : candidate.contextualMeaning || candidate.term}`;
+    const current = mergedCandidates.get(key);
+    if (!current) {
+      mergedCandidates.set(key, candidate);
+      continue;
+    }
+    const seen = new Set(
+      current.occurrences.map(
+        (occurrence: any) =>
+          `${occurrence.page}\u0000${occurrence.chunkId}\u0000${occurrence.sentence}`,
+      ),
+    );
+    for (const occurrence of candidate.occurrences) {
+      const occurrenceKey =
+        `${occurrence.page}\u0000${occurrence.chunkId}\u0000${occurrence.sentence}`;
+      if (!seen.has(occurrenceKey)) {
+        current.occurrences.push(occurrence);
+        seen.add(occurrenceKey);
+      }
+    }
+  }
+
+  const normalizedTerms = [
+    ...new Set(
+      [...mergedCandidates.values()].map((candidate: any) =>
+        candidate.term.normalize("NFKC").trim().replace(/\\s+/g, " ").toLowerCase(),
+      ),
+    ),
+  ];
+  const existingSenses = normalizedTerms.length
+    ? await database("vocabulary_words")
+        .where({ owner_user_id: userId })
+        .whereIn("normalized_term", normalizedTerms)
+        .select(
+          "id",
+          "word",
+          "normalized_term",
+          "sense_rank",
+          "sense_key",
+          "sense_gloss",
+          "english_meaning",
+        )
+    : [];
+  const manifestCandidates = [...mergedCandidates.values()].map((candidate) =>
+    resolveManifestCandidateAgainstExisting(candidate, existingSenses),
+  ) as typeof unmergedManifestCandidates;
+
+  const totalPages = Math.max(1, ...segmentLocators.map((_: any, index: number) =>
+    pageForSegment(index),
+  ));
+  const pages = Array.from({ length: totalPages }, (_, index) => {
+    const page = index + 1;
+    return {
+      page,
+      status: "assessed" as const,
+      chunkIds: chunkIds.filter((_, chunkIndex) => pageForSegment(chunkIndex) === page),
+    };
+  });
+  const coverageChunks = chunkIds.map((chunkId, index) => {
+    const page = pageForSegment(index);
+    return {
+      chunkId,
+      pageStart: page,
+      pageEnd: page,
+      status: "assessed" as const,
+      candidateIds: manifestCandidates
+        .filter((candidate: any) =>
+          candidate.occurrences.some((occurrence: any) => occurrence.chunkId === chunkId),
+        )
+        .map((candidate: any) => candidate.candidateId),
+    };
+  });
 
   const manifestId = `inapp-${generationJobId}`;
   const manifestDoc = buildManifestDocument({
@@ -286,9 +388,10 @@ async function handleAssess(
     sourceName: record.source_name,
     sourceType: record.source_type,
     contentHash: record.source_hash,
-    totalPages: chunks.length,
+    totalPages,
     candidates: manifestCandidates,
-    chunkIds,
+    pages,
+    chunks: coverageChunks,
   });
 
   const manifestHash = contentPackHash(manifestDoc);

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "featureId": "gemini-phase-1-contract-sense-parity",
+  "title": "Match Gemini candidates to stored senses and preserve exact manifest provenance",
+  "implementationPaths": [
+    "packages/backend/src/services/in-app-generation.service.ts",
+    "packages/backend/src/queue/generation.worker.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/in-app-generation.service.test.ts",
+    "packages/backend/src/services/in-app-generation.phase3b.test.ts",
+    "packages/backend/src/services/content-pack-contract.test.ts",
+    "packages/backend/src/services/vocabulary-sense.service.test.ts",
+    "packages/backend/src/services/provider-contract-parity.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This phase brings the in-app Gemini path into parity with the existing contextual-sense and immutable content-pack contracts. It does not change the ChatGPT workflow, vocabulary lesson format, or content-pack contract consumed by ChatGPT."
+  }
+}

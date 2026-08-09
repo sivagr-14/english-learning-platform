@@ -16,6 +16,11 @@ import {
 import { generateJson } from "./ai-provider.service";
 import { logger } from "../utils/logger";
 import {
+  ExistingVocabularySense,
+  normalizeSenseKey,
+  resolveContextualSense,
+} from "./vocabulary-sense.service";
+import {
   classifyProviderFailure,
   ProviderRequestError,
 } from "./provider-reliability";
@@ -38,14 +43,14 @@ const GEMINI_CANDIDATE_RESPONSE_SCHEMA = {
       items: {
         type: "OBJECT",
         required: [
-          "candidateId", "term", "baseForm", "itemType", "contextualMeaning",
+          "candidateId", "term", "baseForm", "itemType", "contextualMeaning", "senseKey",
           "domainKey", "usageGroupKey", "categoryKey", "taxonomyConfidence",
           "cefrLevel", "usageFrequency", "fluencyValue", "sourceSentence",
           "senseExplanation", "decision",
         ],
         properties: {
           candidateId: { type: "STRING" }, term: { type: "STRING" }, baseForm: { type: "STRING" },
-          itemType: { type: "STRING" }, contextualMeaning: { type: "STRING" }, domainKey: { type: "STRING" },
+          itemType: { type: "STRING" }, contextualMeaning: { type: "STRING" }, senseKey: { type: "STRING" }, domainKey: { type: "STRING" },
           usageGroupKey: { type: "STRING" }, categoryKey: { type: "STRING" }, taxonomyConfidence: { type: "STRING" },
           taxonomyReason: { type: "STRING" }, cefrLevel: { type: "STRING" }, usageFrequency: { type: "STRING" },
           fluencyValue: { type: "STRING" }, sourceSentence: { type: "STRING" }, senseExplanation: { type: "STRING" },
@@ -62,6 +67,7 @@ interface RawCandidate {
   baseForm: string;
   itemType: string;
   contextualMeaning: string;
+  senseKey: string;
   categoryKey: string;
   domainKey: string;
   usageGroupKey: string;
@@ -104,6 +110,7 @@ Return ONLY a JSON object: { "candidates": [ ... ] }. Return exactly one result 
   "baseForm": string (dictionary/lemma form),
   "itemType": one of "word" | "phrasal verb" | "idiom" | "collocation" | "fixed phrase" | "conversational pattern",
   "contextualMeaning": string (at least 8 characters, explains the meaning AS USED in this passage),
+  "senseKey": string (stable semantic identity such as "financial-institution"; never derive it from taxonomy),
   "domainKey": string, "usageGroupKey": string, "categoryKey": string (copy one complete hierarchy below exactly),
   "taxonomyConfidence": one of "high" | "medium" | "low",
   "taxonomyReason": string (required when confidence is low),
@@ -179,16 +186,19 @@ export function toManifestCandidate(
   raw: RawCandidate,
   chunkId: string,
   page: number,
+  occurrences: Array<{ page: number; chunkId: string; sentence: string }> = [
+    { page, chunkId, sentence: raw.sourceSentence },
+  ],
 ) {
   const taxonomyPath = taxonomyPathForCategoryKey(raw.categoryKey)!;
   const candidate = {
-    candidateId: `cand-${raw.candidateId.slice(0, 32)}`,
+    candidateId: `cand-${raw.candidateId.slice(0, 32)}-${normalizeSenseKey(raw.senseKey).slice(0, 80)}`,
     term: raw.term,
     baseForm: raw.baseForm || raw.term,
     itemType: raw.itemType as any,
     decision: raw.decision,
     senseDecision: "new_sense" as const,
-    senseKey: `${raw.baseForm || raw.term}:${raw.categoryKey}`.slice(0, 180),
+    senseKey: raw.senseKey,
     cefrLevel: raw.cefrLevel as any,
     usageFrequency: raw.usageFrequency,
     fluencyValue: raw.fluencyValue,
@@ -208,7 +218,7 @@ export function toManifestCandidate(
         ? { reason: raw.taxonomyReason }
         : {}),
     },
-    occurrences: [{ page, chunkId, sentence: raw.sourceSentence }],
+    occurrences,
     ...(raw.decision === "generate"
       ? {}
       : { reason: raw.reason || "Provider-neutral policy excluded this candidate." }),
@@ -225,6 +235,44 @@ export function toManifestCandidate(
     );
   }
   return validation.data;
+}
+
+export function resolveManifestCandidateAgainstExisting(
+  candidate: ReturnType<typeof ManifestCandidateSchema.parse>,
+  existingSenses: ExistingVocabularySense[],
+) {
+  if (candidate.decision !== "generate" || !("senseDecision" in candidate))
+    return candidate;
+
+  const resolution = resolveContextualSense(
+    {
+      term: candidate.term,
+      contextualMeaning: candidate.contextualMeaning,
+      senseKey: candidate.senseKey,
+      declaredDecision: candidate.senseDecision,
+      matchedWordId: candidate.matchedWordId,
+    },
+    existingSenses,
+  );
+
+  if (resolution.decision === "same_sense") {
+    return ManifestCandidateSchema.parse({
+      ...candidate,
+      decision: "existing",
+      senseDecision: "same_sense",
+      matchedWordId: resolution.matchedSense.id,
+      reason: resolution.reason,
+    });
+  }
+  if (resolution.decision === "ambiguous") {
+    return ManifestCandidateSchema.parse({
+      ...candidate,
+      decision: "rejected",
+      senseDecision: "ambiguous",
+      reason: resolution.reason,
+    });
+  }
+  return candidate;
 }
 
 /**
@@ -388,7 +436,20 @@ export function buildManifestDocument(params: {
   contentHash: string;
   totalPages: number;
   candidates: ReturnType<typeof toManifestCandidate>[];
-  chunkIds: string[];
+  pages: Array<{
+    page: number;
+    status: "assessed" | "unreadable";
+    chunkIds: string[];
+    error?: string;
+  }>;
+  chunks: Array<{
+    chunkId: string;
+    pageStart: number;
+    pageEnd: number;
+    status: "assessed" | "unreadable";
+    candidateIds: string[];
+    error?: string;
+  }>;
 }) {
   const validCandidates = params.candidates.filter(
     (c): c is NonNullable<typeof c> => c !== null,
@@ -406,31 +467,19 @@ export function buildManifestDocument(params: {
       type: params.sourceType as any,
       contentHash: params.contentHash,
       totalPages: params.totalPages,
-      totalChunks: params.chunkIds.length,
+      totalChunks: params.chunks.length,
     },
     coverage: {
-      pages: Array.from({ length: params.totalPages }, (_, i) => ({
-        page: i + 1,
-        status: "assessed" as const,
-        chunkIds: params.chunkIds,
-      })),
-      chunks: params.chunkIds.map((chunkId, index) => ({
-        chunkId,
-        pageStart: index + 1,
-        pageEnd: index + 1,
-        status: "assessed" as const,
-        candidateIds: validCandidates
-          .filter((c) => c.occurrences.some((o) => o.chunkId === chunkId))
-          .map((c) => c.candidateId),
-      })),
+      pages: params.pages,
+      chunks: params.chunks,
     },
     candidates: validCandidates,
     counts: {
       totalCandidates: validCandidates.length,
       generate: generateCount,
-      existing: 0,
-      filtered: 0,
-      rejected: 0,
+      existing: validCandidates.filter((c) => c.decision === "existing").length,
+      filtered: validCandidates.filter((c) => c.decision === "filtered").length,
+      rejected: validCandidates.filter((c) => c.decision === "rejected").length,
       heavyUse: validCandidates.filter(
         (c) => "usageFrequency" in c && c.usageFrequency === "heavy",
       ).length,

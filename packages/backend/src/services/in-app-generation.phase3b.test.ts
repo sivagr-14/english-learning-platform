@@ -20,6 +20,7 @@ describe("Gemini Phase 3B contracts", () => {
         baseForm: "obscure",
         itemType: "word",
         contextualMeaning: "difficult to understand in this sentence",
+        senseKey: "phase3b-test-sense",
         categoryKey: "communication.conversation_management.clarifying_meaning",
         domainKey: "communication",
         usageGroupKey: "communication.conversation_management",
