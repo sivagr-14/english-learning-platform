@@ -2,6 +2,7 @@ import { STARTER_SAMPLES } from "../data/starter-samples";
 import { contentPackHash } from "./content-pack-contract";
 import {
   ContentPackService,
+  recoverAutomaticApprovalCandidateIds,
   shouldAutomaticallyApproveManifest,
 } from "./content-pack.service";
 
@@ -393,5 +394,24 @@ describe("automatic content-pack approval recovery", () => {
         true,
       ),
     ).toBe(false);
+  });
+
+
+  it("resumes the durable job ledger after an interrupted automatic approval", () => {
+    expect(
+      recoverAutomaticApprovalCandidateIds(
+        [],
+        ["candidate-001", "candidate-002", "candidate-001"],
+      ),
+    ).toEqual(["candidate-001", "candidate-002"]);
+  });
+
+  it("uses proposed candidates only when no durable job items exist", () => {
+    expect(
+      recoverAutomaticApprovalCandidateIds(
+        ["candidate-003", "candidate-004"],
+        [],
+      ),
+    ).toEqual(["candidate-003", "candidate-004"]);
   });
 });
