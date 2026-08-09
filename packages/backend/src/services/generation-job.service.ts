@@ -1,6 +1,7 @@
 import { Knex } from "knex";
 import { createHash } from "crypto";
 import { importPolicySnapshot } from "../config/import-policy";
+import { GenerationExecutionMode } from "./gemini-batch.service";
 import {
   durableHash,
   manifestIdentity,
@@ -34,6 +35,7 @@ export interface CreateGenerationJobInput {
   sourceContent: string;
   warningBudgetUsd?: number;
   hardBudgetUsd?: number;
+  executionMode?: GenerationExecutionMode;
 }
 
 export interface CreateStagedGenerationJobInput extends Omit<
@@ -115,6 +117,7 @@ export class GenerationJobService {
           policy_snapshot: JSON.stringify(policySnapshot),
           warning_budget_usd: input.warningBudgetUsd ?? Number(process.env.GEMINI_WARNING_BUDGET_USD || 1),
           hard_budget_usd: input.hardBudgetUsd ?? Number(process.env.GEMINI_HARD_BUDGET_USD || 2),
+          execution_mode_requested: input.executionMode ?? "auto",
         })
         .returning("*");
 
@@ -187,6 +190,7 @@ export class GenerationJobService {
           staged_upload_path: input.stagedUploadPath,
           staged_upload_size: input.stagedUploadSize,
           staged_upload_hash: input.sourceHash,
+          execution_mode_requested: input.executionMode ?? "auto",
         })
         .returning("*");
       await trx("generation_job_events").insert({
