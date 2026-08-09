@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "featureId": "fix-chatgpt-content-sync-diagnostics",
-  "title": "Make exact-ref ChatGPT imports claimable by their logical inbox branch",
+  "title": "Make ChatGPT import staging, ownership and cleanup deterministic",
   "implementationPaths": [
     "packages/frontend/app/generate/page.tsx",
     "scripts/control-server.js",
@@ -16,6 +16,6 @@
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
-    "rationale": "This change keeps the exact fetched commit used to read files separate from the logical chatgpt-content-inbox branch used for PostgreSQL claim and resume queries. It also extends the live PostgreSQL smoke through stage, automatic claim, commit and read-back. Vocabulary generation and content-pack contracts are unchanged."
+    "rationale": "This change makes Git synchronization staging-only, keeps account-owned claim/commit/verification in the authenticated backend request, and cleans only the manifest IDs returned by successful PostgreSQL read-back. Vocabulary generation and content-pack contracts are unchanged."
   }
 }
