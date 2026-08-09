@@ -1,16 +1,17 @@
 {
   "schemaVersion": 1,
   "featureId": "fix-chatgpt-content-sync-diagnostics",
-  "title": "Expose actionable ChatGPT content sync failures and reconciliation",
+  "title": "Expose actionable ChatGPT content sync failures, reconciliation and exact-ref discovery",
   "implementationPaths": [
     "packages/frontend/app/generate/page.tsx",
-    "scripts/control-server.js"
+    "scripts/control-server.js",
+    "packages/backend/src/scripts/sync-content-packs.ts"
   ],
   "validationPaths": [
     "scripts/control-server.test.js"
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
-    "rationale": "This change classifies repository and importer failures, rejects ingest errors, and displays processed, PostgreSQL-verified, and cleanup reconciliation; vocabulary assessment, contextual meaning generation, batching, and content-pack contracts are unchanged."
+    "rationale": "This change imports from the exact fetched inbox commit, reports discovered document paths, classifies importer failures, and displays PostgreSQL reconciliation; vocabulary generation and content-pack contracts are unchanged."
   }
 }

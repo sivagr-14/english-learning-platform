@@ -474,11 +474,12 @@ test('ChatGPT content sync fetches only the dedicated inbox ref and runs the imp
       ),
     ),
   );
+  assert.ok(commands.some((command) => command.includes('--force')));
   assert.ok(
     runCalls.some(
       (command) =>
         command.includes('--git-ref') &&
-        command.includes('origin/chatgpt-content-inbox') &&
+        command.includes('a'.repeat(40)) &&
         command.includes('--fetched-commit') &&
         command.includes('a'.repeat(40)),
     ),

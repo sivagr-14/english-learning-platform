@@ -602,6 +602,7 @@ class ControlManager {
       'fetch',
       'origin',
       `refs/heads/${contentInboxBranch}:refs/remotes/origin/${contentInboxBranch}`,
+      '--force',
       '--depth=1',
     ]);
     if (fetched.status !== 0) {
@@ -634,7 +635,7 @@ class ControlManager {
         [
           path.join(repoRoot, 'node_modules', 'ts-node', 'dist', 'bin.js'),
           '--transpile-only', '--project', path.join(backendDirectory, 'tsconfig.json'),
-          syncScript, '--git-ref', contentInboxRef, '--fetched-commit', fetchedCommit,
+          syncScript, '--git-ref', fetchedCommit, '--fetched-commit', fetchedCommit,
         ],
         (output) => this.log(output),
       );
