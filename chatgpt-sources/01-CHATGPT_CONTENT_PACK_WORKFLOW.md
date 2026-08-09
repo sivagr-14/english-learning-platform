@@ -11,8 +11,8 @@ writes database rows.
 2. ChatGPT reads every page and divides the source into traceable chunks.
 3. ChatGPT creates an immutable assessment manifest on the private
    `chatgpt-content-inbox` branch.
-4. The Mac fetches that branch automatically every five minutes. Opening the
-   authenticated **ChatGPT Imports** page also starts synchronization immediately.
+4. The Mac fetches that branch automatically every five minutes. Loading any
+   authenticated app page also starts synchronization immediately.
 5. The backend atomically assigns each unowned manifest to the signed-in local
    account, schedules every eligible candidate and imports every available valid
    batch. No claim or approval action is shown to the learner.
