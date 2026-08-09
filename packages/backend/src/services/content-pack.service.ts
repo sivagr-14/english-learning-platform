@@ -1694,13 +1694,17 @@ export class ContentPackService {
     invalid: number,
   ) {
     if (!row.owner_user_id)
-      return "Claim this manifest to establish account ownership.";
+      return "Waiting for automatic account ownership assignment.";
     if (invalid > 0)
-      return "Fix the reported batch validation errors, then revalidate.";
+      return "Automatic import paused because one or more batch files are invalid.";
     if (received < planned)
-      return `Deliver ${planned - received} missing planned batch(es), then synchronize again.`;
+      return `Waiting for ${planned - received} missing planned batch(es).`;
+    if (row.sync_status === "retry_pending")
+      return "Automatic recovery is pending and retries every five minutes.";
+    if (row.status === "awaiting_approval")
+      return "Automatic recovery will promote this legacy import and commit its validated batches.";
     if (row.status !== "completed")
-      return "Revalidate the import and resolve every attention item.";
+      return "Automatic import is processing; no learner action is required.";
     const verification = readJson<{ verified?: boolean }>(
       row.verification_report,
       {},
