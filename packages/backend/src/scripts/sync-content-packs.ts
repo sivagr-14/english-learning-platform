@@ -66,6 +66,11 @@ async function main() {
   const commitIndex = process.argv.indexOf("--fetched-commit");
   const fetchedCommit =
     commitIndex >= 0 ? process.argv[commitIndex + 1] : undefined;
+  const inboxBranchIndex = process.argv.indexOf("--inbox-branch");
+  const inboxBranch =
+    inboxBranchIndex >= 0
+      ? process.argv[inboxBranchIndex + 1]
+      : gitRef?.replace(/^refs\/remotes\/origin\//, "");
   const directoryIndex = process.argv.indexOf("--directory");
   const directory =
     directoryIndex >= 0
@@ -77,7 +82,9 @@ async function main() {
   const result = await new ContentPackService(database).ingestDocuments(
     documents,
     {
-      inboxBranch: gitRef?.replace(/^refs\/remotes\/origin\//, ""),
+      // gitRef can be an exact commit SHA. Keep that immutable source identity
+      // separate from the logical inbox branch used by processing queries.
+      inboxBranch,
       fetchedCommit,
     },
   );
