@@ -1,8 +1,13 @@
 import {
   buildManifestDocument,
+  normalizeCandidateTaxonomy,
   resolveManifestCandidateAgainstExisting,
 } from "./in-app-generation.service";
 import { ManifestCandidateSchema } from "./content-pack-contract";
+import {
+  TAXONOMY_SPECIFIC_CATEGORIES,
+  taxonomyPathForCategoryKey,
+} from "../data/vocabulary-taxonomy";
 
 function candidate(overrides: Record<string, unknown> = {}) {
   return ManifestCandidateSchema.parse({
@@ -131,3 +136,46 @@ describe("Gemini Phase 1 contract and contextual-sense parity", () => {
     expect(manifest.generationPlan.batches).toEqual([]);
   });
 });
+
+describe("assessment taxonomy normalization", () => {
+  const approvedCategory = TAXONOMY_SPECIFIC_CATEGORIES[0];
+  const approvedPath = taxonomyPathForCategoryKey(approvedCategory.key)!;
+  const assessedCandidate = {
+    candidateId: "0b97d8f29f04140a7692c8e8ea7bf4d0",
+    term: "unpredictable",
+    baseForm: "unpredictable",
+    itemType: "word",
+    contextualMeaning: "likely to change suddenly in a way that cannot be expected",
+    senseKey: "not-reliably-predictable",
+    categoryKey: approvedCategory.key,
+    domainKey: "invented-domain",
+    usageGroupKey: "mismatched-group",
+    taxonomyConfidence: "high" as const,
+    cefrLevel: "B2",
+    usageFrequency: "medium" as const,
+    fluencyValue: "useful" as const,
+    sourceSentence: "The terrain became increasingly unpredictable.",
+    senseExplanation: "The terrain could change unexpectedly.",
+    decision: "generate" as const,
+  };
+
+  it("derives canonical parents from a valid approved leaf", () => {
+    expect(normalizeCandidateTaxonomy(assessedCandidate)).toMatchObject({
+      categoryKey: approvedCategory.key,
+      domainKey: approvedPath.domainKey,
+      usageGroupKey: approvedPath.usageGroupKey,
+    });
+  });
+
+  it("still rejects an invented leaf before manifest persistence", () => {
+    expect(() =>
+      normalizeCandidateTaxonomy({
+        ...assessedCandidate,
+        categoryKey: "invented-category",
+      }),
+    ).toThrow(
+      "Assessment proposed an invented taxonomy category for candidate 0b97d8f29f04140a7692c8e8ea7bf4d0",
+    );
+  });
+});
+
