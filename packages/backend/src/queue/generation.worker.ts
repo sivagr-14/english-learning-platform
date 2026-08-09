@@ -44,6 +44,7 @@ import {
   resolveGenerationExecutionMode,
   submitGeminiBatch,
 } from "../services/gemini-batch.service";
+import { calculateGeminiCost, GEMINI_PRICING_VERSION } from "../services/gemini-cost-optimization.service";
 import {
   pendingPlanMembers,
   reconstructDurableBatches,
@@ -612,6 +613,9 @@ async function handleGeminiBatchGeneration(
         provider: record.provider,
         model: record.provider_model,
         status: "started",
+        execution_mode: "batch",
+        pricing_version: GEMINI_PRICING_VERSION,
+        thinking_tokens: parsed.thinkingTokens,
       }).returning("*");
       await repository.persistValidEntry({
         jobId: job.data.generationJobId,
@@ -620,7 +624,7 @@ async function handleGeminiBatchGeneration(
         entry: parsed.entry,
         inputTokens: parsed.inputTokens,
         outputTokens: parsed.outputTokens,
-        costUsd: (parsed.inputTokens * 0.15 + parsed.outputTokens * 1.25) / 1_000_000,
+        costUsd: calculateGeminiCost(record.provider_model, { inputTokens: parsed.inputTokens, outputTokens: parsed.outputTokens, cachedTokens: parsed.cachedTokens, thinkingTokens: parsed.thinkingTokens }, "batch"),
         cachedTokens: parsed.cachedTokens,
         latencyMs: 0,
         model: record.provider_model,
