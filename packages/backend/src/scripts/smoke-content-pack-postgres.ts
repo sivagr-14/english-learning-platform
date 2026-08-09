@@ -167,6 +167,7 @@ async function main() {
     assert.deepEqual(processed, {
       processed: [manifest.manifestId],
       cleanupEligible: [manifest.manifestId],
+      failures: [],
       blockedByAccount: [],
     });
     await assert.rejects(

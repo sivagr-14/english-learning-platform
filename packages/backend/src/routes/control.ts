@@ -115,11 +115,13 @@ router.post(
         outcome:
           processed.blockedByAccount.length > 0
             ? "blocked_by_account"
-            : processed.processed.length > 0
-              ? "processed"
-              : staged?.documents === 0
-                ? "empty"
-                : "no_eligible_manifest",
+            : processed.failures.length > 0
+              ? "retry_pending"
+              : processed.processed.length > 0
+                ? "processed"
+                : staged?.documents === 0
+                  ? "empty"
+                  : "no_eligible_manifest",
       });
     } catch (error) {
       next(error);

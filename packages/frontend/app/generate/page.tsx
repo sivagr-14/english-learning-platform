@@ -150,6 +150,7 @@ export default function ChatGPTImportsPage() {
       const processed = processResponse.data?.processed || [];
       const verified = processResponse.data?.cleanupEligible || [];
       const blockedByAccount = processResponse.data?.blockedByAccount || [];
+      const failures = processResponse.data?.failures || [];
       const staged = processResponse.data?.staged;
       const outcome = processResponse.data?.outcome;
       const discoveredDocuments =
@@ -157,6 +158,16 @@ export default function ChatGPTImportsPage() {
       if (blockedByAccount.length > 0) {
         throw new Error(
           `The fetched import ${blockedByAccount.join(", ")} is claimed by a different local account. Sign in with the account that originally claimed it; account ownership cannot be reassigned automatically.`,
+        );
+      }
+      if (outcome === "retry_pending") {
+        throw new Error(
+          `Automatic import recovery will retry without intervention: ${failures
+            .map(
+              (failure: { manifestId?: string; message?: string }) =>
+                `${failure.manifestId || "unknown manifest"}: ${failure.message || "reconciliation failed"}`,
+            )
+            .join("; ")}`,
         );
       }
       if (outcome === "no_eligible_manifest") {
@@ -206,9 +217,12 @@ export default function ChatGPTImportsPage() {
                 : "Content-pack files were synchronized, but no new import required processing.",
       );
       await load();
-    } catch (syncError) {
+    } catch (syncError: any) {
       setError(
-        syncError instanceof Error ? syncError.message : "Content sync failed.",
+        syncError?.response?.data?.message ||
+          (syncError instanceof Error
+            ? syncError.message
+            : "Content sync failed."),
       );
     } finally {
       setBusy("");

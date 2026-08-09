@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation";
 import { getApiClient } from "@/lib/api/client";
 import useAuthStore from "@/lib/store/auth";
 
-let automaticContentSyncStarted = false;
+const AUTOMATIC_CONTENT_SYNC_INTERVAL_MS = 5 * 60 * 1000;
+let automaticContentSyncInFlight: Promise<void> | null = null;
 
 async function synchronizeChatGPTContent() {
   const fetched = await fetch("/__control/sync-content", {
@@ -29,6 +30,14 @@ async function synchronizeChatGPTContent() {
   });
 }
 
+function runAutomaticContentSync() {
+  if (automaticContentSyncInFlight) return automaticContentSyncInFlight;
+  automaticContentSyncInFlight = synchronizeChatGPTContent().finally(() => {
+    automaticContentSyncInFlight = null;
+  });
+  return automaticContentSyncInFlight;
+}
+
 export default function AuthenticatedPage({
   children,
 }: {
@@ -50,12 +59,19 @@ export default function AuthenticatedPage({
   }, [isAuthenticated, isHydrated, router]);
 
   useEffect(() => {
-    if (!isHydrated || !isAuthenticated || automaticContentSyncStarted) return;
-    automaticContentSyncStarted = true;
-    void synchronizeChatGPTContent().catch(() => {
-      // The imports page exposes actionable reconciliation. Background sync is
-      // best-effort and must never block the authenticated workspace.
-    });
+    if (!isHydrated || !isAuthenticated) return;
+    const synchronize = () => {
+      void runAutomaticContentSync().catch(() => {
+        // The imports page exposes actionable reconciliation. Background sync is
+        // best-effort and retries automatically without blocking the workspace.
+      });
+    };
+    synchronize();
+    const timer = window.setInterval(
+      synchronize,
+      AUTOMATIC_CONTENT_SYNC_INTERVAL_MS,
+    );
+    return () => window.clearInterval(timer);
   }, [isAuthenticated, isHydrated]);
 
   if (!isHydrated || !isAuthenticated) {
