@@ -219,6 +219,7 @@ export function toManifestCandidate(
     baseForm: raw.baseForm || raw.term,
     itemType: raw.itemType as any,
     decision: raw.decision,
+    ...(raw.decision === "generate" ? { operation: "new" as const } : {}),
     senseDecision: "new_sense" as const,
     senseKey: raw.senseKey,
     cefrLevel: raw.cefrLevel as any,
