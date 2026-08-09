@@ -1,0 +1,592 @@
+{
+  "formatVersion": "chatgpt-vocabulary-manifest-v3",
+  "manifestId": "mist-wilderness-journey-20260809-v1",
+  "createdAt": "2026-08-09T15:30:00.000Z",
+  "source": {
+    "name": "Mist wilderness journey passage",
+    "type": "text",
+    "contentHash": "8950977c5224b4cadefa8c5ec74374c9cd309d78deb12134f85dd57813663b6a",
+    "totalPages": 1,
+    "totalChunks": 1
+  },
+  "coverage": {
+    "pages": [
+      {
+        "page": 1,
+        "status": "assessed",
+        "chunkIds": [
+          "mist-wilderness-journey-p1-c1"
+        ]
+      }
+    ],
+    "chunks": [
+      {
+        "chunkId": "mist-wilderness-journey-p1-c1",
+        "pageStart": 1,
+        "pageEnd": 1,
+        "status": "assessed",
+        "candidateIds": [
+          "cand-01-thick-covering-of-mist",
+          "cand-02-water-droplets-near-ground",
+          "cand-03-remote-untouched-natural-area",
+          "cand-04-physical-features-of-land",
+          "cand-05-growing-degree-over-time",
+          "cand-06-difficult-to-foresee-changes",
+          "cand-07-inclined-ground-likely-to-cause-sliding",
+          "cand-08-sudden-heavy-rain",
+          "cand-09-make-progress-more-difficult",
+          "cand-10-repeatedly-throughout-situation",
+          "cand-11-matching-evidence-or-information",
+          "cand-12-high-frequency-sound",
+          "cand-13-animals-that-hunt-prey",
+          "cand-14-without-interruption",
+          "cand-15-strangely-unsettling-and-mysterious",
+          "cand-16-proper-name-elena"
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "candidateId": "cand-01-thick-covering-of-mist",
+      "term": "dense blanket",
+      "baseForm": "dense blanket",
+      "itemType": "collocation",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "thick-covering-of-mist",
+      "cefrLevel": "B2",
+      "usageFrequency": "medium",
+      "fluencyValue": "useful",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "A thick covering that makes the mist seem to cover everything.",
+      "senseEvidence": {
+        "sentence": "Their journey began under a dense blanket of mist.",
+        "explanation": "The sentence uses “dense blanket” to describe a thick covering that makes the mist seem to cover everything."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "Their journey began under a dense blanket of mist."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-02-water-droplets-near-ground",
+      "term": "mist",
+      "baseForm": "mist",
+      "itemType": "word",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "water-droplets-near-ground",
+      "cefrLevel": "B1",
+      "usageFrequency": "medium",
+      "fluencyValue": "essential",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "A cloud of very small water drops near the ground that reduces visibility.",
+      "senseEvidence": {
+        "sentence": "Their journey began under a dense blanket of mist.",
+        "explanation": "The sentence uses “mist” to describe a cloud of very small water drops near the ground that reduces visibility."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "Their journey began under a dense blanket of mist."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-03-remote-untouched-natural-area",
+      "term": "wilderness",
+      "baseForm": "wilderness",
+      "itemType": "word",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "remote-untouched-natural-area",
+      "cefrLevel": "B2",
+      "usageFrequency": "medium",
+      "fluencyValue": "useful",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "A remote natural area that is largely untouched and not controlled by people.",
+      "senseEvidence": {
+        "sentence": "As they moved deeper into the wilderness, the terrain became increasingly unpredictable.",
+        "explanation": "The sentence uses “wilderness” to describe a remote natural area that is largely untouched and not controlled by people."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "As they moved deeper into the wilderness, the terrain became increasingly unpredictable."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-04-physical-features-of-land",
+      "term": "terrain",
+      "baseForm": "terrain",
+      "itemType": "word",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "physical-features-of-land",
+      "cefrLevel": "B2",
+      "usageFrequency": "medium",
+      "fluencyValue": "useful",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "The physical features and surface conditions of a particular area of land.",
+      "senseEvidence": {
+        "sentence": "As they moved deeper into the wilderness, the terrain became increasingly unpredictable.",
+        "explanation": "The sentence uses “terrain” to describe the physical features and surface conditions of a particular area of land."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "As they moved deeper into the wilderness, the terrain became increasingly unpredictable."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-05-growing-degree-over-time",
+      "term": "increasingly",
+      "baseForm": "increasingly",
+      "itemType": "word",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "growing-degree-over-time",
+      "cefrLevel": "B2",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "To a greater and greater degree as time or a situation progresses.",
+      "senseEvidence": {
+        "sentence": "As they moved deeper into the wilderness, the terrain became increasingly unpredictable.",
+        "explanation": "The sentence uses “increasingly” to describe to a greater and greater degree as time or a situation progresses."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "As they moved deeper into the wilderness, the terrain became increasingly unpredictable."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-06-difficult-to-foresee-changes",
+      "term": "unpredictable",
+      "baseForm": "unpredictable",
+      "itemType": "word",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "difficult-to-foresee-changes",
+      "cefrLevel": "B2",
+      "usageFrequency": "medium",
+      "fluencyValue": "useful",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "Likely to change unexpectedly, making future conditions difficult to know.",
+      "senseEvidence": {
+        "sentence": "As they moved deeper into the wilderness, the terrain became increasingly unpredictable.",
+        "explanation": "The sentence uses “unpredictable” to describe likely to change unexpectedly, making future conditions difficult to know."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "As they moved deeper into the wilderness, the terrain became increasingly unpredictable."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-07-inclined-ground-likely-to-cause-sliding",
+      "term": "slippery slopes",
+      "baseForm": "slippery slope",
+      "itemType": "collocation",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "inclined-ground-likely-to-cause-sliding",
+      "cefrLevel": "B2",
+      "usageFrequency": "medium",
+      "fluencyValue": "useful",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "Inclined areas of ground whose wet or smooth surfaces make people likely to slide.",
+      "senseEvidence": {
+        "sentence": "Slippery slopes and sudden downpours threatened to hinder their progress at every turn.",
+        "explanation": "The sentence uses “slippery slopes” to describe inclined areas of ground whose wet or smooth surfaces make people likely to slide."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "Slippery slopes and sudden downpours threatened to hinder their progress at every turn."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-08-sudden-heavy-rain",
+      "term": "downpours",
+      "baseForm": "downpour",
+      "itemType": "word",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "sudden-heavy-rain",
+      "cefrLevel": "B2",
+      "usageFrequency": "medium",
+      "fluencyValue": "useful",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "Sudden periods of very heavy rain.",
+      "senseEvidence": {
+        "sentence": "Slippery slopes and sudden downpours threatened to hinder their progress at every turn.",
+        "explanation": "The sentence uses “downpours” to describe sudden periods of very heavy rain."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "Slippery slopes and sudden downpours threatened to hinder their progress at every turn."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-09-make-progress-more-difficult",
+      "term": "hinder",
+      "baseForm": "hinder",
+      "itemType": "word",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "make-progress-more-difficult",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "useful",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "To make someone’s progress slower or more difficult without necessarily stopping it.",
+      "senseEvidence": {
+        "sentence": "Slippery slopes and sudden downpours threatened to hinder their progress at every turn.",
+        "explanation": "The sentence uses “hinder” to describe to make someone’s progress slower or more difficult without necessarily stopping it."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "Slippery slopes and sudden downpours threatened to hinder their progress at every turn."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-10-repeatedly-throughout-situation",
+      "term": "at every turn",
+      "baseForm": "at every turn",
+      "itemType": "idiom",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "repeatedly-throughout-situation",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "useful",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "Repeatedly throughout a situation, especially whenever another difficulty or event arises.",
+      "senseEvidence": {
+        "sentence": "Slippery slopes and sudden downpours threatened to hinder their progress at every turn.",
+        "explanation": "The sentence uses “at every turn” to describe repeatedly throughout a situation, especially whenever another difficulty or event arises."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "Slippery slopes and sudden downpours threatened to hinder their progress at every turn."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-11-matching-evidence-or-information",
+      "term": "consistent with",
+      "baseForm": "consistent with",
+      "itemType": "fixed phrase",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "matching-evidence-or-information",
+      "cefrLevel": "B2",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "Matching or agreeing with particular evidence, information, or expectations.",
+      "senseEvidence": {
+        "sentence": "Elena noticed that the local wildlife behaved in a way that was completely consistent with the old diary notes.",
+        "explanation": "The sentence uses “consistent with” to describe matching or agreeing with particular evidence, information, or expectations."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "Elena noticed that the local wildlife behaved in a way that was completely consistent with the old diary notes."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-12-high-frequency-sound",
+      "term": "high-pitched",
+      "baseForm": "high-pitched",
+      "itemType": "word",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "high-frequency-sound",
+      "cefrLevel": "B2",
+      "usageFrequency": "medium",
+      "fluencyValue": "useful",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "Having a sound frequency that is high and often sharp or piercing.",
+      "senseEvidence": {
+        "sentence": "Rare birds emitted high-pitched calls to warn each other of predators, creating a continuous, eerie rhythm.",
+        "explanation": "The sentence uses “high-pitched” to describe having a sound frequency that is high and often sharp or piercing."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "Rare birds emitted high-pitched calls to warn each other of predators, creating a continuous, eerie rhythm."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-13-animals-that-hunt-prey",
+      "term": "predators",
+      "baseForm": "predator",
+      "itemType": "word",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "animals-that-hunt-prey",
+      "cefrLevel": "B2",
+      "usageFrequency": "medium",
+      "fluencyValue": "useful",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "Animals that hunt, kill, and eat other animals.",
+      "senseEvidence": {
+        "sentence": "Rare birds emitted high-pitched calls to warn each other of predators, creating a continuous, eerie rhythm.",
+        "explanation": "The sentence uses “predators” to describe animals that hunt, kill, and eat other animals."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "Rare birds emitted high-pitched calls to warn each other of predators, creating a continuous, eerie rhythm."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-14-without-interruption",
+      "term": "continuous",
+      "baseForm": "continuous",
+      "itemType": "word",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "without-interruption",
+      "cefrLevel": "B2",
+      "usageFrequency": "medium",
+      "fluencyValue": "useful",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "Continuing without a noticeable break or interruption.",
+      "senseEvidence": {
+        "sentence": "Rare birds emitted high-pitched calls to warn each other of predators, creating a continuous, eerie rhythm.",
+        "explanation": "The sentence uses “continuous” to describe continuing without a noticeable break or interruption."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "Rare birds emitted high-pitched calls to warn each other of predators, creating a continuous, eerie rhythm."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-15-strangely-unsettling-and-mysterious",
+      "term": "eerie",
+      "baseForm": "eerie",
+      "itemType": "word",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "strangely-unsettling-and-mysterious",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "useful",
+      "categoryName": "Landscapes and wildlife",
+      "contextualMeaning": "Strangely frightening or unsettling, often because something feels unnatural or mysterious.",
+      "senseEvidence": {
+        "sentence": "Rare birds emitted high-pitched calls to warn each other of predators, creating a continuous, eerie rhythm.",
+        "explanation": "The sentence uses “eerie” to describe strangely frightening or unsettling, often because something feels unnatural or mysterious."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "society_nature",
+        "usageGroupKey": "society_nature.environment_and_weather",
+        "categoryKey": "society_nature.environment_and_weather.landscapes_and_wildlife",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "Rare birds emitted high-pitched calls to warn each other of predators, creating a continuous, eerie rhythm."
+        }
+      ]
+    },
+    {
+      "candidateId": "cand-16-proper-name-elena",
+      "term": "Elena",
+      "baseForm": "Elena",
+      "itemType": "word",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "personal-name-in-story",
+      "contextualMeaning": "The personal name of the researcher in the passage.",
+      "senseEvidence": {
+        "sentence": "Elena noticed that the local wildlife behaved in a way that was completely consistent with the old diary notes.",
+        "explanation": "Elena identifies a specific character rather than a reusable vocabulary sense."
+      },
+      "reason": "Filtered because Elena is a proper name under the automatic import policy.",
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "mist-wilderness-journey-p1-c1",
+          "sentence": "Elena noticed that the local wildlife behaved in a way that was completely consistent with the old diary notes."
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "totalCandidates": 16,
+    "generate": 15,
+    "existing": 0,
+    "filtered": 1,
+    "rejected": 0,
+    "heavyUse": 2,
+    "mediumUse": 13
+  },
+  "generationPlan": {
+    "batchSize": 8,
+    "batches": [
+      {
+        "batchNumber": 1,
+        "candidateIds": [
+          "cand-01-thick-covering-of-mist",
+          "cand-02-water-droplets-near-ground",
+          "cand-03-remote-untouched-natural-area",
+          "cand-04-physical-features-of-land",
+          "cand-05-growing-degree-over-time",
+          "cand-06-difficult-to-foresee-changes",
+          "cand-07-inclined-ground-likely-to-cause-sliding",
+          "cand-08-sudden-heavy-rain"
+        ]
+      },
+      {
+        "batchNumber": 2,
+        "candidateIds": [
+          "cand-09-make-progress-more-difficult",
+          "cand-10-repeatedly-throughout-situation",
+          "cand-11-matching-evidence-or-information",
+          "cand-12-high-frequency-sound",
+          "cand-13-animals-that-hunt-prey",
+          "cand-14-without-interruption",
+          "cand-15-strangely-unsettling-and-mysterious"
+        ]
+      }
+    ]
+  }
+}
