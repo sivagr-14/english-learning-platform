@@ -763,6 +763,24 @@ class ControlManager {
     }
   }
 
+  controlServiceChanged(local, remote) {
+    const result = this.execute('git', [
+      'diff',
+      '--quiet',
+      local,
+      remote,
+      '--',
+      'scripts/control-server.js',
+    ]);
+    if (result.status === 0) return false;
+    if (result.status === 1) return true;
+    throw new Error(
+      `Could not determine whether the control service changed: ${
+        commandOutput(result) || 'git diff failed'
+      }`,
+    );
+  }
+
   async backupDatabase() {
     fs.mkdirSync(backupsDirectory, { recursive: true });
     const stamp = new Date().toISOString().replace(/[:.]/g, '-');
@@ -1001,6 +1019,8 @@ class ControlManager {
       const remote = commandOutput(
         this.execute('git', ['rev-parse', 'origin/main']),
       );
+      const controlServiceChanged =
+        local !== remote && this.controlServiceChanged(local, remote);
 
       this.step('Checking Docker Desktop and PostgreSQL');
       await this.ensureDocker();
@@ -1046,7 +1066,7 @@ class ControlManager {
         await this.wait(250);
       }
 
-      if (local !== remote && this.reloadControl) {
+      if (controlServiceChanged && this.reloadControl) {
         this.step('Reloading the updated control service');
         this.markControlResume(remote);
         await this.reloadControl();
