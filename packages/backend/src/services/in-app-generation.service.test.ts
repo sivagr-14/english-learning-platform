@@ -61,7 +61,7 @@ describe("Gemini Phase 1 contract and contextual-sense parity", () => {
         normalized_term: "bank",
         sense_rank: 1,
         sense_key: "financial-institution",
-        sense_gloss: "an institution that manages money and financial services",
+        sense_gloss: "an institution that manages money in accounts",
       }],
     );
 
