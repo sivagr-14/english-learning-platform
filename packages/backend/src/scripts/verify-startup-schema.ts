@@ -4,7 +4,31 @@ import dotenv from "dotenv";
 
 dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 
-const requiredColumns = ["id", "owner_user_id", "assessment_run_id", "operation_id", "total_items", "completed_items", "failed_items", "manual_review_items"];
+const requiredColumns = [
+  "id",
+  "owner_user_id",
+  "assessment_run_id",
+  "operation_id",
+  "total_items",
+  "completed_items",
+  "failed_items",
+  "manual_review_items",
+];
+
+const requiredJobStatuses = [
+  "queued",
+  "extracting",
+  "assessing",
+  "processing",
+  "generating",
+  "validating",
+  "committed",
+  "completed",
+  "attention_required",
+  "manual_review",
+  "failed",
+  "cancelled",
+];
 
 async function main(): Promise<void> {
   const db = knexFactory({
@@ -28,9 +52,39 @@ async function main(): Promise<void> {
       if (!(await db.schema.hasColumn("generation_jobs", column))) missing.push(column);
     }
     if (missing.length) {
-      throw new Error(`Database ${database} has an incomplete generation_jobs schema; missing: ${missing.join(", ")}`);
+      throw new Error(
+        `Database ${database} has an incomplete generation_jobs schema; missing: ${missing.join(", ")}`,
+      );
     }
-    console.log(JSON.stringify({ database, generationJobsSchema: "ready" }));
+
+    const constraintResult: any = await db.raw(`
+      SELECT pg_get_constraintdef(oid) AS definition
+        FROM pg_constraint
+       WHERE conrelid = 'generation_jobs'::regclass
+         AND conname = 'generation_jobs_status_check'
+    `);
+    const definition = constraintResult.rows[0]?.definition || "";
+    const missingStatuses = requiredJobStatuses.filter(
+      (status) => !definition.includes(`'${status}'`),
+    );
+    if (missingStatuses.length) {
+      throw new Error(
+        `Database ${database} has an outdated generation_jobs status constraint; missing: ${missingStatuses.join(", ")}`,
+      );
+    }
+    if (definition.includes("'approved'")) {
+      throw new Error(
+        `Database ${database} still permits the retired generation job status approved`,
+      );
+    }
+
+    console.log(
+      JSON.stringify({
+        database,
+        generationJobsSchema: "ready",
+        generationJobStatuses: "ready",
+      }),
+    );
   } finally {
     await db.destroy();
   }
