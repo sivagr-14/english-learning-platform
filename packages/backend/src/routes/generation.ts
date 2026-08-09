@@ -24,8 +24,10 @@ import {
   validateUploadMetadata,
 } from "../services/staged-upload.service";
 import { CandidateReviewService } from "../services/candidate-review.service";
-import { GeminiAdapter, OllamaAdapter } from "../services/ai-provider.service";
+import { configFor, GeminiAdapter, OllamaAdapter } from "../services/ai-provider.service";
+import { cancelGeminiBatch, resolveGenerationExecutionMode } from "../services/gemini-batch.service";
 import { providerRolloutConfig } from "../services/provider-rollout.service";
+import { aggregateGeminiUsage, projectFromObservedAttempts } from "../services/gemini-cost-optimization.service";
 
 const router: Router = express.Router();
 const jobService = new GenerationJobService(database);
@@ -109,6 +111,7 @@ const CreateJobSchema = z.object({
   provider: z.enum(["gemini", "ollama"]),
   warningBudgetUsd: z.number().positive().max(100).optional(),
   hardBudgetUsd: z.number().positive().max(100).optional(),
+  executionMode: z.enum(["auto", "standard", "batch"]).default("auto"),
 }).refine(
   (value) => !value.warningBudgetUsd || !value.hardBudgetUsd || value.warningBudgetUsd <= value.hardBudgetUsd,
   { message: "Warning budget cannot exceed hard budget" },
@@ -138,6 +141,7 @@ router.post(
         sourceContent: input.sourceContent,
         warningBudgetUsd: input.warningBudgetUsd,
         hardBudgetUsd: input.hardBudgetUsd,
+        executionMode: input.provider === "ollama" ? "standard" : input.executionMode,
         provider: input.provider,
       });
 
@@ -160,8 +164,7 @@ router.post(
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     let stagedPath: string | undefined;
     try {
-      const requestedProvider = String(req.header("x-ai-provider") || "");
-      const provider = z.enum(["gemini", "ollama"]).parse(requestedProvider);
+      const provider = z.enum(["gemini", "ollama"]).parse(String(req.header("x-ai-provider") || ""));
       if (provider === "gemini" && process.env.GEMINI_ENABLED !== "true")
         return res.status(409).json({ error: "Gemini imports are disabled." });
       if (provider === "ollama" && process.env.OLLAMA_ENABLED !== "true")
@@ -179,6 +182,7 @@ router.post(
         });
       const sourceType = String(req.header("x-source-type") || "");
       const expectedHash = req.header("x-content-sha256") || undefined;
+      const executionMode = z.enum(["auto", "standard", "batch"]).default("auto").parse(req.header("x-execution-mode") || "auto");
       const busboy = Busboy({
         headers: req.headers,
         limits: { files: 1, fileSize: 25 * 1024 * 1024, fields: 0 },
@@ -235,6 +239,7 @@ router.post(
         sourceHash: staged.hash,
         stagedUploadPath: staged.path,
         stagedUploadSize: staged.size,
+        executionMode: provider === "ollama" ? "standard" : executionMode,
         provider,
       });
       if (!isNew) await removeStagedUpload(staged.path);
@@ -260,6 +265,10 @@ router.post(
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
       const id = z.string().uuid().parse(req.params.id);
+      const current = await jobService.get(req.userId as string, id);
+      if (current.provider_batch_id && !["committed", "failed", "cancelled"].includes(current.status)) {
+        await cancelGeminiBatch(configFor("primary"), current.provider_batch_id);
+      }
       const job = await jobService.requestCancellation(
         req.userId as string,
         id,
@@ -469,22 +478,44 @@ router.get(
           ? JSON.parse(job.stage_progress)
           : (job.stage_progress ?? {});
 
-      const candidateCount: number = progress.candidatesFound ?? 0;
-      // Rough estimate: ~3,000 tokens input + 2,000 tokens output per lesson
-      // at Gemini Flash rates ($0.30/$2.50 per 1M tokens).
-      const estimatedInputTokens = candidateCount * 3_000;
-      const estimatedOutputTokens = candidateCount * 2_000;
-      const estimatedCostUsd =
-        (estimatedInputTokens * 0.3 + estimatedOutputTokens * 2.5) / 1_000_000;
+      const candidateCount: number = progress.lessonsTotal ?? progress.candidatesFound ?? 0;
+      const completedCount: number = progress.lessonsGenerated ?? 0;
+      const executionMode = job.execution_mode_resolved || resolveGenerationExecutionMode(job.execution_mode_requested || "auto", candidateCount);
+      const model = job.provider_model || process.env.PRIMARY_AI_MODEL || "gemini-2.5-flash";
+      const rows = await database("generation_attempts")
+        .where({ generation_job_id: id, status: "succeeded" })
+        .select("model", "request_type", "input_tokens", "output_tokens", "cached_tokens", "thinking_tokens", "latency_ms", "cost_usd");
+      const attempts = rows.map((row: any) => ({
+        model: String(row.model || model),
+        requestType: String(row.request_type || "unknown"),
+        inputTokens: Number(row.input_tokens || 0),
+        outputTokens: Number(row.output_tokens || 0),
+        cachedTokens: Number(row.cached_tokens || 0),
+        thinkingTokens: Number(row.thinking_tokens || 0),
+        latencyMs: Number(row.latency_ms || 0),
+        costUsd: Number(row.cost_usd || 0),
+      }));
+      const actual = aggregateGeminiUsage(attempts);
+      const projection = projectFromObservedAttempts(
+        attempts.filter((item) => item.requestType.includes("lesson")),
+        Math.max(0, candidateCount - completedCount),
+        { inputTokens: 3_000, outputTokens: 2_000 },
+        model,
+        executionMode,
+      );
 
       res.json({
         jobId: id,
         status: job.status,
         candidateCount,
-        estimatedInputTokens,
-        estimatedOutputTokens,
-        estimatedCostUsd: Number(estimatedCostUsd.toFixed(4)),
-        model: process.env.PRIMARY_AI_MODEL || "gemini-2.0-flash",
+        completedCount,
+        executionMode,
+        requestedExecutionMode: job.execution_mode_requested || "auto",
+        model,
+        actual,
+        projection,
+        projectedTotalCostUsd: Number((actual.costUsd + projection.estimatedCostUsd).toFixed(6)),
+        batchTurnaroundNotice: executionMode === "batch" ? "Asynchronous processing may take up to 24 hours." : null,
       });
     } catch (error) {
       next(error);
