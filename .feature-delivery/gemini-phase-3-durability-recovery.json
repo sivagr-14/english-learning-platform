@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "featureId": "gemini-phase-3-durability-recovery",
+  "title": "Resume Gemini generation from exact durable boundaries",
+  "implementationPaths": [
+    "packages/backend/src/queue/generation.queue.ts",
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/backend/src/routes/generation.ts",
+    "packages/backend/src/services/generation-recovery.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/generation-recovery.service.test.ts",
+    "packages/backend/src/__tests__/durable-generation-resume.test.ts",
+    "packages/backend/src/__tests__/generation-queue-handoff.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This phase hardens only the in-app Gemini worker recovery lifecycle and does not change ChatGPT content-pack or lesson contracts."
+  }
+}
