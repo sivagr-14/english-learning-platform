@@ -699,3 +699,13 @@ test('restart stops owned web services before running the validated startup flow
   });
   assert.equal(manager.phase, 'ready');
 });
+
+
+test('control server has no reload handoff state', () => {
+  const source = require('node:fs').readFileSync(
+    require.resolve('./control-server'),
+    'utf8',
+  );
+  assert.doesNotMatch(source, /Reloading the updated control service/);
+  assert.doesNotMatch(source, /controlResumePath|reloadControl|markControlResume/);
+});

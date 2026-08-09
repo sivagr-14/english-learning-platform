@@ -1,15 +1,16 @@
 {
   "schemaVersion": 1,
   "featureId": "fast-update-startup",
-  "title": "Complete application updates without a control-service handoff",
+  "title": "Remove stale control-service reload machinery",
   "implementationPaths": [
-    "scripts/control-server.js"
+    "scripts/control-server.js",
+    "scripts/control-server.test.js"
   ],
   "validationPaths": [
     "scripts/control-server.test.js"
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
-    "rationale": "This removes the fragile mid-update controller handoff so the running controller completes migrations, content synchronization, and web-service startup. Content-pack and vocabulary-generation contracts are unchanged."
+    "rationale": "This change removes obsolete local control-process reload and resume state. Content-pack processing, contextual vocabulary generation, validation, delivery, import, and PostgreSQL contracts are unchanged."
   }
 }
