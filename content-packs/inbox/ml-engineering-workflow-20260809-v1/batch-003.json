@@ -1,0 +1,538 @@
+{
+  "formatVersion": "chatgpt-vocabulary-batch-v3",
+  "batchId": "ml-engineering-workflow-20260809-v1-batch-3",
+  "manifestId": "ml-engineering-workflow-20260809-v1",
+  "manifestHash": "845a6c581852694886ed24323c0b7f61771f0339dc5ec9ca879dcbb5ffd077f9",
+  "batchNumber": 3,
+  "createdAt": "2026-08-09T19:31:02.000Z",
+  "entries": [
+    {
+      "candidateId": "mlw-017-feature-extraction",
+      "word": "feature extraction",
+      "pronunciation": "/ˈfiːtʃər ɪkˌstrækʃən/",
+      "wordType": "noun phrase",
+      "englishMeaning": "deriving useful measurable signals from raw data",
+      "tamilMeaning": "மூலத் தரவிலிருந்து பயனுள்ள அம்சங்களைப் பிரித்தெடுத்தல்",
+      "coreIdea": "Feature extraction focuses on deriving useful measurable signals from raw data.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Next step is feature extraction and transformation.",
+          "contextual_meaning": "deriving useful measurable signals from raw data",
+          "simple_explanation": "Here, feature extraction means deriving useful measurable signals from raw data; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use feature extraction when discussing deriving useful measurable signals from raw data.",
+            "Use feature extraction when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use feature extraction as a vague substitute for general model quality.",
+            "Do not use feature extraction when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve feature extraction in a machine-learning system",
+          "common_collocations": [
+            "feature extraction metric",
+            "feature extraction requirement",
+            "feature extraction in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured feature extraction before releasing the model.",
+            "business": "The review explained how feature extraction affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking feature extraction? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved feature extraction, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved feature extraction, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Feature extraction names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect feature extraction with the course example: deriving useful measurable signals from raw data.",
+          "memory_sentence": "The engineers checked feature extraction before they deployed the model.",
+          "recall_question": "What does feature extraction measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates feature extraction: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why feature extraction matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Feature extraction is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving feature extraction alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-018-anonymizing",
+      "word": "anonymizing",
+      "pronunciation": "/əˈnɒnɪmaɪzɪŋ/",
+      "wordType": "verb",
+      "englishMeaning": "removing or changing identifiers so people cannot readily be identified",
+      "tamilMeaning": "அடையாள விவரங்களை மறைத்தல்",
+      "coreIdea": "Anonymizing focuses on removing or changing identifiers so people cannot readily be identified.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "This means we'll be removing or anonymizing personal identifiers when necessary for privacy or legal reasons.",
+          "contextual_meaning": "removing or changing identifiers so people cannot readily be identified",
+          "simple_explanation": "Here, anonymizing means removing or changing identifiers so people cannot readily be identified; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use anonymizing when discussing removing or changing identifiers so people cannot readily be identified.",
+            "Use anonymizing when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use anonymizing as a vague substitute for general model quality.",
+            "Do not use anonymizing when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve anonymizing in a machine-learning system",
+          "common_collocations": [
+            "anonymizing metric",
+            "anonymizing requirement",
+            "anonymizing in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured anonymizing before releasing the model.",
+            "business": "The review explained how anonymizing affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking anonymizing? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved anonymizing, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved anonymizing, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Anonymizing names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect anonymizing with the course example: removing or changing identifiers so people cannot readily be identified.",
+          "memory_sentence": "The engineers checked anonymizing before they deployed the model.",
+          "recall_question": "What does anonymizing measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates anonymizing: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why anonymizing matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Anonymizing is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving anonymizing alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-019-supervised-learning",
+      "word": "supervised learning",
+      "pronunciation": "/ˈsuːpəvaɪzd ˈlɜːnɪŋ/",
+      "wordType": "noun phrase",
+      "englishMeaning": "learning from examples that include inputs and expected outputs",
+      "tamilMeaning": "குறியிடப்பட்ட எடுத்துக்காட்டுகளிலிருந்து கற்றல்",
+      "coreIdea": "Supervised learning focuses on learning from examples that include inputs and expected outputs.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "For supervised learning, where your model learns from examples, you'll need labeled data.",
+          "contextual_meaning": "learning from examples that include inputs and expected outputs",
+          "simple_explanation": "Here, supervised learning means learning from examples that include inputs and expected outputs; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use supervised learning when discussing learning from examples that include inputs and expected outputs.",
+            "Use supervised learning when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use supervised learning as a vague substitute for general model quality.",
+            "Do not use supervised learning when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve supervised learning in a machine-learning system",
+          "common_collocations": [
+            "supervised learning metric",
+            "supervised learning requirement",
+            "supervised learning in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured supervised learning before releasing the model.",
+            "business": "The review explained how supervised learning affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking supervised learning? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved supervised learning, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved supervised learning, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Supervised learning names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect supervised learning with the course example: learning from examples that include inputs and expected outputs.",
+          "memory_sentence": "The engineers checked supervised learning before they deployed the model.",
+          "recall_question": "What does supervised learning measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates supervised learning: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why supervised learning matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Supervised learning is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving supervised learning alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-020-hyperparameters",
+      "word": "hyperparameters",
+      "pronunciation": "/ˌhaɪpəpəˈræmɪtəz/",
+      "wordType": "plural noun",
+      "englishMeaning": "model settings chosen outside training that control algorithm behavior",
+      "tamilMeaning": "பயிற்சிக்கு வெளியே அமைக்கப்படும் மாதிரி கட்டுப்பாடுகள்",
+      "coreIdea": "Hyperparameters focuses on model settings chosen outside training that control algorithm behavior.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "During training, you also tune hyperparameters.",
+          "contextual_meaning": "model settings chosen outside training that control algorithm behavior",
+          "simple_explanation": "Here, hyperparameters means model settings chosen outside training that control algorithm behavior; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use hyperparameters when discussing model settings chosen outside training that control algorithm behavior.",
+            "Use hyperparameters when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use hyperparameters as a vague substitute for general model quality.",
+            "Do not use hyperparameters when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve hyperparameters in a machine-learning system",
+          "common_collocations": [
+            "hyperparameters metric",
+            "hyperparameters requirement",
+            "hyperparameters in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured hyperparameters before releasing the model.",
+            "business": "The review explained how hyperparameters affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking hyperparameters? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved hyperparameters, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved hyperparameters, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Hyperparameters names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect hyperparameters with the course example: model settings chosen outside training that control algorithm behavior.",
+          "memory_sentence": "The engineers checked hyperparameters before they deployed the model.",
+          "recall_question": "What does hyperparameters measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates hyperparameters: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why hyperparameters matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Hyperparameters is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving hyperparameters alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-021-cross-validation",
+      "word": "cross-validation",
+      "pronunciation": "/ˌkrɒs ˌvælɪˈdeɪʃən/",
+      "wordType": "noun",
+      "englishMeaning": "evaluating robustness by training and testing on multiple data subsets",
+      "tamilMeaning": "பல தரவுத் துணைக்குழுக்களில் சோதிக்கும் முறை",
+      "coreIdea": "Cross-validation focuses on evaluating robustness by training and testing on multiple data subsets.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "And then comes cross‑validation.",
+          "contextual_meaning": "evaluating robustness by training and testing on multiple data subsets",
+          "simple_explanation": "Here, cross-validation means evaluating robustness by training and testing on multiple data subsets; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use cross-validation when discussing evaluating robustness by training and testing on multiple data subsets.",
+            "Use cross-validation when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use cross-validation as a vague substitute for general model quality.",
+            "Do not use cross-validation when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve cross-validation in a machine-learning system",
+          "common_collocations": [
+            "cross-validation metric",
+            "cross-validation requirement",
+            "cross-validation in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured cross-validation before releasing the model.",
+            "business": "The review explained how cross-validation affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking cross-validation? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved cross-validation, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved cross-validation, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Cross-validation names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect cross-validation with the course example: evaluating robustness by training and testing on multiple data subsets.",
+          "memory_sentence": "The engineers checked cross-validation before they deployed the model.",
+          "recall_question": "What does cross-validation measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates cross-validation: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why cross-validation matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Cross-validation is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving cross-validation alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-022-overfitting",
+      "word": "overfitting",
+      "pronunciation": "/ˌəʊvəˈfɪtɪŋ/",
+      "wordType": "noun",
+      "englishMeaning": "learning training data too closely and failing on new data",
+      "tamilMeaning": "பயிற்சி தரவை அளவுக்கு மீறி மனப்பாடம் செய்தல்",
+      "coreIdea": "Overfitting focuses on learning training data too closely and failing on new data.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "The goal is to avoid overfitting.",
+          "contextual_meaning": "learning training data too closely and failing on new data",
+          "simple_explanation": "Here, overfitting means learning training data too closely and failing on new data; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use overfitting when discussing learning training data too closely and failing on new data.",
+            "Use overfitting when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use overfitting as a vague substitute for general model quality.",
+            "Do not use overfitting when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve overfitting in a machine-learning system",
+          "common_collocations": [
+            "overfitting metric",
+            "overfitting requirement",
+            "overfitting in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured overfitting before releasing the model.",
+            "business": "The review explained how overfitting affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking overfitting? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved overfitting, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved overfitting, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Overfitting names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect overfitting with the course example: learning training data too closely and failing on new data.",
+          "memory_sentence": "The engineers checked overfitting before they deployed the model.",
+          "recall_question": "What does overfitting measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates overfitting: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why overfitting matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Overfitting is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving overfitting alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-023-underfitting",
+      "word": "underfitting",
+      "pronunciation": "/ˌʌndəˈfɪtɪŋ/",
+      "wordType": "noun",
+      "englishMeaning": "using a model too simple to capture important patterns",
+      "tamilMeaning": "முக்கிய வடிவங்களைப் பிடிக்க முடியாத அளவு குறைவாக கற்றல்",
+      "coreIdea": "Underfitting focuses on using a model too simple to capture important patterns.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "The opposite problem is underfitting.",
+          "contextual_meaning": "using a model too simple to capture important patterns",
+          "simple_explanation": "Here, underfitting means using a model too simple to capture important patterns; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use underfitting when discussing using a model too simple to capture important patterns.",
+            "Use underfitting when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use underfitting as a vague substitute for general model quality.",
+            "Do not use underfitting when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve underfitting in a machine-learning system",
+          "common_collocations": [
+            "underfitting metric",
+            "underfitting requirement",
+            "underfitting in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured underfitting before releasing the model.",
+            "business": "The review explained how underfitting affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking underfitting? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved underfitting, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved underfitting, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Underfitting names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect underfitting with the course example: using a model too simple to capture important patterns.",
+          "memory_sentence": "The engineers checked underfitting before they deployed the model.",
+          "recall_question": "What does underfitting measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates underfitting: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why underfitting matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Underfitting is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving underfitting alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-024-deployment",
+      "word": "deployment",
+      "pronunciation": "/dɪˈplɔɪmənt/",
+      "wordType": "noun",
+      "englishMeaning": "making a trained model available for real use",
+      "tamilMeaning": "பயிற்சியுற்ற மாதிரியை பயன்பாட்டிற்கு கொண்டுவருதல்",
+      "coreIdea": "Deployment focuses on making a trained model available for real use.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Then once it's ready, it's time for the model deployment.",
+          "contextual_meaning": "making a trained model available for real use",
+          "simple_explanation": "Here, deployment means making a trained model available for real use; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use deployment when discussing making a trained model available for real use.",
+            "Use deployment when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use deployment as a vague substitute for general model quality.",
+            "Do not use deployment when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve deployment in a machine-learning system",
+          "common_collocations": [
+            "deployment metric",
+            "deployment requirement",
+            "deployment in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured deployment before releasing the model.",
+            "business": "The review explained how deployment affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking deployment? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved deployment, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved deployment, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Deployment names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect deployment with the course example: making a trained model available for real use.",
+          "memory_sentence": "The engineers checked deployment before they deployed the model.",
+          "recall_question": "What does deployment measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates deployment: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why deployment matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Deployment is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving deployment alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    }
+  ]
+}
