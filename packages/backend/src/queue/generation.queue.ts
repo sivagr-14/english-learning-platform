@@ -21,7 +21,7 @@ export const GENERATION_QUEUE_NAME = "content-generation";
  * commit    -> transactional Postgres write + read-back verification,
  *              reusing ContentPackService's existing commit path
  */
-export type GenerationJobName = "extract" | "assess" | "generate" | "commit";
+export type GenerationJobName = "extract" | "assess" | "generate" | "batch-poll" | "commit";
 
 export interface GenerationJobData {
   generationJobId: string;
