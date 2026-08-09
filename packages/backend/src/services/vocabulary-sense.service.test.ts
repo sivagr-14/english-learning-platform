@@ -72,6 +72,20 @@ describe("vocabulary sense identity", () => {
     ).toMatchObject({ decision: "new_sense", matchedSense: null });
   });
 
+  it("keeps a declared new sense automatic despite moderate wording overlap", () => {
+    expect(
+      resolveContextualSense(
+        {
+          term: "bank",
+          contextualMeaning: "a raised bank of money used as a reserve",
+          senseKey: "reserve-or-stock",
+          declaredDecision: "new_sense",
+        },
+        [financialBank],
+      ),
+    ).toMatchObject({ decision: "new_sense", matchedSense: null });
+  });
+
   it("holds an unsupported same-sense claim instead of guessing", () => {
     expect(
       resolveContextualSense(
