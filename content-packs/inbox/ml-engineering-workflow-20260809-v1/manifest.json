@@ -1,0 +1,1474 @@
+{
+  "formatVersion": "chatgpt-vocabulary-manifest-v3",
+  "manifestId": "ml-engineering-workflow-20260809-v1",
+  "createdAt": "2026-08-09T19:30:00.000Z",
+  "source": {
+    "name": "Machine learning workflow and engineering challenges",
+    "type": "text",
+    "contentHash": "5401c0c2070f154b58e8443b3e7e399c94c20b0a13ea7a81bc09351183305b3e",
+    "totalPages": 1,
+    "totalChunks": 1
+  },
+  "coverage": {
+    "pages": [
+      {
+        "page": 1,
+        "status": "assessed",
+        "chunkIds": [
+          "ml-workflow-complete"
+        ]
+      }
+    ],
+    "chunks": [
+      {
+        "chunkId": "ml-workflow-complete",
+        "pageStart": 1,
+        "pageEnd": 1,
+        "status": "assessed",
+        "candidateIds": [
+          "mlw-001-classification",
+          "mlw-002-regression",
+          "mlw-003-clustering",
+          "mlw-004-accuracy",
+          "mlw-005-precision",
+          "mlw-006-recall",
+          "mlw-007--1-score",
+          "mlw-008-latency",
+          "mlw-009-scalability",
+          "mlw-010-fairness",
+          "mlw-011-explainability",
+          "mlw-012-reliability",
+          "mlw-013-problem-formulation",
+          "mlw-014-data-preparation",
+          "mlw-015-normalization",
+          "mlw-016-encoding",
+          "mlw-017-feature-extraction",
+          "mlw-018-anonymizing",
+          "mlw-019-supervised-learning",
+          "mlw-020-hyperparameters",
+          "mlw-021-cross-validation",
+          "mlw-022-overfitting",
+          "mlw-023-underfitting",
+          "mlw-024-deployment",
+          "mlw-025-real-time-inference",
+          "mlw-026-batch-inference",
+          "mlw-027-observability",
+          "mlw-028-drift",
+          "mlw-029-governance",
+          "mlw-030-reproducibility",
+          "mlw-031-traceability",
+          "mlw-032-feature-engineering",
+          "mlw-033-impute",
+          "mlw-034-standardization",
+          "mlw-035-dimensionality-reduction",
+          "mlw-036-bias",
+          "mlw-037-disparate-impact",
+          "mlw-038-demographic-parity",
+          "mlw-039-concept-drift",
+          "mlw-040-feedback-loop"
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "candidateId": "mlw-001-classification",
+      "term": "classification",
+      "baseForm": "classification",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "classification-ml-context",
+      "cefrLevel": "B2",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the task of assigning an input to a defined class",
+      "senseEvidence": {
+        "sentence": "This is called classification.",
+        "explanation": "The surrounding machine-learning lesson uses classification specifically to mean the task of assigning an input to a defined class."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "This is called classification."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-002-regression",
+      "term": "regression",
+      "baseForm": "regression",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "regression-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the machine-learning task of predicting a numerical value",
+      "senseEvidence": {
+        "sentence": "Predicting a numeric value like this is what we call regression in machine learning.",
+        "explanation": "The surrounding machine-learning lesson uses regression specifically to mean the machine-learning task of predicting a numerical value."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Predicting a numeric value like this is what we call regression in machine learning."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-003-clustering",
+      "term": "clustering",
+      "baseForm": "clustering",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "clustering-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "grouping similar data points without predefined labels",
+      "senseEvidence": {
+        "sentence": "That sounds a bit vague, but you can think of grouping customers into segments based on their behavior, which we call clustering.",
+        "explanation": "The surrounding machine-learning lesson uses clustering specifically to mean grouping similar data points without predefined labels."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "That sounds a bit vague, but you can think of grouping customers into segments based on their behavior, which we call clustering."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-004-accuracy",
+      "term": "accuracy",
+      "baseForm": "accuracy",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "accuracy-ml-context",
+      "cefrLevel": "B2",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the proportion of all predictions that are correct",
+      "senseEvidence": {
+        "sentence": "What is this really about? It's not just about training a model and getting a high accuracy score, though that is part of it, but only that is merely enough for a demo.",
+        "explanation": "The surrounding machine-learning lesson uses accuracy specifically to mean the proportion of all predictions that are correct."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "What is this really about? It's not just about training a model and getting a high accuracy score, though that is part of it, but only that is merely enough for a demo."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-005-precision",
+      "term": "precision",
+      "baseForm": "precision",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "precision-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the proportion of predicted positive cases that are truly positive",
+      "senseEvidence": {
+        "sentence": "But what we really want to know is when the model predicts someone will repay, how often is it right? And that's precision.",
+        "explanation": "The surrounding machine-learning lesson uses precision specifically to mean the proportion of predicted positive cases that are truly positive."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "But what we really want to know is when the model predicts someone will repay, how often is it right? And that's precision."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-006-recall",
+      "term": "recall",
+      "baseForm": "recall",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "recall-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the proportion of actual positive cases the model correctly identifies",
+      "senseEvidence": {
+        "sentence": "Then we want to ask, out of all the people who would actually repay, how many did we correctly identify? And that's recall.",
+        "explanation": "The surrounding machine-learning lesson uses recall specifically to mean the proportion of actual positive cases the model correctly identifies."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Then we want to ask, out of all the people who would actually repay, how many did we correctly identify? And that's recall."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-007--1-score",
+      "term": "F1 score",
+      "baseForm": "F1 score",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "-1-score-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "a single metric that balances precision and recall using their harmonic mean",
+      "senseEvidence": {
+        "sentence": "Both precision and recall are important, but they often trade off against each other, and that's where the F1 score comes in.",
+        "explanation": "The surrounding machine-learning lesson uses F1 score specifically to mean a single metric that balances precision and recall using their harmonic mean."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Both precision and recall are important, but they often trade off against each other, and that's where the F1 score comes in."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-008-latency",
+      "term": "latency",
+      "baseForm": "latency",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "latency-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the delay between a request and the model response",
+      "senseEvidence": {
+        "sentence": "And then there's latency.",
+        "explanation": "The surrounding machine-learning lesson uses latency specifically to mean the delay between a request and the model response."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "And then there's latency."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-009-scalability",
+      "term": "scalability",
+      "baseForm": "scalability",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "scalability-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the ability of a system to handle growth without unacceptable performance loss",
+      "senseEvidence": {
+        "sentence": "Next up is scalability.",
+        "explanation": "The surrounding machine-learning lesson uses scalability specifically to mean the ability of a system to handle growth without unacceptable performance loss."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Next up is scalability."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-010-fairness",
+      "term": "fairness",
+      "baseForm": "fairness",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "fairness-ml-context",
+      "cefrLevel": "B2",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the quality of producing equitable model outcomes across groups",
+      "senseEvidence": {
+        "sentence": "And then we also care about fairness, a hard one to measure and regulate.",
+        "explanation": "The surrounding machine-learning lesson uses fairness specifically to mean the quality of producing equitable model outcomes across groups."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "And then we also care about fairness, a hard one to measure and regulate."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-011-explainability",
+      "term": "explainability",
+      "baseForm": "explainability",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "explainability-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the ability to explain why a model produced a prediction",
+      "senseEvidence": {
+        "sentence": "And then there's explainability.",
+        "explanation": "The surrounding machine-learning lesson uses explainability specifically to mean the ability to explain why a model produced a prediction."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "And then there's explainability."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-012-reliability",
+      "term": "reliability",
+      "baseForm": "reliability",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "reliability-ml-context",
+      "cefrLevel": "B2",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the ability of a system to work consistently and be trusted over time",
+      "senseEvidence": {
+        "sentence": "Can we explain why the model made a certain prediction? And finally, reliability.",
+        "explanation": "The surrounding machine-learning lesson uses reliability specifically to mean the ability of a system to work consistently and be trusted over time."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Can we explain why the model made a certain prediction? And finally, reliability."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-013-problem-formulation",
+      "term": "problem formulation",
+      "baseForm": "problem formulation",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "problem-formulation-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the stage of defining what should be predicted and why it matters",
+      "senseEvidence": {
+        "sentence": "First, there's the problem formulation.",
+        "explanation": "The surrounding machine-learning lesson uses problem formulation specifically to mean the stage of defining what should be predicted and why it matters."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "First, there's the problem formulation."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-014-data-preparation",
+      "term": "data preparation",
+      "baseForm": "data preparation",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "data-preparation-ml-context",
+      "cefrLevel": "B2",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the process of cleaning, transforming, labeling, and splitting data for modeling",
+      "senseEvidence": {
+        "sentence": "What data is available and how can we get it? Once we have the data, it's time for data preparation.",
+        "explanation": "The surrounding machine-learning lesson uses data preparation specifically to mean the process of cleaning, transforming, labeling, and splitting data for modeling."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "What data is available and how can we get it? Once we have the data, it's time for data preparation."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-015-normalization",
+      "term": "normalization",
+      "baseForm": "normalization",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "normalization-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "transforming values into a consistent scale or format",
+      "senseEvidence": {
+        "sentence": "Then we have normalization and encoding.",
+        "explanation": "The surrounding machine-learning lesson uses normalization specifically to mean transforming values into a consistent scale or format."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Then we have normalization and encoding."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-016-encoding",
+      "term": "encoding",
+      "baseForm": "encoding",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "encoding-ml-context",
+      "cefrLevel": "B2",
+      "usageFrequency": "heavy",
+      "fluencyValue": "essential",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "representing categories or information in a numerical form a model can process",
+      "senseEvidence": {
+        "sentence": "Then we have normalization and encoding.",
+        "explanation": "The surrounding machine-learning lesson uses encoding specifically to mean representing categories or information in a numerical form a model can process."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Then we have normalization and encoding."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-017-feature-extraction",
+      "term": "feature extraction",
+      "baseForm": "feature extraction",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "feature-extraction-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "deriving useful measurable signals from raw data",
+      "senseEvidence": {
+        "sentence": "Next step is feature extraction and transformation.",
+        "explanation": "The surrounding machine-learning lesson uses feature extraction specifically to mean deriving useful measurable signals from raw data."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Next step is feature extraction and transformation."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-018-anonymizing",
+      "term": "anonymizing",
+      "baseForm": "anonymizing",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "anonymizing-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "removing or changing identifiers so people cannot readily be identified",
+      "senseEvidence": {
+        "sentence": "This means we'll be removing or anonymizing personal identifiers when necessary for privacy or legal reasons.",
+        "explanation": "The surrounding machine-learning lesson uses anonymizing specifically to mean removing or changing identifiers so people cannot readily be identified."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "This means we'll be removing or anonymizing personal identifiers when necessary for privacy or legal reasons."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-019-supervised-learning",
+      "term": "supervised learning",
+      "baseForm": "supervised learning",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "supervised-learning-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "learning from examples that include inputs and expected outputs",
+      "senseEvidence": {
+        "sentence": "For supervised learning, where your model learns from examples, you'll need labeled data.",
+        "explanation": "The surrounding machine-learning lesson uses supervised learning specifically to mean learning from examples that include inputs and expected outputs."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "For supervised learning, where your model learns from examples, you'll need labeled data."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-020-hyperparameters",
+      "term": "hyperparameters",
+      "baseForm": "hyperparameters",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "hyperparameters-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "model settings chosen outside training that control algorithm behavior",
+      "senseEvidence": {
+        "sentence": "During training, you also tune hyperparameters.",
+        "explanation": "The surrounding machine-learning lesson uses hyperparameters specifically to mean model settings chosen outside training that control algorithm behavior."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "During training, you also tune hyperparameters."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-021-cross-validation",
+      "term": "cross-validation",
+      "baseForm": "cross-validation",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "cross-validation-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "evaluating robustness by training and testing on multiple data subsets",
+      "senseEvidence": {
+        "sentence": "And then comes cross‑validation.",
+        "explanation": "The surrounding machine-learning lesson uses cross-validation specifically to mean evaluating robustness by training and testing on multiple data subsets."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "And then comes cross‑validation."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-022-overfitting",
+      "term": "overfitting",
+      "baseForm": "overfitting",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "overfitting-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "learning training data too closely and failing on new data",
+      "senseEvidence": {
+        "sentence": "The goal is to avoid overfitting.",
+        "explanation": "The surrounding machine-learning lesson uses overfitting specifically to mean learning training data too closely and failing on new data."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "The goal is to avoid overfitting."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-023-underfitting",
+      "term": "underfitting",
+      "baseForm": "underfitting",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "underfitting-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "using a model too simple to capture important patterns",
+      "senseEvidence": {
+        "sentence": "The opposite problem is underfitting.",
+        "explanation": "The surrounding machine-learning lesson uses underfitting specifically to mean using a model too simple to capture important patterns."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "The opposite problem is underfitting."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-024-deployment",
+      "term": "deployment",
+      "baseForm": "deployment",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "deployment-ml-context",
+      "cefrLevel": "B2",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "making a trained model available for real use",
+      "senseEvidence": {
+        "sentence": "Then once it's ready, it's time for the model deployment.",
+        "explanation": "The surrounding machine-learning lesson uses deployment specifically to mean making a trained model available for real use."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Then once it's ready, it's time for the model deployment."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-025-real-time-inference",
+      "term": "real-time inference",
+      "baseForm": "real-time inference",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "real-time-inference-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "generating a prediction immediately when an input arrives",
+      "senseEvidence": {
+        "sentence": "This enables a deployment mode that we call real‑time inference.",
+        "explanation": "The surrounding machine-learning lesson uses real-time inference specifically to mean generating a prediction immediately when an input arrives."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "This enables a deployment mode that we call real‑time inference."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-026-batch-inference",
+      "term": "batch inference",
+      "baseForm": "batch inference",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "batch-inference-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "running predictions periodically on many inputs together",
+      "senseEvidence": {
+        "sentence": "Another deployment mode is batch inference.",
+        "explanation": "The surrounding machine-learning lesson uses batch inference specifically to mean running predictions periodically on many inputs together."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Another deployment mode is batch inference."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-027-observability",
+      "term": "observability",
+      "baseForm": "observability",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "observability-ml-context",
+      "cefrLevel": "C2",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the ability to understand a live system through logs, metrics, and traces",
+      "senseEvidence": {
+        "sentence": "Once the model is live, it's important to set up the infrastructure for logging and observability.",
+        "explanation": "The surrounding machine-learning lesson uses observability specifically to mean the ability to understand a live system through logs, metrics, and traces."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Once the model is live, it's important to set up the infrastructure for logging and observability."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-028-drift",
+      "term": "drift",
+      "baseForm": "drift",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "drift-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "a change over time in data or in the relationship a model has learned",
+      "senseEvidence": {
+        "sentence": "Now that it's live, we need to monitor and maintain it, and this means we'll be tracking the performance, detecting drift, and updating the model if needed.",
+        "explanation": "The surrounding machine-learning lesson uses drift specifically to mean a change over time in data or in the relationship a model has learned."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Now that it's live, we need to monitor and maintain it, and this means we'll be tracking the performance, detecting drift, and updating the model if needed."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-029-governance",
+      "term": "governance",
+      "baseForm": "governance",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "governance-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the rules and oversight used to control models, data, and decisions",
+      "senseEvidence": {
+        "sentence": "And lastly, there's governance and reproducibility.",
+        "explanation": "The surrounding machine-learning lesson uses governance specifically to mean the rules and oversight used to control models, data, and decisions."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "And lastly, there's governance and reproducibility."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-030-reproducibility",
+      "term": "reproducibility",
+      "baseForm": "reproducibility",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "reproducibility-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the ability to recreate the same model result from recorded inputs and settings",
+      "senseEvidence": {
+        "sentence": "And lastly, there's governance and reproducibility.",
+        "explanation": "The surrounding machine-learning lesson uses reproducibility specifically to mean the ability to recreate the same model result from recorded inputs and settings."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "And lastly, there's governance and reproducibility."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-031-traceability",
+      "term": "traceability",
+      "baseForm": "traceability",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "traceability-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "the ability to follow the history of data, code, experiments, and deployments",
+      "senseEvidence": {
+        "sentence": "Their training pipelines include steps to tag and store each experiment, attach metadata to each deployment, and that way, no matter how many clients or models they manage, they always have traceability.",
+        "explanation": "The surrounding machine-learning lesson uses traceability specifically to mean the ability to follow the history of data, code, experiments, and deployments."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Their training pipelines include steps to tag and store each experiment, attach metadata to each deployment, and that way, no matter how many clients or models they manage, they always have traceability."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-032-feature-engineering",
+      "term": "feature engineering",
+      "baseForm": "feature engineering",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "feature-engineering-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "creating or transforming input variables to improve model learning",
+      "senseEvidence": {
+        "sentence": "Before we dive into the specific challenges of fairness, explainability, feature engineering, or model degradation, it's important to keep in mind what businesses actually expect from a production‑grade machine learning system.",
+        "explanation": "The surrounding machine-learning lesson uses feature engineering specifically to mean creating or transforming input variables to improve model learning."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Before we dive into the specific challenges of fairness, explainability, feature engineering, or model degradation, it's important to keep in mind what businesses actually expect from a production‑grade machine learning system."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-033-impute",
+      "term": "impute",
+      "baseForm": "impute",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "impute-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "to replace a missing value with an estimated value",
+      "senseEvidence": {
+        "sentence": "We can remove incomplete entries or impute them.",
+        "explanation": "The surrounding machine-learning lesson uses impute specifically to mean to replace a missing value with an estimated value."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "We can remove incomplete entries or impute them."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-034-standardization",
+      "term": "standardization",
+      "baseForm": "standardization",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "standardization-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "scaling numerical data around a mean with a standard spread",
+      "senseEvidence": {
+        "sentence": "Two common techniques are min‑max scaling, which brings values into a fixed range, like 0 to 1, and standardization, which centers data around the mean with unit variance.",
+        "explanation": "The surrounding machine-learning lesson uses standardization specifically to mean scaling numerical data around a mean with a standard spread."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Two common techniques are min‑max scaling, which brings values into a fixed range, like 0 to 1, and standardization, which centers data around the mean with unit variance."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-035-dimensionality-reduction",
+      "term": "dimensionality reduction",
+      "baseForm": "dimensionality reduction",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "dimensionality-reduction-ml-context",
+      "cefrLevel": "C2",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "reducing the number of input features while retaining important information",
+      "senseEvidence": {
+        "sentence": "And finally, we have dimensionality reduction.",
+        "explanation": "The surrounding machine-learning lesson uses dimensionality reduction specifically to mean reducing the number of input features while retaining important information."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "And finally, we have dimensionality reduction."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-036-bias",
+      "term": "bias",
+      "baseForm": "bias",
+      "itemType": "word",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "bias-ml-context",
+      "cefrLevel": "B2",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "a systematic tendency to produce unfair outcomes for certain groups",
+      "senseEvidence": {
+        "sentence": "They also monitor fairness metrics across demographics to make sure the model isn't biased toward or against particular groups.",
+        "explanation": "The surrounding machine-learning lesson uses bias specifically to mean a systematic tendency to produce unfair outcomes for certain groups."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "They also monitor fairness metrics across demographics to make sure the model isn't biased toward or against particular groups."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-037-disparate-impact",
+      "term": "disparate impact",
+      "baseForm": "disparate impact",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "disparate-impact-ml-context",
+      "cefrLevel": "C2",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "a pattern in which one group consistently receives worse outcomes",
+      "senseEvidence": {
+        "sentence": "We can have the disparate impact, which means one group consistently receives worse predictions or outcomes.",
+        "explanation": "The surrounding machine-learning lesson uses disparate impact specifically to mean a pattern in which one group consistently receives worse outcomes."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "We can have the disparate impact, which means one group consistently receives worse predictions or outcomes."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-038-demographic-parity",
+      "term": "demographic parity",
+      "baseForm": "demographic parity",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "demographic-parity-ml-context",
+      "cefrLevel": "C2",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "a fairness condition where positive prediction rates are similar across groups",
+      "senseEvidence": {
+        "sentence": "To address bias, teams use fairness metrics, like demographic parity.",
+        "explanation": "The surrounding machine-learning lesson uses demographic parity specifically to mean a fairness condition where positive prediction rates are similar across groups."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "To address bias, teams use fairness metrics, like demographic parity."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-039-concept-drift",
+      "term": "concept drift",
+      "baseForm": "concept drift",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "concept-drift-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "a change in the relationship between model inputs and expected outputs",
+      "senseEvidence": {
+        "sentence": "Concept drift, checking if the underlying relationship between input and output has changed.",
+        "explanation": "The surrounding machine-learning lesson uses concept drift specifically to mean a change in the relationship between model inputs and expected outputs."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "Concept drift, checking if the underlying relationship between input and output has changed."
+        }
+      ]
+    },
+    {
+      "candidateId": "mlw-040-feedback-loop",
+      "term": "feedback loop",
+      "baseForm": "feedback loop",
+      "itemType": "collocation",
+      "decision": "generate",
+      "operation": "new",
+      "senseDecision": "new_sense",
+      "senseKey": "feedback-loop-ml-context",
+      "cefrLevel": "C1",
+      "usageFrequency": "medium",
+      "fluencyValue": "specialized",
+      "categoryName": "Apps and features",
+      "contextualMeaning": "a cycle that feeds observed outcomes back into model improvement",
+      "senseEvidence": {
+        "sentence": "In some cases, this leads to a feedback loop that even largens the bias.",
+        "explanation": "The surrounding machine-learning lesson uses feedback loop specifically to mean a cycle that feeds observed outcomes back into model improvement."
+      },
+      "taxonomy": {
+        "taxonomyVersion": "2026.1",
+        "domainKey": "technology_media",
+        "usageGroupKey": "technology_media.software_and_data",
+        "categoryKey": "technology_media.software_and_data.apps_and_features",
+        "confidence": "high"
+      },
+      "occurrences": [
+        {
+          "page": 1,
+          "chunkId": "ml-workflow-complete",
+          "sentence": "In some cases, this leads to a feedback loop that even largens the bias."
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "totalCandidates": 40,
+    "generate": 40,
+    "existing": 0,
+    "filtered": 0,
+    "rejected": 0,
+    "heavyUse": 16,
+    "mediumUse": 24
+  },
+  "generationPlan": {
+    "batchSize": 8,
+    "batches": [
+      {
+        "batchNumber": 1,
+        "candidateIds": [
+          "mlw-001-classification",
+          "mlw-002-regression",
+          "mlw-003-clustering",
+          "mlw-004-accuracy",
+          "mlw-005-precision",
+          "mlw-006-recall",
+          "mlw-007--1-score",
+          "mlw-008-latency"
+        ]
+      },
+      {
+        "batchNumber": 2,
+        "candidateIds": [
+          "mlw-009-scalability",
+          "mlw-010-fairness",
+          "mlw-011-explainability",
+          "mlw-012-reliability",
+          "mlw-013-problem-formulation",
+          "mlw-014-data-preparation",
+          "mlw-015-normalization",
+          "mlw-016-encoding"
+        ]
+      },
+      {
+        "batchNumber": 3,
+        "candidateIds": [
+          "mlw-017-feature-extraction",
+          "mlw-018-anonymizing",
+          "mlw-019-supervised-learning",
+          "mlw-020-hyperparameters",
+          "mlw-021-cross-validation",
+          "mlw-022-overfitting",
+          "mlw-023-underfitting",
+          "mlw-024-deployment"
+        ]
+      },
+      {
+        "batchNumber": 4,
+        "candidateIds": [
+          "mlw-025-real-time-inference",
+          "mlw-026-batch-inference",
+          "mlw-027-observability",
+          "mlw-028-drift",
+          "mlw-029-governance",
+          "mlw-030-reproducibility",
+          "mlw-031-traceability",
+          "mlw-032-feature-engineering"
+        ]
+      },
+      {
+        "batchNumber": 5,
+        "candidateIds": [
+          "mlw-033-impute",
+          "mlw-034-standardization",
+          "mlw-035-dimensionality-reduction",
+          "mlw-036-bias",
+          "mlw-037-disparate-impact",
+          "mlw-038-demographic-parity",
+          "mlw-039-concept-drift",
+          "mlw-040-feedback-loop"
+        ]
+      }
+    ]
+  }
+}
