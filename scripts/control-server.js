@@ -3,6 +3,7 @@
 const crypto = require('crypto');
 const fs = require('fs');
 const http = require('http');
+const os = require('os');
 const path = require('path');
 const { spawn, spawnSync } = require('child_process');
 
