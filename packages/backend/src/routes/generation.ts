@@ -27,6 +27,7 @@ import { CandidateReviewService } from "../services/candidate-review.service";
 import { configFor, GeminiAdapter } from "../services/ai-provider.service";
 import { cancelGeminiBatch, resolveGenerationExecutionMode } from "../services/gemini-batch.service";
 import { providerRolloutConfig } from "../services/provider-rollout.service";
+import { aggregateGeminiUsage, projectFromObservedAttempts } from "../services/gemini-cost-optimization.service";
 
 const router: Router = express.Router();
 const jobService = new GenerationJobService(database);
@@ -460,26 +461,43 @@ router.get(
           ? JSON.parse(job.stage_progress)
           : (job.stage_progress ?? {});
 
-      const candidateCount: number = progress.candidatesFound ?? 0;
-      // Rough estimate: ~3,000 tokens input + 2,000 tokens output per lesson
-      // at Gemini Flash rates ($0.30/$2.50 per 1M tokens).
-      const estimatedInputTokens = candidateCount * 3_000;
-      const estimatedOutputTokens = candidateCount * 2_000;
+      const candidateCount: number = progress.lessonsTotal ?? progress.candidatesFound ?? 0;
+      const completedCount: number = progress.lessonsGenerated ?? 0;
       const executionMode = job.execution_mode_resolved || resolveGenerationExecutionMode(job.execution_mode_requested || "auto", candidateCount);
-      const discount = executionMode === "batch" ? 0.5 : 1;
-      const estimatedCostUsd =
-        ((estimatedInputTokens * 0.3 + estimatedOutputTokens * 2.5) / 1_000_000) * discount;
+      const model = job.provider_model || process.env.PRIMARY_AI_MODEL || "gemini-2.5-flash";
+      const rows = await database("generation_attempts")
+        .where({ generation_job_id: id, status: "succeeded" })
+        .select("model", "request_type", "input_tokens", "output_tokens", "cached_tokens", "thinking_tokens", "latency_ms", "cost_usd");
+      const attempts = rows.map((row: any) => ({
+        model: String(row.model || model),
+        requestType: String(row.request_type || "unknown"),
+        inputTokens: Number(row.input_tokens || 0),
+        outputTokens: Number(row.output_tokens || 0),
+        cachedTokens: Number(row.cached_tokens || 0),
+        thinkingTokens: Number(row.thinking_tokens || 0),
+        latencyMs: Number(row.latency_ms || 0),
+        costUsd: Number(row.cost_usd || 0),
+      }));
+      const actual = aggregateGeminiUsage(attempts);
+      const projection = projectFromObservedAttempts(
+        attempts.filter((item) => item.requestType.includes("lesson")),
+        Math.max(0, candidateCount - completedCount),
+        { inputTokens: 3_000, outputTokens: 2_000 },
+        model,
+        executionMode,
+      );
 
       res.json({
         jobId: id,
         status: job.status,
         candidateCount,
+        completedCount,
         executionMode,
         requestedExecutionMode: job.execution_mode_requested || "auto",
-        estimatedInputTokens,
-        estimatedOutputTokens,
-        estimatedCostUsd: Number(estimatedCostUsd.toFixed(4)),
-        model: process.env.PRIMARY_AI_MODEL || "gemini-2.5-flash",
+        model,
+        actual,
+        projection,
+        projectedTotalCostUsd: Number((actual.costUsd + projection.estimatedCostUsd).toFixed(6)),
         batchTurnaroundNotice: executionMode === "batch" ? "Asynchronous processing may take up to 24 hours." : null,
       });
     } catch (error) {
