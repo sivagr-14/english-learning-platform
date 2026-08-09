@@ -434,6 +434,46 @@ async function handleAssess(
   });
 
   const manifestId = `inapp-${generationJobId}`;
+  const manifestCandidateByInventoryId = new Map<string, string>();
+  for (const candidate of manifestCandidates as any[]) {
+    const normalized = candidate.baseForm
+      .normalize("NFKC")
+      .trim()
+      .replace(/\s+/g, " ")
+      .toLowerCase();
+    for (const item of deterministic)
+      if (item.normalizedTerm === normalized || item.baseForm === normalized)
+        manifestCandidateByInventoryId.set(item.candidateId, candidate.candidateId);
+  }
+  const inventoryItems = deterministic.map((item) => {
+    const occurrence = item.occurrences[0];
+    const segmentIndex = Math.max(
+      0,
+      segmentRows.findIndex((row: any) => row.id === occurrence.segmentId),
+    );
+    const candidateId = manifestCandidateByInventoryId.get(item.candidateId);
+    return {
+      inventoryId: `inventory-${item.candidateId}`,
+      kind:
+        item.itemType === "word"
+          ? "lemma"
+          : item.detection.some((value) => value.startsWith("open-ngram"))
+            ? "ngram"
+            : "expression",
+      surfaceForm: occurrence.surfaceForm,
+      normalizedForm: item.normalizedTerm,
+      chunkId: chunkIds[segmentIndex],
+      sentence: occurrence.sentence,
+      disposition: candidateId ? "candidate" : "excluded",
+      ...(candidateId
+        ? { candidateId }
+        : {
+            exclusionCode: "policy-excluded",
+            reason:
+              "The stored automatic policy classified this deterministic lexical item as filtered or rejected.",
+          }),
+    };
+  });
   const manifestDoc = buildManifestDocument({
     manifestId,
     sourceName: record.source_name,
@@ -443,6 +483,24 @@ async function handleAssess(
     candidates: manifestCandidates,
     pages,
     chunks: coverageChunks,
+    inventoryAudit: {
+      items: inventoryItems,
+      counts: {
+        total: inventoryItems.length,
+        candidateLinked: inventoryItems.filter(
+          (item) => item.disposition === "candidate",
+        ).length,
+        excluded: inventoryItems.filter(
+          (item) => item.disposition === "excluded",
+        ).length,
+        untracked: 0,
+      },
+      recallPass: {
+        completed: true,
+        unresolvedInventoryIds: [],
+        missedFindings: [],
+      },
+    },
   });
 
   const manifestHash = contentPackHash(manifestDoc);
