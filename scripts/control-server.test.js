@@ -289,6 +289,48 @@ test('failed update identifies its exact stage and gives non-destructive recover
   assert.match(manager.recovery, /No destructive rollback.*Durable queued\/active jobs/s);
 });
 
+test('code update reloads control before running newly updated scripts', async () => {
+  const runCalls = [];
+  let reloaded = 0;
+  const manager = new ControlManager({
+    execute: (_command, args) => {
+      if (args[0] === 'rev-parse' && args[1] === 'HEAD') {
+        return { status: 0, stdout: 'a'.repeat(40), stderr: '' };
+      }
+      if (args[0] === 'rev-parse' && args[1] === 'origin/main') {
+        return { status: 0, stdout: 'b'.repeat(40), stderr: '' };
+      }
+      return { status: 0, stdout: '', stderr: '' };
+    },
+    runAsync: async (command, args) => {
+      runCalls.push([command, ...args]);
+      return '';
+    },
+    reloadControl: async () => { reloaded += 1; },
+    markControlResume: () => {},
+    wait: async () => {},
+  });
+  manager.verifyUpdateWorkspace = () => {};
+  manager.ensureDocker = async () => {};
+  manager.startInfrastructure = async () => {};
+  manager.backupDatabase = async () => {};
+  manager.installDependencies = async () => {};
+  manager.backendReady = async () => false;
+  manager.frontendReady = async () => false;
+  manager.migrate = async () => {
+    throw new Error('old controller must not run new migrations');
+  };
+  manager.synchronizeChatGPTContent = async () => {
+    throw new Error('old controller must not run the new sync script');
+  };
+
+  await manager.runUpdateAndRestart();
+
+  assert.equal(reloaded, 1);
+  assert.ok(runCalls.some((call) => call.includes('--ff-only')));
+  assert.match(manager.currentStep, /Reloading the updated control service/);
+});
+
 test('web services start from their own workspaces and preserve clean-exit diagnostics', async () => {
   const launches = [];
   const spawnChild = (command, args, options) => {
