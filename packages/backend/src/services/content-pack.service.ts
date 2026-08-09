@@ -61,6 +61,19 @@ export function shouldAutomaticallyApproveManifest(
   );
 }
 
+export function recoverAutomaticApprovalCandidateIds(
+  proposedCandidateIds: string[],
+  existingJobCandidateIds: string[],
+): string[] {
+  return [
+    ...new Set(
+      existingJobCandidateIds.length
+        ? existingJobCandidateIds
+        : proposedCandidateIds,
+    ),
+  ];
+}
+
 function statusError(
   message: string,
   status = 400,
@@ -358,25 +371,55 @@ export class ContentPackService {
       .select("id", "owner_user_id", "status");
     const processed: string[] = [];
     const cleanupEligible: string[] = [];
+    const failures: Array<{
+      manifestId: string;
+      message: string;
+      retryable: boolean;
+    }> = [];
     for (const row of rows) {
-      if (!row.owner_user_id) {
-        await this.claimManifest(userId, row.id);
-      } else if (shouldAutomaticallyApproveManifest(row)) {
-        // Re-resolve stale attention rows before promoting an import created by
-        // the retired workflow. Stored vocabulary may prove that a staged
-        // "new" candidate is actually an already-complete contextual sense.
-        await this.reconcileLegacySenseAttention(userId, row.id);
-        await this.approveManifest(userId, row.id);
-      } else {
-        await this.commitAvailableBatches(userId, row.id);
+      try {
+        if (!row.owner_user_id) {
+          await this.claimManifest(userId, row.id);
+        } else if (shouldAutomaticallyApproveManifest(row)) {
+          // Re-resolve stale attention rows before promoting an import created by
+          // the retired workflow. Stored vocabulary may prove that a staged
+          // "new" candidate is actually an already-complete contextual sense.
+          await this.reconcileLegacySenseAttention(userId, row.id);
+          await this.approveManifest(userId, row.id);
+        } else {
+          await this.commitAvailableBatches(userId, row.id);
+        }
+        const verification = await this.verifyManifest(userId, row.id);
+        processed.push(row.id);
+        if (verification.verified) cleanupEligible.push(row.id);
+        await this.database("content_pack_manifests")
+          .where({ id: row.id })
+          .update({
+            sync_status: "synchronized",
+            sync_error: null,
+            updated_at: new Date(),
+          });
+      } catch (error) {
+        const failure = error as Error & { status?: number };
+        const message =
+          failure instanceof Error
+            ? failure.message
+            : "Automatic import reconciliation failed.";
+        const retryable = !failure.status || failure.status >= 500;
+        failures.push({ manifestId: row.id, message, retryable });
+        await this.database("content_pack_manifests")
+          .where({ id: row.id })
+          .update({
+            sync_status: retryable ? "retry_pending" : "attention_required",
+            sync_error: message,
+            updated_at: new Date(),
+          });
       }
-      const verification = await this.verifyManifest(userId, row.id);
-      processed.push(row.id);
-      if (verification.verified) cleanupEligible.push(row.id);
     }
     return {
       processed,
       cleanupEligible,
+      failures,
       blockedByAccount: inaccessible.map((row: any) => row.id),
     };
   }
@@ -867,72 +910,160 @@ export class ContentPackService {
     const row = await this.database("content_pack_manifests")
       .where({ id: manifestId, owner_user_id: userId })
       .first();
-    if (!row) throw statusError("Claim this manifest before approval", 404);
+    if (!row) throw statusError("The automatic import is not owned by this account", 404);
     if (row.status === "attention_required") {
       throw statusError(
-        "Unreadable pages or chunks must be resolved before approval.",
+        "Unreadable pages or chunks must be resolved before automatic import.",
       );
     }
-    const candidates = await this.database("assessment_candidates")
+
+    const proposedCandidates = await this.database("assessment_candidates")
       .where({ assessment_run_id: row.assessment_run_id, status: "proposed" })
+      .whereIn("action", ["new", "update"])
       .modify((builder: any) => {
         if (externalCandidateIds?.length) {
           builder.whereIn("external_candidate_id", externalCandidateIds);
         }
       });
-    if (!candidates.length) {
-      const existingJob = await this.database("generation_jobs")
-        .where({
-          assessment_run_id: row.assessment_run_id,
-          owner_user_id: userId,
-        })
-        .first();
-      if (existingJob) return this.getManifest(userId, manifestId);
-      throw statusError("No new or updated candidates were selected");
+    const proposedIds = proposedCandidates.map((candidate: any) => candidate.id);
+    let job = await this.database("generation_jobs")
+      .where({
+        assessment_run_id: row.assessment_run_id,
+        owner_user_id: userId,
+      })
+      .first();
+
+    if (!job) {
+      if (!proposedCandidates.length) {
+        throw statusError(
+          "Automatic import found no recoverable proposed candidates.",
+        );
+      }
+      const selectedExternalIds = new Set(externalCandidateIds || []);
+      if (
+        externalCandidateIds?.length &&
+        (selectedExternalIds.size !== externalCandidateIds.length ||
+          selectedExternalIds.size !== proposedCandidates.length)
+      ) {
+        throw statusError(
+          "One or more selected candidate IDs are unknown, duplicated or no longer proposed.",
+        );
+      }
+      job = await new AssessmentControlService(
+        this.database,
+      ).approveAssessment(userId, row.assessment_run_id, proposedIds);
     }
-    const selectedIds = candidates.map((candidate: any) => candidate.id);
-    const selectedExternalIds = new Set(externalCandidateIds || []);
-    if (
-      externalCandidateIds?.length &&
-      (selectedExternalIds.size !== externalCandidateIds.length ||
-        selectedExternalIds.size !== candidates.length)
-    ) {
+
+    let jobItems = await this.database("generation_job_items")
+      .where({ generation_job_id: job.id })
+      .select("assessment_candidate_id");
+    if (!jobItems.length) {
+      // A retired or interrupted approval may have committed the job row before
+      // its item ledger was available. Rebuild it from durable candidate state.
+      const recoverableCandidates = await this.database("assessment_candidates")
+        .where({ assessment_run_id: row.assessment_run_id })
+        .whereIn("status", ["approved", "proposed"])
+        .whereIn("action", ["new", "update"])
+        .select("id");
+      if (!recoverableCandidates.length) {
+        throw statusError(
+          "The existing automatic import job has no recoverable candidate ledger.",
+          409,
+        );
+      }
+      await this.database("generation_job_items")
+        .insert(
+          recoverableCandidates.map((candidate: any) => ({
+            generation_job_id: job.id,
+            assessment_candidate_id: candidate.id,
+            status: "pending",
+          })),
+        )
+        .onConflict(["generation_job_id", "assessment_candidate_id"])
+        .ignore();
+      await this.database("generation_jobs").where({ id: job.id }).update({
+        total_items: recoverableCandidates.length,
+        updated_at: new Date(),
+      });
+      jobItems = await this.database("generation_job_items")
+        .where({ generation_job_id: job.id })
+        .select("assessment_candidate_id");
+    }
+
+    const selectedIds = recoverAutomaticApprovalCandidateIds(
+      proposedIds,
+      jobItems.map((item: any) => item.assessment_candidate_id),
+    );
+    if (!selectedIds.length) {
       throw statusError(
-        "One or more selected candidate IDs are unknown, duplicated or no longer proposed.",
+        "The automatic import job contains no candidates to resume.",
+        409,
       );
     }
-    const job = await new AssessmentControlService(
-      this.database,
-    ).approveAssessment(userId, row.assessment_run_id, selectedIds);
-    await this.database("generation_jobs").where({ id: job.id }).update({
-      manifest_id: manifestId,
-      updated_at: new Date(),
+
+    // Heal the first half of an interrupted approval. approveAssessment is
+    // atomic, but metadata recording and manifest promotion historically ran
+    // afterward; a failure there left a durable job behind an approval gate.
+    await this.database.transaction(async (trx: any) => {
+      await trx("assessment_candidates")
+        .where({ assessment_run_id: row.assessment_run_id, status: "proposed" })
+        .whereIn("id", selectedIds)
+        .update({ status: "approved", updated_at: new Date() });
+      await trx("assessment_runs")
+        .where({ id: row.assessment_run_id, owner_user_id: userId })
+        .update({
+          status: "approved",
+          approved_at: row.approved_at || new Date(),
+          updated_at: new Date(),
+        });
+      await trx("generation_jobs").where({ id: job.id }).update({
+        manifest_id: manifestId,
+        total_items: selectedIds.length,
+        updated_at: new Date(),
+      });
     });
-    await new ProviderNeutralJobRepository(this.database).recordManifest(
-      job.id,
-      readJson(row.payload, {}),
-    );
+
+    try {
+      await new ProviderNeutralJobRepository(this.database).recordManifest(
+        job.id,
+        readJson(row.payload, {}),
+      );
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      throw statusError(
+        `Durable import-plan reconciliation failed: ${message}`,
+        500,
+      );
+    }
+
     await this.database.transaction(async (trx: any) => {
       await trx("assessment_candidates")
         .where({ assessment_run_id: row.assessment_run_id, status: "proposed" })
         .whereNotIn("id", selectedIds)
         .update({
           status: "rejected",
-          decision_reason: "Not selected during local approval",
+          decision_reason: "Excluded by the stored automatic import policy",
           updated_at: new Date(),
         });
       await trx("content_pack_manifests").where({ id: manifestId }).update({
         status: "processing",
-        approved_at: new Date(),
+        approved_at: row.approved_at || new Date(),
+        sync_status: "synchronized",
+        sync_error: null,
         updated_at: new Date(),
       });
       await trx("control_audit_events").insert({
         owner_user_id: userId,
-        operation_id: `content-pack:${manifestId}:approve`,
-        event_type: "content_pack.approved",
+        operation_id: `content-pack:${manifestId}:automatic-resume`,
+        event_type: "content_pack.automatically_resumed",
         entity_type: "generation_job",
         entity_id: job.id,
-        details: JSON.stringify({ selectedCount: selectedIds.length }),
+        details: JSON.stringify({
+          selectedCount: selectedIds.length,
+          recoveredExistingJob: Boolean(
+            jobItems.length && proposedCandidates.length === 0,
+          ),
+        }),
       });
     });
     await this.commitAvailableBatches(userId, manifestId);
