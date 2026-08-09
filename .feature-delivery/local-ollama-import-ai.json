@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "featureId": "local-ollama-import-ai",
+  "title": "Add experimental local Ollama generation to Import AI",
+  "implementationPaths": [
+    ".env.example",
+    "packages/backend/src/database/migrations/028_ollama_provider.ts",
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/backend/src/routes/generation.ts",
+    "packages/backend/src/services/ai-provider.service.ts",
+    "packages/backend/src/services/generation-job.service.ts",
+    "packages/backend/src/services/in-app-generation.service.ts",
+    "packages/backend/src/services/provider-neutral-job.repository.ts",
+    "packages/backend/src/services/provider-rollout.service.ts",
+    "packages/frontend/app/import/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/__tests__/ollama-provider-migration.test.ts",
+    "packages/backend/src/services/ollama-provider.service.test.ts",
+    "packages/backend/src/services/provider-contract-parity.test.ts",
+    "packages/backend/src/services/provider-rollout.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "Ollama is an experimental in-app provider that reuses the existing immutable source, contextual-sense, taxonomy, eight-section lesson, validation, transaction, read-back and recovery contracts. It does not change ChatGPT content-pack generation or delivery instructions."
+  }
+}
