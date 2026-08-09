@@ -101,6 +101,7 @@ export default function ImportPage() {
   const [workflow, setWorkflow] = useState<"chatgpt" | "gemini" | "ollama">("chatgpt");
   const [warningBudget, setWarningBudget] = useState("1.00");
   const [hardBudget, setHardBudget] = useState("2.00");
+  const [executionMode, setExecutionMode] = useState<"auto" | "standard" | "batch">("auto");
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const loadJobs = useCallback(async () => {
@@ -168,6 +169,7 @@ export default function ImportPage() {
           headers: {
             "Content-Type": "multipart/form-data",
             "X-Source-Type": sourceType,
+            "X-Execution-Mode": workflow === "ollama" ? "standard" : executionMode,
             "X-AI-Provider": workflow,
           },
         });
@@ -183,6 +185,7 @@ export default function ImportPage() {
         sourceContent,
         warningBudgetUsd: Number(warningBudget),
         hardBudgetUsd: Number(hardBudget),
+        executionMode: workflow === "ollama" ? "standard" : executionMode,
         provider: workflow,
       });
 
@@ -338,6 +341,23 @@ export default function ImportPage() {
                 disabled={Boolean(pastedText.trim())}
               />
             </div>
+            {workflow === "gemini" && <fieldset className="rounded border border-slate-200 p-3 text-sm">
+              <legend className="px-1 font-medium">Execution mode</legend>
+              <div className="mt-2 grid gap-2 md:grid-cols-3">
+                {[
+                  ["auto", "Automatic", "Standard for 1–20 lessons; Batch for 21+."],
+                  ["standard", "Standard API", "Starts immediately at standard price."],
+                  ["batch", "Batch API", "About 50% lower model cost; may take up to 24 hours."],
+                ].map(([value, label, detail]) => (
+                  <label key={value} className="rounded border p-3">
+                    <input type="radio" name="executionMode" value={value} checked={executionMode === value} onChange={() => setExecutionMode(value as "auto" | "standard" | "batch")} />
+                    <span className="ml-2 font-medium">{label}</span>
+                    <span className="mt-1 block text-xs text-slate-600">{detail}</span>
+                  </label>
+                ))}
+              </div>
+              <p className="mt-2 text-xs text-slate-500">The final automatic choice uses only approved new contextual senses requiring lessons.</p>
+            </fieldset>}
             {workflow === "gemini" && <div className="grid grid-cols-2 gap-3 text-sm">
               <label>Warning budget (USD)<input className="mt-1 w-full rounded border p-2" type="number" min="0.01" step="0.01" value={warningBudget} onChange={(e) => setWarningBudget(e.target.value)} /></label>
               <label>Hard budget (USD)<input className="mt-1 w-full rounded border p-2" type="number" min="0.01" step="0.01" value={hardBudget} onChange={(e) => setHardBudget(e.target.value)} /></label>
