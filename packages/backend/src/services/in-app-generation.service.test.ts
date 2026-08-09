@@ -140,6 +140,36 @@ describe("Gemini Phase 1 contract and contextual-sense parity", () => {
           candidateIds: ["cand-bank-financial"],
         },
       ],
+      inventoryAudit: {
+        items: [
+          {
+            inventoryId: "inventory-rare",
+            kind: "token",
+            surfaceForm: "rare",
+            normalizedForm: "rare",
+            chunkId: "chunk-0001",
+            sentence: filtered.occurrences[0].sentence,
+            disposition: "candidate",
+            candidateId: "cand-rare",
+          },
+          {
+            inventoryId: "inventory-bank",
+            kind: "token",
+            surfaceForm: "bank",
+            normalizedForm: "bank",
+            chunkId: "chunk-0002",
+            sentence: existing.occurrences[0].sentence,
+            disposition: "candidate",
+            candidateId: "cand-bank-financial",
+          },
+        ],
+        counts: { total: 2, candidateLinked: 2, excluded: 0, untracked: 0 },
+        recallPass: {
+          completed: true,
+          unresolvedInventoryIds: [],
+          missedFindings: [],
+        },
+      },
     });
 
     expect(manifest.counts).toMatchObject({
@@ -210,4 +240,3 @@ describe("assessment taxonomy normalization", () => {
     );
   });
 });
-
