@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { createHash } from "crypto";
+import { execFileSync } from "child_process";
 import { Knex } from "knex";
 import { AssessmentControlService } from "./assessment-control.service";
 import {
@@ -1496,6 +1497,32 @@ export class ContentPackService {
       await staleErrors.update({ status: "resolved", updated_at: new Date() });
     }
   }
+}
+
+export function loadContentPacksFromGit(
+  ref: string,
+  repoRoot = path.resolve(__dirname, "../../../.."),
+): ContentPackDocument[] {
+  if (!/^[0-9a-f]{40}$/i.test(ref)) {
+    throw statusError("A valid fetched inbox commit is required.");
+  }
+  const output = execFileSync(
+    "git",
+    ["ls-tree", "-r", "--name-only", ref, "content-packs/inbox"],
+    { cwd: repoRoot, encoding: "utf8" },
+  );
+  return output
+    .split(/\r?\n/)
+    .map((item) => item.trim())
+    .filter((item) => item.endsWith(".json"))
+    .map((file) => ({
+      path: file,
+      content: execFileSync("git", ["show", `${ref}:${file}`], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        maxBuffer: 25 * 1024 * 1024,
+      }),
+    }));
 }
 
 export function loadContentPackDocuments(
