@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fix-ollama-assessment-progress",
+  "title": "Bound and report local Ollama vocabulary assessment",
+  "implementationPaths": [
+    ".env.example",
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/backend/src/services/assessment-batching.ts",
+    "packages/backend/src/services/in-app-generation.service.ts",
+    "packages/frontend/app/import/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/assessment-batching.test.ts",
+    "packages/backend/src/services/ollama-provider.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This fix changes only in-app provider request batching, cancellation, timeout and progress reporting. It preserves complete source coverage, stable candidate identities, contextual-sense reconciliation, the eight-section lesson contract, validation, transaction and read-back requirements."
+  }
+}

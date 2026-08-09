@@ -1,5 +1,4 @@
 import { Worker, Job } from "bullmq";
-import pLimit from "p-limit";
 import { createQueueConnection } from "./connection";
 import {
   GENERATION_QUEUE_NAME,
@@ -53,6 +52,10 @@ import {
   GENERATION_WORKER_HEALTH_KEY,
   GENERATION_WORKER_HEALTH_TTL_SECONDS,
 } from "./worker-health";
+import {
+  assessmentBatchConfig,
+  assessmentGroups,
+} from "../services/assessment-batching";
 
 const jobService = new GenerationJobService(database);
 
@@ -248,36 +251,72 @@ async function handleAssess(
     (_, i) => `chunk-${String(i + 1).padStart(4, "0")}`,
   );
 
-  // Cloud calls are bounded to avoid rate limits; local calls are kept
-  // sequential because long Ollama generations compete for the same memory.
-  // A 30-chunk document with Promise.all would fire 30 simultaneous requests.
   const provider = record.provider === "ollama" ? "ollama" : "gemini";
-  const limit = pLimit(provider === "ollama" ? 1 : 5);
-  const rawCandidatesPerChunk = await Promise.all(
-    chunks.map((chunk, index) =>
-      limit(async () => {
-        await assertNotCancelled(generationJobId);
-        const segmentId = segmentRows[index].id;
-        return assessChunk(
-          chunk,
-          chunkIds[index],
-          undefined,
-          deterministic
-            .filter((candidate) =>
-              candidate.occurrences.some(
-                (occurrence) => occurrence.segmentId === segmentId,
-              ),
-            )
-            .map((candidate) => ({
-              candidateId: candidate.candidateId,
-              term: candidate.baseForm,
-              itemType: candidate.itemType,
-            })),
-          provider,
-        );
-      }),
-    ),
+  const { batchSize: assessmentBatchSize, timeoutMs: assessmentTimeoutMs } =
+    assessmentBatchConfig(provider);
+  const candidatesByChunk = segmentRows.map((segment: any) =>
+    deterministic
+      .filter((candidate) =>
+        candidate.occurrences.some(
+          (occurrence) => occurrence.segmentId === segment.id,
+        ),
+      )
+      .map((candidate) => ({
+        candidateId: candidate.candidateId,
+        term: candidate.baseForm,
+        itemType: candidate.itemType,
+      })),
   );
+  const assessmentCandidatesTotal = candidatesByChunk.reduce(
+    (total, candidates) => total + candidates.length,
+    0,
+  );
+  let assessmentCandidatesProcessed = 0;
+  const rawCandidatesPerChunk: Awaited<ReturnType<typeof assessChunk>>[] = [];
+
+  // Assessment is deliberately durable and observable. Ollama handles small
+  // groups sequentially so one large schema-constrained response cannot make
+  // the UI look frozen for several retry windows or exhaust local memory.
+  for (let index = 0; index < chunks.length; index += 1) {
+    const chunkCandidates = candidatesByChunk[index];
+    const chunkResults: Awaited<ReturnType<typeof assessChunk>> = [];
+    for (const group of assessmentGroups(chunkCandidates, assessmentBatchSize)) {
+      await assertNotCancelled(generationJobId);
+      const cancellation = cancellationSignal(generationJobId);
+      try {
+        chunkResults.push(...await assessChunk(
+          chunks[index],
+          chunkIds[index],
+          cancellation.signal,
+          group,
+          provider,
+          assessmentTimeoutMs,
+        ));
+      } finally {
+        cancellation.dispose();
+      }
+      assessmentCandidatesProcessed += group.length;
+      await jobService.updateStatus(generationJobId, "assessing", {
+        stageProgress: {
+          chunksTotal: chunks.length,
+          chunksProcessed: index,
+          assessmentChunk: index + 1,
+          assessmentCandidatesTotal,
+          assessmentCandidatesProcessed,
+        },
+      });
+    }
+    rawCandidatesPerChunk.push(chunkResults);
+    await jobService.updateStatus(generationJobId, "assessing", {
+      stageProgress: {
+        chunksTotal: chunks.length,
+        chunksProcessed: index + 1,
+        assessmentChunk: index + 1,
+        assessmentCandidatesTotal,
+        assessmentCandidatesProcessed,
+      },
+    });
+  }
 
   const segmentLocators = segmentRows.map((row: any, index: number) =>
     readJson(row.locator, {

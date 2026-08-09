@@ -26,6 +26,9 @@ interface GenerationJob {
   stage_progress: {
     chunksTotal?: number;
     chunksProcessed?: number;
+    assessmentChunk?: number;
+    assessmentCandidatesTotal?: number;
+    assessmentCandidatesProcessed?: number;
     candidatesFound?: number;
     lessonsGenerated?: number;
     lessonsFailedValidation?: number;
@@ -427,6 +430,8 @@ function JobRow({
               ? `Writing lessons: ${progress.lessonsGenerated ?? 0} / ${
                   progress.lessonsTotal
                 }`
+              : progress.assessmentCandidatesTotal !== undefined
+                ? `Assessing vocabulary: ${progress.assessmentCandidatesProcessed ?? 0} / ${progress.assessmentCandidatesTotal} candidates · chunk ${progress.assessmentChunk ?? 1} / ${progress.chunksTotal ?? 1}`
               : progress.candidatesFound !== undefined
                 ? `Found ${progress.candidatesFound} candidate words across ${
                     progress.chunksTotal ?? 0
