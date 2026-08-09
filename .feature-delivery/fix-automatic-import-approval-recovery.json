@@ -13,7 +13,8 @@
   "validationPaths": [
     "packages/backend/src/services/content-pack.service.test.ts",
     "packages/backend/src/services/vocabulary-sense.service.test.ts",
-    "packages/backend/src/scripts/smoke-content-pack-postgres.ts"
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts",
+    "packages/backend/src/services/in-app-generation.service.test.ts"
   ],
   "chatgptInstructionImpact": {
     "status": "required",
