@@ -7,7 +7,9 @@
     "packages/backend/src/queue/generation.worker.ts",
     "packages/backend/src/routes/generation.ts",
     "packages/frontend/app/import/page.tsx",
-    "packages/backend/src/database/migrations/029_gemini_batch_execution.ts"
+    "packages/backend/src/database/migrations/029_gemini_batch_execution.ts",
+    "packages/backend/src/queue/generation.queue.ts",
+    "packages/backend/src/services/generation-job.service.ts"
   ],
   "validationPaths": [
     "packages/backend/src/services/gemini-batch.service.test.ts"
