@@ -5,13 +5,16 @@
   "implementationPaths": [
     "packages/frontend/app/generate/page.tsx",
     "scripts/control-server.js",
-    "packages/backend/src/scripts/sync-content-packs.ts"
+    "packages/backend/src/scripts/sync-content-packs.ts",
+    "packages/backend/src/services/content-pack.service.ts"
   ],
   "validationPaths": [
-    "scripts/control-server.test.js"
+    "scripts/control-server.test.js",
+    "packages/backend/src/services/content-pack-recovery.test.ts",
+    "packages/backend/src/services/content-pack.service.test.ts"
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
-    "rationale": "This change imports from the exact fetched inbox commit, reports discovered document paths, classifies importer failures, and displays PostgreSQL reconciliation; vocabulary generation and content-pack contracts are unchanged."
+    "rationale": "This change imports from the exact fetched inbox commit, reopens stale cleanup state when a pack is present again, reports account-ownership conflicts, classifies importer failures, and displays PostgreSQL reconciliation; vocabulary generation and content-pack contracts are unchanged."
   }
 }
