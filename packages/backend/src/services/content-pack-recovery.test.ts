@@ -6,13 +6,25 @@ describe("ChatGPT content-pack recovery orchestration", () => {
       { id: "new-pack", owner_user_id: null },
       { id: "owned-pack", owner_user_id: "user-1" },
     ];
-    const query = {
+    const accessibleQuery = {
       where: jest.fn().mockReturnThis(),
+      whereNot: jest.fn().mockReturnThis(),
+      whereNotNull: jest.fn().mockReturnThis(),
       whereNull: jest.fn().mockReturnThis(),
       orderBy: jest.fn().mockReturnThis(),
       select: jest.fn().mockResolvedValue(rows),
     };
-    const database = jest.fn(() => query) as any;
+    const inaccessibleQuery = {
+      where: jest.fn().mockReturnThis(),
+      whereNot: jest.fn().mockReturnThis(),
+      whereNotNull: jest.fn().mockReturnThis(),
+      whereNull: jest.fn().mockReturnThis(),
+      select: jest.fn().mockResolvedValue([]),
+    };
+    const database = jest
+      .fn()
+      .mockReturnValueOnce(inaccessibleQuery)
+      .mockReturnValueOnce(accessibleQuery) as any;
     const service = new ContentPackService(database);
     const claim = jest
       .spyOn(service, "claimManifest")
@@ -32,10 +44,39 @@ describe("ChatGPT content-pack recovery orchestration", () => {
     await expect(service.processAvailableManifests("user-1")).resolves.toEqual({
       processed: ["new-pack", "owned-pack"],
       cleanupEligible: ["new-pack"],
+      blockedByAccount: [],
     });
     expect(claim).toHaveBeenCalledWith("user-1", "new-pack");
     expect(commit).toHaveBeenCalledWith("user-1", "owned-pack");
     expect(verify).toHaveBeenNthCalledWith(1, "user-1", "new-pack");
     expect(verify).toHaveBeenNthCalledWith(2, "user-1", "owned-pack");
+  });
+
+  it("reports a fetched manifest claimed by another account", async () => {
+    const inaccessibleQuery = {
+      where: jest.fn().mockReturnThis(),
+      whereNot: jest.fn().mockReturnThis(),
+      whereNotNull: jest.fn().mockReturnThis(),
+      whereNull: jest.fn().mockReturnThis(),
+      select: jest.fn().mockResolvedValue([{ id: "owned-elsewhere" }]),
+    };
+    const accessibleQuery = {
+      where: jest.fn().mockReturnThis(),
+      whereNull: jest.fn().mockReturnThis(),
+      orderBy: jest.fn().mockReturnThis(),
+      select: jest.fn().mockResolvedValue([]),
+    };
+    const database = jest
+      .fn()
+      .mockReturnValueOnce(inaccessibleQuery)
+      .mockReturnValueOnce(accessibleQuery) as any;
+
+    await expect(
+      new ContentPackService(database).processAvailableManifests("user-1"),
+    ).resolves.toEqual({
+      processed: [],
+      cleanupEligible: [],
+      blockedByAccount: ["owned-elsewhere"],
+    });
   });
 });
