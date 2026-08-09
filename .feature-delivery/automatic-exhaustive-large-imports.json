@@ -10,6 +10,7 @@
     "packages/backend/src/services/content-pack.service.ts",
     "packages/backend/src/services/extraction-foundation.service.ts",
     "packages/backend/src/services/in-app-generation.service.ts",
+    "packages/backend/src/database/migrations/10001_remove_legacy_generation_job_source_indexes.ts",
     "packages/frontend/app/dashboard/page.tsx",
     "packages/frontend/app/vocabulary/page.tsx"
   ],
@@ -17,7 +18,8 @@
     "packages/backend/src/scripts/smoke-content-pack-postgres.ts",
     "packages/backend/src/services/content-pack-contract.test.ts",
     "packages/backend/src/services/extraction-foundation.service.test.ts",
-    "packages/backend/src/services/in-app-generation.service.test.ts"
+    "packages/backend/src/services/in-app-generation.service.test.ts",
+    "packages/backend/src/__tests__/generation-job-source-index-repair.test.ts"
   ],
   "chatgptInstructionImpact": {
     "status": "required",
@@ -29,7 +31,7 @@
         "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
         "contains": [
           "machine-enforced in `inventoryAudit`",
-          "A v3 manifest without this proof is invalid"
+          "A v4 manifest without this proof is invalid"
         ]
       }
     ]

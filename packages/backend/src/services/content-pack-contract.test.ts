@@ -173,6 +173,14 @@ function validTaxonomyAwarePack(): { manifest: any; batch: any } {
     categoryKey: "education.study_skills.practice_and_improvement",
     confidence: "high",
   };
+  batch.formatVersion = "chatgpt-vocabulary-batch-v3";
+  batch.manifestHash = contentPackHash(manifest);
+  return { manifest, batch };
+}
+
+function validExhaustivePack(): { manifest: any; batch: any } {
+  const { manifest, batch } = validTaxonomyAwarePack();
+  manifest.formatVersion = "chatgpt-vocabulary-manifest-v4";
   manifest.inventoryAudit = {
     items: manifest.candidates.map((candidate: any, index: number) => ({
       inventoryId: `inventory-${index + 1}`,
@@ -187,7 +195,7 @@ function validTaxonomyAwarePack(): { manifest: any; batch: any } {
     counts: { total: 2, candidateLinked: 2, excluded: 0, untracked: 0 },
     recallPass: { completed: true, unresolvedInventoryIds: [], missedFindings: [] },
   };
-  batch.formatVersion = "chatgpt-vocabulary-batch-v3";
+  batch.formatVersion = "chatgpt-vocabulary-batch-v4";
   batch.manifestHash = contentPackHash(manifest);
   return { manifest, batch };
 }
@@ -293,16 +301,20 @@ describe("ChatGPT content-pack contract", () => {
     expect(validateContentManifest(invented.manifest).valid).toBe(false);
   });
 
-  it("rejects v3 manifests without exhaustive inventory proof", () => {
+  it("keeps immutable v3 packs valid without retroactive inventory fields", () => {
     const { manifest } = validTaxonomyAwarePack();
     delete manifest.inventoryAudit;
-    expect(validateContentManifest(manifest).issues.join(" ")).toMatch(
-      /invalid input|inventoryAudit/i,
-    );
+    expect(validateContentManifest(manifest).valid).toBe(true);
+  });
+
+  it("rejects v4 manifests without exhaustive inventory proof", () => {
+    const { manifest } = validExhaustivePack();
+    delete manifest.inventoryAudit;
+    expect(validateContentManifest(manifest).valid).toBe(false);
   });
 
   it("rejects unlinked inventory and candidates", () => {
-    const { manifest } = validTaxonomyAwarePack();
+    const { manifest } = validExhaustivePack();
     manifest.inventoryAudit.items[0].candidateId = "unknown-candidate";
     expect(validateContentManifest(manifest).issues.join(" ")).toMatch(/unknown candidate|no deterministic inventory link/i);
   });

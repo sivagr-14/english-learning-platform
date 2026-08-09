@@ -25,6 +25,10 @@ export const SENSE_AWARE_CONTENT_BATCH_VERSION =
 export const CONTENT_MANIFEST_VERSION =
   "chatgpt-vocabulary-manifest-v3" as const;
 export const CONTENT_BATCH_VERSION = "chatgpt-vocabulary-batch-v3" as const;
+export const EXHAUSTIVE_CONTENT_MANIFEST_VERSION =
+  "chatgpt-vocabulary-manifest-v4" as const;
+export const EXHAUSTIVE_CONTENT_BATCH_VERSION =
+  "chatgpt-vocabulary-batch-v4" as const;
 
 const IdentifierSchema = z
   .string()
@@ -354,6 +358,14 @@ const TaxonomyAwareContentManifestSchema = LegacyContentManifestSchema.omit({
   .extend({
     formatVersion: z.literal(CONTENT_MANIFEST_VERSION),
     candidates: z.array(SenseAwareManifestCandidateSchema).max(50_000),
+  })
+  .strict();
+
+const ExhaustiveContentManifestSchema = TaxonomyAwareContentManifestSchema.omit({
+  formatVersion: true,
+})
+  .extend({
+    formatVersion: z.literal(EXHAUSTIVE_CONTENT_MANIFEST_VERSION),
     inventoryAudit: InventoryAuditSchema,
   })
   .strict();
@@ -362,6 +374,7 @@ export const ContentManifestSchema = z.union([
   LegacyContentManifestSchema,
   SenseAwareContentManifestSchema,
   TaxonomyAwareContentManifestSchema,
+  ExhaustiveContentManifestSchema,
 ]);
 
 export const GeneratedPackEntrySchema = z
@@ -401,10 +414,17 @@ const TaxonomyAwareContentBatchSchema = LegacyContentBatchSchema.omit({
   .extend({ formatVersion: z.literal(CONTENT_BATCH_VERSION) })
   .strict();
 
+const ExhaustiveContentBatchSchema = LegacyContentBatchSchema.omit({
+  formatVersion: true,
+})
+  .extend({ formatVersion: z.literal(EXHAUSTIVE_CONTENT_BATCH_VERSION) })
+  .strict();
+
 export const ContentBatchSchema = z.union([
   LegacyContentBatchSchema,
   SenseAwareContentBatchSchema,
   TaxonomyAwareContentBatchSchema,
+  ExhaustiveContentBatchSchema,
 ]);
 
 export type ContentManifest = z.infer<typeof ContentManifestSchema>;
@@ -452,14 +472,26 @@ export function isSenseAwareManifest(
   manifest: ContentManifest,
 ): manifest is
   | z.infer<typeof SenseAwareContentManifestSchema>
-  | z.infer<typeof TaxonomyAwareContentManifestSchema> {
+  | z.infer<typeof TaxonomyAwareContentManifestSchema>
+  | z.infer<typeof ExhaustiveContentManifestSchema> {
   return manifest.formatVersion !== LEGACY_CONTENT_MANIFEST_VERSION;
 }
 
 export function isTaxonomyAwareManifest(
   manifest: ContentManifest,
-): manifest is z.infer<typeof TaxonomyAwareContentManifestSchema> {
-  return manifest.formatVersion === CONTENT_MANIFEST_VERSION;
+): manifest is
+  | z.infer<typeof TaxonomyAwareContentManifestSchema>
+  | z.infer<typeof ExhaustiveContentManifestSchema> {
+  return (
+    manifest.formatVersion === CONTENT_MANIFEST_VERSION ||
+    manifest.formatVersion === EXHAUSTIVE_CONTENT_MANIFEST_VERSION
+  );
+}
+
+export function isExhaustiveManifest(
+  manifest: ContentManifest,
+): manifest is z.infer<typeof ExhaustiveContentManifestSchema> {
+  return manifest.formatVersion === EXHAUSTIVE_CONTENT_MANIFEST_VERSION;
 }
 
 function normalizedText(value: string): string {
@@ -506,7 +538,7 @@ export function validateContentManifest(
       );
     }
   }
-  if (isTaxonomyAwareManifest(manifest)) {
+  if (isExhaustiveManifest(manifest)) {
     const inventoryIds = manifest.inventoryAudit.items.map((item) => item.inventoryId);
     if (duplicates(inventoryIds).length)
       issues.push("inventoryAudit.items: every inventoryId must be unique");
@@ -527,6 +559,8 @@ export function validateContentManifest(
     for (const candidateId of candidateIds)
       if (!candidateLinks.has(candidateId))
         issues.push(`${candidateId}: candidate has no deterministic inventory link`);
+  }
+  if (isTaxonomyAwareManifest(manifest)) {
     for (const candidate of manifest.candidates) {
       if (candidate.decision !== "generate") continue;
       if (!candidate.taxonomy) {
@@ -785,7 +819,9 @@ export function validateContentBatch(
       (manifest.formatVersion === SENSE_AWARE_CONTENT_MANIFEST_VERSION &&
         batch.formatVersion === SENSE_AWARE_CONTENT_BATCH_VERSION) ||
       (manifest.formatVersion === CONTENT_MANIFEST_VERSION &&
-        batch.formatVersion === CONTENT_BATCH_VERSION);
+        batch.formatVersion === CONTENT_BATCH_VERSION) ||
+      (manifest.formatVersion === EXHAUSTIVE_CONTENT_MANIFEST_VERSION &&
+        batch.formatVersion === EXHAUSTIVE_CONTENT_BATCH_VERSION);
     if (!compatibleVersions) {
       issues.push("formatVersion: manifest and batch contract versions differ");
     }
