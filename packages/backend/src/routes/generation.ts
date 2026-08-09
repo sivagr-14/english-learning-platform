@@ -292,6 +292,31 @@ router.get(
   },
 );
 
+router.delete(
+  "/jobs/failed",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const cleared = await jobService.clearFailed(req.userId as string);
+      res.json({ cleared });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.delete(
+  "/jobs/:id",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const id = z.string().uuid().parse(req.params.id);
+      await jobService.clearTerminal(req.userId as string, id);
+      res.status(204).send();
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
 router.get(
   "/jobs/:id",
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
