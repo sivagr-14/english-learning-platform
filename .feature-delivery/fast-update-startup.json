@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "featureId": "fast-update-startup",
-  "title": "Start ordinary application updates without a control-service handoff",
+  "title": "Complete application updates without a control-service handoff",
   "implementationPaths": [
     "scripts/control-server.js"
   ],
@@ -10,6 +10,6 @@
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
-    "rationale": "This changes only local application startup orchestration. Content-pack manifests, contextual vocabulary generation, validation, delivery, import and PostgreSQL read-back contracts are unchanged."
+    "rationale": "This removes the fragile mid-update controller handoff so the running controller completes migrations, content synchronization, and web-service startup. Content-pack and vocabulary-generation contracts are unchanged."
   }
 }
