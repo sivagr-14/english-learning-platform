@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "featureId": "gemini-phase-5-batch-api",
+  "title": "Add durable Gemini Batch API execution and reconciliation",
+  "implementationPaths": [
+    "packages/backend/src/services/gemini-batch.service.ts",
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/backend/src/routes/generation.ts",
+    "packages/frontend/app/import/page.tsx",
+    "packages/backend/src/database/migrations/029_gemini_batch_execution.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/gemini-batch.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This changes only the Gemini provider transport. The shared contextual-sense, lesson-batch and content-pack contracts remain unchanged."
+  }
+}
