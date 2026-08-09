@@ -2,7 +2,7 @@ import { STARTER_SAMPLES } from "../data/starter-samples";
 import { GeneratedPackEntrySchema } from "./content-pack-contract";
 import { vocabularyLessonQualityIssues } from "../data/vocabulary-lesson-template";
 
-describe.each(["chatgpt", "gemini"])("%s provider-neutral lesson contract", (provider) => {
+describe.each(["chatgpt", "gemini", "ollama"])("%s provider-neutral lesson contract", (provider) => {
   it("accepts the same complete simplified-v2 fixture", () => {
     const sample = STARTER_SAMPLES[0];
     const result = GeneratedPackEntrySchema.parse({

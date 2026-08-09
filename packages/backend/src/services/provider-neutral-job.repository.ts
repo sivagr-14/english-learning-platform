@@ -1,7 +1,7 @@
 import { createHash } from "crypto";
 import { Knex } from "knex";
 
-export type GenerationProvider = "chatgpt" | "gemini";
+export type GenerationProvider = "chatgpt" | "gemini" | "ollama";
 
 export interface JobIdentityInput {
   sourceHash: string;

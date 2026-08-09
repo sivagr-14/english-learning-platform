@@ -73,9 +73,12 @@ interface ConfigCheck {
   primaryModel: string;
   escalationProvider: string;
   escalationModel: string;
-  defaultWorkflow: "chatgpt" | "gemini";
+  ollamaEnabled: boolean;
+  ollamaModel: string;
+  ollamaBaseUrl: string;
+  defaultWorkflow: "chatgpt" | "gemini" | "ollama";
   workflows: Array<{
-    id: "chatgpt" | "gemini";
+    id: "chatgpt" | "gemini" | "ollama";
     name: string;
     enabled: boolean;
     ready: boolean;
@@ -95,7 +98,7 @@ export default function ImportPage() {
   const [config, setConfig] = useState<ConfigCheck | null>(null);
   const [testingProvider, setTestingProvider] = useState(false);
   const [providerMessage, setProviderMessage] = useState("");
-  const [workflow, setWorkflow] = useState<"chatgpt" | "gemini">("chatgpt");
+  const [workflow, setWorkflow] = useState<"chatgpt" | "gemini" | "ollama">("chatgpt");
   const [warningBudget, setWarningBudget] = useState("1.00");
   const [hardBudget, setHardBudget] = useState("2.00");
   const [executionMode, setExecutionMode] = useState<"auto" | "standard" | "batch">("auto");
@@ -166,7 +169,8 @@ export default function ImportPage() {
           headers: {
             "Content-Type": "multipart/form-data",
             "X-Source-Type": sourceType,
-            "X-Execution-Mode": executionMode,
+            "X-Execution-Mode": workflow === "ollama" ? "standard" : executionMode,
+            "X-AI-Provider": workflow,
           },
         });
         setPastedText("");
@@ -181,7 +185,8 @@ export default function ImportPage() {
         sourceContent,
         warningBudgetUsd: Number(warningBudget),
         hardBudgetUsd: Number(hardBudget),
-        executionMode,
+        executionMode: workflow === "ollama" ? "standard" : executionMode,
+        provider: workflow,
       });
 
       setPastedText("");
@@ -204,10 +209,15 @@ export default function ImportPage() {
     setTestingProvider(true);
     setProviderMessage("");
     try {
-      const { data } = await getApiClient().post("/api/generation/provider/test");
+      const { data } = await getApiClient().post("/api/generation/provider/test", { provider: workflow });
       setProviderMessage(`Connected to ${data.model} in ${data.latencyMs} ms.`);
     } catch (err: any) {
-      setProviderMessage(err?.response?.data?.error || "Gemini connection failed.");
+      setProviderMessage(
+        err?.response?.data?.message ||
+        err?.response?.data?.error?.message ||
+        err?.response?.data?.error ||
+        `${workflow === "ollama" ? "Ollama" : "Gemini"} connection failed.`,
+      );
     } finally {
       setTestingProvider(false);
     }
@@ -234,7 +244,7 @@ export default function ImportPage() {
               <h2 id="workflow-heading" className="text-lg font-semibold">
                 Choose one workflow
               </h2>
-              <div className="grid gap-3 md:grid-cols-2">
+              <div className="grid gap-3 md:grid-cols-3">
                 {config.workflows.map((option) => (
                   <button
                     key={option.id}
@@ -266,7 +276,7 @@ export default function ImportPage() {
           )}
           {workflow === "chatgpt" && (
             <div className="rounded-lg border border-indigo-200 bg-indigo-50 p-4 text-sm text-indigo-900">
-              Create the assessment and lesson batches in ChatGPT, then sync and claim them in ChatGPT Imports. Existing Gemini jobs are never changed.
+              Create the assessment and lesson batches in ChatGPT, then sync and claim them in ChatGPT Imports. Existing AI jobs are never changed.
               <div className="mt-3">
                 <Link href="/generate" className="rounded bg-indigo-700 px-3 py-2 font-medium text-white">
                   Open ChatGPT Imports
@@ -299,7 +309,19 @@ export default function ImportPage() {
             </div>
           )}
 
-          {workflow === "gemini" && <form
+          {workflow === "ollama" && config && (
+            <div className="rounded-md border border-slate-200 bg-white p-3 text-sm">
+              <div className="flex items-center justify-between gap-3">
+                <span>Ollama: {config.ollamaEnabled ? `enabled · ${config.ollamaModel}` : "disabled"} · {config.ollamaBaseUrl}</span>
+                <button type="button" onClick={testProvider} disabled={!config.ollamaEnabled || testingProvider} className="rounded border px-3 py-1 disabled:opacity-50">
+                  {testingProvider ? "Testing…" : "Test connection"}
+                </button>
+              </div>
+              {providerMessage && <p className="mt-2 text-slate-600">{providerMessage}</p>}
+            </div>
+          )}
+
+          {workflow !== "chatgpt" && <form
             onSubmit={handleSubmit}
             className="space-y-4 rounded-lg border border-gray-200 p-5"
           >
@@ -319,7 +341,7 @@ export default function ImportPage() {
                 disabled={Boolean(pastedText.trim())}
               />
             </div>
-            <fieldset className="rounded border border-slate-200 p-3 text-sm">
+            {workflow === "gemini" && <fieldset className="rounded border border-slate-200 p-3 text-sm">
               <legend className="px-1 font-medium">Execution mode</legend>
               <div className="mt-2 grid gap-2 md:grid-cols-3">
                 {[
@@ -335,15 +357,15 @@ export default function ImportPage() {
                 ))}
               </div>
               <p className="mt-2 text-xs text-slate-500">The final automatic choice uses only approved new contextual senses requiring lessons.</p>
-            </fieldset>
-            <div className="grid grid-cols-2 gap-3 text-sm">
+            </fieldset>}
+            {workflow === "gemini" && <div className="grid grid-cols-2 gap-3 text-sm">
               <label>Warning budget (USD)<input className="mt-1 w-full rounded border p-2" type="number" min="0.01" step="0.01" value={warningBudget} onChange={(e) => setWarningBudget(e.target.value)} /></label>
               <label>Hard budget (USD)<input className="mt-1 w-full rounded border p-2" type="number" min="0.01" step="0.01" value={hardBudget} onChange={(e) => setHardBudget(e.target.value)} /></label>
-            </div>
+            </div>}
             {error && <p className="text-sm text-red-600">{error}</p>}
             <button
               type="submit"
-              disabled={submitting || !config?.workflows.find((item) => item.id === "gemini")?.ready}
+              disabled={submitting || !config?.workflows.find((item) => item.id === workflow)?.ready}
               className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
             >
               {submitting ? "Starting..." : "Start import"}

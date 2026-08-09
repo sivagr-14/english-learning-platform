@@ -36,6 +36,7 @@ export interface CreateGenerationJobInput {
   warningBudgetUsd?: number;
   hardBudgetUsd?: number;
   executionMode?: GenerationExecutionMode;
+  provider: "gemini" | "ollama";
 }
 
 export interface CreateStagedGenerationJobInput extends Omit<
@@ -71,7 +72,7 @@ export class GenerationJobService {
       .digest("hex");
 
     const existing = await this.database("generation_jobs")
-      .where({ user_id: input.userId, source_hash: sourceHash })
+      .where({ user_id: input.userId, source_hash: sourceHash, provider: input.provider })
       .first();
     if (existing) return { job: existing, isNew: false };
 
@@ -96,15 +97,17 @@ export class GenerationJobService {
         .insert({
           user_id: input.userId,
           owner_user_id: input.userId,
-          operation_id: `in-app:${sourceHash}`,
+          operation_id: `in-app:${input.provider}:${sourceHash}`,
           source_name: input.sourceName,
           source_type: input.sourceType,
           source_hash: sourceHash,
           status: "queued",
           total_items: 0,
           stage_progress: JSON.stringify({}),
-          provider: "gemini",
-          provider_model: process.env.PRIMARY_AI_MODEL || "gemini-2.0-flash",
+          provider: input.provider,
+          provider_model: input.provider === "ollama"
+            ? process.env.OLLAMA_MODEL || "qwen3:14b"
+            : process.env.PRIMARY_AI_MODEL || "gemini-2.0-flash",
           prompt_version: promptVersion,
           contract_version: contractVersion,
           manifest_identity: manifestIdentity({
@@ -146,7 +149,7 @@ export class GenerationJobService {
 
   async createFromStagedUpload(input: CreateStagedGenerationJobInput) {
     const existing = await this.database("generation_jobs")
-      .where({ user_id: input.userId, source_hash: input.sourceHash })
+      .where({ user_id: input.userId, source_hash: input.sourceHash, provider: input.provider })
       .first();
     if (existing) return { job: existing, isNew: false };
     const policySnapshot = importPolicySnapshot();
@@ -168,15 +171,17 @@ export class GenerationJobService {
         .insert({
           user_id: input.userId,
           owner_user_id: input.userId,
-          operation_id: `in-app:${input.sourceHash}`,
+          operation_id: `in-app:${input.provider}:${input.sourceHash}`,
           source_name: input.sourceName,
           source_type: input.sourceType,
           source_hash: input.sourceHash,
           status: "queued",
           total_items: 0,
           stage_progress: JSON.stringify({}),
-          provider: "gemini",
-          provider_model: process.env.PRIMARY_AI_MODEL || "gemini-2.0-flash",
+          provider: input.provider,
+          provider_model: input.provider === "ollama"
+            ? process.env.OLLAMA_MODEL || "qwen3:14b"
+            : process.env.PRIMARY_AI_MODEL || "gemini-2.0-flash",
           prompt_version: promptVersion,
           contract_version: contractVersion,
           manifest_identity: manifestIdentity({

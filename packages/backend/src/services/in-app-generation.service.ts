@@ -101,6 +101,7 @@ export async function assessChunk(
     term: string;
     itemType: string;
   }> = [],
+  provider: "gemini" | "ollama" = "gemini",
 ): Promise<RawCandidate[]> {
   const systemPrompt = `You identify English vocabulary worth teaching an intermediate-to-advanced learner from a passage of text. You only propose words/phrases that are genuinely useful to learn -- not every word in the passage. Skip basic A1 vocabulary a learner already knows (e.g. "the", "go", "happy"). Prefer collocations, phrasal verbs, idioms, and words used in a non-obvious sense over isolated common words.
 
@@ -135,6 +136,7 @@ ${TAXONOMY_CATALOG_PROMPT}`;
     userPrompt: `Passage (chunkId: ${chunkId}):\n\n${chunkText}\n\nDeterministic inventory (classify every ID):\n${JSON.stringify(deterministicCandidates)}`,
     signal,
     responseSchema: GEMINI_CANDIDATE_RESPONSE_SCHEMA,
+    provider,
   });
 
   const expected = new Set(deterministicCandidates.map((item) => item.candidateId));
@@ -147,7 +149,7 @@ ${TAXONOMY_CATALOG_PROMPT}`;
   ) {
     throw new ProviderRequestError(
       "validation_failed",
-      "Gemini candidate IDs did not exactly match the deterministic inventory",
+      `${provider} candidate IDs did not exactly match the deterministic inventory`,
       false,
     );
   }
@@ -296,6 +298,7 @@ export async function generateLessonEntry(
     categoryName?: string;
   },
   signal?: AbortSignal,
+  provider: "gemini" | "ollama" = "gemini",
 ): Promise<{
   entry: ReturnType<typeof GeneratedPackEntrySchema.parse>;
   inputTokens: number;
@@ -342,6 +345,7 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
       userPrompt,
       signal,
       responseSchema: VOCABULARY_ENTRY_RESPONSE_SCHEMA,
+      provider,
     });
     const {
       word,

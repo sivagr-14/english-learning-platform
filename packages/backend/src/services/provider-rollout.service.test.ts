@@ -4,7 +4,7 @@ import {
 } from "./provider-rollout.service";
 
 describe("provider rollout controls", () => {
-  it("exposes exactly ChatGPT and Gemini and safely falls back to ChatGPT", () => {
+  it("exposes ChatGPT, Gemini and Ollama and safely falls back to ChatGPT", () => {
     const config = providerRolloutConfig({
       GEMINI_ENABLED: "false",
       DEFAULT_GENERATION_WORKFLOW: "gemini",
@@ -12,10 +12,20 @@ describe("provider rollout controls", () => {
     expect(config.workflows.map((workflow) => workflow.id)).toEqual([
       "chatgpt",
       "gemini",
+      "ollama",
     ]);
     expect(config.defaultWorkflow).toBe("chatgpt");
     expect(config.workflows[0].ready).toBe(true);
     expect(config.workflows[1].ready).toBe(false);
+  });
+
+  it("allows local Ollama without an API key", () => {
+    const config = providerRolloutConfig({
+      OLLAMA_ENABLED: "true",
+      DEFAULT_GENERATION_WORKFLOW: "ollama",
+    });
+    expect(config.defaultWorkflow).toBe("ollama");
+    expect(config.workflows.find((item) => item.id === "ollama")?.ready).toBe(true);
   });
 
   it("allows Gemini only when both flag and key are present", () => {

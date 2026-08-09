@@ -248,10 +248,11 @@ async function handleAssess(
     (_, i) => `chunk-${String(i + 1).padStart(4, "0")}`,
   );
 
-  // Cap concurrent Gemini calls at 5 to avoid 429 rate-limit errors.
-  // A 30-chunk document with Promise.all would fire 30 simultaneous requests;
-  // this keeps it to at most 5 in flight at any time.
-  const limit = pLimit(5);
+  // Cloud calls are bounded to avoid rate limits; local calls are kept
+  // sequential because long Ollama generations compete for the same memory.
+  // A 30-chunk document with Promise.all would fire 30 simultaneous requests.
+  const provider = record.provider === "ollama" ? "ollama" : "gemini";
+  const limit = pLimit(provider === "ollama" ? 1 : 5);
   const rawCandidatesPerChunk = await Promise.all(
     chunks.map((chunk, index) =>
       limit(async () => {
@@ -272,6 +273,7 @@ async function handleAssess(
               term: candidate.baseForm,
               itemType: candidate.itemType,
             })),
+          provider,
         );
       }),
     ),
@@ -680,7 +682,10 @@ async function handleGenerate(
     throw new Error("Immutable generation plan is empty -- cannot generate.");
   }
 
-  const resolvedMode = record.execution_mode_resolved || resolveGenerationExecutionMode(record.execution_mode_requested || "auto", initialPlan.length);
+  const resolvedMode = record.execution_mode_resolved ||
+    (record.provider === "ollama"
+      ? "standard"
+      : resolveGenerationExecutionMode(record.execution_mode_requested || "auto", initialPlan.length));
   if (!record.execution_mode_resolved) {
     await database("generation_jobs").where({ id: generationJobId }).update({ execution_mode_resolved: resolvedMode, updated_at: new Date() });
   }
@@ -712,7 +717,9 @@ async function handleGenerate(
     if (member.result_id && member.validation_status === "valid") continue;
 
     const hardBudget = Number(record.hard_budget_usd || 0);
-    const estimatedNextCall = Number(process.env.GEMINI_ESTIMATED_LESSON_COST_USD || 0.02);
+    const estimatedNextCall = record.provider === "ollama"
+      ? 0
+      : Number(process.env.GEMINI_ESTIMATED_LESSON_COST_USD || 0.02);
     if (hardBudget > 0 && totalCostUsd + estimatedNextCall > hardBudget) {
       await jobService.updateStatus(generationJobId, "attention_required", {
         stageProgress: {
@@ -770,6 +777,7 @@ async function handleGenerate(
           categoryName: candidate.categoryName,
         },
         cancellation.signal,
+        record.provider === "ollama" ? "ollama" : "gemini",
       );
     } catch (error) {
       const classified = classifyProviderFailure(error);

@@ -1,4 +1,4 @@
-export type WorkflowProvider = "chatgpt" | "gemini";
+export type WorkflowProvider = "chatgpt" | "gemini" | "ollama";
 
 export interface WorkflowAvailability {
   id: WorkflowProvider;
@@ -18,9 +18,14 @@ export function providerRolloutConfig(
     environment.PRIMARY_AI_API_KEY || environment.GEMINI_API_KEY,
   );
   const geminiEnabled = environment.GEMINI_ENABLED === "true";
+  const ollamaEnabled = environment.OLLAMA_ENABLED === "true";
   const requested = environment.DEFAULT_GENERATION_WORKFLOW;
   const defaultWorkflow: WorkflowProvider =
-    requested === "gemini" && geminiEnabled && geminiKey ? "gemini" : "chatgpt";
+    requested === "gemini" && geminiEnabled && geminiKey
+      ? "gemini"
+      : requested === "ollama" && ollamaEnabled
+        ? "ollama"
+        : "chatgpt";
 
   return {
     defaultWorkflow,
@@ -48,6 +53,18 @@ export function providerRolloutConfig(
         cost: "API usage is metered; warning and hard budgets are enforced per job.",
         privacy: "Uploaded source segments are sent to the configured Gemini API models.",
         automation: "The local worker extracts, reviews, generates and imports entries.",
+      },
+      {
+        id: "ollama",
+        name: "Local Ollama",
+        enabled: ollamaEnabled,
+        ready: ollamaEnabled,
+        prerequisite: ollamaEnabled
+          ? null
+          : "Set OLLAMA_ENABLED=true and start Ollama locally.",
+        cost: "No API charge; generation uses local compute.",
+        privacy: "Source text stays on this computer and is sent only to the configured Ollama server.",
+        automation: "The same extraction, eight-section validator and PostgreSQL import gates are used.",
       },
     ],
   };

@@ -24,7 +24,7 @@ import {
   validateUploadMetadata,
 } from "../services/staged-upload.service";
 import { CandidateReviewService } from "../services/candidate-review.service";
-import { configFor, GeminiAdapter } from "../services/ai-provider.service";
+import { configFor, GeminiAdapter, OllamaAdapter } from "../services/ai-provider.service";
 import { cancelGeminiBatch, resolveGenerationExecutionMode } from "../services/gemini-batch.service";
 import { providerRolloutConfig } from "../services/provider-rollout.service";
 import { aggregateGeminiUsage, projectFromObservedAttempts } from "../services/gemini-cost-optimization.service";
@@ -65,6 +65,9 @@ router.get("/config-check", (_req: Request, res: Response) => {
     primaryModel: process.env.PRIMARY_AI_MODEL || "gemini-2.0-flash",
     escalationProvider: process.env.ESCALATION_AI_PROVIDER || "gemini",
     escalationModel: process.env.ESCALATION_AI_MODEL || "gemini-2.5-pro",
+    ollamaEnabled: process.env.OLLAMA_ENABLED === "true",
+    ollamaModel: process.env.OLLAMA_MODEL || "qwen3:14b",
+    ollamaBaseUrl: process.env.OLLAMA_BASE_URL || "http://127.0.0.1:11434",
   });
 });
 
@@ -73,12 +76,17 @@ router.use(generationLimiter as unknown as express.RequestHandler);
 
 router.post(
   "/provider/test",
-  async (_req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-      if (process.env.GEMINI_ENABLED !== "true")
+      const provider = z.enum(["gemini", "ollama"]).parse(req.body?.provider);
+      if (provider === "gemini" && process.env.GEMINI_ENABLED !== "true")
         return res.status(409).json({ error: "Gemini is disabled in local configuration." });
-      const result = await new GeminiAdapter().testConnection();
-      res.json({ connected: true, ...result });
+      if (provider === "ollama" && process.env.OLLAMA_ENABLED !== "true")
+        return res.status(409).json({ error: "Ollama is disabled in local configuration." });
+      const result = provider === "ollama"
+        ? await new OllamaAdapter().testConnection()
+        : await new GeminiAdapter().testConnection();
+      res.json({ connected: true, provider, ...result });
     } catch (error) {
       next(error);
     }
@@ -100,6 +108,7 @@ const CreateJobSchema = z.object({
   // ~500 KB of plain text ≈ a 350-page book. Larger uploads should use
   // a multipart file endpoint (Phase 4) rather than a JSON string field.
   sourceContent: z.string().min(1).max(500_000),
+  provider: z.enum(["gemini", "ollama"]),
   warningBudgetUsd: z.number().positive().max(100).optional(),
   hardBudgetUsd: z.number().positive().max(100).optional(),
   executionMode: z.enum(["auto", "standard", "batch"]).default("auto"),
@@ -112,8 +121,11 @@ router.post(
   "/jobs",
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-      if (process.env.GEMINI_ENABLED !== "true")
-        return res.status(409).json({ error: "Gemini imports are disabled. Set GEMINI_ENABLED=true in local secret configuration." });
+      const requestedProvider = req.body?.provider;
+      if (requestedProvider === "gemini" && process.env.GEMINI_ENABLED !== "true")
+        return res.status(409).json({ error: "Gemini imports are disabled." });
+      if (requestedProvider === "ollama" && process.env.OLLAMA_ENABLED !== "true")
+        return res.status(409).json({ error: "Ollama imports are disabled." });
       if (!(await generationWorkerReady())) {
         return res.status(503).json({
           error:
@@ -129,7 +141,8 @@ router.post(
         sourceContent: input.sourceContent,
         warningBudgetUsd: input.warningBudgetUsd,
         hardBudgetUsd: input.hardBudgetUsd,
-        executionMode: input.executionMode,
+        executionMode: input.provider === "ollama" ? "standard" : input.executionMode,
+        provider: input.provider,
       });
 
       if (isNew) {
@@ -151,8 +164,11 @@ router.post(
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     let stagedPath: string | undefined;
     try {
-      if (process.env.GEMINI_ENABLED !== "true")
-        return res.status(409).json({ error: "Gemini imports are disabled. Set GEMINI_ENABLED=true in local secret configuration." });
+      const provider = z.enum(["gemini", "ollama"]).parse(String(req.header("x-ai-provider") || ""));
+      if (provider === "gemini" && process.env.GEMINI_ENABLED !== "true")
+        return res.status(409).json({ error: "Gemini imports are disabled." });
+      if (provider === "ollama" && process.env.OLLAMA_ENABLED !== "true")
+        return res.status(409).json({ error: "Ollama imports are disabled." });
       if (!(await generationWorkerReady()))
         return res.status(503).json({
           error:
@@ -223,7 +239,8 @@ router.post(
         sourceHash: staged.hash,
         stagedUploadPath: staged.path,
         stagedUploadSize: staged.size,
-        executionMode,
+        executionMode: provider === "ollama" ? "standard" : executionMode,
+        provider,
       });
       if (!isNew) await removeStagedUpload(staged.path);
       if (isNew)
