@@ -4,7 +4,6 @@ const crypto = require('crypto');
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
-const os = require('os');
 const { spawn, spawnSync } = require('child_process');
 
 const repoRoot = path.resolve(__dirname, '..');
@@ -26,11 +25,6 @@ const yarnVersion = '1.22.22';
 const backupsDirectory = path.join(repoRoot, 'backups');
 const contentInboxBranch = 'chatgpt-content-inbox';
 const contentInboxRef = `origin/${contentInboxBranch}`;
-const controlResumePath = path.join(
-  os.tmpdir(),
-  `english-mastery-resume-${crypto.createHash('sha256').update(repoRoot).digest('hex').slice(0, 16)}.json`,
-);
-
 process.chdir(repoRoot);
 
 function delay(milliseconds) {
@@ -275,20 +269,11 @@ class ControlManager {
     runAsync = run,
     spawnChild = spawn,
     wait = delay,
-    reloadControl = null,
-    markControlResume = (remote) =>
-      fs.writeFileSync(
-        controlResumePath,
-        JSON.stringify({ requestedAt: new Date().toISOString(), remote }),
-        { mode: 0o600 },
-      ),
   } = {}) {
     this.execute = execute;
     this.runAsync = runAsync;
     this.spawnChild = spawnChild;
     this.wait = wait;
-    this.reloadControl = reloadControl;
-    this.markControlResume = markControlResume;
     this.phase = 'idle';
     this.currentStep = 'Ready to validate and start';
     this.error = null;
@@ -1451,44 +1436,13 @@ function createControlServer(manager = new ControlManager()) {
 }
 
 if (require.main === module) {
-  let server;
-  const manager = new ControlManager({
-    reloadControl: async () => {
-      manager.stopServices();
-      if (server?.listening) {
-        await new Promise((resolve) => server.close(resolve));
-      }
-      const userId = typeof process.getuid === 'function' ? process.getuid() : null;
-      const launchdManaged =
-        process.platform === 'darwin' &&
-        userId !== null &&
-        commandResult('launchctl', [
-          'print',
-          `gui/${userId}/com.englishmastery.control`,
-        ]).status === 0;
-      if (!launchdManaged) {
-        const replacement = spawn(process.execPath, [__filename], {
-          cwd: repoRoot,
-          env: process.env,
-          detached: true,
-          stdio: 'ignore',
-        });
-        replacement.unref();
-      }
-      process.exit(0);
-    },
-  });
-  ({ server } = createControlServer(manager));
+  const { server, manager } = createControlServer();
   server.once('error', (error) => {
     console.error(`Control server failed: ${error.message}`);
     process.exit(1);
   });
   server.listen(controlPort, controlHost, () => {
     console.log(`English Mastery control page: http://localhost:${controlPort}`);
-    if (fs.existsSync(controlResumePath)) {
-      fs.rmSync(controlResumePath, { force: true });
-      manager.start();
-    }
   });
   const contentSyncTimer = setInterval(() => {
     void manager.synchronizeChatGPTContent().catch((error) =>
