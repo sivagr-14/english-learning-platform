@@ -148,21 +148,32 @@ async function main() {
   const service = new ContentPackService(database);
 
   try {
-    const staged = await service.ingestDocuments(documents);
+    const fetchedCommit = "a".repeat(40);
+    const staged = await service.ingestDocuments(documents, {
+      inboxBranch: "chatgpt-content-inbox",
+      fetchedCommit,
+    });
     assert.equal(staged.manifestsAdded, 1);
     assert.equal(staged.batchesAdded, 1);
     assert.deepEqual(staged.errors, []);
 
-    await service.claimManifest(owner.id, manifest.manifestId);
+    const stagedRow = await database("content_pack_manifests")
+      .where({ id: manifest.manifestId })
+      .first();
+    assert.equal(stagedRow.inbox_branch, "chatgpt-content-inbox");
+    assert.equal(stagedRow.fetched_commit, fetchedCommit);
+
+    const processed = await service.processAvailableManifests(owner.id);
+    assert.deepEqual(processed, {
+      processed: [manifest.manifestId],
+      cleanupEligible: [manifest.manifestId],
+      blockedByAccount: [],
+    });
     await assert.rejects(
       () => service.getManifest(otherUser.id, manifest.manifestId),
       /not found/i,
     );
-    const completed = await service.approveManifest(
-      owner.id,
-      manifest.manifestId,
-      ["candidate-001"],
-    );
+    const completed = await service.getManifest(owner.id, manifest.manifestId);
     assert.equal(completed.status, "completed");
     assert.equal(completed.generation.committedEntries, 1);
 
@@ -172,7 +183,10 @@ async function main() {
     );
     assert.deepEqual(verification, { verified: true, entries: 1, issues: [] });
 
-    const replay = await service.ingestDocuments(documents);
+    const replay = await service.ingestDocuments(documents, {
+      inboxBranch: "chatgpt-content-inbox",
+      fetchedCommit,
+    });
     assert.equal(replay.unchanged, 2);
     assert.equal(replay.committedEntries, 0);
     const wordCount = await database("vocabulary_words")
