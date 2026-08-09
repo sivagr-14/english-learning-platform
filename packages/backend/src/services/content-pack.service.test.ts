@@ -213,6 +213,31 @@ describe("ChatGPT content-pack staging ledger", () => {
     expect(database.memory.tables.content_pack_batches).toHaveLength(1);
   });
 
+  it("reopens a stale cleanup marker when the pack is fetched again", async () => {
+    const database = databaseDouble();
+    const service = new ContentPackService(database);
+    const { documents } = smokeDocuments();
+    await service.ingestDocuments(documents, {
+      inboxBranch: "chatgpt-content-inbox",
+      fetchedCommit: "a".repeat(40),
+    });
+    Object.assign(database.memory.tables.content_pack_manifests[0], {
+      inbox_cleaned_at: new Date("2026-08-09T12:00:00.000Z"),
+      inbox_cleanup_commit: "b".repeat(40),
+    });
+
+    await service.ingestDocuments(documents, {
+      inboxBranch: "chatgpt-content-inbox",
+      fetchedCommit: "c".repeat(40),
+    });
+
+    expect(database.memory.tables.content_pack_manifests[0]).toMatchObject({
+      fetched_commit: "c".repeat(40),
+      inbox_cleaned_at: null,
+      inbox_cleanup_commit: null,
+    });
+  });
+
   it("resolves disappeared ChatGPT errors without resolving in-app diagnostics", async () => {
     const database = databaseDouble();
     database.memory.tables.content_pack_ingest_errors.push(
