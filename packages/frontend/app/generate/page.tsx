@@ -147,7 +147,17 @@ export default function ChatGPTImportsPage() {
             ? `${firstResult.error || "Content sync failed."} ${firstResult.technicalDetail}`
             : firstResult.error || "Content sync failed.",
         );
-      await getApiClient().post("/api/control/content-packs/process");
+      const processResponse = await getApiClient().post(
+        "/api/control/content-packs/process",
+      );
+      const processed = processResponse.data?.processed || [];
+      const verified = processResponse.data?.cleanupEligible || [];
+      const discoveredDocuments = firstResult.result?.documents || 0;
+      if (discoveredDocuments > 0 && processed.length === 0) {
+        throw new Error(
+          "Content-pack files were fetched, but no import was claimed or resumed.",
+        );
+      }
       // Processing can make newly claimed packs cleanup-eligible. A second
       // guarded sync removes them in the same one-click workflow.
       const cleanupResponse = await fetch("/__control/sync-content", {
@@ -159,10 +169,14 @@ export default function ChatGPTImportsPage() {
         throw new Error(result.error || "Inbox cleanup failed.");
       setMessage(
         result.cleanup?.cleaned?.length
-          ? `Synchronized and removed ${result.cleanup.cleaned.length} verified pack(s) from the active inbox.`
+          ? `Imported and PostgreSQL-verified ${verified.length} pack(s); removed ${result.cleanup.cleaned.length} completed pack(s) from the inbox.`
           : result.cleanup?.alreadyAbsent?.length
             ? "Synchronized; the verified pack was already absent and is now recorded as cleaned."
-            : "ChatGPT imports were processed, verified and synchronized.",
+            : processed.length > 0
+              ? `Processed ${processed.length} pack(s); ${verified.length} passed PostgreSQL read-back verification. Check any remaining import attention below.`
+              : discoveredDocuments === 0
+                ? "No ChatGPT content-pack files were found in the inbox."
+                : "Content-pack files were synchronized, but no new import required processing.",
       );
       await load();
     } catch (syncError) {
