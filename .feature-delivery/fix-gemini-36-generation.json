@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fix-gemini-36-generation",
+  "title": "Support Gemini 3.6 Flash generation and imports",
+  "implementationPaths": [
+    ".env.example",
+    "packages/backend/src/routes/generation.ts",
+    "packages/backend/src/services/gemini-cost-optimization.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/gemini-cost-optimization.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This fix updates provider pricing metadata and retired model defaults only. It preserves the existing source reconciliation, contextual-sense, taxonomy, eight-section lesson, validation, transaction and database read-back contracts."
+  }
+}
