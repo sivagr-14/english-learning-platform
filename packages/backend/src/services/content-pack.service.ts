@@ -344,12 +344,23 @@ export class ContentPackService {
       )
       .whereNull("inbox_cleaned_at")
       .orderBy("created_at", "asc")
-      .select("id", "owner_user_id");
+      .select("id", "owner_user_id", "status");
     const processed: string[] = [];
     const cleanupEligible: string[] = [];
     for (const row of rows) {
-      if (!row.owner_user_id) await this.claimManifest(userId, row.id);
-      else await this.commitAvailableBatches(userId, row.id);
+      if (!row.owner_user_id) {
+        await this.claimManifest(userId, row.id);
+      } else if (
+        !DEFAULT_IMPORT_POLICY.approvalRequired &&
+        row.status === "awaiting_approval"
+      ) {
+        // Recover imports claimed by an older/manual workflow. Automatic
+        // selection is idempotent, and approveManifest resumes an existing job
+        // when one was already created before an interrupted restart.
+        await this.approveManifest(userId, row.id);
+      } else {
+        await this.commitAvailableBatches(userId, row.id);
+      }
       const verification = await this.verifyManifest(userId, row.id);
       processed.push(row.id);
       if (verification.verified) cleanupEligible.push(row.id);
