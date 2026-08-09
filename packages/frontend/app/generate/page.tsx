@@ -142,12 +142,11 @@ export default function ChatGPTImportsPage() {
       });
       const firstResult = await firstResponse.json().catch(() => ({}));
       if (!firstResponse.ok)
-        throw new Error(firstResult.error || "Content sync failed.");
-      if (firstResult.available === false) {
-        setMessage("The ChatGPT content inbox has not been initialized yet.");
-        await load();
-        return;
-      }
+        throw new Error(
+          firstResult.technicalDetail
+            ? `${firstResult.error || "Content sync failed."} ${firstResult.technicalDetail}`
+            : firstResult.error || "Content sync failed.",
+        );
       await getApiClient().post("/api/control/content-packs/process");
       // Processing can make newly claimed packs cleanup-eligible. A second
       // guarded sync removes them in the same one-click workflow.
