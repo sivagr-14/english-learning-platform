@@ -17,6 +17,7 @@ import { generateJson } from "./ai-provider.service";
 import { logger } from "../utils/logger";
 import {
   ExistingVocabularySense,
+  normalizeSenseKey,
   resolveContextualSense,
 } from "./vocabulary-sense.service";
 import {
@@ -191,7 +192,7 @@ export function toManifestCandidate(
 ) {
   const taxonomyPath = taxonomyPathForCategoryKey(raw.categoryKey)!;
   const candidate = {
-    candidateId: `cand-${raw.candidateId.slice(0, 32)}`,
+    candidateId: `cand-${raw.candidateId.slice(0, 32)}-${normalizeSenseKey(raw.senseKey).slice(0, 80)}`,
     term: raw.term,
     baseForm: raw.baseForm || raw.term,
     itemType: raw.itemType as any,
