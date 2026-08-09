@@ -5,7 +5,8 @@ import {
 import {
   VOCABULARY_SECTION_TEMPLATE_PROMPT,
   VOCABULARY_LESSON_FORMAT_VERSION,
-  vocabularyLessonQualityIssues,
+  VOCABULARY_ENTRY_RESPONSE_SCHEMA,
+  generatedVocabularyEntryQualityIssues,
 } from "../data/vocabulary-lesson-template";
 import {
   CONTENT_MANIFEST_VERSION,
@@ -340,6 +341,7 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
       systemPrompt,
       userPrompt,
       signal,
+      responseSchema: VOCABULARY_ENTRY_RESPONSE_SCHEMA,
     });
     const {
       word,
@@ -350,17 +352,14 @@ Never use placeholder text, "TBD", generic advice, or content that doesn't speci
       coreIdea,
       ...lesson
     } = result.data;
-    const issues = vocabularyLessonQualityIssues(lesson, candidate.term);
-    if (String(word || "").trim() !== candidate.term.trim())
-      issues.push("word must be the real unsuffixed assessed term");
-    if (String(englishMeaning || "").trim() !== candidate.contextualMeaning.trim())
-      issues.push("englishMeaning must exactly equal the assessed contextual meaning");
-    if ((lesson as any)?.meaning_in_context?.source_sentence !== candidate.sourceSentence)
-      issues.push("source sentence must exactly equal the recorded evidence sentence");
-    if ((lesson as any)?.meaning_in_context?.contextual_meaning !== candidate.contextualMeaning)
-      issues.push("lesson contextual meaning must exactly equal the assessed meaning");
-    if (!/[\u0B80-\u0BFF]/u.test(String(tamilMeaning || "")))
-      issues.push("Tamil meaning must contain natural Tamil text");
+    const issues = generatedVocabularyEntryQualityIssues(
+      { word, pronunciation, wordType, englishMeaning, tamilMeaning, coreIdea, lesson },
+      {
+        term: candidate.term,
+        contextualMeaning: candidate.contextualMeaning,
+        sourceSentence: candidate.sourceSentence,
+      },
+    );
     if (issues.length) {
       throw new ProviderRequestError(
         "validation_failed",
