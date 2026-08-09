@@ -1,34 +1,11 @@
-import { execFileSync } from "child_process";
 import path from "path";
 import {
   ContentPackDocument,
   ContentPackService,
   loadContentPackDocuments,
+  loadContentPacksFromGit,
 } from "../services/content-pack.service";
 import { database } from "../utils/db";
-
-export function loadContentPacksFromGit(
-  ref: string,
-  repoRoot = path.resolve(__dirname, "../../../.."),
-): ContentPackDocument[] {
-  const output = execFileSync(
-    "git",
-    ["ls-tree", "-r", "--name-only", ref, "content-packs/inbox"],
-    { cwd: repoRoot, encoding: "utf8" },
-  );
-  return output
-    .split(/\r?\n/)
-    .map((item) => item.trim())
-    .filter((item) => item.endsWith(".json"))
-    .map((file) => ({
-      path: file,
-      content: execFileSync("git", ["show", `${ref}:${file}`], {
-        cwd: repoRoot,
-        encoding: "utf8",
-        maxBuffer: 25 * 1024 * 1024,
-      }),
-    }));
-}
 
 async function main() {
   const cleanupFailedIndex = process.argv.indexOf("--mark-cleanup-failed");
