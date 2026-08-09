@@ -47,9 +47,10 @@ mutate an existing ChatGPT manifest.
 
 ## Manifest guarantees
 
-New imports use `chatgpt-vocabulary-manifest-v3`. Version 2
-(`chatgpt-vocabulary-manifest-v2`) and version 1 remain readable only so
-already-started imports can finish. Version 3 must include:
+New exhaustive imports use `chatgpt-vocabulary-manifest-v4`.
+`chatgpt-vocabulary-manifest-v1`, `chatgpt-vocabulary-manifest-v2` and
+`chatgpt-vocabulary-manifest-v3` remain readable so immutable already-delivered
+imports can finish. Version 4 must include:
 
 - a stable `manifestId`, source SHA-256, source type and creation time;
 - `totalPages` and an ordered page ledger from page 1 through the last page;
@@ -79,9 +80,9 @@ are held for attention instead of guessed.
 
 ## Batch guarantees
 
-New batches use `chatgpt-vocabulary-batch-v3` and must match a version-3
-manifest. Version-1 and version-2 batches remain compatible only with the same
-manifest version. Each batch must include:
+New batches use `chatgpt-vocabulary-batch-v4` and must match a version-4
+manifest. Version-1, version-2 and version-3 batches remain compatible only
+with the same manifest version. Each batch must include:
 
 - an immutable `batchId`;
 - the manifest ID and exact manifest SHA-256;
@@ -234,12 +235,12 @@ untracked units, chunks, candidates, occurrences or batch memberships = 0
 untracked inventory items or recall-pass findings = 0
 ```
 
-For manifest v3 this proof is machine-enforced in `inventoryAudit`. Every item
+For manifest v4 this proof is machine-enforced in `inventoryAudit`. Every item
 must include its stable inventory ID, exact source sentence and chunk, surface
 and normalized form, and either a linked manifest candidate ID or a stable
 exclusion code with a specific reason. `counts.untracked` must be zero and the
 independent `recallPass` must be completed with no unresolved IDs or missed
-findings. A v3 manifest without this proof is invalid, even when its selected
+findings. A v4 manifest without this proof is invalid, even when its selected
 candidate and batch totals reconcile internally.
 
 ## Default automatic policy
