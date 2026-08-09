@@ -32,7 +32,7 @@ export function generationStageJobId(
   generationJobId: string,
   stage: GenerationJobName,
 ): string {
-  return `${generationJobId}:${stage}`;
+  // BullMQ reserves colons in custom job IDs. Keep IDs deterministic without\n  // using its internal key separator.\n  return `${generationJobId}--${stage}`;
 }
 
 /** Enforces the durable-state-before-delivery boundary for stage handoffs. */
