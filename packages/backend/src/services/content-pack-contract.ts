@@ -32,7 +32,7 @@ const IdentifierSchema = z
   .min(3)
   .max(140)
   .regex(/^[a-zA-Z0-9][a-zA-Z0-9._:-]*$/);
-const UsefulTextSchema = z.string().trim().min(8).max(10_000);
+const SourceTextSchema = z.string().trim().min(1).max(10_000);\nconst UsefulTextSchema = z.string().trim().min(8).max(10_000);
 const Sha256Schema = z.string().regex(/^[a-f0-9]{64}$/i);
 const CefrSchema = z.enum(["A1", "A2", "B1", "B2", "C1", "C2"]);
 
