@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fix-gemini-connection-500",
+  "title": "Harden Gemini connection diagnostics",
+  "implementationPaths": [
+    "packages/backend/src/services/ai-provider.service.ts",
+    "packages/backend/src/middleware/error.middleware.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/ai-provider.connection.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This changes only the provider connectivity probe and safe HTTP diagnostics. Assessment manifests, contextual senses, lesson generation, validation, transactions and PostgreSQL read-back contracts are unchanged."
+  }
+}
