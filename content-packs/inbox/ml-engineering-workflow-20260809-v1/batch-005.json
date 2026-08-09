@@ -1,0 +1,538 @@
+{
+  "formatVersion": "chatgpt-vocabulary-batch-v3",
+  "batchId": "ml-engineering-workflow-20260809-v1-batch-5",
+  "manifestId": "ml-engineering-workflow-20260809-v1",
+  "manifestHash": "845a6c581852694886ed24323c0b7f61771f0339dc5ec9ca879dcbb5ffd077f9",
+  "batchNumber": 5,
+  "createdAt": "2026-08-09T19:31:04.000Z",
+  "entries": [
+    {
+      "candidateId": "mlw-033-impute",
+      "word": "impute",
+      "pronunciation": "/ɪmˈpjuːt/",
+      "wordType": "verb",
+      "englishMeaning": "to replace a missing value with an estimated value",
+      "tamilMeaning": "காணாமற்போன மதிப்பை மதிப்பீட்டால் நிரப்புதல்",
+      "coreIdea": "Impute focuses on to replace a missing value with an estimated value.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "We can remove incomplete entries or impute them.",
+          "contextual_meaning": "to replace a missing value with an estimated value",
+          "simple_explanation": "Here, impute means to replace a missing value with an estimated value; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use impute when discussing to replace a missing value with an estimated value.",
+            "Use impute when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use impute as a vague substitute for general model quality.",
+            "Do not use impute when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve impute in a machine-learning system",
+          "common_collocations": [
+            "impute metric",
+            "impute requirement",
+            "impute in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured impute before releasing the model.",
+            "business": "The review explained how impute affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking impute? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved impute, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved impute, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Impute names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect impute with the course example: to replace a missing value with an estimated value.",
+          "memory_sentence": "The engineers checked impute before they deployed the model.",
+          "recall_question": "What does impute measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates impute: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why impute matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Impute is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving impute alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-034-standardization",
+      "word": "standardization",
+      "pronunciation": "/ˌstændədaɪˈzeɪʃən/",
+      "wordType": "noun",
+      "englishMeaning": "scaling numerical data around a mean with a standard spread",
+      "tamilMeaning": "சராசரி மற்றும் நிலையான பரவலுக்கு தரவை அளவிடுதல்",
+      "coreIdea": "Standardization focuses on scaling numerical data around a mean with a standard spread.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Two common techniques are min‑max scaling, which brings values into a fixed range, like 0 to 1, and standardization, which centers data around the mean with unit variance.",
+          "contextual_meaning": "scaling numerical data around a mean with a standard spread",
+          "simple_explanation": "Here, standardization means scaling numerical data around a mean with a standard spread; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use standardization when discussing scaling numerical data around a mean with a standard spread.",
+            "Use standardization when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use standardization as a vague substitute for general model quality.",
+            "Do not use standardization when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve standardization in a machine-learning system",
+          "common_collocations": [
+            "standardization metric",
+            "standardization requirement",
+            "standardization in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured standardization before releasing the model.",
+            "business": "The review explained how standardization affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking standardization? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved standardization, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved standardization, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Standardization names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect standardization with the course example: scaling numerical data around a mean with a standard spread.",
+          "memory_sentence": "The engineers checked standardization before they deployed the model.",
+          "recall_question": "What does standardization measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates standardization: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why standardization matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Standardization is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving standardization alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-035-dimensionality-reduction",
+      "word": "dimensionality reduction",
+      "pronunciation": "/daɪˌmenʃəˈnæləti rɪˈdʌkʃən/",
+      "wordType": "noun phrase",
+      "englishMeaning": "reducing the number of input features while retaining important information",
+      "tamilMeaning": "முக்கிய தகவலை வைத்துக் கொண்டு அம்ச எண்ணிக்கையை குறைத்தல்",
+      "coreIdea": "Dimensionality reduction focuses on reducing the number of input features while retaining important information.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "And finally, we have dimensionality reduction.",
+          "contextual_meaning": "reducing the number of input features while retaining important information",
+          "simple_explanation": "Here, dimensionality reduction means reducing the number of input features while retaining important information; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use dimensionality reduction when discussing reducing the number of input features while retaining important information.",
+            "Use dimensionality reduction when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use dimensionality reduction as a vague substitute for general model quality.",
+            "Do not use dimensionality reduction when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve dimensionality reduction in a machine-learning system",
+          "common_collocations": [
+            "dimensionality reduction metric",
+            "dimensionality reduction requirement",
+            "dimensionality reduction in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured dimensionality reduction before releasing the model.",
+            "business": "The review explained how dimensionality reduction affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking dimensionality reduction? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved dimensionality reduction, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved dimensionality reduction, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Dimensionality reduction names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect dimensionality reduction with the course example: reducing the number of input features while retaining important information.",
+          "memory_sentence": "The engineers checked dimensionality reduction before they deployed the model.",
+          "recall_question": "What does dimensionality reduction measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates dimensionality reduction: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why dimensionality reduction matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Dimensionality reduction is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving dimensionality reduction alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-036-bias",
+      "word": "bias",
+      "pronunciation": "/ˈbaɪəs/",
+      "wordType": "noun",
+      "englishMeaning": "a systematic tendency to produce unfair outcomes for certain groups",
+      "tamilMeaning": "சில குழுக்களுக்கு அநியாய முடிவுகளை உருவாக்கும் சாய்வு",
+      "coreIdea": "Bias focuses on a systematic tendency to produce unfair outcomes for certain groups.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "They also monitor fairness metrics across demographics to make sure the model isn't biased toward or against particular groups.",
+          "contextual_meaning": "a systematic tendency to produce unfair outcomes for certain groups",
+          "simple_explanation": "Here, bias means a systematic tendency to produce unfair outcomes for certain groups; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use bias when discussing a systematic tendency to produce unfair outcomes for certain groups.",
+            "Use bias when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use bias as a vague substitute for general model quality.",
+            "Do not use bias when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve bias in a machine-learning system",
+          "common_collocations": [
+            "bias metric",
+            "bias requirement",
+            "bias in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured bias before releasing the model.",
+            "business": "The review explained how bias affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking bias? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved bias, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved bias, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Bias names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect bias with the course example: a systematic tendency to produce unfair outcomes for certain groups.",
+          "memory_sentence": "The engineers checked bias before they deployed the model.",
+          "recall_question": "What does bias measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates bias: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why bias matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Bias is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving bias alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-037-disparate-impact",
+      "word": "disparate impact",
+      "pronunciation": "/ˈdɪspərət ˈɪmpækt/",
+      "wordType": "noun phrase",
+      "englishMeaning": "a pattern in which one group consistently receives worse outcomes",
+      "tamilMeaning": "ஒரு குழுவிற்கு தொடர்ந்து மோசமான விளைவு ஏற்படும் நிலை",
+      "coreIdea": "Disparate impact focuses on a pattern in which one group consistently receives worse outcomes.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "We can have the disparate impact, which means one group consistently receives worse predictions or outcomes.",
+          "contextual_meaning": "a pattern in which one group consistently receives worse outcomes",
+          "simple_explanation": "Here, disparate impact means a pattern in which one group consistently receives worse outcomes; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use disparate impact when discussing a pattern in which one group consistently receives worse outcomes.",
+            "Use disparate impact when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use disparate impact as a vague substitute for general model quality.",
+            "Do not use disparate impact when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve disparate impact in a machine-learning system",
+          "common_collocations": [
+            "disparate impact metric",
+            "disparate impact requirement",
+            "disparate impact in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured disparate impact before releasing the model.",
+            "business": "The review explained how disparate impact affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking disparate impact? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved disparate impact, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved disparate impact, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Disparate impact names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect disparate impact with the course example: a pattern in which one group consistently receives worse outcomes.",
+          "memory_sentence": "The engineers checked disparate impact before they deployed the model.",
+          "recall_question": "What does disparate impact measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates disparate impact: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why disparate impact matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Disparate impact is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving disparate impact alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-038-demographic-parity",
+      "word": "demographic parity",
+      "pronunciation": "/ˌdeməˈɡræfɪk ˈpærəti/",
+      "wordType": "noun phrase",
+      "englishMeaning": "a fairness condition where positive prediction rates are similar across groups",
+      "tamilMeaning": "குழுக்களிடையே நேர்மறை கணிப்பு விகித சமநிலை",
+      "coreIdea": "Demographic parity focuses on a fairness condition where positive prediction rates are similar across groups.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "To address bias, teams use fairness metrics, like demographic parity.",
+          "contextual_meaning": "a fairness condition where positive prediction rates are similar across groups",
+          "simple_explanation": "Here, demographic parity means a fairness condition where positive prediction rates are similar across groups; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use demographic parity when discussing a fairness condition where positive prediction rates are similar across groups.",
+            "Use demographic parity when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use demographic parity as a vague substitute for general model quality.",
+            "Do not use demographic parity when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve demographic parity in a machine-learning system",
+          "common_collocations": [
+            "demographic parity metric",
+            "demographic parity requirement",
+            "demographic parity in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured demographic parity before releasing the model.",
+            "business": "The review explained how demographic parity affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking demographic parity? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved demographic parity, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved demographic parity, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Demographic parity names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect demographic parity with the course example: a fairness condition where positive prediction rates are similar across groups.",
+          "memory_sentence": "The engineers checked demographic parity before they deployed the model.",
+          "recall_question": "What does demographic parity measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates demographic parity: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why demographic parity matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Demographic parity is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving demographic parity alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-039-concept-drift",
+      "word": "concept drift",
+      "pronunciation": "/ˈkɒnsept drɪft/",
+      "wordType": "noun phrase",
+      "englishMeaning": "a change in the relationship between model inputs and expected outputs",
+      "tamilMeaning": "உள்ளீடு மற்றும் விளைவு உறவில் ஏற்படும் மாற்றம்",
+      "coreIdea": "Concept drift focuses on a change in the relationship between model inputs and expected outputs.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Concept drift, checking if the underlying relationship between input and output has changed.",
+          "contextual_meaning": "a change in the relationship between model inputs and expected outputs",
+          "simple_explanation": "Here, concept drift means a change in the relationship between model inputs and expected outputs; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use concept drift when discussing a change in the relationship between model inputs and expected outputs.",
+            "Use concept drift when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use concept drift as a vague substitute for general model quality.",
+            "Do not use concept drift when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve concept drift in a machine-learning system",
+          "common_collocations": [
+            "concept drift metric",
+            "concept drift requirement",
+            "concept drift in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured concept drift before releasing the model.",
+            "business": "The review explained how concept drift affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking concept drift? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved concept drift, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved concept drift, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Concept drift names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect concept drift with the course example: a change in the relationship between model inputs and expected outputs.",
+          "memory_sentence": "The engineers checked concept drift before they deployed the model.",
+          "recall_question": "What does concept drift measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates concept drift: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why concept drift matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Concept drift is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving concept drift alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    },
+    {
+      "candidateId": "mlw-040-feedback-loop",
+      "word": "feedback loop",
+      "pronunciation": "/ˈfiːdbæk luːp/",
+      "wordType": "noun phrase",
+      "englishMeaning": "a cycle that feeds observed outcomes back into model improvement",
+      "tamilMeaning": "விளைவுகளை மீண்டும் கற்றலுக்கு வழங்கும் சுழற்சி",
+      "coreIdea": "Feedback loop focuses on a cycle that feeds observed outcomes back into model improvement.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+            "connotation": "Neutral; it describes a measurable concept or engineering process.",
+            "tone": "Professional and analytical in this lesson.",
+            "register": "Professional and academic technical English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "In some cases, this leads to a feedback loop that even largens the bias.",
+          "contextual_meaning": "a cycle that feeds observed outcomes back into model improvement",
+          "simple_explanation": "Here, feedback loop means a cycle that feeds observed outcomes back into model improvement; it is not being used in an unrelated everyday sense."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use feedback loop when discussing a cycle that feeds observed outcomes back into model improvement.",
+            "Use feedback loop when documenting or evaluating a machine-learning workflow."
+          ],
+          "when_not_to_use": [
+            "Do not use feedback loop as a vague substitute for general model quality.",
+            "Do not use feedback loop when the intended concept is a different metric or process."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "measure or improve feedback loop in a machine-learning system",
+          "common_collocations": [
+            "feedback loop metric",
+            "feedback loop requirement",
+            "feedback loop in production"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "engineering": "The team measured feedback loop before releasing the model.",
+            "business": "The review explained how feedback loop affected the production decision."
+          },
+          "mini_conversation": "A: Why are we checking feedback loop? B: Because it directly affects whether this model is ready for production."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: We improved feedback loop, so every aspect of the model must now be perfect.",
+          "correction": "Correct: We improved feedback loop, but we still need to evaluate the other model and system requirements.",
+          "important_difference": "Feedback loop names this specific concept; it should not be treated as a synonym for overall machine-learning performance."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect feedback loop with the course example: a cycle that feeds observed outcomes back into model improvement.",
+          "memory_sentence": "The engineers checked feedback loop before they deployed the model.",
+          "recall_question": "What does feedback loop measure or describe in this machine-learning lesson?",
+          "recognition_task": "Choose the situation that correctly demonstrates feedback loop: a relevant ML engineering decision or an unrelated everyday event.",
+          "production_task": "Write one sentence explaining why feedback loop matters for TalentFlow."
+        },
+        "advanced_nuance": [
+          "Feedback loop is evaluated within a specific operational context, so its acceptable level depends on the business risk and the other engineering constraints.",
+          "Improving feedback loop alone does not guarantee a reliable production system; teams must examine its trade-offs with related requirements."
+        ]
+      }
+    }
+  ]
+}
