@@ -64,7 +64,7 @@ export default function DashboardPage() {
     <AuthenticatedPage>
       <AppShell
         title={`Welcome, ${user?.first_name || "learner"}`}
-        description="Your personal vocabulary workspace. New and updated entries arrive only after ChatGPT assesses the source, reports exact counts, and receives your approval."
+        description="Your personal vocabulary workspace. Validated lessons are imported automatically after complete source assessment."
       >
         <section
           aria-label="Learning summary"
@@ -127,7 +127,7 @@ export default function DashboardPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-slate-500">Awaiting approval</dt>
+                <dt className="text-slate-500">Automatic recovery</dt>
                 <dd className="mt-1 text-xl font-semibold text-slate-950">
                   {control.pendingApproval}
                 </dd>
@@ -137,7 +137,7 @@ export default function DashboardPage() {
               href="/generate"
               className="mt-5 inline-flex text-sm font-semibold text-blue-700 hover:text-blue-800"
             >
-              View control history →
+              View active imports →
             </Link>
           </div>
         </section>
