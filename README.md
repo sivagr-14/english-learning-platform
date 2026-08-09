@@ -107,7 +107,8 @@ restart is not required for new entries.
 
 Completed packs are removed automatically from the active inbox only after a
 strict PostgreSQL read-back verifies the word, lesson, progress and review rows.
-The database ledger and Git history retain the audit trail.
+The active ledger retains only actionable or resumable imports. Completed,
+verified imports disappear after guarded inbox cleanup.
 
 To run the control page in the foreground for troubleshooting, use
 `yarn app:start`. To remove automatic startup without deleting database data,
