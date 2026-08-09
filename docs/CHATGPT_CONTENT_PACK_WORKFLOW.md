@@ -234,6 +234,14 @@ untracked units, chunks, candidates, occurrences or batch memberships = 0
 untracked inventory items or recall-pass findings = 0
 ```
 
+For manifest v3 this proof is machine-enforced in `inventoryAudit`. Every item
+must include its stable inventory ID, exact source sentence and chunk, surface
+and normalized form, and either a linked manifest candidate ID or a stable
+exclusion code with a specific reason. `counts.untracked` must be zero and the
+independent `recallPass` must be completed with no unresolved IDs or missed
+findings. A v3 manifest without this proof is invalid, even when its selected
+candidate and batch totals reconcile internally.
+
 ## Default automatic policy
 
 The backend policy in `packages/backend/src/config/import-policy.ts` is the

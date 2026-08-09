@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "featureId": "automatic-exhaustive-large-imports",
+  "title": "Automatic exhaustive large-content discovery and transient import ledger",
+  "implementationPaths": [
+    "packages/backend/src/queue/generation.worker.ts",
+    "packages/backend/src/routes/control.ts",
+    "packages/backend/src/routes/vocabulary.ts",
+    "packages/backend/src/services/content-pack-contract.ts",
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/backend/src/services/extraction-foundation.service.ts",
+    "packages/backend/src/services/in-app-generation.service.ts",
+    "packages/frontend/app/dashboard/page.tsx",
+    "packages/frontend/app/vocabulary/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts",
+    "packages/backend/src/services/content-pack-contract.test.ts",
+    "packages/backend/src/services/extraction-foundation.service.test.ts",
+    "packages/backend/src/services/in-app-generation.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "machine-enforced in `inventoryAudit`",
+          "A v3 manifest without this proof is invalid"
+        ]
+      }
+    ]
+  }
+}

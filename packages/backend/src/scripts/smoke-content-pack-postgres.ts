@@ -108,6 +108,36 @@ async function main() {
         ],
       },
     ],
+    inventoryAudit: {
+      items: [
+        {
+          inventoryId: "inventory-candidate-001",
+          kind: "token",
+          surfaceForm: sample.word,
+          normalizedForm: sample.word.toLowerCase(),
+          chunkId: "chunk-001",
+          sentence: sample.lesson.meaning_in_context.source_sentence,
+          disposition: "candidate",
+          candidateId: "candidate-001",
+        },
+        {
+          inventoryId: "inventory-candidate-002",
+          kind: "token",
+          surfaceForm: "the",
+          normalizedForm: "the",
+          chunkId: "chunk-001",
+          sentence: "The smoke source includes a basic function word.",
+          disposition: "candidate",
+          candidateId: "candidate-002",
+        },
+      ],
+      counts: { total: 2, candidateLinked: 2, excluded: 0, untracked: 0 },
+      recallPass: {
+        completed: true,
+        unresolvedInventoryIds: [],
+        missedFindings: [],
+      },
+    },
     counts: {
       totalCandidates: 2,
       generate: 1,

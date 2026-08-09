@@ -268,6 +268,44 @@ const BatchPlanSchema = z
   })
   .strict();
 
+const InventoryItemSchema = z
+  .object({
+    inventoryId: IdentifierSchema,
+    kind: z.enum(["token", "lemma", "ngram", "expression"]),
+    surfaceForm: z.string().trim().min(1).max(500),
+    normalizedForm: z.string().trim().min(1).max(500),
+    chunkId: IdentifierSchema,
+    sentence: SourceTextSchema,
+    disposition: z.enum(["candidate", "excluded"]),
+    candidateId: IdentifierSchema.optional(),
+    exclusionCode: IdentifierSchema.optional(),
+    reason: UsefulTextSchema.optional(),
+  })
+  .strict()
+  .superRefine((item, context) => {
+    if (item.disposition === "candidate" && !item.candidateId)
+      context.addIssue({ code: z.ZodIssueCode.custom, path: ["candidateId"], message: "candidate disposition requires candidateId" });
+    if (item.disposition === "excluded" && (!item.exclusionCode || !item.reason))
+      context.addIssue({ code: z.ZodIssueCode.custom, path: ["reason"], message: "excluded inventory requires a stable code and specific reason" });
+  });
+
+const InventoryAuditSchema = z
+  .object({
+    items: z.array(InventoryItemSchema).min(1).max(100_000),
+    counts: z.object({
+      total: z.number().int().positive(),
+      candidateLinked: z.number().int().nonnegative(),
+      excluded: z.number().int().nonnegative(),
+      untracked: z.literal(0),
+    }).strict(),
+    recallPass: z.object({
+      completed: z.literal(true),
+      unresolvedInventoryIds: z.array(IdentifierSchema).max(0),
+      missedFindings: z.array(UsefulTextSchema).max(0),
+    }).strict(),
+  })
+  .strict();
+
 const LegacyContentManifestSchema = z
   .object({
     formatVersion: z.literal(LEGACY_CONTENT_MANIFEST_VERSION),
@@ -316,6 +354,7 @@ const TaxonomyAwareContentManifestSchema = LegacyContentManifestSchema.omit({
   .extend({
     formatVersion: z.literal(CONTENT_MANIFEST_VERSION),
     candidates: z.array(SenseAwareManifestCandidateSchema).max(50_000),
+    inventoryAudit: InventoryAuditSchema,
   })
   .strict();
 
@@ -468,6 +507,26 @@ export function validateContentManifest(
     }
   }
   if (isTaxonomyAwareManifest(manifest)) {
+    const inventoryIds = manifest.inventoryAudit.items.map((item) => item.inventoryId);
+    if (duplicates(inventoryIds).length)
+      issues.push("inventoryAudit.items: every inventoryId must be unique");
+    const linked = manifest.inventoryAudit.items.filter((item) => item.disposition === "candidate");
+    const excluded = manifest.inventoryAudit.items.filter((item) => item.disposition === "excluded");
+    if (
+      manifest.inventoryAudit.counts.total !== manifest.inventoryAudit.items.length ||
+      manifest.inventoryAudit.counts.candidateLinked !== linked.length ||
+      manifest.inventoryAudit.counts.excluded !== excluded.length
+    ) issues.push("inventoryAudit.counts: declared inventory totals do not reconcile");
+    const candidateLinks = new Set(linked.map((item) => item.candidateId));
+    for (const item of linked) {
+      if (!candidateIds.includes(item.candidateId!))
+        issues.push(`${item.inventoryId}: inventory references unknown candidate ${item.candidateId}`);
+      if (!manifest.coverage.chunks.some((chunk) => chunk.chunkId === item.chunkId))
+        issues.push(`${item.inventoryId}: inventory references unknown chunk ${item.chunkId}`);
+    }
+    for (const candidateId of candidateIds)
+      if (!candidateLinks.has(candidateId))
+        issues.push(`${candidateId}: candidate has no deterministic inventory link`);
     for (const candidate of manifest.candidates) {
       if (candidate.decision !== "generate") continue;
       if (!candidate.taxonomy) {

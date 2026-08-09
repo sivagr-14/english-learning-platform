@@ -381,7 +381,7 @@ export default function VocabularyPage() {
               </h2>
               <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-slate-600">
                 Share text or a file with ChatGPT. Entries appear here only
-                after assessment, exact-count review and approval.
+                automatically after assessment and exact reconciliation.
               </p>
             </div>
           )}

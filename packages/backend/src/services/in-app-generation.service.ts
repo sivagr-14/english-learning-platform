@@ -473,6 +473,20 @@ export function buildManifestDocument(params: {
     candidateIds: string[];
     error?: string;
   }>;
+  inventoryAudit: {
+    items: Array<Record<string, unknown>>;
+    counts: {
+      total: number;
+      candidateLinked: number;
+      excluded: number;
+      untracked: 0;
+    };
+    recallPass: {
+      completed: true;
+      unresolvedInventoryIds: [];
+      missedFindings: [];
+    };
+  };
 }) {
   const validCandidates = params.candidates.filter(
     (c): c is NonNullable<typeof c> => c !== null,
@@ -497,6 +511,7 @@ export function buildManifestDocument(params: {
       chunks: params.chunks,
     },
     candidates: validCandidates,
+    inventoryAudit: params.inventoryAudit,
     counts: {
       totalCandidates: validCandidates.length,
       generate: generateCount,

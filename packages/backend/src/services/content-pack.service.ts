@@ -338,11 +338,9 @@ export class ContentPackService {
       // The ledger is a recovery queue, not an import-history screen. Once a
       // verified pack has been removed from the inbox there is no action left
       // for the learner, so keep it out of the active list.
-      .where((builder: any) =>
-        builder
-          .whereNull("inbox_cleaned_at")
-          .orWhereNot("status", "completed"),
-      )
+      // This is an action queue, never history. Completed imports disappear
+      // immediately; inbox cleanup continues independently and idempotently.
+      .whereNot("status", "completed")
       .orderBy("created_at", "desc");
     return Promise.all(rows.map((row: any) => this.manifestSummary(row)));
   }

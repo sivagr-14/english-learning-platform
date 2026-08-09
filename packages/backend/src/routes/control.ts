@@ -164,36 +164,6 @@ router.post(
 );
 
 router.post(
-  "/content-packs/:id/approve",
-  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
-    try {
-      const manifestId = z.string().trim().min(3).max(120).parse(req.params.id);
-      const input = z
-        .object({
-          candidateIds: z
-            .array(z.string().trim().min(3).max(140))
-            .min(1)
-            .optional(),
-        })
-        .default({})
-        .parse(req.body);
-      const manifest = await contentPacks.approveManifest(
-        req.userId!,
-        manifestId,
-        input.candidateIds,
-      );
-      res.json({
-        message:
-          "Approved candidates are saved automatically as validated ChatGPT batches arrive.",
-        manifest,
-      });
-    } catch (error) {
-      next(error);
-    }
-  },
-);
-
-router.post(
   "/content-packs/:id/verify",
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {

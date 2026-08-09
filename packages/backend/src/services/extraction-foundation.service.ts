@@ -82,6 +82,7 @@ const STOP = new Set(
     " ",
   ),
 );
+// High-confidence patterns complement, but never bound, open n-gram discovery.
 const EXPRESSIONS = [
   "amount to",
   "back down",
@@ -210,6 +211,43 @@ export function enumerateCandidates(
           },
           "token+lemma",
         );
+      }
+      // Enumerate every plausible 2-5 word lexical unit before model/policy
+      // filtering. This is intentionally open-ended: the former curated list
+      // silently capped expression recall and made large-source reconciliation
+      // impossible to prove.
+      const tokens = [...sentence.text.matchAll(/[\p{L}][\p{L}'’-]*/gu)];
+      for (let width = 2; width <= 5; width += 1) {
+        for (let index = 0; index + width <= tokens.length; index += 1) {
+          const slice = tokens.slice(index, index + width);
+          const normalizedParts = slice.map((token) =>
+            normalizeVocabularyTerm(token[0]),
+          );
+          if (normalizedParts.filter((part) => !STOP.has(part)).length < 2)
+            continue;
+          if (EXPRESSIONS.includes(normalizedParts.join(" "))) continue;
+          const first = slice[0];
+          const last = slice[slice.length - 1];
+          const localStart = first.index!;
+          const localEnd = last.index! + last[0].length;
+          const surface = sentence.text.slice(localStart, localEnd);
+          const startOffset =
+            segment.locator.startOffset + sentence.start + localStart;
+          add(
+            surface,
+            normalizedParts.join(" "),
+            "collocation",
+            {
+              segmentId: segment.segmentId,
+              surfaceForm: surface,
+              sentence: sentence.text,
+              startOffset,
+              endOffset: startOffset + surface.length,
+              locator: segment.locator,
+            },
+            `open-ngram-${width}`,
+          );
+        }
       }
       const lower = normalizeSourceText(sentence.text).toLowerCase();
       for (const expression of EXPRESSIONS) {

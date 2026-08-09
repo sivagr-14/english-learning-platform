@@ -604,7 +604,7 @@ router.post(
   async (_req: AuthenticatedRequest, res: Response) => {
     res.status(409).json({
       message:
-        "Direct JSON import is disabled. Content must pass through ChatGPT assessment and approval first.",
+        "Direct JSON import is disabled. Content must pass through automatic ChatGPT assessment and validation first.",
     });
   },
 );
