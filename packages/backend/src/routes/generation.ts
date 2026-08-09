@@ -9,8 +9,10 @@ import { GenerationJobService } from "../services/generation-job.service";
 import {
   enqueueExtraction,
   generationStageJobId,
+  enqueueGenerationResume,
   getGenerationQueue,
 } from "../queue/generation.queue";
+import { selectGenerationResumeStage } from "../services/generation-recovery.service";
 import { database } from "../utils/db";
 import { generationWorkerReady } from "../queue/worker-health";
 import Busboy from "busboy";
@@ -341,21 +343,35 @@ router.post(
             error:
               "Resolve every attention-required candidate before resuming.",
           });
-      if (!job.manifest_id)
-        return res
-          .status(409)
-          .json({
-            error: "Assessment has not produced a durable manifest yet.",
-          });
+      const recovery = await selectGenerationResumeStage(
+        database,
+        req.userId as string,
+        id,
+      );
       await database("generation_jobs")
         .where({ id })
-        .update({ status: "generating", updated_at: new Date() });
-      await getGenerationQueue().add(
-        "generate",
+        .update({
+          status:
+            recovery.stage === "extract"
+              ? "extracting"
+              : recovery.stage === "assess"
+                ? "assessing"
+                : recovery.stage === "generate"
+                  ? "generating"
+                  : "validating",
+          ...(recovery.progressPatch
+            ? { stage_progress: JSON.stringify(recovery.progressPatch) }
+            : {}),
+          error_message: null,
+          terminal_reason: null,
+          completed_at: null,
+          updated_at: new Date(),
+        });
+      const delivery = await enqueueGenerationResume(
+        recovery.stage,
         { generationJobId: id, userId: req.userId as string },
-        { jobId: generationStageJobId(id, "generate") },
       );
-      res.status(202).json({ resumed: true });
+      res.status(202).json({ resumed: true, stage: recovery.stage, delivery });
     } catch (error) {
       next(error);
     }
