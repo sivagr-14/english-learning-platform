@@ -193,7 +193,7 @@ async function handleExtract(
   await getGenerationQueue().add(
     "assess",
     { ...job.data },
-    { jobId: `${generationJobId}:assess` },
+    { jobId: generationStageJobId(generationJobId, "assess") },
   );
 }
 
@@ -492,7 +492,7 @@ async function handleAssess(
 
 async function enqueueBatchPoll(data: GenerationJobData) {
   await getGenerationQueue().add("batch-poll", data, {
-    jobId: `${data.generationJobId}:batch-poll:${Date.now()}`,
+    jobId: `${generationStageJobId(data.generationJobId, "batch-poll")}--${Date.now()}`,
     delay: Number(process.env.GEMINI_BATCH_POLL_INTERVAL_MS || 30_000),
     attempts: 3,
   });
