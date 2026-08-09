@@ -1,15 +1,16 @@
 # Vocabulary Lesson Generation Contract
 
-For source assessment, page/chunk accounting, GitHub transport, approval and
-batch rules, first follow `docs/CHATGPT_CONTENT_PACK_WORKFLOW.md`. This file
-defines the lesson payload inside each approved content-pack batch.
+For source assessment, page/chunk accounting, GitHub transport, automatic
+selection and batch rules, first follow `docs/CHATGPT_CONTENT_PACK_WORKFLOW.md`.
+This file defines the lesson payload inside each selected content-pack batch.
 
 Use this contract for every vocabulary entry, whether it is new or an update.
 
 ## Default automatic selection
 
-After the learner claims an import, generate every valid new heavy/high- and
-medium-frequency candidate automatically without a separate approval step.
+Generate every valid new heavy/high- and medium-frequency candidate
+automatically. The authenticated backend assigns ownership and imports valid
+batches without a learner claim or approval step.
 Exclude low-frequency terms, proper names, extraction/OCR noise, malformed
 tokens, exact duplicates and already-complete entries, and record a reason for
 every exclusion. Hold unreadable or ambiguous material for attention.

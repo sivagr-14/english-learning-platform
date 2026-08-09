@@ -1,6 +1,9 @@
 import { STARTER_SAMPLES } from "../data/starter-samples";
 import { contentPackHash } from "./content-pack-contract";
-import { ContentPackService } from "./content-pack.service";
+import {
+  ContentPackService,
+  shouldAutomaticallyApproveManifest,
+} from "./content-pack.service";
 
 class MemoryQuery {
   private predicates: Array<(row: any) => boolean> = [];
@@ -354,5 +357,41 @@ describe("ChatGPT content-pack staging ledger", () => {
 
     expect(conflict.errors[0].message).toMatch(/different content/i);
     expect(database.memory.tables.content_pack_manifests[0]).toEqual(original);
+  });
+});
+
+
+describe("automatic content-pack approval recovery", () => {
+  it("repairs a previously claimed manifest left at the retired approval gate", () => {
+    expect(
+      shouldAutomaticallyApproveManifest({
+        owner_user_id: "user-1",
+        status: "awaiting_approval",
+      }),
+    ).toBe(true);
+    expect(
+      shouldAutomaticallyApproveManifest({
+        owner_user_id: "user-1",
+        status: "processing",
+      }),
+    ).toBe(false);
+    expect(
+      shouldAutomaticallyApproveManifest({
+        owner_user_id: null,
+        status: "awaiting_approval",
+      }),
+    ).toBe(false);
+  });
+
+  it("preserves manual approval only when policy explicitly requires it", () => {
+    expect(
+      shouldAutomaticallyApproveManifest(
+        {
+          owner_user_id: "user-1",
+          status: "awaiting_approval",
+        },
+        true,
+      ),
+    ).toBe(false);
   });
 });

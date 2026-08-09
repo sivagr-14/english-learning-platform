@@ -58,6 +58,46 @@ describe("vocabulary sense identity", () => {
     });
   });
 
+  it.each([
+    [
+      "ambitious",
+      "determined to achieve significant success or difficult goals",
+      "having a strong desire and determination to succeed",
+    ],
+    [
+      "bizarre",
+      "extremely strange and difficult to explain",
+      "very strange or unusual",
+    ],
+  ])(
+    "reuses %s when the contextual meanings are equivalent paraphrases",
+    (term, contextualMeaning, storedMeaning) => {
+      expect(
+        resolveContextualSense(
+          {
+            term,
+            contextualMeaning,
+            senseKey: `source-${term}-sense`,
+            declaredDecision: "new_sense",
+          },
+          [
+            {
+              id: `${term}-word-id`,
+              word: term,
+              normalized_term: term,
+              sense_rank: 1,
+              sense_key: `stored-${term}-sense`,
+              sense_gloss: storedMeaning,
+            },
+          ],
+        ),
+      ).toMatchObject({
+        decision: "same_sense",
+        matchedSense: { id: `${term}-word-id` },
+      });
+    },
+  );
+
   it("creates a new sense for a clearly different contextual meaning", () => {
     expect(
       resolveContextualSense(
@@ -65,6 +105,20 @@ describe("vocabulary sense identity", () => {
           term: "bank",
           contextualMeaning: "the sloping land beside a river",
           senseKey: "river-side-land",
+          declaredDecision: "new_sense",
+        },
+        [financialBank],
+      ),
+    ).toMatchObject({ decision: "new_sense", matchedSense: null });
+  });
+
+  it("keeps a declared new sense automatic despite moderate wording overlap", () => {
+    expect(
+      resolveContextualSense(
+        {
+          term: "bank",
+          contextualMeaning: "a raised bank of money used as a reserve",
+          senseKey: "reserve-or-stock",
           declaredDecision: "new_sense",
         },
         [financialBank],

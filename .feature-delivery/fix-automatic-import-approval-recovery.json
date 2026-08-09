@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fix-automatic-import-approval-recovery",
+  "title": "Recover automatic ChatGPT imports from retired approval and false sense attention",
+  "implementationPaths": [
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/backend/src/services/vocabulary-sense.service.ts",
+    "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+    "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+    "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
+    "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/content-pack.service.test.ts",
+    "packages/backend/src/services/vocabulary-sense.service.test.ts",
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts",
+    "packages/backend/src/services/in-app-generation.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "automatically promoted and resumed",
+          "never require learner intervention"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "without a learner claim or approval step"
+        ]
+      }
+    ]
+  }
+}

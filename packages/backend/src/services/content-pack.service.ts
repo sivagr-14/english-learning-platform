@@ -50,6 +50,17 @@ export interface ContentPackIngestContext {
   syncedAt?: Date;
 }
 
+export function shouldAutomaticallyApproveManifest(
+  row: { owner_user_id?: string | null; status?: string | null },
+  approvalRequired: boolean = DEFAULT_IMPORT_POLICY.approvalRequired,
+): boolean {
+  return Boolean(
+    row.owner_user_id &&
+      !approvalRequired &&
+      row.status === "awaiting_approval",
+  );
+}
+
 function statusError(
   message: string,
   status = 400,
@@ -344,12 +355,21 @@ export class ContentPackService {
       )
       .whereNull("inbox_cleaned_at")
       .orderBy("created_at", "asc")
-      .select("id", "owner_user_id");
+      .select("id", "owner_user_id", "status");
     const processed: string[] = [];
     const cleanupEligible: string[] = [];
     for (const row of rows) {
-      if (!row.owner_user_id) await this.claimManifest(userId, row.id);
-      else await this.commitAvailableBatches(userId, row.id);
+      if (!row.owner_user_id) {
+        await this.claimManifest(userId, row.id);
+      } else if (shouldAutomaticallyApproveManifest(row)) {
+        // Re-resolve stale attention rows before promoting an import created by
+        // the retired workflow. Stored vocabulary may prove that a staged
+        // "new" candidate is actually an already-complete contextual sense.
+        await this.reconcileLegacySenseAttention(userId, row.id);
+        await this.approveManifest(userId, row.id);
+      } else {
+        await this.commitAvailableBatches(userId, row.id);
+      }
       const verification = await this.verifyManifest(userId, row.id);
       processed.push(row.id);
       if (verification.verified) cleanupEligible.push(row.id);
@@ -698,6 +718,145 @@ export class ContentPackService {
       return this.approveManifest(userId, manifestId);
     }
     return claimed;
+  }
+
+  private async reconcileLegacySenseAttention(
+    userId: string,
+    manifestId: string,
+  ) {
+    await this.database.transaction(async (trx: any) => {
+      const manifestRow = await trx("content_pack_manifests")
+        .where({ id: manifestId, owner_user_id: userId })
+        .forUpdate()
+        .first();
+      if (!manifestRow?.assessment_run_id) return;
+
+      const manifest = readJson<ContentManifest>(
+        manifestRow.payload,
+        null as any,
+      );
+      if (!isSenseAwareManifest(manifest)) return;
+      const manifestCandidates = new Map(
+        manifest.candidates.map((candidate: any) => [
+          candidate.candidateId,
+          candidate,
+        ]),
+      );
+      const attentionRows = await trx("assessment_candidates").where({
+        assessment_run_id: manifestRow.assessment_run_id,
+        status: "manual_review",
+      });
+
+      for (const attentionRow of attentionRows) {
+        const candidate: any = manifestCandidates.get(
+          attentionRow.external_candidate_id,
+        );
+        if (
+          !candidate ||
+          candidate.decision !== "generate" ||
+          !("senseDecision" in candidate)
+        ) {
+          continue;
+        }
+
+        const normalizedTerm = normalizeVocabularyTerm(candidate.term);
+        await lockVocabularyTerm(trx, userId, normalizedTerm);
+        const existingSenses = await trx("vocabulary_words")
+          .where({
+            owner_user_id: userId,
+            normalized_term: normalizedTerm,
+          })
+          .select(
+            "id",
+            "word",
+            "normalized_term",
+            "sense_rank",
+            "sense_key",
+            "sense_gloss",
+            "english_meaning",
+          );
+        const resolution = resolveContextualSense(
+          {
+            term: candidate.term,
+            contextualMeaning: candidate.contextualMeaning,
+            senseKey: candidate.senseKey,
+            declaredDecision: candidate.senseDecision,
+            matchedWordId: candidate.matchedWordId,
+          },
+          existingSenses,
+        );
+
+        if (resolution.decision === "same_sense") {
+          await trx("assessment_candidates")
+            .where({ id: attentionRow.id })
+            .update({
+              action: "unchanged",
+              status: "unchanged",
+              matched_word_id: resolution.matchedSense.id,
+              allocated_sense_rank: Number(
+                resolution.matchedSense.sense_rank || 1,
+              ),
+              sense_decision: "same_sense",
+              filter_reason: null,
+              decision_reason: resolution.reason,
+              updated_at: new Date(),
+            });
+        } else if (resolution.decision === "new_sense") {
+          const allocatedSenseRank = await allocatePersistentSenseRank(
+            trx,
+            userId,
+            normalizedTerm,
+          );
+          await trx("assessment_candidates")
+            .where({ id: attentionRow.id })
+            .update({
+              action: "new",
+              status: "proposed",
+              matched_word_id: null,
+              allocated_sense_rank: allocatedSenseRank,
+              sense_decision: "new_sense",
+              filter_reason: null,
+              decision_reason: resolution.reason,
+              updated_at: new Date(),
+            });
+        }
+      }
+
+      const candidateRows = await trx("assessment_candidates").where({
+        assessment_run_id: manifestRow.assessment_run_id,
+      });
+      const ambiguousSenses = candidateRows.filter(
+        (candidate: any) => candidate.status === "manual_review",
+      ).length;
+      const totalEntriesToProcess = candidateRows.filter(
+        (candidate: any) => candidate.status === "proposed",
+      ).length;
+      const alreadyPresentUnchanged = candidateRows.filter(
+        (candidate: any) => candidate.status === "unchanged",
+      ).length;
+      const existingEntriesToUpdate = candidateRows.filter(
+        (candidate: any) =>
+          candidate.status === "proposed" && candidate.action === "update",
+      ).length;
+      const newEntriesProposed = candidateRows.filter(
+        (candidate: any) =>
+          candidate.status === "proposed" && candidate.action === "new",
+      ).length;
+      const counts = {
+        ...readJson(manifestRow.counts, {}),
+        ambiguousSenses,
+        totalEntriesToProcess,
+        alreadyPresentUnchanged,
+        existingEntriesToUpdate,
+        newEntriesProposed,
+      };
+      await trx("assessment_runs")
+        .where({ id: manifestRow.assessment_run_id })
+        .update({ counts: JSON.stringify(counts), updated_at: new Date() });
+      await trx("content_pack_manifests")
+        .where({ id: manifestId })
+        .update({ counts: JSON.stringify(counts), updated_at: new Date() });
+    });
   }
 
   async approveManifest(
