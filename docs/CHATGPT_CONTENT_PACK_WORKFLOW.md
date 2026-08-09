@@ -219,16 +219,13 @@ until it is resolved or deliberately excluded with a recorded reason.
 
 ## Inbox cleanup rule
 
-Periodic and startup synchronization only fetch, validate and stage immutable
-files; they never claim or commit account-owned content. A signed-in manual sync
-then performs one explicit sequence: stage -> authenticated claim/resume ->
-PostgreSQL commit/read-back -> cleanup of exactly the verified manifest IDs.
-Cleanup is allowed only after the import is completed, every planned batch is
-present and valid, the committed count matches the approved count, and every
-word, lesson, progress and review row is read back successfully. A guarded Git
-push prevents cleanup from overwriting a concurrently delivered pack. Failed
-cleanup is safe to retry, and an already-absent folder is recorded without
-changing PostgreSQL content.
+Cleanup is automatic during periodic or manual synchronization, but is allowed
+only after the import is completed, every planned batch is present and valid,
+the committed count matches the approved count, and every word, lesson,
+progress and review row is read back successfully. A guarded Git push prevents
+cleanup from overwriting a concurrently delivered pack. Failed cleanup is safe
+to retry, and an already-absent folder is recorded without changing PostgreSQL
+content.
 
 ## Status and recovery guarantees
 
