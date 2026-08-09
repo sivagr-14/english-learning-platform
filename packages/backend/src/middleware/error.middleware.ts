@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { ZodError } from "zod";
 import { logger } from "../utils/logger";
+import { ProviderRequestError } from "../services/provider-reliability";
 
 export interface ApiError {
   status: number;
@@ -41,6 +42,24 @@ export const errorHandler = (
   if (err instanceof AppError) {
     return res.status(err.status).json({
       message: err.message,
+    });
+  }
+
+  if (err instanceof ProviderRequestError) {
+    const fallbackStatus: Record<ProviderRequestError["code"], number> = {
+      cancelled: 408,
+      timeout: 504,
+      rate_limited: 429,
+      provider_unavailable: 503,
+      authentication_failed: 401,
+      malformed_json: 502,
+      validation_failed: 422,
+      permanent_failure: 502,
+    };
+    return res.status(err.status || fallbackStatus[err.code]).json({
+      message: err.message,
+      code: err.code,
+      retryable: err.retryable,
     });
   }
 

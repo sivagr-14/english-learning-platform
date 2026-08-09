@@ -1,6 +1,7 @@
 import { logger } from "../utils/logger";
 import {
   classifyHttpFailure,
+  classifyProviderFailure,
   ProviderRequestError,
   timeoutSignal,
   withProviderRetry,
@@ -487,20 +488,41 @@ export class GeminiAdapter implements JsonProviderAdapter {
 
   async testConnection(signal?: AbortSignal) {
     const startedAt = Date.now();
-    const result = await generateJson<{ ok: boolean }>({
-      tier: "primary",
-      systemPrompt: "Return JSON only.",
-      userPrompt: 'Return {"ok":true}. Do not repeat any supplied data.',
-      responseSchema: {
-        type: "OBJECT",
-        properties: { ok: { type: "BOOLEAN" } },
-        required: ["ok"],
-      },
-      signal,
-      timeoutMs: 15_000,
-    });
-    if (result.data.ok !== true) throw new Error("Gemini connectivity response was invalid");
-    return { model: result.model, latencyMs: Date.now() - startedAt };
+    const config = configFor("primary", "gemini");
+    const timeout = timeoutSignal(signal, 15_000);
+    try {
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${config.model}?key=${config.apiKey}`,
+        { method: "GET", signal: timeout.signal },
+      );
+      if (!response.ok) {
+        const body = await response.text();
+        throw classifyHttpFailure(response.status, body);
+      }
+      const metadata = (await response.json()) as { name?: string };
+      const returnedModel = metadata.name?.replace(/^models\//, "");
+      if (returnedModel && returnedModel !== config.model) {
+        throw new ProviderRequestError(
+          "permanent_failure",
+          `Gemini returned metadata for unexpected model "${returnedModel}".`,
+          false,
+          502,
+        );
+      }
+      return { model: config.model, latencyMs: Date.now() - startedAt };
+    } catch (error) {
+      if (timeout.timedOut()) {
+        throw new ProviderRequestError(
+          "timeout",
+          "Gemini connection test exceeded 15000 ms",
+          true,
+          504,
+        );
+      }
+      throw classifyProviderFailure(error);
+    } finally {
+      timeout.dispose();
+    }
   }
 }
 
