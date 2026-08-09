@@ -6,6 +6,11 @@ This file defines the lesson payload inside each selected content-pack batch.
 
 Use this contract for every vocabulary entry, whether it is new or an update.
 
+The ChatGPT manifest and batch contract is canonical. Gemini, Ollama and other
+local-AI providers must emit the same fields and pass the same validation;
+provider limitations never weaken lesson structure, contextual-sense identity,
+taxonomy, exact evidence or quality requirements.
+
 ## Default automatic selection
 
 Generate every valid new heavy/high- and medium-frequency candidate
@@ -23,6 +28,26 @@ Complete lesson generation uses adaptive batches of 5–10 entries, normally 8.
 These are per-operation safety bounds, not limits on the total import. The
 backend policy and stored import snapshot remain the source of truth.
 
+These group sizes are processing bounds, not discovery targets or total caps.
+For large pasted content or files, continue through every declared source unit
+and chunk. Discovery must cover both single words and multi-word expressions,
+and every discovered item must remain in the candidate ledger even when it is
+later classified as existing, filtered or rejected. Genuinely ambiguous senses
+remain represented through the contract's attention-required sense state, not
+through a provider-specific candidate-decision value.
+
+Candidate totals must never be selected in advance. A result such as 40, 72,
+100 or any other convenient total is valid only when it emerges from a complete
+inventory-to-decision reconciliation. Previously generated cards are checked
+as `existing`; they do not reduce how thoroughly the source is rescanned.
+
+For each sentence, first account for every lexical token/lemma, then separately
+discover multi-word units. Each inventory item must link to a candidate or have
+a specific exclusion code. After both passes, perform an independent blind
+recall pass over the original source and add every missed B2-C2 word or useful
+expression before lesson generation. Do not infer completeness from the number
+of generated lessons.
+
 ## Contextual sense identity
 
 Generate one entry for exactly one meaning demonstrated by the supplied
@@ -38,6 +63,12 @@ For every candidate, provide:
 - `senseDecision`: `same_sense`, `new_sense` or `ambiguous`; and
 - `senseEvidence.sentence` and `senseEvidence.explanation` showing why that
   meaning applies in the source.
+
+### Exact evidence derivation
+
+`senseEvidence.sentence` must be selected directly from the candidate's stored
+source occurrences. Do not paraphrase or generate it separately. The lesson
+`source_sentence` must copy the identical stored sentence.
 
 Apply these rules:
 

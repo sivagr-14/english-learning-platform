@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fix-content-pack-reassessment-recovery",
+  "title": "Recover immutable same-source imports and isolate internal diagnostics",
+  "implementationPaths": [
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/backend/src/database/migrations/10000_reconcile_reassessment_job_identity.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/__tests__/content-pack-reassessment-recovery.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This repairs local database identity and diagnostic routing while preserving the existing ChatGPT manifest, evidence, and lesson contracts."
+  }
+}

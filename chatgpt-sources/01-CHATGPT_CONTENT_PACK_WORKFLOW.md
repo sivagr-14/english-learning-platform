@@ -5,6 +5,20 @@ ChatGPT performs language assessment and lesson generation. GitHub transports
 structured content. Only the local backend owns PostgreSQL credentials and
 writes database rows.
 
+## Authority and provider precedence
+
+This ChatGPT content-pack workflow is the canonical import contract. Its
+manifest, candidate ledger, contextual-sense identity, source-evidence,
+taxonomy, batch, lesson, validation, immutability and completion rules take
+precedence over Gemini, Ollama or any other local-AI implementation.
+
+Other providers may produce data only through an adapter that emits and passes
+this same contract. They must not weaken, omit, rename or reinterpret required
+fields or validation rules. If provider output conflicts with this contract,
+reject or adapt the provider output; never change or compromise the ChatGPT
+format. Provider switching starts a new immutable job and must never combine or
+mutate an existing ChatGPT manifest.
+
 ## End-to-end flow
 
 1. The learner pastes text or attaches a PDF in ChatGPT.
@@ -139,17 +153,86 @@ system classification.
 
 ## Large documents
 
-- Assess the source before generating lessons.
-- Prefer chunks of roughly 1,000–1,500 source words while preserving page and
-  paragraph boundaries.
+- Apply this procedure to every source size and supported input type, including
+  pasted text, TXT, MD, PDF, DOCX, EPUB, HTML, SRT and VTT. File size or model
+  context limits may change processing group size but never reduce coverage.
+- Create an immutable ordered source-unit ledger first (page, chapter,
+  paragraph, subtitle cue or equivalent) with original text, stable location,
+  reading order and readable/unreadable status.
+- Split readable content into traceable chunks of roughly 1,000–1,500 source
+  words while preserving source-unit and paragraph boundaries. Never assess an
+  entire large source as one oversized chunk merely because it fits a model
+  context window.
 - Keep a small context overlap when an expression might cross a chunk boundary,
-  but list each candidate once in the manifest.
+  preserve exact source spans, and deduplicate overlap candidates by normalized
+  term plus contextual sense.
+- Before semantic filtering, deterministically enumerate tokens, lemmas,
+  useful n-grams and exact occurrences. This inventory prevents the model from
+  silently replacing the source vocabulary with a short hand-selected list.
+- The deterministic inventory is the assessment input, not a suggestion. It
+  must contain every non-noise lexical token after documented function-word
+  removal. Expression discovery must additionally scan every sentence with
+  lexical and syntactic phrase detection; a fixed hand-written phrase list is
+  only one detector and can never define the complete inventory.
+- Give every inventory item a stable `inventoryId`. Store its source span and
+  one final disposition: candidate ID, `basic_below_target`, `function_word`,
+  `proper_name`, `low_frequency`, `noise`, or `subsumed_by_expression`. A broad
+  explanation such as "not useful" is not sufficient.
+- Assess every chunk in at least two passes:
+  1. single-word B2, C1 and C2 vocabulary, including useful specialised terms;
+  2. phrasal verbs, idioms, collocations, fixed expressions and useful
+     conversational or professional patterns.
+- Record every discovered candidate before filtering. Give each one exactly one
+  contract decision: `generate`, `existing`, `filtered` or `rejected`, with a
+  stable reason for every decision other than `generate`. Record genuinely
+  ambiguous senses separately as attention-required; do not invent a new
+  candidate-decision enum value.
+- Run a per-chunk omission audit against the deterministic inventory and a final
+  source-wide audit for missed advanced words, expressions, repeated spellings
+  with different senses and candidates crossing chunk boundaries.
+- A second independent recall pass must rescan the original sentences without
+  seeing the first pass's chosen candidate list. Reconcile the union. Any item
+  found only by the recall pass is added to the ledger before finalization.
+- Lesson count is an output of the reconciled ledger. Never choose a desired
+  count first and then select that many terms. Previous-import counts (for
+  example 40 or 72) are deduplication inputs only, never discovery budgets.
+- Do not impose a total candidate cap or stop at a convenient round number.
+  Safety limits apply only to assessment groups and lesson batches. A suspicious
+  round total must be supported by the complete ledger and omission audit.
 - Record every page even when it yields no useful candidates.
 - Mark scanned, corrupt or otherwise unreadable pages as `unreadable` with a
   reason. Do not finalize the import until replacement/OCR text has been
   assessed and the immutable manifest is replaced with a new manifest ID.
 - Generate five to ten lessons per batch. A large import may resume across many
   ChatGPT turns because the manifest and received batch numbers are durable.
+- Finalize the immutable manifest and its complete generation plan before
+  generating the first lesson. Resume only from durable manifest and batch
+  identities; never rediscover a smaller subset during continuation.
+
+### Exact source-evidence rule
+
+Every `senseEvidence.sentence` must be copied from one recorded canonical
+occurrence, byte-for-byte after the contract's single documented normalization
+step. Never paraphrase, reconstruct or independently normalize evidence. The
+lesson `source_sentence` must copy that same stored value. Validation must prove
+that each evidence sentence belongs to the candidate's `occurrences[]` and to
+the declared source unit/chunk.
+
+### Large-source reconciliation gate
+
+Generation may start only when all of the following reconcile:
+
+```text
+declared source units = readable units + explicitly unreadable units
+declared chunks = assessed chunks + explicitly unreadable chunks
+enumerated candidates = generate + existing + filtered + rejected
+deterministic inventory items = candidate-linked items + explicitly excluded items
+contextual senses = resolved senses + explicitly held ambiguities
+every candidate occurrence = exact source span in a declared unit and chunk
+every generate candidate = exactly one planned batch membership
+untracked units, chunks, candidates, occurrences or batch memberships = 0
+untracked inventory items or recall-pass findings = 0
+```
 
 ## Default automatic policy
 
