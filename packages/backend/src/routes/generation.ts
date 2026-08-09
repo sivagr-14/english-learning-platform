@@ -24,7 +24,8 @@ import {
   validateUploadMetadata,
 } from "../services/staged-upload.service";
 import { CandidateReviewService } from "../services/candidate-review.service";
-import { GeminiAdapter } from "../services/ai-provider.service";
+import { configFor, GeminiAdapter } from "../services/ai-provider.service";
+import { cancelGeminiBatch, resolveGenerationExecutionMode } from "../services/gemini-batch.service";
 import { providerRolloutConfig } from "../services/provider-rollout.service";
 
 const router: Router = express.Router();
@@ -100,6 +101,7 @@ const CreateJobSchema = z.object({
   sourceContent: z.string().min(1).max(500_000),
   warningBudgetUsd: z.number().positive().max(100).optional(),
   hardBudgetUsd: z.number().positive().max(100).optional(),
+  executionMode: z.enum(["auto", "standard", "batch"]).default("auto"),
 }).refine(
   (value) => !value.warningBudgetUsd || !value.hardBudgetUsd || value.warningBudgetUsd <= value.hardBudgetUsd,
   { message: "Warning budget cannot exceed hard budget" },
@@ -126,6 +128,7 @@ router.post(
         sourceContent: input.sourceContent,
         warningBudgetUsd: input.warningBudgetUsd,
         hardBudgetUsd: input.hardBudgetUsd,
+        executionMode: input.executionMode,
       });
 
       if (isNew) {
@@ -162,6 +165,7 @@ router.post(
         });
       const sourceType = String(req.header("x-source-type") || "");
       const expectedHash = req.header("x-content-sha256") || undefined;
+      const executionMode = z.enum(["auto", "standard", "batch"]).default("auto").parse(req.header("x-execution-mode") || "auto");
       const busboy = Busboy({
         headers: req.headers,
         limits: { files: 1, fileSize: 25 * 1024 * 1024, fields: 0 },
@@ -218,6 +222,7 @@ router.post(
         sourceHash: staged.hash,
         stagedUploadPath: staged.path,
         stagedUploadSize: staged.size,
+        executionMode,
       });
       if (!isNew) await removeStagedUpload(staged.path);
       if (isNew)
@@ -242,6 +247,10 @@ router.post(
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
       const id = z.string().uuid().parse(req.params.id);
+      const current = await jobService.get(req.userId as string, id);
+      if (current.provider_batch_id && !["committed", "failed", "cancelled"].includes(current.status)) {
+        await cancelGeminiBatch(configFor("primary"), current.provider_batch_id);
+      }
       const job = await jobService.requestCancellation(
         req.userId as string,
         id,
@@ -456,17 +465,22 @@ router.get(
       // at Gemini Flash rates ($0.30/$2.50 per 1M tokens).
       const estimatedInputTokens = candidateCount * 3_000;
       const estimatedOutputTokens = candidateCount * 2_000;
+      const executionMode = job.execution_mode_resolved || resolveGenerationExecutionMode(job.execution_mode_requested || "auto", candidateCount);
+      const discount = executionMode === "batch" ? 0.5 : 1;
       const estimatedCostUsd =
-        (estimatedInputTokens * 0.3 + estimatedOutputTokens * 2.5) / 1_000_000;
+        ((estimatedInputTokens * 0.3 + estimatedOutputTokens * 2.5) / 1_000_000) * discount;
 
       res.json({
         jobId: id,
         status: job.status,
         candidateCount,
+        executionMode,
+        requestedExecutionMode: job.execution_mode_requested || "auto",
         estimatedInputTokens,
         estimatedOutputTokens,
         estimatedCostUsd: Number(estimatedCostUsd.toFixed(4)),
-        model: process.env.PRIMARY_AI_MODEL || "gemini-2.0-flash",
+        model: process.env.PRIMARY_AI_MODEL || "gemini-2.5-flash",
+        batchTurnaroundNotice: executionMode === "batch" ? "Asynchronous processing may take up to 24 hours." : null,
       });
     } catch (error) {
       next(error);

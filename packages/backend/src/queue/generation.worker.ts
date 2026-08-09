@@ -35,6 +35,15 @@ import {
   ProviderRequestError,
 } from "../services/provider-reliability";
 import { ProviderNeutralJobRepository } from "../services/provider-neutral-job.repository";
+import { configFor } from "../services/ai-provider.service";
+import {
+  buildGeminiLessonBatchRequest,
+  getGeminiBatch,
+  parseGeminiLessonBatchResponse,
+  reconcileGeminiBatchResults,
+  resolveGenerationExecutionMode,
+  submitGeminiBatch,
+} from "../services/gemini-batch.service";
 import {
   pendingPlanMembers,
   reconstructDurableBatches,
@@ -478,6 +487,174 @@ async function handleAssess(
   );
 }
 
+async function enqueueBatchPoll(data: GenerationJobData) {
+  await getGenerationQueue().add("batch-poll", data, {
+    jobId: `${data.generationJobId}:batch-poll:${Date.now()}`,
+    delay: Number(process.env.GEMINI_BATCH_POLL_INTERVAL_MS || 30_000),
+    attempts: 3,
+  });
+}
+
+async function handleGeminiBatchGeneration(
+  job: Job<GenerationJobData, void, GenerationJobName>,
+  record: any,
+  progress: Record<string, any>,
+  plan: any[],
+  repository: ProviderNeutralJobRepository,
+): Promise<boolean> {
+  const pending = plan.filter((item) => !(item.result_id && item.validation_status === "valid"));
+  if (!pending.length) return true;
+  const config = configFor("primary");
+
+  if (!record.provider_batch_id) {
+    const requests = pending.map((member) => {
+      const candidate = readJson<any>(member.snapshot, null);
+      if (!candidate) throw new Error(`Cannot reconstruct batch candidate ${member.external_candidate_id}.`);
+      return buildGeminiLessonBatchRequest({
+        candidateId: member.external_candidate_id,
+        term: candidate.term,
+        contextualMeaning: candidate.contextualMeaning,
+        sourceSentence: candidate.senseEvidence?.sentence,
+        surroundingContext: candidate.occurrences?.[0]?.sentence,
+        cefrLevel: candidate.cefrLevel,
+        categoryName: candidate.categoryName,
+      });
+    });
+
+    // Creation is intentionally called once and never wrapped in the normal
+    // provider retry helper because Gemini batch creation is not idempotent.
+    let submission;
+    try {
+      submission = await submitGeminiBatch(
+        config,
+        `vocabulary-${job.data.generationJobId}-${Date.now()}`,
+        requests,
+      );
+    } catch (error) {
+      await jobService.updateStatus(job.data.generationJobId, "attention_required", {
+        stageProgress: {
+          ...progress,
+          executionMode: "batch",
+          batchSubmissionUncertain: true,
+          exactNextAction: "Check Gemini batches before retrying; creation is not idempotent.",
+        },
+        errorMessage: (error as Error).message,
+      });
+      return false;
+    }
+    await database.transaction(async (trx: any) => {
+      await trx("generation_jobs").where({ id: job.data.generationJobId }).update({
+        provider_batch_id: submission.name,
+        provider_batch_state: submission.state,
+        provider_batch_submitted_at: new Date(),
+        updated_at: new Date(),
+      });
+      for (const member of pending) {
+        await trx("generation_provider_batch_requests")
+          .insert({
+            generation_job_id: job.data.generationJobId,
+            candidate_decision_id: member.candidate_decision_id,
+            external_candidate_id: member.external_candidate_id,
+            provider_batch_id: submission.name,
+            status: "submitted",
+          })
+          .onConflict(["generation_job_id", "external_candidate_id"])
+          .merge({ provider_batch_id: submission.name, status: "submitted", provider_error: null, updated_at: new Date() });
+      }
+    });
+    await enqueueBatchPoll(job.data);
+    return false;
+  }
+
+  const batch = await getGeminiBatch(config, record.provider_batch_id);
+  await database("generation_jobs").where({ id: job.data.generationJobId }).update({
+    provider_batch_state: batch.state,
+    provider_batch_polled_at: new Date(),
+    updated_at: new Date(),
+  });
+  if (["BATCH_STATE_PENDING", "BATCH_STATE_RUNNING", "JOB_STATE_PENDING", "JOB_STATE_RUNNING"].includes(batch.state)) {
+    await enqueueBatchPoll(job.data);
+    return false;
+  }
+  if (!["BATCH_STATE_SUCCEEDED", "JOB_STATE_SUCCEEDED"].includes(batch.state)) {
+    await jobService.updateStatus(job.data.generationJobId, "attention_required", {
+      stageProgress: { ...progress, executionMode: "batch", providerBatchState: batch.state },
+      errorMessage: `Gemini Batch ended in ${batch.state}.`,
+    });
+    return false;
+  }
+
+  const reconciliation = reconcileGeminiBatchResults(
+    pending.map((item) => item.external_candidate_id),
+    batch.results,
+  );
+  for (const item of reconciliation.succeeded) {
+    const member = pending.find((row) => row.external_candidate_id === item.candidateId);
+    const candidate = readJson<any>(member.snapshot, null);
+    try {
+      const parsed = parseGeminiLessonBatchResponse({
+        candidateId: member.external_candidate_id,
+        term: candidate.term,
+        contextualMeaning: candidate.contextualMeaning,
+        sourceSentence: candidate.senseEvidence?.sentence,
+        surroundingContext: candidate.occurrences?.[0]?.sentence,
+        cefrLevel: candidate.cefrLevel,
+        categoryName: candidate.categoryName,
+      }, item.response!);
+      const [attempt] = await database("generation_attempts").insert({
+        generation_job_id: job.data.generationJobId,
+        batch_id: member.batch_id,
+        candidate_decision_id: member.candidate_decision_id,
+        stage: "generate",
+        request_type: "lesson_generation_batch",
+        prompt_version: record.prompt_version,
+        attempt_number: 1,
+        provider: record.provider,
+        model: record.provider_model,
+        status: "started",
+      }).returning("*");
+      await repository.persistValidEntry({
+        jobId: job.data.generationJobId,
+        candidateDecisionId: member.candidate_decision_id,
+        attemptId: attempt.id,
+        entry: parsed.entry,
+        inputTokens: parsed.inputTokens,
+        outputTokens: parsed.outputTokens,
+        costUsd: (parsed.inputTokens * 0.15 + parsed.outputTokens * 1.25) / 1_000_000,
+        cachedTokens: parsed.cachedTokens,
+        latencyMs: 0,
+        model: record.provider_model,
+      });
+      await database("generation_provider_batch_requests")
+        .where({ generation_job_id: job.data.generationJobId, external_candidate_id: item.candidateId })
+        .update({ status: "succeeded", updated_at: new Date() });
+    } catch (error) {
+      reconciliation.failed.push({ candidateId: item.candidateId, error: { message: (error as Error).message } });
+    }
+  }
+
+  const retryIds = new Set([
+    ...reconciliation.failed.map((item) => item.candidateId),
+    ...reconciliation.missingCandidateIds,
+  ]);
+  if (retryIds.size) {
+    await database.transaction(async (trx: any) => {
+      await trx("generation_jobs").where({ id: job.data.generationJobId }).update({
+        provider_batch_id: null,
+        provider_batch_state: "PARTIAL_RETRY",
+        updated_at: new Date(),
+      });
+      await trx("generation_provider_batch_requests")
+        .where({ generation_job_id: job.data.generationJobId })
+        .whereIn("external_candidate_id", [...retryIds])
+        .update({ status: "retry_pending", updated_at: new Date() });
+    });
+    await enqueueBatchPoll(job.data);
+    return false;
+  }
+  return true;
+}
+
 async function handleGenerate(
   job: Job<GenerationJobData, void, GenerationJobName>,
 ) {
@@ -497,6 +674,15 @@ async function handleGenerate(
   const initialPlan = await repository.loadGenerationPlan(generationJobId);
   if (!initialPlan.length) {
     throw new Error("Immutable generation plan is empty -- cannot generate.");
+  }
+
+  const resolvedMode = record.execution_mode_resolved || resolveGenerationExecutionMode(record.execution_mode_requested || "auto", initialPlan.length);
+  if (!record.execution_mode_resolved) {
+    await database("generation_jobs").where({ id: generationJobId }).update({ execution_mode_resolved: resolvedMode, updated_at: new Date() });
+  }
+  if (resolvedMode === "batch") {
+    const complete = await handleGeminiBatchGeneration(job, { ...record, execution_mode_resolved: resolvedMode }, progress, initialPlan, repository);
+    if (!complete) return;
   }
 
   const durableAttempts = await database("generation_attempts")
@@ -771,6 +957,7 @@ const handlers: Record<
   extract: handleExtract,
   assess: handleAssess,
   generate: handleGenerate,
+  "batch-poll": handleGenerate,
   commit: handleCommit,
 };
 
