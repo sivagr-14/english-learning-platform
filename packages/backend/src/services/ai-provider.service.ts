@@ -5,6 +5,7 @@ import {
   timeoutSignal,
   withProviderRetry,
 } from "./provider-reliability";
+import { calculateGeminiCost } from "./gemini-cost-optimization.service";
 
 export type AiTier = "primary" | "escalation";
 
@@ -56,7 +57,7 @@ export function configFor(tier: AiTier): AiProviderConfig {
     process.env[`${prefix}_API_KEY`] || process.env.GEMINI_API_KEY || "";
   const model =
     process.env[`${prefix}_MODEL`] ||
-    (tier === "primary" ? "gemini-2.0-flash" : "gemini-2.5-pro");
+    (tier === "primary" ? "gemini-2.5-flash" : "gemini-2.5-pro");
   if (!apiKey) {
     throw new Error(
       `${prefix}_API_KEY is not set. Add it to .env.local before running the ` +
@@ -76,7 +77,7 @@ export function configFor(tier: AiTier): AiProviderConfig {
 // Models that Google has retired for new API keys. Kept as an explicit list
 // (rather than trying to detect 404s generically) so we can warn proactively
 // at config-read time instead of only after burning a failed job.
-const DEPRECATED_MODELS = new Set(["gemini-2.5-flash", "gemini-1.0-pro"]);
+const DEPRECATED_MODELS = new Set(["gemini-2.0-flash", "gemini-1.0-pro"]);
 
 /**
  * Strips markdown code fences that some model versions wrap around JSON
@@ -96,15 +97,9 @@ function estimateCostUsd(
   model: string,
   inputTokens: number,
   outputTokens: number,
+  cachedTokens = 0,
 ): number {
-  const rates: Record<string, { in: number; out: number }> = {
-    "gemini-2.5-flash": { in: 0.3, out: 2.5 },
-    "gemini-2.5-pro": { in: 1.25, out: 10.0 },
-    "gemini-1.5-flash": { in: 0.075, out: 0.3 },
-    "gemini-1.5-pro": { in: 3.5, out: 10.5 },
-  };
-  const rate = rates[model] ?? { in: 0.3, out: 2.5 };
-  return (inputTokens * rate.in + outputTokens * rate.out) / 1_000_000;
+  return calculateGeminiCost(model, { inputTokens, outputTokens, cachedTokens }, "standard");
 }
 
 interface CallResult {
@@ -382,6 +377,7 @@ export async function generateJson<T>(
     config.model,
     callResult.inputTokens,
     callResult.outputTokens,
+    callResult.cachedTokens,
   );
 
   logger.debug(`AI call [${options.tier}/${config.model}]`, {

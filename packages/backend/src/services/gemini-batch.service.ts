@@ -254,5 +254,6 @@ export function parseGeminiLessonBatchResponse(
     inputTokens: Number(response?.usageMetadata?.promptTokenCount ?? 0),
     outputTokens: Number(response?.usageMetadata?.candidatesTokenCount ?? 0),
     cachedTokens: Number(response?.usageMetadata?.cachedContentTokenCount ?? 0),
+    thinkingTokens: Number(response?.usageMetadata?.thoughtsTokenCount ?? 0),
   };
 }
