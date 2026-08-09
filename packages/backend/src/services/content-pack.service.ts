@@ -181,6 +181,13 @@ export class ContentPackService {
                 last_synced_at: context.syncedAt || new Date(),
                 sync_status: "synchronized",
                 sync_error: null,
+                // The fetched commit is authoritative for the active inbox.
+                // If an identical pack is present again, a previous cleanup
+                // marker is stale (for example after a guarded push race).
+                // Clear it so the owner can verify and retry cleanup instead
+                // of silently excluding the pack from processing.
+                inbox_cleaned_at: null,
+                inbox_cleanup_commit: null,
                 updated_at: new Date(),
               });
           }
@@ -337,6 +344,12 @@ export class ContentPackService {
   }
 
   async processAvailableManifests(userId: string) {
+    const inaccessible = await this.database("content_pack_manifests")
+      .where({ inbox_branch: "chatgpt-content-inbox" })
+      .whereNotNull("owner_user_id")
+      .whereNot({ owner_user_id: userId })
+      .whereNull("inbox_cleaned_at")
+      .select("id");
     const rows = await this.database("content_pack_manifests")
       .where({ inbox_branch: "chatgpt-content-inbox" })
       .where((builder: any) =>
@@ -354,7 +367,11 @@ export class ContentPackService {
       processed.push(row.id);
       if (verification.verified) cleanupEligible.push(row.id);
     }
-    return { processed, cleanupEligible };
+    return {
+      processed,
+      cleanupEligible,
+      blockedByAccount: inaccessible.map((row: any) => row.id),
+    };
   }
 
   async getManifest(userId: string, manifestId: string) {

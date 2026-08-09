@@ -152,7 +152,13 @@ export default function ChatGPTImportsPage() {
       );
       const processed = processResponse.data?.processed || [];
       const verified = processResponse.data?.cleanupEligible || [];
+      const blockedByAccount = processResponse.data?.blockedByAccount || [];
       const discoveredDocuments = firstResult.result?.documents || 0;
+      if (blockedByAccount.length > 0) {
+        throw new Error(
+          `The fetched import ${blockedByAccount.join(", ")} is claimed by a different local account. Sign in with the account that originally claimed it; account ownership cannot be reassigned automatically.`,
+        );
+      }
       if (discoveredDocuments > 0 && processed.length === 0) {
         throw new Error(
           "Content-pack files were fetched, but no import was claimed or resumed.",
