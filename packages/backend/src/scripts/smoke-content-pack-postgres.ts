@@ -27,7 +27,7 @@ async function main() {
     .returning("*");
 
   const manifest: any = {
-    formatVersion: "chatgpt-vocabulary-manifest-v3",
+    formatVersion: "chatgpt-vocabulary-manifest-v4",
     manifestId: `postgres-smoke-${suffix}`,
     createdAt: new Date().toISOString(),
     source: {
@@ -153,7 +153,7 @@ async function main() {
     },
   };
   const batch = {
-    formatVersion: "chatgpt-vocabulary-batch-v3",
+    formatVersion: "chatgpt-vocabulary-batch-v4",
     batchId: `${manifest.manifestId}-batch-001`,
     manifestId: manifest.manifestId,
     manifestHash: contentPackHash(manifest),
