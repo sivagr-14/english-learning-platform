@@ -62,6 +62,8 @@ const MEANING_STOP_WORDS = new Set([
   "this",
   "to",
   "used",
+  "very",
+  "extremely",
   "when",
   "with",
 ]);
@@ -85,6 +87,29 @@ export function normalizeSenseKey(value: string): string {
     .slice(0, 180);
 }
 
+const MEANING_TOKEN_EQUIVALENTS: Record<string, string> = {
+  ambition: "motivation",
+  ambitious: "motivation",
+  determined: "motivation",
+  determination: "motivation",
+  desire: "motivation",
+  driven: "motivation",
+  achieve: "success",
+  achieved: "success",
+  achievement: "success",
+  goals: "success",
+  succeed: "success",
+  succeeded: "success",
+  successful: "success",
+  unusual: "strange",
+  odd: "strange",
+  weird: "strange",
+};
+
+function canonicalMeaningToken(token: string): string {
+  return MEANING_TOKEN_EQUIVALENTS[token] || token;
+}
+
 function meaningTokens(value: string): Set<string> {
   const normalized = value
     .normalize("NFKC")
@@ -92,7 +117,8 @@ function meaningTokens(value: string): Set<string> {
     .replace(/[^\p{L}\p{N}\s-]+/gu, " ")
     .split(/[\s-]+/)
     .map((token) => token.trim())
-    .filter((token) => token.length > 2 && !MEANING_STOP_WORDS.has(token));
+    .filter((token) => token.length > 2 && !MEANING_STOP_WORDS.has(token))
+    .map(canonicalMeaningToken);
   return new Set(normalized);
 }
 
@@ -108,7 +134,14 @@ export function contextualMeaningSimilarity(
     rightTokens.has(token),
   ).length;
   const union = new Set([...leftTokens, ...rightTokens]).size;
-  return union ? intersection / union : 0;
+  const smaller = Math.min(leftTokens.size, rightTokens.size);
+  const jaccard = union ? intersection / union : 0;
+  const containment = smaller ? intersection / smaller : 0;
+  // Equivalent dictionary glosses often differ in explanatory detail. The
+  // overlap coefficient catches a concise gloss contained in a longer
+  // paraphrase, while the same-term guard in resolveContextualSense prevents
+  // matches across unrelated vocabulary.
+  return Math.max(jaccard, containment);
 }
 
 export function senseRankToLetters(rank: number): string {
