@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "featureId": "resumable-pre-manifest-semantic-assessment",
-  "title": "Resumable pre-manifest semantic assessment for large sources",
+  "title": "Resumable unattended semantic assessment and generation",
   "implementationPaths": [
     "packages/backend/src/services/source-request.service.ts",
     "packages/backend/src/services/assessment-checkpoint-contract.ts"
@@ -22,14 +22,18 @@
         "contains": [
           "Pre-manifest semantic assessment checkpoints",
           "Continue assessment <requestId>",
-          "chatgpt-semantic-assessment-checkpoint-v1"
+          "chatgpt-semantic-assessment-checkpoint-v1",
+          "ambiguous_context",
+          "in-chat scheduled task"
         ]
       },
       {
         "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
         "contains": [
           "assessment checkpoint",
-          "Continue assessment <requestId>"
+          "Continue assessment <requestId>",
+          "ambiguous_context",
+          "in-chat scheduled task"
         ]
       }
     ]

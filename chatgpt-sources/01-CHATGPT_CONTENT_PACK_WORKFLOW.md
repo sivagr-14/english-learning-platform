@@ -100,8 +100,7 @@ treated as assessed.
 
 Candidate identity is `normalized term + contextual sense`, not spelling alone.
 Repeated occurrences with the same meaning are merged. Repeated spelling with
-a genuinely different meaning remains a separate candidate. Ambiguous meanings
-are held for attention instead of guessed.
+a genuinely different meaning remains a separate candidate. Ambiguous meanings are never guessed. After bounded contextual retries, they are recorded as `filtered` with reason code `ambiguous_context` and processing continues automatically.
 
 ## Batch guarantees
 
@@ -216,9 +215,9 @@ system classification.
      conversational or professional patterns.
 - Record every discovered candidate before filtering. Give each one exactly one
   contract decision: `generate`, `existing`, `filtered` or `rejected`, with a
-  stable reason for every decision other than `generate`. Record genuinely
-  ambiguous senses separately as attention-required; do not invent a new
-  candidate-decision enum value.
+  stable reason for every decision other than `generate`. After bounded contextual retries, record genuinely ambiguous senses as
+  `senseDecision: ambiguous` with candidate decision `filtered` and reason code
+  `ambiguous_context`; do not invent a meaning or a new candidate-decision enum value.
 - Run a per-chunk omission audit against the deterministic inventory and a final
   source-wide audit for missed advanced words, expressions, repeated spellings
   with different senses and candidates crossing chunk boundaries.
@@ -294,8 +293,9 @@ interrupted import resumes with the rules it started with.
   reason for every exclusion;
 - define an exact duplicate as the same normalized term and same contextual
   sense; never exclude a different meaning merely because spelling repeats;
-- hold unreadable or ambiguous source material for attention instead of
-  silently skipping it;
+- hold unreadable source material for attention; for an ambiguous candidate,
+  retry with its stored sentence and surrounding context, then record it as
+  `filtered` with reason code `ambiguous_context` and continue automatically;
 - assess unresolved candidates in bounded groups of 50–100; this is a
   per-operation processing bound and never a total limit;
 - generate complete lessons in adaptive batches of 5–10, normally 8, never
@@ -311,7 +311,7 @@ When asked to process a source for this application, ChatGPT must:
    proposing entries;
 2. show source-unit, page, chunk, occurrence, detector and decision counts;
 3. generate all policy-eligible candidates without asking for claim or approval;
-   ask only for unresolved exceptions;
+   automatically filter unresolved ambiguous candidates after bounded retries;
 4. use the manifest and batch runtime contracts in
    `packages/backend/src/services/content-pack-contract.ts`;
 5. preserve different contextual senses of the same spelling as separate
@@ -326,8 +326,8 @@ When asked to process a source for this application, ChatGPT must:
    `yarn content-packs:inventory - text <stable-source-name>`;
 9. never place an OpenAI API key, PostgreSQL credential or personal database
    export in GitHub; and
-10. report any unreadable source area, ambiguous sense, rejected batch or
-   missing planned batch.
+10. report unreadable source areas, aggregate ambiguous-context exclusions,
+   rejected batches and missing planned batches without pausing for candidate-level ambiguity.
 
 ## Completion rule
 
@@ -347,8 +347,9 @@ missing or untracked items = 0
 If any value is nonzero or inconsistent, the UI reports **Processing** or
 **Attention required**, never **Completed**.
 
-An explicitly held ambiguity is accounted for but still blocks **Completed**
-until it is resolved or deliberately excluded with a recorded reason.
+An ambiguity blocks completion only during its bounded retry window. If it remains
+unresolved, it is deliberately excluded as `filtered` with reason code
+`ambiguous_context`; that fully accounted exclusion does not block **Completed**.
 
 ## Inbox cleanup rule
 
@@ -418,10 +419,13 @@ State: safely paused — no items lost
 Continuation must preserve the original manifest ID, manifest hash, candidate
 IDs, batch numbers and batch IDs. Generate only the missing planned batches;
 never rescan the source, shrink the candidate ledger or create a replacement
-manifest merely because a previous ChatGPT run ended. A no-API-key ChatGPT
-session cannot start its own next conversational turn, so the app exposes a
-**Continue import** action that copies the exact continuation request. The user
-starts that next turn; all discovery and delivery state remains durable.
+manifest merely because a previous ChatGPT run ended. For unattended no-API-key processing, an in-chat scheduled task returns to the
+same conversation, reads durable checkpoint receipts, and continues the next
+missing assessment group or generation batch. It runs until reconciliation is
+complete and remains silent during normal progress. The app's **Continue import**
+action remains a manual recovery fallback, not a routine requirement. Structural
+contract failures, lost authorization, database verification failures and wholly
+unreadable sources remain blocking and must be reported.
 
 ### Learner-supplied vocabulary lists
 

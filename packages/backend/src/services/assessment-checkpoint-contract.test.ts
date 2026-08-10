@@ -41,8 +41,8 @@ function checkpoint(
     decisions: candidateIds.map((proposedCandidateId) => ({
       proposedCandidateId,
       term: proposedCandidateId,
-      decision: "filtered" as const,
-      senseDecision: "new_sense" as const,
+      decision: "filtered",
+      senseDecision: "new_sense",
       senseKey: `sense-${proposedCandidateId}`,
       contextualMeaning: `Contextual meaning for ${proposedCandidateId}`,
       occurrenceIds: [`${proposedCandidateId}:0001`],
@@ -110,6 +110,33 @@ describe("resumable semantic assessment checkpoint contract", () => {
       nextGroup: null,
     });
     expect(complete.decisions).toHaveLength(3);
+  });
+
+  it("accepts an unresolved ambiguity only as an audited filtered decision", () => {
+    const value = checkpoint(1, ["proposed-1", "proposed-2"]);
+    value.decisions[0] = {
+      ...value.decisions[0],
+      decision: "filtered",
+      senseDecision: "ambiguous",
+      senseKey: "ambiguous-context",
+      contextualMeaning: "Unresolved contextual meaning after bounded retries.",
+      reason:
+        "ambiguous_context: the stored sentence and surrounding context do not establish one safe meaning.",
+    };
+    const result = validateAssessmentCheckpoint(value, request);
+    expect(result.valid).toBe(true);
+  });
+
+  it("rejects an ambiguity that would pause or generate instead of filtering", () => {
+    const value = checkpoint(1, ["proposed-1", "proposed-2"]);
+    value.decisions[0] = {
+      ...value.decisions[0],
+      senseDecision: "ambiguous",
+      reason: "Needs learner attention.",
+    };
+    const result = validateAssessmentCheckpoint(value, request);
+    expect(result.valid).toBe(false);
+    expect(result.issues.join(" ")).toMatch(/ambiguous_context/i);
   });
 
   it("rejects conflicting immutable checkpoint content", () => {
