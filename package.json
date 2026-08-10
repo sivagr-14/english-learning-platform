@@ -31,6 +31,7 @@
     "test:e2e": "playwright test",
     "benchmark:providers": "node scripts/benchmark-providers.js",
     "content-packs:validate": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/validate-content-packs.ts",
+    "content-packs:inventory": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/build-content-inventory.ts",
     "content-packs:sync": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/sync-content-packs.ts",
     "smoke:content-packs": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/smoke-content-pack-postgres.ts",
     "smoke:vocabulary-senses": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/smoke-vocabulary-senses-postgres.ts",

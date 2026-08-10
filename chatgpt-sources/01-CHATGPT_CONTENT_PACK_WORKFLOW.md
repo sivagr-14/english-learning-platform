@@ -44,10 +44,10 @@ for safe database upgrades and must not create active import work.
 
 ## Manifest guarantees
 
-New exhaustive imports use `chatgpt-vocabulary-manifest-v4`.
+New exhaustive imports use `chatgpt-vocabulary-manifest-v5`.
 `chatgpt-vocabulary-manifest-v1`, `chatgpt-vocabulary-manifest-v2` and
 `chatgpt-vocabulary-manifest-v3` remain readable so immutable already-delivered
-imports can finish. Version 4 must include:
+imports can finish. Version 5 must include:
 
 - a stable `manifestId`, source SHA-256, source type and creation time;
 - `totalPages` and an ordered page ledger from page 1 through the last page;
@@ -77,8 +77,8 @@ are held for attention instead of guessed.
 
 ## Batch guarantees
 
-New batches use `chatgpt-vocabulary-batch-v4` and must match a version-4
-manifest. Version-1, version-2 and version-3 batches remain compatible only
+New batches use `chatgpt-vocabulary-batch-v5` and must match a version-5
+manifest. Version-1 through version-4 batches remain compatible only
 with the same manifest version. Each batch must include:
 
 - an immutable `batchId`;
@@ -139,7 +139,7 @@ choosing one exact chain:
 domainKey -> usageGroupKey -> categoryKey
 ```
 
-The backend rejects a v3 manifest when a key is unknown, inactive, belongs to a
+The backend rejects a v5 manifest when a key is unknown, inactive, belongs to a
 different parent, or the free-text `categoryName` does not match the selected
 specific category. Generation never creates system categories. A genuine
 coverage gap is held for attention and proposed for catalogue review.
@@ -232,13 +232,16 @@ untracked units, chunks, candidates, occurrences or batch memberships = 0
 untracked inventory items or recall-pass findings = 0
 ```
 
-For manifest v4 this proof is machine-enforced in `inventoryAudit`. Every item
-must include its stable inventory ID, exact source sentence and chunk, surface
-and normalized form, and either a linked manifest candidate ID or a stable
-exclusion code with a specific reason. `counts.untracked` must be zero and the
-independent `recallPass` must be completed with no unresolved IDs or missed
-findings. A v4 manifest without this proof is invalid, even when its selected
-candidate and batch totals reconcile internally.
+For manifest v5 this proof is machine-enforced in `inventoryAudit`. The seed
+must be produced first with `yarn content-packs:inventory <source-file>` and
+store its source and inventory hashes. Every lexical occurrence must preserve
+its detector, page, chunk, sentence and offsets. Each occurrence has exactly
+one allow-listed disposition. `verified_existing` requires the PostgreSQL word
+identity; `subsumed_by_expression` requires the selected expression candidate.
+The blind recall pass stores every finding and links it back to a deterministic
+occurrence. `counts.untracked` and unresolved findings must be zero before the
+ledger is frozen. A hand-selected candidate list or self-declared empty audit
+cannot satisfy v5.
 
 ## Default automatic policy
 
@@ -257,8 +260,8 @@ interrupted import resumes with the rules it started with.
   sense; never exclude a different meaning merely because spelling repeats;
 - hold unreadable or ambiguous source material for attention instead of
   silently skipping it;
-- assess in bounded groups of 50 candidates up to 500 total candidates, then
-  100 candidates per group; these are processing bounds, not total limits;
+- assess unresolved candidates in bounded groups of 50–100; this is a
+  per-operation processing bound and never a total limit;
 - generate complete lessons in adaptive batches of 5–10, normally 8, never
   50–100 detailed lessons in one model response;
 - process one generation batch at a time, retry temporary failures up to three
@@ -268,8 +271,9 @@ interrupted import resumes with the rules it started with.
 
 When asked to process a source for this application, ChatGPT must:
 
-1. inspect the complete source before proposing entries;
-2. show the page/chunk coverage and exact decision counts;
+1. inspect the complete source and build the deterministic inventory before
+   proposing entries;
+2. show source-unit, page, chunk, occurrence, detector and decision counts;
 3. generate all policy-eligible candidates without asking for claim or approval;
    ask only for unresolved exceptions;
 4. use the manifest and batch runtime contracts in

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "featureId": "verified-exhaustive-discovery",
+  "title": "Make exhaustive vocabulary discovery mechanically verifiable",
+  "implementationPaths": [
+    "package.json",
+    "packages/backend/src/scripts/build-content-inventory.ts",
+    "packages/backend/src/services/content-pack-contract.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/content-pack-contract.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "chatgpt-vocabulary-manifest-v5",
+          "content-packs:inventory",
+          "self-declared empty audit"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "50–100 unresolved candidates",
+          "independent blind recall pass"
+        ]
+      }
+    ]
+  }
+}
