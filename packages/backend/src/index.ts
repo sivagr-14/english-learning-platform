@@ -10,7 +10,6 @@ import { appRevision } from "./services/app-version.service";
 import { synchronizeContentPacks } from "./services/content-pack.service";
 import { database } from "./utils/db";
 import { getRedisClient } from "./utils/redis";
-import { generationWorkerReady } from "./queue/worker-health";
 
 // Load environment variables
 dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
@@ -56,11 +55,8 @@ app.get("/health", (_req, res) => {
   });
 });
 
-// Readiness is separate from liveness so the GUI can identify an unavailable
-// auxiliary worker without incorrectly reporting that the backend never started.
 app.get("/ready", async (_req, res) => {
-  const [workerReady, databaseReady, redisReady] = await Promise.all([
-    generationWorkerReady(),
+  const [databaseReady, redisReady] = await Promise.all([
     database.raw("select 1").then(() => true).catch(() => false),
     getRedisClient()
       .then(async (redis) => {
@@ -69,23 +65,14 @@ app.get("/ready", async (_req, res) => {
       })
       .catch(() => false),
   ]);
-  const infrastructureReady = workerReady && databaseReady && redisReady;
-  const geminiEnabled = process.env.GEMINI_ENABLED === "true";
-  const geminiConfigured = Boolean(
-    process.env.PRIMARY_AI_API_KEY || process.env.GEMINI_API_KEY,
-  );
+  const infrastructureReady = databaseReady && redisReady;
   res.status(infrastructureReady ? 200 : 503).json({
     status: infrastructureReady ? "READY" : "DEGRADED",
     services: {
       postgresql: databaseReady ? "ready" : "unavailable",
       redis: redisReady ? "ready" : "unavailable",
-      generationWorker: workerReady ? "ready" : "unavailable",
       chatgptContentPack: "ready",
-      gemini: !geminiEnabled
-        ? "disabled"
-        : geminiConfigured
-          ? "configured"
-          : "missing_key",
+      generationMode: "chatgpt-content-packs-only",
     },
   });
 });
@@ -96,7 +83,6 @@ app.use("/api/vocabulary", require("./routes/vocabulary").default);
 app.use("/api/progress", require("./routes/progress").default);
 app.use("/api/flashcards", require("./routes/flashcards").default);
 app.use("/api/control", require("./routes/control").default);
-app.use("/api/generation", require("./routes/generation").default);
 
 // 404 handler
 app.use((req, res) => {
@@ -115,16 +101,7 @@ app.listen(Number(PORT), HOST, () => {
   logger.info(`Server running on http://${HOST}:${PORT}`);
   logger.info(`Environment: ${process.env.NODE_ENV || "development"}`);
 
-  const primaryKeySet = Boolean(
-    process.env.PRIMARY_AI_API_KEY || process.env.GEMINI_API_KEY,
-  );
-  if (!primaryKeySet) {
-    logger.warn(
-      "PRIMARY_AI_API_KEY (or GEMINI_API_KEY) is not set. " +
-        "The in-app generation pipeline will fail when a job is processed. " +
-        "Add the key to .env.local — see .env.example for details.",
-    );
-  }
+  logger.info("Vocabulary generation mode: ChatGPT content packs only");
   void synchronizeContentPacks(database).catch((error: unknown) =>
     logger.error("Could not synchronize local ChatGPT content packs", error),
   );
