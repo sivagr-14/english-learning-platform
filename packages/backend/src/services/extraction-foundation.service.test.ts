@@ -5,6 +5,7 @@ import {
   enumerateCandidates,
   makeSegment,
   normalizeSourceText,
+  sentenceRanges,
 } from "./extraction-foundation.service";
 
 const segment = (text: string, sequence = 1) =>
@@ -37,6 +38,22 @@ describe("Phase 2 extraction foundation", () => {
     expect(phrase?.occurrences[0].sentence).toBe("They carried on working.");
   });
 
+  test("newline-terminated lines remain complete sentences and candidates", () => {
+    const text =
+      "Chapter heading without punctuation\nWrapped source line\nFinal sentence.";
+    expect(sentenceRanges(text).map((sentence) => sentence.text)).toEqual([
+      "Chapter heading without punctuation",
+      "Wrapped source line",
+      "Final sentence.",
+    ]);
+    const candidates = enumerateCandidates([segment(text)]);
+    expect(candidates.some((candidate) => candidate.baseForm === "chapter")).toBe(
+      true,
+    );
+    expect(candidates.some((candidate) => candidate.baseForm === "wrap")).toBe(
+      true,
+    );
+  });
   test("separable phrasal verbs and duplicate occurrences preserve spans", () => {
     const candidates = enumerateCandidates([
       segment("She turned the offer down. They turn down weak offers."),

@@ -84,6 +84,33 @@ describe("bounded source chunk planning", () => {
     });
   });
 
+  test("wrapped and heading lines without punctuation reconcile exactly", () => {
+    const text =
+      "Chapter heading without punctuation\nFirst wrapped source line\nFinal sentence.";
+    const plan = buildSourceChunkPlan([unit(text, 1)]);
+
+    expect(plan.readableWordCount).toBe(10);
+    expect(plan.chunks.map((chunk) => chunk.wordCount)).toEqual([10]);
+    expect(plan.reconciliation).toEqual({
+      readableUnitsAccountedFor: 1,
+      readableWordsAccountedFor: 10,
+      untrackedReadableUnits: 0,
+      untrackedReadableWords: 0,
+    });
+  });
+
+  test("large newline-wrapped content preserves every word", () => {
+    const text = Array.from(
+      { length: 5000 },
+      (_, index) => `wrapped${index}`,
+    ).join("\n");
+    const plan = buildSourceChunkPlan([unit(text, 1)]);
+
+    expect(plan.readableWordCount).toBe(5000);
+    expect(plan.chunks.every((chunk) => chunk.wordCount <= 1500)).toBe(true);
+    expect(plan.reconciliation.untrackedReadableUnits).toBe(0);
+    expect(plan.reconciliation.untrackedReadableWords).toBe(0);
+  });
   test("an oversized paragraph splits at sentence and word boundaries", () => {
     const text = Array.from({ length: 3200 }, (_, index) => `token${index}`).join(" ") + ".";
     const plan = buildSourceChunkPlan([unit(text, 1)]);
