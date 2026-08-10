@@ -93,6 +93,15 @@ function statusTone(status: string) {
   return "bg-amber-100 text-amber-800";
 }
 
+function bytesToBase64(bytes: Uint8Array): string {
+  let result = "";
+  const chunkSize = 0x8000;
+  for (let offset = 0; offset < bytes.length; offset += chunkSize) {
+    result += String.fromCharCode(...bytes.subarray(offset, offset + chunkSize));
+  }
+  return btoa(result);
+}
+
 function readIssues(value: IngestError["issues"]): string[] {
   if (Array.isArray(value)) return value;
   try {
@@ -111,6 +120,8 @@ export default function ChatGPTImportsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [sourceText, setSourceText] = useState("");
+  const [sourceFile, setSourceFile] = useState<File | null>(null);
   const automaticSyncStarted = useRef(false);
 
   const load = useCallback(async () => {
@@ -294,11 +305,56 @@ export default function ChatGPTImportsPage() {
     }
   };
 
+  const prepareSourceRequest = async () => {
+    if (!sourceFile && !sourceText.trim()) {
+      setError("Paste source text or choose a supported file.");
+      return;
+    }
+    setBusy("prepare-source");
+    setMessage("");
+    setError("");
+    try {
+      const sourceName = sourceFile?.name || "pasted-text.txt";
+      const bytes = sourceFile
+        ? new Uint8Array(await sourceFile.arrayBuffer())
+        : new TextEncoder().encode(sourceText);
+      const response = await getApiClient().post(
+        "/api/control/source-requests",
+        {
+          sourceName,
+          contentBase64: bytesToBase64(bytes),
+        },
+      );
+      const request = response.data.request;
+      const blob = new Blob([JSON.stringify(request, null, 2)], {
+        type: "application/json",
+      });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${request.requestId}.json`;
+      link.click();
+      URL.revokeObjectURL(url);
+      setMessage(
+        `Prepared ${request.reconciliation.readableWords.toLocaleString()} words in ${request.reconciliation.processingChunks} bounded chunk(s), with zero untracked words. Attach the downloaded ${request.requestId}.json file in ChatGPT and write Generate.`,
+      );
+    } catch (requestError: any) {
+      setError(
+        requestError?.response?.data?.message ||
+          requestError?.response?.data?.error ||
+          requestError.message ||
+          "The source could not be prepared.",
+      );
+    } finally {
+      setBusy("");
+    }
+  };
+
   return (
     <AuthenticatedPage>
       <AppShell
         title="ChatGPT Imports"
-        description="ChatGPT assesses pasted text or supported documents and subtitles, creates complete lessons, and sends validated content packs through your private GitHub inbox. Only this local backend writes to PostgreSQL."
+        description="Upload or paste the source here first. The backend prepares a complete deterministic assessment request; ChatGPT then creates validated lessons and sends them through your private GitHub inbox."
         actions={
           <button
             type="button"
@@ -310,6 +366,52 @@ export default function ChatGPTImportsPage() {
           </button>
         }
       >
+        <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-slate-950">
+            Prepare a source for ChatGPT
+          </h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Upload here first. The backend creates the exact inventory, bounded
+            chunks, taxonomy snapshot and existing-vocabulary matches that
+            ChatGPT needs for a complete v5 content pack.
+          </p>
+          <textarea
+            value={sourceText}
+            onChange={(event) => {
+              setSourceText(event.target.value);
+              if (event.target.value) setSourceFile(null);
+            }}
+            placeholder="Paste an article, chapter, or other text here…"
+            className="mt-4 min-h-40 w-full rounded-lg border border-slate-300 p-3 text-sm text-slate-900"
+          />
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            <input
+              type="file"
+              accept=".txt,.md,.html,.htm,.vtt,.pdf,.srt,.docx,.epub"
+              onChange={(event) => {
+                const file = event.target.files?.[0] || null;
+                setSourceFile(file);
+                if (file) setSourceText("");
+              }}
+              className="text-sm text-slate-700"
+            />
+            <button
+              type="button"
+              onClick={() => void prepareSourceRequest()}
+              disabled={busy === "prepare-source"}
+              className="rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800 disabled:opacity-60"
+            >
+              {busy === "prepare-source"
+                ? "Building complete inventory…"
+                : "Prepare for ChatGPT"}
+            </button>
+          </div>
+          <p className="mt-3 text-xs text-slate-500">
+            Maximum source size: 25 MB. The downloaded assessment request is
+            immutable and contains no database credentials.
+          </p>
+        </section>
+
         <section className="rounded-xl border border-blue-200 bg-blue-50 p-6">
           <h2 className="text-lg font-semibold text-slate-950">
             No API key or separate API billing
@@ -319,12 +421,12 @@ export default function ChatGPTImportsPage() {
               [
                 "1",
                 "Share source",
-                "Paste text or attach TXT, MD, PDF, DOCX, EPUB, HTML, SRT or VTT in ChatGPT.",
+                "Upload or paste TXT, MD, PDF, DOCX, EPUB, HTML, SRT or VTT in this app.",
               ],
               [
                 "2",
                 "Assess automatically",
-                "ChatGPT accounts for every page, chunk and term.",
+                "Attach the downloaded assessment request in ChatGPT and write Generate.",
               ],
               [
                 "3",
@@ -412,8 +514,7 @@ export default function ChatGPTImportsPage() {
                   No ChatGPT imports yet
                 </h3>
                 <p className="mt-2 text-sm text-slate-600">
-                  For your practical test, paste a small text in ChatGPT and ask
-                  it to assess and prepare the import.
+                  For your practical test, prepare a small source above, attach the downloaded request in ChatGPT, and write Generate.
                 </p>
               </div>
             ) : (
