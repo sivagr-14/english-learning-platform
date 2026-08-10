@@ -9,8 +9,7 @@
     "package.json",
     "packages/backend/src/services/source-chunking.service.ts",
     "packages/backend/src/scripts/build-content-inventory.ts",
-    "scripts/benchmark-providers.js",
-    "scripts/benchmark-providers.test.js"
+    "scripts/"
   ],
   "validationPaths": [
     "packages/backend/src/services/source-chunking.service.test.ts",
