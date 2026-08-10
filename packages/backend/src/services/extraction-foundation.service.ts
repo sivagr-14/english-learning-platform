@@ -138,7 +138,7 @@ export function sentenceRanges(
   text: string,
 ): Array<{ text: string; start: number; end: number }> {
   const result: Array<{ text: string; start: number; end: number }> = [];
-  const re = /[^.!?\n]+(?:[.!?]+|$)/gu;
+  const re = /[^.!?\n]+(?:[.!?]+|(?=\n)|$)/gu;
   let match: RegExpExecArray | null;
   while ((match = re.exec(text))) {
     const leading = match[0].search(/\S/);
