@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "featureId": "durable-manifest-first-continuation",
+  "title": "Durable manifest-first continuation for large ChatGPT imports",
+  "implementationPaths": [
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/frontend/app/generate/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/content-pack.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "Manifest-first incremental delivery",
+          "Continue import",
+          "Learner-supplied vocabulary lists"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "generate only these supplied items",
+          "stop only at a batch boundary"
+        ]
+      }
+    ]
+  }
+}
