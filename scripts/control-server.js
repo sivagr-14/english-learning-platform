@@ -284,7 +284,7 @@ class ControlManager {
     this.services = null;
     this.servicesStopping = false;
     this.serviceFailure = null;
-    this.serviceOutput = { backend: [], worker: [], frontend: [] };
+    this.serviceOutput = { backend: [], frontend: [] };
     this.startPromise = null;
     this.updatePromise = null;
     this.contentSyncPromise = null;
@@ -816,17 +816,6 @@ class ControlManager {
         ],
       },
       {
-        name: 'worker',
-        cwd: backendDirectory,
-        args: [
-          backendBin,
-          '--transpile-only',
-          '--project',
-          path.join(backendDirectory, 'tsconfig.json'),
-          path.join(backendDirectory, 'src', 'worker.ts'),
-        ],
-      },
-      {
         name: 'frontend',
         cwd: frontendDirectory,
         args: [
@@ -841,7 +830,7 @@ class ControlManager {
     ];
     this.servicesStopping = false;
     this.serviceFailure = null;
-    this.serviceOutput = { backend: [], worker: [], frontend: [] };
+    this.serviceOutput = { backend: [], frontend: [] };
     this.services = definitions.map(({ name, args, cwd }) => {
       const recentOutput = this.serviceOutput[name];
       const child = this.spawnChild(process.execPath, args, {
@@ -897,15 +886,13 @@ class ControlManager {
   async waitForServices() {
     let lastBackend = false;
     let lastFrontend = false;
-    let lastWorker = { ok: false, status: null, body: '' };
     for (let attempt = 0; attempt < 75; attempt += 1) {
       if (this.serviceFailure) throw this.serviceFailure;
       [lastBackend, lastFrontend] = await Promise.all([
         this.backendReady(),
         this.frontendReady(true),
       ]);
-      if (lastBackend) lastWorker = await this.workerReady();
-      if (lastBackend && lastFrontend && lastWorker.ok) return;
+      if (lastBackend && lastFrontend) return;
       if (this.services?.some((child) => child.exitCode !== null)) {
         throw new Error('A web service stopped before the app became ready.');
       }
@@ -913,18 +900,10 @@ class ControlManager {
     }
     const unavailable = [
       !lastBackend && 'backend',
-      lastBackend && !lastWorker.ok && 'generation worker',
       !lastFrontend && 'frontend',
     ].filter(Boolean);
     const diagnostics = unavailable
       .map((name) => {
-        if (name === 'generation worker') {
-          const workerOutput = this.serviceOutput.worker || [];
-          const readiness = lastWorker.status
-            ? `readiness HTTP ${lastWorker.status}: ${lastWorker.body || '(empty body)'}`
-            : `readiness request failed: ${lastWorker.body || 'no response'}`;
-          return `${readiness}. worker last output: ${workerOutput.slice(-8).join(' | ') || '(no output)'}`;
-        }
         const output = this.serviceOutput[name] || [];
         return output.length
           ? `${name} last output: ${output.slice(-6).join(' | ')}`
@@ -1056,7 +1035,7 @@ class ControlManager {
       this.currentStep = `Update stopped safely at: ${failedStage}`;
       this.error = error instanceof Error ? error.message : String(error);
       this.recovery =
-        'No destructive rollback was performed. Correct the reported problem, confirm git status is clean and main is checked out, then select Retry update & start. Durable queued/active jobs remain in PostgreSQL and will resume when the worker is ready.';
+        'No destructive rollback was performed. Correct the reported problem, confirm git status is clean and main is checked out, then select Retry update & start. Durable ChatGPT imports remain in PostgreSQL and resume automatically after startup.';
       this.log(`Update failed: ${this.error}`);
       this.log(`Safe recovery: ${this.recovery}`);
     }
