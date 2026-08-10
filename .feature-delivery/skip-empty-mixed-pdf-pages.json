@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "featureId": "skip-empty-mixed-pdf-pages",
+  "title": "Continue mixed-PDF inventory across pages with no extracted text",
+  "implementationPaths": [
+    "packages/backend/src/services/document-parser.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/document-parser.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This implements the existing source-ledger contract by explicitly recording textless pages as empty while retaining the OCR block for PDFs with no readable text anywhere. It does not change vocabulary selection, lesson, or delivery rules."
+  }
+}
