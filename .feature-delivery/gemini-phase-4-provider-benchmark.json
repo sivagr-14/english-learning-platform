@@ -1,1 +1,15 @@
-{"schemaVersion":1,"featureId":"gemini-phase-4-provider-benchmark","title":"Enforce reproducible ChatGPT-versus-Gemini quality and rollout benchmark","implementationPaths":["scripts/benchmark-providers.js","docs/benchmark"],"validationPaths":["scripts/benchmark-providers.test.js"],"chatgptInstructionImpact":{"status":"not_required","rationale":"The benchmark measures the existing source, contextual-sense, taxonomy and eight-section contracts without changing their generation rules."}}
+{
+  "schemaVersion": 1,
+  "featureId": "gemini-phase-4-provider-benchmark",
+  "title": "Enforce reproducible ChatGPT-versus-Gemini quality and rollout benchmark",
+  "implementationPaths": [
+    "docs/benchmark"
+  ],
+  "validationPaths": [
+    "scripts/chatgpt-only-cleanup.test.js"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "The benchmark measures the existing source, contextual-sense, taxonomy and eight-section contracts without changing their generation rules."
+  }
+}
