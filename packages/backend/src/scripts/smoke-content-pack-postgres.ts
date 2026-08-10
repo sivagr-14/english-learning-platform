@@ -199,6 +199,7 @@ async function main() {
       processed: [manifest.manifestId],
       cleanupEligible: [manifest.manifestId],
       failures: [],
+      skippedItems: [],
       blockedByAccount: [],
     });
     await assert.rejects(
