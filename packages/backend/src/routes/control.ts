@@ -12,11 +12,12 @@ import {
   synchronizeContentPacks,
 } from "../services/content-pack.service";
 import { database } from "../utils/db";
-import { buildPortableAssessmentRequest } from "../services/source-request.service";
+import { SourceRequestJobService } from "../services/source-request-job.service";
 
 const router: Router = express.Router();
 const service = new AssessmentControlService(database);
 const contentPacks = new ContentPackService(database);
+const sourceRequestJobs = new SourceRequestJobService(database);
 const controlRateLimiter = rateLimit({
   windowMs: 60_000,
   limit: 60,
@@ -46,16 +47,27 @@ router.post(
   "/source-requests",
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-      const request = await buildPortableAssessmentRequest(
-        database,
-        req.userId!,
-        req.body,
-      );
-      res.status(201).json({
-        message:
-          "The source is fully inventoried. Download this immutable request and attach it in ChatGPT with the command Generate.",
-        request,
+      const job = await sourceRequestJobs.create(req.userId!, req.body);
+      res.status(202).json({
+        message: "Source preparation started in the background.",
+        job,
       });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+router.get(
+  "/source-requests/:id",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const id = z.string().uuid().parse(req.params.id);
+      const job = await sourceRequestJobs.get(req.userId!, id);
+      if (!job) {
+        return res.status(404).json({ message: "Source preparation job was not found." });
+      }
+      res.json({ job });
     } catch (error) {
       next(error);
     }
