@@ -122,6 +122,7 @@ export default function ChatGPTImportsPage() {
   const [error, setError] = useState("");
   const [sourceText, setSourceText] = useState("");
   const [sourceFile, setSourceFile] = useState<File | null>(null);
+  const [preparationStage, setPreparationStage] = useState("");
   const automaticSyncStarted = useRef(false);
 
   const load = useCallback(async () => {
@@ -305,12 +306,42 @@ export default function ChatGPTImportsPage() {
     }
   };
 
+  const downloadPreparedRequest = (request: any) => {
+    const blob = new Blob([JSON.stringify(request, null, 2)], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${request.requestId}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const waitForSourceRequest = async (jobId: string) => {
+    for (;;) {
+      const response = await getApiClient().get(
+        `/api/control/source-requests/${jobId}`,
+      );
+      const job = response.data.job;
+      setPreparationStage(job.stage);
+      if (job.status === "completed") return job.request;
+      if (job.status === "failed") {
+        throw new Error(
+          job.error || "Source preparation failed. You can retry the same source.",
+        );
+      }
+      await new Promise((resolve) => window.setTimeout(resolve, 1000));
+    }
+  };
+
   const prepareSourceRequest = async () => {
     if (!sourceFile && !sourceText.trim()) {
       setError("Paste source text or choose a supported file.");
       return;
     }
     setBusy("prepare-source");
+    setPreparationStage("uploading");
     setMessage("");
     setError("");
     try {
@@ -325,16 +356,8 @@ export default function ChatGPTImportsPage() {
           contentBase64: bytesToBase64(bytes),
         },
       );
-      const request = response.data.request;
-      const blob = new Blob([JSON.stringify(request, null, 2)], {
-        type: "application/json",
-      });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `${request.requestId}.json`;
-      link.click();
-      URL.revokeObjectURL(url);
+      const request = await waitForSourceRequest(response.data.job.id);
+      downloadPreparedRequest(request);
       setMessage(
         `Prepared ${request.reconciliation.readableWords.toLocaleString()} words in ${request.reconciliation.processingChunks} bounded chunk(s), with zero untracked words. Attach the downloaded ${request.requestId}.json file in ChatGPT and write Generate.`,
       );
@@ -347,6 +370,7 @@ export default function ChatGPTImportsPage() {
       );
     } finally {
       setBusy("");
+      setPreparationStage("");
     }
   };
 
@@ -402,13 +426,12 @@ export default function ChatGPTImportsPage() {
               className="rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800 disabled:opacity-60"
             >
               {busy === "prepare-source"
-                ? "Building complete inventory…"
+                ? `Preparing… ${preparationStage || "starting"}`
                 : "Prepare for ChatGPT"}
             </button>
           </div>
           <p className="mt-3 text-xs text-slate-500">
-            Maximum source size: 25 MB. The downloaded assessment request is
-            immutable and contains no database credentials.
+            Maximum source size: 25 MB. Large sources continue in a durable background job, so the browser request timeout cannot cancel preparation. The downloaded request is immutable and contains no database credentials.
           </p>
         </section>
 
