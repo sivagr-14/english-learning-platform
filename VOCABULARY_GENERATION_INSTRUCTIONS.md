@@ -34,9 +34,9 @@ These group sizes are processing bounds, not discovery targets or total caps.
 For large pasted content or files, continue through every declared source unit
 and chunk. Discovery must cover both single words and multi-word expressions,
 and every discovered item must remain in the candidate ledger even when it is
-later classified as existing, filtered or rejected. Genuinely ambiguous senses
-remain represented through the contract's attention-required sense state, not
-through a provider-specific candidate-decision value.
+later classified as existing, filtered or rejected. Genuinely ambiguous senses remain represented with `senseDecision: ambiguous`.
+After bounded contextual retries, set the candidate decision to `filtered` with
+reason code `ambiguous_context`, then continue automatically without user input.
 
 Candidate totals must never be selected in advance. A result such as 40, 72,
 100 or any other convenient total is valid only when it emerges from a complete
@@ -65,8 +65,9 @@ recall pass, validate and deliver its assessment checkpoint, then continue only
 with missing groups. A checkpoint is durable assessment evidence, not a lesson
 batch and not permission to generate early. Freeze the complete manifest only
 after every planned group and proposed candidate reconciles with zero untracked
-items. When another ChatGPT turn is required, stop after a checkpoint boundary
-and report the exact `Continue assessment <requestId>` instruction.
+items. At each checkpoint boundary, an in-chat scheduled task reads the durable receipts
+and continues the next missing group automatically. Report `Continue assessment
+<requestId>` only as a manual recovery fallback.
 
 For a large frozen plan, generate only the current immutable batch of five to
 ten lessons. Validate and deliver that batch before proceeding. When a ChatGPT
@@ -103,8 +104,9 @@ Apply these rules:
   reuse the existing sense.
 - Same normalized term but genuinely different contextual meaning: keep a
   separate candidate; never filter it as a spelling duplicate.
-- Uncertain meaning or uncertain distinction: mark `ambiguous` and hold it for
-  attention; never guess.
+- Uncertain meaning or uncertain distinction: retry using the stored sentence
+  and surrounding context. If still unresolved, mark `ambiguous`, set decision
+  `filtered` with reason code `ambiguous_context`, and continue; never guess.
 - Frequency is assessed per sense. A common meaning and a rare meaning of the
   same word may receive different decisions.
 - `englishMeaning` and `lesson.meaning_in_context.contextual_meaning` must equal
@@ -152,8 +154,9 @@ Write all of these fields into the v5 manifest candidate:
 `categoryName` must equal the selected specific category's catalogue name.
 Use only stable keys from
 `packages/backend/src/data/vocabulary-taxonomy.ts`. Never invent, rename or
-silently approximate a system key. If no path fits, hold the candidate for
-attention and propose a catalogue addition separately.
+silently approximate a system key. If no path fits after bounded retries, filter the candidate with reason code
+`taxonomy_unresolved`, record the proposed catalogue addition separately, and
+continue without learner intervention.
 
 Examples:
 
