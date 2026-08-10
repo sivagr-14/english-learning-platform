@@ -51,6 +51,18 @@ export const AssessmentDecisionSchema = z
         message: "ambiguous senses cannot be generated",
       });
     }
+    if (
+      decision.senseDecision === "ambiguous" &&
+      (decision.decision !== "filtered" ||
+        !decision.reason?.startsWith("ambiguous_context"))
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["decision"],
+        message:
+          "ambiguous senses must be filtered with an ambiguous_context reason after bounded retries",
+      });
+    }
   });
 
 export const AssessmentCheckpointSchema = z
