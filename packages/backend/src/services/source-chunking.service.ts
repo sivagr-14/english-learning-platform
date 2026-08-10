@@ -5,11 +5,17 @@ import {
   stableExtractionId,
 } from "./extraction-foundation.service";
 
-export const DEFAULT_SOURCE_CHUNKING = {
+export interface SourceChunkingOptions {
+  targetWords: number;
+  maxWords: number;
+  overlapWords: number;
+}
+
+export const DEFAULT_SOURCE_CHUNKING: SourceChunkingOptions = {
   targetWords: 1250,
   maxWords: 1500,
   overlapWords: 40,
-} as const;
+};
 
 export interface SourceChunkSpan {
   sourceUnitId: string;
@@ -104,6 +110,9 @@ function unitSpans(unit: SourceSegment, maxWords: number): SourceChunkSpan[] {
       packed.push({ ...range });
     }
   }
+  if (!packed.length && unit.originalText.length) {
+    packed.push({ start: 0, end: unit.originalText.length, wordCount: 0 });
+  }
   return packed.map((range) => ({
     sourceUnitId: unit.segmentId,
     sourceUnitSequence: unit.sequence,
@@ -120,7 +129,7 @@ function contextWords(text: string, limit: number, fromEnd: boolean) {
 
 export function buildSourceChunkPlan(
   sourceUnits: SourceSegment[],
-  options: Partial<typeof DEFAULT_SOURCE_CHUNKING> = {},
+  options: Partial<SourceChunkingOptions> = {},
 ): SourceChunkPlan {
   const config = { ...DEFAULT_SOURCE_CHUNKING, ...options };
   if (config.targetWords < 1 || config.maxWords < config.targetWords)
