@@ -44,6 +44,30 @@ for safe database upgrades and must not create active import work.
     and timestamp in PostgreSQL. The completed import then disappears from the
     active import ledger; only actionable, failed or resumable work remains.
 
+## App-first source preparation
+
+Pasted text and supported files must be prepared in the app before a new
+content-pack assessment begins. Do not ask ChatGPT to reconstruct deterministic
+inventory from the original attachment alone.
+
+1. Open **ChatGPT Imports** and paste text or select TXT, MD, PDF, DOCX, EPUB,
+   HTML, SRT or VTT.
+2. Select **Prepare for ChatGPT**.
+3. The backend must report zero untracked readable units and words, then download
+   one immutable `chatgpt-assessment-request-v1` JSON file.
+4. Attach that JSON file in ChatGPT and write **Generate**.
+5. ChatGPT uses the embedded source units, bounded chunks, inventory hash,
+   taxonomy snapshot and existing-vocabulary matches. It fetches the current
+   contract through the connected GitHub App and delivers the manifest and
+   batches to `chatgpt-content-inbox`.
+6. Repository CI validates the delivered pack. The local backend remains the
+   only process that verifies PostgreSQL and writes learning rows.
+
+For continuation, use the original request, manifest ID and missing-batch
+identities. Never upload the original source again to rediscover a smaller
+subset. The source request contains no PostgreSQL credential or database
+export—only the minimum matching vocabulary fields required for deduplication.
+
 ## Manifest guarantees
 
 New exhaustive imports use `chatgpt-vocabulary-manifest-v5`.
