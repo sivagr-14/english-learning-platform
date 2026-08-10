@@ -298,7 +298,7 @@ export default function ChatGPTImportsPage() {
     <AuthenticatedPage>
       <AppShell
         title="ChatGPT Imports"
-        description="ChatGPT assesses your PDF or text, creates complete lessons, and sends validated content packs through your private GitHub inbox. Only this local backend writes to PostgreSQL."
+        description="ChatGPT assesses pasted text or supported documents and subtitles, creates complete lessons, and sends validated content packs through your private GitHub inbox. Only this local backend writes to PostgreSQL."
         actions={
           <button
             type="button"
@@ -316,7 +316,11 @@ export default function ChatGPTImportsPage() {
           </h2>
           <ol className="mt-4 grid gap-3 text-sm text-slate-700 md:grid-cols-4">
             {[
-              ["1", "Share source", "Paste text or attach the PDF in ChatGPT."],
+              [
+                "1",
+                "Share source",
+                "Paste text or attach TXT, MD, PDF, DOCX, EPUB, HTML, SRT or VTT in ChatGPT.",
+              ],
               [
                 "2",
                 "Assess automatically",
@@ -483,10 +487,17 @@ export default function ChatGPTImportsPage() {
                       {manifest.generation.state === "safely_paused" && (
                         <div className="mt-3 rounded-lg border border-blue-200 bg-blue-50 p-3 text-blue-900">
                           <p className="font-medium">
-                            Safely paused — no candidates or completed batches were lost.
+                            Safely paused — no candidates or completed batches
+                            were lost.
                           </p>
                           <p className="mt-1 text-xs">
-                            Received: {manifest.generation.receivedBatchNumbers.join(", ") || "none"} · Missing: {manifest.generation.missingBatchNumbers.join(", ")} · Next: {manifest.generation.nextBatchNumber}
+                            Received:{" "}
+                            {manifest.generation.receivedBatchNumbers.join(
+                              ", ",
+                            ) || "none"}{" "}
+                            · Missing:{" "}
+                            {manifest.generation.missingBatchNumbers.join(", ")}{" "}
+                            · Next: {manifest.generation.nextBatchNumber}
                           </p>
                         </div>
                       )}
