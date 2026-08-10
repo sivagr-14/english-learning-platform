@@ -5,13 +5,28 @@
   "implementationPaths": [
     "packages/backend/src/routes/control.ts",
     "packages/backend/src/services/source-request-job.service.ts",
-    "packages/frontend/app/generate/page.tsx"
+    "packages/frontend/app/generate/page.tsx",
+    "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+    "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
+    "chatgpt-sources/source-release.json"
   ],
   "validationPaths": [
     "packages/backend/src/services/source-request-job.service.test.ts"
   ],
   "chatgptInstructionImpact": {
-    "status": "not_required",
-    "reason": "The v5 app-first workflow and lesson contract are unchanged; this fixes timeout and resume behavior in their implementation."
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "durable background preparation job",
+          "safely resumes queued or interrupted work",
+          "chatgpt-assessment-request-v1"
+        ]
+      }
+    ]
   }
 }
