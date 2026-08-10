@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "featureId": "chatgpt-only-scalable-source-processing",
+  "title": "Retire provider leftovers and add bounded scalable source processing",
+  "implementationPaths": [
+    ".env.example",
+    "README.md",
+    "docs/PHASE_4_OPERATIONS_RUNBOOK.md",
+    "package.json",
+    "packages/backend/src/services/source-chunking.service.ts",
+    "packages/backend/src/scripts/build-content-inventory.ts",
+    "scripts/benchmark-providers.js",
+    "scripts/benchmark-providers.test.js"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/source-chunking.service.test.ts",
+    "scripts/chatgpt-only-cleanup.test.js"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "The implementation now enforces the already-governing 1,000–1,500-word large-source chunking and reconciliation rules without changing vocabulary selection or lesson-generation instructions."
+  }
+}
