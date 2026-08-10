@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "featureId": "durable-large-source-preparation",
+  "title": "Prepare large ChatGPT sources in durable background jobs",
+  "implementationPaths": [
+    "packages/backend/src/routes/control.ts",
+    "packages/backend/src/services/source-request-job.service.ts",
+    "packages/frontend/app/generate/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/source-request-job.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "reason": "The v5 app-first workflow and lesson contract are unchanged; this fixes timeout and resume behavior in their implementation."
+  }
+}
