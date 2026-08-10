@@ -1,3 +1,16 @@
+jest.mock("srt-parser-2", () => ({
+  __esModule: true,
+  default: class {
+    fromSrt() {
+      return [];
+    }
+  },
+}));
+jest.mock("epub2", () => ({
+  __esModule: true,
+  default: { createAsync: jest.fn() },
+}));
+
 import { mkdtemp, rm } from "fs/promises";
 import os from "os";
 import path from "path";
