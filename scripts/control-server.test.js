@@ -280,7 +280,7 @@ test('failed update identifies its exact stage and gives non-destructive recover
   await manager.runUpdateAndRestart();
   assert.match(manager.currentStep, /Checking the local Git workspace/);
   assert.match(manager.error, /not clean/);
-  assert.match(manager.recovery, /No destructive rollback.*Durable queued\/active jobs/s);
+  assert.match(manager.recovery, /No destructive rollback.*Durable ChatGPT imports/s);
 });
 
 test('controller updates finish startup without a launchd handoff', async () => {
