@@ -1,45 +1,35 @@
 import fs from "fs";
 import path from "path";
 
-describe("Import AI terminal cleanup and fresh submission", () => {
-  const service = fs.readFileSync(
-    path.join(__dirname, "../services/generation-job.service.ts"),
+describe("ChatGPT-only generation entry points", () => {
+  const backend = fs.readFileSync(
+    path.join(__dirname, "../index.ts"),
     "utf8",
   );
-  const routes = fs.readFileSync(
-    path.join(__dirname, "../routes/generation.ts"),
-    "utf8",
-  );
-  const page = fs.readFileSync(
+  const importPage = fs.readFileSync(
     path.join(__dirname, "../../../frontend/app/import/page.tsx"),
     "utf8",
   );
+  const reviewPage = fs.readFileSync(
+    path.join(__dirname, "../../../frontend/app/candidate-review/page.tsx"),
+    "utf8",
+  );
+  const devScript = fs.readFileSync(
+    path.join(__dirname, "../../../../scripts/dev.js"),
+    "utf8",
+  );
 
-  it("replaces failed and cancelled source matches before creating a new job", () => {
-    expect(service).toContain(
-      'if (!["failed", "cancelled"].includes(existing.status))',
-    );
-    expect(service).toContain(
-      "await this.clearTerminal(input.userId, existing.id)",
-    );
+  it("does not mount the retired in-app provider API", () => {
+    expect(backend).not.toContain('app.use("/api/generation"');
+    expect(backend).toContain("ChatGPT content packs only");
   });
 
-  it("only permits destructive cleanup for terminal failed or cancelled jobs", () => {
-    expect(service).toContain("Only failed or cancelled imports can be cleared.");
-    expect(routes).toContain('router.delete(\n  "/jobs/failed"');
-    expect(routes).toContain('router.delete(\n  "/jobs/:id"');
+  it("redirects legacy provider and review pages to ChatGPT Imports", () => {
+    expect(importPage).toContain('redirect("/generate")');
+    expect(reviewPage).toContain('redirect("/generate")');
   });
 
-  it("does not label cancelled or attention-required jobs as in progress", () => {
-    expect(page).toContain(
-      '["queued", "extracting", "assessing", "generating", "validating"]',
-    );
-    expect(page).toContain("Clear failed imports");
-  });
-
-  it("preserves the selected source when the exact same active job already exists", () => {
-    expect(page).toContain("if (data.alreadyExisted)");
-    expect(page).toContain("This exact pasted content already has an import");
-    expect(page).toContain("This exact file already has an import");
+  it("does not start the retired generation worker", () => {
+    expect(devScript).not.toContain("english-learning-backend', 'run', 'worker");
   });
 });

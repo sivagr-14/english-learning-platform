@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "featureId": "chatgpt-primary-durable-imports",
+  "title": "Make ChatGPT content packs the sole automatic generation path",
+  "implementationPaths": [
+    "packages/backend/src/index.ts",
+    "packages/backend/package.json",
+    "packages/frontend/app/import/page.tsx",
+    "packages/frontend/app/candidate-review/page.tsx",
+    "packages/frontend/components/AppShell.tsx",
+    "scripts/control-server.js",
+    "scripts/dev.js"
+  ],
+  "validationPaths": [
+    "packages/backend/src/__tests__/generation-terminal-cleanup.test.ts",
+    "scripts/control-server.test.js"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "only supported vocabulary discovery",
+          "does not expose, start, call, resume or review"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "sole supported vocabulary",
+          "after bounded retries"
+        ]
+      }
+    ]
+  }
+}

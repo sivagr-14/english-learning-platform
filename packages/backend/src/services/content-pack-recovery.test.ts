@@ -22,7 +22,9 @@ describe("ChatGPT content-pack recovery orchestration", () => {
       select: jest.fn().mockResolvedValue([]),
     };
     const manifestUpdateQuery = {
+      join: jest.fn().mockReturnThis(),
       where: jest.fn().mockReturnThis(),
+      select: jest.fn().mockResolvedValue([]),
       update: jest.fn().mockResolvedValue(1),
     };
     const database = jest
@@ -50,6 +52,7 @@ describe("ChatGPT content-pack recovery orchestration", () => {
       processed: ["new-pack", "owned-pack"],
       cleanupEligible: ["new-pack"],
       failures: [],
+      skippedItems: [],
       blockedByAccount: [],
     });
     expect(claim).toHaveBeenCalledWith("user-1", "new-pack");
@@ -83,6 +86,7 @@ describe("ChatGPT content-pack recovery orchestration", () => {
       processed: [],
       cleanupEligible: [],
       failures: [],
+      skippedItems: [],
       blockedByAccount: ["owned-elsewhere"],
     });
   });
@@ -104,7 +108,9 @@ describe("ChatGPT content-pack recovery orchestration", () => {
         .mockResolvedValue([{ id: "retry-pack", owner_user_id: null }]),
     };
     const manifestUpdateQuery = {
+      join: jest.fn().mockReturnThis(),
       where: jest.fn().mockReturnThis(),
+      select: jest.fn().mockResolvedValue([]),
       update: jest.fn().mockResolvedValue(1),
     };
     const database = jest
@@ -128,6 +134,7 @@ describe("ChatGPT content-pack recovery orchestration", () => {
           retryable: true,
         },
       ],
+      skippedItems: [],
       blockedByAccount: [],
     });
     expect(verify).not.toHaveBeenCalled();

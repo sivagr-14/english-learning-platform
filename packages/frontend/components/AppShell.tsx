@@ -14,8 +14,6 @@ const navigation = [
   { href: "/flashcards", label: "Review" },
   { href: "/progress", label: "Progress" },
   { href: "/generate", label: "ChatGPT Imports" },
-  { href: "/import", label: "Import (AI)" },
-  { href: "/candidate-review", label: "Candidate Review" },
 ];
 
 export default function AppShell({

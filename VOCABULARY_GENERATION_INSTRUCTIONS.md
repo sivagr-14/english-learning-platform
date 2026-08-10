@@ -6,10 +6,10 @@ This file defines the lesson payload inside each selected content-pack batch.
 
 Use this contract for every vocabulary entry, whether it is new or an update.
 
-The ChatGPT manifest and batch contract is canonical. Gemini, Ollama and other
-local-AI providers must emit the same fields and pass the same validation;
-provider limitations never weaken lesson structure, contextual-sense identity,
-taxonomy, exact evidence or quality requirements.
+The ChatGPT manifest and batch contract is the sole supported vocabulary
+generation path. The local application validates, deduplicates, imports,
+verifies and cleans content packs; it does not call Gemini, Ollama or another
+local-AI provider for discovery or lesson generation.
 
 ## Default automatic selection
 
@@ -18,7 +18,9 @@ automatically. The authenticated backend assigns ownership and imports valid
 batches without a learner claim or approval step.
 Exclude low-frequency terms, proper names, extraction/OCR noise, malformed
 tokens, exact duplicates and already-complete entries, and record a reason for
-every exclusion. Hold unreadable or ambiguous material for attention.
+every exclusion. Retry ambiguous candidate-level material and quarantine it
+with a reason after bounded retries; continue all other candidates. Stop on an
+unreadable source unit because exhaustive coverage cannot be claimed.
 
 Here, an exact duplicate means the same normalized term and the same contextual
 sense. Same spelling with a different meaning is not a duplicate.

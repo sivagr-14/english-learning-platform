@@ -151,6 +151,7 @@ export default function ChatGPTImportsPage() {
       const verified = processResponse.data?.cleanupEligible || [];
       const blockedByAccount = processResponse.data?.blockedByAccount || [];
       const failures = processResponse.data?.failures || [];
+      const skippedItems = processResponse.data?.skippedItems || [];
       const staged = processResponse.data?.staged;
       const outcome = processResponse.data?.outcome;
       const discoveredDocuments =
@@ -206,15 +207,22 @@ export default function ChatGPTImportsPage() {
         );
       }
       setMessage(
-        cleanup.cleaned?.length
-          ? `Imported and PostgreSQL-verified ${verified.length} pack(s); removed ${cleanup.cleaned.length} completed pack(s) from the inbox.`
-          : cleanup.alreadyAbsent?.length
-            ? "Synchronized; the verified pack was already absent and is now recorded as cleaned."
-            : processed.length > 0
-              ? `Processed ${processed.length} pack(s); ${verified.length} passed PostgreSQL read-back verification. Check any remaining import attention below.`
-              : discoveredDocuments === 0
-                ? "No ChatGPT content-pack files were found in the inbox."
-                : "Content-pack files were synchronized, but no new import required processing.",
+        skippedItems.length > 0
+          ? `Imported and PostgreSQL-verified ${verified.length} pack(s). Skipped ${skippedItems.length} problematic item(s) after processing all valid batches: ${skippedItems
+              .map(
+                (item: { term?: string; reason?: string }) =>
+                  `${item.term || "unknown term"} — ${item.reason || "could not be imported safely"}`,
+              )
+              .join("; ")}`
+          : cleanup.cleaned?.length
+            ? `Imported and PostgreSQL-verified ${verified.length} pack(s); removed ${cleanup.cleaned.length} completed pack(s) from the inbox.`
+            : cleanup.alreadyAbsent?.length
+              ? "Synchronized; the verified pack was already absent and is now recorded as cleaned."
+              : processed.length > 0
+                ? `Processed ${processed.length} pack(s); ${verified.length} passed PostgreSQL read-back verification. Check any remaining import attention below.`
+                : discoveredDocuments === 0
+                  ? "No ChatGPT content-pack files were found in the inbox."
+                  : "Content-pack files were synchronized, but no new import required processing.",
       );
       await load();
     } catch (syncError: any) {

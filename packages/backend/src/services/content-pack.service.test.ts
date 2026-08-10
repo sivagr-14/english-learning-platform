@@ -2,9 +2,28 @@ import { STARTER_SAMPLES } from "../data/starter-samples";
 import { contentPackHash } from "./content-pack-contract";
 import {
   ContentPackService,
+  isSkippableCandidateAttention,
   recoverAutomaticApprovalCandidateIds,
   shouldAutomaticallyApproveManifest,
 } from "./content-pack.service";
+
+describe("candidate-level automatic quarantine", () => {
+  it("recognizes contextual-sense attention without hiding unrelated failures", () => {
+    expect(
+      isSkippableCandidateAttention(
+        'Contextual sense for "supervised learning" requires attention: The declared matched word has a conflicting sense key.',
+      ),
+    ).toBe(true);
+    expect(
+      isSkippableCandidateAttention("PostgreSQL connection was lost."),
+    ).toBe(false);
+    expect(
+      isSkippableCandidateAttention(
+        'Invalid three-level taxonomy assignment for "supervised learning".',
+      ),
+    ).toBe(false);
+  });
+});
 
 class MemoryQuery {
   private predicates: Array<(row: any) => boolean> = [];
@@ -361,7 +380,6 @@ describe("ChatGPT content-pack staging ledger", () => {
   });
 });
 
-
 describe("automatic content-pack approval recovery", () => {
   it("repairs a previously claimed manifest left at the retired approval gate", () => {
     expect(
@@ -395,7 +413,6 @@ describe("automatic content-pack approval recovery", () => {
       ),
     ).toBe(false);
   });
-
 
   it("resumes the durable job ledger after an interrupted automatic approval", () => {
     expect(

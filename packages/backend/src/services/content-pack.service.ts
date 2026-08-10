@@ -56,8 +56,8 @@ export function shouldAutomaticallyApproveManifest(
 ): boolean {
   return Boolean(
     row.owner_user_id &&
-      !approvalRequired &&
-      row.status === "awaiting_approval",
+    !approvalRequired &&
+    row.status === "awaiting_approval",
   );
 }
 
@@ -72,6 +72,12 @@ export function recoverAutomaticApprovalCandidateIds(
         : proposedCandidateIds,
     ),
   ];
+}
+
+export function isSkippableCandidateAttention(message: string): boolean {
+  return /^Contextual sense for .+ requires attention: .+/i.test(
+    message.trim(),
+  );
 }
 
 function statusError(
@@ -346,15 +352,23 @@ export class ContentPackService {
   }
 
   async listIngestErrors() {
-    return this.database("content_pack_ingest_errors")
-      .where({ status: "active" })
-      // Internal Gemini/Ollama transactions share validation storage but are
-      // never ChatGPT inbox documents. Keep their diagnostics in the provider
-      // workflow that created them instead of presenting them as packs that
-      // ChatGPT must correct.
-      .whereNot("document_path", "like", "inapp/%")
-      .orderBy("updated_at", "desc")
-      .select("document_path", "pack_id", "issues", "created_at", "updated_at");
+    return (
+      this.database("content_pack_ingest_errors")
+        .where({ status: "active" })
+        // Internal Gemini/Ollama transactions share validation storage but are
+        // never ChatGPT inbox documents. Keep their diagnostics in the provider
+        // workflow that created them instead of presenting them as packs that
+        // ChatGPT must correct.
+        .whereNot("document_path", "like", "inapp/%")
+        .orderBy("updated_at", "desc")
+        .select(
+          "document_path",
+          "pack_id",
+          "issues",
+          "created_at",
+          "updated_at",
+        )
+    );
   }
 
   async processAvailableManifests(userId: string) {
@@ -379,6 +393,11 @@ export class ContentPackService {
       message: string;
       retryable: boolean;
     }> = [];
+    const skippedItems: Array<{
+      manifestId: string;
+      term: string;
+      reason: string;
+    }> = [];
     for (const row of rows) {
       try {
         if (!row.owner_user_id) {
@@ -393,6 +412,25 @@ export class ContentPackService {
           await this.commitAvailableBatches(userId, row.id);
         }
         const verification = await this.verifyManifest(userId, row.id);
+        const skipped = await this.database(
+          "assessment_candidates as candidates",
+        )
+          .join(
+            "content_pack_manifests as manifests",
+            "manifests.assessment_run_id",
+            "candidates.assessment_run_id",
+          )
+          .where({ "manifests.id": row.id, "candidates.status": "skipped" })
+          .select("candidates.item", "candidates.decision_reason");
+        skippedItems.push(
+          ...skipped.map((item: any) => ({
+            manifestId: row.id,
+            term: item.item,
+            reason:
+              item.decision_reason ||
+              "The candidate could not be imported safely.",
+          })),
+        );
         processed.push(row.id);
         if (verification.verified) cleanupEligible.push(row.id);
         await this.database("content_pack_manifests")
@@ -423,6 +461,7 @@ export class ContentPackService {
       processed,
       cleanupEligible,
       failures,
+      skippedItems,
       blockedByAccount: inaccessible.map((row: any) => row.id),
     };
   }
@@ -913,7 +952,11 @@ export class ContentPackService {
     const row = await this.database("content_pack_manifests")
       .where({ id: manifestId, owner_user_id: userId })
       .first();
-    if (!row) throw statusError("The automatic import is not owned by this account", 404);
+    if (!row)
+      throw statusError(
+        "The automatic import is not owned by this account",
+        404,
+      );
     if (row.status === "attention_required") {
       throw statusError(
         "Unreadable pages or chunks must be resolved before automatic import.",
@@ -928,7 +971,9 @@ export class ContentPackService {
           builder.whereIn("external_candidate_id", externalCandidateIds);
         }
       });
-    const proposedIds = proposedCandidates.map((candidate: any) => candidate.id);
+    const proposedIds = proposedCandidates.map(
+      (candidate: any) => candidate.id,
+    );
     let job = await this.database("generation_jobs")
       .where({
         assessment_run_id: row.assessment_run_id,
@@ -952,9 +997,11 @@ export class ContentPackService {
           "One or more selected candidate IDs are unknown, duplicated or no longer proposed.",
         );
       }
-      job = await new AssessmentControlService(
-        this.database,
-      ).approveAssessment(userId, row.assessment_run_id, proposedIds);
+      job = await new AssessmentControlService(this.database).approveAssessment(
+        userId,
+        row.assessment_run_id,
+        proposedIds,
+      );
     }
 
     let jobItems = await this.database("generation_job_items")
@@ -1048,13 +1095,15 @@ export class ContentPackService {
           decision_reason: "Excluded by the stored automatic import policy",
           updated_at: new Date(),
         });
-      await trx("content_pack_manifests").where({ id: manifestId }).update({
-        status: "processing",
-        approved_at: row.approved_at || new Date(),
-        sync_status: "synchronized",
-        sync_error: null,
-        updated_at: new Date(),
-      });
+      await trx("content_pack_manifests")
+        .where({ id: manifestId })
+        .update({
+          status: "processing",
+          approved_at: row.approved_at || new Date(),
+          sync_status: "synchronized",
+          sync_error: null,
+          updated_at: new Date(),
+        });
       await trx("control_audit_events").insert({
         owner_user_id: userId,
         operation_id: `content-pack:${manifestId}:automatic-resume`,
@@ -1216,9 +1265,46 @@ export class ContentPackService {
           userId,
         );
         if (imported.imported !== 1) {
-          throw statusError(
-            imported.errors[0]?.message || `Could not save ${entry.word}`,
-          );
+          const importError =
+            imported.errors[0]?.message || `Could not save ${entry.word}`;
+          if (isSkippableCandidateAttention(importError)) {
+            await trx("generation_job_items")
+              .where({
+                generation_job_id: job.id,
+                assessment_candidate_id: candidate.id,
+              })
+              .update({
+                status: "skipped",
+                last_error: importError,
+                completed_at: new Date(),
+                updated_at: new Date(),
+              });
+            await trx("assessment_candidates")
+              .where({ id: candidate.id })
+              .update({
+                action: "filtered",
+                status: "skipped",
+                filter_reason: importError,
+                decision_reason: importError,
+                updated_at: new Date(),
+              });
+            await trx("control_audit_events").insert({
+              owner_user_id: userId,
+              operation_id: `content-pack:${batch.batchId}:${entry.candidateId}:skipped`,
+              event_type: "content_pack.entry_skipped",
+              entity_type: "assessment_candidate",
+              entity_id: candidate.id,
+              details: JSON.stringify({
+                manifestId: manifestRow.id,
+                batchId: batch.batchId,
+                candidateId: entry.candidateId,
+                term: entry.word,
+                reason: importError,
+              }),
+            });
+            continue;
+          }
+          throw statusError(importError);
         }
         const wordId = imported.items[0].word.id;
         committedWordIds.push(wordId);
@@ -1274,9 +1360,9 @@ export class ContentPackService {
         });
       return { count: committedWordIds.length, wordIds: committedWordIds };
     });
-    if (committed.wordIds.length) {
-      await this.verifyCommittedBatch(userId, batch.batchId, committed.wordIds);
-    }
+    // A batch whose every candidate was safely quarantined still needs a
+    // durable zero-entry read-back receipt so it cannot block completion.
+    await this.verifyCommittedBatch(userId, batch.batchId, committed.wordIds);
     return committed.count;
   }
 
@@ -1365,6 +1451,9 @@ export class ContentPackService {
     const completed = items.filter(
       (item: any) => item.status === "completed",
     ).length;
+    const skipped = items.filter(
+      (item: any) => item.status === "skipped",
+    ).length;
     const manual = items.filter(
       (item: any) => item.status === "manual_review",
     ).length;
@@ -1388,7 +1477,7 @@ export class ContentPackService {
       .count({ count: "id" })
       .first();
     const complete =
-      completed === Number(job.total_items) &&
+      completed + skipped === Number(job.total_items) &&
       unresolvedSenseCount === 0 &&
       Number(unverifiedBatches?.count || 0) === 0;
     const attention =
@@ -1477,30 +1566,49 @@ export class ContentPackService {
     const jobItems = job
       ? await this.database("generation_job_items")
           .where({ generation_job_id: job.id })
-          .select("status", "committed_word_id", "source_batch_id")
+          .select(
+            "status",
+            "committed_word_id",
+            "source_batch_id",
+            "last_error",
+          )
       : [];
-    const approvedEntryCount = jobItems.length;
-    if (!job || wordIds.length !== approvedEntryCount) {
+    const completedJobItems = jobItems.filter(
+      (item: any) => item.status === "completed",
+    );
+    const skippedJobItems = jobItems.filter(
+      (item: any) => item.status === "skipped",
+    );
+    if (!job || wordIds.length !== completedJobItems.length) {
       issues.push(
         "Committed entry count does not match the approved import count.",
       );
     }
     if (
       job &&
-      jobItems.some(
-        (item: any) =>
-          item.status !== "completed" ||
-          !item.committed_word_id ||
-          !item.source_batch_id,
+      completedJobItems.some(
+        (item: any) => !item.committed_word_id || !item.source_batch_id,
       )
     ) {
       issues.push("One or more approved entries are not fully committed.");
     }
+    if (
+      job &&
+      (completedJobItems.length + skippedJobItems.length !== jobItems.length ||
+        skippedJobItems.some(
+          (item: any) =>
+            item.committed_word_id || item.source_batch_id || !item.last_error,
+        ))
+    ) {
+      issues.push(
+        "One or more import items are not in a valid terminal state.",
+      );
+    }
     if (!wordIds.length) {
       const emptyImportVerified =
         manifest.status === "completed" &&
-        manifest.generation.plannedBatches === 0 &&
-        approvedEntryCount === 0 &&
+        completedJobItems.length === 0 &&
+        skippedJobItems.length === jobItems.length &&
         issues.length === 0;
       const report = {
         verified: emptyImportVerified,

@@ -5,19 +5,16 @@ ChatGPT performs language assessment and lesson generation. GitHub transports
 structured content. Only the local backend owns PostgreSQL credentials and
 writes database rows.
 
-## Authority and provider precedence
+## Sole supported generation path
 
-This ChatGPT content-pack workflow is the canonical import contract. Its
+This ChatGPT content-pack workflow is the only supported vocabulary discovery
+and lesson-generation path. Its
 manifest, candidate ledger, contextual-sense identity, source-evidence,
 taxonomy, batch, lesson, validation, immutability and completion rules take
-precedence over Gemini, Ollama or any other local-AI implementation.
-
-Other providers may produce data only through an adapter that emits and passes
-this same contract. They must not weaken, omit, rename or reinterpret required
-fields or validation rules. If provider output conflicts with this contract,
-reject or adapt the provider output; never change or compromise the ChatGPT
-format. Provider switching starts a new immutable job and must never combine or
-mutate an existing ChatGPT manifest.
+precedence over historical Gemini, Ollama or other local-AI implementation
+artifacts. The application does not expose, start, call, resume or review an
+in-app AI provider. Historical provider rows and migrations are retained only
+for safe database upgrades and must not create active import work.
 
 ## End-to-end flow
 
@@ -339,3 +336,13 @@ inbox cleanup as one operation. Imports left in the retired
 synchronization; they never require learner intervention. A clear
 source-backed `new_sense` decision is not converted into manual review merely
 because its wording overlaps moderately with an existing sense.
+
+If one otherwise valid generated candidate develops an irreconcilable
+term/sense identity conflict against the learner's current database, quarantine
+only that candidate with its exact reason. Continue every remaining planned
+batch automatically, verify all saved entries, clean the completed pack from
+the active ledger, and report the skipped term(s) together after processing.
+Candidate-level sense conflicts must not leave the manifest in an attention or
+approval state. Structural pack errors, unreadable source areas, database
+failures and invalid lessons remain blocking failures and must never be hidden
+as skipped vocabulary.
