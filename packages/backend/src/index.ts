@@ -41,8 +41,8 @@ app.use(
   }),
 );
 app.use(morgan("combined", { stream: { write: (msg) => logger.info(msg) } }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "40mb" }));
+app.use(express.urlencoded({ extended: true, limit: "40mb" }));
 
 // Health check endpoint
 app.get("/health", (_req, res) => {
