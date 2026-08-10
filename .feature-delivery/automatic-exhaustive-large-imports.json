@@ -18,6 +18,7 @@
   "validationPaths": [
     "packages/backend/src/scripts/smoke-content-pack-postgres.ts",
     "packages/backend/src/services/content-pack-contract.test.ts",
+    "packages/backend/src/services/content-pack-recovery.test.ts",
     "packages/backend/src/services/content-pack.service.test.ts",
     "packages/backend/src/services/extraction-foundation.service.test.ts",
     "packages/backend/src/services/in-app-generation.service.test.ts",

@@ -412,17 +412,16 @@ export class ContentPackService {
           await this.commitAvailableBatches(userId, row.id);
         }
         const verification = await this.verifyManifest(userId, row.id);
-        const manifestRow = await this.database("content_pack_manifests")
-          .where({ id: row.id })
-          .first();
-        const skipped = manifestRow?.assessment_run_id
-          ? await this.database("assessment_candidates")
-              .where({
-                assessment_run_id: manifestRow.assessment_run_id,
-                status: "skipped",
-              })
-              .select("item", "decision_reason")
-          : [];
+        const skipped = await this.database(
+          "assessment_candidates as candidates",
+        )
+          .join(
+            "content_pack_manifests as manifests",
+            "manifests.assessment_run_id",
+            "candidates.assessment_run_id",
+          )
+          .where({ "manifests.id": row.id, "candidates.status": "skipped" })
+          .select("candidates.item", "candidates.decision_reason");
         skippedItems.push(
           ...skipped.map((item: any) => ({
             manifestId: row.id,
