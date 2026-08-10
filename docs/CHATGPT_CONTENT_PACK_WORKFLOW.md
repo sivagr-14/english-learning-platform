@@ -53,8 +53,10 @@ inventory from the original attachment alone.
 1. Open **ChatGPT Imports** and paste text or select TXT, MD, PDF, DOCX, EPUB,
    HTML, SRT or VTT.
 2. Select **Prepare for ChatGPT**.
-3. The backend must report zero untracked readable units and words, then download
-   one immutable `chatgpt-assessment-request-v1` JSON file.
+3. The backend immediately creates a durable background preparation job, displays
+   its current stage, and safely resumes queued or interrupted work. Only after the
+   backend reports zero untracked readable units and words does it download one
+   immutable `chatgpt-assessment-request-v1` JSON file.
 4. Attach that JSON file in ChatGPT and write **Generate**.
 5. ChatGPT uses the embedded source units, bounded chunks, inventory hash,
    taxonomy snapshot and existing-vocabulary matches. It fetches the current
