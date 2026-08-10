@@ -1,0 +1,506 @@
+{
+  "formatVersion": "chatgpt-vocabulary-batch-v4",
+  "batchId": "ml-engineering-remaining-exhaustive-20260810-v1-batch-7",
+  "manifestId": "ml-engineering-remaining-exhaustive-20260810-v1",
+  "manifestHash": "c11266d557ce0bbed64ab5ed82381f0aab689ba87ed3e8c36c78738c2d9cd530",
+  "batchNumber": 7,
+  "createdAt": "2026-08-10T10:05:00.000Z",
+  "entries": [
+    {
+      "candidateId": "remaining-049-min-max-scaling",
+      "word": "min-max scaling",
+      "pronunciation": "/min-max scaling/",
+      "wordType": "collocation",
+      "englishMeaning": "rescaling numeric values into a fixed range such as zero to one",
+      "tamilMeaning": "எண் மதிப்புகளை பூஜ்ஜியம் முதல் ஒன்று போன்ற நிலையான வரம்புக்கு மாற்றுதல்",
+      "coreIdea": "min-max scaling expresses rescaling numeric values into a fixed range such as zero to one.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Two common techniques are min‑max scaling, which brings values into a fixed range, like 0 to 1, and standardization, which centers data around the mean with unit variance.",
+          "contextual_meaning": "rescaling numeric values into a fixed range such as zero to one",
+          "simple_explanation": "Here, min-max scaling refers specifically to rescaling numeric values into a fixed range such as zero to one."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use min-max scaling when discussing rescaling numeric values into a fixed range such as zero to one in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use min-max scaling for a different concept that does not involve rescaling numeric values into a fixed range such as zero to one."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use min-max scaling to describe rescaling numeric values into a fixed range such as zero to one",
+          "common_collocations": [
+            "min-max scaling in machine learning",
+            "min-max scaling in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented min-max scaling before approving the production plan.",
+            "technical": "Engineers measured the effect of min-max scaling during model evaluation."
+          },
+          "mini_conversation": "A: Why is min-max scaling included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: min-max scaling is a general name for every machine-learning activity.",
+          "correction": "Correct: min-max scaling means rescaling numeric values into a fixed range such as zero to one.",
+          "important_difference": "min-max scaling names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect min-max scaling with this core idea: rescaling numeric values into a fixed range such as zero to one.",
+          "memory_sentence": "I use min-max scaling when I mean rescaling numeric values into a fixed range such as zero to one.",
+          "recall_question": "What does min-max scaling mean in this course?",
+          "recognition_task": "Identify the source sentence where min-max scaling means rescaling numeric values into a fixed range such as zero to one.",
+          "production_task": "Write a professional sentence using min-max scaling with the same meaning."
+        },
+        "advanced_nuance": [
+          "min-max scaling is used here in the precise sense of rescaling numeric values into a fixed range such as zero to one; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-050-unit-variance",
+      "word": "unit variance",
+      "pronunciation": "/unit variance/",
+      "wordType": "collocation",
+      "englishMeaning": "a statistical scale in which variance equals one",
+      "tamilMeaning": "மாறுபாடு ஒன்று ஆக இருக்கும் புள்ளியியல் அளவுகோல்",
+      "coreIdea": "unit variance expresses a statistical scale in which variance equals one.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Two common techniques are min‑max scaling, which brings values into a fixed range, like 0 to 1, and standardization, which centers data around the mean with unit variance.",
+          "contextual_meaning": "a statistical scale in which variance equals one",
+          "simple_explanation": "Here, unit variance refers specifically to a statistical scale in which variance equals one."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use unit variance when discussing a statistical scale in which variance equals one in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use unit variance for a different concept that does not involve a statistical scale in which variance equals one."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use unit variance to describe a statistical scale in which variance equals one",
+          "common_collocations": [
+            "unit variance in machine learning",
+            "unit variance in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented unit variance before approving the production plan.",
+            "technical": "Engineers measured the effect of unit variance during model evaluation."
+          },
+          "mini_conversation": "A: Why is unit variance included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: unit variance is a general name for every machine-learning activity.",
+          "correction": "Correct: unit variance means a statistical scale in which variance equals one.",
+          "important_difference": "unit variance names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect unit variance with this core idea: a statistical scale in which variance equals one.",
+          "memory_sentence": "I use unit variance when I mean a statistical scale in which variance equals one.",
+          "recall_question": "What does unit variance mean in this course?",
+          "recognition_task": "Identify the source sentence where unit variance means a statistical scale in which variance equals one.",
+          "production_task": "Write a professional sentence using unit variance with the same meaning."
+        },
+        "advanced_nuance": [
+          "unit variance is used here in the precise sense of a statistical scale in which variance equals one; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-051-derived-features",
+      "word": "derived features",
+      "pronunciation": "/derived features/",
+      "wordType": "collocation",
+      "englishMeaning": "model inputs created by transforming or combining existing data",
+      "tamilMeaning": "இருக்கும் தரவை மாற்றி அல்லது இணைத்து உருவாக்கப்பட்ட மாதிரி உள்ளீடுகள்",
+      "coreIdea": "derived features expresses model inputs created by transforming or combining existing data.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "These kind of derived features can often capture deeper patterns the model wouldn't otherwise see.",
+          "contextual_meaning": "model inputs created by transforming or combining existing data",
+          "simple_explanation": "Here, derived features refers specifically to model inputs created by transforming or combining existing data."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use derived features when discussing model inputs created by transforming or combining existing data in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use derived features for a different concept that does not involve model inputs created by transforming or combining existing data."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use derived features to describe model inputs created by transforming or combining existing data",
+          "common_collocations": [
+            "derived features in machine learning",
+            "derived features in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented derived features before approving the production plan.",
+            "technical": "Engineers measured the effect of derived features during model evaluation."
+          },
+          "mini_conversation": "A: Why is derived features included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: derived features is a general name for every machine-learning activity.",
+          "correction": "Correct: derived features means model inputs created by transforming or combining existing data.",
+          "important_difference": "derived features names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect derived features with this core idea: model inputs created by transforming or combining existing data.",
+          "memory_sentence": "I use derived features when I mean model inputs created by transforming or combining existing data.",
+          "recall_question": "What does derived features mean in this course?",
+          "recognition_task": "Identify the source sentence where derived features means model inputs created by transforming or combining existing data.",
+          "production_task": "Write a professional sentence using derived features with the same meaning."
+        },
+        "advanced_nuance": [
+          "derived features is used here in the precise sense of model inputs created by transforming or combining existing data; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-052-principal-component-analysis",
+      "word": "principal component analysis",
+      "pronunciation": "/principal component analysis/",
+      "wordType": "collocation",
+      "englishMeaning": "a technique that reduces many correlated features to fewer components",
+      "tamilMeaning": "பல தொடர்புடைய அம்சங்களை குறைந்த கூறுகளாகச் சுருக்கும் நுட்பம்",
+      "coreIdea": "principal component analysis expresses a technique that reduces many correlated features to fewer components.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Dimensionality reduction techniques, like principal component analysis, help by compressing the feature space into fewer components or still retaining the most important information.",
+          "contextual_meaning": "a technique that reduces many correlated features to fewer components",
+          "simple_explanation": "Here, principal component analysis refers specifically to a technique that reduces many correlated features to fewer components."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use principal component analysis when discussing a technique that reduces many correlated features to fewer components in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use principal component analysis for a different concept that does not involve a technique that reduces many correlated features to fewer components."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use principal component analysis to describe a technique that reduces many correlated features to fewer components",
+          "common_collocations": [
+            "principal component analysis in machine learning",
+            "principal component analysis in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented principal component analysis before approving the production plan.",
+            "technical": "Engineers measured the effect of principal component analysis during model evaluation."
+          },
+          "mini_conversation": "A: Why is principal component analysis included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: principal component analysis is a general name for every machine-learning activity.",
+          "correction": "Correct: principal component analysis means a technique that reduces many correlated features to fewer components.",
+          "important_difference": "principal component analysis names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect principal component analysis with this core idea: a technique that reduces many correlated features to fewer components.",
+          "memory_sentence": "I use principal component analysis when I mean a technique that reduces many correlated features to fewer components.",
+          "recall_question": "What does principal component analysis mean in this course?",
+          "recognition_task": "Identify the source sentence where principal component analysis means a technique that reduces many correlated features to fewer components.",
+          "production_task": "Write a professional sentence using principal component analysis with the same meaning."
+        },
+        "advanced_nuance": [
+          "principal component analysis is used here in the precise sense of a technique that reduces many correlated features to fewer components; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-053-feature-space",
+      "word": "feature space",
+      "pronunciation": "/feature space/",
+      "wordType": "collocation",
+      "englishMeaning": "the multidimensional set of input variables used by a model",
+      "tamilMeaning": "மாதிரி பயன்படுத்தும் உள்ளீட்டு மாறிகளின் பலபரிமாண வெளி",
+      "coreIdea": "feature space expresses the multidimensional set of input variables used by a model.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Dimensionality reduction techniques, like principal component analysis, help by compressing the feature space into fewer components or still retaining the most important information.",
+          "contextual_meaning": "the multidimensional set of input variables used by a model",
+          "simple_explanation": "Here, feature space refers specifically to the multidimensional set of input variables used by a model."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use feature space when discussing the multidimensional set of input variables used by a model in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use feature space for a different concept that does not involve the multidimensional set of input variables used by a model."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use feature space to describe the multidimensional set of input variables used by a model",
+          "common_collocations": [
+            "feature space in machine learning",
+            "feature space in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented feature space before approving the production plan.",
+            "technical": "Engineers measured the effect of feature space during model evaluation."
+          },
+          "mini_conversation": "A: Why is feature space included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: feature space is a general name for every machine-learning activity.",
+          "correction": "Correct: feature space means the multidimensional set of input variables used by a model.",
+          "important_difference": "feature space names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect feature space with this core idea: the multidimensional set of input variables used by a model.",
+          "memory_sentence": "I use feature space when I mean the multidimensional set of input variables used by a model.",
+          "recall_question": "What does feature space mean in this course?",
+          "recognition_task": "Identify the source sentence where feature space means the multidimensional set of input variables used by a model.",
+          "production_task": "Write a professional sentence using feature space with the same meaning."
+        },
+        "advanced_nuance": [
+          "feature space is used here in the precise sense of the multidimensional set of input variables used by a model; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-054-global-explainability",
+      "word": "global explainability",
+      "pronunciation": "/global explainability/",
+      "wordType": "collocation",
+      "englishMeaning": "understanding a model’s behavior across all predictions",
+      "tamilMeaning": "அனைத்து கணிப்புகளிலும் மாதிரி எவ்வாறு செயல்படுகிறது என்பதைப் புரிதல்",
+      "coreIdea": "global explainability expresses understanding a model’s behavior across all predictions.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "There are two main types of explainability, global explainability, understanding how the model works overall, for example, which features have the most influence across all predictions, and local explainability, understanding why the model made a specific decision for a specific case.",
+          "contextual_meaning": "understanding a model’s behavior across all predictions",
+          "simple_explanation": "Here, global explainability refers specifically to understanding a model’s behavior across all predictions."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use global explainability when discussing understanding a model’s behavior across all predictions in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use global explainability for a different concept that does not involve understanding a model’s behavior across all predictions."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use global explainability to describe understanding a model’s behavior across all predictions",
+          "common_collocations": [
+            "global explainability in machine learning",
+            "global explainability in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented global explainability before approving the production plan.",
+            "technical": "Engineers measured the effect of global explainability during model evaluation."
+          },
+          "mini_conversation": "A: Why is global explainability included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: global explainability is a general name for every machine-learning activity.",
+          "correction": "Correct: global explainability means understanding a model’s behavior across all predictions.",
+          "important_difference": "global explainability names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect global explainability with this core idea: understanding a model’s behavior across all predictions.",
+          "memory_sentence": "I use global explainability when I mean understanding a model’s behavior across all predictions.",
+          "recall_question": "What does global explainability mean in this course?",
+          "recognition_task": "Identify the source sentence where global explainability means understanding a model’s behavior across all predictions.",
+          "production_task": "Write a professional sentence using global explainability with the same meaning."
+        },
+        "advanced_nuance": [
+          "global explainability is used here in the precise sense of understanding a model’s behavior across all predictions; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-055-local-explainability",
+      "word": "local explainability",
+      "pronunciation": "/local explainability/",
+      "wordType": "collocation",
+      "englishMeaning": "understanding why a model made one particular prediction",
+      "tamilMeaning": "ஒரு குறிப்பிட்ட கணிப்பை மாதிரி ஏன் செய்தது என்பதைப் புரிதல்",
+      "coreIdea": "local explainability expresses understanding why a model made one particular prediction.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "There are two main types of explainability, global explainability, understanding how the model works overall, for example, which features have the most influence across all predictions, and local explainability, understanding why the model made a specific decision for a specific case.",
+          "contextual_meaning": "understanding why a model made one particular prediction",
+          "simple_explanation": "Here, local explainability refers specifically to understanding why a model made one particular prediction."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use local explainability when discussing understanding why a model made one particular prediction in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use local explainability for a different concept that does not involve understanding why a model made one particular prediction."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use local explainability to describe understanding why a model made one particular prediction",
+          "common_collocations": [
+            "local explainability in machine learning",
+            "local explainability in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented local explainability before approving the production plan.",
+            "technical": "Engineers measured the effect of local explainability during model evaluation."
+          },
+          "mini_conversation": "A: Why is local explainability included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: local explainability is a general name for every machine-learning activity.",
+          "correction": "Correct: local explainability means understanding why a model made one particular prediction.",
+          "important_difference": "local explainability names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect local explainability with this core idea: understanding why a model made one particular prediction.",
+          "memory_sentence": "I use local explainability when I mean understanding why a model made one particular prediction.",
+          "recall_question": "What does local explainability mean in this course?",
+          "recognition_task": "Identify the source sentence where local explainability means understanding why a model made one particular prediction.",
+          "production_task": "Write a professional sentence using local explainability with the same meaning."
+        },
+        "advanced_nuance": [
+          "local explainability is used here in the precise sense of understanding why a model made one particular prediction; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-056-historical-inequalities",
+      "word": "historical inequalities",
+      "pronunciation": "/historical inequalities/",
+      "wordType": "collocation",
+      "englishMeaning": "unfair differences inherited from past social or institutional conditions",
+      "tamilMeaning": "கடந்த சமூக அல்லது நிறுவன சூழல்களிலிருந்து வந்த அநியாய வேறுபாடுகள்",
+      "coreIdea": "historical inequalities expresses unfair differences inherited from past social or institutional conditions.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "The training data may reflect historical inequalities, which are picked up by the system and reinforced by the system.",
+          "contextual_meaning": "unfair differences inherited from past social or institutional conditions",
+          "simple_explanation": "Here, historical inequalities refers specifically to unfair differences inherited from past social or institutional conditions."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use historical inequalities when discussing unfair differences inherited from past social or institutional conditions in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use historical inequalities for a different concept that does not involve unfair differences inherited from past social or institutional conditions."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use historical inequalities to describe unfair differences inherited from past social or institutional conditions",
+          "common_collocations": [
+            "historical inequalities in machine learning",
+            "historical inequalities in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented historical inequalities before approving the production plan.",
+            "technical": "Engineers measured the effect of historical inequalities during model evaluation."
+          },
+          "mini_conversation": "A: Why is historical inequalities included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: historical inequalities is a general name for every machine-learning activity.",
+          "correction": "Correct: historical inequalities means unfair differences inherited from past social or institutional conditions.",
+          "important_difference": "historical inequalities names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect historical inequalities with this core idea: unfair differences inherited from past social or institutional conditions.",
+          "memory_sentence": "I use historical inequalities when I mean unfair differences inherited from past social or institutional conditions.",
+          "recall_question": "What does historical inequalities mean in this course?",
+          "recognition_task": "Identify the source sentence where historical inequalities means unfair differences inherited from past social or institutional conditions.",
+          "production_task": "Write a professional sentence using historical inequalities with the same meaning."
+        },
+        "advanced_nuance": [
+          "historical inequalities is used here in the precise sense of unfair differences inherited from past social or institutional conditions; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    }
+  ]
+}
