@@ -19,7 +19,8 @@
     "packages/backend/src/services/provider-contract-parity.test.ts",
     "packages/backend/src/services/provider-rollout.service.test.ts",
     "scripts/control-server.test.js",
-    "tests/playwright/phase4-workflows.spec.ts"
+    "tests/playwright/phase4-workflows.spec.ts",
+    "scripts/chatgpt-only-cleanup.test.js"
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
