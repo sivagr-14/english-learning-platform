@@ -50,6 +50,22 @@ over the original source and add every missed B2-C2 word or useful
 expression before lesson generation. Do not infer completeness from the number
 of generated lessons.
 
+If the learner supplies a word or expression list with the complete source,
+treat those items as required seed candidates and use the source to resolve
+their demonstrated contextual senses. Unless the learner explicitly says
+**generate only these supplied items**, continue the complete discovery and
+blind recall passes and add other eligible candidates. Supplied-items-only mode
+is intentionally scoped and must never be reported as exhaustive source
+discovery. Report any supplied item that is absent from the source or lacks
+enough context rather than inventing a meaning.
+
+For a large frozen plan, generate only the current immutable batch of five to
+ten lessons. Validate and deliver that batch before proceeding. When a ChatGPT
+run must end, stop only at a batch boundary and report the manifest ID, planned,
+received and missing batch numbers, and the exact next batch. A continuation
+must use the original manifest hash, candidate IDs, batch number and batch ID;
+it must not rediscover the source or regenerate already delivered batches.
+
 ## Contextual sense identity
 
 Generate one entry for exactly one meaning demonstrated by the supplied
