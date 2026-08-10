@@ -75,7 +75,11 @@ export async function buildInventory(input: {
     chunkPlan.reconciliation.untrackedReadableUnits !== 0 ||
     chunkPlan.reconciliation.untrackedReadableWords !== 0
   ) {
-    throw new Error("Source chunk planning did not reconcile every readable unit and word.");
+    throw new Error(
+      "Source chunk planning did not reconcile every readable unit and word: " +
+        `${chunkPlan.reconciliation.untrackedReadableUnits} untracked readable unit(s), ` +
+        `${chunkPlan.reconciliation.untrackedReadableWords} untracked readable word(s).`,
+    );
   }
 
   const candidates = enumerateCandidates(segments);
