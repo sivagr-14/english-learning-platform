@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "featureId": "verify-50000-word-source-planning",
+  "title": "Verify deterministic planning for 50,000-word sources",
+  "implementationPaths": [
+    "packages/backend/src/services/source-chunking.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/source-chunking.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This adds regression coverage for the existing large-source chunking contract without changing vocabulary selection, contextual-sense, lesson, or delivery behavior."
+  }
+}
