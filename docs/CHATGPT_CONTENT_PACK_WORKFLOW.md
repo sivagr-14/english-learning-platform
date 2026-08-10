@@ -362,6 +362,41 @@ content.
 
 ## Status and recovery guarantees
 
+### Pre-manifest semantic assessment checkpoints
+
+Large prepared requests must not attempt to decide the entire deterministic
+inventory in one ChatGPT run. The assessment request contains an immutable
+`assessmentPlan` that partitions proposed candidates into ordered groups of at
+most 75. This bound controls one semantic operation; it never caps total
+coverage.
+
+For each group, ChatGPT performs the single-word pass, expression pass,
+contextual-sense decision and blind sentence recall pass, then validates and
+delivers one
+`chatgpt-semantic-assessment-checkpoint-v1` file under the request's
+`assessment-checkpoints/<requestId>/` path. A checkpoint is not an importable
+manifest or lesson batch. It is a durable pre-manifest receipt tied to the
+immutable request hash, planned group ID and exact proposed candidate IDs.
+
+A continuation reads the existing checkpoint receipts, preserves their hashes
+and assesses only missing groups. Reusing a checkpoint identity with changed
+content is a conflict. The complete v5 manifest may be frozen only after:
+
+```text
+planned assessment groups = valid immutable checkpoints
+planned proposed candidates = exactly one semantic decision each
+unresolved recall findings = 0
+missing groups, duplicate decisions and untracked candidates = 0
+```
+
+If a run ends before all groups finish, stop after the current checkpoint and
+report received groups, missing groups and the exact next group. Use:
+`Continue assessment <requestId>`. Do not restart assessment from group 1,
+discard completed checkpoints, freeze a partial manifest or begin lessons.
+After every checkpoint reconciles, merge the decisions, run the source-wide
+audit, freeze the complete v5 manifest and continue with manifest-first lesson
+batch delivery.
+
 ### Manifest-first incremental delivery
 
 For every large source, freeze, validate and deliver the complete manifest
