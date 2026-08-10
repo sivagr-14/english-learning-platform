@@ -118,9 +118,6 @@ export async function buildPortableAssessmentRequest(
         occurrenceIds: groupOccurrences.map(
           (occurrence) => occurrence.occurrenceId,
         ),
-        chunkIds: [
-          ...new Set(groupOccurrences.map((occurrence) => occurrence.chunkId)),
-        ],
         status: "pending" as const,
       };
     },
