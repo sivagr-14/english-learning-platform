@@ -41,8 +41,8 @@ function checkpoint(
     decisions: candidateIds.map((proposedCandidateId) => ({
       proposedCandidateId,
       term: proposedCandidateId,
-      decision: "filtered" as const,
-      senseDecision: "new_sense" as const,
+      decision: "filtered",
+      senseDecision: "new_sense",
       senseKey: `sense-${proposedCandidateId}`,
       contextualMeaning: `Contextual meaning for ${proposedCandidateId}`,
       occurrenceIds: [`${proposedCandidateId}:0001`],
