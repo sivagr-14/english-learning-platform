@@ -6,7 +6,8 @@
     "packages/backend/src/services/document-parser.service.ts"
   ],
   "validationPaths": [
-    "packages/backend/src/services/document-parser.service.test.ts"
+    "packages/backend/src/services/document-parser.service.test.ts",
+    "packages/backend/src/services/source-request-job.service.test.ts"
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
