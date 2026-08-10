@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "featureId": "app-source-assessment-handoff",
+  "title": "Prepare complete large-source assessment requests inside the app",
+  "implementationPaths": [
+    "packages/backend/src/index.ts",
+    "packages/backend/src/routes/control.ts",
+    "packages/backend/src/services/source-request.service.ts",
+    "packages/frontend/app/generate/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/source-request.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "## App-first source preparation",
+          "chatgpt-assessment-request-v1",
+          "Prepare for ChatGPT"
+        ]
+      }
+    ]
+  }
+}
