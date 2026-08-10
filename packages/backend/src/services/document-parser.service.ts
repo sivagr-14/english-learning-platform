@@ -84,9 +84,9 @@ async function parsePdf(content: string): Promise<SourceSegment[]> {
     Array.from({ length: declared }, (_, i) => ({
       text: pages[i] || "",
       locator: { unit: "page", unitIndex: i + 1, page: i + 1 },
-      ...(pages[i]?.trim()
-        ? {}
-        : { error: "PDF_PAGE_UNREADABLE: no text extracted" }),
+      // A mixed text PDF commonly contains blank, illustration-only, cover,
+      // or separator pages. With no extracted lexical content, unitSegments
+      // records them as explicit empty units instead of blocking readable pages.
     })),
   );
 }

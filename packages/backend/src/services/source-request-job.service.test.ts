@@ -65,5 +65,18 @@ describe("durable source request jobs", () => {
     });
 
     await expect(service.get("user-2", created.id)).resolves.toBeNull();
+
+    // Let the deliberately backgrounded write finish before afterEach removes
+    // this test's temporary directory.
+    let ownerJob = created;
+    for (
+      let attempt = 0;
+      attempt < 50 && ownerJob.status !== "completed";
+      attempt++
+    ) {
+      await new Promise((resolve) => setTimeout(resolve, 10));
+      ownerJob = (await service.get("user-1", created.id))!;
+    }
+    expect(ownerJob.status).toBe("completed");
   });
 });
