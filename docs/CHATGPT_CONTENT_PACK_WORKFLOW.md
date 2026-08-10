@@ -339,3 +339,13 @@ inbox cleanup as one operation. Imports left in the retired
 synchronization; they never require learner intervention. A clear
 source-backed `new_sense` decision is not converted into manual review merely
 because its wording overlaps moderately with an existing sense.
+
+If one otherwise valid generated candidate develops an irreconcilable
+term/sense identity conflict against the learner's current database, quarantine
+only that candidate with its exact reason. Continue every remaining planned
+batch automatically, verify all saved entries, clean the completed pack from
+the active ledger, and report the skipped term(s) together after processing.
+Candidate-level sense conflicts must not leave the manifest in an attention or
+approval state. Structural pack errors, unreadable source areas, database
+failures and invalid lessons remain blocking failures and must never be hidden
+as skipped vocabulary.
