@@ -12,6 +12,7 @@ import {
   synchronizeContentPacks,
 } from "../services/content-pack.service";
 import { database } from "../utils/db";
+import { buildPortableAssessmentRequest } from "../services/source-request.service";
 
 const router: Router = express.Router();
 const service = new AssessmentControlService(database);
@@ -38,6 +39,26 @@ router.get(
       apiKeyRequired: false,
       inboxBranch: "chatgpt-content-inbox",
     });
+  },
+);
+
+router.post(
+  "/source-requests",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const request = await buildPortableAssessmentRequest(
+        database,
+        req.userId!,
+        req.body,
+      );
+      res.status(201).json({
+        message:
+          "The source is fully inventoried. Download this immutable request and attach it in ChatGPT with the command Generate.",
+        request,
+      });
+    } catch (error) {
+      next(error);
+    }
   },
 );
 
