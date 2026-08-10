@@ -66,8 +66,7 @@ with missing groups. A checkpoint is durable assessment evidence, not a lesson
 batch and not permission to generate early. Freeze the complete manifest only
 after every planned group and proposed candidate reconciles with zero untracked
 items. At each checkpoint boundary, an in-chat scheduled task reads the durable receipts
-and continues the next missing group automatically. Report `Continue assessment
-<requestId>` only as a manual recovery fallback.
+and continues the next missing group automatically. Report `Continue assessment <requestId>` only as a manual recovery fallback.
 
 For a large frozen plan, generate only the current immutable batch of five to
 ten lessons. Validate and deliver that batch before proceeding. When a ChatGPT
