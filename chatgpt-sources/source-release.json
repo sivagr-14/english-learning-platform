@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "durable-large-source-preparation-20260810-v1",
+  "releaseId": "resumable-semantic-assessment-20260810-v1",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "b58fa13ab22cbc1fd6cbfe8c92ca713cf031fbae311cca55998541346cdff48c",
-      "sizeBytes": 22894
+      "sha256": "77e3b208970260511f13b69aa2165326878373d01c9913006481428e4e2c9e17",
+      "sizeBytes": 24648
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "32043de046bc6b147986d49c55bcc5ab704e9b1d26fc20f557377e867428e181",
-      "sizeBytes": 11706
+      "sha256": "a5a2e0816d7c91ec27c5ec9b35720b91c231300096408a30697ba7cb286399b8",
+      "sizeBytes": 12327
     }
   ]
 }
