@@ -3,7 +3,7 @@
 A personal, Mac-local English vocabulary learning platform controlled through
 ChatGPT.
 
-For both supported workflows (ChatGPT content pack and Gemini API), rollout controls, Update and Restart, backups and recovery, see [the Phase 4 operations runbook](docs/PHASE_4_OPERATIONS_RUNBOOK.md).
+For the supported ChatGPT content-pack workflow, Update and Restart, backups, and recovery, see [the operations runbook](docs/PHASE_4_OPERATIONS_RUNBOOK.md).
 
 ChatGPT performs vocabulary assessment and complete lesson generation without
 an OpenAI API key. It sends structured content through a dedicated private
