@@ -1,0 +1,1017 @@
+{
+  "formatVersion": "chatgpt-semantic-assessment-checkpoint-v1",
+  "checkpointId": "source-request-072b9df22daa92d3802d848a:assessment:0002",
+  "requestId": "source-request-072b9df22daa92d3802d848a",
+  "requestHash": "e1a7d30a6323ca6f31fe847b357f11262e8f5c892630d9e3e43c7223b2beb976",
+  "groupId": "source-request-072b9df22daa92d3802d848a:assessment:0002",
+  "groupNumber": 2,
+  "totalGroups": 867,
+  "createdAt": "2026-08-10T20:45:00.000Z",
+  "proposedCandidateIds": [
+    "003f99daa25603fafe89ab3e50ed3060",
+    "003ffef84a9f7a1cc2df423daf0e0199",
+    "0041308450a8df13dd10d71037937880",
+    "00414b60413ac9d186456fe718d023cf",
+    "00440df5fe9ccdd8b6f0554a2f02afbe",
+    "00453e044c094bab57295b2d30662443",
+    "00460e868d80e70e83d634eb4804e45c",
+    "0048a4a4393190c631897cb0faacebab",
+    "004983893f6aaf988216b9e079106038",
+    "004c3b48151d417d45f50dd9bf670df1",
+    "004dd4205d99b16fe86ce7ccb47ed94b",
+    "004fc3fc2ca4d824b6e9167164058a6d",
+    "0050528f47412c4d8a12ed982e571899",
+    "005069bf41db57022c3f3033cec6b6ef",
+    "00518440bcdbae081349fce8febd0869",
+    "0052ae1727c33e4d551cc9772b5ac96d",
+    "0052e847807b8513ef3dcf9a4e8b2c6c",
+    "0053521de0f1c0ffb9070d1890117924",
+    "0054bfc6089772164dea628a9e329b49",
+    "005519b2f3babab29ce44c44449cf846",
+    "0056e4b34d5af1e959ca59d1408ba5de",
+    "0056eb744d227b553d04052f4f65b812",
+    "0056ffcdc139a04cb0cf4c7bb644015a",
+    "00570d45fdad66b908b844f7d24f5ad7",
+    "0057d4ecda8476b10d376f6408465ff3",
+    "0057f0962a337ebe9d03336174157d91",
+    "005840aa58b69a6e3984627cd298d741",
+    "0058b71455779487c415b08405567346",
+    "005985e78d67134081958463e5d434c5",
+    "005abf6a1fcef353a971be6e784cdb30",
+    "005b467dca01fe9bc9c37e7116e202ce",
+    "005c0c4bb817856c4506bfa73a02b053",
+    "005c8e06c558d4c63b2c0b72200d8dea",
+    "006050d1573115f0856d6ab24e72c6d8",
+    "0061e990e0463fe6a87845e6ef79d856",
+    "00635b0043cd349e5a0658d7f312833f",
+    "0063e2db9d78a5149bac25ce3c05095e",
+    "0064c63ed667ee35b9bf8eaa330b9fbe",
+    "006507c7bb9ad26eab0da02e4f76e9fe",
+    "0065d2378296d608c89bf24c387e07e2",
+    "00697b2a5e0ed270978552c3069bbad1",
+    "0069c59fd7922a487e31bde7eedb8fea",
+    "006b3d2fea86b0ae06d74fefae3256b7",
+    "006b64d5607f405afc8a2bb164c5a231",
+    "006cc1314cd4dc66c85afcd8cb1c21c8",
+    "006cc5bfcefc4f3dc31f261d822f9a32",
+    "006ce48b65cea8cfec1aae3aabab0fc4",
+    "006d1e3c1c64d42318d97443a13659b0",
+    "0070bbceb65e84acf128796db1e727fd",
+    "007322481e8b166786c64de950ad02d3",
+    "00745c25c6b51bcfa7ec12283bb0768e",
+    "007469e8972639186700d76d7383d620",
+    "0075bda5981804bdbd5e42e9e4a33227",
+    "007687a6849e7347f8ef1169e5e578e5",
+    "00789aedc3c16749ece2c6f4afc425eb",
+    "00797ead4006d6901b0394e5204a5309",
+    "007a61934858a6290caa2c5cb73ae876",
+    "007ab58b43426bdfd4ca05d13b2c176a",
+    "007bf7e6f2edfce1e63d6a81fe06244d",
+    "007d35293ecbf9e1049c00cd2b370505",
+    "007d6c4202dd5a8ea5ca9e0d8a1e33eb",
+    "007e003c9e65a6d1b2c565f9d60225bc",
+    "007e0583778a344366d1f652e922ff7f",
+    "007e4959e84b3a2aa884bdcb04a69fad",
+    "007ed6192f6e2a3307412afd84866bd3",
+    "007f18a1972df3cd4613b1055f3565ab",
+    "007fcd816227c0cd41dd822a357e4952",
+    "008167c5dec80610bd38cbd3c11f4d29",
+    "0082551894c222da6f8459879b25146f",
+    "0082713d977418c72be43345c88a0d97",
+    "0083d8bc52433cf87fdff0a760618304",
+    "00848c97d3d552e048d749b77300c262",
+    "0084a64d54a82c2c08d649d98e48fc0f",
+    "00858367466f4cdbce64b0539e5e0e6d",
+    "0086474b18b9810eefecbb9d9b1cfe3e"
+  ],
+  "decisions": [
+    {
+      "proposedCandidateId": "003f99daa25603fafe89ab3e50ed3060",
+      "term": "willingly into even very sensitive",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-003f99daa256",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "003f99daa25603fafe89ab3e50ed3060:0001"
+      ],
+      "reason": "Rejected as an OCR, stemming, boundary, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "003ffef84a9f7a1cc2df423daf0e0199",
+      "term": "deeply grateful to",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "strongly-thankful-to",
+      "contextualMeaning": "feeling and expressing strong sincere appreciation toward someone",
+      "occurrenceIds": [
+        "003ffef84a9f7a1cc2df423daf0e0199:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "0041308450a8df13dd10d71037937880",
+      "term": "new alternatives",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0041308450a8",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0041308450a8df13dd10d71037937880:0001",
+        "0041308450a8df13dd10d71037937880:0002"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "00414b60413ac9d186456fe718d023cf",
+      "term": "to make you feel",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-00414b60413a",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "00414b60413ac9d186456fe718d023cf:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "00440df5fe9ccdd8b6f0554a2f02afbe",
+      "term": "others make points",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-00440df5fe9c",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "00440df5fe9ccdd8b6f0554a2f02afbe:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "00453e044c094bab57295b2d30662443",
+      "term": "spraying spit as you shout",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-00453e044c09",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "00453e044c094bab57295b2d30662443:0001"
+      ],
+      "reason": "Rejected as an OCR, stemming, boundary, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "00460e868d80e70e83d634eb4804e45c",
+      "term": "which condition of safety",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-00460e868d80",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "00460e868d80e70e83d634eb4804e45c:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "0048a4a4393190c631897cb0faacebab",
+      "term": "before we could talk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0048a4a43931",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0048a4a4393190c631897cb0faacebab:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "004983893f6aaf988216b9e079106038",
+      "term": "lead astray",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "cause-to-make-wrong-choice",
+      "contextualMeaning": "to cause someone to follow a mistaken course of thought or action",
+      "occurrenceIds": [
+        "004983893f6aaf988216b9e079106038:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "004c3b48151d417d45f50dd9bf670df1",
+      "term": "because he knows what",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-004c3b48151d",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "004c3b48151d417d45f50dd9bf670df1:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "004dd4205d99b16fe86ce7ccb47ed94b",
+      "term": "to talk about our",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-004dd4205d99",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "004dd4205d99b16fe86ce7ccb47ed94b:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "004fc3fc2ca4d824b6e9167164058a6d",
+      "term": "i should never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-004fc3fc2ca4",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "004fc3fc2ca4d824b6e9167164058a6d:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "0050528f47412c4d8a12ed982e571899",
+      "term": "if you don't have",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0050528f4741",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0050528f47412c4d8a12ed982e571899:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "005069bf41db57022c3f3033cec6b6ef",
+      "term": "get pulled into",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "become-involved-unwillingly",
+      "contextualMeaning": "to become drawn into a conflict or situation, often without intending to",
+      "occurrenceIds": [
+        "005069bf41db57022c3f3033cec6b6ef:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "00518440bcdbae081349fce8febd0869",
+      "term": "wrong path by people who",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-00518440bcdb",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "00518440bcdbae081349fce8febd0869:0001"
+      ],
+      "reason": "Rejected as an OCR, stemming, boundary, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "0052ae1727c33e4d551cc9772b5ac96d",
+      "term": "rethinking or retelling them",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0052ae1727c3",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0052ae1727c33e4d551cc9772b5ac96d:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "0052e847807b8513ef3dcf9a4e8b2c6c",
+      "term": "recognize what has",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0052e847807b",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0052e847807b8513ef3dcf9a4e8b2c6c:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "0053521de0f1c0ffb9070d1890117924",
+      "term": "delicate information",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "sensitive-information",
+      "contextualMeaning": "information that must be discussed carefully because it is private, sensitive, or potentially upsetting",
+      "occurrenceIds": [
+        "0053521de0f1c0ffb9070d1890117924:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "0054bfc6089772164dea628a9e329b49",
+      "term": "they're the only",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0054bfc60897",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0054bfc6089772164dea628a9e329b49:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "005519b2f3babab29ce44c44449cf846",
+      "term": "a new child is created",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-005519b2f3ba",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "005519b2f3babab29ce44c44449cf846:0001"
+      ],
+      "reason": "Rejected as an OCR, stemming, boundary, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "0056e4b34d5af1e959ca59d1408ba5de",
+      "term": "change any",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0056e4b34d5a",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0056e4b34d5af1e959ca59d1408ba5de:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "0056eb744d227b553d04052f4f65b812",
+      "term": "toot your own horn",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "boast-about-yourself",
+      "contextualMeaning": "to talk proudly about your own achievements or abilities",
+      "occurrenceIds": [
+        "0056eb744d227b553d04052f4f65b812:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "0056ffcdc139a04cb0cf4c7bb644015a",
+      "term": "managers to embrace",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0056ffcdc139",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0056ffcdc139a04cb0cf4c7bb644015a:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "00570d45fdad66b908b844f7d24f5ad7",
+      "term": "threatened you have a hard",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-00570d45fdad",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "00570d45fdad66b908b844f7d24f5ad7:0001"
+      ],
+      "reason": "Rejected as an OCR, stemming, boundary, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "0057d4ecda8476b10d376f6408465ff3",
+      "term": "so hard are obviously",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0057d4ecda84",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0057d4ecda8476b10d376f6408465ff3:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "0057f0962a337ebe9d03336174157d91",
+      "term": "the subject matter in this",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-0057f0962a33",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "0057f0962a337ebe9d03336174157d91:0001"
+      ],
+      "reason": "Rejected as an OCR, stemming, boundary, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "005840aa58b69a6e3984627cd298d741",
+      "term": "influential",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "able-to-affect-people-or-events",
+      "contextualMeaning": "having enough authority, respect, or persuasive power to affect people, decisions, or events",
+      "occurrenceIds": [
+        "005840aa58b69a6e3984627cd298d741:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "0058b71455779487c415b08405567346",
+      "term": "i'm completely",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0058b7145577",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0058b71455779487c415b08405567346:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "005985e78d67134081958463e5d434c5",
+      "term": "out of dialogue",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-005985e78d67",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "005985e78d67134081958463e5d434c5:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "005abf6a1fcef353a971be6e784cdb30",
+      "term": "be consumed with",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "attention-completely-occupied",
+      "contextualMeaning": "to have one’s attention or thoughts completely occupied by something",
+      "occurrenceIds": [
+        "005abf6a1fcef353a971be6e784cdb30:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "005b467dca01fe9bc9c37e7116e202ce",
+      "term": "go home and",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-005b467dca01",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "005b467dca01fe9bc9c37e7116e202ce:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "005c0c4bb817856c4506bfa73a02b053",
+      "term": "wasn't that different",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-005c0c4bb817",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "005c0c4bb817856c4506bfa73a02b053:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "005c8e06c558d4c63b2c0b72200d8dea",
+      "term": "shot",
+      "decision": "rejected",
+      "senseDecision": "ambiguous",
+      "senseKey": "conflated-multiple-senses",
+      "contextualMeaning": "The inventory merged literal “shot,” “cheap shot,” “take shots at,” and “give it a shot,” which demonstrate different contextual meanings.",
+      "occurrenceIds": [
+        "005c8e06c558d4c63b2c0b72200d8dea:0001",
+        "005c8e06c558d4c63b2c0b72200d8dea:0002",
+        "005c8e06c558d4c63b2c0b72200d8dea:0003",
+        "005c8e06c558d4c63b2c0b72200d8dea:0004",
+        "005c8e06c558d4c63b2c0b72200d8dea:0005",
+        "005c8e06c558d4c63b2c0b72200d8dea:0006",
+        "005c8e06c558d4c63b2c0b72200d8dea:0007",
+        "005c8e06c558d4c63b2c0b72200d8dea:0008",
+        "005c8e06c558d4c63b2c0b72200d8dea:0009",
+        "005c8e06c558d4c63b2c0b72200d8dea:0010",
+        "005c8e06c558d4c63b2c0b72200d8dea:0011"
+      ],
+      "reason": "Rejected as a conflated spelling-level candidate; expression-specific inventory candidates must carry the distinct teachable senses."
+    },
+    {
+      "proposedCandidateId": "006050d1573115f0856d6ab24e72c6d8",
+      "term": "just want our meaning",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-006050d15731",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "006050d1573115f0856d6ab24e72c6d8:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "0061e990e0463fe6a87845e6ef79d856",
+      "term": "that look and it really",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-0061e990e046",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "0061e990e0463fe6a87845e6ef79d856:0001"
+      ],
+      "reason": "Rejected as an OCR, stemming, boundary, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "00635b0043cd349e5a0658d7f312833f",
+      "term": "sec their aggressive behavior",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-00635b0043cd",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "00635b0043cd349e5a0658d7f312833f:0001"
+      ],
+      "reason": "Rejected as an OCR, stemming, boundary, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "0063e2db9d78a5149bac25ce3c05095e",
+      "term": "weave into",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "integrate-smoothly",
+      "contextualMeaning": "to integrate an idea or detail smoothly into a larger conversation or account",
+      "occurrenceIds": [
+        "0063e2db9d78a5149bac25ce3c05095e:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "0064c63ed667ee35b9bf8eaa330b9fbe",
+      "term": "visit itself and move",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0064c63ed667",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0064c63ed667ee35b9bf8eaa330b9fbe:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "006507c7bb9ad26eab0da02e4f76e9fe",
+      "term": "invest heavily in",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "commit-substantial-resources",
+      "contextualMeaning": "to commit a large amount of money, time, effort, or attention to something",
+      "occurrenceIds": [
+        "006507c7bb9ad26eab0da02e4f76e9fe:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "0065d2378296d608c89bf24c387e07e2",
+      "term": "impute a bad motive",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "attribute-negative-intention",
+      "contextualMeaning": "to attribute a negative intention to someone, often without sufficient evidence",
+      "occurrenceIds": [
+        "0065d2378296d608c89bf24c387e07e2:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "00697b2a5e0ed270978552c3069bbad1",
+      "term": "doesn't trust my ability to",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-00697b2a5e0e",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "00697b2a5e0ed270978552c3069bbad1:0001"
+      ],
+      "reason": "Rejected as an OCR, stemming, boundary, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "0069c59fd7922a487e31bde7eedb8fea",
+      "term": "start with what you",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0069c59fd792",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0069c59fd7922a487e31bde7eedb8fea:0001",
+        "0069c59fd7922a487e31bde7eedb8fea:0002"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "006b3d2fea86b0ae06d74fefae3256b7",
+      "term": "elder statesman",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "respected-senior-figure",
+      "contextualMeaning": "a respected and experienced senior member of a group or profession",
+      "occurrenceIds": [
+        "006b3d2fea86b0ae06d74fefae3256b7:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "006b64d5607f405afc8a2bb164c5a231",
+      "term": "in lieu of",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "instead-of",
+      "contextualMeaning": "instead of or in place of something else",
+      "occurrenceIds": [
+        "006b64d5607f405afc8a2bb164c5a231:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "006cc1314cd4dc66c85afcd8cb1c21c8",
+      "term": "sheet",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-006cc1314cd4",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "006cc1314cd4dc66c85afcd8cb1c21c8:0001",
+        "006cc1314cd4dc66c85afcd8cb1c21c8:0002",
+        "006cc1314cd4dc66c85afcd8cb1c21c8:0003"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "006cc5bfcefc4f3dc31f261d822f9a32",
+      "term": "soften the message",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "make-communication-less-harsh",
+      "contextualMeaning": "to express difficult information in a less harsh or confrontational way",
+      "occurrenceIds": [
+        "006cc5bfcefc4f3dc31f261d822f9a32:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "006ce48b65cea8cfec1aae3aabab0fc4",
+      "term": "in a heartbeat",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "immediately-and-without-hesitation",
+      "contextualMeaning": "immediately or with virtually no delay or hesitation",
+      "occurrenceIds": [
+        "006ce48b65cea8cfec1aae3aabab0fc4:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "006d1e3c1c64d42318d97443a13659b0",
+      "term": "help someone",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-006d1e3c1c64",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "006d1e3c1c64d42318d97443a13659b0:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "0070bbceb65e84acf128796db1e727fd",
+      "term": "critical and selfish-which is",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0070bbceb65e",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0070bbceb65e84acf128796db1e727fd:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "007322481e8b166786c64de950ad02d3",
+      "term": "spouse has an annoying habit",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-007322481e8b",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "007322481e8b166786c64de950ad02d3:0001"
+      ],
+      "reason": "Rejected as an OCR, stemming, boundary, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "00745c25c6b51bcfa7ec12283bb0768e",
+      "term": "begins to sound",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-00745c25c6b5",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "00745c25c6b51bcfa7ec12283bb0768e:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "007469e8972639186700d76d7383d620",
+      "term": "honest and attack our",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-007469e89726",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "007469e8972639186700d76d7383d620:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "0075bda5981804bdbd5e42e9e4a33227",
+      "term": "headquarter",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-0075bda59818",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "0075bda5981804bdbd5e42e9e4a33227:0001",
+        "0075bda5981804bdbd5e42e9e4a33227:0002"
+      ],
+      "reason": "Rejected as an OCR, stemming, boundary, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "007687a6849e7347f8ef1169e5e578e5",
+      "term": "seeing new applications and",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-007687a6849e",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "007687a6849e7347f8ef1169e5e578e5:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "00789aedc3c16749ece2c6f4afc425eb",
+      "term": "have a healthy conversation about",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "discuss-constructively",
+      "contextualMeaning": "to discuss a subject openly, respectfully, and constructively",
+      "occurrenceIds": [
+        "00789aedc3c16749ece2c6f4afc425eb:0001",
+        "00789aedc3c16749ece2c6f4afc425eb:0002"
+      ]
+    },
+    {
+      "proposedCandidateId": "00797ead4006d6901b0394e5204a5309",
+      "term": "some time with you",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-00797ead4006",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "00797ead4006d6901b0394e5204a5309:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "007a61934858a6290caa2c5cb73ae876",
+      "term": "at stake",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "at-risk-or-to-be-gained",
+      "contextualMeaning": "at risk of being lost or available to be gained depending on the outcome",
+      "occurrenceIds": [
+        "007a61934858a6290caa2c5cb73ae876:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "007ab58b43426bdfd4ca05d13b2c176a",
+      "term": "see the mistakes",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-007ab58b4342",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "007ab58b43426bdfd4ca05d13b2c176a:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "007bf7e6f2edfce1e63d6a81fe06244d",
+      "term": "drunk on adrenaline",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "overwhelmed-by-stress-response",
+      "contextualMeaning": "figuratively overwhelmed by adrenaline so that judgment and self-control are impaired",
+      "occurrenceIds": [
+        "007bf7e6f2edfce1e63d6a81fe06244d:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "007d35293ecbf9e1049c00cd2b370505",
+      "term": "to dialogue about",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-007d35293ecb",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "007d35293ecbf9e1049c00cd2b370505:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "007d6c4202dd5a8ea5ca9e0d8a1e33eb",
+      "term": "malicious purpose",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "intent-to-cause-harm",
+      "contextualMeaning": "an intention or objective aimed at harming, deceiving, or unfairly disadvantaging someone",
+      "occurrenceIds": [
+        "007d6c4202dd5a8ea5ca9e0d8a1e33eb:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "007e003c9e65a6d1b2c565f9d60225bc",
+      "term": "other hand if you",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-007e003c9e65",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "007e003c9e65a6d1b2c565f9d60225bc:0001",
+        "007e003c9e65a6d1b2c565f9d60225bc:0002",
+        "007e003c9e65a6d1b2c565f9d60225bc:0003"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "007e0583778a344366d1f652e922ff7f",
+      "term": "right thing",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-007e0583778a",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "007e0583778a344366d1f652e922ff7f:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "007e4959e84b3a2aa884bdcb04a69fad",
+      "term": "a french-fry bag",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-007e4959e84b",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "007e4959e84b3a2aa884bdcb04a69fad:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "007ed6192f6e2a3307412afd84866bd3",
+      "term": "like it's time",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-007ed6192f6e",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "007ed6192f6e2a3307412afd84866bd3:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "007f18a1972df3cd4613b1055f3565ab",
+      "term": "between holding her feelings",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-007f18a1972d",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "007f18a1972df3cd4613b1055f3565ab:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "007fcd816227c0cd41dd822a357e4952",
+      "term": "we use when",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-007fcd816227",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "007fcd816227c0cd41dd822a357e4952:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "008167c5dec80610bd38cbd3c11f4d29",
+      "term": "temper your emotions",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "moderate-emotional-intensity",
+      "contextualMeaning": "to moderate the strength of your emotional reaction so you can respond more calmly",
+      "occurrenceIds": [
+        "008167c5dec80610bd38cbd3c11f4d29:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "0082551894c222da6f8459879b25146f",
+      "term": "resort to",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "use-undesirable-last-option",
+      "contextualMeaning": "to turn to an undesirable method because better approaches have failed or seem unavailable",
+      "occurrenceIds": [
+        "0082551894c222da6f8459879b25146f:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "0082713d977418c72be43345c88a0d97",
+      "term": "or values differ from",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0082713d9774",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0082713d977418c72be43345c88a0d97:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "0083d8bc52433cf87fdff0a760618304",
+      "term": "of brilliant communicators",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0083d8bc5243",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0083d8bc52433cf87fdff0a760618304:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "00848c97d3d552e048d749b77300c262",
+      "term": "so many have helped",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-00848c97d3d5",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "00848c97d3d552e048d749b77300c262:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "0084a64d54a82c2c08d649d98e48fc0f",
+      "term": "the world who",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-0084a64d54a8",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "0084a64d54a82c2c08d649d98e48fc0f:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "00858367466f4cdbce64b0539e5e0e6d",
+      "term": "to split up",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-00858367466f",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "00858367466f4cdbce64b0539e5e0e6d:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "0086474b18b9810eefecbb9d9b1cfe3e",
+      "term": "do-as modeled",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-0086474b18b9",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "0086474b18b9810eefecbb9d9b1cfe3e:0001"
+      ],
+      "reason": "Rejected as an OCR, stemming, boundary, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    }
+  ],
+  "recallPass": {
+    "completed": true,
+    "method": "blind_sentence_rescan",
+    "findings": [
+      {
+        "findingId": "source-request-072b9df22daa92d3802d848a:recall:0002:in-lieu-of",
+        "occurrenceId": "006b64d5607f405afc8a2bb164c5a231:0001",
+        "term": "in lieu of",
+        "linkedProposedCandidateId": "006b64d5607f405afc8a2bb164c5a231",
+        "reason": "The blind rescan recovered the B2 expression from an occurrence proposed only as “voice mail”; the decision now teaches the demonstrated expression rather than the basic noun."
+      },
+      {
+        "findingId": "source-request-072b9df22daa92d3802d848a:recall:0002:at-stake",
+        "occurrenceId": "007a61934858a6290caa2c5cb73ae876:0001",
+        "term": "at stake",
+        "linkedProposedCandidateId": "007a61934858a6290caa2c5cb73ae876",
+        "reason": "The blind rescan recovered the idiomatic expression from a boundary-fragment proposal and linked it to the exact source occurrence."
+      }
+    ],
+    "unresolvedFindingIds": []
+  },
+  "counts": {
+    "proposedCandidates": 75,
+    "decidedCandidates": 75,
+    "generate": 20,
+    "existing": 0,
+    "filtered": 42,
+    "rejected": 13,
+    "untracked": 0
+  }
+}
