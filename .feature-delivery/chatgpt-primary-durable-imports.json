@@ -12,6 +12,7 @@
     "scripts/dev.js"
   ],
   "validationPaths": [
+    "packages/backend/src/__tests__/generation-terminal-cleanup.test.ts",
     "scripts/control-server.test.js"
   ],
   "chatgptInstructionImpact": {
