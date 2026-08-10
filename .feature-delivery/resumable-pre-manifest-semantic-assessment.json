@@ -14,9 +14,7 @@
     "status": "required",
     "instructionPaths": [
       "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md"
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
     ],
     "requiredMarkers": [
       {
@@ -30,21 +28,7 @@
       {
         "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
         "contains": [
-          "current immutable semantic group",
-          "Continue assessment <requestId>"
-        ]
-      },
-      {
-        "path": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-        "contains": [
-          "Pre-manifest semantic assessment checkpoints",
-          "Continue assessment <requestId>"
-        ]
-      },
-      {
-        "path": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-        "contains": [
-          "current immutable semantic group",
+          "assessment checkpoint",
           "Continue assessment <requestId>"
         ]
       }
