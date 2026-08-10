@@ -80,6 +80,29 @@ export function isSkippableCandidateAttention(message: string): boolean {
   );
 }
 
+export function buildBatchCheckpoint(
+  manifestId: string,
+  plannedBatchNumbers: number[],
+  receivedBatchNumbers: number[],
+) {
+  const received = new Set(receivedBatchNumbers);
+  const missingBatchNumbers = plannedBatchNumbers.filter(
+    (batchNumber) => !received.has(batchNumber),
+  );
+  const nextBatchNumber = missingBatchNumbers[0] ?? null;
+  return {
+    state: missingBatchNumbers.length ? "safely_paused" : "all_batches_received",
+    receivedBatchNumbers: plannedBatchNumbers.filter((batchNumber) =>
+      received.has(batchNumber),
+    ),
+    missingBatchNumbers,
+    nextBatchNumber,
+    continuationPrompt: nextBatchNumber
+      ? `Continue import ${manifestId}. Preserve the existing immutable manifest and batch identities. Generate, validate and deliver only missing planned batches ${missingBatchNumbers.join(", ")}, starting with batch ${nextBatchNumber}. Do not rediscover candidates or replace the manifest.`
+      : null,
+  } as const;
+}
+
 function statusError(
   message: string,
   status = 400,
@@ -1764,6 +1787,13 @@ export class ContentPackService {
       ["invalid", "conflict"].includes(batch.status),
     ).length;
     const planned = manifest.generationPlan.batches.length;
+    const checkpoint = buildBatchCheckpoint(
+      row.id,
+      manifest.generationPlan.batches.map((batch) => batch.batchNumber),
+      batches
+        .filter((batch: any) => batch.status !== "invalid")
+        .map((batch: any) => Number(batch.batch_number)),
+    );
     return {
       id: row.id,
       sourceName: row.source_name,
@@ -1779,6 +1809,7 @@ export class ContentPackService {
         missingBatches: Math.max(0, planned - received),
         invalidBatches: invalid,
         committedEntries: committed,
+        ...checkpoint,
       },
       createdAt: row.created_at,
       updatedAt: row.updated_at,
