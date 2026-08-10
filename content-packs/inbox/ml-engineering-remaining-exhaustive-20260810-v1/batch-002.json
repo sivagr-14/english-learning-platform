@@ -1,0 +1,506 @@
+{
+  "formatVersion": "chatgpt-vocabulary-batch-v4",
+  "batchId": "ml-engineering-remaining-exhaustive-20260810-v1-batch-2",
+  "manifestId": "ml-engineering-remaining-exhaustive-20260810-v1",
+  "manifestHash": "c11266d557ce0bbed64ab5ed82381f0aab689ba87ed3e8c36c78738c2d9cd530",
+  "batchNumber": 2,
+  "createdAt": "2026-08-10T10:05:00.000Z",
+  "entries": [
+    {
+      "candidateId": "remaining-009-loan-approvals",
+      "word": "loan approvals",
+      "pronunciation": "/loan approvals/",
+      "wordType": "collocation",
+      "englishMeaning": "decisions to accept applications for borrowed money",
+      "tamilMeaning": "கடன் விண்ணப்பங்களை ஏற்கும் முடிவுகள்",
+      "coreIdea": "loan approvals expresses decisions to accept applications for borrowed money.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Take loan approvals.",
+          "contextual_meaning": "decisions to accept applications for borrowed money",
+          "simple_explanation": "Here, loan approvals refers specifically to decisions to accept applications for borrowed money."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use loan approvals when discussing decisions to accept applications for borrowed money in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use loan approvals for a different concept that does not involve decisions to accept applications for borrowed money."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use loan approvals to describe decisions to accept applications for borrowed money",
+          "common_collocations": [
+            "loan approvals in machine learning",
+            "loan approvals in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented loan approvals before approving the production plan.",
+            "technical": "Engineers measured the effect of loan approvals during model evaluation."
+          },
+          "mini_conversation": "A: Why is loan approvals included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: loan approvals is a general name for every machine-learning activity.",
+          "correction": "Correct: loan approvals means decisions to accept applications for borrowed money.",
+          "important_difference": "loan approvals names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect loan approvals with this core idea: decisions to accept applications for borrowed money.",
+          "memory_sentence": "I use loan approvals when I mean decisions to accept applications for borrowed money.",
+          "recall_question": "What does loan approvals mean in this course?",
+          "recognition_task": "Identify the source sentence where loan approvals means decisions to accept applications for borrowed money.",
+          "production_task": "Write a professional sentence using loan approvals with the same meaning."
+        },
+        "advanced_nuance": [
+          "loan approvals is used here in the precise sense of decisions to accept applications for borrowed money; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-010-self-driving-cars",
+      "word": "self-driving cars",
+      "pronunciation": "/self-driving cars/",
+      "wordType": "collocation",
+      "englishMeaning": "vehicles that navigate and make driving decisions automatically",
+      "tamilMeaning": "தானாக வழிசென்று ஓட்டுநர் முடிவுகளை எடுக்கும் வாகனங்கள்",
+      "coreIdea": "self-driving cars expresses vehicles that navigate and make driving decisions automatically.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Think of self‑driving cars that have to make decisions at the very moment, or zone intrusion detection that's using live video to see dangerous behavior, such as walking into a zone without safety gear on.",
+          "contextual_meaning": "vehicles that navigate and make driving decisions automatically",
+          "simple_explanation": "Here, self-driving cars refers specifically to vehicles that navigate and make driving decisions automatically."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use self-driving cars when discussing vehicles that navigate and make driving decisions automatically in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use self-driving cars for a different concept that does not involve vehicles that navigate and make driving decisions automatically."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use self-driving cars to describe vehicles that navigate and make driving decisions automatically",
+          "common_collocations": [
+            "self-driving cars in machine learning",
+            "self-driving cars in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented self-driving cars before approving the production plan.",
+            "technical": "Engineers measured the effect of self-driving cars during model evaluation."
+          },
+          "mini_conversation": "A: Why is self-driving cars included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: self-driving cars is a general name for every machine-learning activity.",
+          "correction": "Correct: self-driving cars means vehicles that navigate and make driving decisions automatically.",
+          "important_difference": "self-driving cars names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect self-driving cars with this core idea: vehicles that navigate and make driving decisions automatically.",
+          "memory_sentence": "I use self-driving cars when I mean vehicles that navigate and make driving decisions automatically.",
+          "recall_question": "What does self-driving cars mean in this course?",
+          "recognition_task": "Identify the source sentence where self-driving cars means vehicles that navigate and make driving decisions automatically.",
+          "production_task": "Write a professional sentence using self-driving cars with the same meaning."
+        },
+        "advanced_nuance": [
+          "self-driving cars is used here in the precise sense of vehicles that navigate and make driving decisions automatically; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-011-cardiac-arrest",
+      "word": "cardiac arrest",
+      "pronunciation": "/cardiac arrest/",
+      "wordType": "collocation",
+      "englishMeaning": "a medical emergency in which the heart suddenly stops pumping effectively",
+      "tamilMeaning": "இதயம் திடீரென செயல்படாமல் நிற்கும் அவசர மருத்துவநிலை",
+      "coreIdea": "cardiac arrest expresses a medical emergency in which the heart suddenly stops pumping effectively.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "And you can also think of healthcare applications, such as detecting signs of cardiac arrest.",
+          "contextual_meaning": "a medical emergency in which the heart suddenly stops pumping effectively",
+          "simple_explanation": "Here, cardiac arrest refers specifically to a medical emergency in which the heart suddenly stops pumping effectively."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use cardiac arrest when discussing a medical emergency in which the heart suddenly stops pumping effectively in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use cardiac arrest for a different concept that does not involve a medical emergency in which the heart suddenly stops pumping effectively."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use cardiac arrest to describe a medical emergency in which the heart suddenly stops pumping effectively",
+          "common_collocations": [
+            "cardiac arrest in machine learning",
+            "cardiac arrest in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented cardiac arrest before approving the production plan.",
+            "technical": "Engineers measured the effect of cardiac arrest during model evaluation."
+          },
+          "mini_conversation": "A: Why is cardiac arrest included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: cardiac arrest is a general name for every machine-learning activity.",
+          "correction": "Correct: cardiac arrest means a medical emergency in which the heart suddenly stops pumping effectively.",
+          "important_difference": "cardiac arrest names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect cardiac arrest with this core idea: a medical emergency in which the heart suddenly stops pumping effectively.",
+          "memory_sentence": "I use cardiac arrest when I mean a medical emergency in which the heart suddenly stops pumping effectively.",
+          "recall_question": "What does cardiac arrest mean in this course?",
+          "recognition_task": "Identify the source sentence where cardiac arrest means a medical emergency in which the heart suddenly stops pumping effectively.",
+          "production_task": "Write a professional sentence using cardiac arrest with the same meaning."
+        },
+        "advanced_nuance": [
+          "cardiac arrest is used here in the precise sense of a medical emergency in which the heart suddenly stops pumping effectively; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-012-growing-number",
+      "word": "growing number",
+      "pronunciation": "/growing number/",
+      "wordType": "collocation",
+      "englishMeaning": "an amount or count that is increasing",
+      "tamilMeaning": "அதிகரித்து வரும் எண்ணிக்கை",
+      "coreIdea": "growing number expresses an amount or count that is increasing.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "This is about whether the system can handle a growing number of requests, users, or data without performance drops.",
+          "contextual_meaning": "an amount or count that is increasing",
+          "simple_explanation": "Here, growing number refers specifically to an amount or count that is increasing."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use growing number when discussing an amount or count that is increasing in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use growing number for a different concept that does not involve an amount or count that is increasing."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use growing number to describe an amount or count that is increasing",
+          "common_collocations": [
+            "growing number in machine learning",
+            "growing number in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented growing number before approving the production plan.",
+            "technical": "Engineers measured the effect of growing number during model evaluation."
+          },
+          "mini_conversation": "A: Why is growing number included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: growing number is a general name for every machine-learning activity.",
+          "correction": "Correct: growing number means an amount or count that is increasing.",
+          "important_difference": "growing number names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect growing number with this core idea: an amount or count that is increasing.",
+          "memory_sentence": "I use growing number when I mean an amount or count that is increasing.",
+          "recall_question": "What does growing number mean in this course?",
+          "recognition_task": "Identify the source sentence where growing number means an amount or count that is increasing.",
+          "production_task": "Write a professional sentence using growing number with the same meaning."
+        },
+        "advanced_nuance": [
+          "growing number is used here in the precise sense of an amount or count that is increasing; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-013-regulated-domains",
+      "word": "regulated domains",
+      "pronunciation": "/regulated domains/",
+      "wordType": "collocation",
+      "englishMeaning": "fields controlled by formal laws or industry rules",
+      "tamilMeaning": "சட்டங்கள் அல்லது துறை விதிகளால் கட்டுப்படுத்தப்படும் துறைகள்",
+      "coreIdea": "regulated domains expresses fields controlled by formal laws or industry rules.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "This is especially important in regulated domains, like hiring, lending, and healthcare.",
+          "contextual_meaning": "fields controlled by formal laws or industry rules",
+          "simple_explanation": "Here, regulated domains refers specifically to fields controlled by formal laws or industry rules."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use regulated domains when discussing fields controlled by formal laws or industry rules in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use regulated domains for a different concept that does not involve fields controlled by formal laws or industry rules."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use regulated domains to describe fields controlled by formal laws or industry rules",
+          "common_collocations": [
+            "regulated domains in machine learning",
+            "regulated domains in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented regulated domains before approving the production plan.",
+            "technical": "Engineers measured the effect of regulated domains during model evaluation."
+          },
+          "mini_conversation": "A: Why is regulated domains included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: regulated domains is a general name for every machine-learning activity.",
+          "correction": "Correct: regulated domains means fields controlled by formal laws or industry rules.",
+          "important_difference": "regulated domains names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect regulated domains with this core idea: fields controlled by formal laws or industry rules.",
+          "memory_sentence": "I use regulated domains when I mean fields controlled by formal laws or industry rules.",
+          "recall_question": "What does regulated domains mean in this course?",
+          "recognition_task": "Identify the source sentence where regulated domains means fields controlled by formal laws or industry rules.",
+          "production_task": "Write a professional sentence using regulated domains with the same meaning."
+        },
+        "advanced_nuance": [
+          "regulated domains is used here in the precise sense of fields controlled by formal laws or industry rules; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-014-machine-learning-lifecycle",
+      "word": "machine learning lifecycle",
+      "pronunciation": "/machine learning lifecycle/",
+      "wordType": "collocation",
+      "englishMeaning": "the complete repeating sequence from defining an ML problem through monitoring it in production",
+      "tamilMeaning": "ML பிரச்சினை வரையறையிலிருந்து உற்பத்தி கண்காணிப்பு வரை முழு சுழற்சி",
+      "coreIdea": "machine learning lifecycle expresses the complete repeating sequence from defining an ML problem through monitoring it in production.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "And to understand how we achieve this all, it helps to look at the machine learning lifecycle.",
+          "contextual_meaning": "the complete repeating sequence from defining an ML problem through monitoring it in production",
+          "simple_explanation": "Here, machine learning lifecycle refers specifically to the complete repeating sequence from defining an ML problem through monitoring it in production."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use machine learning lifecycle when discussing the complete repeating sequence from defining an ML problem through monitoring it in production in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use machine learning lifecycle for a different concept that does not involve the complete repeating sequence from defining an ML problem through monitoring it in production."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use machine learning lifecycle to describe the complete repeating sequence from defining an ML problem through monitoring it in production",
+          "common_collocations": [
+            "machine learning lifecycle in machine learning",
+            "machine learning lifecycle in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented machine learning lifecycle before approving the production plan.",
+            "technical": "Engineers measured the effect of machine learning lifecycle during model evaluation."
+          },
+          "mini_conversation": "A: Why is machine learning lifecycle included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: machine learning lifecycle is a general name for every machine-learning activity.",
+          "correction": "Correct: machine learning lifecycle means the complete repeating sequence from defining an ML problem through monitoring it in production.",
+          "important_difference": "machine learning lifecycle names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect machine learning lifecycle with this core idea: the complete repeating sequence from defining an ML problem through monitoring it in production.",
+          "memory_sentence": "I use machine learning lifecycle when I mean the complete repeating sequence from defining an ML problem through monitoring it in production.",
+          "recall_question": "What does machine learning lifecycle mean in this course?",
+          "recognition_task": "Identify the source sentence where machine learning lifecycle means the complete repeating sequence from defining an ML problem through monitoring it in production.",
+          "production_task": "Write a professional sentence using machine learning lifecycle with the same meaning."
+        },
+        "advanced_nuance": [
+          "machine learning lifecycle is used here in the precise sense of the complete repeating sequence from defining an ML problem through monitoring it in production; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-015-data-collection",
+      "word": "data collection",
+      "pronunciation": "/data collection/",
+      "wordType": "collocation",
+      "englishMeaning": "the systematic gathering of information for analysis or model building",
+      "tamilMeaning": "பகுப்பாய்வு அல்லது மாதிரி உருவாக்கத்திற்கான தகவல் சேகரிப்பு",
+      "coreIdea": "data collection expresses the systematic gathering of information for analysis or model building.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "Then there's data collection.",
+          "contextual_meaning": "the systematic gathering of information for analysis or model building",
+          "simple_explanation": "Here, data collection refers specifically to the systematic gathering of information for analysis or model building."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use data collection when discussing the systematic gathering of information for analysis or model building in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use data collection for a different concept that does not involve the systematic gathering of information for analysis or model building."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use data collection to describe the systematic gathering of information for analysis or model building",
+          "common_collocations": [
+            "data collection in machine learning",
+            "data collection in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented data collection before approving the production plan.",
+            "technical": "Engineers measured the effect of data collection during model evaluation."
+          },
+          "mini_conversation": "A: Why is data collection included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: data collection is a general name for every machine-learning activity.",
+          "correction": "Correct: data collection means the systematic gathering of information for analysis or model building.",
+          "important_difference": "data collection names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect data collection with this core idea: the systematic gathering of information for analysis or model building.",
+          "memory_sentence": "I use data collection when I mean the systematic gathering of information for analysis or model building.",
+          "recall_question": "What does data collection mean in this course?",
+          "recognition_task": "Identify the source sentence where data collection means the systematic gathering of information for analysis or model building.",
+          "production_task": "Write a professional sentence using data collection with the same meaning."
+        },
+        "advanced_nuance": [
+          "data collection is used here in the precise sense of the systematic gathering of information for analysis or model building; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    },
+    {
+      "candidateId": "remaining-016-labeled-data",
+      "word": "labeled data",
+      "pronunciation": "/labeled data/",
+      "wordType": "collocation",
+      "englishMeaning": "examples paired with the expected category or output",
+      "tamilMeaning": "எதிர்பார்க்கப்படும் வகை அல்லது முடிவுடன் இணைக்கப்பட்ட தரவு",
+      "coreIdea": "labeled data expresses examples paired with the expected category or output.",
+      "lesson": {
+        "format_version": "simplified-v2",
+        "overview": {
+          "meaning_usage_profile": {
+            "meaning_type": "Technical collocation.",
+            "connotation": "Neutral in this professional context.",
+            "tone": "Analytical and explanatory.",
+            "register": "Professional and academic English."
+          }
+        },
+        "meaning_in_context": {
+          "source_sentence": "For supervised learning, where your model learns from examples, you'll need labeled data.",
+          "contextual_meaning": "examples paired with the expected category or output",
+          "simple_explanation": "Here, labeled data refers specifically to examples paired with the expected category or output."
+        },
+        "usage_guide": {
+          "when_to_use": [
+            "Use labeled data when discussing examples paired with the expected category or output in a precise professional context."
+          ],
+          "when_not_to_use": [
+            "Do not use labeled data for a different concept that does not involve examples paired with the expected category or output."
+          ]
+        },
+        "patterns_collocations": {
+          "main_pattern": "use labeled data to describe examples paired with the expected category or output",
+          "common_collocations": [
+            "labeled data in machine learning",
+            "labeled data in production systems"
+          ]
+        },
+        "natural_examples": {
+          "examples": {
+            "professional": "The team documented labeled data before approving the production plan.",
+            "technical": "Engineers measured the effect of labeled data during model evaluation."
+          },
+          "mini_conversation": "A: Why is labeled data included in the review? B: Because it directly affects how the machine-learning system is understood and operated."
+        },
+        "mistakes_differences": {
+          "common_mistake": "Incorrect: labeled data is a general name for every machine-learning activity.",
+          "correction": "Correct: labeled data means examples paired with the expected category or output.",
+          "important_difference": "labeled data names this specific concept; it should not be confused with a broad reference to the entire ML workflow."
+        },
+        "memory_practice": {
+          "memory_trigger": "Connect labeled data with this core idea: examples paired with the expected category or output.",
+          "memory_sentence": "I use labeled data when I mean examples paired with the expected category or output.",
+          "recall_question": "What does labeled data mean in this course?",
+          "recognition_task": "Identify the source sentence where labeled data means examples paired with the expected category or output.",
+          "production_task": "Write a professional sentence using labeled data with the same meaning."
+        },
+        "advanced_nuance": [
+          "labeled data is used here in the precise sense of examples paired with the expected category or output; in professional ML discussion, its scope is narrower than a general description of model building."
+        ]
+      }
+    }
+  ]
+}
