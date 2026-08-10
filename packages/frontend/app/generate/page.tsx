@@ -37,6 +37,11 @@ interface PackManifest {
     missingBatches: number;
     invalidBatches: number;
     committedEntries: number;
+    state: "safely_paused" | "all_batches_received";
+    receivedBatchNumbers: number[];
+    missingBatchNumbers: number[];
+    nextBatchNumber: number | null;
+    continuationPrompt: string | null;
   };
   candidates?: PackCandidate[];
   createdAt: string;
@@ -276,6 +281,19 @@ export default function ChatGPTImportsPage() {
     }
   };
 
+  const copyContinuation = async (manifest: PackManifest) => {
+    const prompt = manifest.generation.continuationPrompt;
+    if (!prompt) return;
+    try {
+      await navigator.clipboard.writeText(prompt);
+      setMessage(
+        `Continuation request copied. Paste it into ChatGPT to resume ${manifest.id} from batch ${manifest.generation.nextBatchNumber}.`,
+      );
+    } catch {
+      setError(`Copy this continuation request: ${prompt}`);
+    }
+  };
+
   return (
     <AuthenticatedPage>
       <AppShell
@@ -462,6 +480,16 @@ export default function ChatGPTImportsPage() {
                         {manifest.nextAction ||
                           "Refresh this import to load its recovery state."}
                       </p>
+                      {manifest.generation.state === "safely_paused" && (
+                        <div className="mt-3 rounded-lg border border-blue-200 bg-blue-50 p-3 text-blue-900">
+                          <p className="font-medium">
+                            Safely paused — no candidates or completed batches were lost.
+                          </p>
+                          <p className="mt-1 text-xs">
+                            Received: {manifest.generation.receivedBatchNumbers.join(", ") || "none"} · Missing: {manifest.generation.missingBatchNumbers.join(", ")} · Next: {manifest.generation.nextBatchNumber}
+                          </p>
+                        </div>
+                      )}
                       <dl className="mt-3 grid gap-2 text-xs sm:grid-cols-2 lg:grid-cols-4">
                         <div>
                           <dt className="text-slate-500">Inbox branch</dt>
@@ -513,6 +541,14 @@ export default function ChatGPTImportsPage() {
                     </div>
 
                     <div className="mt-5 flex flex-wrap gap-3">
+                      {manifest.generation.continuationPrompt && (
+                        <button
+                          onClick={() => void copyContinuation(manifest)}
+                          className="rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800"
+                        >
+                          Continue import
+                        </button>
+                      )}
                       {!detail && (
                         <button
                           onClick={() => loadDetail(manifest.id)}
