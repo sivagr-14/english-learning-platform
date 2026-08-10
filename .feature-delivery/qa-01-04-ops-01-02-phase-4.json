@@ -13,13 +13,11 @@
     "packages/backend/src/services/provider-rollout.service.ts",
     "packages/frontend/app/import/page.tsx",
     "playwright.config.ts",
-    "scripts/benchmark-providers.js",
     "scripts/control-server.js"
   ],
   "validationPaths": [
     "packages/backend/src/services/provider-contract-parity.test.ts",
     "packages/backend/src/services/provider-rollout.service.test.ts",
-    "scripts/benchmark-providers.test.js",
     "scripts/control-server.test.js",
     "tests/playwright/phase4-workflows.spec.ts"
   ],
