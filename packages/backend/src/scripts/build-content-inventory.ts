@@ -4,6 +4,7 @@ import { createHash } from "crypto";
 import { contentPackHash } from "../services/content-pack-contract";
 import { parseSource, SourceType } from "../services/document-parser.service";
 import { enumerateCandidates } from "../services/extraction-foundation.service";
+import { buildSourceChunkPlan } from "../services/source-chunking.service";
 
 const binaryTypes = new Set<SourceType>(["pdf", "docx", "epub"]);
 const supportedTypes = new Set<SourceType>([
@@ -69,6 +70,14 @@ export async function buildInventory(input: {
     );
   }
 
+  const chunkPlan = buildSourceChunkPlan(segments);
+  if (
+    chunkPlan.reconciliation.untrackedReadableUnits !== 0 ||
+    chunkPlan.reconciliation.untrackedReadableWords !== 0
+  ) {
+    throw new Error("Source chunk planning did not reconcile every readable unit and word.");
+  }
+
   const candidates = enumerateCandidates(segments);
   const occurrences = candidates.flatMap((candidate) =>
     candidate.occurrences.map((occurrence, index) => ({
@@ -91,11 +100,18 @@ export async function buildInventory(input: {
       type: input.sourceType,
       sourceHash,
       segmentCount: segments.length,
+      processingChunkCount: chunkPlan.chunkCount,
+      readableWordCount: chunkPlan.readableWordCount,
     },
     segments,
+    sourceUnits: segments,
+    processingChunks: chunkPlan.chunks,
+    chunkReconciliation: chunkPlan.reconciliation,
     occurrences,
     counts: {
       segments: segments.length,
+      processingChunks: chunkPlan.chunkCount,
+      readableWords: chunkPlan.readableWordCount,
       proposedCandidates: candidates.length,
       occurrences: occurrences.length,
     },
