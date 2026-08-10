@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "verified-exhaustive-discovery-20260810-v1",
+  "releaseId": "durable-manifest-first-continuation-20260810-v1",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "b0d6b9ea58704942f420d54bbc38ed57759d623583cf28ace82d7a61ea516c5a",
-      "sizeBytes": 18764
+      "sha256": "f51762650c0ecbae652d81283c2c76b80c9caec15cf16f0d08352efdfb892943",
+      "sizeBytes": 20714
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "1ebecdf90653533dfb99ce0eba6433877cb06b8eed02ed36a791e989e83fdae0",
-      "sizeBytes": 10658
+      "sha256": "32043de046bc6b147986d49c55bcc5ab704e9b1d26fc20f557377e867428e181",
+      "sizeBytes": 11706
     }
   ]
 }

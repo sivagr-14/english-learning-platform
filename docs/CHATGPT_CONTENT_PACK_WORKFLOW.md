@@ -324,6 +324,45 @@ content.
 
 ## Status and recovery guarantees
 
+### Manifest-first incremental delivery
+
+For every large source, freeze, validate and deliver the complete manifest
+before generating the first lesson batch. Each valid batch is a separate,
+durable receipt and may be delivered in a later ChatGPT turn. Before a run
+ends, finish and validate the current batch; never discard already delivered
+batches or replace the manifest. The application derives the exact received
+and missing batch numbers from immutable receipts and reports:
+
+```text
+Manifest: delivered
+Planned batches: 84
+Received batches: 19
+Missing batches: 65
+Next batch: 20
+State: safely paused — no items lost
+```
+
+Continuation must preserve the original manifest ID, manifest hash, candidate
+IDs, batch numbers and batch IDs. Generate only the missing planned batches;
+never rescan the source, shrink the candidate ledger or create a replacement
+manifest merely because a previous ChatGPT run ended. A no-API-key ChatGPT
+session cannot start its own next conversational turn, so the app exposes a
+**Continue import** action that copies the exact continuation request. The user
+starts that next turn; all discovery and delivery state remains durable.
+
+### Learner-supplied vocabulary lists
+
+When the learner supplies a word or expression list together with the complete
+source, treat every supplied item as a required seed candidate and resolve only
+the contextual sense demonstrated by that source. This improves speed and
+reliability for the named items but does not prove source-wide completeness.
+Unless the learner explicitly says **generate only these supplied items**, run
+the normal deterministic inventory and independent recall pass and add every
+other eligible source candidate. In supplied-items-only mode, record the scope
+as intentionally restricted and do not claim exhaustive discovery of the
+source. A supplied item absent from the source or lacking enough context must
+be reported, not assigned an invented meaning.
+
 The local recovery ledger records the exact private inbox branch, fetched commit,
 last synchronization time, database verification report, cleanup attempts and
 cleanup commit while an import needs action or recovery. Completed, verified
