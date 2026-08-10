@@ -25,7 +25,7 @@ unreadable source unit because exhaustive coverage cannot be claimed.
 Here, an exact duplicate means the same normalized term and the same contextual
 sense. Same spelling with a different meaning is not a duplicate.
 
-Candidate assessment uses bounded groups of 50 up to 500 candidates, then 100.
+Candidate assessment uses bounded groups of 50–100 unresolved candidates.
 Complete lesson generation uses adaptive batches of 5–10 entries, normally 8.
 These are per-operation safety bounds, not limits on the total import. The
 backend policy and stored import snapshot remain the source of truth.
@@ -45,8 +45,8 @@ as `existing`; they do not reduce how thoroughly the source is rescanned.
 
 For each sentence, first account for every lexical token/lemma, then separately
 discover multi-word units. Each inventory item must link to a candidate or have
-a specific exclusion code. After both passes, perform an independent blind
-recall pass over the original source and add every missed B2-C2 word or useful
+a specific exclusion code. After both passes, perform an independent blind recall pass
+over the original source and add every missed B2-C2 word or useful
 expression before lesson generation. Do not infer completeness from the number
 of generated lessons.
 
@@ -115,7 +115,7 @@ the application catalogue:
 Domain -> Usage group -> Specific category
 ```
 
-Write all of these fields into the v3 manifest candidate:
+Write all of these fields into the v5 manifest candidate:
 
 - `taxonomy.taxonomyVersion`
 - `taxonomy.domainKey`

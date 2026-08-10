@@ -200,6 +200,46 @@ function validExhaustivePack(): { manifest: any; batch: any } {
   return { manifest, batch };
 }
 
+function validVerifiedExhaustivePack(): { manifest: any; batch: any } {
+  const { manifest, batch } = validTaxonomyAwarePack();
+  manifest.formatVersion = "chatgpt-vocabulary-manifest-v5";
+  manifest.inventoryAudit = {
+    seed: {
+      generator: "backend-deterministic-inventory",
+      generatorVersion: "1.0.0",
+      sourceHash: manifest.source.contentHash,
+      inventoryHash: "b".repeat(64),
+    },
+    items: manifest.candidates.map((candidate: any, index: number) => ({
+      inventoryId: `inventory-${index + 1}`,
+      occurrenceId: `occurrence-${index + 1}`,
+      kind: "token",
+      detector: "tokenizer",
+      surfaceForm: candidate.term,
+      normalizedForm: candidate.baseForm,
+      page: candidate.occurrences[0].page,
+      chunkId: candidate.occurrences[0].chunkId,
+      sentence: candidate.occurrences[0].sentence,
+      startOffset: index * 10,
+      endOffset: index * 10 + candidate.term.length,
+      disposition: "candidate_linked",
+      candidateId: candidate.candidateId,
+    })),
+    counts: { totalOccurrences: 2, candidateLinked: 2, excluded: 0, untracked: 0 },
+    recallPass: {
+      completed: true,
+      method: "blind_sentence_rescan",
+      runId: "recall-run-001",
+      findings: [],
+      unresolvedFindingIds: [],
+    },
+    frozenAt: "2026-08-10T12:00:00.000Z",
+  };
+  batch.formatVersion = "chatgpt-vocabulary-batch-v5";
+  batch.manifestHash = contentPackHash(manifest);
+  return { manifest, batch };
+}
+
 describe("ChatGPT content-pack contract", () => {
   it("accepts a fully reconciled manifest and its exact lesson batch", () => {
     const manifest = validManifest();
@@ -317,6 +357,43 @@ describe("ChatGPT content-pack contract", () => {
     const { manifest } = validExhaustivePack();
     manifest.inventoryAudit.items[0].candidateId = "unknown-candidate";
     expect(validateContentManifest(manifest).issues.join(" ")).toMatch(/unknown candidate|no deterministic inventory link/i);
+  });
+
+  it("accepts v5 only with deterministic occurrence provenance and a frozen blind recall pass", () => {
+    const { manifest, batch } = validVerifiedExhaustivePack();
+    expect(validateContentManifest(manifest)).toMatchObject({ valid: true, issues: [] });
+    expect(validateContentBatch(batch, manifest)).toMatchObject({ valid: true, issues: [] });
+  });
+
+  it("rejects v5 vague exclusions, unverified existing claims and self-declared recall findings", () => {
+    const vague = validVerifiedExhaustivePack();
+    vague.manifest.inventoryAudit.items[0] = {
+      ...vague.manifest.inventoryAudit.items[0],
+      disposition: "existing_basic_or_subsumed",
+      reason: "Could be existing, basic or part of an expression.",
+    };
+    expect(validateContentManifest(vague.manifest).valid).toBe(false);
+
+    const existing = validVerifiedExhaustivePack();
+    existing.manifest.inventoryAudit.items[0] = {
+      ...existing.manifest.inventoryAudit.items[0],
+      disposition: "verified_existing",
+      candidateId: undefined,
+      reason: "The same term and contextual sense already exists in PostgreSQL.",
+    };
+    existing.manifest.inventoryAudit.counts.candidateLinked -= 1;
+    existing.manifest.inventoryAudit.counts.excluded += 1;
+    expect(validateContentManifest(existing.manifest).issues.join(" ")).toMatch(/matchedWordId/i);
+
+    const recall = validVerifiedExhaustivePack();
+    recall.manifest.inventoryAudit.recallPass.findings.push({
+      findingId: "recall-finding-001",
+      occurrenceId: "invented-occurrence",
+      term: "invented",
+      disposition: "noise",
+      reason: "The blind scan classified this as extraction noise.",
+    });
+    expect(validateContentManifest(recall.manifest).issues.join(" ")).toMatch(/no deterministic occurrence/i);
   });
 
   it("allows one spelling to have different sense keys", () => {
