@@ -243,6 +243,8 @@ occurrence. `counts.untracked` and unresolved findings must be zero before the
 ledger is frozen. A hand-selected candidate list or self-declared empty audit
 cannot satisfy v5.
 
+Historical compatibility remains explicit: A v4 manifest without this proof is invalid.
+
 ## Default automatic policy
 
 The backend policy in `packages/backend/src/config/import-policy.ts` is the

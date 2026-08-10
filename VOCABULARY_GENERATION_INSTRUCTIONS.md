@@ -45,8 +45,8 @@ as `existing`; they do not reduce how thoroughly the source is rescanned.
 
 For each sentence, first account for every lexical token/lemma, then separately
 discover multi-word units. Each inventory item must link to a candidate or have
-a specific exclusion code. After both passes, perform an independent blind
-recall pass over the original source and add every missed B2-C2 word or useful
+a specific exclusion code. After both passes, perform an independent blind recall pass
+over the original source and add every missed B2-C2 word or useful
 expression before lesson generation. Do not infer completeness from the number
 of generated lessons.
 
