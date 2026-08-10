@@ -26,7 +26,7 @@
     "dev:frontend": "yarn workspace english-learning-frontend run dev",
     "build": "yarn workspace english-learning-backend run build && yarn workspace english-learning-frontend run build",
     "test": "yarn workspace english-learning-backend run test",
-    "test:control": "node --test scripts/control-server.test.js scripts/validate-feature-delivery.test.js",
+    "test:control": "node --test scripts/control-server.test.js scripts/validate-feature-delivery.test.js scripts/chatgpt-only-cleanup.test.js",
     "test:e2e": "playwright test",
     "content-packs:validate": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/validate-content-packs.ts",
     "content-packs:inventory": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/build-content-inventory.ts",
