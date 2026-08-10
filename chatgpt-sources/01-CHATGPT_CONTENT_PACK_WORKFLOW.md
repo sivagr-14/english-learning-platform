@@ -18,8 +18,10 @@ for safe database upgrades and must not create active import work.
 
 ## End-to-end flow
 
-1. The learner pastes text or attaches a PDF in ChatGPT.
-2. ChatGPT reads every page and divides the source into traceable chunks.
+1. The learner pastes text or attaches a supported TXT, MD, PDF, DOCX, EPUB,
+   HTML, SRT or VTT file in ChatGPT.
+2. ChatGPT creates a byte-exact source snapshot, reads every source unit and
+   divides the source into traceable chunks.
 3. ChatGPT creates an immutable assessment manifest on the private
    `chatgpt-content-inbox` branch.
 4. The Mac fetches that branch automatically every five minutes. Loading any
@@ -154,6 +156,12 @@ system classification.
 - Apply this procedure to every source size and supported input type, including
   pasted text, TXT, MD, PDF, DOCX, EPUB, HTML, SRT and VTT. File size or model
   context limits may change processing group size but never reduce coverage.
+- Pasted text is a first-class source. Feed its exact UTF-8 bytes to the
+  deterministic inventory through standard input with source type `text` and a
+  stable source name; never ask the learner to attach the same text as a TXT
+  file merely to obtain a hash. Do not trim, reflow, repair punctuation or
+  normalize line endings before hashing. File inputs are hashed from their
+  original bytes before format-specific extraction.
 - Create an immutable ordered source-unit ledger first (page, chapter,
   paragraph, subtitle cue or equivalent) with original text, stable location,
   reading order and readable/unreadable status.
@@ -286,9 +294,13 @@ When asked to process a source for this application, ChatGPT must:
    generated contextual sense;
 7. validate files with `yarn content-packs:validate <directory>` before writing
    them to the inbox branch;
-8. never place an OpenAI API key, PostgreSQL credential or personal database
+8. build attachment inventories with
+   `yarn content-packs:inventory <source-file> [source-type]`, or pipe exact
+   pasted content to
+   `yarn content-packs:inventory - text <stable-source-name>`;
+9. never place an OpenAI API key, PostgreSQL credential or personal database
    export in GitHub; and
-9. report any unreadable source area, ambiguous sense, rejected batch or
+10. report any unreadable source area, ambiguous sense, rejected batch or
    missing planned batch.
 
 ## Completion rule
