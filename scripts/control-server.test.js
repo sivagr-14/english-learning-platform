@@ -85,21 +85,15 @@ test('local GUI services replace Docker-only hostnames with loopback', () => {
   assert.equal(environment.DB_PASSWORD, 'secret');
 });
 
-test('service readiness reports worker HTTP response and worker logs', async () => {
+test('service readiness does not depend on the retired generation worker', async () => {
   const manager = new ControlManager({ wait: async () => {} });
   manager.backendReady = async () => true;
   manager.frontendReady = async () => true;
-  manager.workerReady = async () => ({
-    ok: false,
-    status: 503,
-    body: '{"services":{"generationWorker":"unavailable"}}',
-  });
-  manager.serviceOutput.worker = ['BullMQ Redis connection error'];
+  manager.workerReady = async () => {
+    throw new Error('retired worker must not be probed');
+  };
 
-  await assert.rejects(
-    manager.waitForServices(),
-    /generation worker.*HTTP 503.*generationWorker.*BullMQ Redis connection error/i,
-  );
+  await manager.waitForServices();
 });
 
 test('command output combines captured stdout and stderr for browser diagnostics', () => {
@@ -251,7 +245,7 @@ test('mock startup reports an exited PostgreSQL container immediately with logs'
   );
 });
 
-test('normal startup supervises backend, generation worker, and frontend', () => {
+test('normal startup supervises only the ChatGPT import backend and frontend', () => {
   const spawned = [];
   const fakeChild = () => {
     const child = new EventEmitter();
@@ -271,8 +265,8 @@ test('normal startup supervises backend, generation worker, and frontend', () =>
 
   manager.spawnServices();
 
-  assert.equal(spawned.length, 3);
-  assert.ok(spawned.some(({ args }) => args.some((arg) => /src\/worker\.ts$/.test(arg))));
+  assert.equal(spawned.length, 2);
+  assert.ok(!spawned.some(({ args }) => args.some((arg) => /src\/worker\.ts$/.test(arg))));
   assert.ok(spawned.some(({ args }) => args.some((arg) => /src\/index\.ts$/.test(arg))));
   assert.ok(spawned.some(({ args }) => args.includes('dev')));
   manager.stopServices();
