@@ -85,10 +85,8 @@ async function parsePdf(content: string): Promise<SourceSegment[]> {
       text: pages[i] || "",
       locator: { unit: "page", unitIndex: i + 1, page: i + 1 },
       // A mixed text PDF commonly contains blank, illustration-only, cover,
-      // or separator pages. Keep those pages in the immutable source ledger as
-      // explicit empty units; they contain no extracted lexical content to
-      // inventory and therefore must not block readable pages.
-      ...(pages[i]?.trim() ? {} : {}),
+      // or separator pages. With no extracted lexical content, unitSegments
+      // records them as explicit empty units instead of blocking readable pages.
     })),
   );
 }
