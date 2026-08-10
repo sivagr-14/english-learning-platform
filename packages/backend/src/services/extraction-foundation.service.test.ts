@@ -50,7 +50,7 @@ describe("Phase 2 extraction foundation", () => {
     expect(candidates.some((candidate) => candidate.baseForm === "chapter")).toBe(
       true,
     );
-    expect(candidates.some((candidate) => candidate.baseForm === "wrapped")).toBe(
+    expect(candidates.some((candidate) => candidate.baseForm === "wrap")).toBe(
       true,
     );
   });
