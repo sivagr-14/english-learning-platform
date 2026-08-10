@@ -14,10 +14,6 @@ const processes = [
     args: ['workspace', 'english-learning-backend', 'run', 'dev'],
   },
   {
-    name: 'worker',
-    args: ['workspace', 'english-learning-backend', 'run', 'worker'],
-  },
-  {
     name: 'frontend',
     args: ['workspace', 'english-learning-frontend', 'run', 'dev'],
   },
