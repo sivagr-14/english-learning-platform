@@ -59,6 +59,15 @@ is intentionally scoped and must never be reported as exhaustive source
 discovery. Report any supplied item that is absent from the source or lacks
 enough context rather than inventing a meaning.
 
+For a large request whose manifest is not yet frozen, assess only the current
+immutable semantic group (at most 75 proposed candidates), complete its blind
+recall pass, validate and deliver its assessment checkpoint, then continue only
+with missing groups. A checkpoint is durable assessment evidence, not a lesson
+batch and not permission to generate early. Freeze the complete manifest only
+after every planned group and proposed candidate reconciles with zero untracked
+items. When another ChatGPT turn is required, stop after a checkpoint boundary
+and report the exact `Continue assessment <requestId>` instruction.
+
 For a large frozen plan, generate only the current immutable batch of five to
 ten lessons. Validate and deliver that batch before proceeding. When a ChatGPT
 run must end, stop only at a batch boundary and report the manifest ID, planned,

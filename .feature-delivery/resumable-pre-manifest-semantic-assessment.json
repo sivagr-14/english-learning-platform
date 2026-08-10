@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "featureId": "resumable-pre-manifest-semantic-assessment",
+  "title": "Resumable pre-manifest semantic assessment for large sources",
+  "implementationPaths": [
+    "packages/backend/src/services/source-request.service.ts",
+    "packages/backend/src/services/assessment-checkpoint-contract.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/source-request.service.test.ts",
+    "packages/backend/src/services/assessment-checkpoint-contract.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "Pre-manifest semantic assessment checkpoints",
+          "Continue assessment <requestId>",
+          "chatgpt-semantic-assessment-checkpoint-v1"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "assessment checkpoint",
+          "Continue assessment <requestId>"
+        ]
+      }
+    ]
+  }
+}

@@ -56,6 +56,16 @@ describe("portable ChatGPT assessment request", () => {
     expect(request.reconciliation.untrackedReadableUnits).toBe(0);
     expect(request.reconciliation.untrackedReadableWords).toBe(0);
     expect(request.existingVocabulary).toHaveLength(1);
+    expect(request.assessmentPlan.groupSize).toBe(75);
+    expect(request.assessmentPlan.totalGroups).toBeGreaterThan(0);
+    expect(request.assessmentPlan.groups[0]).toMatchObject({
+      groupNumber: 1,
+      status: "pending",
+    });
+    expect(request.assessmentPlan.groups[0].proposedCandidateIds.length).toBeLessThanOrEqual(75);
+    expect(request.reconciliation.assessmentGroups).toBe(
+      request.assessmentPlan.totalGroups,
+    );
     expect(request.taxonomy.domains).toHaveLength(15);
     expect(request.taxonomy.specificCategories).toHaveLength(300);
     expect(request.requestHash).toMatch(/^[a-f0-9]{64}$/);

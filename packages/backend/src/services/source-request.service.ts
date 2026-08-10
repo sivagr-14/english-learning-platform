@@ -97,6 +97,31 @@ export async function buildPortableAssessmentRequest(
   }
 
   const requestId = `source-request-${inventory.inventoryHash.slice(0, 24)}`;
+  const proposedCandidateIds = [
+    ...new Set(
+      inventory.occurrences.map(
+        (occurrence) => occurrence.proposedCandidateId,
+      ),
+    ),
+  ];
+  const assessmentGroups = groupsOf(proposedCandidateIds, 75).map(
+    (candidateIds, index) => {
+      const groupNumber = index + 1;
+      const candidateSet = new Set(candidateIds);
+      const groupOccurrences = inventory.occurrences.filter((occurrence) =>
+        candidateSet.has(occurrence.proposedCandidateId),
+      );
+      return {
+        groupId: `${requestId}:assessment:${String(groupNumber).padStart(4, "0")}`,
+        groupNumber,
+        proposedCandidateIds: candidateIds,
+        occurrenceIds: groupOccurrences.map(
+          (occurrence) => occurrence.occurrenceId,
+        ),
+        status: "pending" as const,
+      };
+    },
+  );
   const envelope = {
     formatVersion: "chatgpt-assessment-request-v1",
     requestId,
@@ -109,10 +134,21 @@ export async function buildPortableAssessmentRequest(
       workflowPath: "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       lessonPath: "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       requiredManifestVersion: "chatgpt-vocabulary-manifest-v5",
+      assessmentCheckpointVersion:
+        "chatgpt-semantic-assessment-checkpoint-v1",
       handoff:
-        "Attach this request to ChatGPT and write Generate. ChatGPT must use the deterministic inventory, existing-vocabulary snapshot and taxonomy below; it must validate delivery through repository CI before final reporting.",
+        "Attach this request to ChatGPT and write Generate. Assess the immutable groups in order, deliver each completed semantic checkpoint durably, and resume only missing groups. Freeze the v5 manifest only after all groups reconcile; then generate and validate lesson batches.",
     },
     inventory,
+    assessmentPlan: {
+      groupSize: 75,
+      totalGroups: assessmentGroups.length,
+      groups: assessmentGroups,
+      checkpointPathTemplate:
+        `assessment-checkpoints/${requestId}/group-{groupNumber}.checkpoint.json`,
+      completionRule:
+        "Every planned group must have one valid immutable checkpoint and every proposed candidate must have exactly one semantic decision before the manifest is frozen.",
+    },
     existingVocabulary,
     taxonomy: {
       version: TAXONOMY_VERSION,
@@ -126,6 +162,8 @@ export async function buildPortableAssessmentRequest(
       readableWords: inventory.source.readableWordCount,
       inventoryOccurrences: inventory.counts.occurrences,
       existingVocabularyMatches: existingVocabulary.length,
+      proposedCandidates: proposedCandidateIds.length,
+      assessmentGroups: assessmentGroups.length,
       untrackedReadableUnits:
         inventory.chunkReconciliation.untrackedReadableUnits,
       untrackedReadableWords:
