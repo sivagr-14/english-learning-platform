@@ -104,24 +104,61 @@ export async function buildPortableAssessmentRequest(
       ),
     ),
   ];
-  const assessmentGroups = groupsOf(proposedCandidateIds, 75).map(
-    (candidateIds, index) => {
-      const groupNumber = index + 1;
-      const candidateSet = new Set(candidateIds);
-      const groupOccurrences = inventory.occurrences.filter((occurrence) =>
-        candidateSet.has(occurrence.proposedCandidateId),
-      );
-      return {
-        groupId: `${requestId}:assessment:${String(groupNumber).padStart(4, "0")}`,
-        groupNumber,
-        proposedCandidateIds: candidateIds,
-        occurrenceIds: groupOccurrences.map(
-          (occurrence) => occurrence.occurrenceId,
-        ),
-        status: "pending" as const,
-      };
-    },
+  const candidateGroups = groupsOf(proposedCandidateIds, 100);
+  const recallGroups = groupsOf(
+    inventory.expressionRecallUnits,
+    Math.max(
+      1,
+      Math.ceil(
+        inventory.expressionRecallUnits.length /
+          Math.max(1, candidateGroups.length),
+      ),
+    ),
   );
+  const groupCount = Math.max(candidateGroups.length, recallGroups.length);
+  const assessmentGroups = Array.from({ length: groupCount }, (_, index) => {
+    const candidateIds = candidateGroups[index] ?? [];
+    const recallUnits = recallGroups[index] ?? [];
+    const groupNumber = index + 1;
+    const candidateSet = new Set(candidateIds);
+    const groupOccurrences = inventory.occurrences.filter((occurrence) =>
+      candidateSet.has(occurrence.proposedCandidateId),
+    );
+    return {
+      groupId: `${requestId}:assessment:${String(groupNumber).padStart(4, "0")}`,
+      groupNumber,
+      proposedCandidateIds: candidateIds,
+      candidateOccurrenceIds: Object.fromEntries(
+        candidateIds.map((candidateId) => [
+          candidateId,
+          groupOccurrences
+            .filter(
+              (occurrence) => occurrence.proposedCandidateId === candidateId,
+            )
+            .map((occurrence) => occurrence.occurrenceId),
+        ]),
+      ),
+      recallUnitIds: recallUnits.map((unit) => unit.recallUnitId),
+      occurrenceIds: groupOccurrences.map(
+        (occurrence) => occurrence.occurrenceId,
+      ),
+      status: "pending" as const,
+    };
+  });
+  const plannedRecallUnitIds = assessmentGroups.flatMap(
+    (group) => group.recallUnitIds,
+  );
+  const expectedRecallUnitIds = inventory.expressionRecallUnits.map(
+    (unit) => unit.recallUnitId,
+  );
+  if (
+    new Set(plannedRecallUnitIds).size !== plannedRecallUnitIds.length ||
+    JSON.stringify([...plannedRecallUnitIds].sort()) !==
+      JSON.stringify([...expectedRecallUnitIds].sort())
+  )
+    throw new Error(
+      "Assessment planning did not assign every expression recall unit exactly once.",
+    );
   const envelope = {
     formatVersion: "chatgpt-assessment-request-v1",
     requestId,
@@ -141,13 +178,13 @@ export async function buildPortableAssessmentRequest(
     },
     inventory,
     assessmentPlan: {
-      groupSize: 75,
+      groupSize: 100,
       totalGroups: assessmentGroups.length,
       groups: assessmentGroups,
       checkpointPathTemplate:
         `assessment-checkpoints/${requestId}/group-{groupNumber}.checkpoint.json`,
       completionRule:
-        "Every planned group must have one valid immutable checkpoint and every proposed candidate must have exactly one semantic decision before the manifest is frozen.",
+        "Every planned group must have one valid immutable checkpoint, every proposed candidate occurrence must belong to exactly one contextual-sense decision, every recall unit must be independently rescanned, and every recall finding must be resolved before the manifest is frozen.",
     },
     existingVocabulary,
     taxonomy: {
@@ -163,6 +200,12 @@ export async function buildPortableAssessmentRequest(
       inventoryOccurrences: inventory.counts.occurrences,
       existingVocabularyMatches: existingVocabulary.length,
       proposedCandidates: proposedCandidateIds.length,
+      expressionRecallUnits: inventory.expressionRecallUnits.length,
+      trackedExpressionRecallUnits: assessmentGroups.reduce(
+        (total, group) => total + group.recallUnitIds.length,
+        0,
+      ),
+      untrackedExpressionRecallUnits: 0,
       assessmentGroups: assessmentGroups.length,
       untrackedReadableUnits:
         inventory.chunkReconciliation.untrackedReadableUnits,

@@ -75,23 +75,49 @@ export const AssessmentCheckpointSchema = z
     groupNumber: z.number().int().positive(),
     totalGroups: z.number().int().positive(),
     createdAt: z.string().datetime(),
-    proposedCandidateIds: z.array(IdentifierSchema).min(1).max(100),
-    decisions: z.array(AssessmentDecisionSchema).min(1).max(100),
+    proposedCandidateIds: z.array(IdentifierSchema).max(100),
+    recallUnitIds: z.array(IdentifierSchema).max(500).optional(),
+    decisions: z.array(AssessmentDecisionSchema).max(500),
     recallPass: z
       .object({
         completed: z.literal(true),
         method: z.literal("blind_sentence_rescan"),
+        scannedRecallUnitIds: z.array(IdentifierSchema).max(500).optional(),
         findings: z
           .array(
             z
               .object({
                 findingId: IdentifierSchema,
-                occurrenceId: IdentifierSchema,
+                occurrenceId: IdentifierSchema.optional(),
+                recallUnitId: IdentifierSchema.optional(),
                 term: z.string().trim().min(1).max(500),
                 linkedProposedCandidateId: IdentifierSchema.optional(),
+                sentence: UsefulTextSchema.optional(),
+                startOffset: z.number().int().nonnegative().optional(),
+                endOffset: z.number().int().positive().optional(),
                 reason: UsefulTextSchema,
               })
-              .strict(),
+              .strict()
+              .superRefine((finding, context) => {
+                if (!finding.occurrenceId && !finding.recallUnitId)
+                  context.addIssue({
+                    code: z.ZodIssueCode.custom,
+                    message:
+                      "a recall finding must link to a deterministic occurrence or sentence recall unit",
+                  });
+                if (
+                  finding.recallUnitId &&
+                  (!finding.sentence ||
+                    finding.startOffset === undefined ||
+                    finding.endOffset === undefined ||
+                    finding.endOffset <= finding.startOffset)
+                )
+                  context.addIssue({
+                    code: z.ZodIssueCode.custom,
+                    message:
+                      "a newly discovered expression requires its exact sentence and source offsets",
+                  });
+              }),
           )
           .max(500),
         unresolvedFindingIds: z.array(IdentifierSchema).max(0),
@@ -99,8 +125,8 @@ export const AssessmentCheckpointSchema = z
       .strict(),
     counts: z
       .object({
-        proposedCandidates: z.number().int().positive(),
-        decidedCandidates: z.number().int().positive(),
+        proposedCandidates: z.number().int().nonnegative(),
+        decidedCandidates: z.number().int().nonnegative(),
         generate: z.number().int().nonnegative(),
         existing: z.number().int().nonnegative(),
         filtered: z.number().int().nonnegative(),
@@ -119,6 +145,8 @@ export interface AssessmentGroupReference {
   groupId: string;
   groupNumber: number;
   proposedCandidateIds: string[];
+  candidateOccurrenceIds?: Record<string, string[]>;
+  recallUnitIds?: string[];
 }
 
 export interface AssessmentRequestReference {
@@ -179,16 +207,64 @@ export function validateAssessmentCheckpoint(
   )
     issues.push("proposedCandidateIds: must exactly match the planned group");
 
+  if (expected?.recallUnitIds) {
+    if (
+      JSON.stringify([...(checkpoint.recallUnitIds ?? [])].sort()) !==
+      JSON.stringify([...expected.recallUnitIds].sort())
+    )
+      issues.push("recallUnitIds: must exactly match the planned group");
+    if (
+      JSON.stringify(
+        [...(checkpoint.recallPass.scannedRecallUnitIds ?? [])].sort(),
+      ) !== JSON.stringify([...expected.recallUnitIds].sort())
+    )
+      issues.push(
+        "recallPass.scannedRecallUnitIds: every planned sentence must be rescanned exactly once",
+      );
+    const plannedRecallUnits = new Set(expected.recallUnitIds);
+    for (const finding of checkpoint.recallPass.findings)
+      if (finding.recallUnitId && !plannedRecallUnits.has(finding.recallUnitId))
+        issues.push(
+          `recallPass.findings: ${finding.findingId} references a recall unit outside this group`,
+        );
+  }
+
   const decided = checkpoint.decisions.map(
     (decision) => decision.proposedCandidateId,
   );
-  if (duplicates(decided).length)
-    issues.push("decisions: every proposed candidate must be decided once");
+  const decidedSenseInstances = checkpoint.decisions.map(
+    (decision) => `${decision.proposedCandidateId}:${decision.senseKey}`,
+  );
+  if (duplicates(decidedSenseInstances).length)
+    issues.push(
+      "decisions: a proposed candidate may contain multiple senses, but each candidate/senseKey pair must be unique",
+    );
   if (
-    JSON.stringify([...decided].sort()) !==
+    JSON.stringify([...new Set(decided)].sort()) !==
     JSON.stringify([...planned].sort())
   )
-    issues.push("decisions: must account for every planned candidate exactly once");
+    issues.push("decisions: must account for every planned candidate");
+
+  if (expected?.candidateOccurrenceIds) {
+    for (const candidateId of planned) {
+      const expectedOccurrences =
+        expected.candidateOccurrenceIds[candidateId] ?? [];
+      const decidedOccurrences = checkpoint.decisions
+        .filter((decision) => decision.proposedCandidateId === candidateId)
+        .flatMap((decision) => decision.occurrenceIds);
+      if (duplicates(decidedOccurrences).length)
+        issues.push(
+          `decisions: ${candidateId} assigns one occurrence to multiple contextual senses`,
+        );
+      if (
+        JSON.stringify([...decidedOccurrences].sort()) !==
+        JSON.stringify([...expectedOccurrences].sort())
+      )
+        issues.push(
+          `decisions: ${candidateId} must assign every source occurrence to exactly one contextual sense`,
+        );
+    }
+  }
 
   const recomputed = checkpoint.decisions.reduce(
     (counts, decision) => {

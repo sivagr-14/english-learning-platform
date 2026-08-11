@@ -1,5 +1,6 @@
 import {
   applyCandidatePolicy,
+  buildExpressionRecallUnits,
   buildGenerationPlan,
   deduplicateByContextualSense,
   enumerateCandidates,
@@ -65,14 +66,61 @@ describe("Phase 2 extraction foundation", () => {
     );
   });
 
-  test("open n-gram discovery is not limited to the curated expression list", () => {
+  test("does not promote arbitrary sliding windows to semantic candidates", () => {
     const candidates = enumerateCandidates([
       segment("Engineers carefully reconcile every lexical inventory item."),
     ]);
-    expect(candidates.some((candidate) =>
-      candidate.baseForm === "reconcile every lexical inventory" &&
-      candidate.detection.includes("open-ngram-4"),
-    )).toBe(true);
+    expect(
+      candidates.some(
+        (candidate) =>
+          candidate.baseForm === "reconcile every lexical inventory",
+      ),
+    ).toBe(false);
+  });
+
+  test("preserves every sentence for an independent expression recall pass", () => {
+    const source = [
+      segment(
+        "She faced the music. Engineers carefully reconcile every lexical inventory item.",
+      ),
+    ];
+    const candidates = enumerateCandidates(source);
+    expect(candidates.some((candidate) => candidate.baseForm === "face the music")).toBe(
+      false,
+    );
+    expect(buildExpressionRecallUnits(source).map((unit) => unit.sentence)).toEqual([
+      "She faced the music.",
+      "Engineers carefully reconcile every lexical inventory item.",
+    ]);
+  });
+
+  test("retains high-confidence particle patterns and repeated collocations", () => {
+    const candidates = enumerateCandidates([
+      segment(
+        "They stepped up to lead. The quality control team met. The quality control team agreed. The quality control team improved.",
+      ),
+    ]);
+    expect(candidates.some((candidate) => candidate.baseForm === "stepped up")).toBe(
+      true,
+    );
+    expect(
+      candidates.some((candidate) => candidate.baseForm === "quality control team"),
+    ).toBe(true);
+  });
+
+  test("large sources avoid n-gram explosion while retaining complete recall coverage", () => {
+    const line =
+      "Investigators carefully examined unusual evidence before reaching conclusions.";
+    const text = Array.from({ length: 5_000 }, () => line).join("\n");
+    const source = [segment(text)];
+    const candidates = enumerateCandidates(source);
+    const recallUnits = buildExpressionRecallUnits(source);
+    expect(text.split(/\s+/)).toHaveLength(40_000);
+    expect(candidates.length).toBeLessThan(100);
+    expect(recallUnits).toHaveLength(5_000);
+    expect(new Set(recallUnits.map((unit) => unit.recallUnitId)).size).toBe(
+      recallUnits.length,
+    );
   });
 
   test("policy accounts for low frequency and malformed candidates with stable reasons", () => {
