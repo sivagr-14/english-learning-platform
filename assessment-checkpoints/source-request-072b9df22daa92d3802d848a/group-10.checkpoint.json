@@ -1,0 +1,1012 @@
+{
+  "formatVersion": "chatgpt-semantic-assessment-checkpoint-v1",
+  "checkpointId": "source-request-072b9df22daa92d3802d848a:assessment:0010",
+  "requestId": "source-request-072b9df22daa92d3802d848a",
+  "requestHash": "e1a7d30a6323ca6f31fe847b357f11262e8f5c892630d9e3e43c7223b2beb976",
+  "groupId": "source-request-072b9df22daa92d3802d848a:assessment:0010",
+  "groupNumber": 10,
+  "totalGroups": 867,
+  "createdAt": "2026-08-11T03:37:00.000Z",
+  "proposedCandidateIds": [
+    "029875758128e00cb8bc293578339baa",
+    "0299d348b38f5f833c79e2f20026f752",
+    "029ac6605977ba2de7116242cb7c4fd2",
+    "029cb1603fd4bc8a9021a6f4fcbc8eec",
+    "029cd58a7bd5131775799a48ff3668d8",
+    "029df15afdfbef51842d5523c2170df7",
+    "029e0c48a771bdf1def2aff666027656",
+    "029e2bf3ffc8d03721190e920701c3e5",
+    "029f1ec8054de1c02c9d7d92e28b4d04",
+    "029f6af03bb80d1424c555db2f5e6d50",
+    "029f712d77dcdd02226cff0669160568",
+    "02a27cf8b105833017ddb75e22d3c575",
+    "02a4caf97dc9b8b7f2000e89519a5147",
+    "02a508e424e40cc3c59197c25d43c327",
+    "02a766ebc54afe9defc9da72444678fa",
+    "02a7e07154d8a6b0184b5c2ec35959a2",
+    "02a80cd0732c70b0c028b431edf9f052",
+    "02a8634bf7db738d867adf4b622a59b7",
+    "02a9398d041baae607dd4af98504a1b5",
+    "02aa96a9348deaf7460003a9038bdde4",
+    "02aaa46a91b8d1bbcf94b696e0f6a783",
+    "02aac1804048904ca50a010cc7798876",
+    "02ab5aebd5ea12f3148fe3a5b5b5e69c",
+    "02ab5cad88c75f13c90acd17be6dcaa3",
+    "02ab68ec3d9d47029a0d93a1e60b0432",
+    "02ac003bd80ff6554d77ee448d779a10",
+    "02acc60e4a8f491ba1c5c899ea5a4604",
+    "02ad6d3d3576706ec3985443a5042e88",
+    "02adc6f1421e0338b7715f4bdb6ac3f4",
+    "02ae8f55e6ed40315779d6a962d024ad",
+    "02afad721c28dc16486f904218b950f5",
+    "02b21d332c71b996a375d939e4f41667",
+    "02b2d47206bc2e18af903784af483be0",
+    "02b337f8a3162be6450b3b842220dd7d",
+    "02b375377b4faceb7fbf79d7639899dd",
+    "02b3766b4d2269d830f2bd77c120603c",
+    "02b3b69cfdecb3f91560835e0e28e766",
+    "02b79fa995891bd05fa22db72d39dad0",
+    "02b813dce2aa3e2d38f11ba6d32e259d",
+    "02b8f7e51dd88c8f039ec3f35ec89ebe",
+    "02b9d835a65e9742b52730870474d9c8",
+    "02ba14cdfc13647d14879c02e05f39ea",
+    "02ba97835b51331998ecd3202cf25076",
+    "02baf8c6012ab4a2797ec5cdea95b390",
+    "02bbd3845115eaf130e9998828aea28e",
+    "02bbee0e54c48b09dbbba9cb4da3949e",
+    "02bd27cd1844f18b0c740e91cb650a9f",
+    "02bd7fc527963bf04a0049b59ca53964",
+    "02beb0e8643b0e0f16a6f50572869510",
+    "02c10ee640e38e22f8df87f92653c039",
+    "02c26882d4f7267b6a778b44e312b3b6",
+    "02c3b915a04814efff86f34b64c19250",
+    "02c62c4dff60639e5fb0cf37517455c9",
+    "02c6740339477597dedac1081a240fab",
+    "02c857b14386194abf405d3b24f34069",
+    "02c92d95635c84a179c17618809766c8",
+    "02c940a71c614c9951f56ec7efcdc718",
+    "02c94e05b535f04bb55d4e300912e98c",
+    "02c9f601feae17d242d8883114d63ba9",
+    "02ca18380d545c5f59da1f4385863b01",
+    "02cbe378cc107016f8ad66c4ff226f8f",
+    "02cd3e5ad80ca8f5a9ec3bb2beaca4bd",
+    "02cdf4b562a189c674c2546ba9fcfe65",
+    "02cee0d75f76803106fa1ca4927d749d",
+    "02cf9cffc423475923b558a010dedae7",
+    "02d161a669556ccef1c657b5ad912fee",
+    "02d2de4561f031e62ccdc7c772d2fd50",
+    "02d3e5dea284ec709fd4e6f673191ef5",
+    "02d56742350a2d402e56fd97cfe1d072",
+    "02d626029af48fe6ab44cba643fa1a5c",
+    "02d696b13852146f812f1997db8eb5e9",
+    "02d777ec780965911dfd0c0f08c0560f",
+    "02d8375dc3ae685babf220075eb06204",
+    "02d852a2b45c077ee562acd94f7fed60",
+    "02dad5659a57f4cee26909f21e905bda"
+  ],
+  "decisions": [
+    {
+      "proposedCandidateId": "029875758128e00cb8bc293578339baa",
+      "term": "elusive",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "difficult-to-find-or-achieve",
+      "contextualMeaning": "difficult to find, catch, define, remember, or achieve",
+      "occurrenceIds": [
+        "029875758128e00cb8bc293578339baa:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "0299d348b38f5f833c79e2f20026f752",
+      "term": "reasonable question at this",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-0299d348b38f",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "0299d348b38f5f833c79e2f20026f752:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "029ac6605977ba2de7116242cb7c4fd2",
+      "term": "style u",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-029ac6605977",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "029ac6605977ba2de7116242cb7c4fd2:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "029cb1603fd4bc8a9021a6f4fcbc8eec",
+      "term": "share it with the vp",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-029cb1603fd4",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "029cb1603fd4bc8a9021a6f4fcbc8eec:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "029cd58a7bd5131775799a48ff3668d8",
+      "term": "the conversation until you come",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-029cd58a7bd5",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "029cd58a7bd5131775799a48ff3668d8:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "029df15afdfbef51842d5523c2170df7",
+      "term": "absorb feedback",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "understand-and-use-feedback",
+      "contextualMeaning": "to take in, understand, and mentally process feedback so that it can influence your thinking or behavior",
+      "occurrenceIds": [
+        "029df15afdfbef51842d5523c2170df7:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "029e0c48a771bdf1def2aff666027656",
+      "term": "philosophies theories",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-029e0c48a771",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "029e0c48a771bdf1def2aff666027656:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "029e2bf3ffc8d03721190e920701c3e5",
+      "term": "he did step up to",
+      "decision": "filtered",
+      "senseDecision": "existing_sense",
+      "senseKey": "duplicate-023d68351bbacda3060c51f39741ee3a",
+      "contextualMeaning": "The source demonstrates a lexical sense already represented by an earlier planned candidate in this immutable request.",
+      "occurrenceIds": [
+        "029e2bf3ffc8d03721190e920701c3e5:0001"
+      ],
+      "reason": "duplicate_of:023d68351bbacda3060c51f39741ee3a"
+    },
+    {
+      "proposedCandidateId": "029f1ec8054de1c02c9d7d92e28b4d04",
+      "term": "go deeper into",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "explore-in-greater-depth",
+      "contextualMeaning": "to explore or study an idea, subject, or issue in greater detail and depth",
+      "occurrenceIds": [
+        "029f1ec8054de1c02c9d7d92e28b4d04:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "029f6af03bb80d1424c555db2f5e6d50",
+      "term": "component",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-029f6af03bb8",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "029f6af03bb80d1424c555db2f5e6d50:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "029f712d77dcdd02226cff0669160568",
+      "term": "predicament",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "difficult-unpleasant-situation",
+      "contextualMeaning": "a difficult, unpleasant, or embarrassing situation from which it is hard to escape",
+      "occurrenceIds": [
+        "029f712d77dcdd02226cff0669160568:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02a27cf8b105833017ddb75e22d3c575",
+      "term": "group of people you supervise",
+      "decision": "filtered",
+      "senseDecision": "existing_sense",
+      "senseKey": "duplicate-018d8c51331d97c0f708a91ceb0c2916",
+      "contextualMeaning": "The source demonstrates a lexical sense already represented by an earlier planned candidate in this immutable request.",
+      "occurrenceIds": [
+        "02a27cf8b105833017ddb75e22d3c575:0001"
+      ],
+      "reason": "duplicate_of:018d8c51331d97c0f708a91ceb0c2916"
+    },
+    {
+      "proposedCandidateId": "02a4caf97dc9b8b7f2000e89519a5147",
+      "term": "your desk blotter",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02a4caf97dc9",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02a4caf97dc9b8b7f2000e89519a5147:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02a508e424e40cc3c59197c25d43c327",
+      "term": "neighborhoods and communities",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02a508e424e4",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02a508e424e40cc3c59197c25d43c327:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02a766ebc54afe9defc9da72444678fa",
+      "term": "inadequate proposal",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "proposal-not-good-enough",
+      "contextualMeaning": "a suggested plan that is not good enough or sufficient for its intended purpose",
+      "occurrenceIds": [
+        "02a766ebc54afe9defc9da72444678fa:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02a7e07154d8a6b0184b5c2ec35959a2",
+      "term": "at the expense of",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "causing-loss-or-harm-to",
+      "contextualMeaning": "with a resulting loss, disadvantage, or harm to someone or something else",
+      "occurrenceIds": [
+        "02a7e07154d8a6b0184b5c2ec35959a2:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02a80cd0732c70b0c028b431edf9f052",
+      "term": "counteract",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "act-against-an-effect",
+      "contextualMeaning": "to act against an influence or effect in order to reduce, neutralize, or prevent it",
+      "occurrenceIds": [
+        "02a80cd0732c70b0c028b431edf9f052:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02a8634bf7db738d867adf4b622a59b7",
+      "term": "be in the mood",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "feel-willing-or-inclined",
+      "contextualMeaning": "to feel willing, interested, or emotionally inclined to do something",
+      "occurrenceIds": [
+        "02a8634bf7db738d867adf4b622a59b7:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02a9398d041baae607dd4af98504a1b5",
+      "term": "suppressed emotions",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "feelings-kept-from-expression",
+      "contextualMeaning": "feelings that a person deliberately prevents themselves from expressing openly",
+      "occurrenceIds": [
+        "02a9398d041baae607dd4af98504a1b5:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02aa96a9348deaf7460003a9038bdde4",
+      "term": "the second question-what",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02aa96a9348d",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02aa96a9348deaf7460003a9038bdde4:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02aaa46a91b8d1bbcf94b696e0f6a783",
+      "term": "when others hesitate to",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02aaa46a91b8",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02aaa46a91b8d1bbcf94b696e0f6a783:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02aac1804048904ca50a010cc7798876",
+      "term": "get your way",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "obtain-the-result-you-want",
+      "contextualMeaning": "to obtain the result you want, especially when other people wanted something different",
+      "occurrenceIds": [
+        "02aac1804048904ca50a010cc7798876:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02ab5aebd5ea12f3148fe3a5b5b5e69c",
+      "term": "absolute statement",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "claim-without-qualification",
+      "contextualMeaning": "a statement presented as completely true with no qualification, uncertainty, or exception",
+      "occurrenceIds": [
+        "02ab5aebd5ea12f3148fe3a5b5b5e69c:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02ab5cad88c75f13c90acd17be6dcaa3",
+      "term": "blindingly fast",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "extremely-fast",
+      "contextualMeaning": "extremely fast, especially so fast that it is difficult to notice or process what is happening",
+      "occurrenceIds": [
+        "02ab5cad88c75f13c90acd17be6dcaa3:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02ab68ec3d9d47029a0d93a1e60b0432",
+      "term": "almost anything and",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02ab68ec3d9d",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02ab68ec3d9d47029a0d93a1e60b0432:0001",
+        "02ab68ec3d9d47029a0d93a1e60b0432:0002"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02ac003bd80ff6554d77ee448d779a10",
+      "term": "yield results",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "produce-outcomes",
+      "contextualMeaning": "to produce particular outcomes or measurable effects",
+      "occurrenceIds": [
+        "02ac003bd80ff6554d77ee448d779a10:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02acc60e4a8f491ba1c5c899ea5a4604",
+      "term": "much more fond of",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "below-target-02acc60e4a8f",
+      "contextualMeaning": "A valid source word or phrase whose demonstrated use is basic, freely compositional, overly broad, low-frequency, book-specific, or insufficiently useful as a separate B2–C2 lesson.",
+      "occurrenceIds": [
+        "02acc60e4a8f491ba1c5c899ea5a4604:0001"
+      ],
+      "reason": "Filtered because the demonstrated item is below the B2 target, freely compositional, overly broad, book-specific, low-frequency, or lacks enough independent learning value under the high/medium-frequency policy."
+    },
+    {
+      "proposedCandidateId": "02ad6d3d3576706ec3985443a5042e88",
+      "term": "determine when mutual purpose",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02ad6d3d3576",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02ad6d3d3576706ec3985443a5042e88:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02adc6f1421e0338b7715f4bdb6ac3f4",
+      "term": "hoping people",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02adc6f1421e",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02adc6f1421e0338b7715f4bdb6ac3f4:0001",
+        "02adc6f1421e0338b7715f4bdb6ac3f4:0002"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02ae8f55e6ed40315779d6a962d024ad",
+      "term": "palatable",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "acceptable-or-pleasant",
+      "contextualMeaning": "pleasant enough to taste or, figuratively here, acceptable enough for someone to consider or tolerate",
+      "occurrenceIds": [
+        "02ae8f55e6ed40315779d6a962d024ad:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02afad721c28dc16486f904218b950f5",
+      "term": "genuine dialogue",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "sincere-two-way-discussion",
+      "contextualMeaning": "a sincere two-way discussion in which people openly exchange and consider meaning",
+      "occurrenceIds": [
+        "02afad721c28dc16486f904218b950f5:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02b21d332c71b996a375d939e4f41667",
+      "term": "or about any other",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02b21d332c71",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02b21d332c71b996a375d939e4f41667:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02b2d47206bc2e18af903784af483be0",
+      "term": "get back to the facts",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "return-to-verifiable-information",
+      "contextualMeaning": "to stop relying on assumptions or interpretations and return to information that can be directly verified",
+      "occurrenceIds": [
+        "02b2d47206bc2e18af903784af483be0:0001",
+        "02b2d47206bc2e18af903784af483be0:0002",
+        "02b2d47206bc2e18af903784af483be0:0003"
+      ]
+    },
+    {
+      "proposedCandidateId": "02b337f8a3162be6450b3b842220dd7d",
+      "term": "shared goal",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "objective-held-in-common",
+      "contextualMeaning": "an objective that two or more people or groups want to achieve together",
+      "occurrenceIds": [
+        "02b337f8a3162be6450b3b842220dd7d:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02b375377b4faceb7fbf79d7639899dd",
+      "term": "take flight",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "flee-from-danger",
+      "contextualMeaning": "to flee or move away quickly because of danger, fear, or pressure",
+      "occurrenceIds": [
+        "02b375377b4faceb7fbf79d7639899dd:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02b3766b4d2269d830f2bd77c120603c",
+      "term": "take control of",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "gain-direction-or-command",
+      "contextualMeaning": "to gain the ability to direct, manage, or influence something",
+      "occurrenceIds": [
+        "02b3766b4d2269d830f2bd77c120603c:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02b3b69cfdecb3f91560835e0e28e766",
+      "term": "skills in each of",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02b3b69cfdec",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02b3b69cfdecb3f91560835e0e28e766:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02b79fa995891bd05fa22db72d39dad0",
+      "term": "greta has just opened the",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02b79fa99589",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02b79fa995891bd05fa22db72d39dad0:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02b813dce2aa3e2d38f11ba6d32e259d",
+      "term": "y ou're having an affair",
+      "decision": "filtered",
+      "senseDecision": "existing_sense",
+      "senseKey": "duplicate-01df5dc65d17c8649a3f7169886beb6e",
+      "contextualMeaning": "The source demonstrates a lexical sense already represented by an earlier planned candidate in this immutable request.",
+      "occurrenceIds": [
+        "02b813dce2aa3e2d38f11ba6d32e259d:0001"
+      ],
+      "reason": "duplicate_of:01df5dc65d17c8649a3f7169886beb6e"
+    },
+    {
+      "proposedCandidateId": "02b8f7e51dd88c8f039ec3f35ec89ebe",
+      "term": "whole thing and",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02b8f7e51dd8",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02b8f7e51dd88c8f039ec3f35ec89ebe:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02b9d835a65e9742b52730870474d9c8",
+      "term": "you want to come",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02b9d835a65e",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02b9d835a65e9742b52730870474d9c8:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02ba14cdfc13647d14879c02e05f39ea",
+      "term": "stuf",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02ba14cdfc13",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02ba14cdfc13647d14879c02e05f39ea:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02ba97835b51331998ecd3202cf25076",
+      "term": "do things that hurt us",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02ba97835b51",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02ba97835b51331998ecd3202cf25076:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02baf8c6012ab4a2797ec5cdea95b390",
+      "term": "false dichotomy",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "incorrect-either-or-choice",
+      "contextualMeaning": "an incorrect presentation of a situation as having only two possible choices when other alternatives exist",
+      "occurrenceIds": [
+        "02baf8c6012ab4a2797ec5cdea95b390:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02bbd3845115eaf130e9998828aea28e",
+      "term": "be caught up in",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "become-absorbed-or-involved",
+      "contextualMeaning": "to become so absorbed or involved in something that it is difficult to notice anything else",
+      "occurrenceIds": [
+        "02bbd3845115eaf130e9998828aea28e:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02bbee0e54c48b09dbbba9cb4da3949e",
+      "term": "keep a close eye on",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "watch-very-carefully",
+      "contextualMeaning": "to watch or monitor someone or something very carefully",
+      "occurrenceIds": [
+        "02bbee0e54c48b09dbbba9cb4da3949e:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02bd27cd1844f18b0c740e91cb650a9f",
+      "term": "the frightened manager continues",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02bd27cd1844",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02bd27cd1844f18b0c740e91cb650a9f:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02bd7fc527963bf04a0049b59ca53964",
+      "term": "eat away at",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "gradually-damage-or-distress",
+      "contextualMeaning": "to gradually damage, weaken, or cause continuing distress to someone or something",
+      "occurrenceIds": [
+        "02bd7fc527963bf04a0049b59ca53964:0001",
+        "02bd7fc527963bf04a0049b59ca53964:0002"
+      ]
+    },
+    {
+      "proposedCandidateId": "02beb0e8643b0e0f16a6f50572869510",
+      "term": "different emotional",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02beb0e8643b",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02beb0e8643b0e0f16a6f50572869510:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02c10ee640e38e22f8df87f92653c039",
+      "term": "walked in the door and",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02c10ee640e3",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02c10ee640e38e22f8df87f92653c039:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02c26882d4f7267b6a778b44e312b3b6",
+      "term": "at a crossroads",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "at-major-decision-point",
+      "contextualMeaning": "at a stage where an important decision must be made between different future directions",
+      "occurrenceIds": [
+        "02c26882d4f7267b6a778b44e312b3b6:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02c3b915a04814efff86f34b64c19250",
+      "term": "domain",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02c3b915a048",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02c3b915a04814efff86f34b64c19250:0001",
+        "02c3b915a04814efff86f34b64c19250:0002",
+        "02c3b915a04814efff86f34b64c19250:0003",
+        "02c3b915a04814efff86f34b64c19250:0004",
+        "02c3b915a04814efff86f34b64c19250:0005"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02c62c4dff60639e5fb0cf37517455c9",
+      "term": "easily lead to disaster",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02c62c4dff60",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02c62c4dff60639e5fb0cf37517455c9:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02c6740339477597dedac1081a240fab",
+      "term": "can continually inspire prod",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02c674033947",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02c6740339477597dedac1081a240fab:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02c857b14386194abf405d3b24f34069",
+      "term": "the last chapter contained a",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02c857b14386",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02c857b14386194abf405d3b24f34069:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02c92d95635c84a179c17618809766c8",
+      "term": "self-justification",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "defending-own-questionable-actions",
+      "contextualMeaning": "the act of giving yourself reasons that make your own questionable behavior seem acceptable or necessary",
+      "occurrenceIds": [
+        "02c92d95635c84a179c17618809766c8:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02c940a71c614c9951f56ec7efcdc718",
+      "term": "the relationship eventually turned",
+      "decision": "filtered",
+      "senseDecision": "existing_sense",
+      "senseKey": "duplicate-01b60f196f4067b3c7ad190c01885248",
+      "contextualMeaning": "The source demonstrates a lexical sense already represented by an earlier planned candidate in this immutable request.",
+      "occurrenceIds": [
+        "02c940a71c614c9951f56ec7efcdc718:0001"
+      ],
+      "reason": "duplicate_of:01b60f196f4067b3c7ad190c01885248"
+    },
+    {
+      "proposedCandidateId": "02c94e05b535f04bb55d4e300912e98c",
+      "term": "speak your mind",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "state-thoughts-openly",
+      "contextualMeaning": "to express your thoughts or opinions openly and directly",
+      "occurrenceIds": [
+        "02c94e05b535f04bb55d4e300912e98c:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02c9f601feae17d242d8883114d63ba9",
+      "term": "articulate",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "express-clearly-in-words",
+      "contextualMeaning": "to express an idea, theory, or feeling clearly and effectively in words",
+      "occurrenceIds": [
+        "02c9f601feae17d242d8883114d63ba9:0001",
+        "02c9f601feae17d242d8883114d63ba9:0002"
+      ]
+    },
+    {
+      "proposedCandidateId": "02ca18380d545c5f59da1f4385863b01",
+      "term": "see if i can get",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02ca18380d54",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02ca18380d545c5f59da1f4385863b01:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02cbe378cc107016f8ad66c4ff226f8f",
+      "term": "a specific relationship at",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02cbe378cc10",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02cbe378cc107016f8ad66c4ff226f8f:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02cd3e5ad80ca8f5a9ec3bb2beaca4bd",
+      "term": "undermine",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "gradually-weaken",
+      "contextualMeaning": "to gradually weaken someone’s authority, confidence, effectiveness, or chances of success",
+      "occurrenceIds": [
+        "02cd3e5ad80ca8f5a9ec3bb2beaca4bd:0001",
+        "02cd3e5ad80ca8f5a9ec3bb2beaca4bd:0002",
+        "02cd3e5ad80ca8f5a9ec3bb2beaca4bd:0003"
+      ]
+    },
+    {
+      "proposedCandidateId": "02cdf4b562a189c674c2546ba9fcfe65",
+      "term": "crotchety",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "bad-tempered-and-irritable",
+      "contextualMeaning": "bad-tempered, irritable, and inclined to complain",
+      "occurrenceIds": [
+        "02cdf4b562a189c674c2546ba9fcfe65:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02cee0d75f76803106fa1ca4927d749d",
+      "term": "time and again",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "repeatedly",
+      "contextualMeaning": "repeatedly or on many separate occasions",
+      "occurrenceIds": [
+        "02cee0d75f76803106fa1ca4927d749d:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02cf9cffc423475923b558a010dedae7",
+      "term": "other people's",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02cf9cffc423",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02cf9cffc423475923b558a010dedae7:0001",
+        "02cf9cffc423475923b558a010dedae7:0002"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02d161a669556ccef1c657b5ad912fee",
+      "term": "w i l l we",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02d161a66955",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02d161a669556ccef1c657b5ad912fee:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02d2de4561f031e62ccdc7c772d2fd50",
+      "term": "if others are moving toward",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02d2de4561f0",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02d2de4561f031e62ccdc7c772d2fd50:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02d3e5dea284ec709fd4e6f673191ef5",
+      "term": "poison a community",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "seriously-damage-social-relations",
+      "contextualMeaning": "to seriously damage trust, relationships, or well-being throughout a community",
+      "occurrenceIds": [
+        "02d3e5dea284ec709fd4e6f673191ef5:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02d56742350a2d402e56fd97cfe1d072",
+      "term": "the issue at hand",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "matter-currently-being-considered",
+      "contextualMeaning": "the particular subject or problem currently being discussed or considered",
+      "occurrenceIds": [
+        "02d56742350a2d402e56fd97cfe1d072:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02d626029af48fe6ab44cba643fa1a5c",
+      "term": "merely share the shadow of",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02d626029af4",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02d626029af48fe6ab44cba643fa1a5c:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02d696b13852146f812f1997db8eb5e9",
+      "term": "and doesn't like",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02d696b13852",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02d696b13852146f812f1997db8eb5e9:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02d777ec780965911dfd0c0f08c0560f",
+      "term": "force something down someone’s throat",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "make-someone-accept-unwillingly",
+      "contextualMeaning": "to force someone to accept an idea, opinion, or choice that they do not want",
+      "occurrenceIds": [
+        "02d777ec780965911dfd0c0f08c0560f:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02d8375dc3ae685babf220075eb06204",
+      "term": "exactly what are our",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02d8375dc3ae",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02d8375dc3ae685babf220075eb06204:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    },
+    {
+      "proposedCandidateId": "02d852a2b45c077ee562acd94f7fed60",
+      "term": "lose track of",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "stop-being-aware-of",
+      "contextualMeaning": "to stop being aware of, following, or accurately remembering someone or something",
+      "occurrenceIds": [
+        "02d852a2b45c077ee562acd94f7fed60:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "02dad5659a57f4cee26909f21e905bda",
+      "term": "you missed what actually",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "noise-02dad5659a57",
+      "contextualMeaning": "A mechanically extracted fragment that does not form a stable teachable lexical unit in the source.",
+      "occurrenceIds": [
+        "02dad5659a57f4cee26909f21e905bda:0001"
+      ],
+      "reason": "Rejected as an OCR, boundary, proper-name, or syntactically incomplete extraction fragment; it is not a valid standalone vocabulary item."
+    }
+  ],
+  "recallPass": {
+    "completed": true,
+    "method": "blind_sentence_rescan",
+    "findings": [
+      {
+        "findingId": "source-request-072b9df22daa92d3802d848a:recall:0010:false-dichotomy",
+        "occurrenceId": "02baf8c6012ab4a2797ec5cdea95b390:0001",
+        "term": "false dichotomy",
+        "linkedProposedCandidateId": "02baf8c6012ab4a2797ec5cdea95b390",
+        "reason": "The blind sentence rescan recovered the complete critical-thinking term from a truncated proposal boundary."
+      },
+      {
+        "findingId": "source-request-072b9df22daa92d3802d848a:recall:0010:close-eye",
+        "occurrenceId": "02bbee0e54c48b09dbbba9cb4da3949e:0001",
+        "term": "keep a close eye on",
+        "linkedProposedCandidateId": "02bbee0e54c48b09dbbba9cb4da3949e",
+        "reason": "The blind sentence rescan recovered the complete monitoring idiom from the sentence evidence."
+      },
+      {
+        "findingId": "source-request-072b9df22daa92d3802d848a:recall:0010:speak-mind",
+        "occurrenceId": "02c94e05b535f04bb55d4e300912e98c:0001",
+        "term": "speak your mind",
+        "linkedProposedCandidateId": "02c94e05b535f04bb55d4e300912e98c",
+        "reason": "The blind sentence rescan retained the complete conversational expression rather than the proposal fragment."
+      },
+      {
+        "findingId": "source-request-072b9df22daa92d3802d848a:recall:0010:down-throat",
+        "occurrenceId": "02d777ec780965911dfd0c0f08c0560f:0001",
+        "term": "force something down someone’s throat",
+        "linkedProposedCandidateId": "02d777ec780965911dfd0c0f08c0560f",
+        "reason": "The blind sentence rescan recovered the full figurative idiom and preserved its exact occurrence identity."
+      }
+    ],
+    "unresolvedFindingIds": []
+  },
+  "counts": {
+    "proposedCandidates": 75,
+    "decidedCandidates": 75,
+    "generate": 34,
+    "existing": 0,
+    "filtered": 5,
+    "rejected": 36,
+    "untracked": 0
+  }
+}
