@@ -3,7 +3,10 @@ import path from "path";
 import { createHash } from "crypto";
 import { contentPackHash } from "../services/content-pack-contract";
 import { parseSource, SourceType } from "../services/document-parser.service";
-import { enumerateCandidates } from "../services/extraction-foundation.service";
+import {
+  buildExpressionRecallUnits,
+  enumerateCandidates,
+} from "../services/extraction-foundation.service";
 import { buildSourceChunkPlan } from "../services/source-chunking.service";
 
 const binaryTypes = new Set<SourceType>(["pdf", "docx", "epub"]);
@@ -83,6 +86,7 @@ export async function buildInventory(input: {
   }
 
   const candidates = enumerateCandidates(segments);
+  const expressionRecallUnits = buildExpressionRecallUnits(segments);
   const occurrences = candidates.flatMap((candidate) =>
     candidate.occurrences.map((occurrence, index) => ({
       occurrenceId: `${candidate.candidateId}:${String(index + 1).padStart(4, "0")}`,
@@ -110,6 +114,7 @@ export async function buildInventory(input: {
     segments,
     sourceUnits: segments,
     processingChunks: chunkPlan.chunks,
+    expressionRecallUnits,
     chunkReconciliation: chunkPlan.reconciliation,
     occurrences,
     counts: {
@@ -118,6 +123,7 @@ export async function buildInventory(input: {
       readableWords: chunkPlan.readableWordCount,
       proposedCandidates: candidates.length,
       occurrences: occurrences.length,
+      expressionRecallUnits: expressionRecallUnits.length,
     },
   };
   return {

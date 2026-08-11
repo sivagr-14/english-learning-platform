@@ -77,12 +77,22 @@ export interface EnumeratedCandidate {
   detection: string[];
 }
 
+export interface ExpressionRecallUnit {
+  recallUnitId: string;
+  segmentId: string;
+  sentence: string;
+  startOffset: number;
+  endOffset: number;
+  locator: SourceLocator;
+}
+
 const STOP = new Set(
   "a an and are as at be been but by for from had has have he her hers him his i in is it its me my of on or our she that the their them they this to was we were will with you your".split(
     " ",
   ),
 );
-// High-confidence patterns complement, but never bound, open n-gram discovery.
+// High-confidence patterns seed expression discovery. They are complemented by
+// corpus-backed phrase evidence and a complete sentence recall ledger below.
 const EXPRESSIONS = [
   "amount to",
   "back down",
@@ -107,6 +117,17 @@ const EXPRESSIONS = [
   "in spite of",
   "on the other hand",
 ];
+
+const PARTICLES = new Set(
+  "about across after against along around away back down for forward in into off on out over through to together up upon with without".split(
+    " ",
+  ),
+);
+const COMMON_PARTICLE_VERBS = new Set(
+  "act add back break bring call carry check clean come cut do draw drop fall figure fill find get give go grow hand hang hold keep kick knock lay leave let live look make move pass pick point pull put run set show shut sit sort speak stand step take talk throw turn use walk watch work write".split(
+    " ",
+  ),
+);
 
 function lemma(token: string): string {
   if (token.length > 5 && token.endsWith("ies"))
@@ -153,6 +174,36 @@ export function sentenceRanges(
   return result;
 }
 
+/**
+ * Creates one immutable recall unit for every readable sentence. These units
+ * are deliberately independent from the deterministic candidate list: the
+ * semantic pass must rescan them for one-off idioms, phrasal verbs,
+ * collocations and fixed expressions that a local heuristic cannot prove.
+ */
+export function buildExpressionRecallUnits(
+  segments: SourceSegment[],
+): ExpressionRecallUnit[] {
+  return segments
+    .filter((segment) => segment.status === "readable")
+    .flatMap((segment) =>
+      sentenceRanges(segment.originalText).map((sentence) => {
+        const startOffset = segment.locator.startOffset + sentence.start;
+        return {
+          recallUnitId: stableExtractionId({
+            segmentId: segment.segmentId,
+            startOffset,
+            sentence: sentence.text,
+          }).slice(0, 32),
+          segmentId: segment.segmentId,
+          sentence: sentence.text,
+          startOffset,
+          endOffset: segment.locator.startOffset + sentence.end,
+          locator: segment.locator,
+        };
+      }),
+    );
+}
+
 export function enumerateCandidates(
   segments: SourceSegment[],
 ): EnumeratedCandidate[] {
@@ -187,6 +238,10 @@ export function enumerateCandidates(
       current.detection.push(detection);
     found.set(key, current);
   };
+  const phraseEvidence = new Map<
+    string,
+    { count: number; width: number }
+  >();
   for (const segment of segments.filter((s) => s.status === "readable"))
     for (const sentence of sentenceRanges(segment.originalText)) {
       const wordRe = /[\p{L}][\p{L}'’-]*/gu;
@@ -212,41 +267,27 @@ export function enumerateCandidates(
           "token+lemma",
         );
       }
-      // Enumerate every plausible 2-5 word lexical unit before model/policy
-      // filtering. This is intentionally open-ended: the former curated list
-      // silently capped expression recall and made large-source reconciliation
-      // impossible to prove.
+      // Collect bounded phrase evidence. Do not turn every adjacent 2-5 word
+      // window into semantic work: that produces mostly sentence fragments.
+      // Complete expression recall is instead guaranteed by recall units that
+      // rescan every original sentence independently.
       const tokens = [...sentence.text.matchAll(/[\p{L}][\p{L}'’-]*/gu)];
-      for (let width = 2; width <= 5; width += 1) {
+      for (let width = 2; width <= 4; width += 1) {
         for (let index = 0; index + width <= tokens.length; index += 1) {
           const slice = tokens.slice(index, index + width);
           const normalizedParts = slice.map((token) =>
             normalizeVocabularyTerm(token[0]),
           );
-          if (normalizedParts.filter((part) => !STOP.has(part)).length < 2)
+          const contentParts = normalizedParts.filter((part) => !STOP.has(part));
+          if (contentParts.length < 2)
             continue;
           if (EXPRESSIONS.includes(normalizedParts.join(" "))) continue;
-          const first = slice[0];
-          const last = slice[slice.length - 1];
-          const localStart = first.index!;
-          const localEnd = last.index! + last[0].length;
-          const surface = sentence.text.slice(localStart, localEnd);
-          const startOffset =
-            segment.locator.startOffset + sentence.start + localStart;
-          add(
-            surface,
-            normalizedParts.join(" "),
-            "collocation",
-            {
-              segmentId: segment.segmentId,
-              surfaceForm: surface,
-              sentence: sentence.text,
-              startOffset,
-              endOffset: startOffset + surface.length,
-              locator: segment.locator,
-            },
-            `open-ngram-${width}`,
-          );
+          const baseForm = normalizedParts.join(" ");
+          const evidence = phraseEvidence.get(baseForm);
+          phraseEvidence.set(baseForm, {
+            count: (evidence?.count ?? 0) + 1,
+            width,
+          });
         }
       }
       const lower = normalizeSourceText(sentence.text).toLowerCase();
@@ -278,6 +319,67 @@ export function enumerateCandidates(
           "curated-expression+ngram",
         );
       }
+    }
+
+  const selectedPhraseEvidence = new Map<
+    string,
+    { itemType: "phrasal verb" | "collocation"; detection: string }
+  >();
+  for (const [baseForm, evidence] of phraseEvidence) {
+    const parts = baseForm.split(" ");
+    const hasParticleShape =
+      parts.length <= 3 &&
+      COMMON_PARTICLE_VERBS.has(lemma(parts[0])) &&
+      (PARTICLES.has(parts[parts.length - 1]) ||
+        (parts.length === 3 && PARTICLES.has(parts[1])));
+    const repeatedPhrase =
+      evidence.count >= 3 &&
+      !STOP.has(parts[0]) &&
+      !STOP.has(parts[parts.length - 1]);
+    if (!hasParticleShape && !repeatedPhrase) continue;
+    selectedPhraseEvidence.set(baseForm, {
+      itemType: hasParticleShape ? "phrasal verb" : "collocation",
+      detection: hasParticleShape
+        ? "particle-pattern"
+        : `corpus-repeated-ngram-${evidence.width}`,
+    });
+  }
+
+  // Revisit the source only for the compact selected phrase set. The first
+  // pass stores counts, not every arbitrary n-gram occurrence, keeping memory
+  // bounded for large documents.
+  for (const segment of segments.filter((s) => s.status === "readable"))
+    for (const sentence of sentenceRanges(segment.originalText)) {
+      const tokens = [...sentence.text.matchAll(/[\p{L}][\p{L}'’-]*/gu)];
+      for (let width = 2; width <= 4; width += 1)
+        for (let index = 0; index + width <= tokens.length; index += 1) {
+          const slice = tokens.slice(index, index + width);
+          const baseForm = slice
+            .map((token) => normalizeVocabularyTerm(token[0]))
+            .join(" ");
+          const selected = selectedPhraseEvidence.get(baseForm);
+          if (!selected) continue;
+          const localStart = slice[0].index!;
+          const last = slice[slice.length - 1];
+          const localEnd = last.index! + last[0].length;
+          const surface = sentence.text.slice(localStart, localEnd);
+          const startOffset =
+            segment.locator.startOffset + sentence.start + localStart;
+          add(
+            surface,
+            baseForm,
+            selected.itemType,
+            {
+              segmentId: segment.segmentId,
+              surfaceForm: surface,
+              sentence: sentence.text,
+              startOffset,
+              endOffset: startOffset + surface.length,
+              locator: segment.locator,
+            },
+            selected.detection,
+          );
+        }
     }
   return [...found.values()].sort((a, b) =>
     a.candidateId.localeCompare(b.candidateId),

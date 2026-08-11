@@ -43,12 +43,15 @@ Candidate totals must never be selected in advance. A result such as 40, 72,
 inventory-to-decision reconciliation. Previously generated cards are checked
 as `existing`; they do not reduce how thoroughly the source is rescanned.
 
-For each sentence, first account for every lexical token/lemma, then separately
-discover multi-word units. Each inventory item must link to a candidate or have
-a specific exclusion code. After both passes, perform an independent blind recall pass
-over the original source and add every missed B2-C2 word or useful
-expression before lesson generation. Do not infer completeness from the number
-of generated lessons.
+For each sentence, first account for every lexical token/lemma. Seed multi-word
+units only from high-confidence phrase evidence; arbitrary adjacent word windows
+are not semantic candidates. Then independently scan every immutable original
+sentence recall unit and promote every missed B2-C2 word or useful expression
+before lesson generation. Each lexical item and recall finding must link to a
+candidate or have a specific exclusion code. Do not infer completeness from the
+number of generated lessons or from the deterministic phrase seed.
+This sentence-level rescan is the independent blind recall pass required for
+exhaustive discovery.
 
 If the learner supplies a word or expression list with the complete source,
 treat those items as required seed candidates and use the source to resolve
@@ -60,12 +63,14 @@ discovery. Report any supplied item that is absent from the source or lacks
 enough context rather than inventing a meaning.
 
 For a large request whose manifest is not yet frozen, assess only the current
-immutable semantic group (at most 75 proposed candidates), complete its blind
-recall pass, validate and deliver its assessment checkpoint, then continue only
+immutable semantic group (at most 100 proposed candidates), scan every sentence
+recall unit assigned to it, validate and deliver its assessment checkpoint, then continue only
 with missing groups. A checkpoint is durable assessment evidence, not a lesson
 batch and not permission to generate early. Freeze the complete manifest only
 after every planned group and proposed candidate reconciles with zero untracked
-items. At each checkpoint boundary, an in-chat scheduled task reads the durable receipts
+items. A repeated spelling may produce multiple checkpoint decisions only when
+each has a different contextual `senseKey`; every stored occurrence must belong
+to exactly one of those decisions. At each checkpoint boundary, an in-chat scheduled task reads the durable receipts
 and continues the next missing group automatically. Report `Continue assessment <requestId>` only as a manual recovery fallback.
 
 For a large frozen plan, generate only the current immutable batch of five to

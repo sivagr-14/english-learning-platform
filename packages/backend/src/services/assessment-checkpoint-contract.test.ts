@@ -1,10 +1,11 @@
 import {
   ASSESSMENT_CHECKPOINT_VERSION,
+  AssessmentRequestReference,
   reconcileAssessmentCheckpoints,
   validateAssessmentCheckpoint,
 } from "./assessment-checkpoint-contract";
 
-const request = {
+const request: AssessmentRequestReference = {
   requestId: "source-request-123",
   requestHash: "a".repeat(64),
   assessmentPlan: {
@@ -14,11 +15,18 @@ const request = {
         groupId: "source-request-123:assessment:0001",
         groupNumber: 1,
         proposedCandidateIds: ["proposed-1", "proposed-2"],
+        candidateOccurrenceIds: {
+          "proposed-1": ["proposed-1:0001", "proposed-1:0002"],
+          "proposed-2": ["proposed-2:0001"],
+        },
+        recallUnitIds: ["recall-unit-1"],
       },
       {
         groupId: "source-request-123:assessment:0002",
         groupNumber: 2,
         proposedCandidateIds: ["proposed-3"],
+        candidateOccurrenceIds: { "proposed-3": ["proposed-3:0001"] },
+        recallUnitIds: ["recall-unit-2"],
       },
     ],
   },
@@ -38,6 +46,7 @@ function checkpoint(
     totalGroups: 2,
     createdAt: "2026-08-10T20:00:00.000Z",
     proposedCandidateIds: candidateIds,
+    recallUnitIds: [`recall-unit-${groupNumber}`],
     decisions: candidateIds.map((proposedCandidateId) => ({
       proposedCandidateId,
       term: proposedCandidateId,
@@ -45,12 +54,16 @@ function checkpoint(
       senseDecision: "new_sense",
       senseKey: `sense-${proposedCandidateId}`,
       contextualMeaning: `Contextual meaning for ${proposedCandidateId}`,
-      occurrenceIds: [`${proposedCandidateId}:0001`],
+      occurrenceIds:
+        proposedCandidateId === "proposed-1"
+          ? ["proposed-1:0001", "proposed-1:0002"]
+          : [`${proposedCandidateId}:0001`],
       reason: "Below the target usefulness threshold for this contextual sense.",
     })),
     recallPass: {
       completed: true as const,
       method: "blind_sentence_rescan" as const,
+      scannedRecallUnitIds: [`recall-unit-${groupNumber}`],
       findings: [],
       unresolvedFindingIds: [],
     },
@@ -83,6 +96,45 @@ describe("resumable semantic assessment checkpoint contract", () => {
     );
     expect(result.valid).toBe(false);
     expect(result.issues.join(" ")).toMatch(/exactly match the planned group/i);
+  });
+
+  it("allows distinct contextual senses while partitioning every occurrence exactly once", () => {
+    const value = checkpoint(1, ["proposed-1", "proposed-2"]);
+    value.decisions = [
+      {
+        ...value.decisions[0],
+        senseKey: "financial-institution",
+        contextualMeaning: "An institution that manages money.",
+        occurrenceIds: ["proposed-1:0001"],
+      },
+      {
+        ...value.decisions[0],
+        senseKey: "river-edge",
+        contextualMeaning: "Land along the edge of a river.",
+        occurrenceIds: ["proposed-1:0002"],
+      },
+      value.decisions[1],
+    ];
+    value.counts.decidedCandidates = 3;
+    value.counts.filtered = 3;
+    const result = validateAssessmentCheckpoint(value, request);
+    expect(result.valid).toBe(true);
+  });
+
+  it("rejects a missed occurrence when a spelling has multiple contextual senses", () => {
+    const value = checkpoint(1, ["proposed-1", "proposed-2"]);
+    value.decisions[0].occurrenceIds = ["proposed-1:0001"];
+    const result = validateAssessmentCheckpoint(value, request);
+    expect(result.valid).toBe(false);
+    expect(result.issues.join(" ")).toMatch(/every source occurrence/i);
+  });
+
+  it("rejects an unscanned sentence recall unit", () => {
+    const value = checkpoint(1, ["proposed-1", "proposed-2"]);
+    value.recallPass.scannedRecallUnitIds = [];
+    const result = validateAssessmentCheckpoint(value, request);
+    expect(result.valid).toBe(false);
+    expect(result.issues.join(" ")).toMatch(/every planned sentence/i);
   });
 
   it("resumes only missing groups and freezes after full reconciliation", () => {

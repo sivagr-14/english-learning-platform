@@ -197,14 +197,16 @@ system classification.
 - Keep a small context overlap when an expression might cross a chunk boundary,
   preserve exact source spans, and deduplicate overlap candidates by normalized
   term plus contextual sense.
-- Before semantic filtering, deterministically enumerate tokens, lemmas,
-  useful n-grams and exact occurrences. This inventory prevents the model from
-  silently replacing the source vocabulary with a short hand-selected list.
+- Before semantic filtering, deterministically enumerate every lexical token,
+  lemma, high-confidence phrase and exact occurrence. Do not enumerate every
+  adjacent 2-5-word window: arbitrary sliding windows are extraction evidence,
+  not vocabulary candidates, and create mostly fragments.
 - The deterministic inventory is the assessment input, not a suggestion. It
   must contain every non-noise lexical token after documented function-word
-  removal. Expression discovery must additionally scan every sentence with
-  lexical and syntactic phrase detection; a fixed hand-written phrase list is
-  only one detector and can never define the complete inventory.
+  removal. Expression discovery first uses curated patterns, particle patterns
+  and repeated corpus evidence. It then independently scans every original
+  sentence through an immutable expression-recall unit. A fixed phrase list or
+  local heuristic is only a seed and can never define complete expression recall.
 - Give every inventory item a stable `inventoryId`. Store its source span and
   one final disposition: candidate ID, `basic_below_target`, `function_word`,
   `proper_name`, `low_frequency`, `noise`, or `subsumed_by_expression`. A broad
@@ -221,9 +223,11 @@ system classification.
 - Run a per-chunk omission audit against the deterministic inventory and a final
   source-wide audit for missed advanced words, expressions, repeated spellings
   with different senses and candidates crossing chunk boundaries.
-- A second independent recall pass must rescan the original sentences without
-  seeing the first pass's chosen candidate list. Reconcile the union. Any item
-  found only by the recall pass is added to the ledger before finalization.
+- A second independent recall pass must rescan every immutable sentence recall
+  unit without seeing the first pass's chosen candidate list. Reconcile the
+  union. Any item found only by the recall pass is promoted to a source-backed
+  candidate before finalization; it may never be dropped because it was absent
+  from the deterministic phrase seed.
 - Lesson count is an output of the reconciled ledger. Never choose a desired
   count first and then select that many terms. Previous-import counts (for
   example 40 or 72) are deduplication inputs only, never discovery budgets.
@@ -368,11 +372,11 @@ content.
 Large prepared requests must not attempt to decide the entire deterministic
 inventory in one ChatGPT run. The assessment request contains an immutable
 `assessmentPlan` that partitions proposed candidates into ordered groups of at
-most 75. This bound controls one semantic operation; it never caps total
-coverage.
+most 100 and assigns every sentence recall unit to exactly one group. This bound
+controls one semantic operation; it never caps total coverage.
 
-For each group, ChatGPT performs the single-word pass, expression pass,
-contextual-sense decision and blind sentence recall pass, then validates and
+For each group, ChatGPT performs the single-word pass, contextual-sense decision
+and blind scan of every assigned sentence recall unit, then validates and
 delivers one
 `chatgpt-semantic-assessment-checkpoint-v1` file under the request's
 `assessment-checkpoints/<requestId>/` path. A checkpoint is not an importable
@@ -385,7 +389,10 @@ content is a conflict. The complete v5 manifest may be frozen only after:
 
 ```text
 planned assessment groups = valid immutable checkpoints
-planned proposed candidates = exactly one semantic decision each
+planned proposed candidates = at least one contextual-sense decision each
+every proposed occurrence = exactly one contextual-sense decision
+planned sentence recall units = exactly one completed blind scan each
+new recall findings = promoted source-backed candidates or explicit exclusions
 unresolved recall findings = 0
 missing groups, duplicate decisions and untracked candidates = 0
 ```
