@@ -1,0 +1,4032 @@
+{
+  "formatVersion": "chatgpt-semantic-assessment-checkpoint-v1",
+  "checkpointId": "source-request-99f16d23781d4f7fded13475:checkpoint:0043",
+  "requestId": "source-request-99f16d23781d4f7fded13475",
+  "requestHash": "a92f4e6ac1615ac02859e733092c918964a7da8ded0bb639622e858e5688d656",
+  "groupId": "source-request-99f16d23781d4f7fded13475:assessment:0043",
+  "groupNumber": 43,
+  "totalGroups": 51,
+  "createdAt": "2026-08-12T19:25:54.475Z",
+  "proposedCandidateIds": [
+    "d64f589fa57ebcea5083472cca1bc0c3",
+    "d65d5182159fac3eaa8d7ffc051d4473",
+    "d66a03bca69b44df44d51a9ccc917fd1",
+    "d68115ac843888be9e14136322cbde35",
+    "d6856ea52918540db3a43f79676229dd",
+    "d69b5bc2a18656d72c364d628c575d29",
+    "d6a0383f636152406f8af9da5b7d3558",
+    "d6a7b4a084f3f15316f1b6f337483be4",
+    "d6bd068193e11e413b1dd76ea472349d",
+    "d6be221dc12cb5c42691a6d00d4a7365",
+    "d6d27372c4000ef8ff5d1f86048f6d21",
+    "d6d64f872c14828de72a024650e45dc9",
+    "d6e38e08c75dc54ad730bff9267e5906",
+    "d6f21a853df49d30da77a9ddf067096a",
+    "d6f2b9b5479258f17dd900b82aaee71e",
+    "d6f2dbdfe60b4dbfcb98ddad6f3bca7f",
+    "d6fce3b09e392b3461ac8444383939ca",
+    "d702c51ca74bd56be434991f17fd21c6",
+    "d708f7ff73f92069b1fe0874a9248c8d",
+    "d70f7adc04d8ae4211afef2247deeb79",
+    "d71916ad5dad125d837d21ae3bd52224",
+    "d72e1bafcb9983b71d82ff38d5f018ed",
+    "d72fe6b389ed149a865268af8ba416d6",
+    "d7587a95829b7dfa92f96a3196baad37",
+    "d759bcf40b85fa344828b02a7aca1a3d",
+    "d76db725eb15f2422c92666105f20892",
+    "d77214fa5aeb565053cea7e60be01995",
+    "d7820630e438db3548c49d63c932f909",
+    "d7902d716c6cb3e4e1b9ef768eb5de55",
+    "d79551cbacae2461ca8b7d56e73f023f",
+    "d799cf502962e62b957936da80e41cc7",
+    "d7a0c2015b0ee732a113c8d4a76ab008",
+    "d7a5781801bbdbacf01f7682ad69d074",
+    "d7b7678b03ff80188a93e2e9995a030e",
+    "d7cdbef14f2a31b44210cb58eb1ac4ad",
+    "d7daac33f3c206b38f2cb63801cceb04",
+    "d7ea144704ec4bac715303a7c8aac62e",
+    "d7f6c78db726bb0b101eb6b625e030a5",
+    "d7fc4ef37f92af755b584aa01db5dc5f",
+    "d81a66d58fe2ed5bd01c44bc9ab66b4e",
+    "d82447bcba91da0d3f9fdc921c4f82eb",
+    "d83cb60c582326c3d29d366f57df2678",
+    "d841149fdb8e2eb114c9174eaf995875",
+    "d8414138f12cd617d98d171aa731ec98",
+    "d84efb5c684263922fd76a4b0df2a99e",
+    "d8509f8b98f81f45d3129c3e50870829",
+    "d8660c76fb6a258dc5486f1e32fe68a0",
+    "d88d9fb33220ed939b58bff7545e9ba7",
+    "d8985fe08f3d197f4e2cb5fd129585d1",
+    "d8a1613e4f5ee41639f074c4841f814f",
+    "d8ab79e65049232a3ec13629dae4e015",
+    "d8c05e9ceefd0eaa75f930f632a9266b",
+    "d8d6d03e3006ff2ebda40e4c22478a4f",
+    "d8da181b054c88dcb30bad2e1a0dc402",
+    "d8dbc1c15abd764a62cb1db05c98a141",
+    "d8e2cce9d2fc879841b17f9440dc8ef7",
+    "d8e385887c18732f803923cf90289c89",
+    "d8f1fcb334057cdc0bc0088e22ff274e",
+    "d900211f38b7ae3687939400e20daa69",
+    "d9088e65e3c7b03ccacb547a913baa1b",
+    "d9095abd6f9afc008e615a7a237472fc",
+    "d917fbad33b76d0f32258c5a9ac3c352",
+    "d91d5cde9330e1e919909b53c8d0de87",
+    "d92c7a3ba08240d8803c89baa621b110",
+    "d939b1b6c16a157fe25d9207dc270712",
+    "d95375c961646c7d3e4fec63a4b53e1f",
+    "d96453cdca4bba9dbdd6e7dee2a2928b",
+    "d973038d917fa74016b35c414ba87aa3",
+    "d976df4e147432b39f5a5913bebd8eea",
+    "d97e2d09bc3adab60b51521f98779e7d",
+    "d99f7fe3c2eeecccd94fb06fa2837239",
+    "d9a7883dfca580bda3d3b260bf4c1024",
+    "d9a82795343f9794e53cd992c94db558",
+    "d9bfa1ecd315410039fd71ca0509139d",
+    "d9c298dd6a5da435d5413b7742218a40",
+    "d9d1bddedd0c29c3e6a6d8eb29fc192a",
+    "d9d5c07bbcf73b2b7abeaf453118b03b",
+    "d9dbb3dc2a2b3fbdf67bb3102dbdef35",
+    "d9efa65587f4f4e90b7940f82d7aae4b",
+    "d9f6fb17c40d72e126c4c811a426b21e",
+    "d9ffa9dd386b5d8e57ff787e95af1f70",
+    "da171cfd4af16565cabafadfd87a8f18",
+    "da29ee9f1d4549003da0467cc36548da",
+    "da2dd08e1b9998f33ffc528669c829b2",
+    "da3457c43c98bf5f487c278eaf3f3d1a",
+    "da983cf45488b4febb0785989295b96d",
+    "da9b4d4697d8fa10662572bfb9485491",
+    "dab3303963c4df017c9ddbcc925ec187",
+    "dac7cbd67186f719d691c1f1f2dfaf56",
+    "dad4f9a759b73ee175f7718478adcf5d",
+    "dad4fd5922b84fe753d78e63fa5b7b32",
+    "dada5d632966ce19d75729edfb25b69d",
+    "dadbf008bcbb1dc2384cbc7723378f6a",
+    "dae75ff52dc2ea66251b1d9d0dccac84",
+    "daed0d604d041cb3ae3af81c6da8bf8d",
+    "daf346c7be46258c4806d5efe957189f",
+    "dafaa8275bc54da11e5d3c642df69832",
+    "dafef6b2f16c84a95112aa33d4c4e542",
+    "db0709e04beeb640d95989bc7c5f8e5b",
+    "db18ec2f76f1d3bc852d2b80232c81e0"
+  ],
+  "recallUnitIds": [
+    "9b57efdef70ff50154b388b3802fe01e",
+    "06788761ca45aaf5a537ccc795640cda",
+    "a2a6bfb69a9fc37a32de854f347de988",
+    "833e5d14b4ab0de993e67ead11ab2e62",
+    "5c0ce72b394d281dd9b78f222751898d",
+    "518851d722340371e54788ca4eba26ec",
+    "af34d5bb9460ad1799efaa1dda160760",
+    "b08f9f44ed0c2e4898404adfabe1e519",
+    "d8117570e323e0e4f41744354aa8a0f9",
+    "fcdeb75762c6564a9cd62cd83618d978",
+    "e00aa23e7a13a87901fe7c91a0a0b28e",
+    "5c8f8755f08cea4db4fcdefe7baa63ef",
+    "be56df5579ac0629f12239c91451240e",
+    "10be8b6d37c4f7f5bc779b56c72ebc65",
+    "44117cd1009923460c66afb230335da7",
+    "d662428a1bee0d0634005e8a45c9d85c",
+    "4a299c63bc44c2f4f7c1baeb5368e650",
+    "31858b711055a77b7527871e4964b865",
+    "cf011a50d38f162ed7e521e8c94034bf",
+    "bce661040e73b52264d8db03c0b6d927",
+    "2ffadf832bf1535498e0a95a1db71828",
+    "56e9b5a341e55afbf31fb5127fa551cd",
+    "acecf70d75d4605c418a6511fceec966",
+    "eba9ab57a8419200bf0a506462e15cd8",
+    "afd9cabb35bf09b8222459b7602d91f1",
+    "701d38570c53445b8af495e1c2fb84ec",
+    "a7d3864d489342568b940e3be71e238b",
+    "e8e7e0a4be746ecc98bc1a51676bdd8c",
+    "febd056ff06cff720bd9f0989f5318da",
+    "ea16225e7cd964059409d2dc21c8eba9",
+    "6f5947aa81c7501e7fa01f7322130c03",
+    "9d9cf329d818cea39d070bd44b72412d",
+    "19fa7ebd49074fa8feb3516815005991",
+    "d342dd0a79edbb66b43c13c4c8d0cffd",
+    "35307678254483fcbbacaaef2b2e0ddd",
+    "ffe9a4438c64e222410c166b90afc4b5",
+    "1396b687ea516bb98680572cd7f41fae",
+    "49f948ddc5227482b28f77df89aea0fa",
+    "ed6acee92ce57ce40a137f79e38a5357"
+  ],
+  "decisions": [
+    {
+      "proposedCandidateId": "d64f589fa57ebcea5083472cca1bc0c3",
+      "term": "get others to",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d64f589fa57ebcea5083472cca1bc0c3:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d65d5182159fac3eaa8d7ffc051d4473",
+      "term": "ony",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d65d5182159fac3eaa8d7ffc051d4473:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d66a03bca69b44df44d51a9ccc917fd1",
+      "term": "brick",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d66a03bca69b44df44d51a9ccc917fd1:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d68115ac843888be9e14136322cbde35",
+      "term": "comm",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d68115ac843888be9e14136322cbde35:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d68115ac843888be9e14136322cbde35",
+      "term": "comm",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d68115ac843888be9e14136322cbde35:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d68115ac843888be9e14136322cbde35",
+      "term": "comm",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d68115ac843888be9e14136322cbde35:0003"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d6856ea52918540db3a43f79676229dd",
+      "term": "nds",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6856ea52918540db3a43f79676229dd:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d6856ea52918540db3a43f79676229dd",
+      "term": "nds",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6856ea52918540db3a43f79676229dd:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d6856ea52918540db3a43f79676229dd",
+      "term": "nds",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6856ea52918540db3a43f79676229dd:0003"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d69b5bc2a18656d72c364d628c575d29",
+      "term": "assess",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "evaluate",
+      "contextualMeaning": "to evaluate the quality, condition, or extent of something",
+      "occurrenceIds": [
+        "d69b5bc2a18656d72c364d628c575d29:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d6a0383f636152406f8af9da5b7d3558",
+      "term": "inform",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "provide-basis-for-action",
+      "contextualMeaning": "to provide knowledge that shapes a decision or action",
+      "occurrenceIds": [
+        "d6a0383f636152406f8af9da5b7d3558:0001",
+        "d6a0383f636152406f8af9da5b7d3558:0002"
+      ]
+    },
+    {
+      "proposedCandidateId": "d6a7b4a084f3f15316f1b6f337483be4",
+      "term": "parkinson",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6a7b4a084f3f15316f1b6f337483be4:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d6bd068193e11e413b1dd76ea472349d",
+      "term": "currently",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6bd068193e11e413b1dd76ea472349d:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d6bd068193e11e413b1dd76ea472349d",
+      "term": "currently",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6bd068193e11e413b1dd76ea472349d:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d6be221dc12cb5c42691a6d00d4a7365",
+      "term": "spice up",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "make-more-exciting",
+      "contextualMeaning": "to make something more interesting, lively, or exciting",
+      "occurrenceIds": [
+        "d6be221dc12cb5c42691a6d00d4a7365:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d6d27372c4000ef8ff5d1f86048f6d21",
+      "term": "abruptly",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "suddenly-and-sharply",
+      "contextualMeaning": "suddenly and in a manner that may seem rude or unfriendly",
+      "occurrenceIds": [
+        "d6d27372c4000ef8ff5d1f86048f6d21:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d6d64f872c14828de72a024650e45dc9",
+      "term": "ded",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6d64f872c14828de72a024650e45dc9:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d6e38e08c75dc54ad730bff9267e5906",
+      "term": "nced",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6e38e08c75dc54ad730bff9267e5906:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d6f21a853df49d30da77a9ddf067096a",
+      "term": "except",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6f21a853df49d30da77a9ddf067096a:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d6f21a853df49d30da77a9ddf067096a",
+      "term": "except",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6f21a853df49d30da77a9ddf067096a:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d6f2b9b5479258f17dd900b82aaee71e",
+      "term": "spout",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "say-rapidly-confidently",
+      "contextualMeaning": "to say something rapidly or confidently, often without much thought",
+      "occurrenceIds": [
+        "d6f2b9b5479258f17dd900b82aaee71e:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d6f2dbdfe60b4dbfcb98ddad6f3bca7f",
+      "term": "high-risk",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "involving-serious-danger",
+      "contextualMeaning": "involving a substantial possibility of harm or failure",
+      "occurrenceIds": [
+        "d6f2dbdfe60b4dbfcb98ddad6f3bca7f:0001",
+        "d6f2dbdfe60b4dbfcb98ddad6f3bca7f:0002"
+      ]
+    },
+    {
+      "proposedCandidateId": "d6fce3b09e392b3461ac8444383939ca",
+      "term": "original",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6fce3b09e392b3461ac8444383939ca:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d6fce3b09e392b3461ac8444383939ca",
+      "term": "original",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6fce3b09e392b3461ac8444383939ca:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d6fce3b09e392b3461ac8444383939ca",
+      "term": "original",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6fce3b09e392b3461ac8444383939ca:0003"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d6fce3b09e392b3461ac8444383939ca",
+      "term": "original",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d6fce3b09e392b3461ac8444383939ca:0004"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d702c51ca74bd56be434991f17fd21c6",
+      "term": "lear",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d702c51ca74bd56be434991f17fd21c6:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d702c51ca74bd56be434991f17fd21c6",
+      "term": "lear",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d702c51ca74bd56be434991f17fd21c6:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d702c51ca74bd56be434991f17fd21c6",
+      "term": "lear",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d702c51ca74bd56be434991f17fd21c6:0003"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d702c51ca74bd56be434991f17fd21c6",
+      "term": "lear",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d702c51ca74bd56be434991f17fd21c6:0004"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d708f7ff73f92069b1fe0874a9248c8d",
+      "term": "ineffe",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d708f7ff73f92069b1fe0874a9248c8d:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d70f7adc04d8ae4211afef2247deeb79",
+      "term": "show how to",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d70f7adc04d8ae4211afef2247deeb79:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d71916ad5dad125d837d21ae3bd52224",
+      "term": "submission",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "yielding-to-another",
+      "contextualMeaning": "the act of yielding to another person's control or preference",
+      "occurrenceIds": [
+        "d71916ad5dad125d837d21ae3bd52224:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d72e1bafcb9983b71d82ff38d5f018ed",
+      "term": "find out that",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d72e1bafcb9983b71d82ff38d5f018ed:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d72fe6b389ed149a865268af8ba416d6",
+      "term": "weak",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d72fe6b389ed149a865268af8ba416d6:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d7587a95829b7dfa92f96a3196baad37",
+      "term": "dast",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7587a95829b7dfa92f96a3196baad37:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d759bcf40b85fa344828b02a7aca1a3d",
+      "term": "pernicious",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "very-harmful-gradually",
+      "contextualMeaning": "having a seriously harmful effect, often gradually or subtly",
+      "occurrenceIds": [
+        "d759bcf40b85fa344828b02a7aca1a3d:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d76db725eb15f2422c92666105f20892",
+      "term": "ters",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d76db725eb15f2422c92666105f20892:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d77214fa5aeb565053cea7e60be01995",
+      "term": "chem",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d77214fa5aeb565053cea7e60be01995:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d7820630e438db3548c49d63c932f909",
+      "term": "assume",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7820630e438db3548c49d63c932f909:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d7902d716c6cb3e4e1b9ef768eb5de55",
+      "term": "circl",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7902d716c6cb3e4e1b9ef768eb5de55:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d79551cbacae2461ca8b7d56e73f023f",
+      "term": "discussi",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d79551cbacae2461ca8b7d56e73f023f:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d799cf502962e62b957936da80e41cc7",
+      "term": "mist",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d799cf502962e62b957936da80e41cc7:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d7a0c2015b0ee732a113c8d4a76ab008",
+      "term": "faster",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7a0c2015b0ee732a113c8d4a76ab008:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d7a0c2015b0ee732a113c8d4a76ab008",
+      "term": "faster",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7a0c2015b0ee732a113c8d4a76ab008:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d7a5781801bbdbacf01f7682ad69d074",
+      "term": "mak e",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7a5781801bbdbacf01f7682ad69d074:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d7a5781801bbdbacf01f7682ad69d074",
+      "term": "mak e",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7a5781801bbdbacf01f7682ad69d074:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d7a5781801bbdbacf01f7682ad69d074",
+      "term": "mak e",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7a5781801bbdbacf01f7682ad69d074:0003"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d7b7678b03ff80188a93e2e9995a030e",
+      "term": "hospital",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7b7678b03ff80188a93e2e9995a030e:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d7b7678b03ff80188a93e2e9995a030e",
+      "term": "hospital",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7b7678b03ff80188a93e2e9995a030e:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d7b7678b03ff80188a93e2e9995a030e",
+      "term": "hospital",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7b7678b03ff80188a93e2e9995a030e:0003"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d7cdbef14f2a31b44210cb58eb1ac4ad",
+      "term": "go into a",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7cdbef14f2a31b44210cb58eb1ac4ad:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d7daac33f3c206b38f2cb63801cceb04",
+      "term": "healthcare",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "medical-care-system",
+      "contextualMeaning": "services and systems concerned with maintaining or improving health",
+      "occurrenceIds": [
+        "d7daac33f3c206b38f2cb63801cceb04:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d7ea144704ec4bac715303a7c8aac62e",
+      "term": "u' re",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7ea144704ec4bac715303a7c8aac62e:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d7ea144704ec4bac715303a7c8aac62e",
+      "term": "u' re",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7ea144704ec4bac715303a7c8aac62e:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d7ea144704ec4bac715303a7c8aac62e",
+      "term": "u' re",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7ea144704ec4bac715303a7c8aac62e:0003"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d7f6c78db726bb0b101eb6b625e030a5",
+      "term": "popular",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7f6c78db726bb0b101eb6b625e030a5:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d7fc4ef37f92af755b584aa01db5dc5f",
+      "term": "passe",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7fc4ef37f92af755b584aa01db5dc5f:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d7fc4ef37f92af755b584aa01db5dc5f",
+      "term": "passe",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d7fc4ef37f92af755b584aa01db5dc5f:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d81a66d58fe2ed5bd01c44bc9ab66b4e",
+      "term": "meth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d81a66d58fe2ed5bd01c44bc9ab66b4e:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d81a66d58fe2ed5bd01c44bc9ab66b4e",
+      "term": "meth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d81a66d58fe2ed5bd01c44bc9ab66b4e:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d82447bcba91da0d3f9fdc921c4f82eb",
+      "term": "implement",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "put-into-effect",
+      "contextualMeaning": "to put a decision or plan into effect",
+      "occurrenceIds": [
+        "d82447bcba91da0d3f9fdc921c4f82eb:0001",
+        "d82447bcba91da0d3f9fdc921c4f82eb:0002"
+      ]
+    },
+    {
+      "proposedCandidateId": "d83cb60c582326c3d29d366f57df2678",
+      "term": "people'",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d83cb60c582326c3d29d366f57df2678:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d83cb60c582326c3d29d366f57df2678",
+      "term": "people'",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d83cb60c582326c3d29d366f57df2678:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d83cb60c582326c3d29d366f57df2678",
+      "term": "people'",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d83cb60c582326c3d29d366f57df2678:0003"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d83cb60c582326c3d29d366f57df2678",
+      "term": "people'",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d83cb60c582326c3d29d366f57df2678:0004"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d841149fdb8e2eb114c9174eaf995875",
+      "term": "punishment",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "penalty-for-wrongdoing",
+      "contextualMeaning": "a penalty imposed for wrongdoing or disobedience",
+      "occurrenceIds": [
+        "d841149fdb8e2eb114c9174eaf995875:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d8414138f12cd617d98d171aa731ec98",
+      "term": "violenc",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8414138f12cd617d98d171aa731ec98:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8414138f12cd617d98d171aa731ec98",
+      "term": "violenc",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8414138f12cd617d98d171aa731ec98:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d84efb5c684263922fd76a4b0df2a99e",
+      "term": "it-or",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d84efb5c684263922fd76a4b0df2a99e:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8509f8b98f81f45d3129c3e50870829",
+      "term": "metime",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8509f8b98f81f45d3129c3e50870829:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8660c76fb6a258dc5486f1e32fe68a0",
+      "term": "get back",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8660c76fb6a258dc5486f1e32fe68a0:0001"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d8660c76fb6a258dc5486f1e32fe68a0",
+      "term": "get back",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8660c76fb6a258dc5486f1e32fe68a0:0002"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d8660c76fb6a258dc5486f1e32fe68a0",
+      "term": "get back",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8660c76fb6a258dc5486f1e32fe68a0:0003"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d8660c76fb6a258dc5486f1e32fe68a0",
+      "term": "get back",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8660c76fb6a258dc5486f1e32fe68a0:0004"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d8660c76fb6a258dc5486f1e32fe68a0",
+      "term": "get back",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-4",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8660c76fb6a258dc5486f1e32fe68a0:0005"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d8660c76fb6a258dc5486f1e32fe68a0",
+      "term": "get back",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-5",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8660c76fb6a258dc5486f1e32fe68a0:0006"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d88d9fb33220ed939b58bff7545e9ba7",
+      "term": "shif",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d88d9fb33220ed939b58bff7545e9ba7:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8985fe08f3d197f4e2cb5fd129585d1",
+      "term": "anyth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8985fe08f3d197f4e2cb5fd129585d1:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8985fe08f3d197f4e2cb5fd129585d1",
+      "term": "anyth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8985fe08f3d197f4e2cb5fd129585d1:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8985fe08f3d197f4e2cb5fd129585d1",
+      "term": "anyth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8985fe08f3d197f4e2cb5fd129585d1:0003"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8985fe08f3d197f4e2cb5fd129585d1",
+      "term": "anyth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8985fe08f3d197f4e2cb5fd129585d1:0004"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8985fe08f3d197f4e2cb5fd129585d1",
+      "term": "anyth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-4",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8985fe08f3d197f4e2cb5fd129585d1:0005"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8985fe08f3d197f4e2cb5fd129585d1",
+      "term": "anyth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-5",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8985fe08f3d197f4e2cb5fd129585d1:0006"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8985fe08f3d197f4e2cb5fd129585d1",
+      "term": "anyth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-6",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8985fe08f3d197f4e2cb5fd129585d1:0007"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8985fe08f3d197f4e2cb5fd129585d1",
+      "term": "anyth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-7",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8985fe08f3d197f4e2cb5fd129585d1:0008"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8985fe08f3d197f4e2cb5fd129585d1",
+      "term": "anyth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-8",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8985fe08f3d197f4e2cb5fd129585d1:0009"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8985fe08f3d197f4e2cb5fd129585d1",
+      "term": "anyth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-9",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8985fe08f3d197f4e2cb5fd129585d1:0010"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8985fe08f3d197f4e2cb5fd129585d1",
+      "term": "anyth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-10",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8985fe08f3d197f4e2cb5fd129585d1:0011"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8985fe08f3d197f4e2cb5fd129585d1",
+      "term": "anyth",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-11",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8985fe08f3d197f4e2cb5fd129585d1:0012"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8a1613e4f5ee41639f074c4841f814f",
+      "term": "kindergarten",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "early-childhood-class",
+      "contextualMeaning": "the first stage of formal schooling for young children",
+      "occurrenceIds": [
+        "d8a1613e4f5ee41639f074c4841f814f:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d8ab79e65049232a3ec13629dae4e015",
+      "term": "teful",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8ab79e65049232a3ec13629dae4e015:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8c05e9ceefd0eaa75f930f632a9266b",
+      "term": "divisio",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8c05e9ceefd0eaa75f930f632a9266b:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0003"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0004"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-4",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0005"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-5",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0006"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-6",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0007"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-7",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0008"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-8",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0009"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-9",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0010"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-10",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0011"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-11",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0012"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-12",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0013"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8d6d03e3006ff2ebda40e4c22478a4f",
+      "term": "begin",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-13",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8d6d03e3006ff2ebda40e4c22478a4f:0014"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8da181b054c88dcb30bad2e1a0dc402",
+      "term": "else",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8da181b054c88dcb30bad2e1a0dc402:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8da181b054c88dcb30bad2e1a0dc402",
+      "term": "else",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8da181b054c88dcb30bad2e1a0dc402:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8da181b054c88dcb30bad2e1a0dc402",
+      "term": "else",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8da181b054c88dcb30bad2e1a0dc402:0003"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8da181b054c88dcb30bad2e1a0dc402",
+      "term": "else",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8da181b054c88dcb30bad2e1a0dc402:0004"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8da181b054c88dcb30bad2e1a0dc402",
+      "term": "else",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-4",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8da181b054c88dcb30bad2e1a0dc402:0005"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8da181b054c88dcb30bad2e1a0dc402",
+      "term": "else",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-5",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8da181b054c88dcb30bad2e1a0dc402:0006"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8dbc1c15abd764a62cb1db05c98a141",
+      "term": "sorrow",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "deep-sadness",
+      "contextualMeaning": "a feeling of deep sadness or regret",
+      "occurrenceIds": [
+        "d8dbc1c15abd764a62cb1db05c98a141:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d8e2cce9d2fc879841b17f9440dc8ef7",
+      "term": "dif",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e2cce9d2fc879841b17f9440dc8ef7:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8e2cce9d2fc879841b17f9440dc8ef7",
+      "term": "dif",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e2cce9d2fc879841b17f9440dc8ef7:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8e2cce9d2fc879841b17f9440dc8ef7",
+      "term": "dif",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e2cce9d2fc879841b17f9440dc8ef7:0003"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0003"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0004"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-4",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0005"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-5",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0006"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-6",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0007"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-7",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0008"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-8",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0009"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-9",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0010"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-10",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0011"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-11",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0012"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-12",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0013"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-13",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0014"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-14",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0015"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-15",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0016"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-16",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0017"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-17",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0018"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-18",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0019"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-19",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0020"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-20",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0021"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-21",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0022"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-22",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0023"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-23",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0024"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-24",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0025"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-25",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0026"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-26",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0027"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-27",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0028"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-28",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0029"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-29",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0030"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8e385887c18732f803923cf90289c89",
+      "term": "yourself",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-30",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8e385887c18732f803923cf90289c89:0031"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8f1fcb334057cdc0bc0088e22ff274e",
+      "term": "i'm sorry",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8f1fcb334057cdc0bc0088e22ff274e:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8f1fcb334057cdc0bc0088e22ff274e",
+      "term": "i'm sorry",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8f1fcb334057cdc0bc0088e22ff274e:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8f1fcb334057cdc0bc0088e22ff274e",
+      "term": "i'm sorry",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8f1fcb334057cdc0bc0088e22ff274e:0003"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8f1fcb334057cdc0bc0088e22ff274e",
+      "term": "i'm sorry",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8f1fcb334057cdc0bc0088e22ff274e:0004"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8f1fcb334057cdc0bc0088e22ff274e",
+      "term": "i'm sorry",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-4",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8f1fcb334057cdc0bc0088e22ff274e:0005"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d8f1fcb334057cdc0bc0088e22ff274e",
+      "term": "i'm sorry",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-5",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d8f1fcb334057cdc0bc0088e22ff274e:0006"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d900211f38b7ae3687939400e20daa69",
+      "term": "unquestioned",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "not-challenged",
+      "contextualMeaning": "accepted or left without being challenged or examined",
+      "occurrenceIds": [
+        "d900211f38b7ae3687939400e20daa69:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0003"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0004"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-4",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0005"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-5",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0006"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-6",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0007"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-7",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0008"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-8",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0009"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-9",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0010"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-10",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0011"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-11",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0012"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-12",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0013"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-13",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0014"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-14",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0015"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-15",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0016"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-16",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0017"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-17",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0018"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-18",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0019"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-19",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0020"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-20",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0021"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-21",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0022"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-22",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0023"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-23",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0024"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-24",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0025"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-25",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0026"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-26",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0027"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-27",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0028"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-28",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0029"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-29",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0030"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-30",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0031"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-31",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0032"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-32",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0033"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-33",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0034"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-34",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0035"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-35",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0036"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-36",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0037"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-37",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0038"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-38",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0039"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-39",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0040"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-40",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0041"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-41",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0042"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-42",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0043"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-43",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0044"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-44",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0045"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-45",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0046"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-46",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0047"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-47",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0048"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-48",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0049"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-49",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0050"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-50",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0051"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-51",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0052"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-52",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0053"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-53",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0054"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-54",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0055"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-55",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0056"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9088e65e3c7b03ccacb547a913baa1b",
+      "term": "you're",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-56",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9088e65e3c7b03ccacb547a913baa1b:0057"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9095abd6f9afc008e615a7a237472fc",
+      "term": "tool",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "method-or-resource",
+      "contextualMeaning": "a method, skill, or resource used to achieve a result",
+      "occurrenceIds": [
+        "d9095abd6f9afc008e615a7a237472fc:0001",
+        "d9095abd6f9afc008e615a7a237472fc:0002",
+        "d9095abd6f9afc008e615a7a237472fc:0003",
+        "d9095abd6f9afc008e615a7a237472fc:0004",
+        "d9095abd6f9afc008e615a7a237472fc:0005",
+        "d9095abd6f9afc008e615a7a237472fc:0006",
+        "d9095abd6f9afc008e615a7a237472fc:0007",
+        "d9095abd6f9afc008e615a7a237472fc:0008",
+        "d9095abd6f9afc008e615a7a237472fc:0009",
+        "d9095abd6f9afc008e615a7a237472fc:0010"
+      ]
+    },
+    {
+      "proposedCandidateId": "d917fbad33b76d0f32258c5a9ac3c352",
+      "term": "exam",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d917fbad33b76d0f32258c5a9ac3c352:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d917fbad33b76d0f32258c5a9ac3c352",
+      "term": "exam",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d917fbad33b76d0f32258c5a9ac3c352:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d917fbad33b76d0f32258c5a9ac3c352",
+      "term": "exam",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d917fbad33b76d0f32258c5a9ac3c352:0003"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d917fbad33b76d0f32258c5a9ac3c352",
+      "term": "exam",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d917fbad33b76d0f32258c5a9ac3c352:0004"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d917fbad33b76d0f32258c5a9ac3c352",
+      "term": "exam",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-4",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d917fbad33b76d0f32258c5a9ac3c352:0005"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d917fbad33b76d0f32258c5a9ac3c352",
+      "term": "exam",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-5",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d917fbad33b76d0f32258c5a9ac3c352:0006"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d917fbad33b76d0f32258c5a9ac3c352",
+      "term": "exam",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-6",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d917fbad33b76d0f32258c5a9ac3c352:0007"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d917fbad33b76d0f32258c5a9ac3c352",
+      "term": "exam",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-7",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d917fbad33b76d0f32258c5a9ac3c352:0008"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d917fbad33b76d0f32258c5a9ac3c352",
+      "term": "exam",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-8",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d917fbad33b76d0f32258c5a9ac3c352:0009"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d917fbad33b76d0f32258c5a9ac3c352",
+      "term": "exam",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-9",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d917fbad33b76d0f32258c5a9ac3c352:0010"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d91d5cde9330e1e919909b53c8d0de87",
+      "term": "strong",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d91d5cde9330e1e919909b53c8d0de87:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d91d5cde9330e1e919909b53c8d0de87",
+      "term": "strong",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d91d5cde9330e1e919909b53c8d0de87:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d91d5cde9330e1e919909b53c8d0de87",
+      "term": "strong",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d91d5cde9330e1e919909b53c8d0de87:0003"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d91d5cde9330e1e919909b53c8d0de87",
+      "term": "strong",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d91d5cde9330e1e919909b53c8d0de87:0004"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d91d5cde9330e1e919909b53c8d0de87",
+      "term": "strong",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-4",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d91d5cde9330e1e919909b53c8d0de87:0005"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d91d5cde9330e1e919909b53c8d0de87",
+      "term": "strong",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-5",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d91d5cde9330e1e919909b53c8d0de87:0006"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d91d5cde9330e1e919909b53c8d0de87",
+      "term": "strong",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-6",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d91d5cde9330e1e919909b53c8d0de87:0007"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d91d5cde9330e1e919909b53c8d0de87",
+      "term": "strong",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-7",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d91d5cde9330e1e919909b53c8d0de87:0008"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d91d5cde9330e1e919909b53c8d0de87",
+      "term": "strong",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-8",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d91d5cde9330e1e919909b53c8d0de87:0009"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d91d5cde9330e1e919909b53c8d0de87",
+      "term": "strong",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-9",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d91d5cde9330e1e919909b53c8d0de87:0010"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d92c7a3ba08240d8803c89baa621b110",
+      "term": "purpo se",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d92c7a3ba08240d8803c89baa621b110:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d92c7a3ba08240d8803c89baa621b110",
+      "term": "purpo se",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d92c7a3ba08240d8803c89baa621b110:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d92c7a3ba08240d8803c89baa621b110",
+      "term": "purpo se",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d92c7a3ba08240d8803c89baa621b110:0003"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d92c7a3ba08240d8803c89baa621b110",
+      "term": "purpo se",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d92c7a3ba08240d8803c89baa621b110:0004"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d92c7a3ba08240d8803c89baa621b110",
+      "term": "purpo se",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-4",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d92c7a3ba08240d8803c89baa621b110:0005"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d92c7a3ba08240d8803c89baa621b110",
+      "term": "purpo se",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-5",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d92c7a3ba08240d8803c89baa621b110:0006"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d92c7a3ba08240d8803c89baa621b110",
+      "term": "purpo se",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-6",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d92c7a3ba08240d8803c89baa621b110:0007"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d92c7a3ba08240d8803c89baa621b110",
+      "term": "purpo se",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-7",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d92c7a3ba08240d8803c89baa621b110:0008"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d939b1b6c16a157fe25d9207dc270712",
+      "term": "angr",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d939b1b6c16a157fe25d9207dc270712:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d939b1b6c16a157fe25d9207dc270712",
+      "term": "angr",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d939b1b6c16a157fe25d9207dc270712:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d95375c961646c7d3e4fec63a4b53e1f",
+      "term": "bet ter",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d95375c961646c7d3e4fec63a4b53e1f:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d95375c961646c7d3e4fec63a4b53e1f",
+      "term": "bet ter",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d95375c961646c7d3e4fec63a4b53e1f:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d95375c961646c7d3e4fec63a4b53e1f",
+      "term": "bet ter",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d95375c961646c7d3e4fec63a4b53e1f:0003"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d95375c961646c7d3e4fec63a4b53e1f",
+      "term": "bet ter",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d95375c961646c7d3e4fec63a4b53e1f:0004"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0001"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0002"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0003"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-3",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0004"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-4",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0005"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-5",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0006"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-6",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0007"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-7",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0008"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-8",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0009"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-9",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0010"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-10",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0011"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-11",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0012"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-12",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0013"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-13",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0014"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d96453cdca4bba9dbdd6e7dee2a2928b",
+      "term": "case",
+      "decision": "filtered",
+      "senseDecision": "ambiguous",
+      "senseKey": "filtered-14",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d96453cdca4bba9dbdd6e7dee2a2928b:0015"
+      ],
+      "reason": "ambiguous_context: occurrences demonstrate materially different contextual meanings; do not guess or merge them."
+    },
+    {
+      "proposedCandidateId": "d973038d917fa74016b35c414ba87aa3",
+      "term": "syn",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d973038d917fa74016b35c414ba87aa3:0001"
+      ],
+      "reason": "duplicate_prior_checkpoint: the same normalized expression and contextual sense was already generated and delivered."
+    },
+    {
+      "proposedCandidateId": "d976df4e147432b39f5a5913bebd8eea",
+      "term": "point to wanting",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d976df4e147432b39f5a5913bebd8eea:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d97e2d09bc3adab60b51521f98779e7d",
+      "term": "fas",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d97e2d09bc3adab60b51521f98779e7d:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d99f7fe3c2eeecccd94fb06fa2837239",
+      "term": "request",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "polite-asking",
+      "contextualMeaning": "an act of politely asking for something",
+      "occurrenceIds": [
+        "d99f7fe3c2eeecccd94fb06fa2837239:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d9a7883dfca580bda3d3b260bf4c1024",
+      "term": "tric",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9a7883dfca580bda3d3b260bf4c1024:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d9a82795343f9794e53cd992c94db558",
+      "term": "romantic",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9a82795343f9794e53cd992c94db558:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9bfa1ecd315410039fd71ca0509139d",
+      "term": "controv",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9bfa1ecd315410039fd71ca0509139d:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "d9c298dd6a5da435d5413b7742218a40",
+      "term": "fall into",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "enter-state-unintentionally",
+      "contextualMeaning": "to enter a state or pattern, often unintentionally",
+      "occurrenceIds": [
+        "d9c298dd6a5da435d5413b7742218a40:0001",
+        "d9c298dd6a5da435d5413b7742218a40:0002"
+      ]
+    },
+    {
+      "proposedCandidateId": "d9d1bddedd0c29c3e6a6d8eb29fc192a",
+      "term": "step away from",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9d1bddedd0c29c3e6a6d8eb29fc192a:0001"
+      ],
+      "reason": "duplicate_prior_checkpoint: the same normalized expression and contextual sense was already generated and delivered."
+    },
+    {
+      "proposedCandidateId": "d9d5c07bbcf73b2b7abeaf453118b03b",
+      "term": "effectively",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9d5c07bbcf73b2b7abeaf453118b03b:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9d5c07bbcf73b2b7abeaf453118b03b",
+      "term": "effectively",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9d5c07bbcf73b2b7abeaf453118b03b:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9dbb3dc2a2b3fbdf67bb3102dbdef35",
+      "term": "overpaid",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "paid-too-much",
+      "contextualMeaning": "paid more than a person or role is considered to deserve",
+      "occurrenceIds": [
+        "d9dbb3dc2a2b3fbdf67bb3102dbdef35:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "d9efa65587f4f4e90b7940f82d7aae4b",
+      "term": "excuse",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9efa65587f4f4e90b7940f82d7aae4b:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9f6fb17c40d72e126c4c811a426b21e",
+      "term": "delight",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "d9f6fb17c40d72e126c4c811a426b21e:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "d9ffa9dd386b5d8e57ff787e95af1f70",
+      "term": "recovering",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "returning-from-illness",
+      "contextualMeaning": "in the process of returning to health after illness or addiction",
+      "occurrenceIds": [
+        "d9ffa9dd386b5d8e57ff787e95af1f70:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "da171cfd4af16565cabafadfd87a8f18",
+      "term": "pool of shared",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "da171cfd4af16565cabafadfd87a8f18:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "da171cfd4af16565cabafadfd87a8f18",
+      "term": "pool of shared",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "da171cfd4af16565cabafadfd87a8f18:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "da171cfd4af16565cabafadfd87a8f18",
+      "term": "pool of shared",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "da171cfd4af16565cabafadfd87a8f18:0003"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "da29ee9f1d4549003da0467cc36548da",
+      "term": "walk away from",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "da29ee9f1d4549003da0467cc36548da:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "da2dd08e1b9998f33ffc528669c829b2",
+      "term": "find myself in",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "da2dd08e1b9998f33ffc528669c829b2:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "da3457c43c98bf5f487c278eaf3f3d1a",
+      "term": "mani",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "da3457c43c98bf5f487c278eaf3f3d1a:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "da983cf45488b4febb0785989295b96d",
+      "term": "sidewa",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "da983cf45488b4febb0785989295b96d:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "da9b4d4697d8fa10662572bfb9485491",
+      "term": "promi",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "da9b4d4697d8fa10662572bfb9485491:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "da9b4d4697d8fa10662572bfb9485491",
+      "term": "promi",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "da9b4d4697d8fa10662572bfb9485491:0002"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "da9b4d4697d8fa10662572bfb9485491",
+      "term": "promi",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "da9b4d4697d8fa10662572bfb9485491:0003"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "dab3303963c4df017c9ddbcc925ec187",
+      "term": "attend",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "dab3303963c4df017c9ddbcc925ec187:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "dac7cbd67186f719d691c1f1f2dfaf56",
+      "term": "go back",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "dac7cbd67186f719d691c1f1f2dfaf56:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "dac7cbd67186f719d691c1f1f2dfaf56",
+      "term": "go back",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "dac7cbd67186f719d691c1f1f2dfaf56:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "dac7cbd67186f719d691c1f1f2dfaf56",
+      "term": "go back",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-2",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "dac7cbd67186f719d691c1f1f2dfaf56:0003"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "dad4f9a759b73ee175f7718478adcf5d",
+      "term": "manage",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "dad4f9a759b73ee175f7718478adcf5d:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "dad4fd5922b84fe753d78e63fa5b7b32",
+      "term": "acronym",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "initial-letter-word",
+      "contextualMeaning": "a word formed from the initial letters of a phrase",
+      "occurrenceIds": [
+        "dad4fd5922b84fe753d78e63fa5b7b32:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "dada5d632966ce19d75729edfb25b69d",
+      "term": "school",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "dada5d632966ce19d75729edfb25b69d:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "dada5d632966ce19d75729edfb25b69d",
+      "term": "school",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "dada5d632966ce19d75729edfb25b69d:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "dadbf008bcbb1dc2384cbc7723378f6a",
+      "term": "raid",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "dadbf008bcbb1dc2384cbc7723378f6a:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "dae75ff52dc2ea66251b1d9d0dccac84",
+      "term": "less-",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "dae75ff52dc2ea66251b1d9d0dccac84:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "daed0d604d041cb3ae3af81c6da8bf8d",
+      "term": "ce-to",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "daed0d604d041cb3ae3af81c6da8bf8d:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "daf346c7be46258c4806d5efe957189f",
+      "term": "carry on",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "continue-activity",
+      "contextualMeaning": "to continue an activity despite another demand or distraction",
+      "occurrenceIds": [
+        "daf346c7be46258c4806d5efe957189f:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "dafaa8275bc54da11e5d3c642df69832",
+      "term": "unfortunate",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "unlucky-or-regrettable",
+      "contextualMeaning": "unlucky, regrettable, or producing an undesirable result",
+      "occurrenceIds": [
+        "dafaa8275bc54da11e5d3c642df69832:0001",
+        "dafaa8275bc54da11e5d3c642df69832:0002"
+      ]
+    },
+    {
+      "proposedCandidateId": "dafef6b2f16c84a95112aa33d4c4e542",
+      "term": "roll",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-0",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "dafef6b2f16c84a95112aa33d4c4e542:0001"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "dafef6b2f16c84a95112aa33d4c4e542",
+      "term": "roll",
+      "decision": "filtered",
+      "senseDecision": "same_sense",
+      "senseKey": "filtered-1",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "dafef6b2f16c84a95112aa33d4c4e542:0002"
+      ],
+      "reason": "basic_below_target: common vocabulary or low-value item outside the B2-C2 target."
+    },
+    {
+      "proposedCandidateId": "db0709e04beeb640d95989bc7c5f8e5b",
+      "term": "howard",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "db0709e04beeb640d95989bc7c5f8e5b:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    },
+    {
+      "proposedCandidateId": "db18ec2f76f1d3bc852d2b80232c81e0",
+      "term": "get into an",
+      "decision": "rejected",
+      "senseDecision": "same_sense",
+      "senseKey": "rejected-sense",
+      "contextualMeaning": "non-generated contextual source meaning",
+      "occurrenceIds": [
+        "db18ec2f76f1d3bc852d2b80232c81e0:0001"
+      ],
+      "reason": "noise: OCR-split, malformed, incomplete, proper-name, or non-lexical extraction fragment."
+    }
+  ],
+  "recallPass": {
+    "completed": true,
+    "method": "blind_sentence_rescan",
+    "scannedRecallUnitIds": [
+      "9b57efdef70ff50154b388b3802fe01e",
+      "06788761ca45aaf5a537ccc795640cda",
+      "a2a6bfb69a9fc37a32de854f347de988",
+      "833e5d14b4ab0de993e67ead11ab2e62",
+      "5c0ce72b394d281dd9b78f222751898d",
+      "518851d722340371e54788ca4eba26ec",
+      "af34d5bb9460ad1799efaa1dda160760",
+      "b08f9f44ed0c2e4898404adfabe1e519",
+      "d8117570e323e0e4f41744354aa8a0f9",
+      "fcdeb75762c6564a9cd62cd83618d978",
+      "e00aa23e7a13a87901fe7c91a0a0b28e",
+      "5c8f8755f08cea4db4fcdefe7baa63ef",
+      "be56df5579ac0629f12239c91451240e",
+      "10be8b6d37c4f7f5bc779b56c72ebc65",
+      "44117cd1009923460c66afb230335da7",
+      "d662428a1bee0d0634005e8a45c9d85c",
+      "4a299c63bc44c2f4f7c1baeb5368e650",
+      "31858b711055a77b7527871e4964b865",
+      "cf011a50d38f162ed7e521e8c94034bf",
+      "bce661040e73b52264d8db03c0b6d927",
+      "2ffadf832bf1535498e0a95a1db71828",
+      "56e9b5a341e55afbf31fb5127fa551cd",
+      "acecf70d75d4605c418a6511fceec966",
+      "eba9ab57a8419200bf0a506462e15cd8",
+      "afd9cabb35bf09b8222459b7602d91f1",
+      "701d38570c53445b8af495e1c2fb84ec",
+      "a7d3864d489342568b940e3be71e238b",
+      "e8e7e0a4be746ecc98bc1a51676bdd8c",
+      "febd056ff06cff720bd9f0989f5318da",
+      "ea16225e7cd964059409d2dc21c8eba9",
+      "6f5947aa81c7501e7fa01f7322130c03",
+      "9d9cf329d818cea39d070bd44b72412d",
+      "19fa7ebd49074fa8feb3516815005991",
+      "d342dd0a79edbb66b43c13c4c8d0cffd",
+      "35307678254483fcbbacaaef2b2e0ddd",
+      "ffe9a4438c64e222410c166b90afc4b5",
+      "1396b687ea516bb98680572cd7f41fae",
+      "49f948ddc5227482b28f77df89aea0fa",
+      "ed6acee92ce57ce40a137f79e38a5357"
+    ],
+    "findings": [
+      {
+        "findingId": "recall-g43-1",
+        "recallUnitId": "9b57efdef70ff50154b388b3802fe01e",
+        "term": "con­ firm",
+        "sentence": "MAKE  IT SAFE  79  Obviously  Jotham  still  believes  that  Yv onne  merely  wants  to  con­ firm  that  their  existing  relationship  is  okay  and  if  she  does,  she'll  be  able  to  continue  to  reject Jotham-but  feel  good  about  it.",
+        "startOffset": 89,
+        "endOffset": 98,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-2",
+        "recallUnitId": "a2a6bfb69a9fc37a32de854f347de988",
+        "term": "step out and build safety",
+        "sentence": "So  Yv onne  continues  to  step  out  and  build  safety ,  using  Contrasting.",
+        "startOffset": 28,
+        "endOffset": 57,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-3",
+        "recallUnitId": "fcdeb75762c6564a9cd62cd83618d978",
+        "term": "tone and dem eanor",
+        "sentence": "JOTHAM:  (C hang ing  tone  and  dem eanor)  Really?",
+        "startOffset": 22,
+        "endOffset": 42,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-4",
+        "recallUnitId": "e00aa23e7a13a87901fe7c91a0a0b28e",
+        "term": "insecure",
+        "sentence": "I'm  sorry  to be  so  insecure  about  this .",
+        "startOffset": 23,
+        "endOffset": 31,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-5",
+        "recallUnitId": "be56df5579ac0629f12239c91451240e",
+        "term": "not apo logizing",
+        "sentence": "Co nt rasting  is  not  apo logizing.",
+        "startOffset": 19,
+        "endOffset": 36,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-6",
+        "recallUnitId": "44117cd1009923460c66afb230335da7",
+        "term": "taking back something",
+        "sentence": "It  is  not  a  way  of  taking back  something  we've  said  that  hurt  othe rs'  feelin gs.",
+        "startOffset": 25,
+        "endOffset": 47,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-7",
+        "recallUnitId": "d662428a1bee0d0634005e8a45c9d85c",
+        "term": "ensuring",
+        "sentence": "Rather ,  it  is  a  way  of  ensuring  what  we  said  didn't  hurt  more  than  it  should  ha ve.",
+        "startOffset": 30,
+        "endOffset": 38,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-8",
+        "recallUnitId": "4a299c63bc44c2f4f7c1baeb5368e650",
+        "term": "trumped-up goal",
+        "sentence": "Once  Yvonne  clarified  her genuine  goals  (a nd  not  merely  some  trumped-up  goal  that  appeals  to  lotha m),  lotham felt  safer  acknowledging  his  own  contribution,  and  the  two were  back  in  dialogue.",
+        "startOffset": 71,
+        "endOffset": 87,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-9",
+        "recallUnitId": "4a299c63bc44c2f4f7c1baeb5368e650",
+        "term": "acknowledging his own contribution",
+        "sentence": "Once  Yvonne  clarified  her genuine  goals  (a nd  not  merely  some  trumped-up  goal  that  appeals  to  lotha m),  lotham felt  safer  acknowledging  his  own  contribution,  and  the  two were  back  in  dialogue.",
+        "startOffset": 139,
+        "endOffset": 176,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-10",
+        "recallUnitId": "31858b711055a77b7527871e4964b865",
+        "term": "context and proportio n",
+        "sentence": "Co nt rasting  provides context and  proportio n.",
+        "startOffset": 24,
+        "endOffset": 48,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-11",
+        "recallUnitId": "2ffadf832bf1535498e0a95a1db71828",
+        "term": "appears crush ed",
+        "sentence": "When  you  sha re  your  concern,  he  appears crush ed.",
+        "startOffset": 39,
+        "endOffset": 55,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-12",
+        "recallUnitId": "56e9b5a341e55afbf31fb5127fa551cd",
+        "term": "water down",
+        "sentence": "At  this  point  you  could  be  tempted  to  water  down  your  con­ len t-\"Y ou  know  it' s  really  not  that  big  a  deal .",
+        "startOffset": 46,
+        "endOffset": 57,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-13",
+        "recallUnitId": "eba9ab57a8419200bf0a506462e15cd8",
+        "term": "take back",
+        "sentence": "Don' t  take  back  what  you've  said.",
+        "startOffset": 8,
+        "endOffset": 18,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-14",
+        "recallUnitId": "afd9cabb35bf09b8222459b7602d91f1",
+        "term": "put it in context",
+        "sentence": "Instead,  put  it  in  context.",
+        "startOffset": 10,
+        "endOffset": 30,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-15",
+        "recallUnitId": "e8e7e0a4be746ecc98bc1a51676bdd8c",
+        "term": "totality",
+        "sentence": "He  believes  that  your  view  of  the  issue  at  hand  represents  the  totality  of  your  respect  for  him.",
+        "startOffset": 75,
+        "endOffset": 83,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-16",
+        "recallUnitId": "ea16225e7cd964059409d2dc21c8eba9",
+        "term": "what you don't believe",
+        "sentence": "Sta rt  with  what  you  don't  believe.",
+        "startOffset": 14,
+        "endOffset": 39,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-17",
+        "recallUnitId": "6f5947aa81c7501e7fa01f7322130c03",
+        "term": "put this in perspective",
+        "sentence": "\"Let  me  put  this  in  perspective.",
+        "startOffset": 10,
+        "endOffset": 36,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-18",
+        "recallUnitId": "1396b687ea516bb98680572cd7f41fae",
+        "term": "prevention or fi rst ai d",
+        "sentence": "\"  Use  Co nt rasting  fo r  prevention  or  fi rst  ai d.",
+        "startOffset": 29,
+        "endOffset": 57,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-19",
+        "recallUnitId": "49f948ddc5227482b28f77df89aea0fa",
+        "term": "use­ ful",
+        "sentence": "Contrasting  is  use­ ful  both  as  a  prevention  and  as  fir st  aid for  safety  problems.",
+        "startOffset": 17,
+        "endOffset": 25,
+        "reason": "blind_recall_candidate"
+      },
+      {
+        "findingId": "recall-g43-20",
+        "recallUnitId": "ed6acee92ce57ce40a137f79e38a5357",
+        "term": "first-a id type",
+        "sentence": "So  far our  examp les  have  been  of  the  first-a id  type.",
+        "startOffset": 45,
+        "endOffset": 61,
+        "reason": "blind_recall_candidate"
+      }
+    ],
+    "unresolvedFindingIds": []
+  },
+  "counts": {
+    "proposedCandidates": 100,
+    "decidedCandidates": 304,
+    "generate": 22,
+    "existing": 0,
+    "filtered": 189,
+    "rejected": 93,
+    "untracked": 0
+  }
+}
