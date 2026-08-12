@@ -1,0 +1,3960 @@
+{
+  "formatVersion": "chatgpt-semantic-assessment-checkpoint-v1",
+  "checkpointId": "source-request-99f16d23781d4f7fded13475:checkpoint:0004",
+  "requestId": "source-request-99f16d23781d4f7fded13475",
+  "requestHash": "a92f4e6ac1615ac02859e733092c918964a7da8ded0bb639622e858e5688d656",
+  "groupId": "source-request-99f16d23781d4f7fded13475:assessment:0004",
+  "groupNumber": 4,
+  "totalGroups": 51,
+  "createdAt": "2026-08-12T17:31:15.410Z",
+  "proposedCandidateIds": [
+    "0f864fdb9d3d15e870dcb3d2f8bb4870",
+    "0f8c5280855bff0863780b60f4e29713",
+    "0f90f0e08262c93135a65ff0f439c383",
+    "0fad839cfdb4ee3fa59bde5be7ce127e",
+    "0fd0e8ee1f3211f26f36195766501954",
+    "0fd3f1c090cf685b5d9895e8c0333987",
+    "0fe6bb4b46b616b0acc7f9662864d767",
+    "0fe9844fe14ed42a2a66d530edb70654",
+    "0ffdd25770fae99df211025cf3974710",
+    "10117d9f07411687de167d425d999c55",
+    "1015eb8cc0ac4a7f9ba9751ddd44af76",
+    "105f077e0d97e64701105cf40c44c155",
+    "107ad8ec1bd6338cc1ccca4333e1f9fa",
+    "107aff15a21578da3e79a23c2e4f15c1",
+    "109907d595043ab4dfdea9eb1032c838",
+    "109e7f4411a8972b718fbdf9997fb0ca",
+    "10a9ca3e50a6400bc80c12a7fab6cac1",
+    "10bd92c010b13f9fab7582d0802505f6",
+    "10d450d06315ba924643a4e03b1e47ba",
+    "10ec9586e4ec9bc12c90d9669bb09953",
+    "10f78e2ae6d9f4d49c40835faff0319c",
+    "110cda220b0b59b796ec15a54da643dc",
+    "113afd43327f6ac81b4e9aebab23f3f5",
+    "114aa3220e0186aec9dcaf713f8010dc",
+    "1151e95e5b13f2d56263e0f6399fbb52",
+    "115e9e8296f30e8ac3247d27ecfd0035",
+    "116d4b7615377ae2ee90964d60caf679",
+    "117f2f0d65a8c7aeb7668ba8dcc28268",
+    "1180228d51a3cdf178727d11948d700d",
+    "1180f57a0becc52e3a5e199e67337047",
+    "118bd30a976489543dc4522c5de1cf34",
+    "11944ba68dd47d3ce002aedcc7332e4f",
+    "11bbea3409a00b8af6f9f62a6bef0c84",
+    "11c27bc592db9c6d9822e66e3f45e9df",
+    "11c716cd26bb038d71f562d171817f1a",
+    "11cd8d96662c89ea5c4d9113e0d946e8",
+    "11d146265bb9f1f5a2283ff713f7faf8",
+    "11d2ea85a14446a9f55de157c2f5b5df",
+    "11db7ec27a0f356906819d030e8e3153",
+    "11ed1378159b6fe8e30b2afcfea8d3bf",
+    "11efee289a6f4237afe47efd34f5102a",
+    "11f5666eca196af8505c7d15dd6d3b7e",
+    "120a38c157ccbea5fccea02b13b5e2c5",
+    "12169dbabf870bbcb2e05df072397b4d",
+    "12201a2a371ee873bb0f2114ea707b5e",
+    "1221efc38d515a3cf4e5db368b79cdb8",
+    "12486e5e982204b3203fd375a9d63739",
+    "124adee47b206630079fcadb88e9ce5c",
+    "1256c04d548983f7a20a896f84e4b6f7",
+    "128a6421e500c18a580748ecac76a262",
+    "12965f1feb38a892c8c250483348c817",
+    "129abc549bc0fadce651c753e83a2e20",
+    "12a7504b3cc0e53b4bf8be5573e0c5af",
+    "12ad6a9e38f68e3a17680af06a6829c2",
+    "12c29d755f37163e0a805cc9f8c0d608",
+    "12ccbfe612a41a344d08601d83044199",
+    "12e758d0aa02eb1355230cc68e9b8e63",
+    "131482860bbfc95f3e21aac1f668b795",
+    "13200e128dab95bbb0d37a97b984558a",
+    "1322cf70acb1359868a2ccafe0b65125",
+    "1325966da3e5430779e46e9c9a718c86",
+    "13306a33c3cb1df988c6781b9232257f",
+    "13331e89ed9a090458fcb1c92817356f",
+    "13358bfb0421d0429ea74f43ad477ba7",
+    "133d6ed753c00bf6d37f0f7267c44970",
+    "1344e6492e13bcded80cf15a4a5b9cc7",
+    "1351a9dc204c9df5a8f63d4ef708362c",
+    "1354b49e7fe43eba4eb31750b39e7c50",
+    "13622f92a3c25d1424451a0f4af00627",
+    "1370c4e3e978334ec779ee8c4f19bd14",
+    "13809fe626cb0fc7d4723eab0eb26744",
+    "13a04ed1928399c60a9f1bd1b0ae85d5",
+    "13a19fa32b7a1c4782ebf8282cb50e89",
+    "13ac52d6515ca9b37ea11dcd59b616c2",
+    "13af6da819ea17d970bb8efeb36808d9",
+    "13b2f89dabacc84633f25603e08a50f1",
+    "13c9e894b0032c6596a0a288341de04b",
+    "13f735c79cee6c89f543624ac558c941",
+    "1401b2d6492113b45be80e5cf751e106",
+    "14042f4185a38002ec2328f0cf449bfa",
+    "14087eec3e424e64ed0876c5f21a1665",
+    "140893c1a0618271ac32232f0a60a534",
+    "1415c6d3c38f8693d7afad6f0a67ec22",
+    "141775049d0cbde37bc024c187c53b35",
+    "141b21bc89243485a7b9a8667d61d71b",
+    "141c9fb4ab8dac7749bf08a6af31aebe",
+    "1427a00469db8a6045efd6e1611183a0",
+    "142faa7da036a5ccec60d525d5219fed",
+    "1434a5cc04c1748ad82a331578ed79a2",
+    "1437ea6159c3ec2a04f06c8b06abbd6f",
+    "14380111c64cbda0c15635826854dfef",
+    "143c18e20d379b0451c8b9248c237dc2",
+    "1440b289ffe9eec23ed82855dd0ea4e6",
+    "144ff8eb6526799faa5e98f2fbc2ecac",
+    "14659ae6ba3b07700ee23ad882babfcd",
+    "146fc0dc189f9723200112442784f903",
+    "14722bb6b7a64ccf4b732933504cc7f8",
+    "149e35d11d5ff9b7481d232f75738e27",
+    "14ab713a553ef839d2c6f2b0dc20f419",
+    "14b4b97eea1b05936ac21f6b2c43677b"
+  ],
+  "recallUnitIds": [
+    "51dd2dd209d2a017e308fdd37d037345",
+    "50fbaa967b5dc874765ce67749844d58",
+    "44cfeaf7f9814b43e8ecf155d6a23ebd",
+    "688ece77a7a86ab239709aca34c33b7f",
+    "a6da3bd4594c9a8d7bf9b6697a8e09b3",
+    "42c70b5bd38e4dff6cf4d8add0844658",
+    "ee234a9acda44339a6a7615ae1112df0",
+    "935b6a0c8dc0d0047b498a6c782a899f",
+    "660f7eb527ac2f3c6a77bf24495c0f55",
+    "a8c8f783fa2ac4788d2515829f9de42d",
+    "520d95ecfde7757653e81121dd35a3ab",
+    "906245934c1f1ca035f52785d9a35375",
+    "d301bbf374008204240839b4341d8391",
+    "29aba410b0cb49961cb9c5e70c102afc",
+    "0d1a6faac702271921e37bd0170bc6f6",
+    "23df970e01ee7907c39cd8e45738c284",
+    "e4555be9da67f76926bc8cd57be0eee9",
+    "e605f93b4f719978b0235fd30bdd6141",
+    "889d0d26b770345460764abffc64a886",
+    "66139578cc68323eaff132a4e2552323",
+    "aa886cf92cc04598193395b54ec779ce",
+    "98db8ee2714f1fb387d2a4e525e3a10f",
+    "6bd59a56308f6b7a50157218e0bd6e7e",
+    "8abd6df8c9692cd537bae6da4cbd5bae",
+    "4d038d2ba32812d7eebd9d096fdf6fda",
+    "388fc2ff0d24f229096055a68dd61c36",
+    "8881ffc9bfa7b226bf408b0e74f0daf4",
+    "1e854c51159c91bf74b2e7cf246263da",
+    "da1dff082fea475678f1e4573a20b544",
+    "ab256b7ad85f942f3394f91514018a01",
+    "4e995a59bdfb1e3b30bfd1e36d69503c",
+    "fc1e909b2a846b7344258a9dcfc2a845",
+    "33c11e90b43c58d698b5d7e3dd738c2e",
+    "aca82d67d598a3efcf34a41fa1e0f2d7",
+    "1c6a6f6ac44cdd3507ee6f5b83b5b449",
+    "903fba7c8b57c6ced748e03edeff8d62",
+    "0bfe827b914cb0a0e5bb8f67eecc75d8",
+    "8bc1396c4902e6dbb1767f14f6018fcd",
+    "34a7dd95a8cf3dfd65508a27f4947cb0"
+  ],
+  "decisions": [
+    {
+      "proposedCandidateId": "0f864fdb9d3d15e870dcb3d2f8bb4870",
+      "term": "variou",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f864fdb9d3d15e870dcb3d2f8bb4870:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "0f864fdb9d3d15e870dcb3d2f8bb4870",
+      "term": "variou",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f864fdb9d3d15e870dcb3d2f8bb4870:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "0f864fdb9d3d15e870dcb3d2f8bb4870",
+      "term": "variou",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f864fdb9d3d15e870dcb3d2f8bb4870:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0003"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0004"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0005"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0006"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0007",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0007"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0008",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0008"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0009",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0009"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0010",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0010"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0011",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0011"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0012",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0012"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0013",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0013"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0014",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0014"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0015",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0015"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0016",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0016"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0017",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0017"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0018",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0018"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0019",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0019"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0020",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0020"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0021",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0021"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f8c5280855bff0863780b60f4e29713",
+      "term": "o t",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0022",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0f8c5280855bff0863780b60f4e29713:0022"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0f90f0e08262c93135a65ff0f439c383",
+      "term": "teme",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "0f90f0e08262c93135a65ff0f439c383:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fad839cfdb4ee3fa59bde5be7ce127e",
+      "term": "confirm",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "show-to-be-true",
+      "contextualMeaning": "to provide evidence that shows a belief, suspicion, or statement is true",
+      "occurrenceIds": [
+        "0fad839cfdb4ee3fa59bde5be7ce127e:0001",
+        "0fad839cfdb4ee3fa59bde5be7ce127e:0002"
+      ]
+    },
+    {
+      "proposedCandidateId": "0fd0e8ee1f3211f26f36195766501954",
+      "term": "blow up",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "suddenly-become-angry",
+      "contextualMeaning": "to suddenly become extremely angry",
+      "occurrenceIds": [
+        "0fd0e8ee1f3211f26f36195766501954:0003"
+      ]
+    },
+    {
+      "proposedCandidateId": "0fd0e8ee1f3211f26f36195766501954",
+      "term": "blow",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "damaging-emotional-impact",
+      "contextualMeaning": "a damaging emotional impact, setback, or shock",
+      "occurrenceIds": [
+        "0fd0e8ee1f3211f26f36195766501954:0001",
+        "0fd0e8ee1f3211f26f36195766501954:0002",
+        "0fd0e8ee1f3211f26f36195766501954:0004",
+        "0fd0e8ee1f3211f26f36195766501954:0005"
+      ]
+    },
+    {
+      "proposedCandidateId": "0fd3f1c090cf685b5d9895e8c0333987",
+      "term": "conve rsatio ns",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fd3f1c090cf685b5d9895e8c0333987:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fd3f1c090cf685b5d9895e8c0333987",
+      "term": "conve rsatio ns",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fd3f1c090cf685b5d9895e8c0333987:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fd3f1c090cf685b5d9895e8c0333987",
+      "term": "conve rsatio ns",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fd3f1c090cf685b5d9895e8c0333987:0003"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fe6bb4b46b616b0acc7f9662864d767",
+      "term": "fac",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe6bb4b46b616b0acc7f9662864d767:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fe6bb4b46b616b0acc7f9662864d767",
+      "term": "fac",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe6bb4b46b616b0acc7f9662864d767:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fe6bb4b46b616b0acc7f9662864d767",
+      "term": "fac",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe6bb4b46b616b0acc7f9662864d767:0003"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fe6bb4b46b616b0acc7f9662864d767",
+      "term": "fac",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe6bb4b46b616b0acc7f9662864d767:0004"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fe6bb4b46b616b0acc7f9662864d767",
+      "term": "fac",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe6bb4b46b616b0acc7f9662864d767:0005"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fe6bb4b46b616b0acc7f9662864d767",
+      "term": "fac",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe6bb4b46b616b0acc7f9662864d767:0006"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fe6bb4b46b616b0acc7f9662864d767",
+      "term": "fac",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0007",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe6bb4b46b616b0acc7f9662864d767:0007"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fe6bb4b46b616b0acc7f9662864d767",
+      "term": "fac",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0008",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe6bb4b46b616b0acc7f9662864d767:0008"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fe6bb4b46b616b0acc7f9662864d767",
+      "term": "fac",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0009",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe6bb4b46b616b0acc7f9662864d767:0009"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "0fe9844fe14ed42a2a66d530edb70654",
+      "term": "short",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe9844fe14ed42a2a66d530edb70654:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "0fe9844fe14ed42a2a66d530edb70654",
+      "term": "short",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe9844fe14ed42a2a66d530edb70654:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "0fe9844fe14ed42a2a66d530edb70654",
+      "term": "short",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe9844fe14ed42a2a66d530edb70654:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "0fe9844fe14ed42a2a66d530edb70654",
+      "term": "short",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe9844fe14ed42a2a66d530edb70654:0004"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "0fe9844fe14ed42a2a66d530edb70654",
+      "term": "short",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe9844fe14ed42a2a66d530edb70654:0005"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "0fe9844fe14ed42a2a66d530edb70654",
+      "term": "short",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "0fe9844fe14ed42a2a66d530edb70654:0006"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "0ffdd25770fae99df211025cf3974710",
+      "term": "gage",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "0ffdd25770fae99df211025cf3974710:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "10117d9f07411687de167d425d999c55",
+      "term": "file",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "10117d9f07411687de167d425d999c55:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1015eb8cc0ac4a7f9ba9751ddd44af76",
+      "term": "higher",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1015eb8cc0ac4a7f9ba9751ddd44af76:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1015eb8cc0ac4a7f9ba9751ddd44af76",
+      "term": "higher",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1015eb8cc0ac4a7f9ba9751ddd44af76:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1015eb8cc0ac4a7f9ba9751ddd44af76",
+      "term": "higher",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1015eb8cc0ac4a7f9ba9751ddd44af76:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1015eb8cc0ac4a7f9ba9751ddd44af76",
+      "term": "higher",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1015eb8cc0ac4a7f9ba9751ddd44af76:0004"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1015eb8cc0ac4a7f9ba9751ddd44af76",
+      "term": "higher",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1015eb8cc0ac4a7f9ba9751ddd44af76:0005"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "105f077e0d97e64701105cf40c44c155",
+      "term": "respec",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "105f077e0d97e64701105cf40c44c155:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "105f077e0d97e64701105cf40c44c155",
+      "term": "respec",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "105f077e0d97e64701105cf40c44c155:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "105f077e0d97e64701105cf40c44c155",
+      "term": "respec",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "105f077e0d97e64701105cf40c44c155:0003"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "107ad8ec1bd6338cc1ccca4333e1f9fa",
+      "term": "formal",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "officially-organized",
+      "contextualMeaning": "officially organized or established according to recognized procedures",
+      "occurrenceIds": [
+        "107ad8ec1bd6338cc1ccca4333e1f9fa:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "107aff15a21578da3e79a23c2e4f15c1",
+      "term": "ffe",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "107aff15a21578da3e79a23c2e4f15c1:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "109907d595043ab4dfdea9eb1032c838",
+      "term": "intere",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "109907d595043ab4dfdea9eb1032c838:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "109907d595043ab4dfdea9eb1032c838",
+      "term": "intere",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "109907d595043ab4dfdea9eb1032c838:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "109907d595043ab4dfdea9eb1032c838",
+      "term": "intere",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "109907d595043ab4dfdea9eb1032c838:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "109e7f4411a8972b718fbdf9997fb0ca",
+      "term": "incident",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "notable-unpleasant-event",
+      "contextualMeaning": "an event, especially an unpleasant or unusual one",
+      "occurrenceIds": [
+        "109e7f4411a8972b718fbdf9997fb0ca:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "10a9ca3e50a6400bc80c12a7fab6cac1",
+      "term": "controversial",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "causing-strong-disagreement",
+      "contextualMeaning": "causing or likely to cause strong public disagreement",
+      "occurrenceIds": [
+        "10a9ca3e50a6400bc80c12a7fab6cac1:0001",
+        "10a9ca3e50a6400bc80c12a7fab6cac1:0002"
+      ]
+    },
+    {
+      "proposedCandidateId": "10bd92c010b13f9fab7582d0802505f6",
+      "term": "defend",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "protect-against-criticism",
+      "contextualMeaning": "to protect oneself, one’s position, or dignity against criticism or attack",
+      "occurrenceIds": [
+        "10bd92c010b13f9fab7582d0802505f6:0001",
+        "10bd92c010b13f9fab7582d0802505f6:0002",
+        "10bd92c010b13f9fab7582d0802505f6:0003",
+        "10bd92c010b13f9fab7582d0802505f6:0004"
+      ]
+    },
+    {
+      "proposedCandidateId": "10d450d06315ba924643a4e03b1e47ba",
+      "term": "refri",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "10d450d06315ba924643a4e03b1e47ba:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "10ec9586e4ec9bc12c90d9669bb09953",
+      "term": "hash out",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "discuss-until-agreement",
+      "contextualMeaning": "to discuss a difficult matter thoroughly until agreement or a solution is reached",
+      "occurrenceIds": [
+        "10ec9586e4ec9bc12c90d9669bb09953:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0004"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0005"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0006"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0007",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0007"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0008",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0008"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0009",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0009"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0010",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0010"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0011",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0011"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0012",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0012"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0013",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0013"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "10f78e2ae6d9f4d49c40835faff0319c",
+      "term": "middle",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0014",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "10f78e2ae6d9f4d49c40835faff0319c:0014"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "110cda220b0b59b796ec15a54da643dc",
+      "term": "location",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "110cda220b0b59b796ec15a54da643dc:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "110cda220b0b59b796ec15a54da643dc",
+      "term": "location",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "110cda220b0b59b796ec15a54da643dc:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "110cda220b0b59b796ec15a54da643dc",
+      "term": "location",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "110cda220b0b59b796ec15a54da643dc:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "113afd43327f6ac81b4e9aebab23f3f5",
+      "term": "helpful",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "113afd43327f6ac81b4e9aebab23f3f5:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "114aa3220e0186aec9dcaf713f8010dc",
+      "term": "gur",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "114aa3220e0186aec9dcaf713f8010dc:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "1151e95e5b13f2d56263e0f6399fbb52",
+      "term": "problem-solving",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "finding-solutions",
+      "contextualMeaning": "the process or ability of analyzing difficulties and finding effective solutions",
+      "occurrenceIds": [
+        "1151e95e5b13f2d56263e0f6399fbb52:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0004"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0005"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0006"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0007",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0007"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0008",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0008"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0009",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0009"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0010",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0010"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0011",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0011"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0012",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0012"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "115e9e8296f30e8ac3247d27ecfd0035",
+      "term": "never",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0013",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "115e9e8296f30e8ac3247d27ecfd0035:0013"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0004"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0005"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0006"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0007",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0007"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0008",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0008"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0009",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0009"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0010",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0010"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0011",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0011"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0012",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0012"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0013",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0013"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "116d4b7615377ae2ee90964d60caf679",
+      "term": "walk",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0014",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "116d4b7615377ae2ee90964d60caf679:0014"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "117f2f0d65a8c7aeb7668ba8dcc28268",
+      "term": "iend",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "117f2f0d65a8c7aeb7668ba8dcc28268:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "117f2f0d65a8c7aeb7668ba8dcc28268",
+      "term": "iend",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "117f2f0d65a8c7aeb7668ba8dcc28268:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "117f2f0d65a8c7aeb7668ba8dcc28268",
+      "term": "iend",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "117f2f0d65a8c7aeb7668ba8dcc28268:0003"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "117f2f0d65a8c7aeb7668ba8dcc28268",
+      "term": "iend",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "117f2f0d65a8c7aeb7668ba8dcc28268:0004"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "117f2f0d65a8c7aeb7668ba8dcc28268",
+      "term": "iend",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "117f2f0d65a8c7aeb7668ba8dcc28268:0005"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "117f2f0d65a8c7aeb7668ba8dcc28268",
+      "term": "iend",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "117f2f0d65a8c7aeb7668ba8dcc28268:0006"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "117f2f0d65a8c7aeb7668ba8dcc28268",
+      "term": "iend",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0007",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "117f2f0d65a8c7aeb7668ba8dcc28268:0007"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "117f2f0d65a8c7aeb7668ba8dcc28268",
+      "term": "iend",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0008",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "117f2f0d65a8c7aeb7668ba8dcc28268:0008"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "1180228d51a3cdf178727d11948d700d",
+      "term": "jotham'",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1180228d51a3cdf178727d11948d700d:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "1180228d51a3cdf178727d11948d700d",
+      "term": "jotham'",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1180228d51a3cdf178727d11948d700d:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "1180228d51a3cdf178727d11948d700d",
+      "term": "jotham'",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1180228d51a3cdf178727d11948d700d:0003"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "1180228d51a3cdf178727d11948d700d",
+      "term": "jotham'",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1180228d51a3cdf178727d11948d700d:0004"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "1180228d51a3cdf178727d11948d700d",
+      "term": "jotham'",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1180228d51a3cdf178727d11948d700d:0005"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "1180f57a0becc52e3a5e199e67337047",
+      "term": "misunder",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1180f57a0becc52e3a5e199e67337047:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "1180f57a0becc52e3a5e199e67337047",
+      "term": "misunder",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1180f57a0becc52e3a5e199e67337047:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "118bd30a976489543dc4522c5de1cf34",
+      "term": "carping",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "persistent-petty-criticism",
+      "contextualMeaning": "persistent complaining or criticism about small matters",
+      "occurrenceIds": [
+        "118bd30a976489543dc4522c5de1cf34:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "11944ba68dd47d3ce002aedcc7332e4f",
+      "term": "client",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "11944ba68dd47d3ce002aedcc7332e4f:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "11944ba68dd47d3ce002aedcc7332e4f",
+      "term": "client",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "11944ba68dd47d3ce002aedcc7332e4f:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "11944ba68dd47d3ce002aedcc7332e4f",
+      "term": "client",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "11944ba68dd47d3ce002aedcc7332e4f:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "11bbea3409a00b8af6f9f62a6bef0c84",
+      "term": "enj",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "11bbea3409a00b8af6f9f62a6bef0c84:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "11c27bc592db9c6d9822e66e3f45e9df",
+      "term": "demeanor",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "outward-behaviour-and-manner",
+      "contextualMeaning": "a person’s outward behaviour, manner, and appearance",
+      "occurrenceIds": [
+        "11c27bc592db9c6d9822e66e3f45e9df:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "11c716cd26bb038d71f562d171817f1a",
+      "term": "safety-even",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "11c716cd26bb038d71f562d171817f1a:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "11cd8d96662c89ea5c4d9113e0d946e8",
+      "term": "rpose",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "11cd8d96662c89ea5c4d9113e0d946e8:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "11d146265bb9f1f5a2283ff713f7faf8",
+      "term": "finger",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "11d146265bb9f1f5a2283ff713f7faf8:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "11d146265bb9f1f5a2283ff713f7faf8",
+      "term": "finger",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "11d146265bb9f1f5a2283ff713f7faf8:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "11d2ea85a14446a9f55de157c2f5b5df",
+      "term": "satur",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "11d2ea85a14446a9f55de157c2f5b5df:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "11db7ec27a0f356906819d030e8e3153",
+      "term": "weekend",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "11db7ec27a0f356906819d030e8e3153:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "11ed1378159b6fe8e30b2afcfea8d3bf",
+      "term": "saving",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "11ed1378159b6fe8e30b2afcfea8d3bf:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "11efee289a6f4237afe47efd34f5102a",
+      "term": "as cool as a cucumber",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "very-calm-under-pressure",
+      "contextualMeaning": "very calm and composed, especially in a stressful situation",
+      "occurrenceIds": [
+        "11efee289a6f4237afe47efd34f5102a:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "11f5666eca196af8505c7d15dd6d3b7e",
+      "term": "elin",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "11f5666eca196af8505c7d15dd6d3b7e:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0004"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0005"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0006"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0007",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0007"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0008",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0008"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0009",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0009"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0010",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0010"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0011",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0011"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0012",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0012"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0013",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0013"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0014",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0014"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0015",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0015"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "120a38c157ccbea5fccea02b13b5e2c5",
+      "term": "you'll",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0016",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "120a38c157ccbea5fccea02b13b5e2c5:0016"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12169dbabf870bbcb2e05df072397b4d",
+      "term": "fixture",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "long-established-person",
+      "contextualMeaning": "a person who has been present in a place or organization for so long that they seem permanent",
+      "occurrenceIds": [
+        "12169dbabf870bbcb2e05df072397b4d:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "12201a2a371ee873bb0f2114ea707b5e",
+      "term": "purpose-it",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "12201a2a371ee873bb0f2114ea707b5e:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "1221efc38d515a3cf4e5db368b79cdb8",
+      "term": "guess",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1221efc38d515a3cf4e5db368b79cdb8:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1221efc38d515a3cf4e5db368b79cdb8",
+      "term": "guess",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1221efc38d515a3cf4e5db368b79cdb8:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12486e5e982204b3203fd375a9d63739",
+      "term": "eable",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "12486e5e982204b3203fd375a9d63739:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "124adee47b206630079fcadb88e9ce5c",
+      "term": "get upset over",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "124adee47b206630079fcadb88e9ce5c:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1256c04d548983f7a20a896f84e4b6f7",
+      "term": "out of the content",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1256c04d548983f7a20a896f84e4b6f7:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1256c04d548983f7a20a896f84e4b6f7",
+      "term": "out of the content",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1256c04d548983f7a20a896f84e4b6f7:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1256c04d548983f7a20a896f84e4b6f7",
+      "term": "out of the content",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1256c04d548983f7a20a896f84e4b6f7:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1256c04d548983f7a20a896f84e4b6f7",
+      "term": "out of the content",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1256c04d548983f7a20a896f84e4b6f7:0004"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1256c04d548983f7a20a896f84e4b6f7",
+      "term": "out of the content",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1256c04d548983f7a20a896f84e4b6f7:0005"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1256c04d548983f7a20a896f84e4b6f7",
+      "term": "out of the content",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1256c04d548983f7a20a896f84e4b6f7:0006"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1256c04d548983f7a20a896f84e4b6f7",
+      "term": "out of the content",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0007",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1256c04d548983f7a20a896f84e4b6f7:0007"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1256c04d548983f7a20a896f84e4b6f7",
+      "term": "out of the content",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0008",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "1256c04d548983f7a20a896f84e4b6f7:0008"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "128a6421e500c18a580748ecac76a262",
+      "term": "accountable-regardless",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "128a6421e500c18a580748ecac76a262:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "12965f1feb38a892c8c250483348c817",
+      "term": "ectively",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12965f1feb38a892c8c250483348c817:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12965f1feb38a892c8c250483348c817",
+      "term": "ectively",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12965f1feb38a892c8c250483348c817:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12965f1feb38a892c8c250483348c817",
+      "term": "ectively",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12965f1feb38a892c8c250483348c817:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "129abc549bc0fadce651c753e83a2e20",
+      "term": "behavi",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "129abc549bc0fadce651c753e83a2e20:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12a7504b3cc0e53b4bf8be5573e0c5af",
+      "term": "you've got",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12a7504b3cc0e53b4bf8be5573e0c5af:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12a7504b3cc0e53b4bf8be5573e0c5af",
+      "term": "you've got",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12a7504b3cc0e53b4bf8be5573e0c5af:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12a7504b3cc0e53b4bf8be5573e0c5af",
+      "term": "you've got",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12a7504b3cc0e53b4bf8be5573e0c5af:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12ad6a9e38f68e3a17680af06a6829c2",
+      "term": "near",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "12ad6a9e38f68e3a17680af06a6829c2:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12c29d755f37163e0a805cc9f8c0d608",
+      "term": "path",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12c29d755f37163e0a805cc9f8c0d608:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12c29d755f37163e0a805cc9f8c0d608",
+      "term": "path",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12c29d755f37163e0a805cc9f8c0d608:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12c29d755f37163e0a805cc9f8c0d608",
+      "term": "path",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12c29d755f37163e0a805cc9f8c0d608:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12c29d755f37163e0a805cc9f8c0d608",
+      "term": "path",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12c29d755f37163e0a805cc9f8c0d608:0004"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12c29d755f37163e0a805cc9f8c0d608",
+      "term": "path",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12c29d755f37163e0a805cc9f8c0d608:0005"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12c29d755f37163e0a805cc9f8c0d608",
+      "term": "path",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12c29d755f37163e0a805cc9f8c0d608:0006"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "12ccbfe612a41a344d08601d83044199",
+      "term": "ave",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "12ccbfe612a41a344d08601d83044199:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "12e758d0aa02eb1355230cc68e9b8e63",
+      "term": "indi",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12e758d0aa02eb1355230cc68e9b8e63:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "12e758d0aa02eb1355230cc68e9b8e63",
+      "term": "indi",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12e758d0aa02eb1355230cc68e9b8e63:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "12e758d0aa02eb1355230cc68e9b8e63",
+      "term": "indi",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "12e758d0aa02eb1355230cc68e9b8e63:0003"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "131482860bbfc95f3e21aac1f668b795",
+      "term": "condition",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "131482860bbfc95f3e21aac1f668b795:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "131482860bbfc95f3e21aac1f668b795",
+      "term": "condition",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "131482860bbfc95f3e21aac1f668b795:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "131482860bbfc95f3e21aac1f668b795",
+      "term": "condition",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "131482860bbfc95f3e21aac1f668b795:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "131482860bbfc95f3e21aac1f668b795",
+      "term": "condition",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "131482860bbfc95f3e21aac1f668b795:0004"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "131482860bbfc95f3e21aac1f668b795",
+      "term": "condition",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "131482860bbfc95f3e21aac1f668b795:0005"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "131482860bbfc95f3e21aac1f668b795",
+      "term": "condition",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "131482860bbfc95f3e21aac1f668b795:0006"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "131482860bbfc95f3e21aac1f668b795",
+      "term": "condition",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0007",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "131482860bbfc95f3e21aac1f668b795:0007"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "13200e128dab95bbb0d37a97b984558a",
+      "term": "hence",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "at-a-future-time",
+      "contextualMeaning": "from now or from the stated time in the future",
+      "occurrenceIds": [
+        "13200e128dab95bbb0d37a97b984558a:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "1322cf70acb1359868a2ccafe0b65125",
+      "term": "general",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "1322cf70acb1359868a2ccafe0b65125:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1325966da3e5430779e46e9c9a718c86",
+      "term": "dumb",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "1325966da3e5430779e46e9c9a718c86:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "13306a33c3cb1df988c6781b9232257f",
+      "term": "inti",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "13306a33c3cb1df988c6781b9232257f:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "13331e89ed9a090458fcb1c92817356f",
+      "term": "antics",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "foolish-attention-getting-behaviour",
+      "contextualMeaning": "foolish, strange, or amusing behaviour intended to attract attention",
+      "occurrenceIds": [
+        "13331e89ed9a090458fcb1c92817356f:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "13358bfb0421d0429ea74f43ad477ba7",
+      "term": "back into",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "13358bfb0421d0429ea74f43ad477ba7:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "13358bfb0421d0429ea74f43ad477ba7",
+      "term": "back into",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "13358bfb0421d0429ea74f43ad477ba7:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "133d6ed753c00bf6d37f0f7267c44970",
+      "term": "assessment",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "systematic-evaluation",
+      "contextualMeaning": "a systematic evaluation of someone’s ability, condition, or performance",
+      "occurrenceIds": [
+        "133d6ed753c00bf6d37f0f7267c44970:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "1344e6492e13bcded80cf15a4a5b9cc7",
+      "term": "effective",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "1344e6492e13bcded80cf15a4a5b9cc7:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1351a9dc204c9df5a8f63d4ef708362c",
+      "term": "ocus",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "1351a9dc204c9df5a8f63d4ef708362c:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "1354b49e7fe43eba4eb31750b39e7c50",
+      "term": "lever",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "bar-used-for-force",
+      "contextualMeaning": "a rigid bar used with a fixed point to move or lift a heavy load",
+      "occurrenceIds": [
+        "1354b49e7fe43eba4eb31750b39e7c50:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "13622f92a3c25d1424451a0f4af00627",
+      "term": "select",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "13622f92a3c25d1424451a0f4af00627:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "13622f92a3c25d1424451a0f4af00627",
+      "term": "select",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "13622f92a3c25d1424451a0f4af00627:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1370c4e3e978334ec779ee8c4f19bd14",
+      "term": "ulate",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "1370c4e3e978334ec779ee8c4f19bd14:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "13809fe626cb0fc7d4723eab0eb26744",
+      "term": "know-how",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "13809fe626cb0fc7d4723eab0eb26744:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "13a04ed1928399c60a9f1bd1b0ae85d5",
+      "term": "disaste",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "13a04ed1928399c60a9f1bd1b0ae85d5:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "13a19fa32b7a1c4782ebf8282cb50e89",
+      "term": "asse",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "13a19fa32b7a1c4782ebf8282cb50e89:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "13ac52d6515ca9b37ea11dcd59b616c2",
+      "term": "lay out",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "present-clearly-in-order",
+      "contextualMeaning": "to present information, reasons, or context clearly and in an organized way",
+      "occurrenceIds": [
+        "13ac52d6515ca9b37ea11dcd59b616c2:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "13af6da819ea17d970bb8efeb36808d9",
+      "term": "mor e",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "13af6da819ea17d970bb8efeb36808d9:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "13af6da819ea17d970bb8efeb36808d9",
+      "term": "mor e",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "13af6da819ea17d970bb8efeb36808d9:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "13af6da819ea17d970bb8efeb36808d9",
+      "term": "mor e",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "13af6da819ea17d970bb8efeb36808d9:0003"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "13af6da819ea17d970bb8efeb36808d9",
+      "term": "mor e",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "13af6da819ea17d970bb8efeb36808d9:0004"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "13b2f89dabacc84633f25603e08a50f1",
+      "term": "rniture",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "13b2f89dabacc84633f25603e08a50f1:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "13b2f89dabacc84633f25603e08a50f1",
+      "term": "rniture",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "13b2f89dabacc84633f25603e08a50f1:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "13c9e894b0032c6596a0a288341de04b",
+      "term": "live up to",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "meet-an-expected-standard",
+      "contextualMeaning": "to meet an expected standard, promise, or level of performance",
+      "occurrenceIds": [
+        "13c9e894b0032c6596a0a288341de04b:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "13f735c79cee6c89f543624ac558c941",
+      "term": "neil",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "13f735c79cee6c89f543624ac558c941:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "1401b2d6492113b45be80e5cf751e106",
+      "term": "compelling",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "strongly-convincing",
+      "contextualMeaning": "strongly convincing or able to hold attention because of persuasive force",
+      "occurrenceIds": [
+        "1401b2d6492113b45be80e5cf751e106:0001",
+        "1401b2d6492113b45be80e5cf751e106:0002",
+        "1401b2d6492113b45be80e5cf751e106:0003",
+        "1401b2d6492113b45be80e5cf751e106:0004"
+      ]
+    },
+    {
+      "proposedCandidateId": "14042f4185a38002ec2328f0cf449bfa",
+      "term": "enty-five",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "14042f4185a38002ec2328f0cf449bfa:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14087eec3e424e64ed0876c5f21a1665",
+      "term": "royce",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14087eec3e424e64ed0876c5f21a1665:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14087eec3e424e64ed0876c5f21a1665",
+      "term": "royce",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14087eec3e424e64ed0876c5f21a1665:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14087eec3e424e64ed0876c5f21a1665",
+      "term": "royce",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14087eec3e424e64ed0876c5f21a1665:0003"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "140893c1a0618271ac32232f0a60a534",
+      "term": "error",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "140893c1a0618271ac32232f0a60a534:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "140893c1a0618271ac32232f0a60a534",
+      "term": "error",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "140893c1a0618271ac32232f0a60a534:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1415c6d3c38f8693d7afad6f0a67ec22",
+      "term": "ps-a",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "1415c6d3c38f8693d7afad6f0a67ec22:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "141775049d0cbde37bc024c187c53b35",
+      "term": "couple",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "141775049d0cbde37bc024c187c53b35:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "141775049d0cbde37bc024c187c53b35",
+      "term": "couple",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "141775049d0cbde37bc024c187c53b35:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "141775049d0cbde37bc024c187c53b35",
+      "term": "couple",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "141775049d0cbde37bc024c187c53b35:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "141775049d0cbde37bc024c187c53b35",
+      "term": "couple",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "141775049d0cbde37bc024c187c53b35:0004"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "141775049d0cbde37bc024c187c53b35",
+      "term": "couple",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "141775049d0cbde37bc024c187c53b35:0005"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "141775049d0cbde37bc024c187c53b35",
+      "term": "couple",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "141775049d0cbde37bc024c187c53b35:0006"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "141775049d0cbde37bc024c187c53b35",
+      "term": "couple",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0007",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "141775049d0cbde37bc024c187c53b35:0007"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "141775049d0cbde37bc024c187c53b35",
+      "term": "couple",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0008",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "141775049d0cbde37bc024c187c53b35:0008"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "141775049d0cbde37bc024c187c53b35",
+      "term": "couple",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0009",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "141775049d0cbde37bc024c187c53b35:0009"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "141b21bc89243485a7b9a8667d61d71b",
+      "term": "punish",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "141b21bc89243485a7b9a8667d61d71b:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "141c9fb4ab8dac7749bf08a6af31aebe",
+      "term": "disaster",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "141c9fb4ab8dac7749bf08a6af31aebe:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1427a00469db8a6045efd6e1611183a0",
+      "term": "oned",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "1427a00469db8a6045efd6e1611183a0:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "142faa7da036a5ccec60d525d5219fed",
+      "term": "commit",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "perform-serious-harmful-act",
+      "contextualMeaning": "to perform a serious harmful, illegal, or disastrous act",
+      "occurrenceIds": [
+        "142faa7da036a5ccec60d525d5219fed:0002",
+        "142faa7da036a5ccec60d525d5219fed:0003"
+      ]
+    },
+    {
+      "proposedCandidateId": "142faa7da036a5ccec60d525d5219fed",
+      "term": "commit to",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "firmly-promise-action",
+      "contextualMeaning": "to firmly promise or dedicate oneself to a course of action",
+      "occurrenceIds": [
+        "142faa7da036a5ccec60d525d5219fed:0001",
+        "142faa7da036a5ccec60d525d5219fed:0004",
+        "142faa7da036a5ccec60d525d5219fed:0005",
+        "142faa7da036a5ccec60d525d5219fed:0006",
+        "142faa7da036a5ccec60d525d5219fed:0007",
+        "142faa7da036a5ccec60d525d5219fed:0009",
+        "142faa7da036a5ccec60d525d5219fed:0010",
+        "142faa7da036a5ccec60d525d5219fed:0011"
+      ]
+    },
+    {
+      "proposedCandidateId": "142faa7da036a5ccec60d525d5219fed",
+      "term": "commitment",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "promise-or-obligation",
+      "contextualMeaning": "a promise or obligation that another person relies on",
+      "occurrenceIds": [
+        "142faa7da036a5ccec60d525d5219fed:0008"
+      ]
+    },
+    {
+      "proposedCandidateId": "1434a5cc04c1748ad82a331578ed79a2",
+      "term": "unethically",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "against-moral-standards",
+      "contextualMeaning": "in a way that violates accepted moral or professional standards",
+      "occurrenceIds": [
+        "1434a5cc04c1748ad82a331578ed79a2:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "1437ea6159c3ec2a04f06c8b06abbd6f",
+      "term": "karol",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "1437ea6159c3ec2a04f06c8b06abbd6f:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0003"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0004"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0005"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0006"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0007",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0007"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0008",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0008"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0009",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0009"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0010",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0010"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0011",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0011"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0012",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0012"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0013",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0013"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0014",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0014"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0015",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0015"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0016",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0016"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0017",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0017"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14380111c64cbda0c15635826854dfef",
+      "term": "onne",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0018",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14380111c64cbda0c15635826854dfef:0018"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "143c18e20d379b0451c8b9248c237dc2",
+      "term": "in a similar vein",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "on-a-similar-theme",
+      "contextualMeaning": "in a similar style or concerning a similar idea",
+      "occurrenceIds": [
+        "143c18e20d379b0451c8b9248c237dc2:0001",
+        "143c18e20d379b0451c8b9248c237dc2:0002"
+      ]
+    },
+    {
+      "proposedCandidateId": "143c18e20d379b0451c8b9248c237dc2",
+      "term": "vein",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "blood-vessel",
+      "contextualMeaning": "a blood vessel visible beneath the skin",
+      "occurrenceIds": [
+        "143c18e20d379b0451c8b9248c237dc2:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "1440b289ffe9eec23ed82855dd0ea4e6",
+      "term": "portion",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "part-of-a-whole",
+      "contextualMeaning": "a part or share of a larger whole",
+      "occurrenceIds": [
+        "1440b289ffe9eec23ed82855dd0ea4e6:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "144ff8eb6526799faa5e98f2fbc2ecac",
+      "term": "burden",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "heavy-responsibility",
+      "contextualMeaning": "a difficult responsibility, duty, or problem placed on someone",
+      "occurrenceIds": [
+        "144ff8eb6526799faa5e98f2fbc2ecac:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "14659ae6ba3b07700ee23ad882babfcd",
+      "term": "successf",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense",
+      "contextualMeaning": "the contextual source meaning represented by this non-generated occurrence",
+      "occurrenceIds": [
+        "14659ae6ba3b07700ee23ad882babfcd:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "146fc0dc189f9723200112442784f903",
+      "term": "twenty",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "146fc0dc189f9723200112442784f903:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "146fc0dc189f9723200112442784f903",
+      "term": "twenty",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "146fc0dc189f9723200112442784f903:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "146fc0dc189f9723200112442784f903",
+      "term": "twenty",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "146fc0dc189f9723200112442784f903:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14722bb6b7a64ccf4b732933504cc7f8",
+      "term": "act on",
+      "decision": "generate",
+      "senseDecision": "new_sense",
+      "senseKey": "take-action-based-on",
+      "contextualMeaning": "to take action based on information, a decision, or advice",
+      "occurrenceIds": [
+        "14722bb6b7a64ccf4b732933504cc7f8:0001"
+      ]
+    },
+    {
+      "proposedCandidateId": "149e35d11d5ff9b7481d232f75738e27",
+      "term": "strat",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "149e35d11d5ff9b7481d232f75738e27:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "149e35d11d5ff9b7481d232f75738e27",
+      "term": "strat",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "149e35d11d5ff9b7481d232f75738e27:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "149e35d11d5ff9b7481d232f75738e27",
+      "term": "strat",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "149e35d11d5ff9b7481d232f75738e27:0003"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "149e35d11d5ff9b7481d232f75738e27",
+      "term": "strat",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "149e35d11d5ff9b7481d232f75738e27:0004"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14ab713a553ef839d2c6f2b0dc20f419",
+      "term": "how people",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14ab713a553ef839d2c6f2b0dc20f419:0001"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14ab713a553ef839d2c6f2b0dc20f419",
+      "term": "how people",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14ab713a553ef839d2c6f2b0dc20f419:0002"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14ab713a553ef839d2c6f2b0dc20f419",
+      "term": "how people",
+      "decision": "rejected",
+      "senseDecision": "new_sense",
+      "senseKey": "rejected-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14ab713a553ef839d2c6f2b0dc20f419:0003"
+      ],
+      "reason": "noise: the form is an OCR-split, truncated, malformed, proper-name, or non-lexical extraction fragment and must not become a lesson."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0001",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0001"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0002",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0002"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0003",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0003"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0004",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0004"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0005",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0005"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0006",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0006"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0007",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0007"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0008",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0008"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0009",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0009"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0010",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0010"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0011",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0011"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0012",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0012"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0013",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0013"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0014",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0014"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0015",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0015"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    },
+    {
+      "proposedCandidateId": "14b4b97eea1b05936ac21f6b2c43677b",
+      "term": "being",
+      "decision": "filtered",
+      "senseDecision": "new_sense",
+      "senseKey": "filtered-source-sense-0016",
+      "contextualMeaning": "the specific contextual meaning demonstrated by this accounted source occurrence",
+      "occurrenceIds": [
+        "14b4b97eea1b05936ac21f6b2c43677b:0016"
+      ],
+      "reason": "basic_below_target: this occurrence uses common A1–B1 vocabulary or a basic grammatical pattern outside the configured B2–C2 target."
+    }
+  ],
+  "recallPass": {
+    "completed": true,
+    "method": "blind_sentence_rescan",
+    "scannedRecallUnitIds": [
+      "51dd2dd209d2a017e308fdd37d037345",
+      "50fbaa967b5dc874765ce67749844d58",
+      "44cfeaf7f9814b43e8ecf155d6a23ebd",
+      "688ece77a7a86ab239709aca34c33b7f",
+      "a6da3bd4594c9a8d7bf9b6697a8e09b3",
+      "42c70b5bd38e4dff6cf4d8add0844658",
+      "ee234a9acda44339a6a7615ae1112df0",
+      "935b6a0c8dc0d0047b498a6c782a899f",
+      "660f7eb527ac2f3c6a77bf24495c0f55",
+      "a8c8f783fa2ac4788d2515829f9de42d",
+      "520d95ecfde7757653e81121dd35a3ab",
+      "906245934c1f1ca035f52785d9a35375",
+      "d301bbf374008204240839b4341d8391",
+      "29aba410b0cb49961cb9c5e70c102afc",
+      "0d1a6faac702271921e37bd0170bc6f6",
+      "23df970e01ee7907c39cd8e45738c284",
+      "e4555be9da67f76926bc8cd57be0eee9",
+      "e605f93b4f719978b0235fd30bdd6141",
+      "889d0d26b770345460764abffc64a886",
+      "66139578cc68323eaff132a4e2552323",
+      "aa886cf92cc04598193395b54ec779ce",
+      "98db8ee2714f1fb387d2a4e525e3a10f",
+      "6bd59a56308f6b7a50157218e0bd6e7e",
+      "8abd6df8c9692cd537bae6da4cbd5bae",
+      "4d038d2ba32812d7eebd9d096fdf6fda",
+      "388fc2ff0d24f229096055a68dd61c36",
+      "8881ffc9bfa7b226bf408b0e74f0daf4",
+      "1e854c51159c91bf74b2e7cf246263da",
+      "da1dff082fea475678f1e4573a20b544",
+      "ab256b7ad85f942f3394f91514018a01",
+      "4e995a59bdfb1e3b30bfd1e36d69503c",
+      "fc1e909b2a846b7344258a9dcfc2a845",
+      "33c11e90b43c58d698b5d7e3dd738c2e",
+      "aca82d67d598a3efcf34a41fa1e0f2d7",
+      "1c6a6f6ac44cdd3507ee6f5b83b5b449",
+      "903fba7c8b57c6ced748e03edeff8d62",
+      "0bfe827b914cb0a0e5bb8f67eecc75d8",
+      "8bc1396c4902e6dbb1767f14f6018fcd",
+      "34a7dd95a8cf3dfd65508a27f4947cb0"
+    ],
+    "findings": [
+      {
+        "findingId": "recall-g4-001",
+        "recallUnitId": "51dd2dd209d2a017e308fdd37d037345",
+        "term": "go with",
+        "sentence": "\"G iven  the  three  choic­ es,  I'll  go  with  handling  them  we ll.",
+        "startOffset": 39,
+        "endOffset": 47,
+        "reason": "blind_recall_candidate: choose a particular option"
+      },
+      {
+        "findingId": "recall-g4-002",
+        "recallUnitId": "42c70b5bd38e4dff6cf4d8add0844658",
+        "term": "pay close attention",
+        "sentence": "I'd  better  pay close  attention\"  and  then  trot  out  our  best  behavior?",
+        "startOffset": 13,
+        "endOffset": 33,
+        "reason": "blind_recall_candidate: concentrate carefully on what is happening"
+      },
+      {
+        "findingId": "recall-g4-003",
+        "recallUnitId": "ee234a9acda44339a6a7615ae1112df0",
+        "term": "step up to",
+        "sentence": "Or  when  we're  anticipating  a  poten­ tially  dangerous  discussion,  do  we  step  up  to  it  rather  than  scam­ per  away?",
+        "startOffset": 81,
+        "endOffset": 93,
+        "reason": "blind_recall_candidate: approach and deal with a difficult situation"
+      },
+      {
+        "findingId": "recall-g4-004",
+        "recallUnitId": "660f7eb527ac2f3c6a77bf24495c0f55",
+        "term": "offer up",
+        "sentence": "Sometimes  we  boldly  step  up  to  hot  topics,  monitor  our  behavior,  and  offer  up  our  best  work.",
+        "startOffset": 81,
+        "endOffset": 90,
+        "reason": "blind_recall_candidate: present or provide something for consideration"
+      },
+      {
+        "findingId": "recall-g4-005",
+        "recallUnitId": "520d95ecfde7757653e81121dd35a3ab",
+        "term": "flat -o ut",
+        "sentence": "Sometimes  we're  just  flat -o ut  good.",
+        "startOffset": 24,
+        "endOffset": 34,
+        "reason": "blind_recall_candidate: completely or absolutely"
+      },
+      {
+        "findingId": "recall-g4-006",
+        "recallUnitId": "d301bbf374008204240839b4341d8391",
+        "term": "at our absolute worst",
+        "sentence": "These  are  the  moments  when,  for  whatever  reason,  we  either  anticipate  a  crucial  conver­ sation  or  are  in  the  middle  of  one  and  we're  at  our  absolute  worst-we  yell;  we  withdraw;  we  say  things  we  later  regret.",
+        "startOffset": 156,
+        "endOffset": 180,
+        "reason": "blind_recall_candidate: behaving as badly as we possibly do"
+      },
+      {
+        "findingId": "recall-g4-007",
+        "recallUnitId": "29aba410b0cb49961cb9c5e70c102afc",
+        "term": "matter the most",
+        "sentence": "When  conver sations  matter  the  most-that  is,  when  conve rsations  move  from  casual  to  crucial -we're  generally  on  our  worst  behavior.",
+        "startOffset": 22,
+        "endOffset": 39,
+        "reason": "blind_recall_candidate: be most important in a situation"
+      },
+      {
+        "findingId": "recall-g4-008",
+        "recallUnitId": "e4555be9da67f76926bc8cd57be0eee9",
+        "term": "in trouble",
+        "sentence": "When  conve rsations  tum  from  routine  to  crucial,  we're  often  in  trouble.",
+        "startOffset": 70,
+        "endOffset": 81,
+        "reason": "blind_recall_candidate: in a difficult or dangerous situation"
+      },
+      {
+        "findingId": "recall-g4-009",
+        "recallUnitId": "aa886cf92cc04598193395b54ec779ce",
+        "term": "hairs on the back of your neck stand up",
+        "sentence": "Someone  says  something  you  disagree  with  about  a  topic  that  matters  a  great  deal  to  you and  the  hairs  on  the  back  of  your  neck  stand  up.",
+        "startOffset": 113,
+        "endOffset": 160,
+        "reason": "blind_recall_candidate: experience an instinctive feeling of fear or alarm"
+      },
+      {
+        "findingId": "recall-g4-010",
+        "recallUnitId": "388fc2ff0d24f229096055a68dd61c36",
+        "term": "live with it",
+        "sentence": "Yo ur  adrenal  gland s  do  it,  and  then  you  have  to  live  with  it.",
+        "startOffset": 60,
+        "endOffset": 74,
+        "reason": "blind_recall_candidate: accept and continue despite an unpleasant situation"
+      },
+      {
+        "findingId": "recall-g4-011",
+        "recallUnitId": "fc1e909b2a846b7344258a9dcfc2a845",
+        "term": "und er pressure",
+        "sentence": "5  We 're  und er  pressure.",
+        "startOffset": 11,
+        "endOffset": 27,
+        "reason": "blind_recall_candidate: experiencing stress or demands that require quick action"
+      },
+      {
+        "findingId": "recall-g4-012",
+        "recallUnitId": "33c11e90b43c58d698b5d7e3dd738c2e",
+        "term": "add another factor",
+        "sentence": "Let's  add  another  factor.",
+        "startOffset": 7,
+        "endOffset": 27,
+        "reason": "blind_recall_candidate: include one more consideration in an analysis"
+      },
+      {
+        "findingId": "recall-g4-013",
+        "recallUnitId": "903fba7c8b57c6ced748e03edeff8d62",
+        "term": "caught by surprise",
+        "sentence": "And   since  you're  caught  by  surprise,  you're  fo rced  to  conduct  an  extraordinarily  complex  human  interaction  in  real  time-no  books,  no  coaches,  and  certainly  no  short   breaks   while  a  team  of  therapists  runs  to  your  aid  and  pumps  you  full  of  nifty  ideas.",
+        "startOffset": 21,
+        "endOffset": 41,
+        "reason": "blind_recall_candidate: unexpectedly confronted with a situation"
+      },
+      {
+        "findingId": "recall-g4-014",
+        "recallUnitId": "903fba7c8b57c6ced748e03edeff8d62",
+        "term": "in real time",
+        "sentence": "And   since  you're  caught  by  surprise,  you're  fo rced  to  conduct  an  extraordinarily  complex  human  interaction  in  real  time-no  books,  no  coaches,  and  certainly  no  short   breaks   while  a  team  of  therapists  runs  to  your  aid  and  pumps  you  full  of  nifty  ideas.",
+        "startOffset": 124,
+        "endOffset": 138,
+        "reason": "blind_recall_candidate: while an event is actually happening"
+      },
+      {
+        "findingId": "recall-g4-015",
+        "recallUnitId": "8bc1396c4902e6dbb1767f14f6018fcd",
+        "term": "at hand",
+        "sentence": "The  issue  at  hand,  the  other  person,  and  a  brain  that's  preparing to  fight  or  take  flight .",
+        "startOffset": 12,
+        "endOffset": 20,
+        "reason": "blind_recall_candidate: currently being dealt with or considered"
+      },
+      {
+        "findingId": "recall-g4-016",
+        "recallUnitId": "8bc1396c4902e6dbb1767f14f6018fcd",
+        "term": "take flight",
+        "sentence": "The  issue  at  hand,  the  other  person,  and  a  brain  that's  preparing to  fight  or  take  flight .",
+        "startOffset": 92,
+        "endOffset": 104,
+        "reason": "blind_recall_candidate: run away from danger"
+      }
+    ],
+    "unresolvedFindingIds": []
+  },
+  "counts": {
+    "proposedCandidates": 100,
+    "decidedCandidates": 301,
+    "generate": 28,
+    "existing": 0,
+    "filtered": 159,
+    "rejected": 114,
+    "untracked": 0
+  }
+}
