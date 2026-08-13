@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const VOCABULARY_LESSON_FORMAT_VERSION = "simplified-v2" as const;
 export const VOCABULARY_VALIDATOR_POLICY_VERSION =
-  "expression-grammar-2026.3" as const;
+  "expression-grammar-2026.4" as const;
 
 export const VOCABULARY_SECTION_TEMPLATE = [
   "Overview",
@@ -15,6 +15,11 @@ export const VOCABULARY_SECTION_TEMPLATE = [
   "Advanced Nuance",
 ] as const;
 
+const immutableSourceText = z
+  .string()
+  .min(1, "must contain immutable source evidence")
+  .max(10_000)
+  .refine((value) => value.trim().length > 0, "must contain immutable source evidence");
 const usefulText = z.string().trim().min(8, "must contain useful content");
 const usefulTextList = z.array(usefulText).min(1, "must not be empty");
 
@@ -37,7 +42,7 @@ export const VocabularyLessonSchema = z
       .strict(),
     meaning_in_context: z
       .object({
-        source_sentence: usefulText,
+        source_sentence: immutableSourceText,
         contextual_meaning: usefulText,
         simple_explanation: usefulText,
       })
