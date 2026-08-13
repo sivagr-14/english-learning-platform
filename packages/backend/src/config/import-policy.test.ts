@@ -11,9 +11,10 @@ describe("default import policy", () => {
       approvalRequired: false,
       includedFrequencies: ["heavy", "medium"],
       excludeLowFrequency: true,
-      generationBatchMin: 5,
-      generationBatchDefault: 8,
-      generationBatchMax: 10,
+      generationBatchMin: 50,
+      generationBatchDefault: 100,
+      generationBatchMax: 100,
+      generationMaximumWaves: 5,
       maxRetries: 3,
       databaseVerificationRequired: true,
     });
@@ -34,4 +35,3 @@ describe("default import policy", () => {
     );
   });
 });
-

@@ -29,8 +29,10 @@ for safe database upgrades and must not create active import work.
 5. The backend atomically assigns each unowned manifest to the signed-in local
    account, schedules every eligible candidate and imports every available valid
    batch. No claim or approval action is shown to the learner.
-6. ChatGPT generates complete lessons in batches of at most ten and writes each
-   batch to the same inbox branch.
+6. ChatGPT generates complete lessons in deterministic cycles of at most 100
+   and writes each cycle to the same inbox branch. Plans above 100 use the
+   fewest balanced 50–100-entry cycles, grouped into at most five automatic
+   execution waves.
 7. The local backend validates the manifest hash, planned batch membership,
    complete eight-section contract, CEFR, term-specific examples and account
    ownership.
@@ -92,7 +94,7 @@ imports can finish. Version 5 must include:
 - source page, chunk and sentence for every candidate occurrence;
 - exact recomputable totals; and
 - a numbered generation plan that partitions every `generate` candidate exactly
-  once into batches of one to ten.
+  once into cycles of one to 100.
 
 The app rejects a manifest when a page, chunk, candidate, count or planned batch
 is missing, duplicated or inconsistent. An unreadable page is never silently
@@ -239,10 +241,12 @@ system classification.
 - Mark scanned, corrupt or otherwise unreadable pages as `unreadable` with a
   reason. Do not finalize the import until replacement/OCR text has been
   assessed and the immutable manifest is replaced with a new manifest ID.
-- Keep five to ten lessons in each immutable internal batch, but expose only
-  one to five deterministic execution waves. A wave drains all of its consecutive
-  missing internal batches in the same run without confirmation. Existing
-  manifests receive this wave overlay without changing their manifest hash,
+- Use one immutable internal cycle for 1–100 lessons. Above 100, use the fewest
+  balanced cycles possible, keeping every cycle between 50 and 100 without an
+  undersized tail. Expose one to five deterministic execution waves. A wave
+  drains all consecutive missing cycles in the same run without confirmation.
+  Existing manifests retain their frozen cycle membership and receive only the
+  wave overlay, without changing their manifest hash,
   candidate membership, or already received batches.
 - Finalize the immutable manifest and its complete generation plan before
   generating the first lesson. Resume only from durable manifest and batch
@@ -319,10 +323,11 @@ interrupted import resumes with the rules it started with.
   `filtered` with reason code `ambiguous_context` and continue automatically;
 - assess unresolved candidates in bounded groups of 50–100; this is a
   per-operation processing bound and never a total limit;
-- generate complete lessons in adaptive batches of 5–10, normally 8, never
-  50–100 detailed lessons in one model response;
-- process one generation batch at a time, retry temporary failures up to three
-  times, and require PostgreSQL read-back verification before completion.
+- generate 1–100 lessons in one cycle; for larger plans, use the fewest
+  balanced 50–100-entry cycles and at most five contiguous execution waves;
+- validate and durably deliver each cycle, then immediately continue through
+  the next missing cycle and wave without confirmation; retry temporary
+  failures up to three times and require PostgreSQL read-back verification.
 
 ## Required ChatGPT behavior
 

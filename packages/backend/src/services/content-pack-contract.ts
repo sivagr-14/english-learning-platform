@@ -274,7 +274,7 @@ const ManifestCountsSchema = z
 const BatchPlanSchema = z
   .object({
     batchNumber: z.number().int().positive(),
-    candidateIds: z.array(IdentifierSchema).min(1).max(10),
+    candidateIds: z.array(IdentifierSchema).min(1).max(100),
   })
   .strict();
 
@@ -445,7 +445,7 @@ const LegacyContentManifestSchema = z
     counts: ManifestCountsSchema,
     generationPlan: z
       .object({
-        batchSize: z.number().int().min(1).max(10),
+        batchSize: z.number().int().min(1).max(100),
         batches: z.array(BatchPlanSchema).max(10_000),
       })
       .strict(),
@@ -519,7 +519,7 @@ const LegacyContentBatchSchema = z
     manifestHash: Sha256Schema,
     batchNumber: z.number().int().positive(),
     createdAt: z.string().datetime(),
-    entries: z.array(GeneratedPackEntrySchema).min(1).max(10),
+    entries: z.array(GeneratedPackEntrySchema).min(1).max(100),
   })
   .strict();
 

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "featureId": "adaptive-100-entry-generation-cycles",
+  "title": "Generate large vocabulary plans in balanced 50-100 entry cycles",
+  "implementationPaths": [
+    "packages/backend/src/config/import-policy.ts",
+    "packages/backend/src/services/content-pack-contract.ts",
+    "packages/backend/src/services/extraction-foundation.service.ts",
+    "packages/backend/src/services/generation-waves.ts",
+    "packages/backend/src/services/in-app-generation.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/config/import-policy.test.ts",
+    "packages/backend/src/services/content-pack-contract.test.ts",
+    "packages/backend/src/services/extraction-foundation.service.test.ts",
+    "packages/backend/src/services/generation-waves.test.ts",
+    "packages/backend/src/services/in-app-generation.phase3b.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "cycles of one to 100",
+          "balanced 50–100-entry cycles",
+          "next missing cycle and wave without confirmation"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "one cycle for 1–100 entries",
+          "no undersized tail",
+          "at most five deterministic, balanced execution waves"
+        ]
+      }
+    ]
+  }
+}

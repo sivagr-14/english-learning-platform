@@ -37,4 +37,11 @@ describe("generation wave planning", () => {
       ]),
     ).toThrow("duplicate batch numbers");
   });
+
+  it("groups eleven large generation cycles into five resumable waves", () => {
+    const waves = planGenerationWaves(batches(11));
+    expect(waves).toHaveLength(5);
+    expect(waves.map((wave) => wave.batchNumbers.length)).toEqual([2, 2, 2, 2, 3]);
+    expect(firstRemainingBatch(waves)).toBe(1);
+  });
 });

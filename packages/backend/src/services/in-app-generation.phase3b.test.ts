@@ -1,16 +1,33 @@
 import { planGenerationBatches, toManifestCandidate } from "./in-app-generation.service";
 
 describe("Gemini Phase 3B contracts", () => {
-  it.each([11, 12, 15, 17, 23, 41])(
+  it.each([1, 49, 50, 100, 101, 199, 1_083, 10_001])(
     "partitions %s planned entries exactly once into balanced batches",
     (count) => {
       const ids = Array.from({ length: count }, (_, index) => `cand-${index}`);
       const batches = planGenerationBatches(ids);
       expect(batches.flat()).toEqual(ids);
       expect(new Set(batches.flat()).size).toBe(count);
-      expect(batches.every((batch) => batch.length >= 5 && batch.length <= 10)).toBe(true);
+      if (count <= 100) {
+        expect(batches).toHaveLength(1);
+        expect(batches[0]).toHaveLength(count);
+      } else {
+        expect(
+          batches.every((batch) => batch.length >= 50 && batch.length <= 100),
+        ).toBe(true);
+      }
     },
   );
+
+  it("reduces 1,083 lessons to eleven balanced generation cycles", () => {
+    const batches = planGenerationBatches(
+      Array.from({ length: 1_083 }, (_, index) => `cand-${index}`),
+    );
+    expect(batches).toHaveLength(11);
+    expect(batches.map((batch) => batch.length)).toEqual([
+      99, 99, 99, 99, 99, 98, 98, 98, 98, 98, 98,
+    ]);
+  });
 
   it("preserves a provider-neutral filtered decision with a stable reason", () => {
     const candidate = toManifestCandidate(

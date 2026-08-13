@@ -172,18 +172,18 @@ describe("Phase 2 extraction foundation", () => {
     ).toHaveLength(2);
   });
 
-  test("generation plans contain each candidate once and never exceed ten", () => {
-    const candidates = Array.from({ length: 17 }, (_, i) => ({
+  test("generation plans contain each candidate once and never exceed 100", () => {
+    const candidates = Array.from({ length: 1_083 }, (_, i) => ({
       candidateId: `c${i}`,
     }));
-    expect(buildGenerationPlan(candidates, 8).map((b) => b.length)).toEqual([
-      8, 8, 1,
+    expect(buildGenerationPlan(candidates).map((b) => b.length)).toEqual([
+      99, 99, 99, 99, 99, 98, 98, 98, 98, 98, 98,
     ]);
     expect(() =>
-      buildGenerationPlan([...candidates, { candidateId: "c1" }], 8),
+      buildGenerationPlan([...candidates, { candidateId: "c1" }]),
     ).toThrow(/more than once/);
-    expect(() => buildGenerationPlan(candidates, 11)).toThrow(
-      /between 1 and 10/,
+    expect(() => buildGenerationPlan(candidates, 101)).toThrow(
+      /between 1 and 100/,
     );
   });
 });

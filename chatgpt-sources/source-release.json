@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "taxonomy-waved-generation-20260813-v5",
+  "releaseId": "adaptive-100-entry-generation-20260813-v6",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "20e21ea8c0cb967611a7a9bcd251c4a43d902804b992ffb9184fd8da988e6197",
-      "sizeBytes": 29374
+      "sha256": "5628647ffa1d79d25d5e2a561032b51d9082341022f9c13b9fa41c34ec1cd4a0",
+      "sizeBytes": 29742
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "0e6d245e9e5ac0a7e3849ccec6d58f3791313fb559bbd519e19ced4867e37794",
-      "sizeBytes": 15909
+      "sha256": "ee2ea9c2a8aadea36fbdb34509aa434b72b006b712fd0adeee4842dbf4d59508",
+      "sizeBytes": 16098
     }
   ]
 }
