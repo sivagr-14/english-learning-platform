@@ -273,4 +273,19 @@ describe("vocabulary lesson compliance", () => {
     expect(vocabularyExpressionCompatibilityIssues(term)).toEqual([]);
   });
 
+
+  it("accepts ordered expression components across one teaching unit", () => {
+    const lesson = completeLesson();
+    lesson.mistakes_differences.common_mistake =
+      "Using compelling as if it simply meant an argument you agree with.";
+    lesson.mistakes_differences.correction =
+      "Use compelling when the reasoning is strongly convincing.";
+
+    expect(
+      vocabularyLessonQualityIssues(lesson, "a compelling argument"),
+    ).not.toContain(
+      'lesson.mistakes_differences: the mistake or correction must explicitly use "a compelling argument"',
+    );
+  });
+
 });
