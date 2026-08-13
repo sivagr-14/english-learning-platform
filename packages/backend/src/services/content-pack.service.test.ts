@@ -3,6 +3,7 @@ import { contentPackHash } from "./content-pack-contract";
 import {
   buildBatchCheckpoint,
   ContentPackService,
+  isQuarantinableCandidateImportError,
   isSkippableCandidateAttention,
   recoverAutomaticApprovalCandidateIds,
   shouldAutomaticallyApproveManifest,
@@ -48,6 +49,11 @@ describe("candidate-level automatic quarantine", () => {
     expect(
       isSkippableCandidateAttention(
         'Contextual sense for "supervised learning" requires attention: The declared matched word has a conflicting sense key.',
+      ),
+    ).toBe(true);
+    expect(
+      isQuarantinableCandidateImportError(
+        'Vocabulary lesson for "physical intimacy" is incomplete or generic:\n- lesson.meaning_in_context.source_sentence: must explicitly demonstrate "physical intimacy"',
       ),
     ).toBe(true);
     expect(
