@@ -272,6 +272,36 @@ describe("ChatGPT content-pack staging ledger", () => {
     expect(database.memory.tables.content_pack_batches).toHaveLength(1);
   });
 
+  it("revalidates an unchanged invalid batch under the current policy", async () => {
+    const database = databaseDouble();
+    const service = new ContentPackService(database);
+    const { documents } = smokeDocuments();
+    await service.ingestDocuments(documents);
+    Object.assign(database.memory.tables.content_pack_batches[0], {
+      status: "invalid",
+      validation_report: JSON.stringify({
+        validatorPolicyVersion: "older-policy",
+        issues: ["stale failure"],
+      }),
+    });
+
+    const retry = await service.ingestDocuments([documents[1]]);
+
+    expect(retry.errors).toEqual([]);
+    expect(retry.unchanged).toBe(0);
+    expect(database.memory.tables.content_pack_batches[0].status).toBe(
+      "staged",
+    );
+    expect(
+      JSON.parse(
+        database.memory.tables.content_pack_batches[0].validation_report,
+      ),
+    ).toMatchObject({
+      validatorPolicyVersion: "expression-grammar-2026.3",
+      issues: [],
+    });
+  });
+
   it("does not process an owned manifest during account-neutral staging", async () => {
     const database = databaseDouble();
     const service = new ContentPackService(database);

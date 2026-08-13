@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "featureId": "universal-validator-revalidation-recovery",
+  "title": "Revalidate stale invalid batches with universal expression matching",
+  "implementationPaths": [
+    "packages/backend/src/data/vocabulary-lesson-template.ts",
+    "packages/backend/src/services/content-pack.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/data/vocabulary-lesson-template.test.ts",
+    "packages/backend/src/services/content-pack.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This change enforces the existing canonical requirements for trusted immutable OCR evidence, grammatical expression slots, idempotent recovery and automatic continuation; it does not alter assessment or lesson-generation instructions."
+  }
+}

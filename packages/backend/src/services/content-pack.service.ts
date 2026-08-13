@@ -25,6 +25,7 @@ import {
   resolveContextualSense,
 } from "./vocabulary-sense.service";
 import { legacyTaxonomyPath } from "../data/vocabulary-taxonomy";
+import { VOCABULARY_VALIDATOR_POLICY_VERSION } from "../data/vocabulary-lesson-template";
 import { cacheInvalidate } from "../utils/redis";
 import { readJson } from "../utils/json";
 import { ProviderNeutralJobRepository } from "./provider-neutral-job.repository";
@@ -320,6 +321,24 @@ export class ContentPackService {
             path: document.path,
             message: "The batch ID already exists with different content.",
           });
+        } else if (existing.status === "invalid") {
+          const status = validation.valid ? "staged" : "invalid";
+          await this.database("content_pack_batches")
+            .where({ id: existing.id })
+            .update({
+              status,
+              validation_report: JSON.stringify({
+                validatorPolicyVersion: VOCABULARY_VALIDATOR_POLICY_VERSION,
+                issues: validation.issues,
+              }),
+              updated_at: new Date(),
+            });
+          if (!validation.valid) {
+            result.errors.push({
+              path: document.path,
+              message: validation.issues.join("; "),
+            });
+          }
         } else {
           result.unchanged += 1;
         }
@@ -349,7 +368,10 @@ export class ContentPackService {
         status,
         entry_count: basicValidation.value.entries.length,
         payload: JSON.stringify(basicValidation.value),
-        validation_report: JSON.stringify({ issues: validation.issues }),
+        validation_report: JSON.stringify({
+          validatorPolicyVersion: VOCABULARY_VALIDATOR_POLICY_VERSION,
+          issues: validation.issues,
+        }),
         created_at: new Date(basicValidation.value.createdAt),
         updated_at: new Date(),
       });
