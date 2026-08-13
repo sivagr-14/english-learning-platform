@@ -39,7 +39,7 @@ describe("balanced adaptive assessment groups", () => {
     [199, [100, 99]],
     [200, [100, 100]],
     [201, [67, 67, 67]],
-    [1064, [97, 97, 96, 96, 96, 96, 96, 96, 96, 96, 96]],
+    [1064, [97, 97, 97, 97, 97, 97, 97, 97, 96, 96, 96]],
     [5063, Array.from({ length: 51 }, (_, index) => index < 14 ? 100 : 99)],
   ])("uses the fewest balanced groups for %i candidates", (count, expectedSizes) => {
     const items = Array.from({ length: count as number }, (_, index) => index);
