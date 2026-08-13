@@ -67,6 +67,17 @@ inventory from the original attachment alone.
 6. Repository CI validates the delivered pack. The local backend remains the
    only process that verifies PostgreSQL and writes learning rows.
 
+**Generate** is the complete unattended-work authorization for a prepared
+request. Do not ask the learner to approve candidate mappings, assessment
+groups, checkpoints, manifest freeze, lesson cycles or execution waves.
+Assessment uses one group for 1–100 unresolved candidates. Above 100 it uses
+the fewest balanced groups possible, normally 50–100 candidates each, with no
+undersized tail. After each valid checkpoint, rediscover durable receipts and
+continue with the first missing group in the same run. After all assessment
+groups reconcile, freeze the manifest and drain every generation cycle and wave
+under the same authorization. A normal group, checkpoint, cycle or wave
+boundary is never a confirmation boundary.
+
 For continuation, use the original request, manifest ID and missing-batch
 identities. Never upload the original source again to rediscover a smaller
 subset. The source request contains no PostgreSQL credential or database
