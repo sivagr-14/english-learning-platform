@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "featureId": "revalidate-stale-invalid-content-batches",
+  "title": "Revalidate immutable batches rejected by stale validators",
+  "implementationPaths": [
+    "packages/backend/src/services/content-pack.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/content-pack.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This changes only local retry behavior for an unchanged immutable receipt; the existing manifest, evidence, batch, lesson, and GitHub delivery contracts remain unchanged."
+  }
+}
