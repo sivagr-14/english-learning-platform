@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "content-pack-sidecar-isolation-20260813-v9",
+  "releaseId": "manifest-trust-candidate-quarantine-20260813-v10",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "3e82978d192a1c82ca59e3188e907709cc62cd4927c5463b87fc0b82a6524289",
-      "sizeBytes": 31341
+      "sha256": "09b3e7a33509aec65160a56e683d536a868cd1cbbc15fbc79a894ba444c30db9",
+      "sizeBytes": 31742
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "9d03002169d6c5fbe51ca09cbcfd9ddb32622386a0991a3185da129e59078204",
-      "sizeBytes": 17167
+      "sha256": "1265ce48aa666078089d230c0a27a790a4e458efb525b0c3dfa033a983b3b32d",
+      "sizeBytes": 17737
     }
   ]
 }
