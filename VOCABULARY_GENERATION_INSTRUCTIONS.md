@@ -153,7 +153,11 @@ For every candidate, provide:
 
 `senseEvidence.sentence` must be selected directly from the candidate's stored
 source occurrences. Do not paraphrase or generate it separately. The lesson
-`source_sentence` must copy the identical stored sentence.
+`source_sentence` must copy the identical stored sentence. A trusted source
+quotation may be any non-blank length; short utterances, interjections, captions
+and OCR fragments are valid evidence. The eight-character useful-content
+minimum remains mandatory for generated meanings, explanations and teaching
+prose, but never applies to immutable quoted evidence.
 
 Apply these rules:
 

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "featureId": "short-immutable-source-evidence",
+  "title": "Accept non-empty immutable source evidence of any length",
+  "implementationPaths": [
+    "packages/backend/src/data/vocabulary-lesson-template.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/data/vocabulary-lesson-template.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "trusted immutable",
+          "any non-blank length",
+          "never to quoted source evidence"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "trusted source",
+          "any non-blank length",
+          "never applies to immutable quoted evidence"
+        ]
+      }
+    ]
+  }
+}
