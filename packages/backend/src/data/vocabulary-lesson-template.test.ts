@@ -3,6 +3,7 @@ import {
   vocabularyLessonQualityIssues,
   VocabularyLesson,
   VOCABULARY_LESSON_FORMAT_VERSION,
+  vocabularyExpressionCompatibilityIssues,
 } from "./vocabulary-lesson-template";
 
 const TERM = "follow through";
@@ -228,4 +229,48 @@ describe("vocabulary lesson compliance", () => {
       'lesson.meaning_in_context.source_sentence: must explicitly demonstrate "grow up with"',
     );
   });
+
+  it.each([
+    ["lay out", "Do not write: lay the details.", "Lay out the details in a clear sequence."],
+    ["go on", "Do not use only go for continuation.", "The meeting can go on after lunch."],
+    ["do up", "Do not omit the particle from do up.", "Please do up your coat before leaving."],
+    ["put off", "Do not use put alone for postponement.", "We should not put off the decision."],
+  ])(
+    "validates short-word expressions in Mistakes & Differences with the shared matcher: %s",
+    (term, commonMistake, correction) => {
+      const lesson = completeLesson();
+      lesson.mistakes_differences.common_mistake = commonMistake;
+      lesson.mistakes_differences.correction = correction;
+
+      expect(vocabularyLessonQualityIssues(lesson, term)).not.toContain(
+        `lesson.mistakes_differences: the mistake or correction must explicitly use "${term}"`,
+      );
+    },
+  );
+
+  it("does not accept only the head verb when a short particle is required", () => {
+    const lesson = completeLesson();
+    lesson.mistakes_differences.common_mistake =
+      "The writer lays the information before the reader.";
+    lesson.mistakes_differences.correction =
+      "The writer presents the sequence clearly.";
+
+    expect(vocabularyLessonQualityIssues(lesson, "lay out")).toContain(
+      'lesson.mistakes_differences: the mistake or correction must explicitly use "lay out"',
+    );
+  });
+
+  it.each([
+    "lay out",
+    "go on",
+    "do up",
+    "put off",
+    "as is",
+    "by and by",
+    "get on someone’s nerves",
+    "bring into contact with",
+  ])("preflights a canonical expression through the shared matcher: %s", (term) => {
+    expect(vocabularyExpressionCompatibilityIssues(term)).toEqual([]);
+  });
+
 });
