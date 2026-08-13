@@ -10,18 +10,7 @@
     "packages/backend/src/services/content-pack.service.test.ts"
   ],
   "chatgptInstructionImpact": {
-    "status": "required",
-    "instructionPaths": [
-      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"
-    ],
-    "requiredMarkers": [
-      {
-        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
-        "contains": [
-          "exact fetched commit",
-          "immutable source identity"
-        ]
-      }
-    ]
+    "status": "not_required",
+    "rationale": "This change only repairs the local transport handoff between an already-fetched Git ref and its immutable commit. Assessment, generation, lesson validation, manifest, batch, delivery and quarantine contracts are unchanged."
   }
 }
