@@ -34,6 +34,35 @@ describe("immutable inbox ref compatibility", () => {
     ).toBe(commit.toLowerCase());
   });
 
+  it("refreshes the approved inbox ref once when the tracking ref is absent", () => {
+    let available = false;
+    let refreshes = 0;
+    expect(
+      resolveContentPackGitCommit(
+        "origin/chatgpt-content-inbox",
+        "/unused",
+        () => {
+          if (!available) throw new Error("missing tracking ref");
+          return commit;
+        },
+        (candidate) => {
+          expect(candidate).toBe("origin/chatgpt-content-inbox");
+          refreshes += 1;
+          available = true;
+        },
+      ),
+    ).toBe(commit.toLowerCase());
+    expect(refreshes).toBe(1);
+  });
+
+  it("does not refresh arbitrary refs", () => {
+    const refresh = jest.fn();
+    expect(() =>
+      resolveContentPackGitCommit("main", "/unused", () => commit, refresh),
+    ).toThrow("A valid fetched inbox commit is required.");
+    expect(refresh).not.toHaveBeenCalled();
+  });
+
   it("rejects arbitrary refs and malformed resolved commits", () => {
     expect(() =>
       resolveContentPackGitCommit("main", "/unused", () => commit),
