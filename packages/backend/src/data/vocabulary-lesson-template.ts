@@ -411,19 +411,15 @@ function includesTerm(value: string, term: string) {
   return valueWords.some((_, start) => matchesFrom(start, 0));
 }
 
-function includesTermLexicalWords(value: string, term: string) {
-  const valueWords = normalizeForMatch(value).split(" ");
-  const termWords = normalizeForMatch(term)
-    .split(" ")
-    .filter((word) => word.length >= 4);
-  return (
-    termWords.length > 0 &&
-    termWords.every((termWord) =>
-      valueWords.some((sourceWord) =>
-        wordMatchesInflection(sourceWord, termWord),
-      ),
-    )
-  );
+export function vocabularyExpressionCompatibilityIssues(
+  term: string,
+): string[] {
+  const normalizedTerm = normalizeForMatch(term);
+  if (!normalizedTerm) return ["term must contain a matchable expression"];
+  if (!includesTerm(normalizedTerm, normalizedTerm)) {
+    return ["term cannot be represented by the shared expression matcher"];
+  }
+  return [];
 }
 
 export function vocabularyLessonQualityIssues(
@@ -490,10 +486,8 @@ export function vocabularyLessonQualityIssues(
   }
 
   if (
-    !includesTermLexicalWords(
-      `${lesson.mistakes_differences.common_mistake} ${lesson.mistakes_differences.correction}`,
-      term,
-    )
+    !includesTerm(lesson.mistakes_differences.common_mistake, term) &&
+    !includesTerm(lesson.mistakes_differences.correction, term)
   ) {
     issues.push(
       `lesson.mistakes_differences: the mistake or correction must explicitly use "${term}"`,
