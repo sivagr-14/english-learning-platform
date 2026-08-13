@@ -70,6 +70,12 @@ exclude them before candidate-ledger freeze and continue assessment and
 generation automatically. Missing evidence is blocking only for an item that
 has already been frozen as a manifest candidate.
 
+Deliver only `manifest.json` and planned `batch-NNN.json` payloads inside an
+active `content-packs/inbox/<manifestId>/` directory. Store supplied-seed
+reconciliation in `manifest.suppliedSeedAudit`; never place a separate
+pre-manifest reconciliation, assessment checkpoint, receipt or summary JSON
+beside production payloads.
+
 For a large request whose manifest is not yet frozen, process one immutable
 semantic group at a time (at most 100 proposed candidates), scan every sentence
 recall unit assigned to it, validate and deliver its assessment checkpoint, then

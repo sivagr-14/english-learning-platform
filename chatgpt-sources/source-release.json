@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "short-immutable-evidence-20260813-v8",
+  "releaseId": "content-pack-sidecar-isolation-20260813-v9",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "b3a719d2e20312a7065c0d3c2a6a2cfe65dd731c97121fa3a5b0c7c5e274d83a",
-      "sizeBytes": 30804
+      "sha256": "3e82978d192a1c82ca59e3188e907709cc62cd4927c5463b87fc0b82a6524289",
+      "sizeBytes": 31341
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "2eaec95999d10a036b0d1ec68d8d9dcd2b83f56e0443a32f8300e87d5f61e135",
-      "sizeBytes": 16840
+      "sha256": "9d03002169d6c5fbe51ca09cbcfd9ddb32622386a0991a3185da129e59078204",
+      "sizeBytes": 17167
     }
   ]
 }

@@ -517,6 +517,15 @@ learner confirmation. Missing evidence becomes blocking only if an item was
 already frozen as a manifest candidate; never silently remove or rewrite a
 frozen candidate.
 
+Only production content-pack payloads belong in the active inbox pack directory:
+`manifest.json` and its planned `batch-NNN.json` files. Never deliver a
+pre-manifest reconciliation, assessment checkpoint, receipt, summary or other
+report sidecar beside those files. Preserve reconciliation in
+`manifest.suppliedSeedAudit`; keep any optional human-readable report outside
+`content-packs/inbox`. The importer ignores the legacy
+`pre-manifest-reconciliation.json` sidecar for recovery compatibility, but new
+deliveries must not create it.
+
 The local recovery ledger records the exact private inbox branch, fetched commit,
 last synchronization time, database verification report, cleanup attempts and
 cleanup commit while an import needs action or recovery. Completed, verified

@@ -272,6 +272,32 @@ describe("ChatGPT content-pack staging ledger", () => {
     expect(database.memory.tables.content_pack_batches).toHaveLength(1);
   });
 
+  it("ignores pre-manifest reconciliation sidecars without blocking staging", async () => {
+    const database = databaseDouble();
+    const service = new ContentPackService(database);
+    const { documents } = smokeDocuments();
+
+    const result = await service.ingestDocuments([
+      ...documents,
+      {
+        path: "request/pre-manifest-reconciliation.json",
+        content: JSON.stringify({
+          supplied: 2,
+          unique: 1,
+          unsupported: ["frame"],
+        }),
+      },
+    ]);
+
+    expect(result).toMatchObject({
+      manifestsAdded: 1,
+      batchesAdded: 1,
+      errors: [],
+    });
+    expect(database.memory.tables.content_pack_manifests).toHaveLength(1);
+    expect(database.memory.tables.content_pack_batches).toHaveLength(1);
+  });
+
   it("revalidates an identical batch previously rejected by a stale validator", async () => {
     const database = databaseDouble();
     const service = new ContentPackService(database);
