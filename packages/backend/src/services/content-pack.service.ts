@@ -30,6 +30,15 @@ import { readJson } from "../utils/json";
 import { ProviderNeutralJobRepository } from "./provider-neutral-job.repository";
 import { planGenerationWaves, PlannedBatch } from "./generation-waves";
 
+const CONTENT_PACK_AUXILIARY_FILES = new Set([
+  "pre-manifest-reconciliation.json",
+]);
+
+export function isContentPackAuxiliaryDocument(documentPath: string): boolean {
+  const normalizedPath = documentPath.replace(/\\/g, "/");
+  return CONTENT_PACK_AUXILIARY_FILES.has(path.posix.basename(normalizedPath));
+}
+
 export interface ContentPackDocument {
   path: string;
   content: string;
@@ -190,7 +199,10 @@ export class ContentPackService {
         ? { fetchedCommit: context.fetchedCommit }
         : {}),
     };
-    const parsed = documents.map((document) => {
+    const importableDocuments = documents.filter(
+      (document) => !isContentPackAuxiliaryDocument(document.path),
+    );
+    const parsed = importableDocuments.map((document) => {
       try {
         return {
           ...document,
@@ -395,7 +407,12 @@ export class ContentPackService {
       }
     }
 
-    await this.recordIngestErrors(result.errors, documents, parsed, context);
+    await this.recordIngestErrors(
+      result.errors,
+      importableDocuments,
+      parsed,
+      context,
+    );
 
     // Ingestion is deliberately account-neutral: it only discovers, validates,
     // and stages immutable files. Claiming, committing, read-back verification,
