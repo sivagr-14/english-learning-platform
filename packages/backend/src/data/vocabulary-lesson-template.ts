@@ -389,20 +389,6 @@ function includesTerm(value: string, term: string) {
       return true;
     }
 
-    // Prepared PDF evidence can split one lexical word at an OCR boundary
-    // (for example "nerv es"). Only join a tightly bounded adjacent span;
-    // never search for scattered fragments.
-    for (let width = 2; width <= 3; width += 1) {
-      const fragments = valueWords.slice(sourceIndex, sourceIndex + width);
-      if (
-        fragments.length === width &&
-        fragments.every((fragment) => /^[a-z0-9']+$/.test(fragment)) &&
-        wordMatchesInflection(fragments.join(""), termWord) &&
-        matchesFrom(sourceIndex + width, termIndex + 1)
-      )
-        return true;
-    }
-
     // English separable expressions allow a short object or manner phrase
     // between the head verb and its particle/preposition: bring me into
     // contact with, get us back on track, work that out, steer completely away.
