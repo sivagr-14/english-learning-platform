@@ -2021,16 +2021,32 @@ export function resolveContentPackGitCommit(
       ["rev-parse", "--verify", `${candidate}^{commit}`],
       { cwd: repoRoot, encoding: "utf8" },
     ).trim(),
+  refreshApprovedRef?: (candidate: string) => void,
 ): string {
   if (/^[0-9a-f]{40}$/i.test(ref)) return ref.toLowerCase();
   if (!/^(?:refs\/remotes\/)?origin\/chatgpt-content-inbox$/.test(ref)) {
     throw statusError("A valid fetched inbox commit is required.");
   }
-  try {
+  const resolve = () => {
     const resolved = resolveRef(ref).trim();
-    if (/^[0-9a-f]{40}$/i.test(resolved)) return resolved.toLowerCase();
+    return /^[0-9a-f]{40}$/i.test(resolved)
+      ? resolved.toLowerCase()
+      : undefined;
+  };
+  try {
+    const resolved = resolve();
+    if (resolved) return resolved;
   } catch {
-    // Normalize all missing or malformed transport refs to the public contract.
+    // A post-update controller may call the new script before this ref exists.
+  }
+  if (refreshApprovedRef) {
+    try {
+      refreshApprovedRef(ref);
+      const resolved = resolve();
+      if (resolved) return resolved;
+    } catch {
+      // Normalize fetch and resolution failures to the public contract.
+    }
   }
   throw statusError("A valid fetched inbox commit is required.");
 }

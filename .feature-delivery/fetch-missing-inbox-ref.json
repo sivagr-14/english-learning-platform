@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "featureId": "fetch-missing-inbox-ref",
+  "title": "Recover a missing fetched inbox tracking ref",
+  "implementationPaths": [
+    "packages/backend/src/scripts/sync-content-packs.ts",
+    "packages/backend/src/services/content-pack.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/content-pack.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This is a local Git transport startup-race correction. Assessment, generation, manifest, cycle, lesson validation, candidate quarantine and import contracts are unchanged."
+  }
+}
