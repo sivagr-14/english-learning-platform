@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "featureId": "universal-expression-validator",
+  "title": "Validate grammatical vocabulary expressions universally",
+  "implementationPaths": [
+    "packages/backend/src/data/vocabulary-lesson-template.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/data/vocabulary-lesson-template.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This strengthens production validation for inflections, separable expressions, grammatical slots, and immutable OCR evidence without changing the manifest or lesson contract."
+  }
+}
