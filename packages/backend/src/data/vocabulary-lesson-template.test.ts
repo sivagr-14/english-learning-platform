@@ -117,4 +117,39 @@ describe("vocabulary lesson compliance", () => {
       'lesson.meaning_in_context.source_sentence: must explicitly demonstrate "follow through"',
     );
   });
+
+  it.each([
+    ["grow up with", "She has grown up with strong family support."],
+    ["grow up with", "He grew up with three older brothers."],
+    ["take on", "She has taken on a difficult assignment."],
+    ["run into", "We ran into an unexpected problem."],
+    ["carry through", "They carried through the promised reform."],
+  ])("accepts an ordered source-backed inflection of %s", (term, sentence) => {
+    const lesson = completeLesson();
+    lesson.meaning_in_context.source_sentence = sentence;
+
+    expect(vocabularyLessonQualityIssues(lesson, term)).not.toContain(
+      `lesson.meaning_in_context.source_sentence: must explicitly demonstrate "${term}"`,
+    );
+  });
+
+  it("rejects scattered words that do not form the assessed expression", () => {
+    const lesson = completeLesson();
+    lesson.meaning_in_context.source_sentence =
+      "The children grow quickly and later catch up with their classmates.";
+
+    expect(vocabularyLessonQualityIssues(lesson, "grow up with")).toContain(
+      'lesson.meaning_in_context.source_sentence: must explicitly demonstrate "grow up with"',
+    );
+  });
+
+  it("rejects a lexical prefix that changes the expression", () => {
+    const lesson = completeLesson();
+    lesson.meaning_in_context.source_sentence =
+      "Some children grow up without consistent support.";
+
+    expect(vocabularyLessonQualityIssues(lesson, "grow up with")).toContain(
+      'lesson.meaning_in_context.source_sentence: must explicitly demonstrate "grow up with"',
+    );
+  });
 });

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "featureId": "unattended-inflection-safe-resume",
+  "title": "Resume immutable vocabulary batches with inflection-safe validation",
+  "implementationPaths": [
+    ".gitignore",
+    "packages/backend/src/data/vocabulary-lesson-template.ts",
+    "scripts/control-server.js"
+  ],
+  "validationPaths": [
+    "packages/backend/src/data/vocabulary-lesson-template.test.ts",
+    "scripts/control-server.test.js"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "derive the first missing group or batch",
+          "without asking for confirmation",
+          "exact production validator"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "derive the first missing planned batch",
+          "without asking the learner for approval or confirmation",
+          "grown up with"
+        ]
+      }
+    ]
+  }
+}

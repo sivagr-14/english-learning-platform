@@ -426,13 +426,27 @@ State: safely paused — no items lost
 Continuation must preserve the original manifest ID, manifest hash, candidate
 IDs, batch numbers and batch IDs. Generate only the missing planned batches;
 never rescan the source, shrink the candidate ledger or create a replacement
-manifest merely because a previous ChatGPT run ended. For unattended no-API-key processing, an in-chat scheduled task returns to the
-same conversation, reads durable checkpoint receipts, and continues the next
-missing assessment group or generation batch. It runs until reconciliation is
-complete and remains silent during normal progress. The app's **Continue import**
-action remains a manual recovery fallback, not a routine requirement. Structural
-contract failures, lost authorization, database verification failures and wholly
-unreadable sources remain blocking and must be reported.
+manifest merely because a previous ChatGPT run ended. Before every continuation,
+read the remote receipts and derive the first missing group or batch; never trust
+a conversationally remembered number. Already delivered immutable receipts are
+preserved and must not be regenerated.
+
+For unattended no-API-key processing, an in-chat scheduled task returns to the
+same conversation, reads those durable receipts, claims only the first missing
+unit, and continues consecutive missing units without asking for confirmation.
+If a run ends, the next scheduled run repeats remote discovery and resumes from
+the first still-missing identity. Scheduled continuation is an hourly recovery
+loop, not a three- or five-minute worker queue, and remains silent during normal
+progress. The app's **Continue import** action is a manual recovery fallback,
+not a routine requirement. A provider-backed backend worker is required for
+immediate, high-throughput continuation without conversational turn boundaries.
+
+Generation must not begin until the exact production validator accepts the
+remote manifest and records its hash. A rejected manifest has no valid planned
+batches: correct it before generating lessons rather than emitting downstream
+"manifest missing" failures. Structural contract failures, lost authorization,
+database verification failures and wholly unreadable sources remain blocking
+and must be reported.
 
 ### Learner-supplied vocabulary lists
 
