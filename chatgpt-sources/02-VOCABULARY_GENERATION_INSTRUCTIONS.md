@@ -25,12 +25,17 @@ unreadable source unit because exhaustive coverage cannot be claimed.
 Here, an exact duplicate means the same normalized term and the same contextual
 sense. Same spelling with a different meaning is not a duplicate.
 
-Candidate assessment uses bounded groups of 50–100 unresolved candidates.
-Lesson generation uses one cycle for 1–100 entries. Above 100, it uses the
-fewest deterministic balanced cycles possible, keeping every cycle between 50
-and 100 with no undersized tail. These are per-operation safety bounds, not
-limits on the total import. The backend policy and stored import snapshot remain
-the source of truth.
+Candidate assessment uses one group for 1–100 unresolved candidates. Above
+100, it uses the fewest deterministic balanced groups possible, normally
+keeping every group between 50 and 100 with no undersized tail. Lesson
+generation uses one cycle for 1–100 entries. Above 100, it uses the fewest
+deterministic balanced cycles possible, keeping every cycle between 50 and 100
+with no undersized tail. These are per-operation safety bounds, not limits on
+the total import. Writing **Generate** for a prepared request authorizes the
+complete assessment-to-generation drain; never ask for approval, confirmation
+or a continue message between mappings, groups, checkpoints, manifest freeze,
+cycles or waves. The backend policy and stored import snapshot remain the source
+of truth.
 
 These group sizes are processing bounds, not discovery targets or total caps.
 For large pasted content or files, continue through every declared source unit
