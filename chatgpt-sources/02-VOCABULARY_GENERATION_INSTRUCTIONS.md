@@ -114,6 +114,15 @@ number remembered in the conversation. Do not generate any batch until the
 remote manifest has passed the exact production validator and its accepted hash
 matches the batch plan.
 
+During database import, preserve the same evidence trust boundary used by
+production batch validation: pass each manifest candidate's exact
+`senseEvidence.sentence` internally as `trustedSourceSentence`. Never grant
+that trust to an ordinary manual import. If one lesson still has an isolated
+candidate-level validation or contextual-sense failure, quarantine that item
+with its exact reason, continue importing every other lesson and batch, then
+report all quarantined terms together. Structural manifest, hash,
+batch-membership and database failures remain blocking.
+
 Before the first batch of any new manifest, run the exhaustive production
 generation preflight across the complete candidate ledger and plan. Resolve all
 reported schema, provenance, duplicate-sense, taxonomy, evidence and batch-plan
