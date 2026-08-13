@@ -26,6 +26,7 @@ import {
   displayVocabularyLabel,
   parseVocabularyDisplayLabel,
 } from "../services/vocabulary-sense.service";
+import { TAXONOMY_VERSION } from "../data/vocabulary-taxonomy";
 
 const router: Router = express.Router();
 const DEFAULT_PAGE_SIZE = 50;
@@ -234,7 +235,7 @@ async function getCategories(userId: string, includeEmpty = false) {
 const TAXONOMY_CACHE_TTL_SECONDS = 300;
 
 function taxonomyCacheKey(userId: string) {
-  return `taxonomy:${userId}`;
+  return `taxonomy:${TAXONOMY_VERSION}:${userId}`;
 }
 
 async function getTaxonomy(userId: string) {

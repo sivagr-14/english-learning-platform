@@ -6,12 +6,14 @@
     ".gitignore",
     "packages/backend/src/data/vocabulary-lesson-template.ts",
     "packages/backend/src/data/vocabulary-taxonomy.ts",
+    "packages/backend/src/database/migrations/031_expand_vocabulary_taxonomy_2026_2.ts",
     "packages/backend/src/scripts/smoke-taxonomy-migration-postgres.ts",
     "packages/backend/src/scripts/smoke-user-categories-postgres.ts",
     "packages/backend/src/services/candidate-review.service.ts",
     "packages/backend/src/services/content-pack-contract.ts",
     "packages/backend/src/services/content-pack.service.ts",
     "packages/backend/src/services/generation-waves.ts",
+    "packages/backend/src/routes/vocabulary.ts",
     "scripts/control-server.js"
   ],
   "validationPaths": [
