@@ -1,6 +1,8 @@
 import { z } from "zod";
 
 export const VOCABULARY_LESSON_FORMAT_VERSION = "simplified-v2" as const;
+export const VOCABULARY_VALIDATOR_POLICY_VERSION =
+  "expression-grammar-2026.3" as const;
 
 export const VOCABULARY_SECTION_TEMPLATE = [
   "Overview",
@@ -306,6 +308,22 @@ function isExpressionSlotForm(word: string) {
   return EXPRESSION_SLOT_FORMS.has(word) || /^[a-z]+'s$/.test(word);
 }
 
+function expressionSlotMatches(words: string[]) {
+  if (!words.length || words.length > 4) return false;
+  if (words.some((word) => FORBIDDEN_EXPRESSION_GAP_WORDS.has(word)))
+    return false;
+  if (isExpressionSlotForm(words[0])) return true;
+  // Reciprocal possessives and bounded noun phrases: each other's nerves,
+  // one another's concerns, the manager's decision.
+  if (
+    words.length === 2 &&
+    ((words[0] === "each" && words[1] === "other's") ||
+      (words[0] === "one" && words[1] === "another's"))
+  )
+    return true;
+  return words.length > 1 && EXPRESSION_SLOT_LEADS.has(words[0]);
+}
+
 function wordMatchesInflection(sourceWord: string, termWord: string) {
   if (sourceWord === termWord) return true;
   if (isExpressionSlot(termWord)) return isExpressionSlotForm(sourceWord);
@@ -355,8 +373,7 @@ function includesTerm(value: string, term: string) {
         if (
           slotWords.length === width &&
           !slotWords.some((word) => FORBIDDEN_EXPRESSION_GAP_WORDS.has(word)) &&
-          (isExpressionSlotForm(slotWords[0]) ||
-            (width > 1 && EXPRESSION_SLOT_LEADS.has(slotWords[0]))) &&
+          expressionSlotMatches(slotWords) &&
           matchesFrom(sourceIndex + width, termIndex + 1)
         ) {
           return true;
