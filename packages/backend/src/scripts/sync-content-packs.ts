@@ -4,6 +4,7 @@ import {
   ContentPackService,
   loadContentPackDocuments,
   loadContentPacksFromGit,
+  resolveContentPackGitCommit,
 } from "../services/content-pack.service";
 import { database } from "../utils/db";
 
@@ -47,7 +48,9 @@ async function main() {
   const inboxBranch =
     inboxBranchIndex >= 0
       ? process.argv[inboxBranchIndex + 1]
-      : gitRef?.replace(/^refs\/remotes\/origin\//, "");
+      : gitRef
+          ?.replace(/^refs\/remotes\//, "")
+          .replace(/^origin\//, "");
   const directoryIndex = process.argv.indexOf("--directory");
   const directory =
     directoryIndex >= 0
@@ -58,8 +61,11 @@ async function main() {
   // that immutable commit so the first Update & Restart remains compatible
   // across controller/script versions.
   const immutableGitRef = fetchedCommit || gitRef;
-  const documents = immutableGitRef
-    ? loadContentPacksFromGit(immutableGitRef)
+  const resolvedCommit = immutableGitRef
+    ? resolveContentPackGitCommit(immutableGitRef)
+    : undefined;
+  const documents = resolvedCommit
+    ? loadContentPacksFromGit(resolvedCommit)
     : loadContentPackDocuments(directory);
   const result = await new ContentPackService(database).ingestDocuments(
     documents,
@@ -67,7 +73,7 @@ async function main() {
       // gitRef can be an exact commit SHA. Keep that immutable source identity
       // separate from the logical inbox branch used by processing queries.
       inboxBranch,
-      fetchedCommit,
+      fetchedCommit: fetchedCommit || resolvedCommit,
     },
   );
   console.log(
