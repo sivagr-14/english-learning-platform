@@ -320,6 +320,39 @@ export class ContentPackService {
             path: document.path,
             message: "The batch ID already exists with different content.",
           });
+        } else if (existing.status === "invalid") {
+          // Invalid is a validator result, not an immutable-content terminal
+          // state. Revalidate identical receipts so a batch rejected by an
+          // older validator can advance after the production validator is
+          // corrected, without changing its batch ID or content hash.
+          if (validation.valid) {
+            await this.database("content_pack_batches")
+              .where({ id: existing.id })
+              .update({
+                status: "staged",
+                manifest_hash: basicValidation.value.manifestHash,
+                entry_count: basicValidation.value.entries.length,
+                payload: JSON.stringify(
+                  validation.value || basicValidation.value,
+                ),
+                validation_report: JSON.stringify({ issues: [] }),
+                updated_at: new Date(),
+              });
+            result.batchesAdded += 1;
+          } else {
+            await this.database("content_pack_batches")
+              .where({ id: existing.id })
+              .update({
+                validation_report: JSON.stringify({
+                  issues: validation.issues,
+                }),
+                updated_at: new Date(),
+              });
+            result.errors.push({
+              path: document.path,
+              message: validation.issues.join("; "),
+            });
+          }
         } else {
           result.unchanged += 1;
         }

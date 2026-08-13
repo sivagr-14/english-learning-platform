@@ -272,6 +272,32 @@ describe("ChatGPT content-pack staging ledger", () => {
     expect(database.memory.tables.content_pack_batches).toHaveLength(1);
   });
 
+  it("revalidates an identical batch previously rejected by a stale validator", async () => {
+    const database = databaseDouble();
+    const service = new ContentPackService(database);
+    const { documents } = smokeDocuments();
+    await service.ingestDocuments(documents);
+
+    Object.assign(database.memory.tables.content_pack_batches[0], {
+      status: "invalid",
+      validation_report: JSON.stringify({
+        issues: ["stale universal-validator failure"],
+      }),
+    });
+
+    const retry = await service.ingestDocuments(documents);
+
+    expect(retry).toMatchObject({
+      batchesAdded: 1,
+      unchanged: 1,
+      errors: [],
+    });
+    expect(database.memory.tables.content_pack_batches[0]).toMatchObject({
+      status: "staged",
+      validation_report: JSON.stringify({ issues: [] }),
+    });
+  });
+
   it("does not process an owned manifest during account-neutral staging", async () => {
     const database = databaseDouble();
     const service = new ContentPackService(database);
