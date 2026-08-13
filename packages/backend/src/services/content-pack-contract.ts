@@ -271,6 +271,45 @@ const ManifestCountsSchema = z
   })
   .strict();
 
+const SuppliedSeedItemSchema = z
+  .object({
+    seedId: IdentifierSchema,
+    suppliedText: z.string().trim().min(1).max(500),
+    normalizedForm: z.string().trim().min(1).max(500),
+    disposition: z.enum(["candidate_linked", "duplicate", "unsupported_source"]),
+    candidateId: IdentifierSchema.optional(),
+    duplicateOfSeedId: IdentifierSchema.optional(),
+    reason: UsefulTextSchema.optional(),
+  })
+  .strict()
+  .superRefine((item, context) => {
+    if (item.disposition === "candidate_linked" && !item.candidateId)
+      context.addIssue({ code: z.ZodIssueCode.custom, path: ["candidateId"], message: "candidate_linked requires candidateId" });
+    if (item.disposition === "duplicate" && !item.duplicateOfSeedId)
+      context.addIssue({ code: z.ZodIssueCode.custom, path: ["duplicateOfSeedId"], message: "duplicate requires duplicateOfSeedId" });
+    if (item.disposition === "unsupported_source" && !item.reason)
+      context.addIssue({ code: z.ZodIssueCode.custom, path: ["reason"], message: "unsupported_source requires a specific reason" });
+    if (item.disposition !== "candidate_linked" && item.candidateId)
+      context.addIssue({ code: z.ZodIssueCode.custom, path: ["candidateId"], message: "only candidate_linked seeds may reference a candidate" });
+  });
+
+const SuppliedSeedAuditSchema = z
+  .object({
+    scope: z.enum(["supplied_items_only", "seeded_exhaustive"]),
+    items: z.array(SuppliedSeedItemSchema).min(1).max(100_000),
+    counts: z
+      .object({
+        totalSupplied: z.number().int().positive(),
+        unique: z.number().int().positive(),
+        duplicates: z.number().int().nonnegative(),
+        candidateLinked: z.number().int().nonnegative(),
+        unsupported: z.number().int().nonnegative(),
+        untracked: z.literal(0),
+      })
+      .strict(),
+  })
+  .strict();
+
 const BatchPlanSchema = z
   .object({
     batchNumber: z.number().int().positive(),
@@ -441,6 +480,7 @@ const LegacyContentManifestSchema = z
         chunks: z.array(ChunkCoverageSchema).min(1).max(50_000),
       })
       .strict(),
+    suppliedSeedAudit: SuppliedSeedAuditSchema.optional(),
     candidates: z.array(ManifestCandidateSchema).max(50_000),
     counts: ManifestCountsSchema,
     generationPlan: z
@@ -682,6 +722,45 @@ export function validateContentManifest(
       issues.push(
         "candidates: each normalized term may appear only once; merge repeated occurrences",
       );
+    }
+  }
+  if (manifest.suppliedSeedAudit) {
+    const audit = manifest.suppliedSeedAudit;
+    const seedIds = audit.items.map((item) => item.seedId);
+    const linked = audit.items.filter((item) => item.disposition === "candidate_linked");
+    const duplicateSeeds = audit.items.filter((item) => item.disposition === "duplicate");
+    const unsupported = audit.items.filter((item) => item.disposition === "unsupported_source");
+    if (duplicates(seedIds).length)
+      issues.push("suppliedSeedAudit.items: every seedId must be unique");
+    if (
+      audit.counts.totalSupplied !== audit.items.length ||
+      audit.counts.unique !== linked.length + unsupported.length ||
+      audit.counts.duplicates !== duplicateSeeds.length ||
+      audit.counts.candidateLinked !== linked.length ||
+      audit.counts.unsupported !== unsupported.length
+    ) issues.push("suppliedSeedAudit.counts: declared seed totals do not reconcile");
+    const knownSeedIds = new Set(seedIds);
+    const canonicalSeedIds = new Set(
+      audit.items
+        .filter((item) => item.disposition !== "duplicate")
+        .map((item) => item.seedId),
+    );
+    for (const item of linked)
+      if (!candidateIds.includes(item.candidateId!))
+        issues.push(`${item.seedId}: supplied seed references unknown candidate ${item.candidateId}`);
+    for (const item of duplicateSeeds) {
+      if (!knownSeedIds.has(item.duplicateOfSeedId!))
+        issues.push(`${item.seedId}: duplicate references unknown supplied seed ${item.duplicateOfSeedId}`);
+      else if (!canonicalSeedIds.has(item.duplicateOfSeedId!))
+        issues.push(`${item.seedId}: duplicate must reference a canonical non-duplicate supplied seed`);
+      if (item.duplicateOfSeedId === item.seedId)
+        issues.push(`${item.seedId}: duplicate cannot reference itself`);
+    }
+    if (audit.scope === "supplied_items_only") {
+      const linkedCandidateIds = new Set(linked.map((item) => item.candidateId));
+      for (const candidateId of candidateIds)
+        if (!linkedCandidateIds.has(candidateId))
+          issues.push(`${candidateId}: supplied-items-only candidate has no supplied seed link`);
     }
   }
   if (isExhaustiveManifest(manifest)) {
