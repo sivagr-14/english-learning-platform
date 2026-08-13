@@ -249,7 +249,7 @@ describe("ChatGPT content-pack contract", () => {
     manifest.counts.generate += 1;
     manifest.candidates[0].senseEvidence.sentence =
       "This sentence is not a recorded occurrence.";
-    manifest.generationPlan.batches[0].candidateIds = [];
+    manifest.generationPlan.batches[0].candidateIds = ["candidate-unknown"];
 
     const report = preflightContentManifest(manifest);
 
@@ -263,6 +263,9 @@ describe("ChatGPT content-pack contract", () => {
   it("accepts separable teaching text when immutable evidence binding is exact", () => {
     const { manifest, batch } = validVerifiedExhaustivePack();
     const candidate = manifest.candidates[0];
+    batch.entries[0].lesson = JSON.parse(
+      JSON.stringify(batch.entries[0].lesson),
+    );
     const entry = batch.entries[0];
     const sourceSentence =
       "The project brought me into contact with experienced editors.";
