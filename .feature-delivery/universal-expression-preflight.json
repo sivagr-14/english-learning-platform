@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "featureId": "universal-expression-preflight",
+  "title": "Use one universal matcher and preflight every generated expression",
+  "implementationPaths": [
+    "packages/backend/src/data/vocabulary-lesson-template.ts",
+    "packages/backend/src/services/content-pack-contract.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/data/vocabulary-lesson-template.test.ts",
+    "packages/backend/src/services/content-pack-contract.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "The existing workflow already requires exhaustive production preflight and exact production validation before generation. This change makes the production implementation honor that contract uniformly for every expression and lesson section."
+  }
+}
