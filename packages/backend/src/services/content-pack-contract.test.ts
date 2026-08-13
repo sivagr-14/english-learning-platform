@@ -515,6 +515,82 @@ describe("ChatGPT content-pack contract", () => {
     expect(validateContentManifest(manifest).valid).toBe(true);
   });
 
+  it("records zero-occurrence supplied seeds outside the candidate ledger", () => {
+    const manifest = validManifest() as any;
+    manifest.suppliedSeedAudit = {
+      scope: "supplied_items_only",
+      items: [
+        {
+          seedId: "seed-001",
+          suppliedText: manifest.candidates[0].term,
+          normalizedForm: manifest.candidates[0].baseForm,
+          disposition: "candidate_linked",
+          candidateId: manifest.candidates[0].candidateId,
+        },
+        {
+          seedId: "seed-002",
+          suppliedText: manifest.candidates[1].term,
+          normalizedForm: manifest.candidates[1].baseForm,
+          disposition: "candidate_linked",
+          candidateId: manifest.candidates[1].candidateId,
+        },
+        {
+          seedId: "seed-003",
+          suppliedText: "frame",
+          normalizedForm: "frame",
+          disposition: "unsupported_source",
+          reason: "No exact, inflected, grammatical, OCR-fragmented or recalled source occurrence was found.",
+        },
+        {
+          seedId: "seed-004",
+          suppliedText: "frame",
+          normalizedForm: "frame",
+          disposition: "duplicate",
+          duplicateOfSeedId: "seed-003",
+        },
+      ],
+      counts: {
+        totalSupplied: 4,
+        unique: 3,
+        duplicates: 1,
+        candidateLinked: 2,
+        unsupported: 1,
+        untracked: 0,
+      },
+    };
+
+    expect(validateContentManifest(manifest)).toMatchObject({ valid: true, issues: [] });
+    expect(manifest.candidates.every((candidate: any) => candidate.occurrences.length > 0)).toBe(true);
+  });
+
+  it("rejects inconsistent or candidate-linked unsupported supplied seeds", () => {
+    const manifest = validManifest() as any;
+    manifest.suppliedSeedAudit = {
+      scope: "supplied_items_only",
+      items: [
+        {
+          seedId: "seed-001",
+          suppliedText: "frame",
+          normalizedForm: "frame",
+          disposition: "unsupported_source",
+          candidateId: manifest.candidates[0].candidateId,
+        },
+      ],
+      counts: {
+        totalSupplied: 2,
+        unique: 1,
+        duplicates: 0,
+        candidateLinked: 0,
+        unsupported: 0,
+        untracked: 0,
+      },
+    };
+
+    expect(validateContentManifest(manifest).issues.join(" ")).toMatch(
+      /unsupported_source requires a specific reason|only candidate_linked|seed totals/i,
+    );
+  });
+
   it("rejects duplicate term-and-sense candidates and visible suffixes", () => {
     const { manifest } = validSenseAwarePack();
     const duplicate = {
