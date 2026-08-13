@@ -71,8 +71,8 @@ describe("portable ChatGPT assessment request", () => {
     expect(request.reconciliation.assessmentGroups).toBe(
       request.assessmentPlan.totalGroups,
     );
-    expect(request.taxonomy.domains).toHaveLength(15);
-    expect(request.taxonomy.specificCategories).toHaveLength(300);
+    expect(request.taxonomy.domains).toHaveLength(22);
+    expect(request.taxonomy.specificCategories).toHaveLength(440);
     expect(request.requestHash).toMatch(/^[a-f0-9]{64}$/);
   });
 

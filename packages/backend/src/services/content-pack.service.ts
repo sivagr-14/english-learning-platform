@@ -28,6 +28,7 @@ import { legacyTaxonomyPath } from "../data/vocabulary-taxonomy";
 import { cacheInvalidate } from "../utils/redis";
 import { readJson } from "../utils/json";
 import { ProviderNeutralJobRepository } from "./provider-neutral-job.repository";
+import { planGenerationWaves, PlannedBatch } from "./generation-waves";
 
 export interface ContentPackDocument {
   path: string;
@@ -84,12 +85,22 @@ export function buildBatchCheckpoint(
   manifestId: string,
   plannedBatchNumbers: number[],
   receivedBatchNumbers: number[],
+  plannedBatches?: readonly PlannedBatch[],
 ) {
   const received = new Set(receivedBatchNumbers);
   const missingBatchNumbers = plannedBatchNumbers.filter(
     (batchNumber) => !received.has(batchNumber),
   );
   const nextBatchNumber = missingBatchNumbers[0] ?? null;
+  const waves = planGenerationWaves(
+    plannedBatches ??
+      plannedBatchNumbers.map((batchNumber) => ({
+        batchNumber,
+        candidateIds: [],
+      })),
+    received,
+  );
+  const currentWave = waves.find((wave) => !wave.complete) ?? null;
   return {
     state: missingBatchNumbers.length ? "safely_paused" : "all_batches_received",
     receivedBatchNumbers: plannedBatchNumbers.filter((batchNumber) =>
@@ -97,8 +108,11 @@ export function buildBatchCheckpoint(
     ),
     missingBatchNumbers,
     nextBatchNumber,
+    waves,
+    currentWaveNumber: currentWave?.waveNumber ?? null,
+    totalWaves: waves.length,
     continuationPrompt: nextBatchNumber
-      ? `Continue import ${manifestId}. Preserve the existing immutable manifest and batch identities. Generate, validate and deliver only missing planned batches ${missingBatchNumbers.join(", ")}, starting with batch ${nextBatchNumber}. Do not rediscover candidates or replace the manifest.`
+      ? `Drain import ${manifestId} from batch ${nextBatchNumber} through all remaining execution waves without confirmation. Preserve the existing immutable manifest, candidate membership, batch identities and received batches. Validate, deliver and remotely verify each missing internal batch, then continue immediately. Do not rediscover candidates or replace the manifest.`
       : null,
   } as const;
 }
@@ -1793,6 +1807,7 @@ export class ContentPackService {
       batches
         .filter((batch: any) => batch.status !== "invalid")
         .map((batch: any) => Number(batch.batch_number)),
+      manifest.generationPlan.batches,
     );
     return {
       id: row.id,

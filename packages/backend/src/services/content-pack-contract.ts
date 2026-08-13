@@ -10,6 +10,7 @@ import {
 } from "./vocabulary-sense.service";
 import {
   isValidTaxonomyPath,
+  LEGACY_TAXONOMY_VERSION,
   TAXONOMY_VERSION,
   taxonomyPathForCategoryKey,
 } from "../data/vocabulary-taxonomy";
@@ -120,7 +121,7 @@ const SenseEvidenceSchema = z
 
 export const TaxonomyAssignmentSchema = z
   .object({
-    taxonomyVersion: z.literal(TAXONOMY_VERSION),
+    taxonomyVersion: z.enum([LEGACY_TAXONOMY_VERSION, TAXONOMY_VERSION]),
     domainKey: IdentifierSchema,
     usageGroupKey: IdentifierSchema,
     categoryKey: IdentifierSchema,
