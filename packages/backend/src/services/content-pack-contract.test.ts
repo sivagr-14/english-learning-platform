@@ -1,6 +1,7 @@
 import { STARTER_SAMPLES } from "../data/starter-samples";
 import {
   contentPackHash,
+  preflightContentManifest,
   validateContentBatch,
   validateContentManifest,
 } from "./content-pack-contract";
@@ -241,6 +242,83 @@ function validVerifiedExhaustivePack(): { manifest: any; batch: any } {
 }
 
 describe("ChatGPT content-pack contract", () => {
+  it("reports all manifest-wide generation blockers before the first batch", () => {
+    const { manifest } = validVerifiedExhaustivePack();
+    manifest.candidates.push({ ...manifest.candidates[0] });
+    manifest.counts.totalCandidates += 1;
+    manifest.counts.generate += 1;
+    manifest.candidates[0].senseEvidence.sentence =
+      "This sentence is not a recorded occurrence.";
+    manifest.generationPlan.batches[0].candidateIds = [];
+
+    const report = preflightContentManifest(manifest);
+
+    expect(report.ready).toBe(false);
+    expect(report.issues.join(" ")).toMatch(/duplicate candidate IDs/i);
+    expect(report.issues.join(" ")).toMatch(/normalized term and contextual sense/i);
+    expect(report.issues.join(" ")).toMatch(/recorded source occurrences/i);
+    expect(report.issues.join(" ")).toMatch(/exactly once/i);
+  });
+
+  it("accepts separable teaching text when immutable evidence binding is exact", () => {
+    const { manifest, batch } = validVerifiedExhaustivePack();
+    const candidate = manifest.candidates[0];
+    const entry = batch.entries[0];
+    const sourceSentence =
+      "The project brought me into contact with experienced editors.";
+    const meaning =
+      "caused me to meet or communicate with experienced editors";
+
+    candidate.term = "bring into contact with";
+    candidate.baseForm = "bring into contact with";
+    candidate.itemType = "fixed phrase";
+    candidate.contextualMeaning = meaning;
+    candidate.senseKey = "cause-contact-or-communication";
+    candidate.senseEvidence = {
+      sentence: sourceSentence,
+      explanation:
+        "The project caused contact and communication with experienced editors.",
+    };
+    candidate.occurrences[0].sentence = sourceSentence;
+    manifest.inventoryAudit.items[0].surfaceForm = "brought me into contact with";
+    manifest.inventoryAudit.items[0].normalizedForm = "bring into contact with";
+    manifest.inventoryAudit.items[0].sentence = sourceSentence;
+
+    entry.word = "bring into contact with";
+    entry.englishMeaning = meaning;
+    entry.lesson.meaning_in_context.source_sentence = sourceSentence;
+    entry.lesson.meaning_in_context.contextual_meaning = meaning;
+    entry.lesson.patterns_collocations.main_pattern =
+      "bring + person + into contact with + person or organisation";
+    entry.lesson.memory_practice.memory_sentence =
+      "The conference brought our team into contact with new partners.";
+    entry.lesson.natural_examples.examples = {
+      professional:
+        "The assignment brought me into contact with senior researchers.",
+      social: "Volunteering brought us into contact with local families.",
+      historical:
+        "Her travels brought her into contact with several artistic traditions.",
+    };
+    entry.lesson.mistakes_differences.common_mistake =
+      "Incorrect: The event brought contact us with new clients.";
+    entry.lesson.mistakes_differences.correction =
+      "Correct: The event brought us into contact with new clients.";
+    entry.lesson.advanced_nuance = [
+      "Bring into contact with is separable when the affected person or thing appears after bring.",
+    ];
+    batch.manifestHash = contentPackHash(manifest);
+
+    expect(preflightContentManifest(manifest)).toMatchObject({
+      ready: true,
+      generatedCandidates: 1,
+      plannedBatches: 1,
+      issues: [],
+    });
+    expect(validateContentBatch(batch, manifest)).toMatchObject({
+      valid: true,
+      issues: [],
+    });
+  });
   it("accepts a fully reconciled manifest and its exact lesson batch", () => {
     const manifest = validManifest();
     const manifestResult = validateContentManifest(manifest);

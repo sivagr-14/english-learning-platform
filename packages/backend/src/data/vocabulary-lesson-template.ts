@@ -547,8 +547,9 @@ export function generatedVocabularyEntryQualityIssues(
 export function assertVocabularyLessonCompliant(
   value: unknown,
   term: string,
+  options: { trustedSourceSentence?: string } = {},
 ): VocabularyLesson {
-  const issues = vocabularyLessonQualityIssues(value, term);
+  const issues = vocabularyLessonQualityIssues(value, term, options);
   if (issues.length) {
     throw new Error(
       `Vocabulary lesson for "${term}" is incomplete or generic:\n- ${issues.join(

@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "expression-grammar-validator-20260813-v3",
+  "releaseId": "universal-generation-preflight-20260813-v4",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "d4b41c2739dbd68345d298c96c02ebc235e91c0e745463fc69716018e8bb1b79",
-      "sizeBytes": 28494
+      "sha256": "3a4877bb21ebe842572dfc8561c9cd6529491a2bd2697123b98b2a8b35b384d8",
+      "sizeBytes": 29028
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "2dc0a50cc7dc28c81beb3200ea261355595242e538c9ae38501a96e16ef5231d",
-      "sizeBytes": 15054
+      "sha256": "e6bb1bfd3173a36515c1c90ff80612c0dd913fefb490f55223f22cfea205b09b",
+      "sizeBytes": 15560
     }
   ]
 }

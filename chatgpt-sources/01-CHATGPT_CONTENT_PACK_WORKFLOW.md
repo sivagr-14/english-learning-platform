@@ -470,6 +470,14 @@ batches: correct it before generating lessons rather than emitting downstream
 database verification failures and wholly unreadable sources remain blocking
 and must be reported.
 
+The production manifest preflight is exhaustive and runs before Batch 1. It
+returns all detected schema, provenance, reconciliation, duplicate-sense,
+taxonomy, plan-membership and evidence-binding issues in one report. Never
+start generation after a partial or fail-fast preflight, and never defer a
+known candidate compatibility problem until that candidate's lesson batch.
+After preflight records the accepted manifest hash, individual batch validation
+must reuse the same source-evidence trust boundary and grammar-aware matcher.
+
 ### Learner-supplied vocabulary lists
 
 When the learner supplies a word or expression list together with the complete

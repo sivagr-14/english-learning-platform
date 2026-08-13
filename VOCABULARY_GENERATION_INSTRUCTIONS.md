@@ -94,6 +94,14 @@ number remembered in the conversation. Do not generate any batch until the
 remote manifest has passed the exact production validator and its accepted hash
 matches the batch plan.
 
+Before the first batch of any new manifest, run the exhaustive production
+generation preflight across the complete candidate ledger and plan. Resolve all
+reported schema, provenance, duplicate-sense, taxonomy, evidence and batch-plan
+issues together. Do not use a fail-fast check that reveals the next known
+problem only when a later batch is reached. Once accepted, every batch must use
+the same frozen hash, trusted occurrence evidence and grammar-aware expression
+policy established by that preflight.
+
 The assessed term remains in dictionary form while exact immutable evidence may
 contain a grammatical inflection. A lesson is source-backed when the evidence
 contains the same ordered expression with a valid inflection, for example
