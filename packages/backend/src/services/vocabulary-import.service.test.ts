@@ -27,6 +27,23 @@ describe("vocabulary import compliance", () => {
     expect(validateVocabularyImportEntry(entry)).toEqual(entry.lesson_data);
   });
 
+  it("accepts OCR-fragmented evidence only through an explicit trusted import boundary", () => {
+    const entry = compliantImport();
+    const lesson = JSON.parse(JSON.stringify(entry.lesson_data));
+    const sourceSentence = "The process was s traightfor ward.";
+    lesson.meaning_in_context.source_sentence = sourceSentence;
+    entry.lesson_data = lesson;
+
+    expect(() => validateVocabularyImportEntry(entry)).toThrow(
+      /source_sentence: must explicitly demonstrate/i,
+    );
+    expect(
+      validateVocabularyImportEntry(entry, {
+        trustedSourceSentence: sourceSentence,
+      }),
+    ).toEqual(lesson);
+  });
+
   it("rejects a vocabulary row without the complete lesson", () => {
     const entry = compliantImport();
     delete entry.lesson_data;
