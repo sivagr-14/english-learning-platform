@@ -307,6 +307,21 @@ function includesTerm(value: string, term: string) {
   );
 }
 
+function includesTermLexicalWords(value: string, term: string) {
+  const valueWords = normalizeForMatch(value).split(" ");
+  const termWords = normalizeForMatch(term)
+    .split(" ")
+    .filter((word) => word.length >= 4);
+  return (
+    termWords.length > 0 &&
+    termWords.every((termWord) =>
+      valueWords.some((sourceWord) =>
+        wordMatchesInflection(sourceWord, termWord),
+      ),
+    )
+  );
+}
+
 export function vocabularyLessonQualityIssues(
   value: unknown,
   term: string,
@@ -364,7 +379,7 @@ export function vocabularyLessonQualityIssues(
   }
 
   if (
-    !includesTerm(
+    !includesTermLexicalWords(
       `${lesson.mistakes_differences.common_mistake} ${lesson.mistakes_differences.correction}`,
       term,
     )
