@@ -2012,16 +2012,37 @@ export class ContentPackService {
   }
 }
 
+export function resolveContentPackGitCommit(
+  ref: string,
+  repoRoot = path.resolve(__dirname, "../../../.."),
+  resolveRef: (candidate: string) => string = (candidate) =>
+    execFileSync(
+      "git",
+      ["rev-parse", "--verify", `${candidate}^{commit}`],
+      { cwd: repoRoot, encoding: "utf8" },
+    ).trim(),
+): string {
+  if (/^[0-9a-f]{40}$/i.test(ref)) return ref.toLowerCase();
+  if (!/^(?:refs\/remotes\/)?origin\/chatgpt-content-inbox$/.test(ref)) {
+    throw statusError("A valid fetched inbox commit is required.");
+  }
+  try {
+    const resolved = resolveRef(ref).trim();
+    if (/^[0-9a-f]{40}$/i.test(resolved)) return resolved.toLowerCase();
+  } catch {
+    // Normalize all missing or malformed transport refs to the public contract.
+  }
+  throw statusError("A valid fetched inbox commit is required.");
+}
+
 export function loadContentPacksFromGit(
   ref: string,
   repoRoot = path.resolve(__dirname, "../../../.."),
 ): ContentPackDocument[] {
-  if (!/^[0-9a-f]{40}$/i.test(ref)) {
-    throw statusError("A valid fetched inbox commit is required.");
-  }
+  const commit = resolveContentPackGitCommit(ref, repoRoot);
   const output = execFileSync(
     "git",
-    ["ls-tree", "-r", "--name-only", ref, "content-packs/inbox"],
+    ["ls-tree", "-r", "--name-only", commit, "content-packs/inbox"],
     { cwd: repoRoot, encoding: "utf8" },
   );
   return output
@@ -2030,7 +2051,7 @@ export function loadContentPacksFromGit(
     .filter((item) => item.endsWith(".json"))
     .map((file) => ({
       path: file,
-      content: execFileSync("git", ["show", `${ref}:${file}`], {
+      content: execFileSync("git", ["show", `${commit}:${file}`], {
         cwd: repoRoot,
         encoding: "utf8",
         maxBuffer: 25 * 1024 * 1024,
