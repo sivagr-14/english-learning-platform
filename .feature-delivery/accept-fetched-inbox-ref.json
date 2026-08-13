@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "featureId": "accept-fetched-inbox-ref",
+  "title": "Keep content-pack synchronization compatible across controller updates",
+  "implementationPaths": [
+    "packages/backend/src/scripts/sync-content-packs.ts",
+    "packages/backend/src/services/content-pack.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/content-pack.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This change only repairs the local transport handoff between an already-fetched Git ref and its immutable commit. Assessment, generation, lesson validation, manifest, batch, delivery and quarantine contracts are unchanged."
+  }
+}

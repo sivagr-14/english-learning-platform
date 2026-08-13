@@ -6,8 +6,47 @@ import {
   isQuarantinableCandidateImportError,
   isSkippableCandidateAttention,
   recoverAutomaticApprovalCandidateIds,
+  resolveContentPackGitCommit,
   shouldAutomaticallyApproveManifest,
 } from "./content-pack.service";
+
+describe("immutable inbox ref compatibility", () => {
+  const commit = "A".repeat(40);
+
+  it("accepts an exact fetched commit without ref resolution", () => {
+    expect(
+      resolveContentPackGitCommit(commit, "/unused", () => {
+        throw new Error("must not resolve an immutable commit");
+      }),
+    ).toBe(commit.toLowerCase());
+  });
+
+  it("resolves only the fetched inbox transport ref to an immutable commit", () => {
+    expect(
+      resolveContentPackGitCommit(
+        "origin/chatgpt-content-inbox",
+        "/unused",
+        (candidate) => {
+          expect(candidate).toBe("origin/chatgpt-content-inbox");
+          return commit;
+        },
+      ),
+    ).toBe(commit.toLowerCase());
+  });
+
+  it("rejects arbitrary refs and malformed resolved commits", () => {
+    expect(() =>
+      resolveContentPackGitCommit("main", "/unused", () => commit),
+    ).toThrow("A valid fetched inbox commit is required.");
+    expect(() =>
+      resolveContentPackGitCommit(
+        "origin/chatgpt-content-inbox",
+        "/unused",
+        () => "not-a-commit",
+      ),
+    ).toThrow("A valid fetched inbox commit is required.");
+  });
+});
 
 describe("durable manifest-first batch checkpoints", () => {
   it("derives exact missing batches and an immutable continuation prompt", () => {
