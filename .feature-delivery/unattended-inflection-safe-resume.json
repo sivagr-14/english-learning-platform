@@ -5,10 +5,12 @@
   "implementationPaths": [
     ".gitignore",
     "packages/backend/src/data/vocabulary-lesson-template.ts",
+    "packages/backend/src/services/content-pack-contract.ts",
     "scripts/control-server.js"
   ],
   "validationPaths": [
     "packages/backend/src/data/vocabulary-lesson-template.test.ts",
+    "packages/backend/src/services/content-pack-contract.test.ts",
     "scripts/control-server.test.js"
   ],
   "chatgptInstructionImpact": {
@@ -24,6 +26,8 @@
           "derive the first missing group or batch",
           "without an approval, confirmation",
           "starts one drain run",
+          "bring me into contact with",
+          "production manifest preflight is exhaustive",
           "exact production validator"
         ]
       },
@@ -33,6 +37,8 @@
           "derive the first missing planned batch",
           "without asking the learner for approval or confirmation",
           "Treat the invocation as a drain loop",
+          "get the discussion back on track",
+          "run the exhaustive production",
           "grown up with"
         ]
       }

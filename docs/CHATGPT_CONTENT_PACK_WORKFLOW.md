@@ -253,6 +253,19 @@ lesson `source_sentence` must copy that same stored value. Validation must prove
 that each evidence sentence belongs to the candidate's `occurrences[]` and to
 the declared source unit/chunk.
 
+The immutable occurrence binding is authoritative even when the prepared PDF
+text contains OCR fragmentation such as `p hysical intima cy`. Lesson-quality
+validation must not require a second literal spelling check against that exact
+source sentence after the manifest has established the candidate-to-occurrence
+link. All generated patterns, examples, memory sentences and nuances still
+have to demonstrate the assessed expression. Their matcher accepts documented
+English morphology, grammatical person/possessive slots, and a bounded object
+or manner phrase in a separable expression. Valid examples include
+`bring me into contact with`, `get us back on track`, `shut the discussion down`,
+or `worked it out`.
+It must reject missing particles, reordered lexical words, negation substituted
+for an expression word, unbounded gaps and lexical-prefix lookalikes.
+
 ### Large-source reconciliation gate
 
 Generation may start only when all of the following reconcile:
@@ -456,6 +469,14 @@ batches: correct it before generating lessons rather than emitting downstream
 "manifest missing" failures. Structural contract failures, lost authorization,
 database verification failures and wholly unreadable sources remain blocking
 and must be reported.
+
+The production manifest preflight is exhaustive and runs before Batch 1. It
+returns all detected schema, provenance, reconciliation, duplicate-sense,
+taxonomy, plan-membership and evidence-binding issues in one report. Never
+start generation after a partial or fail-fast preflight, and never defer a
+known candidate compatibility problem until that candidate's lesson batch.
+After preflight records the accepted manifest hash, individual batch validation
+must reuse the same source-evidence trust boundary and grammar-aware matcher.
 
 ### Learner-supplied vocabulary lists
 

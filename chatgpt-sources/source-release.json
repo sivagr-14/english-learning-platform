@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "no-api-drain-run-20260813-v2",
+  "releaseId": "universal-generation-preflight-20260813-v4",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "dfee6382c89db7615ddaf1ee000fc4fd25b56da51b770ebd5066c109095ce070",
-      "sizeBytes": 27630
+      "sha256": "3a4877bb21ebe842572dfc8561c9cd6529491a2bd2697123b98b2a8b35b384d8",
+      "sizeBytes": 29028
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "97411e5a427fe219d130b4b9218dd9c5dcdffd41a58a4eb529eed9e5de7fc538",
-      "sizeBytes": 14428
+      "sha256": "e6bb1bfd3173a36515c1c90ff80612c0dd913fefb490f55223f22cfea205b09b",
+      "sizeBytes": 15560
     }
   ]
 }

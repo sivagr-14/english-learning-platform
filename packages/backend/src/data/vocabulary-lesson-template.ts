@@ -239,6 +239,40 @@ const NON_INFLECTING_EXPRESSION_WORDS = new Set(
   ),
 );
 
+const EXPRESSION_SLOT_WORDS = new Set([
+  "oneself",
+  "one's",
+  "somebody",
+  "somebody's",
+  "someone",
+  "someone's",
+  "something",
+  "your",
+  "yourself",
+]);
+
+const EXPRESSION_SLOT_FORMS = new Set(
+  "her hers herself him himself his it itself me mine my myself our ours ourselves somebody somebody's someone someone's something their theirs them themselves us you your yours yourself yourselves".split(
+    " ",
+  ),
+);
+
+const EXPRESSION_SLOT_LEADS = new Set(
+  "a an any each her his its my our some that the their these this those your".split(
+    " ",
+  ),
+);
+
+const SEPARABLE_CONTINUATION_WORDS = new Set(
+  "about across after against along around at away back before behind by down for from in into like of off on out over through to together up upon with".split(
+    " ",
+  ),
+);
+
+const FORBIDDEN_EXPRESSION_GAP_WORDS = new Set(
+  "and but never no nor not or without".split(" "),
+);
+
 function regularForms(word: string) {
   const forms = new Set([word]);
   if (word.endsWith("y") && !/[aeiou]y$/.test(word)) {
@@ -249,6 +283,7 @@ function regularForms(word: string) {
     forms.add(`${word}ed`);
   }
   if (/(?:s|x|z|ch|sh)$/.test(word)) forms.add(`${word}es`);
+  if (word.endsWith("o")) forms.add(`${word}es`);
   if (word.endsWith("e")) {
     forms.add(`${word}d`);
     forms.add(`${word.slice(0, -1)}ing`);
@@ -263,8 +298,17 @@ function regularForms(word: string) {
   return forms;
 }
 
+function isExpressionSlot(word: string) {
+  return EXPRESSION_SLOT_WORDS.has(word);
+}
+
+function isExpressionSlotForm(word: string) {
+  return EXPRESSION_SLOT_FORMS.has(word) || /^[a-z]+'s$/.test(word);
+}
+
 function wordMatchesInflection(sourceWord: string, termWord: string) {
   if (sourceWord === termWord) return true;
+  if (isExpressionSlot(termWord)) return isExpressionSlotForm(sourceWord);
   if (NON_INFLECTING_EXPRESSION_WORDS.has(termWord)) return false;
   const irregular = IRREGULAR_FORM_INDEX.get(termWord);
   if (irregular?.has(sourceWord)) return true;
@@ -298,13 +342,56 @@ function includesTerm(value: string, term: string) {
   const termWords = normalizedTerm.split(" ");
   if (!termWords.length || termWords.length > valueWords.length) return false;
 
-  // Match one contiguous, ordered expression. Function words and particles must
-  // remain exact; lexical words may use a source-backed grammatical inflection.
-  return valueWords.some((_, start) =>
-    termWords.every((termWord, offset) =>
-      wordMatchesInflection(valueWords[start + offset] ?? "", termWord),
-    ),
-  );
+  const allowsSeparatedObject =
+    termWords.length > 1 && SEPARABLE_CONTINUATION_WORDS.has(termWords[1]);
+
+  const matchesFrom = (sourceIndex: number, termIndex: number): boolean => {
+    if (termIndex >= termWords.length) return true;
+    const termWord = termWords[termIndex];
+
+    if (isExpressionSlot(termWord)) {
+      for (let width = 1; width <= 4; width += 1) {
+        const slotWords = valueWords.slice(sourceIndex, sourceIndex + width);
+        if (
+          slotWords.length === width &&
+          !slotWords.some((word) => FORBIDDEN_EXPRESSION_GAP_WORDS.has(word)) &&
+          (isExpressionSlotForm(slotWords[0]) ||
+            (width > 1 && EXPRESSION_SLOT_LEADS.has(slotWords[0]))) &&
+          matchesFrom(sourceIndex + width, termIndex + 1)
+        ) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    if (
+      wordMatchesInflection(valueWords[sourceIndex] ?? "", termWord) &&
+      matchesFrom(sourceIndex + 1, termIndex + 1)
+    ) {
+      return true;
+    }
+
+    // English separable expressions allow a short object or manner phrase
+    // between the head verb and its particle/preposition: bring me into
+    // contact with, get us back on track, work that out, steer completely away.
+    if (allowsSeparatedObject && termIndex === 1) {
+      for (let width = 1; width <= 4; width += 1) {
+        const gapWords = valueWords.slice(sourceIndex, sourceIndex + width);
+        if (
+          gapWords.length === width &&
+          !gapWords.some((word) => FORBIDDEN_EXPRESSION_GAP_WORDS.has(word)) &&
+          wordMatchesInflection(valueWords[sourceIndex + width] ?? "", termWord) &&
+          matchesFrom(sourceIndex + width + 1, termIndex + 1)
+        ) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
+  return valueWords.some((_, start) => matchesFrom(start, 0));
 }
 
 function includesTermLexicalWords(value: string, term: string) {
@@ -325,6 +412,7 @@ function includesTermLexicalWords(value: string, term: string) {
 export function vocabularyLessonQualityIssues(
   value: unknown,
   term: string,
+  options: { trustedSourceSentence?: string } = {},
 ): string[] {
   const parsed = VocabularyLessonSchema.safeParse(value);
   if (!parsed.success) {
@@ -350,10 +438,6 @@ export function vocabularyLessonQualityIssues(
 
   const termSpecificAnchors: Array<[string, string]> = [
     [
-      "lesson.meaning_in_context.source_sentence",
-      lesson.meaning_in_context.source_sentence,
-    ],
-    [
       "lesson.patterns_collocations.main_pattern",
       lesson.patterns_collocations.main_pattern,
     ],
@@ -362,6 +446,16 @@ export function vocabularyLessonQualityIssues(
       lesson.memory_practice.memory_sentence,
     ],
   ];
+
+  if (
+    options.trustedSourceSentence !==
+      lesson.meaning_in_context.source_sentence &&
+    !includesTerm(lesson.meaning_in_context.source_sentence, term)
+  ) {
+    issues.push(
+      `lesson.meaning_in_context.source_sentence: must explicitly demonstrate "${term}"`,
+    );
+  }
 
   for (const [path, content] of termSpecificAnchors) {
     if (!includesTerm(content, term)) {
@@ -403,7 +497,9 @@ export function generatedVocabularyEntryQualityIssues(
   entry: GeneratedVocabularyEntryLike,
   expected: VocabularyEntryQualityContext,
 ): string[] {
-  const issues = vocabularyLessonQualityIssues(entry.lesson, expected.term);
+  const issues = vocabularyLessonQualityIssues(entry.lesson, expected.term, {
+    trustedSourceSentence: expected.sourceSentence,
+  });
   const requiredHeaders: Array<[keyof GeneratedVocabularyEntryLike, number]> = [
     ["pronunciation", 2], ["wordType", 2], ["englishMeaning", 8],
     ["tamilMeaning", 2], ["coreIdea", 8],
@@ -451,8 +547,9 @@ export function generatedVocabularyEntryQualityIssues(
 export function assertVocabularyLessonCompliant(
   value: unknown,
   term: string,
+  options: { trustedSourceSentence?: string } = {},
 ): VocabularyLesson {
-  const issues = vocabularyLessonQualityIssues(value, term);
+  const issues = vocabularyLessonQualityIssues(value, term, options);
   if (issues.length) {
     throw new Error(
       `Vocabulary lesson for "${term}" is incomplete or generic:\n- ${issues.join(

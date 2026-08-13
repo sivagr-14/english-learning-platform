@@ -988,6 +988,35 @@ export function validateContentManifest(
   };
 }
 
+export interface GenerationPreflightReport {
+  ready: boolean;
+  manifestHash?: string;
+  generatedCandidates: number;
+  plannedBatches: number;
+  issues: string[];
+}
+
+/**
+ * Runs the complete production manifest contract before lesson generation.
+ * The report is deliberately exhaustive: callers must correct all returned
+ * blockers together instead of discovering them one lesson batch at a time.
+ */
+export function preflightContentManifest(
+  raw: unknown,
+): GenerationPreflightReport {
+  const validation = validateContentManifest(raw);
+  const manifest = validation.value;
+  return {
+    ready: validation.valid,
+    manifestHash: validation.hash,
+    generatedCandidates:
+      manifest?.candidates.filter((candidate) => candidate.decision === "generate")
+        .length ?? 0,
+    plannedBatches: manifest?.generationPlan.batches.length ?? 0,
+    issues: validation.issues,
+  };
+}
+
 export function validateContentBatch(
   raw: unknown,
   manifest?: ContentManifest,
@@ -1098,7 +1127,12 @@ export function validateContentBatch(
         }
       }
       try {
-        assertVocabularyLessonCompliant(entry.lesson, candidate.term);
+        assertVocabularyLessonCompliant(entry.lesson, candidate.term, {
+          trustedSourceSentence:
+            isSenseAwareManifest(manifest) && "senseEvidence" in candidate
+              ? candidate.senseEvidence.sentence
+              : undefined,
+        });
       } catch (error) {
         issues.push(error instanceof Error ? error.message : String(error));
       }

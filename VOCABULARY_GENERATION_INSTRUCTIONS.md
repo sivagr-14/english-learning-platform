@@ -94,11 +94,30 @@ number remembered in the conversation. Do not generate any batch until the
 remote manifest has passed the exact production validator and its accepted hash
 matches the batch plan.
 
+Before the first batch of any new manifest, run the exhaustive production
+generation preflight across the complete candidate ledger and plan. Resolve all
+reported schema, provenance, duplicate-sense, taxonomy, evidence and batch-plan
+issues together. Do not use a fail-fast check that reveals the next known
+problem only when a later batch is reached. Once accepted, every batch must use
+the same frozen hash, trusted occurrence evidence and grammar-aware expression
+policy established by that preflight.
+
 The assessed term remains in dictionary form while exact immutable evidence may
 contain a grammatical inflection. A lesson is source-backed when the evidence
 contains the same ordered expression with a valid inflection, for example
 `grow up with`, `grew up with`, `growing up with` or `grown up with`. Never
 rewrite the evidence sentence merely to insert the dictionary form.
+
+Expressions may also be grammatically separable or contain a person,
+possessive, reflexive or object slot. Preserve the exact evidence and generate
+natural realizations. These include `bring me into contact with`,
+`get the discussion back on track`, `shut someone down`,
+`at the principal's cue`, or `worked it out`. Do not force the dictionary-form
+words to be contiguous, and do not
+rewrite immutable evidence to remove the inserted object. The production
+matcher permits only bounded grammatical slots; missing particles, reordered
+lexical words, lexical-prefix substitutions and unrelated scattered words
+remain invalid.
 
 ## Contextual sense identity
 
