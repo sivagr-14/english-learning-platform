@@ -24,3 +24,25 @@ export function assessmentGroups<T>(items: T[], batchSize: number): T[][] {
   }
   return groups;
 }
+
+
+export function balancedAssessmentGroups<T>(
+  items: readonly T[],
+  maximumGroupSize = 100,
+): T[][] {
+  if (!Number.isInteger(maximumGroupSize) || maximumGroupSize < 2) {
+    throw new Error("maximumGroupSize must be an integer of at least 2.");
+  }
+  if (items.length === 0) return [];
+  const groupCount = Math.ceil(items.length / maximumGroupSize);
+  const baseSize = Math.floor(items.length / groupCount);
+  const remainder = items.length % groupCount;
+  const groups: T[][] = [];
+  let offset = 0;
+  for (let index = 0; index < groupCount; index += 1) {
+    const size = baseSize + (index < remainder ? 1 : 0);
+    groups.push(items.slice(offset, offset + size));
+    offset += size;
+  }
+  return groups;
+}
