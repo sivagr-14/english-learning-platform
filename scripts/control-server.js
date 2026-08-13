@@ -740,7 +740,15 @@ class ControlManager {
       throw new Error(`Updates require the main branch; this checkout is on ${branch || 'an unknown branch'}.`);
     }
     const status = commandOutput(
-      this.execute('git', ['status', '--porcelain', '--untracked-files=normal']),
+      this.execute('git', [
+        'status',
+        '--porcelain',
+        '--untracked-files=normal',
+        '--',
+        '.',
+        ':(exclude).runtime',
+        ':(exclude).runtime/**',
+      ]),
     );
     if (status) {
       throw new Error(

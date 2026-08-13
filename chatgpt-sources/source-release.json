@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "recall-safe-candidate-efficiency-20260811-v1",
+  "releaseId": "unattended-inflection-safe-resume-20260813-v1",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "c866d9facc71862629654a6f21061f8e921c3de58824bd762e31569618ec2dcd",
-      "sizeBytes": 26072
+      "sha256": "5f251dab2be21149c556f5be8381183ef024fe6607fe69c60f1f9caba5d780c5",
+      "sizeBytes": 26887
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "a7b2f80e0d99a8a5efe9c28ec8efa214b7ec0ccc4e727ea34c12bfee54b34098",
-      "sizeBytes": 13138
+      "sha256": "e6ebf10ce50d5bd8c159da6bbffb6a3e424e6e58587752cdd0049283a87b13da",
+      "sizeBytes": 14088
     }
   ]
 }

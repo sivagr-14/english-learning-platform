@@ -283,6 +283,23 @@ test('failed update identifies its exact stage and gives non-destructive recover
   assert.match(manager.recovery, /No destructive rollback.*Durable ChatGPT imports/s);
 });
 
+test('update workspace excludes application-owned runtime state from git cleanliness', () => {
+  const calls = [];
+  const manager = new ControlManager({
+    execute: (_command, args) => {
+      calls.push(args);
+      if (args[0] === 'branch') return { status: 0, stdout: 'main\n', stderr: '' };
+      return { status: 0, stdout: '', stderr: '' };
+    },
+  });
+
+  manager.verifyUpdateWorkspace();
+
+  const statusCall = calls.find((args) => args[0] === 'status');
+  assert.ok(statusCall.includes(':(exclude).runtime'));
+  assert.ok(statusCall.includes(':(exclude).runtime/**'));
+});
+
 test('controller updates finish startup without a launchd handoff', async () => {
   const runCalls = [];
   let reloaded = 0;

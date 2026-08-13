@@ -80,6 +80,21 @@ received and missing batch numbers, and the exact next batch. A continuation
 must use the original manifest hash, candidate IDs, batch number and batch ID;
 it must not rediscover the source or regenerate already delivered batches.
 
+At the start of every generation run, inspect the remote manifest folder and
+derive the first missing planned batch from its immutable receipts. Preserve all
+valid delivered batches, ignore superseded manifests, and process consecutive
+missing batches without asking the learner for approval or confirmation. After
+an interruption, repeat remote discovery instead of relying on the last batch
+number remembered in the conversation. Do not generate any batch until the
+remote manifest has passed the exact production validator and its accepted hash
+matches the batch plan.
+
+The assessed term remains in dictionary form while exact immutable evidence may
+contain a grammatical inflection. A lesson is source-backed when the evidence
+contains the same ordered expression with a valid inflection, for example
+`grow up with`, `grew up with`, `growing up with` or `grown up with`. Never
+rewrite the evidence sentence merely to insert the dictionary form.
+
 ## Contextual sense identity
 
 Generate one entry for exactly one meaning demonstrated by the supplied

@@ -174,6 +174,103 @@ function normalizeForMatch(value: string) {
     .trim();
 }
 
+const IRREGULAR_VERB_GROUPS = [
+  ["be", "am", "is", "are", "was", "were", "been", "being"],
+  ["become", "became", "becomes", "becoming"],
+  ["begin", "began", "begun", "begins", "beginning"],
+  ["break", "broke", "broken", "breaks", "breaking"],
+  ["bring", "brought", "brings", "bringing"],
+  ["build", "built", "builds", "building"],
+  ["buy", "bought", "buys", "buying"],
+  ["catch", "caught", "catches", "catching"],
+  ["choose", "chose", "chosen", "chooses", "choosing"],
+  ["come", "came", "comes", "coming"],
+  ["do", "did", "done", "does", "doing"],
+  ["draw", "drew", "drawn", "draws", "drawing"],
+  ["drink", "drank", "drunk", "drinks", "drinking"],
+  ["drive", "drove", "driven", "drives", "driving"],
+  ["eat", "ate", "eaten", "eats", "eating"],
+  ["fall", "fell", "fallen", "falls", "falling"],
+  ["feel", "felt", "feels", "feeling"],
+  ["find", "found", "finds", "finding"],
+  ["get", "got", "gotten", "gets", "getting"],
+  ["give", "gave", "given", "gives", "giving"],
+  ["go", "went", "gone", "goes", "going"],
+  ["grow", "grew", "grown", "grows", "growing"],
+  ["have", "had", "has", "having"],
+  ["hear", "heard", "hears", "hearing"],
+  ["hold", "held", "holds", "holding"],
+  ["keep", "kept", "keeps", "keeping"],
+  ["know", "knew", "known", "knows", "knowing"],
+  ["leave", "left", "leaves", "leaving"],
+  ["lose", "lost", "loses", "losing"],
+  ["make", "made", "makes", "making"],
+  ["meet", "met", "meets", "meeting"],
+  ["pay", "paid", "pays", "paying"],
+  ["read", "reads", "reading"],
+  ["run", "ran", "runs", "running"],
+  ["say", "said", "says", "saying"],
+  ["see", "saw", "seen", "sees", "seeing"],
+  ["send", "sent", "sends", "sending"],
+  ["set", "sets", "setting"],
+  ["show", "showed", "shown", "shows", "showing"],
+  ["speak", "spoke", "spoken", "speaks", "speaking"],
+  ["stand", "stood", "stands", "standing"],
+  ["take", "took", "taken", "takes", "taking"],
+  ["teach", "taught", "teaches", "teaching"],
+  ["tell", "told", "tells", "telling"],
+  ["think", "thought", "thinks", "thinking"],
+  ["throw", "threw", "thrown", "throws", "throwing"],
+  ["understand", "understood", "understands", "understanding"],
+  ["wear", "wore", "worn", "wears", "wearing"],
+  ["win", "won", "wins", "winning"],
+  ["write", "wrote", "written", "writes", "writing"],
+] as const;
+
+const IRREGULAR_FORM_INDEX = new Map<string, ReadonlySet<string>>();
+for (const group of IRREGULAR_VERB_GROUPS) {
+  const forms = new Set<string>(group);
+  for (const form of group) IRREGULAR_FORM_INDEX.set(form, forms);
+}
+
+const NON_INFLECTING_EXPRESSION_WORDS = new Set(
+  "a an and as at away back by down for from in into of off on out over the through to together up upon with without".split(
+    " ",
+  ),
+);
+
+function regularForms(word: string) {
+  const forms = new Set([word]);
+  if (word.endsWith("y") && !/[aeiou]y$/.test(word)) {
+    forms.add(`${word.slice(0, -1)}ies`);
+    forms.add(`${word.slice(0, -1)}ied`);
+  } else {
+    forms.add(`${word}s`);
+    forms.add(`${word}ed`);
+  }
+  if (/(?:s|x|z|ch|sh)$/.test(word)) forms.add(`${word}es`);
+  if (word.endsWith("e")) {
+    forms.add(`${word}d`);
+    forms.add(`${word.slice(0, -1)}ing`);
+  } else {
+    forms.add(`${word}ing`);
+  }
+  if (/^[a-z]*[aeiou][^aeiouwxy]$/.test(word)) {
+    const finalLetter = word[word.length - 1];
+    forms.add(`${word}${finalLetter}ed`);
+    forms.add(`${word}${finalLetter}ing`);
+  }
+  return forms;
+}
+
+function wordMatchesInflection(sourceWord: string, termWord: string) {
+  if (sourceWord === termWord) return true;
+  if (NON_INFLECTING_EXPRESSION_WORDS.has(termWord)) return false;
+  const irregular = IRREGULAR_FORM_INDEX.get(termWord);
+  if (irregular?.has(sourceWord)) return true;
+  return regularForms(termWord).has(sourceWord);
+}
+
 function collectTextLeaves(
   value: unknown,
   path = "lesson",
@@ -197,26 +294,30 @@ function includesTerm(value: string, term: string) {
   const normalizedTerm = normalizeForMatch(term);
   if (!normalizedTerm) return false;
 
-  if (normalizedValue.includes(normalizedTerm)) return true;
+  const valueWords = normalizedValue.split(" ");
+  const termWords = normalizedTerm.split(" ");
+  if (!termWords.length || termWords.length > valueWords.length) return false;
 
-  const valueWords = new Set(normalizedValue.split(" "));
-  const meaningfulWords = normalizedTerm
+  // Match one contiguous, ordered expression. Function words and particles must
+  // remain exact; lexical words may use a source-backed grammatical inflection.
+  return valueWords.some((_, start) =>
+    termWords.every((termWord, offset) =>
+      wordMatchesInflection(valueWords[start + offset] ?? "", termWord),
+    ),
+  );
+}
+
+function includesTermLexicalWords(value: string, term: string) {
+  const valueWords = normalizeForMatch(value).split(" ");
+  const termWords = normalizeForMatch(term)
     .split(" ")
     .filter((word) => word.length >= 4);
-  const irregularForms: Record<string, string[]> = {
-    come: ["came", "comes", "coming"],
-  };
-  const formsFor = (word: string) => [
-    word,
-    `${word}s`,
-    word.endsWith("e") ? `${word}d` : `${word}ed`,
-    word.endsWith("e") ? `${word.slice(0, -1)}ing` : `${word}ing`,
-    ...(irregularForms[word] || []),
-  ];
   return (
-    meaningfulWords.length > 0 &&
-    meaningfulWords.every((word) =>
-      formsFor(word).some((form) => valueWords.has(form)),
+    termWords.length > 0 &&
+    termWords.every((termWord) =>
+      valueWords.some((sourceWord) =>
+        wordMatchesInflection(sourceWord, termWord),
+      ),
     )
   );
 }
@@ -278,7 +379,7 @@ export function vocabularyLessonQualityIssues(
   }
 
   if (
-    !includesTerm(
+    !includesTermLexicalWords(
       `${lesson.mistakes_differences.common_mistake} ${lesson.mistakes_differences.correction}`,
       term,
     )
