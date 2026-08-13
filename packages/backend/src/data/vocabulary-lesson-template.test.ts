@@ -164,6 +164,20 @@ describe("vocabulary lesson compliance", () => {
     );
   });
 
+  it("accepts reciprocal possessives in exact immutable OCR evidence", () => {
+    const lesson = completeLesson();
+    const sourceSentence = "They began to get on each other's nerv es.";
+    lesson.meaning_in_context.source_sentence = sourceSentence;
+
+    expect(
+      vocabularyLessonQualityIssues(lesson, "get on someone's nerves", {
+        trustedSourceSentence: sourceSentence,
+      }),
+    ).not.toContain(
+      'lesson.meaning_in_context.source_sentence: must explicitly demonstrate "get on someone\'s nerves"',
+    );
+  });
+
   it.each([
     ["bring into contact with", "The workshop did not bring contact with experienced editors."],
     ["get back on track", "They get discouraged and never return back on track."],
