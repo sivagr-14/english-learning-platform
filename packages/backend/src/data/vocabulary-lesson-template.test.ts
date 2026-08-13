@@ -83,6 +83,47 @@ describe("vocabulary lesson compliance", () => {
     );
   });
 
+  it("accepts short non-empty immutable evidence without weakening generated prose", () => {
+    const lesson = completeLesson();
+    const sourceSentence = "(Gulp .";
+    lesson.meaning_in_context.source_sentence = sourceSentence;
+
+    const issues = vocabularyLessonQualityIssues(lesson, "gulp", {
+      trustedSourceSentence: sourceSentence,
+    });
+
+    expect(issues).not.toContain(
+      "lesson.meaning_in_context.source_sentence: must contain useful content",
+    );
+    expect(issues).not.toContain(
+      'lesson.meaning_in_context.source_sentence: must explicitly demonstrate "gulp"',
+    );
+    expect(
+      vocabularyLessonQualityIssues(
+        {
+          ...lesson,
+          meaning_in_context: {
+            ...lesson.meaning_in_context,
+            contextual_meaning: "short",
+          },
+        },
+        "gulp",
+        { trustedSourceSentence: sourceSentence },
+      ),
+    ).toContain(
+      "lesson.meaning_in_context.contextual_meaning: must contain useful content",
+    );
+  });
+
+  it("rejects blank immutable source evidence", () => {
+    const lesson = completeLesson();
+    lesson.meaning_in_context.source_sentence = "   ";
+
+    expect(vocabularyLessonQualityIssues(lesson, TERM)).toContain(
+      "lesson.meaning_in_context.source_sentence: must contain immutable source evidence",
+    );
+  });
+
   it("rejects an empty required section", () => {
     const lesson = completeLesson() as any;
     lesson.advanced_nuance = [];
