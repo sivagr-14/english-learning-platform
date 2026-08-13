@@ -249,8 +249,8 @@ async function main() {
       .expect(200);
     assert.deepEqual(taxonomyResponse.body.counts, {
       domains: 22,
-      usage_groups: 60,
-      specific_categories: 300,
+      usage_groups: 88,
+      specific_categories: 440,
     });
     assert.equal(taxonomyResponse.body.domains.length, 22);
     assert(

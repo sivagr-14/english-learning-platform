@@ -6,7 +6,11 @@
     ".gitignore",
     "packages/backend/src/data/vocabulary-lesson-template.ts",
     "packages/backend/src/data/vocabulary-taxonomy.ts",
+    "packages/backend/src/scripts/smoke-taxonomy-migration-postgres.ts",
+    "packages/backend/src/scripts/smoke-user-categories-postgres.ts",
+    "packages/backend/src/services/candidate-review.service.ts",
     "packages/backend/src/services/content-pack-contract.ts",
+    "packages/backend/src/services/content-pack.service.ts",
     "packages/backend/src/services/generation-waves.ts",
     "scripts/control-server.js"
   ],
@@ -14,7 +18,9 @@
     "packages/backend/src/data/vocabulary-lesson-template.test.ts",
     "packages/backend/src/data/vocabulary-taxonomy.test.ts",
     "packages/backend/src/services/content-pack-contract.test.ts",
+    "packages/backend/src/services/content-pack.service.test.ts",
     "packages/backend/src/services/generation-waves.test.ts",
+    "packages/backend/src/services/source-request.service.test.ts",
     "scripts/control-server.test.js"
   ],
   "chatgptInstructionImpact": {
