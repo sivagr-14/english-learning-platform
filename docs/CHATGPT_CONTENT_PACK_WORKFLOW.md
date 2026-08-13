@@ -546,11 +546,16 @@ source-backed `new_sense` decision is not converted into manual review merely
 because its wording overlaps moderately with an existing sense.
 
 If one otherwise valid generated candidate develops an irreconcilable
-term/sense identity conflict against the learner's current database, quarantine
-only that candidate with its exact reason. Continue every remaining planned
-batch automatically, verify all saved entries, clean the completed pack from
-the active ledger, and report the skipped term(s) together after processing.
-Candidate-level sense conflicts must not leave the manifest in an attention or
-approval state. Structural pack errors, unreadable source areas, database
-failures and invalid lessons remain blocking failures and must never be hidden
-as skipped vocabulary.
+term/sense identity conflict or an isolated lesson-quality failure against the
+learner's current database, quarantine only that candidate with its exact
+reason. Continue every remaining entry and planned batch automatically, verify
+all saved entries, clean the completed pack from the active ledger, and report
+all skipped terms together after processing. A candidate-level failure must not roll back valid entries already imported from the same batch or leave the whole
+manifest in an attention or approval state. Structural manifest, hash,
+batch-membership, unreadable-source and database-availability failures remain
+blocking and must never be hidden as skipped vocabulary.
+
+Every content-pack database commit must pass the manifest candidate's exact
+stored `senseEvidence.sentence` to the lesson validator as
+`trustedSourceSentence`. Only this manifest-bound internal path may establish
+that trust; ordinary manual imports may not self-declare trusted evidence.

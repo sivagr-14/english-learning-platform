@@ -64,6 +64,10 @@ export interface VocabularyImportRow {
   sections?: VocabularyLessonSample["sections"];
 }
 
+export interface VocabularyImportValidationOptions {
+  trustedSourceSentence?: string;
+}
+
 export interface VocabularyImportResult {
   imported: number;
   items: Array<{ word: any; lesson: any; category: any }>;
@@ -751,8 +755,9 @@ export class VocabularyImportService {
   async importSingle(
     row: VocabularyImportRow,
     userId?: string,
+    validationOptions: VocabularyImportValidationOptions = {},
   ): Promise<VocabularyImportResult> {
-    return this.importRows([row], userId);
+    return this.importRows([row], userId, validationOptions);
   }
 
   async importJson(
@@ -765,13 +770,17 @@ export class VocabularyImportService {
   async importRows(
     rows: VocabularyImportEntry[],
     userId?: string,
+    validationOptions: VocabularyImportValidationOptions = {},
   ): Promise<VocabularyImportResult> {
     const items: VocabularyImportResult["items"] = [];
     const errors: VocabularyImportResult["errors"] = [];
 
     for (const [index, row] of rows.entries()) {
       try {
-        const compliantLesson = validateVocabularyImportEntry(row);
+        const compliantLesson = validateVocabularyImportEntry(
+          row,
+          validationOptions,
+        );
         const lesson = buildImportedLesson(row);
         items.push(
           await this.saveLesson(
@@ -1265,12 +1274,16 @@ function validateRow(row: VocabularyImportEntry) {
 
 export function validateVocabularyImportEntry(
   row: VocabularyImportEntry,
+  options: VocabularyImportValidationOptions = {},
 ): VocabularyLesson {
   validateRow(row);
-  return readCompliantLesson(row);
+  return readCompliantLesson(row, options);
 }
 
-function readCompliantLesson(row: VocabularyImportEntry): VocabularyLesson {
+function readCompliantLesson(
+  row: VocabularyImportEntry,
+  options: VocabularyImportValidationOptions,
+): VocabularyLesson {
   const input = row as unknown as Record<string, unknown>;
   const candidate = input.lesson_data ?? input.lesson;
 
@@ -1280,7 +1293,7 @@ function readCompliantLesson(row: VocabularyImportEntry): VocabularyLesson {
     );
   }
 
-  return assertVocabularyLessonCompliant(candidate, row.word);
+  return assertVocabularyLessonCompliant(candidate, row.word, options);
 }
 
 function buildLessonPayload(

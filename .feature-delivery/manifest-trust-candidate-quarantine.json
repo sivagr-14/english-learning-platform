@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "featureId": "manifest-trust-candidate-quarantine",
+  "title": "Preserve manifest evidence trust and quarantine isolated lesson failures",
+  "implementationPaths": [
+    "packages/backend/src/services/vocabulary-import.service.ts",
+    "packages/backend/src/services/content-pack.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/vocabulary-import.service.test.ts",
+    "packages/backend/src/services/content-pack.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "isolated lesson-quality failure",
+          "must not roll back valid entries",
+          "trustedSourceSentence"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "evidence trust boundary",
+          "quarantine that item",
+          "Structural manifest"
+        ]
+      }
+    ]
+  }
+}

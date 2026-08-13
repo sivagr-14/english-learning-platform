@@ -84,10 +84,18 @@ export function recoverAutomaticApprovalCandidateIds(
   ];
 }
 
-export function isSkippableCandidateAttention(message: string): boolean {
-  return /^Contextual sense for .+ requires attention: .+/i.test(
-    message.trim(),
+export function isQuarantinableCandidateImportError(
+  message: string,
+): boolean {
+  const normalized = message.trim();
+  return (
+    /^Contextual sense for .+ requires attention: .+/i.test(normalized) ||
+    /^Vocabulary lesson for ".+" is incomplete or generic:/i.test(normalized)
   );
+}
+
+export function isSkippableCandidateAttention(message: string): boolean {
+  return isQuarantinableCandidateImportError(message);
 }
 
 export function buildBatchCheckpoint(
@@ -1315,6 +1323,9 @@ export class ContentPackService {
         const primary = categories.find(
           (category) => category.relationship === "primary",
         );
+        const senseEvidence = readJson<
+          { sentence: string; explanation: string } | undefined
+        >(candidate.sense_evidence, undefined);
         const imported = await new VocabularyImportService(trx).importSingle(
           {
             category: primary?.name,
@@ -1337,7 +1348,7 @@ export class ContentPackService {
                   matched_word_id: candidate.matched_word_id || undefined,
                   assigned_sense_rank:
                     candidate.allocated_sense_rank || undefined,
-                  sense_evidence: readJson(candidate.sense_evidence, undefined),
+                  sense_evidence: senseEvidence,
                 }
               : {}),
             taxonomy: {
@@ -1350,11 +1361,12 @@ export class ContentPackService {
             },
           },
           userId,
+          { trustedSourceSentence: senseEvidence?.sentence },
         );
         if (imported.imported !== 1) {
           const importError =
             imported.errors[0]?.message || `Could not save ${entry.word}`;
-          if (isSkippableCandidateAttention(importError)) {
+          if (isQuarantinableCandidateImportError(importError)) {
             await trx("generation_job_items")
               .where({
                 generation_job_id: job.id,
