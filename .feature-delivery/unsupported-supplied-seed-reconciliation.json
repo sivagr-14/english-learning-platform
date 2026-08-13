@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "featureId": "unsupported-supplied-seed-reconciliation",
+  "title": "Keep zero-occurrence supplied seeds outside the immutable candidate ledger",
+  "implementationPaths": [
+    "packages/backend/src/services/content-pack-contract.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/content-pack-contract.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "suppliedSeedAudit",
+          "unsupported_source",
+          "reported non-blocking warning"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "suppliedSeedAudit",
+          "Unsupported seeds are non-blocking",
+          "already been frozen as a manifest candidate"
+        ]
+      }
+    ]
+  }
+}

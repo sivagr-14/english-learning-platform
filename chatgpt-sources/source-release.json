@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "adaptive-100-entry-generation-20260813-v6",
+  "releaseId": "unsupported-seed-reconciliation-20260813-v7",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "5628647ffa1d79d25d5e2a561032b51d9082341022f9c13b9fa41c34ec1cd4a0",
-      "sizeBytes": 29742
+      "sha256": "49a3fcddf74f9d32b136dc04b232257ec651a532cd420f5a058b005c15cb9a9d",
+      "sizeBytes": 30559
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "ee2ea9c2a8aadea36fbdb34509aa434b72b006b712fd0adeee4842dbf4d59508",
-      "sizeBytes": 16098
+      "sha256": "5eab344cdef451c01cba5202d76ae175249103e58730dc03ce76549375473939",
+      "sizeBytes": 16538
     }
   ]
 }
