@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "unattended-inflection-safe-resume-20260813-v1",
+  "releaseId": "no-api-drain-run-20260813-v2",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "5f251dab2be21149c556f5be8381183ef024fe6607fe69c60f1f9caba5d780c5",
-      "sizeBytes": 26887
+      "sha256": "dfee6382c89db7615ddaf1ee000fc4fd25b56da51b770ebd5066c109095ce070",
+      "sizeBytes": 27630
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "e6ebf10ce50d5bd8c159da6bbffb6a3e424e6e58587752cdd0049283a87b13da",
-      "sizeBytes": 14088
+      "sha256": "97411e5a427fe219d130b4b9218dd9c5dcdffd41a58a4eb529eed9e5de7fc538",
+      "sizeBytes": 14428
     }
   ]
 }

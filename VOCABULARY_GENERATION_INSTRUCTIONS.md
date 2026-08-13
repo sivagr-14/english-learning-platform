@@ -62,10 +62,12 @@ is intentionally scoped and must never be reported as exhaustive source
 discovery. Report any supplied item that is absent from the source or lacks
 enough context rather than inventing a meaning.
 
-For a large request whose manifest is not yet frozen, assess only the current
-immutable semantic group (at most 100 proposed candidates), scan every sentence
-recall unit assigned to it, validate and deliver its assessment checkpoint, then continue only
-with missing groups. A checkpoint is durable assessment evidence, not a lesson
+For a large request whose manifest is not yet frozen, process one immutable
+semantic group at a time (at most 100 proposed candidates), scan every sentence
+recall unit assigned to it, validate and deliver its assessment checkpoint, then
+immediately repeat remote discovery and process the next missing group in the
+same invocation. Do not stop after a successful group or wait for a learner
+message. A checkpoint is durable assessment evidence, not a lesson
 batch and not permission to generate early. Freeze the complete manifest only
 after every planned group and proposed candidate reconciles with zero untracked
 items. A repeated spelling may produce multiple checkpoint decisions only when
@@ -73,12 +75,15 @@ each has a different contextual `senseKey`; every stored occurrence must belong
 to exactly one of those decisions. At each checkpoint boundary, an in-chat scheduled task reads the durable receipts
 and continues the next missing group automatically. Report `Continue assessment <requestId>` only as a manual recovery fallback.
 
-For a large frozen plan, generate only the current immutable batch of five to
-ten lessons. Validate and deliver that batch before proceeding. When a ChatGPT
-run must end, stop only at a batch boundary and report the manifest ID, planned,
-received and missing batch numbers, and the exact next batch. A continuation
-must use the original manifest hash, candidate IDs, batch number and batch ID;
-it must not rediscover the source or regenerate already delivered batches.
+For a large frozen plan, generate one immutable batch of five to ten lessons at
+a time. Validate, deliver and remotely verify that batch, then immediately
+rediscover receipts and generate the next missing batch in the same invocation.
+Treat the invocation as a drain loop: a successful batch never waits for
+approval, confirmation or a `continue` message. When a ChatGPT run must end,
+stop only at a batch boundary and report the manifest ID, planned, received and
+missing batch numbers, and the exact next batch. A continuation must use the
+original manifest hash, candidate IDs, batch number and batch ID; it must not
+rediscover the source or regenerate already delivered batches.
 
 At the start of every generation run, inspect the remote manifest folder and
 derive the first missing planned batch from its immutable receipts. Preserve all

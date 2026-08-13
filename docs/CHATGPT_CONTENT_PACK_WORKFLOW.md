@@ -397,13 +397,17 @@ unresolved recall findings = 0
 missing groups, duplicate decisions and untracked candidates = 0
 ```
 
-If a run ends before all groups finish, stop after the current checkpoint and
-report received groups, missing groups and the exact next group. Use:
-`Continue assessment <requestId>`. Do not restart assessment from group 1,
-discard completed checkpoints, freeze a partial manifest or begin lessons.
-After every checkpoint reconciles, merge the decisions, run the source-wide
-audit, freeze the complete v5 manifest and continue with manifest-first lesson
-batch delivery.
+One invocation is a drain run, not a one-group run. After delivering a valid
+checkpoint, immediately rediscover the remaining receipts and assess the next
+missing group in the same invocation. Repeat without an approval, confirmation
+or learner message until every group reconciles or the platform ends the run.
+If the run ends before all groups finish, stop after the current checkpoint and
+report received groups, missing groups and the exact next group. Use
+`Continue assessment <requestId>` only as a manual recovery fallback. Do not
+restart assessment from group 1, discard completed checkpoints, freeze a partial
+manifest or begin lessons. After every checkpoint reconciles, merge the
+decisions, run the source-wide audit, freeze the complete v5 manifest and, when
+run capacity remains, continue directly into the lesson-batch drain loop.
 
 ### Manifest-first incremental delivery
 
@@ -432,14 +436,19 @@ a conversationally remembered number. Already delivered immutable receipts are
 preserved and must not be regenerated.
 
 For unattended no-API-key processing, an in-chat scheduled task returns to the
-same conversation, reads those durable receipts, claims only the first missing
-unit, and continues consecutive missing units without asking for confirmation.
-If a run ends, the next scheduled run repeats remote discovery and resumes from
-the first still-missing identity. Scheduled continuation is an hourly recovery
-loop, not a three- or five-minute worker queue, and remains silent during normal
+same conversation and starts one drain run. It reads the durable receipts,
+claims the first missing unit, completes and remotely verifies it, then loops
+immediately over every consecutive missing assessment group or lesson batch
+that fits in that same invocation. A successful unit must never pause merely to
+announce progress or await `continue`; progress summaries are non-blocking.
+Only an unrecoverable integrity or authorization failure may stop the loop
+before the platform boundary. If a run ends, the next scheduled run repeats
+remote discovery and resumes from the first still-missing identity. Scheduled
+continuation is an hourly recovery watchdog, not a one-unit-per-hour scheduler
+or a three- or five-minute worker queue, and remains silent during normal
 progress. The app's **Continue import** action is a manual recovery fallback,
-not a routine requirement. A provider-backed backend worker is required for
-immediate, high-throughput continuation without conversational turn boundaries.
+not a routine requirement. A provider-backed backend worker is still required
+for guaranteed immediate continuation across conversational run boundaries.
 
 Generation must not begin until the exact production validator accepts the
 remote manifest and records its hash. A rejected manifest has no valid planned

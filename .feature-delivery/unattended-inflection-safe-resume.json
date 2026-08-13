@@ -22,7 +22,8 @@
         "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
         "contains": [
           "derive the first missing group or batch",
-          "without asking for confirmation",
+          "without an approval, confirmation",
+          "starts one drain run",
           "exact production validator"
         ]
       },
@@ -31,6 +32,7 @@
         "contains": [
           "derive the first missing planned batch",
           "without asking the learner for approval or confirmation",
+          "Treat the invocation as a drain loop",
           "grown up with"
         ]
       }
