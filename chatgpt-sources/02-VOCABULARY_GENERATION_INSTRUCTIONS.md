@@ -61,8 +61,14 @@ their demonstrated contextual senses. Unless the learner explicitly says
 **generate only these supplied items**, continue the complete discovery and
 blind recall passes and add other eligible candidates. Supplied-items-only mode
 is intentionally scoped and must never be reported as exhaustive source
-discovery. Report any supplied item that is absent from the source or lacks
-enough context rather than inventing a meaning.
+discovery. Before manifest freeze, put every supplied line in
+`suppliedSeedAudit`. Link evidence-backed unique seeds to candidates, point
+duplicate lines to their canonical seed, and record a zero-occurrence seed as
+`unsupported_source` with a specific reason. Never create a candidate or
+invent evidence for an unsupported seed. Unsupported seeds are non-blocking:
+exclude them before candidate-ledger freeze and continue assessment and
+generation automatically. Missing evidence is blocking only for an item that
+has already been frozen as a manifest candidate.
 
 For a large request whose manifest is not yet frozen, process one immutable
 semantic group at a time (at most 100 proposed candidates), scan every sentence
