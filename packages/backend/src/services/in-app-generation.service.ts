@@ -526,7 +526,7 @@ export function buildManifestDocument(params: {
       ).length,
     },
     generationPlan: {
-      batchSize: 8,
+      batchSize: 100,
       batches: planGenerationBatches(
         validCandidates
           .filter((c) => c.decision === "generate")
@@ -547,18 +547,21 @@ export function chunkIntoBatches<T>(items: T[], size: number): T[][] {
   return batches;
 }
 
-/** Deterministically balances normal batches around 8 without a 1-4 item tail. */
+/**
+ * Uses one cycle for 1-100 lessons. Larger plans use the fewest possible
+ * balanced cycles, keeping every cycle between 50 and 100 without a short tail.
+ */
 export function planGenerationBatches<T>(items: T[]): T[][] {
-  if (items.length <= 10) return items.length ? [items.slice()] : [];
-  const batchCount = Math.ceil(items.length / 8);
+  if (items.length <= 100) return items.length ? [items.slice()] : [];
+  const batchCount = Math.ceil(items.length / 100);
   const base = Math.floor(items.length / batchCount);
   const larger = items.length % batchCount;
   const result: T[][] = [];
   let offset = 0;
   for (let index = 0; index < batchCount; index += 1) {
     const size = base + (index < larger ? 1 : 0);
-    if (size < 5 || size > 10)
-      throw new Error("Generation plan cannot satisfy the 5-10 batch contract");
+    if (size < 50 || size > 100)
+      throw new Error("Generation plan cannot satisfy the 50-100 cycle contract");
     result.push(items.slice(offset, offset + size));
     offset += size;
   }

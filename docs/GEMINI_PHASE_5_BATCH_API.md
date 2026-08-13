@@ -8,7 +8,12 @@ Gemini lesson generation now has three user-selectable modes:
 
 The threshold uses the immutable generation plan after assessment, never raw extracted candidates. Existing, filtered, rejected, and attention-required candidates do not count.
 
-Provider Batch jobs are separate from the content-pack lesson batches of 5–10 entries. Provider resource names and per-candidate request identities are stored durably. Polling resumes after app restarts, unordered results reconcile by immutable candidate ID, valid partial results are saved immediately, and only failed or missing candidates are submitted in a later batch.
+Provider Batch jobs are separate from content-pack lesson cycles, which contain
+1–100 entries and are balanced to 50–100 entries when a plan exceeds 100.
+Provider resource names and per-candidate request identities are stored durably.
+Polling resumes after app restarts, unordered results reconcile by immutable
+candidate ID, valid partial results are saved immediately, and only failed or
+missing candidates are submitted in a later cycle.
 
 Batch creation is never blindly retried because Google's create operation is not idempotent. An uncertain creation result stops for attention and tells the user to inspect existing Gemini batches first. Cancellation calls the provider before marking the local job cancelled.
 

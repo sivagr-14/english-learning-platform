@@ -26,9 +26,11 @@ Here, an exact duplicate means the same normalized term and the same contextual
 sense. Same spelling with a different meaning is not a duplicate.
 
 Candidate assessment uses bounded groups of 50–100 unresolved candidates.
-Complete lesson generation uses adaptive batches of 5–10 entries, normally 8.
-These are per-operation safety bounds, not limits on the total import. The
-backend policy and stored import snapshot remain the source of truth.
+Lesson generation uses one cycle for 1–100 entries. Above 100, it uses the
+fewest deterministic balanced cycles possible, keeping every cycle between 50
+and 100 with no undersized tail. These are per-operation safety bounds, not
+limits on the total import. The backend policy and stored import snapshot remain
+the source of truth.
 
 These group sizes are processing bounds, not discovery targets or total caps.
 For large pasted content or files, continue through every declared source unit
@@ -75,14 +77,15 @@ each has a different contextual `senseKey`; every stored occurrence must belong
 to exactly one of those decisions. At each checkpoint boundary, an in-chat scheduled task reads the durable receipts
 and continues the next missing group automatically. Report `Continue assessment <requestId>` only as a manual recovery fallback.
 
-For a large frozen plan, generate one immutable batch of five to ten lessons at
-a time. Validate, deliver and remotely verify that batch, then immediately
-rediscover receipts and generate the next missing batch in the same invocation.
-Group the immutable batches into at most five deterministic, balanced execution waves.
-Waves are a progress and orchestration overlay only: never rewrite the
-manifest or combine internal payload files. Drain every missing batch in the
-current wave and then enter the next wave automatically, without asking for
-approval, confirmation or `continue`.
+For a large frozen plan, generate one immutable cycle of 50–100 lessons at a
+time; a complete plan of 100 or fewer lessons uses one cycle of its actual
+size. Validate, deliver and remotely verify that cycle, then immediately
+rediscover receipts and generate the next missing cycle in the same invocation.
+Group the immutable cycles into at most five deterministic, balanced execution waves.
+Waves are a progress and orchestration overlay only: never rewrite an
+existing frozen manifest or combine its payload files. Drain every missing
+cycle in the current wave and then enter the next wave automatically, without
+asking for approval, confirmation or `continue`.
 Treat the invocation as a drain loop: a successful batch never waits for
 approval, confirmation or a `continue` message. When a ChatGPT run must end,
 stop only at a batch boundary and report the manifest ID, planned, received and

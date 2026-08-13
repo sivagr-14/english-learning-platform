@@ -470,10 +470,10 @@ export function deduplicateByContextualSense(
 
 export function buildGenerationPlan<T extends { candidateId: string }>(
   candidates: T[],
-  batchSize = 8,
+  batchSize = 100,
 ): T[][] {
-  if (batchSize < 1 || batchSize > 10)
-    throw new Error("Generation batch size must be between 1 and 10.");
+  if (batchSize < 1 || batchSize > 100)
+    throw new Error("Generation batch size must be between 1 and 100.");
   const seen = new Set<string>();
   for (const candidate of candidates) {
     if (seen.has(candidate.candidateId))
@@ -483,7 +483,14 @@ export function buildGenerationPlan<T extends { candidateId: string }>(
     seen.add(candidate.candidateId);
   }
   const result: T[][] = [];
-  for (let i = 0; i < candidates.length; i += batchSize)
-    result.push(candidates.slice(i, i + batchSize));
+  const batchCount = Math.ceil(candidates.length / batchSize);
+  const baseSize = batchCount ? Math.floor(candidates.length / batchCount) : 0;
+  const largerBatches = batchCount ? candidates.length % batchCount : 0;
+  let offset = 0;
+  for (let index = 0; index < batchCount; index += 1) {
+    const size = baseSize + (index < largerBatches ? 1 : 0);
+    result.push(candidates.slice(offset, offset + size));
+    offset += size;
+  }
   return result;
 }

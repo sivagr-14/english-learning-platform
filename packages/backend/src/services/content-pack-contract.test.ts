@@ -88,7 +88,7 @@ function validManifest(): any {
       mediumUse: 0,
     },
     generationPlan: {
-      batchSize: 8,
+      batchSize: 100,
       batches: [{ batchNumber: 1, candidateIds: ["candidate-001"] }],
     },
   };
@@ -351,6 +351,13 @@ describe("ChatGPT content-pack contract", () => {
     const result = validateContentManifest(manifest);
     expect(result.valid).toBe(false);
     expect(result.issues.join(" ")).toMatch(/multiple batches|exactly once/i);
+  });
+
+  it("accepts the new 100-entry cycle ceiling and rejects declarations above it", () => {
+    const manifest = validManifest();
+    expect(validateContentManifest(manifest).valid).toBe(true);
+    manifest.generationPlan.batchSize = 101;
+    expect(validateContentManifest(manifest).valid).toBe(false);
   });
 
   it("rejects inconsistent page, chunk and occurrence cross-ledgers", () => {
