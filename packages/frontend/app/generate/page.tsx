@@ -681,7 +681,7 @@ export default function ChatGPTImportsPage() {
                           onClick={() => void copyContinuation(manifest)}
                           className="rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800"
                         >
-                          Continue import
+                          Copy recovery prompt
                         </button>
                       )}
                       {!detail && (
