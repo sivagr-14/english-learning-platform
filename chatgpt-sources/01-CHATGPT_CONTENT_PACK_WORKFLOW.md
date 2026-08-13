@@ -257,9 +257,12 @@ system classification.
 Every `senseEvidence.sentence` must be copied from one recorded canonical
 occurrence, byte-for-byte after the contract's single documented normalization
 step. Never paraphrase, reconstruct or independently normalize evidence. The
-lesson `source_sentence` must copy that same stored value. Validation must prove
-that each evidence sentence belongs to the candidate's `occurrences[]` and to
-the declared source unit/chunk.
+lesson `source_sentence` must copy that same stored value. A trusted immutable
+quotation may be any non-blank length, including a short utterance, interjection,
+caption or OCR fragment; the eight-character useful-content minimum applies
+only to generated teaching prose, never to quoted source evidence. Validation
+must prove that each evidence sentence belongs to the candidate's
+`occurrences[]` and to the declared source unit/chunk.
 
 The immutable occurrence binding is authoritative even when the prepared PDF
 text contains OCR fragmentation such as `p hysical intima cy`. Lesson-quality
