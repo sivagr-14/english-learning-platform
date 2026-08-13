@@ -26,8 +26,8 @@ Here, an exact duplicate means the same normalized term and the same contextual
 sense. Same spelling with a different meaning is not a duplicate.
 
 Candidate assessment uses one group for 1–100 unresolved candidates. Above
-100, it uses the fewest deterministic balanced groups possible, normally
-keeping every group between 50 and 100 with no undersized tail. Lesson
+100, candidate assessment uses bounded groups of 50–100 unresolved candidates
+and the fewest deterministic balanced groups possible, with no undersized tail. Lesson
 generation uses one cycle for 1–100 entries. Above 100, it uses the fewest
 deterministic balanced cycles possible, keeping every cycle between 50 and 100
 with no undersized tail. These are per-operation safety bounds, not limits on
