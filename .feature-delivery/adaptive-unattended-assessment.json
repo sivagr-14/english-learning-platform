@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "featureId": "adaptive-unattended-assessment",
+  "title": "Use balanced unattended assessment groups",
+  "implementationPaths": [
+    "packages/backend/src/services/assessment-batching.ts",
+    "packages/backend/src/services/source-request.service.ts",
+    "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+    "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/assessment-batching.test.ts",
+    "packages/backend/src/services/source-request.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "**Generate** is the complete unattended-work authorization",
+          "fewest balanced groups possible",
+          "never a confirmation boundary"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "complete assessment-to-generation drain",
+          "fewest deterministic balanced groups possible",
+          "never ask for approval"
+        ]
+      }
+    ]
+  }
+}

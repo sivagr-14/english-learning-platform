@@ -57,6 +57,8 @@ describe("portable ChatGPT assessment request", () => {
     expect(request.reconciliation.untrackedReadableWords).toBe(0);
     expect(request.existingVocabulary).toHaveLength(1);
     expect(request.assessmentPlan.groupSize).toBe(100);
+    expect(request.assessmentPlan.groupingPolicy).toBe("fewest-balanced-50-100-v1");
+    expect(request.assessmentPlan.automaticContinuation).toBe(true);
     expect(request.assessmentPlan.totalGroups).toBeGreaterThan(0);
     expect(request.assessmentPlan.groups[0]).toMatchObject({
       groupNumber: 1,

@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "manifest-trust-candidate-quarantine-20260813-v10",
+  "releaseId": "adaptive-unattended-assessment-20260813-v11",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "0249af8862a8e410be1856c622111bdcd63430e68088525f791823629bf384ce",
-      "sizeBytes": 31742
+      "sha256": "47ab8a11911cfb2a2355b78f2a942d68cab379dfa8a176b06adcb154c4f3e4ca",
+      "sizeBytes": 32471
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "1265ce48aa666078089d230c0a27a790a4e458efb525b0c3dfa033a983b3b32d",
-      "sizeBytes": 17737
+      "sha256": "e768b80d7aea51582e3d27b6bbd69dd2736ee2e14af8c5425449329cdeabbc88",
+      "sizeBytes": 18130
     }
   ]
 }

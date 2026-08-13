@@ -1,6 +1,7 @@
 import {
   assessmentBatchConfig,
   assessmentGroups,
+  balancedAssessmentGroups,
 } from "./assessment-batching";
 
 describe("assessment batching", () => {
@@ -25,5 +26,37 @@ describe("assessment batching", () => {
       [3, 4],
       [5],
     ]);
+  });
+});
+
+
+describe("balanced adaptive assessment groups", () => {
+  it.each([
+    [1, [1]],
+    [50, [50]],
+    [100, [100]],
+    [101, [51, 50]],
+    [199, [100, 99]],
+    [200, [100, 100]],
+    [201, [67, 67, 67]],
+    [1064, [97, 97, 97, 97, 97, 97, 97, 97, 96, 96, 96]],
+    [5063, Array.from({ length: 51 }, (_, index) => index < 14 ? 100 : 99)],
+  ])("uses the fewest balanced groups for %i candidates", (count, expectedSizes) => {
+    const items = Array.from({ length: count as number }, (_, index) => index);
+    const groups = balancedAssessmentGroups(items);
+    expect(groups.map((group) => group.length)).toEqual(expectedSizes);
+    expect(groups.flat()).toEqual(items);
+  });
+
+  it("does not create an undersized tail above 100 candidates", () => {
+    for (let count = 101; count <= 2_000; count += 1) {
+      const sizes = balancedAssessmentGroups(
+        Array.from({ length: count }, (_, index) => index),
+      ).map((group) => group.length);
+      expect(Math.max(...sizes)).toBeLessThanOrEqual(100);
+      expect(Math.min(...sizes)).toBeGreaterThanOrEqual(50);
+      expect(Math.max(...sizes) - Math.min(...sizes)).toBeLessThanOrEqual(1);
+      expect(sizes).toHaveLength(Math.ceil(count / 100));
+    }
   });
 });

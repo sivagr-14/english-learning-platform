@@ -6,6 +6,7 @@ import {
   TAXONOMY_USAGE_GROUPS,
   TAXONOMY_VERSION,
 } from "../data/vocabulary-taxonomy";
+import { balancedAssessmentGroups } from "./assessment-batching";
 import {
   buildInventory,
   resolveSourceType,
@@ -104,7 +105,7 @@ export async function buildPortableAssessmentRequest(
       ),
     ),
   ];
-  const candidateGroups = groupsOf(proposedCandidateIds, 100);
+  const candidateGroups = balancedAssessmentGroups(proposedCandidateIds);
   const recallGroups = groupsOf(
     inventory.expressionRecallUnits,
     Math.max(
@@ -174,11 +175,13 @@ export async function buildPortableAssessmentRequest(
       assessmentCheckpointVersion:
         "chatgpt-semantic-assessment-checkpoint-v1",
       handoff:
-        "Attach this request to ChatGPT and write Generate. Assess the immutable groups in order, deliver each completed semantic checkpoint durably, and resume only missing groups. Freeze the v5 manifest only after all groups reconcile; then generate and validate lesson batches.",
+        "Attach this request to ChatGPT and write Generate. That single command authorizes the complete unattended assessment and generation drain. Process every immutable assessment group continuously without approval, confirmation or continue prompts; deliver each checkpoint durably and resume only missing groups. Freeze the v5 manifest only after all groups reconcile, then generate, validate, deliver and remotely verify every planned lesson cycle continuously.",
     },
     inventory,
     assessmentPlan: {
       groupSize: 100,
+      groupingPolicy: "fewest-balanced-50-100-v1",
+      automaticContinuation: true,
       totalGroups: assessmentGroups.length,
       groups: assessmentGroups,
       checkpointPathTemplate:
