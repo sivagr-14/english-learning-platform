@@ -1,4 +1,9 @@
-export const TAXONOMY_VERSION = "2026.1" as const;
+export const LEGACY_TAXONOMY_VERSION = "2026.1" as const;
+export const TAXONOMY_VERSION = "2026.2" as const;
+export const SUPPORTED_TAXONOMY_VERSIONS = [
+  LEGACY_TAXONOMY_VERSION,
+  TAXONOMY_VERSION,
+] as const;
 
 type RawSpecificCategory = readonly [key: string, name: string];
 interface RawUsageGroup {
@@ -777,8 +782,81 @@ const RAW_TAXONOMY: readonly RawDomain[] = [
   },
 ] as const;
 
+const title = (key: string) =>
+  key
+    .split("_")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
+
+const ADDITIONAL_DOMAIN_SPECS = {
+  finance_economics: {
+    personal_finance: "budgeting_saving banking_accounts credit_debt insurance_risk taxes_pensions",
+    markets_business: "prices_inflation supply_demand trade_investment companies_industries economic_cycles",
+    accounting_commerce: "revenue_costs profit_loss payments_invoicing assets_liabilities financial_reporting",
+    economic_policy: "public_spending interest_rates employment_wages inequality_distribution global_economy",
+  },
+  media_journalism: {
+    news_reporting: "headlines_breaking_news reporting_sources interviews_quotes fact_checking corrections_updates",
+    journalism_analysis: "editorials_opinion investigations political_reporting business_reporting science_health_reporting",
+    media_literacy: "bias_framing misinformation credibility_evidence privacy_ethics algorithms_attention",
+    publishing_broadcasting: "newspapers_magazines radio_podcasts television_broadcasts digital_publishing audience_engagement",
+  },
+  arts_culture: {
+    visual_arts: "painting_drawing sculpture_crafts photography_design exhibitions_galleries criticism_interpretation",
+    literature: "fiction_narrative poetry drama_theatre authorship_publishing literary_analysis",
+    music_performance: "instruments_sound singing_composition concerts_performance genres_styles music_criticism",
+    heritage_identity: "traditions_customs museums_archives cultural_identity festivals_ceremonies preservation_exchange",
+  },
+  government_law: {
+    government_institutions: "elections_voting legislatures_policies public_administration diplomacy_international_relations local_government",
+    legal_processes: "laws_regulations courts_trials evidence_testimony contracts_obligations penalties_appeals",
+    rights_responsibilities: "civil_rights equality_discrimination privacy_freedom citizenship_immigration duties_compliance",
+    public_policy: "taxation_services welfare_social_policy education_health_policy regulation_enforcement policy_debate_reform",
+  },
+  science_engineering: {
+    scientific_method: "observation_measurement hypotheses_experiments evidence_analysis uncertainty_replication research_communication",
+    physical_life_sciences: "physics_chemistry biology_genetics medicine_biotech earth_space ecology_evolution",
+    engineering_design: "requirements_constraints modelling_prototypes materials_manufacturing systems_optimization testing_reliability",
+    mathematics_data: "quantities_calculation geometry_measurement probability_statistics data_modelling algorithms_computation",
+  },
+  sports_fitness: {
+    exercise_training: "strength_conditioning endurance_cardio flexibility_mobility training_plans recovery_rest",
+    sports_play: "team_sports individual_sports rules_officiating tactics_strategy skills_technique",
+    competition_performance: "events_tournaments scores_results winning_losing athletes_coaching records_achievement",
+    active_lifestyle: "recreational_activity outdoor_sports gyms_equipment motivation_consistency injury_prevention",
+  },
+  safety_emergencies: {
+    personal_public_safety: "hazards_precautions workplace_safety road_safety online_safety safeguarding",
+    crime_investigation: "offences_suspects police_investigation evidence_forensics prevention_security victims_witnesses",
+    emergency_response: "calling_for_help fire_rescue medical_emergencies evacuation_shelter disaster_response",
+    risk_crisis_management: "risk_assessment contingency_planning incident_command crisis_communication recovery_resilience",
+  },
+} as const;
+
+const ADDITIONAL_TAXONOMY: readonly RawDomain[] = Object.entries(
+  ADDITIONAL_DOMAIN_SPECS,
+).map(([domainKey, groupSpecs]) => ({
+  key: domainKey,
+  name: title(domainKey),
+  groups: Object.entries(groupSpecs).map(([groupKey, categoryKeys]) => ({
+    key: groupKey,
+    name: title(groupKey),
+    categories: categoryKeys
+      .split(" ")
+      .map((categoryKey) => [categoryKey, title(categoryKey)] as const),
+  })),
+}));
+
+const ACTIVE_TAXONOMY: readonly RawDomain[] = [
+  ...RAW_TAXONOMY,
+  ...ADDITIONAL_TAXONOMY,
+];
+
+export type SupportedTaxonomyVersion =
+  (typeof SUPPORTED_TAXONOMY_VERSIONS)[number];
+
 export interface TaxonomyPath {
-  taxonomyVersion: typeof TAXONOMY_VERSION;
+  taxonomyVersion: SupportedTaxonomyVersion;
   domainKey: string;
   domainName: string;
   usageGroupKey: string;
@@ -787,14 +865,14 @@ export interface TaxonomyPath {
   categoryName: string;
 }
 
-export const TAXONOMY_DOMAINS = RAW_TAXONOMY.map((domain, domainIndex) => ({
+export const TAXONOMY_DOMAINS = ACTIVE_TAXONOMY.map((domain, domainIndex) => ({
   key: domain.key,
   name: domain.name,
   description: `Vocabulary for ${domain.name.toLowerCase()} situations.`,
   sortOrder: domainIndex + 1,
 }));
 
-export const TAXONOMY_USAGE_GROUPS = RAW_TAXONOMY.flatMap((domain) =>
+export const TAXONOMY_USAGE_GROUPS = ACTIVE_TAXONOMY.flatMap((domain) =>
   domain.groups.map((group, groupIndex) => ({
     key: `${domain.key}.${group.key}`,
     domainKey: domain.key,
@@ -804,7 +882,7 @@ export const TAXONOMY_USAGE_GROUPS = RAW_TAXONOMY.flatMap((domain) =>
   })),
 );
 
-export const TAXONOMY_SPECIFIC_CATEGORIES = RAW_TAXONOMY.flatMap((domain) =>
+export const TAXONOMY_SPECIFIC_CATEGORIES = ACTIVE_TAXONOMY.flatMap((domain) =>
   domain.groups.flatMap((group) =>
     group.categories.map(([categoryKey, categoryName], categoryIndex) => ({
       key: `${domain.key}.${group.key}.${categoryKey}`,
@@ -894,14 +972,17 @@ export function legacyBroadCategoryForDomain(
 
 export function taxonomyPathForCategoryKey(
   categoryKey: string,
+  taxonomyVersion: SupportedTaxonomyVersion = TAXONOMY_VERSION,
 ): TaxonomyPath | null {
   const category = CATEGORY_BY_KEY.get(categoryKey);
   if (!category) return null;
   const group = GROUP_BY_KEY.get(category.usageGroupKey);
   const domain = DOMAIN_BY_KEY.get(category.domainKey);
   if (!group || !domain) return null;
+  if (taxonomyVersion === LEGACY_TAXONOMY_VERSION && domain.sortOrder > 15)
+    return null;
   return {
-    taxonomyVersion: TAXONOMY_VERSION,
+    taxonomyVersion,
     domainKey: domain.key,
     domainName: domain.name,
     usageGroupKey: group.key,
@@ -917,12 +998,14 @@ export function isValidTaxonomyPath(input: {
   usageGroupKey?: string;
   categoryKey?: string;
 }): boolean {
-  const path = input.categoryKey
-    ? taxonomyPathForCategoryKey(input.categoryKey)
+  const taxonomyVersion = SUPPORTED_TAXONOMY_VERSIONS.find(
+    (version) => version === input.taxonomyVersion,
+  );
+  const path = input.categoryKey && taxonomyVersion
+    ? taxonomyPathForCategoryKey(input.categoryKey, taxonomyVersion)
     : null;
   return Boolean(
     path &&
-      input.taxonomyVersion === TAXONOMY_VERSION &&
       input.domainKey === path.domainKey &&
       input.usageGroupKey === path.usageGroupKey,
   );
@@ -938,12 +1021,12 @@ export function legacyTaxonomyPath(categoryName?: string): TaxonomyPath {
 }
 
 export function assertTaxonomyCatalogue(): void {
-  if (TAXONOMY_DOMAINS.length !== 15)
-    throw new Error("Taxonomy must contain 15 domains.");
-  if (TAXONOMY_USAGE_GROUPS.length !== 60)
-    throw new Error("Taxonomy must contain 60 usage groups.");
-  if (TAXONOMY_SPECIFIC_CATEGORIES.length !== 300) {
-    throw new Error("Taxonomy must contain 300 specific categories.");
+  if (TAXONOMY_DOMAINS.length !== 22)
+    throw new Error("Taxonomy must contain 22 domains.");
+  if (TAXONOMY_USAGE_GROUPS.length !== 88)
+    throw new Error("Taxonomy must contain 88 usage groups.");
+  if (TAXONOMY_SPECIFIC_CATEGORIES.length !== 440) {
+    throw new Error("Taxonomy must contain 440 specific categories.");
   }
   const keys = new Set(
     TAXONOMY_SPECIFIC_CATEGORIES.map((category) => category.key),

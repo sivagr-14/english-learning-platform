@@ -5,12 +5,16 @@
   "implementationPaths": [
     ".gitignore",
     "packages/backend/src/data/vocabulary-lesson-template.ts",
+    "packages/backend/src/data/vocabulary-taxonomy.ts",
     "packages/backend/src/services/content-pack-contract.ts",
+    "packages/backend/src/services/generation-waves.ts",
     "scripts/control-server.js"
   ],
   "validationPaths": [
     "packages/backend/src/data/vocabulary-lesson-template.test.ts",
+    "packages/backend/src/data/vocabulary-taxonomy.test.ts",
     "packages/backend/src/services/content-pack-contract.test.ts",
+    "packages/backend/src/services/generation-waves.test.ts",
     "scripts/control-server.test.js"
   ],
   "chatgptInstructionImpact": {
@@ -28,7 +32,8 @@
           "starts one drain run",
           "bring me into contact with",
           "production manifest preflight is exhaustive",
-          "exact production validator"
+          "exact production validator",
+          "one to five deterministic execution waves"
         ]
       },
       {
@@ -39,7 +44,8 @@
           "Treat the invocation as a drain loop",
           "get the discussion back on track",
           "run the exhaustive production",
-          "grown up with"
+          "grown up with",
+          "at most five deterministic, balanced execution waves"
         ]
       }
     ]

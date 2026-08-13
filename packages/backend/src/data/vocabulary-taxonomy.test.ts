@@ -1,5 +1,6 @@
 import {
   DEFAULT_TAXONOMY_CATEGORY_KEY,
+  LEGACY_TAXONOMY_VERSION,
   isValidTaxonomyPath,
   legacyTaxonomyPath,
   TAXONOMY_DOMAINS,
@@ -10,13 +11,27 @@ import {
 } from "./vocabulary-taxonomy";
 
 describe("three-level vocabulary taxonomy", () => {
-  it("contains the required controlled 15/60/300 hierarchy", () => {
-    expect(TAXONOMY_DOMAINS).toHaveLength(15);
-    expect(TAXONOMY_USAGE_GROUPS).toHaveLength(60);
-    expect(TAXONOMY_SPECIFIC_CATEGORIES).toHaveLength(300);
+  it("contains the controlled 22/88/440 hierarchy", () => {
+    expect(TAXONOMY_DOMAINS).toHaveLength(22);
+    expect(TAXONOMY_USAGE_GROUPS).toHaveLength(88);
+    expect(TAXONOMY_SPECIFIC_CATEGORIES).toHaveLength(440);
     expect(
       new Set(TAXONOMY_SPECIFIC_CATEGORIES.map((item) => item.key)).size,
-    ).toBe(300);
+    ).toBe(440);
+  });
+
+  it("keeps 2026.1 paths valid without exposing 2026.2 additions", () => {
+    const oldPath = taxonomyPathForCategoryKey(
+      "travel.airports_and_flights.check_in_and_baggage",
+      LEGACY_TAXONOMY_VERSION,
+    );
+    expect(isValidTaxonomyPath(oldPath!)).toBe(true);
+    expect(
+      taxonomyPathForCategoryKey(
+        "science_engineering.scientific_method.hypotheses_experiments",
+        LEGACY_TAXONOMY_VERSION,
+      ),
+    ).toBeNull();
   });
 
   it("resolves a specific category to exactly one complete path", () => {

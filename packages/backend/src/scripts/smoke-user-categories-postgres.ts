@@ -248,11 +248,11 @@ async function main() {
       .set(authorization)
       .expect(200);
     assert.deepEqual(taxonomyResponse.body.counts, {
-      domains: 15,
+      domains: 22,
       usage_groups: 60,
       specific_categories: 300,
     });
-    assert.equal(taxonomyResponse.body.domains.length, 15);
+    assert.equal(taxonomyResponse.body.domains.length, 22);
     assert(
       taxonomyResponse.body.domains.every(
         (domain: any) =>

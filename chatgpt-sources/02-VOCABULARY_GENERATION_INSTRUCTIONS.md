@@ -78,6 +78,11 @@ and continues the next missing group automatically. Report `Continue assessment 
 For a large frozen plan, generate one immutable batch of five to ten lessons at
 a time. Validate, deliver and remotely verify that batch, then immediately
 rediscover receipts and generate the next missing batch in the same invocation.
+Group the immutable batches into at most five deterministic, balanced execution
+waves. Waves are a progress and orchestration overlay only: never rewrite the
+manifest or combine internal payload files. Drain every missing batch in the
+current wave and then enter the next wave automatically, without asking for
+approval, confirmation or `continue`.
 Treat the invocation as a drain loop: a successful batch never waits for
 approval, confirmation or a `continue` message. When a ChatGPT run must end,
 stop only at a batch boundary and report the manifest ID, planned, received and

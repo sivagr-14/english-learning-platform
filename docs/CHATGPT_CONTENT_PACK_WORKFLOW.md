@@ -158,7 +158,7 @@ already assessed or saved data.
 
 ## Controlled taxonomy guarantee
 
-The system catalogue contains 15 domains, 60 usage groups and 300 specific
+New manifests use taxonomy `2026.2`, containing 22 domains, 88 usage groups and 440 specific
 learning categories. ChatGPT must classify each generated contextual sense by
 choosing one exact chain:
 
@@ -238,8 +238,11 @@ system classification.
 - Mark scanned, corrupt or otherwise unreadable pages as `unreadable` with a
   reason. Do not finalize the import until replacement/OCR text has been
   assessed and the immutable manifest is replaced with a new manifest ID.
-- Generate five to ten lessons per batch. A large import may resume across many
-  ChatGPT turns because the manifest and received batch numbers are durable.
+- Keep five to ten lessons in each immutable internal batch, but expose only one
+  to five deterministic execution waves. A wave drains all of its consecutive
+  missing internal batches in the same run without confirmation. Existing
+  manifests receive this wave overlay without changing their manifest hash,
+  candidate membership, or already received batches.
 - Finalize the immutable manifest and its complete generation plan before
   generating the first lesson. Resume only from durable manifest and batch
   identities; never rediscover a smaller subset during continuation.

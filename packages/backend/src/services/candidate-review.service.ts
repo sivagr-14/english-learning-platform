@@ -1,7 +1,6 @@
 import { Knex } from "knex";
 import {
   isValidTaxonomyPath,
-  TAXONOMY_VERSION,
 } from "../data/vocabulary-taxonomy";
 import { readJson } from "../utils/json";
 
@@ -27,7 +26,6 @@ function validateCorrection(patch: Record<string, unknown>) {
   if (patch.taxonomy) {
     const taxonomy = patch.taxonomy as Record<string, string>;
     if (
-      taxonomy.taxonomyVersion !== TAXONOMY_VERSION ||
       !isValidTaxonomyPath(taxonomy)
     )
       throw error(

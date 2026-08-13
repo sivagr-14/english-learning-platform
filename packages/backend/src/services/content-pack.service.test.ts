@@ -10,28 +10,34 @@ import {
 
 describe("durable manifest-first batch checkpoints", () => {
   it("derives exact missing batches and an immutable continuation prompt", () => {
-    expect(
-      buildBatchCheckpoint(
+    const checkpoint = buildBatchCheckpoint(
         "large-source-20260810-v1",
         [1, 2, 3, 4, 5],
         [1, 3],
-      ),
-    ).toEqual({
+      );
+    expect(checkpoint).toMatchObject({
       state: "safely_paused",
       receivedBatchNumbers: [1, 3],
       missingBatchNumbers: [2, 4, 5],
       nextBatchNumber: 2,
+      currentWaveNumber: 2,
+      totalWaves: 5,
       continuationPrompt:
-        "Continue import large-source-20260810-v1. Preserve the existing immutable manifest and batch identities. Generate, validate and deliver only missing planned batches 2, 4, 5, starting with batch 2. Do not rediscover candidates or replace the manifest.",
+        "Drain import large-source-20260810-v1 from batch 2 through all remaining execution waves without confirmation. Preserve the existing immutable manifest, candidate membership, batch identities and received batches. Validate, deliver and remotely verify each missing internal batch, then continue immediately. Do not rediscover candidates or replace the manifest.",
     });
+    expect(checkpoint.waves.flatMap((wave) => wave.batchNumbers)).toEqual([
+      1, 2, 3, 4, 5,
+    ]);
   });
 
   it("reports terminal receipt without inventing another continuation", () => {
-    expect(buildBatchCheckpoint("complete-v1", [1, 2], [2, 1])).toEqual({
+    expect(buildBatchCheckpoint("complete-v1", [1, 2], [2, 1])).toMatchObject({
       state: "all_batches_received",
       receivedBatchNumbers: [1, 2],
       missingBatchNumbers: [],
       nextBatchNumber: null,
+      currentWaveNumber: null,
+      totalWaves: 2,
       continuationPrompt: null,
     });
   });
