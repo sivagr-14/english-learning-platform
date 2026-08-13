@@ -608,3 +608,32 @@ describe("ChatGPT content-pack contract", () => {
     expect(result.issues).toEqual([]);
   });
 });
+
+
+describe("manifest expression compatibility preflight", () => {
+  it("accepts generated expressions composed of short words", () => {
+    const manifest = validManifest();
+    manifest.candidates[0].term = "lay out";
+    manifest.candidates[0].baseForm = "lay out";
+
+    expect(validateContentManifest(manifest)).toMatchObject({
+      valid: true,
+      issues: [],
+    });
+  });
+
+  it("rejects an expression that cannot be represented by the shared matcher", () => {
+    const manifest = validManifest();
+    manifest.candidates[0].term = "!!!";
+    manifest.candidates[0].baseForm = "!!!";
+
+    expect(validateContentManifest(manifest)).toMatchObject({
+      valid: false,
+      issues: expect.arrayContaining([
+        expect.stringContaining(
+          "term is incompatible with lesson validation: term must contain a matchable expression",
+        ),
+      ]),
+    });
+  });
+});

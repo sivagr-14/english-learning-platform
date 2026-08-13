@@ -411,19 +411,42 @@ function includesTerm(value: string, term: string) {
   return valueWords.some((_, start) => matchesFrom(start, 0));
 }
 
-function includesTermLexicalWords(value: string, term: string) {
-  const valueWords = normalizeForMatch(value).split(" ");
+const OPTIONAL_EXPRESSION_COMPONENTS = new Set(["a", "an", "the"]);
+
+function includesTermComponentSequence(value: string, term: string) {
+  const valueWords = normalizeForMatch(value).split(" ").filter(Boolean);
   const termWords = normalizeForMatch(term)
     .split(" ")
-    .filter((word) => word.length >= 4);
-  return (
-    termWords.length > 0 &&
-    termWords.every((termWord) =>
-      valueWords.some((sourceWord) =>
-        wordMatchesInflection(sourceWord, termWord),
-      ),
-    )
-  );
+    .filter(
+      (word) => word && !OPTIONAL_EXPRESSION_COMPONENTS.has(word),
+    );
+  if (!termWords.length) return includesTerm(value, term);
+
+  let sourceIndex = 0;
+  for (const termWord of termWords) {
+    let matched = false;
+    while (sourceIndex < valueWords.length) {
+      const sourceWord = valueWords[sourceIndex];
+      sourceIndex += 1;
+      if (wordMatchesInflection(sourceWord, termWord)) {
+        matched = true;
+        break;
+      }
+    }
+    if (!matched) return false;
+  }
+  return true;
+}
+
+export function vocabularyExpressionCompatibilityIssues(
+  term: string,
+): string[] {
+  const normalizedTerm = normalizeForMatch(term);
+  if (!normalizedTerm) return ["term must contain a matchable expression"];
+  if (!includesTerm(normalizedTerm, normalizedTerm)) {
+    return ["term cannot be represented by the shared expression matcher"];
+  }
+  return [];
 }
 
 export function vocabularyLessonQualityIssues(
@@ -489,11 +512,12 @@ export function vocabularyLessonQualityIssues(
     );
   }
 
+  const mistakeAndCorrection =
+    `${lesson.mistakes_differences.common_mistake} ${lesson.mistakes_differences.correction}`;
   if (
-    !includesTermLexicalWords(
-      `${lesson.mistakes_differences.common_mistake} ${lesson.mistakes_differences.correction}`,
-      term,
-    )
+    !includesTerm(lesson.mistakes_differences.common_mistake, term) &&
+    !includesTerm(lesson.mistakes_differences.correction, term) &&
+    !includesTermComponentSequence(mistakeAndCorrection, term)
   ) {
     issues.push(
       `lesson.mistakes_differences: the mistake or correction must explicitly use "${term}"`,

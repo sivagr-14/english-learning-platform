@@ -2,6 +2,7 @@ import { createHash } from "crypto";
 import { z } from "zod";
 import {
   assertVocabularyLessonCompliant,
+  vocabularyExpressionCompatibilityIssues,
   VocabularyLessonSchema,
 } from "../data/vocabulary-lesson-template";
 import {
@@ -642,6 +643,15 @@ export function validateContentManifest(
     return { valid: false, issues: schemaIssues(parsed.error) };
   const manifest = parsed.data;
   const issues: string[] = [];
+
+  for (const candidate of manifest.candidates) {
+    if (candidate.decision !== "generate") continue;
+    for (const issue of vocabularyExpressionCompatibilityIssues(candidate.term)) {
+      issues.push(
+        `${candidate.candidateId}: term is incompatible with lesson validation: ${issue}`,
+      );
+    }
+  }
 
   const candidateIds = manifest.candidates.map((item) => item.candidateId);
   const duplicateCandidates = duplicates(candidateIds);
