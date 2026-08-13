@@ -1,4 +1,5 @@
 import path from "path";
+import { execFileSync } from "child_process";
 import {
   ContentPackDocument,
   ContentPackService,
@@ -62,7 +63,27 @@ async function main() {
   // across controller/script versions.
   const immutableGitRef = fetchedCommit || gitRef;
   const resolvedCommit = immutableGitRef
-    ? resolveContentPackGitCommit(immutableGitRef)
+    ? resolveContentPackGitCommit(
+        immutableGitRef,
+        path.resolve(__dirname, "../../../.."),
+        undefined,
+        () => {
+          execFileSync(
+            "git",
+            [
+              "fetch",
+              "origin",
+              "refs/heads/chatgpt-content-inbox:refs/remotes/origin/chatgpt-content-inbox",
+              "--force",
+              "--depth=1",
+            ],
+            {
+              cwd: path.resolve(__dirname, "../../../.."),
+              encoding: "utf8",
+            },
+          );
+        },
+      )
     : undefined;
   const documents = resolvedCommit
     ? loadContentPacksFromGit(resolvedCommit)
