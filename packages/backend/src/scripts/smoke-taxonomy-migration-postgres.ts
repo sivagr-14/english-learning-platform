@@ -4,6 +4,7 @@ import {
   down as removeTaxonomy,
   up as applyTaxonomy,
 } from "../database/migrations/016_three_level_vocabulary_taxonomy";
+import { up as expandTaxonomy2026_2 } from "../database/migrations/031_expand_vocabulary_taxonomy_2026_2";
 import { database } from "../utils/db";
 
 async function main() {
@@ -95,6 +96,33 @@ async function main() {
     await applyTaxonomy(database);
     taxonomyApplied = true;
 
+    const addedDomainKeys = [
+      "finance_economics",
+      "media_journalism",
+      "arts_culture",
+      "government_law",
+      "science_engineering",
+      "sports_fitness",
+      "safety_emergencies",
+    ];
+    await database("vocabulary_taxonomy_categories")
+      .whereIn("domain_key", addedDomainKeys)
+      .delete();
+    await database("vocabulary_taxonomy_usage_groups")
+      .whereIn("domain_key", addedDomainKeys)
+      .delete();
+    await database("vocabulary_taxonomy_domains")
+      .whereIn("domain_key", addedDomainKeys)
+      .delete();
+
+    const legacyDomainCount = await database("vocabulary_taxonomy_domains")
+      .count({ count: "*" })
+      .first();
+    assert.equal(Number(legacyDomainCount?.count || 0), 15);
+
+    await expandTaxonomy2026_2(database);
+    await expandTaxonomy2026_2(database);
+
     const counts = {
       domains: Number(
         (
@@ -178,6 +206,8 @@ async function main() {
       JSON.stringify({
         status: "passed",
         catalogue: "22 domains / 88 usage groups / 440 specific categories",
+        existingDatabaseUpgrade: "passed",
+        idempotentReplay: "passed",
         existingEntryBackfill: "passed",
         lessonProgressAndFlashcardPreservation: "passed",
         uncategorizedEntries: 0,

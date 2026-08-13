@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "featureId": "taxonomy-2026-2-existing-database",
+  "title": "Apply taxonomy 2026.2 to existing databases",
+  "implementationPaths": [
+    "packages/backend/src/database/migrations/031_expand_vocabulary_taxonomy_2026_2.ts",
+    "packages/backend/src/routes/vocabulary.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/scripts/smoke-taxonomy-migration-postgres.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This migration applies the already documented taxonomy 2026.2 catalogue to existing PostgreSQL installations and versions its response cache; it does not change assessment or lesson-generation behavior."
+  }
+}
