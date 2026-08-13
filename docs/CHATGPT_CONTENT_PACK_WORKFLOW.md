@@ -550,8 +550,7 @@ term/sense identity conflict or an isolated lesson-quality failure against the
 learner's current database, quarantine only that candidate with its exact
 reason. Continue every remaining entry and planned batch automatically, verify
 all saved entries, clean the completed pack from the active ledger, and report
-all skipped terms together after processing. A candidate-level failure must not
-roll back valid entries already imported from the same batch or leave the whole
+all skipped terms together after processing. A candidate-level failure must not roll back valid entries already imported from the same batch or leave the whole
 manifest in an attention or approval state. Structural manifest, hash,
 batch-membership, unreadable-source and database-availability failures remain
 blocking and must never be hidden as skipped vocabulary.
