@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "unsupported-seed-reconciliation-20260813-v7",
+  "releaseId": "short-immutable-evidence-20260813-v8",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "49a3fcddf74f9d32b136dc04b232257ec651a532cd420f5a058b005c15cb9a9d",
-      "sizeBytes": 30559
+      "sha256": "b3a719d2e20312a7065c0d3c2a6a2cfe65dd731c97121fa3a5b0c7c5e274d83a",
+      "sizeBytes": 30804
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "5eab344cdef451c01cba5202d76ae175249103e58730dc03ce76549375473939",
-      "sizeBytes": 16538
+      "sha256": "2eaec95999d10a036b0d1ec68d8d9dcd2b83f56e0443a32f8300e87d5f61e135",
+      "sizeBytes": 16840
     }
   ]
 }
