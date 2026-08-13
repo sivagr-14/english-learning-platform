@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "featureId": "content-pack-sidecar-isolation",
+  "title": "Prevent auxiliary reports from blocking content-pack ownership",
+  "implementationPaths": [
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/frontend/app/generate/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/content-pack.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "Only production content-pack payloads",
+          "pre-manifest-reconciliation.json",
+          "deliveries must not create it"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "Deliver only `manifest.json`",
+          "manifest.suppliedSeedAudit",
+          "never place a separate"
+        ]
+      }
+    ]
+  }
+}
