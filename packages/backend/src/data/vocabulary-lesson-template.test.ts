@@ -133,6 +133,68 @@ describe("vocabulary lesson compliance", () => {
     );
   });
 
+  it.each([
+    ["bring into contact with", "The workshop brought me into contact with experienced editors."],
+    ["get back on track", "A short break got the discussion back on track."],
+    ["watch like a hawk", "The supervisor watched them like a hawk."],
+    ["stumble through", "We stumbled our way through the first rehearsal."],
+    ["steer away from", "She steered completely away from personal criticism."],
+    ["work out", "They eventually worked the disagreement out."],
+  ])("accepts a bounded separable realization of %s", (term, sentence) => {
+    const lesson = completeLesson();
+    lesson.meaning_in_context.source_sentence = sentence;
+
+    expect(vocabularyLessonQualityIssues(lesson, term)).not.toContain(
+      `lesson.meaning_in_context.source_sentence: must explicitly demonstrate "${term}"`,
+    );
+  });
+
+  it.each([
+    ["shut someone down", "The chair shut the nervous new speaker down."],
+    ["let someone down", "I do not want to let my closest colleagues down."],
+    ["at someone's cue", "At the principal's cue, the orchestra began."],
+    ["go out of your way", "She went out of her way to help."],
+    ["pull oneself out of", "He pulled himself out of the argument."],
+  ])("accepts grammatical placeholder realization of %s", (term, sentence) => {
+    const lesson = completeLesson();
+    lesson.meaning_in_context.source_sentence = sentence;
+
+    expect(vocabularyLessonQualityIssues(lesson, term)).not.toContain(
+      `lesson.meaning_in_context.source_sentence: must explicitly demonstrate "${term}"`,
+    );
+  });
+
+  it.each([
+    ["bring into contact with", "The workshop did not bring contact with experienced editors."],
+    ["get back on track", "They get discouraged and never return back on track."],
+    ["work out", "We work carefully without resolving it out."],
+    ["practice makes perfect", "Practice does not make perfect."],
+  ])("rejects a negated, missing, or non-separable lookalike for %s", (term, sentence) => {
+    const lesson = completeLesson();
+    lesson.meaning_in_context.source_sentence = sentence;
+
+    expect(vocabularyLessonQualityIssues(lesson, term)).toContain(
+      `lesson.meaning_in_context.source_sentence: must explicitly demonstrate "${term}"`,
+    );
+  });
+
+  it("trusts immutable OCR evidence only when the entry validator receives its exact sentence", () => {
+    const lesson = completeLesson();
+    const sourceSentence = "The topic involved p hysical intima cy.";
+    lesson.meaning_in_context.source_sentence = sourceSentence;
+
+    expect(vocabularyLessonQualityIssues(lesson, "physical intimacy")).toContain(
+      'lesson.meaning_in_context.source_sentence: must explicitly demonstrate "physical intimacy"',
+    );
+    expect(
+      vocabularyLessonQualityIssues(lesson, "physical intimacy", {
+        trustedSourceSentence: sourceSentence,
+      }),
+    ).not.toContain(
+      'lesson.meaning_in_context.source_sentence: must explicitly demonstrate "physical intimacy"',
+    );
+  });
+
   it("rejects scattered words that do not form the assessed expression", () => {
     const lesson = completeLesson();
     lesson.meaning_in_context.source_sentence =

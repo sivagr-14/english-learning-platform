@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "no-api-drain-run-20260813-v2",
+  "releaseId": "expression-grammar-validator-20260813-v3",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "dfee6382c89db7615ddaf1ee000fc4fd25b56da51b770ebd5066c109095ce070",
-      "sizeBytes": 27630
+      "sha256": "d4b41c2739dbd68345d298c96c02ebc235e91c0e745463fc69716018e8bb1b79",
+      "sizeBytes": 28494
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "97411e5a427fe219d130b4b9218dd9c5dcdffd41a58a4eb529eed9e5de7fc538",
-      "sizeBytes": 14428
+      "sha256": "2dc0a50cc7dc28c81beb3200ea261355595242e538c9ae38501a96e16ef5231d",
+      "sizeBytes": 15054
     }
   ]
 }

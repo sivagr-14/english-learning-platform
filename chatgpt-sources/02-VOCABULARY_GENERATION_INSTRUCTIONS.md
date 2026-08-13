@@ -100,6 +100,17 @@ contains the same ordered expression with a valid inflection, for example
 `grow up with`, `grew up with`, `growing up with` or `grown up with`. Never
 rewrite the evidence sentence merely to insert the dictionary form.
 
+Expressions may also be grammatically separable or contain a person,
+possessive, reflexive or object slot. Preserve the exact evidence and generate
+natural realizations. These include `bring me into contact with`,
+`get the discussion back on track`, `shut someone down`,
+`at the principal's cue`, or `worked it out`. Do not force the dictionary-form
+words to be contiguous, and do not
+rewrite immutable evidence to remove the inserted object. The production
+matcher permits only bounded grammatical slots; missing particles, reordered
+lexical words, lexical-prefix substitutions and unrelated scattered words
+remain invalid.
+
 ## Contextual sense identity
 
 Generate one entry for exactly one meaning demonstrated by the supplied
