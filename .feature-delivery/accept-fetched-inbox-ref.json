@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "featureId": "accept-fetched-inbox-ref",
+  "title": "Keep content-pack synchronization compatible across controller updates",
+  "implementationPaths": [
+    "packages/backend/src/scripts/sync-content-packs.ts",
+    "packages/backend/src/services/content-pack.service.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/content-pack.service.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "exact fetched commit",
+          "immutable source identity"
+        ]
+      }
+    ]
+  }
+}
