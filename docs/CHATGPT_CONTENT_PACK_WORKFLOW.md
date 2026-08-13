@@ -497,8 +497,22 @@ Unless the learner explicitly says **generate only these supplied items**, run
 the normal deterministic inventory and independent recall pass and add every
 other eligible source candidate. In supplied-items-only mode, record the scope
 as intentionally restricted and do not claim exhaustive discovery of the
-source. A supplied item absent from the source or lacking enough context must
-be reported, not assigned an invented meaning.
+source.
+
+Before manifest freeze, reconcile every supplied line in a separate
+`suppliedSeedAudit`. A source-backed unique seed uses
+`candidate_linked`; an exact repeated input line uses `duplicate` and points
+to its canonical seed; a seed with no exact, inflected, grammatical,
+OCR-fragmented, separable-expression or recalled source occurrence uses
+`unsupported_source` with a specific reason. An unsupported seed has zero
+source occurrences by definition and must never be inserted into
+`candidates[]`, because every manifest candidate remains strictly
+source-backed. It is a reported non-blocking warning, not an assessment or
+generation failure. Continue reconciling, freeze the manifest from the
+evidence-backed candidates, and generate all eligible candidates without
+learner confirmation. Missing evidence becomes blocking only if an item was
+already frozen as a manifest candidate; never silently remove or rewrite a
+frozen candidate.
 
 The local recovery ledger records the exact private inbox branch, fetched commit,
 last synchronization time, database verification report, cleanup attempts and
