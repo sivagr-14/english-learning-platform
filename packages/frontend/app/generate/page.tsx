@@ -123,6 +123,8 @@ export default function ChatGPTImportsPage() {
   const [sourceText, setSourceText] = useState("");
   const [sourceFile, setSourceFile] = useState<File | null>(null);
   const [preparationStage, setPreparationStage] = useState("");
+  const [topic, setTopic] = useState("");
+  const [topicContext, setTopicContext] = useState("");
   const automaticSyncStarted = useRef(false);
 
   const load = useCallback(async () => {
@@ -318,6 +320,39 @@ export default function ChatGPTImportsPage() {
     URL.revokeObjectURL(url);
   };
 
+  const prepareTopicRequest = async () => {
+    if (!topic.trim()) {
+      setError("Enter a broader topic.");
+      return;
+    }
+    setBusy("prepare-topic");
+    setMessage("");
+    setError("");
+    try {
+      const response = await getApiClient().post(
+        "/api/control/topic-requests",
+        {
+          topic: topic.trim(),
+          intendedContext: topicContext.trim() || undefined,
+        },
+      );
+      const request = response.data.request;
+      downloadPreparedRequest(request);
+      setMessage(
+        `Prepared ${request.requestId}. Attach the downloaded JSON in ChatGPT and write Generate. It will cover B1-C2 vocabulary across L1-L5 and continue through all planned waves automatically.`,
+      );
+    } catch (requestError: any) {
+      setError(
+        requestError?.response?.data?.message ||
+          requestError?.response?.data?.error ||
+          requestError.message ||
+          "The topic request could not be prepared.",
+      );
+    } finally {
+      setBusy("");
+    }
+  };
+
   const waitForSourceRequest = async (jobId: string) => {
     for (;;) {
       const response = await getApiClient().get(
@@ -390,6 +425,53 @@ export default function ChatGPTImportsPage() {
           </button>
         }
       >
+        <section className="rounded-xl border border-indigo-200 bg-indigo-50 p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-slate-950">
+            Generate complete vocabulary from a topic
+          </h2>
+          <p className="mt-2 text-sm text-slate-700">
+            Enter any broad or narrow topic. ChatGPT will dynamically map its
+            subtopics, cover direct and surrounding contexts from L1 to L5, and
+            generate useful B1-C2 vocabulary through the informed non-expert
+            level. Very basic A1-A2 and expert-only terminology are excluded.
+          </p>
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
+            <label className="text-sm font-medium text-slate-800">
+              Topic
+              <input
+                value={topic}
+                onChange={(event) => setTopic(event.target.value)}
+                placeholder="e.g. country defence, pain, projector, resort"
+                className="mt-1 w-full rounded-lg border border-slate-300 bg-white p-3 text-sm text-slate-900"
+              />
+            </label>
+            <label className="text-sm font-medium text-slate-800">
+              Intended context (optional)
+              <input
+                value={topicContext}
+                onChange={(event) => setTopicContext(event.target.value)}
+                placeholder="e.g. office presentations or speaking to a doctor"
+                className="mt-1 w-full rounded-lg border border-slate-300 bg-white p-3 text-sm text-slate-900"
+              />
+            </label>
+          </div>
+          <button
+            type="button"
+            onClick={() => void prepareTopicRequest()}
+            disabled={busy === "prepare-topic"}
+            className="mt-4 rounded-lg bg-indigo-700 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-800 disabled:opacity-60"
+          >
+            {busy === "prepare-topic"
+              ? "Preparing topic…"
+              : "Prepare topic for ChatGPT"}
+          </button>
+          <p className="mt-3 text-xs text-indigo-800">
+            One continuous generation plan: 50-100 lessons per immutable cycle,
+            balanced across at most five execution waves, with no confirmation
+            between cycles or waves.
+          </p>
+        </section>
+
         <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-slate-950">
             Prepare a source for ChatGPT

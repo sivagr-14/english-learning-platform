@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "adaptive-unattended-assessment-20260813-v11",
+  "releaseId": "universal-topic-vocabulary-20260823-v1",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "47ab8a11911cfb2a2355b78f2a942d68cab379dfa8a176b06adcb154c4f3e4ca",
-      "sizeBytes": 32471
+      "sha256": "b428199770e7c8fa716c2afc82b64aaee7e39dc38c91de3b367a52abd849f560",
+      "sizeBytes": 35119
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "e768b80d7aea51582e3d27b6bbd69dd2736ee2e14af8c5425449329cdeabbc88",
-      "sizeBytes": 18130
+      "sha256": "78a8ba9a22f7d8fb8481420e0fac721a2709811b6181cc0b57b8f07e83baff47",
+      "sizeBytes": 19712
     }
   ]
 }

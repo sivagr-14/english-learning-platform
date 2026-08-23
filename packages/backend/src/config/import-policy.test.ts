@@ -10,11 +10,17 @@ describe("default import policy", () => {
       mode: "automatic",
       approvalRequired: false,
       includedFrequencies: ["heavy", "medium"],
+      includedCefrLevels: ["B1", "B2", "C1", "C2"],
+      excludedCefrLevels: ["A1", "A2"],
       excludeLowFrequency: true,
       generationBatchMin: 50,
       generationBatchDefault: 100,
       generationBatchMax: 100,
       generationMaximumWaves: 5,
+      topicMaximumAudienceBand: "informed_non_expert",
+      includePubliclyCommonProfessionalTerms: true,
+      excludeExpertOnlyTerms: true,
+      topicRelevanceLayers: ["L1", "L2", "L3", "L4", "L5"],
       maxRetries: 3,
       databaseVerificationRequired: true,
     });
@@ -32,6 +38,12 @@ describe("default import policy", () => {
     expect(snapshot).not.toBe(DEFAULT_IMPORT_POLICY);
     expect(snapshot.includedFrequencies).not.toBe(
       DEFAULT_IMPORT_POLICY.includedFrequencies,
+    );
+    expect(snapshot.includedCefrLevels).not.toBe(
+      DEFAULT_IMPORT_POLICY.includedCefrLevels,
+    );
+    expect(snapshot.topicRelevanceLayers).not.toBe(
+      DEFAULT_IMPORT_POLICY.topicRelevanceLayers,
     );
   });
 });

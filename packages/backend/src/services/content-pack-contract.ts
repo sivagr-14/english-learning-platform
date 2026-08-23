@@ -35,6 +35,10 @@ export const VERIFIED_EXHAUSTIVE_CONTENT_MANIFEST_VERSION =
   "chatgpt-vocabulary-manifest-v5" as const;
 export const VERIFIED_EXHAUSTIVE_CONTENT_BATCH_VERSION =
   "chatgpt-vocabulary-batch-v5" as const;
+export const TOPIC_CONTENT_MANIFEST_VERSION =
+  "chatgpt-topic-vocabulary-manifest-v1" as const;
+export const TOPIC_CONTENT_BATCH_VERSION =
+  "chatgpt-topic-vocabulary-batch-v1" as const;
 
 const IdentifierSchema = z
   .string()
@@ -233,6 +237,49 @@ const SenseAwareManifestCandidateSchema = z
       });
     }
   });
+
+export const TopicManifestCandidateSchema = z.preprocess((value) => {
+  if (!value || typeof value !== "object") return value;
+  const { evidenceType: _evidenceType, topicEvidence: _topicEvidence, ...base } =
+    value as Record<string, unknown>;
+  return base;
+}, SenseAwareManifestCandidateSchema).and(z.object({
+  evidenceType: z.literal("generated_topic_scenario"),
+  topicEvidence: z.object({
+    relevanceLayer: z.enum(["L1", "L2", "L3", "L4", "L5"]),
+    audienceBand: z.enum([
+      "everyday",
+      "informed_non_expert",
+      "professional_common",
+      "expert_only",
+    ]),
+    publicUsefulness: z.enum(["high", "medium", "low"]),
+    relevanceReason: UsefulTextSchema,
+    coverageBranchIds: z.array(IdentifierSchema).min(1).max(100),
+    communicationFunctions: z.array(IdentifierSchema).min(1).max(100),
+  }).strict(),
+}).passthrough()).superRefine((candidate, context) => {
+  if (
+    candidate.decision === "generate" &&
+    (!candidate.cefrLevel || ["A1", "A2"].includes(candidate.cefrLevel))
+  ) {
+    context.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["cefrLevel"],
+      message: "topic generation includes B1-C2 only; A1/A2 must be filtered",
+    });
+  }
+  if (
+    candidate.decision === "generate" &&
+    candidate.topicEvidence.audienceBand === "expert_only"
+  ) {
+    context.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["topicEvidence", "audienceBand"],
+      message: "expert-only vocabulary must be filtered by the default topic policy",
+    });
+  }
+});
 
 export const ManifestCandidateSchema = z.union([
   LegacyManifestCandidateSchema,
@@ -530,12 +577,93 @@ const VerifiedExhaustiveContentManifestSchema = TaxonomyAwareContentManifestSche
   })
   .strict();
 
+const TopicCoverageBranchSchema = z.object({
+  branchId: IdentifierSchema,
+  name: z.string().trim().min(2).max(180),
+  branchType: z.enum(["universal", "topic_specific"]),
+  status: z.enum([
+    "covered",
+    "not_applicable",
+    "expert_only_excluded",
+    "low_frequency_excluded",
+    "coverage_gap",
+  ]),
+  candidateIds: z.array(IdentifierSchema).max(50_000),
+  reason: UsefulTextSchema.optional(),
+}).strict().superRefine((branch, context) => {
+  if (branch.status !== "covered" && !branch.reason) {
+    context.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["reason"],
+      message: "non-covered topic branches require a specific reason",
+    });
+  }
+});
+
+const TopicContentManifestSchema = LegacyContentManifestSchema.omit({
+  formatVersion: true,
+  source: true,
+  candidates: true,
+}).extend({
+  formatVersion: z.literal(TOPIC_CONTENT_MANIFEST_VERSION),
+  source: z.object({
+    name: z.string().trim().min(1).max(255),
+    type: z.literal("topic"),
+    contentHash: Sha256Schema,
+    totalPages: z.literal(1),
+    totalChunks: z.number().int().positive().max(50_000),
+  }).strict(),
+  topicProfile: z.object({
+    suppliedTopic: z.string().trim().min(2).max(200),
+    normalizedTopic: z.string().trim().min(2).max(200),
+    intendedContexts: z.array(z.string().trim().min(2).max(500)).min(1).max(100),
+    maximumAudienceBand: z.literal("informed_non_expert"),
+    includedCefrLevels: z.tuple([
+      z.literal("B1"),
+      z.literal("B2"),
+      z.literal("C1"),
+      z.literal("C2"),
+    ]),
+    excludedCefrLevels: z.tuple([z.literal("A1"), z.literal("A2")]),
+  }).strict(),
+  coverageAudit: z.object({
+    universalDimensionIds: z.array(IdentifierSchema).min(25).max(100),
+    dynamicallyDiscoveredBranchIds: z.array(IdentifierSchema).min(1).max(10_000),
+    branches: z.array(TopicCoverageBranchSchema).min(26).max(10_000),
+    recallPassCompleted: z.literal(true),
+    unresolvedRecallFindings: z.literal(0),
+    untrackedCandidates: z.literal(0),
+    coverageGaps: z.literal(0),
+  }).strict(),
+  communicationCoverageAudit: z.object({
+    functions: z.array(z.object({
+      functionId: IdentifierSchema,
+      status: z.enum(["covered", "not_applicable"]),
+      candidateIds: z.array(IdentifierSchema).max(50_000),
+      reason: UsefulTextSchema.optional(),
+    }).strict()).min(12).max(100),
+    uncoveredFunctions: z.array(IdentifierSchema).max(0),
+  }).strict(),
+  executionPlan: z.object({
+    automaticContinuation: z.literal(true),
+    approvalRequired: z.literal(false),
+    maximumWaves: z.literal(5),
+    waves: z.array(z.object({
+      waveNumber: z.number().int().positive().max(5),
+      batchNumbers: z.array(z.number().int().positive()).min(1).max(10_000),
+      candidateCount: z.number().int().positive(),
+    }).strict()).min(1).max(5),
+  }).strict(),
+  candidates: z.array(TopicManifestCandidateSchema).max(50_000),
+}).strict();
+
 export const ContentManifestSchema = z.union([
   LegacyContentManifestSchema,
   SenseAwareContentManifestSchema,
   TaxonomyAwareContentManifestSchema,
   ExhaustiveContentManifestSchema,
   VerifiedExhaustiveContentManifestSchema,
+  TopicContentManifestSchema,
 ]);
 
 export const GeneratedPackEntrySchema = z
@@ -587,12 +715,19 @@ const VerifiedExhaustiveContentBatchSchema = LegacyContentBatchSchema.omit({
   .extend({ formatVersion: z.literal(VERIFIED_EXHAUSTIVE_CONTENT_BATCH_VERSION) })
   .strict();
 
+const TopicContentBatchSchema = LegacyContentBatchSchema.omit({
+  formatVersion: true,
+}).extend({
+  formatVersion: z.literal(TOPIC_CONTENT_BATCH_VERSION),
+}).strict();
+
 export const ContentBatchSchema = z.union([
   LegacyContentBatchSchema,
   SenseAwareContentBatchSchema,
   TaxonomyAwareContentBatchSchema,
   ExhaustiveContentBatchSchema,
   VerifiedExhaustiveContentBatchSchema,
+  TopicContentBatchSchema,
 ]);
 
 export type ContentManifest = z.infer<typeof ContentManifestSchema>;
@@ -642,7 +777,8 @@ export function isSenseAwareManifest(
   | z.infer<typeof SenseAwareContentManifestSchema>
   | z.infer<typeof TaxonomyAwareContentManifestSchema>
   | z.infer<typeof ExhaustiveContentManifestSchema>
-  | z.infer<typeof VerifiedExhaustiveContentManifestSchema> {
+  | z.infer<typeof VerifiedExhaustiveContentManifestSchema>
+  | z.infer<typeof TopicContentManifestSchema> {
   return manifest.formatVersion !== LEGACY_CONTENT_MANIFEST_VERSION;
 }
 
@@ -651,11 +787,13 @@ export function isTaxonomyAwareManifest(
 ): manifest is
   | z.infer<typeof TaxonomyAwareContentManifestSchema>
   | z.infer<typeof ExhaustiveContentManifestSchema>
-  | z.infer<typeof VerifiedExhaustiveContentManifestSchema> {
+  | z.infer<typeof VerifiedExhaustiveContentManifestSchema>
+  | z.infer<typeof TopicContentManifestSchema> {
   return (
     manifest.formatVersion === CONTENT_MANIFEST_VERSION ||
     manifest.formatVersion === EXHAUSTIVE_CONTENT_MANIFEST_VERSION ||
-    manifest.formatVersion === VERIFIED_EXHAUSTIVE_CONTENT_MANIFEST_VERSION
+    manifest.formatVersion === VERIFIED_EXHAUSTIVE_CONTENT_MANIFEST_VERSION ||
+    manifest.formatVersion === TOPIC_CONTENT_MANIFEST_VERSION
   );
 }
 
@@ -683,6 +821,60 @@ export function validateContentManifest(
     return { valid: false, issues: schemaIssues(parsed.error) };
   const manifest = parsed.data;
   const issues: string[] = [];
+
+  if (manifest.formatVersion === TOPIC_CONTENT_MANIFEST_VERSION) {
+    const generated = manifest.candidates.filter(
+      (candidate) => candidate.decision === "generate",
+    );
+    for (const candidate of generated) {
+      if (!candidate.cefrLevel || ["A1", "A2"].includes(candidate.cefrLevel))
+        issues.push(
+          `${candidate.candidateId}: topic generation accepts B1-C2 only`,
+        );
+      if (candidate.topicEvidence.audienceBand === "expert_only")
+        issues.push(
+          `${candidate.candidateId}: expert-only vocabulary exceeds the default topic depth`,
+        );
+    }
+    const branchIds = manifest.coverageAudit.branches.map(
+      (branch) => branch.branchId,
+    );
+    if (duplicates(branchIds).length)
+      issues.push("coverageAudit.branches: branch IDs must be unique");
+    if (manifest.coverageAudit.branches.some((branch) => branch.status === "coverage_gap"))
+      issues.push("coverageAudit: applicable topic branches still contain coverage gaps");
+    const referencedCandidateIds = new Set(
+      manifest.coverageAudit.branches.flatMap((branch) => branch.candidateIds),
+    );
+    for (const candidate of manifest.candidates) {
+      if (!referencedCandidateIds.has(candidate.candidateId))
+        issues.push(
+          `${candidate.candidateId}: topic candidate is not tracked by a coverage branch`,
+        );
+    }
+    const plannedBatchNumbers = manifest.generationPlan.batches.map(
+      (batch) => batch.batchNumber,
+    );
+    const wavedBatchNumbers = manifest.executionPlan.waves.flatMap(
+      (wave) => wave.batchNumbers,
+    );
+    if (
+      JSON.stringify([...plannedBatchNumbers].sort((a, b) => a - b)) !==
+      JSON.stringify([...wavedBatchNumbers].sort((a, b) => a - b)) ||
+      duplicates(wavedBatchNumbers.map(String)).length
+    )
+      issues.push(
+        "executionPlan: waves must partition every immutable generation cycle exactly once",
+      );
+    const expectedWaveCount =
+      manifest.generationPlan.batches.length <= 1
+        ? manifest.generationPlan.batches.length
+        : Math.min(5, manifest.generationPlan.batches.length);
+    if (manifest.executionPlan.waves.length !== expectedWaveCount)
+      issues.push(
+        "executionPlan: use one wave for up to 100 candidates and otherwise the available maximum up to five",
+      );
+  }
 
   for (const candidate of manifest.candidates) {
     if (candidate.decision !== "generate") continue;
@@ -1132,7 +1324,9 @@ export function validateContentBatch(
       (manifest.formatVersion === EXHAUSTIVE_CONTENT_MANIFEST_VERSION &&
         batch.formatVersion === EXHAUSTIVE_CONTENT_BATCH_VERSION) ||
       (manifest.formatVersion === VERIFIED_EXHAUSTIVE_CONTENT_MANIFEST_VERSION &&
-        batch.formatVersion === VERIFIED_EXHAUSTIVE_CONTENT_BATCH_VERSION);
+        batch.formatVersion === VERIFIED_EXHAUSTIVE_CONTENT_BATCH_VERSION) ||
+      (manifest.formatVersion === TOPIC_CONTENT_MANIFEST_VERSION &&
+        batch.formatVersion === TOPIC_CONTENT_BATCH_VERSION);
     if (!compatibleVersions) {
       issues.push("formatVersion: manifest and batch contract versions differ");
     }
