@@ -12,17 +12,17 @@ const baseCandidate = {
   cefrLevel: "B2",
   usageFrequency: "heavy",
   fluencyValue: "essential",
-  categoryName: "Symptoms and conditions",
+  categoryName: "Pain and discomfort",
   contextualMeaning: "Pain that repeatedly pulses or beats in a regular way.",
   senseEvidence: {
     sentence: "I have a throbbing pain behind my left eye.",
     explanation: "The generated scenario demonstrates a rhythmic pulsing sensation.",
   },
   taxonomy: {
-    taxonomyVersion: "vocabulary-taxonomy-2026.2",
+    taxonomyVersion: "2026.2",
     domainKey: "health",
-    usageGroupKey: "symptoms-and-medical-care",
-    categoryKey: "symptoms-and-conditions",
+    usageGroupKey: "body_and_symptoms",
+    categoryKey: "pain_and_discomfort",
     confidence: "high",
   },
   occurrences: [{
