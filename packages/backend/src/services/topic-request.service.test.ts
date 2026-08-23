@@ -5,14 +5,15 @@ import {
 } from "./topic-request.service";
 
 describe("topic request", () => {
-  const database = () => ({
-    select: () => database(),
-    where: () => database(),
+  const query: any = {
+    select: () => query,
+    where: () => query,
     orderBy: async () => [],
-  });
+  };
+  const database: any = () => query;
 
   it("enforces the universal B1-C2 non-expert policy for any topic", async () => {
-    const request = await buildPortableTopicRequest(database(), "user-1", {
+    const request = await buildPortableTopicRequest(database, "user-1", {
       topic: "Projector",
       intendedContext: "Office presentations",
     });
@@ -39,7 +40,7 @@ describe("topic request", () => {
   });
 
   it("configures one continuous one-to-five-wave drain", async () => {
-    const request = await buildPortableTopicRequest(database(), "user-1", {
+    const request = await buildPortableTopicRequest(database, "user-1", {
       topic: "country defence",
     });
     expect(request.executionPolicy).toMatchObject({
