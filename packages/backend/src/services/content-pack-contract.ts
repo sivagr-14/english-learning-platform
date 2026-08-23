@@ -238,7 +238,7 @@ const SenseAwareManifestCandidateSchema = z
     }
   });
 
-const TopicManifestCandidateSchema = SenseAwareManifestCandidateSchema.extend({
+export const TopicManifestCandidateSchema = SenseAwareManifestCandidateSchema.extend({
   evidenceType: z.literal("generated_topic_scenario"),
   topicEvidence: z.object({
     relevanceLayer: z.enum(["L1", "L2", "L3", "L4", "L5"]),
