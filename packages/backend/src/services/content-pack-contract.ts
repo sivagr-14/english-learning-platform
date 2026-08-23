@@ -238,7 +238,7 @@ const SenseAwareManifestCandidateSchema = z
     }
   });
 
-export const TopicManifestCandidateSchema = SenseAwareManifestCandidateSchema.extend({
+export const TopicManifestCandidateSchema = SenseAwareManifestCandidateSchema.and(z.object({
   evidenceType: z.literal("generated_topic_scenario"),
   topicEvidence: z.object({
     relevanceLayer: z.enum(["L1", "L2", "L3", "L4", "L5"]),
@@ -253,7 +253,7 @@ export const TopicManifestCandidateSchema = SenseAwareManifestCandidateSchema.ex
     coverageBranchIds: z.array(IdentifierSchema).min(1).max(100),
     communicationFunctions: z.array(IdentifierSchema).min(1).max(100),
   }).strict(),
-}).strict().superRefine((candidate, context) => {
+}).passthrough()).superRefine((candidate, context) => {
   if (
     candidate.decision === "generate" &&
     (!candidate.cefrLevel || ["A1", "A2"].includes(candidate.cefrLevel))
