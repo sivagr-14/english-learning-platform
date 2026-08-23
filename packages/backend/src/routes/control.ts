@@ -13,6 +13,7 @@ import {
 } from "../services/content-pack.service";
 import { database } from "../utils/db";
 import { SourceRequestJobService } from "../services/source-request-job.service";
+import { buildPortableTopicRequest } from "../services/topic-request.service";
 
 const router: Router = express.Router();
 const service = new AssessmentControlService(database);
@@ -40,6 +41,22 @@ router.get(
       apiKeyRequired: false,
       inboxBranch: "chatgpt-content-inbox",
     });
+  },
+);
+
+router.post(
+  "/topic-requests",
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const request = await buildPortableTopicRequest(
+        database,
+        req.userId!,
+        req.body,
+      );
+      res.status(201).json({ request });
+    } catch (error) {
+      next(error);
+    }
   },
 );
 
