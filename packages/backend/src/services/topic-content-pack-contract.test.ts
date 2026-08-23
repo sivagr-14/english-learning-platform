@@ -43,7 +43,8 @@ const baseCandidate = {
 
 describe("topic candidate contract", () => {
   it("accepts B1-C2 informed non-expert vocabulary", () => {
-    expect(TopicManifestCandidateSchema.safeParse(baseCandidate).success).toBe(true);
+    const result = TopicManifestCandidateSchema.safeParse(baseCandidate);
+    if (!result.success) throw new Error(JSON.stringify(result.error.issues));
   });
 
   it.each(["A1", "A2"])("rejects generated %s vocabulary", (cefrLevel) => {
