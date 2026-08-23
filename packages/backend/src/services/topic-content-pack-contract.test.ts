@@ -21,8 +21,8 @@ const baseCandidate = {
   taxonomy: {
     taxonomyVersion: "2026.2",
     domainKey: "health",
-    usageGroupKey: "body_and_symptoms",
-    categoryKey: "pain_and_discomfort",
+    usageGroupKey: "health.body_and_symptoms",
+    categoryKey: "health.body_and_symptoms.pain_and_discomfort",
     confidence: "high",
   },
   occurrences: [{
