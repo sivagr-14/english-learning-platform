@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "featureId": "universal-topic-vocabulary-generation",
+  "title": "Generate complete B1-C2 vocabulary for any topic",
+  "implementationPaths": [
+    "packages/backend/src/config/import-policy.ts",
+    "packages/backend/src/routes/control.ts",
+    "packages/backend/src/services/content-pack-contract.ts",
+    "packages/backend/src/services/topic-request.service.ts",
+    "packages/frontend/app/generate/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/config/import-policy.test.ts",
+    "packages/backend/src/services/topic-content-pack-contract.test.ts",
+    "packages/backend/src/services/topic-request.service.test.ts",
+    "packages/backend/src/services/generation-waves.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "updated",
+    "paths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+      "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "rationale": "Topic generation needs universal dynamic coverage, a B1-C2 boundary, an informed-non-expert ceiling, generated-scenario provenance and unattended one-to-five-wave drain behavior."
+  }
+}
