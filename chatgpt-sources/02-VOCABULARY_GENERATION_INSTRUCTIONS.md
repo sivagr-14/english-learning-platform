@@ -375,3 +375,32 @@ When an entry already exists:
 
 Starter samples follow the same rules. Increasing the starter sample version
 must cause already-loaded samples to refresh through this validation gate.
+
+
+## Topic-based vocabulary selection
+
+When the attached request is `chatgpt-topic-request-v1`, apply the universal
+topic workflow rather than source-document inventory rules. This applies to any
+topic. Dynamically discover the topic's types, varieties, components, actions,
+descriptions, situations, problems, solutions, communication patterns and wider
+L1-L5 contexts. Do not use a topic-specific hard-coded checklist as the coverage
+boundary.
+
+Generate only B1-C2 lessons. A1 and A2 candidates must be recorded as filtered.
+The default depth ceiling is an informed non-expert: include professional or
+technical terms commonly encountered by the public, but filter vocabulary
+normally exchanged only between specialists. Candidate count is an output of
+the reconciled topic map and must never be chosen in advance.
+
+Every topic candidate must provide its relevance layer, audience band, public
+usefulness, coverage-branch links, communication-function links and a specific
+relevance reason. Its teaching sentence must be a natural generated scenario
+that demonstrates the assessed sense and must be marked
+`evidenceType: generated_topic_scenario`. It is not an immutable external
+source quotation.
+
+Freeze the complete topic manifest only after all universal dimensions,
+dynamically discovered branches, communication functions and the independent
+recall pass reconcile with zero gaps or untracked candidates. Generate 50-100
+complete lessons per immutable cycle and drain all cycles across at most five
+balanced waves automatically, without confirmation between cycles or waves.
