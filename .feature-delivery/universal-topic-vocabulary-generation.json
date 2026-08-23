@@ -16,13 +16,28 @@
     "packages/backend/src/services/generation-waves.test.ts"
   ],
   "chatgptInstructionImpact": {
-    "status": "updated",
-    "paths": [
+    "status": "required",
+    "instructionPaths": [
       "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md"
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
     ],
-    "rationale": "Topic generation needs universal dynamic coverage, a B1-C2 boundary, an informed-non-expert ceiling, generated-scenario provenance and unattended one-to-five-wave drain behavior."
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "Universal topic vocabulary generation",
+          "Generate only B1, B2, C1 and C2",
+          "one to five deterministic"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "Topic-based vocabulary selection",
+          "Generate only B1-C2 lessons",
+          "generated_topic_scenario"
+        ]
+      }
+    ]
   }
 }
