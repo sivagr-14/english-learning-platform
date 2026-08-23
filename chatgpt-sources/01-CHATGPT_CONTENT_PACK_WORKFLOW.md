@@ -570,3 +570,51 @@ Every content-pack database commit must pass the manifest candidate's exact
 stored `senseEvidence.sentence` to the lesson validator as
 `trustedSourceSentence`. Only this manifest-bound internal path may establish
 that trust; ordinary manual imports may not self-declare trusted evidence.
+
+
+## Universal topic vocabulary generation
+
+A learner may request vocabulary from a topic rather than a source document. The
+app prepares a `chatgpt-topic-request-v1` file and ChatGPT returns an immutable
+`chatgpt-topic-vocabulary-manifest-v1` plus matching
+`chatgpt-topic-vocabulary-batch-v1` cycles. Topic generation is a separate
+evidence mode: generated teaching scenarios are explicitly labelled
+`generated_topic_scenario` and must never be represented as quotations from an
+external source.
+
+The rule applies to every supplied topic, not to a fixed list of examples.
+Before selecting candidates, dynamically decompose the topic using all universal
+coverage dimensions in the request and add every natural topic-specific branch,
+including common types and varieties. Each applicable branch must finish as
+`covered`; `not_applicable`, `expert_only_excluded` and
+`low_frequency_excluded` require specific reasons. A `coverage_gap`, unresolved
+recall finding or untracked candidate blocks manifest freeze.
+
+Generate only B1, B2, C1 and C2 candidates. Record A1 and A2 discoveries as
+filtered instead of generating them. Include everyday and informed-non-expert
+vocabulary plus professional terms commonly encountered by the public. Exclude
+specialist-to-specialist terminology unless the learner explicitly requests a
+professional or specialist policy in a future contract.
+
+Assign every candidate one relevance layer:
+
+- L1: core identification and direct description;
+- L2: detailed direct types, parts, actions and distinctions;
+- L3: practical situations, causes, problems, effects and solutions;
+- L4: informed explanation, comparison, planning and formal discussion;
+- L5: predictably connected wider professional, social, economic, technical,
+  cultural or environmental context.
+
+Relevance layer, CEFR level and audience band are independent. Do not stop after
+putting representative words in each layer: reconcile every applicable coverage
+branch and communication function.
+
+Topic generation uses the stored automatic policy. A complete plan of up to 100
+generated lessons uses one immutable cycle. Larger plans use balanced immutable
+cycles of 50-100 lessons. Overlay all cycles with one to five deterministic,
+balanced execution waves. After manifest freeze, rediscover remote receipts and
+drain every missing cycle and wave continuously. Never request approval,
+confirmation or a `continue` message at a cycle or wave boundary. Retry
+recoverable generation, validation, rate-limit, network and delivery failures up
+to the stored retry limit. Pause only for a genuine unrecoverable structural,
+manifest-integrity or delivery blocker.
