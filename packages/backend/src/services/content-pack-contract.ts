@@ -238,7 +238,12 @@ const SenseAwareManifestCandidateSchema = z
     }
   });
 
-export const TopicManifestCandidateSchema = SenseAwareManifestCandidateSchema.and(z.object({
+export const TopicManifestCandidateSchema = z.preprocess((value) => {
+  if (!value || typeof value !== "object") return value;
+  const { evidenceType: _evidenceType, topicEvidence: _topicEvidence, ...base } =
+    value as Record<string, unknown>;
+  return base;
+}, SenseAwareManifestCandidateSchema).and(z.object({
   evidenceType: z.literal("generated_topic_scenario"),
   topicEvidence: z.object({
     relevanceLayer: z.enum(["L1", "L2", "L3", "L4", "L5"]),
