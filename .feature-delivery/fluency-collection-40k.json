@@ -33,7 +33,8 @@
     "packages/backend/src/scripts/smoke-fluency-postgres.ts",
     "packages/backend/src/services/collection-plan.test.ts",
     "packages/backend/src/services/fluency-learning.test.ts",
-    "tests/playwright/fluency.spec.ts"
+    "tests/playwright/fluency.spec.ts",
+    "packages/backend/src/scripts/smoke-user-categories-postgres.ts"
   ],
   "chatgptInstructionImpact": {
     "status": "required",
