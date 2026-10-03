@@ -104,6 +104,9 @@ async function main() {
       "science_engineering",
       "sports_fitness",
       "safety_emergencies",
+      "professional_communication",
+      "linking_ideas",
+      "conversational_nuance",
     ];
     await database("vocabulary_taxonomy_categories")
       .whereIn("domain_key", addedDomainKeys)
