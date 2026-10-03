@@ -56,7 +56,7 @@ export default function DashboardPage() {
   const stats = [
     { label: "Vocabulary", value: progress.totalEntries },
     { label: "Due now", value: progress.dueNow },
-    { label: "Mastered", value: progress.mastered },
+    { label: "Recall established", value: progress.mastered },
     { label: "Accuracy", value: `${progress.accuracy}%` },
   ];
 

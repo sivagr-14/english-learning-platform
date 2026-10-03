@@ -11,13 +11,13 @@ import {
 } from "./vocabulary-taxonomy";
 
 describe("three-level vocabulary taxonomy", () => {
-  it("contains the controlled 22/88/440 hierarchy", () => {
-    expect(TAXONOMY_DOMAINS).toHaveLength(22);
-    expect(TAXONOMY_USAGE_GROUPS).toHaveLength(88);
-    expect(TAXONOMY_SPECIFIC_CATEGORIES).toHaveLength(440);
+  it("contains the controlled 25/100/500 hierarchy", () => {
+    expect(TAXONOMY_DOMAINS).toHaveLength(25);
+    expect(TAXONOMY_USAGE_GROUPS).toHaveLength(100);
+    expect(TAXONOMY_SPECIFIC_CATEGORIES).toHaveLength(500);
     expect(
       new Set(TAXONOMY_SPECIFIC_CATEGORIES.map((item) => item.key)).size,
-    ).toBe(440);
+    ).toBe(500);
   });
 
   it("keeps 2026.1 paths valid without exposing 2026.2 additions", () => {
@@ -66,4 +66,14 @@ describe("three-level vocabulary taxonomy", () => {
       DEFAULT_TAXONOMY_CATEGORY_KEY,
     );
   });
+});
+
+it("keeps new communication paths outside historical catalogues", () => {
+  const key =
+    "professional_communication.reasoning_and_strategy.trade_offs_and_priorities";
+  expect(taxonomyPathForCategoryKey(key, "2026.1")).toBeNull();
+  expect(taxonomyPathForCategoryKey(key, "2026.2")).toBeNull();
+  expect(taxonomyPathForCategoryKey(key, "2026.3")?.domainKey).toBe(
+    "professional_communication",
+  );
 });

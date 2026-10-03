@@ -29,3 +29,8 @@ public/uploads/
 tmp/
 docs/baseline/results.local.json
 test/fixtures/gold-corpus/generated/
+
+
+# The coverage dashboard is application source, not a test report.
+!packages/frontend/app/coverage/
+!packages/frontend/app/coverage/page.tsx

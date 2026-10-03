@@ -11,8 +11,7 @@ import {
 } from "./vocabulary-sense.service";
 import {
   isValidTaxonomyPath,
-  LEGACY_TAXONOMY_VERSION,
-  TAXONOMY_VERSION,
+  SUPPORTED_TAXONOMY_VERSIONS,
   taxonomyPathForCategoryKey,
 } from "../data/vocabulary-taxonomy";
 
@@ -126,7 +125,7 @@ const SenseEvidenceSchema = z
 
 export const TaxonomyAssignmentSchema = z
   .object({
-    taxonomyVersion: z.enum([LEGACY_TAXONOMY_VERSION, TAXONOMY_VERSION]),
+    taxonomyVersion: z.enum(SUPPORTED_TAXONOMY_VERSIONS),
     domainKey: IdentifierSchema,
     usageGroupKey: IdentifierSchema,
     categoryKey: IdentifierSchema,
@@ -238,48 +237,61 @@ const SenseAwareManifestCandidateSchema = z
     }
   });
 
-export const TopicManifestCandidateSchema = z.preprocess((value) => {
-  if (!value || typeof value !== "object") return value;
-  const { evidenceType: _evidenceType, topicEvidence: _topicEvidence, ...base } =
-    value as Record<string, unknown>;
-  return base;
-}, SenseAwareManifestCandidateSchema).and(z.object({
-  evidenceType: z.literal("generated_topic_scenario"),
-  topicEvidence: z.object({
-    relevanceLayer: z.enum(["L1", "L2", "L3", "L4", "L5"]),
-    audienceBand: z.enum([
-      "everyday",
-      "informed_non_expert",
-      "professional_common",
-      "expert_only",
-    ]),
-    publicUsefulness: z.enum(["high", "medium", "low"]),
-    relevanceReason: UsefulTextSchema,
-    coverageBranchIds: z.array(IdentifierSchema).min(1).max(100),
-    communicationFunctions: z.array(IdentifierSchema).min(1).max(100),
-  }).strict(),
-}).passthrough()).superRefine((candidate, context) => {
-  if (
-    candidate.decision === "generate" &&
-    (!candidate.cefrLevel || ["A1", "A2"].includes(candidate.cefrLevel))
-  ) {
-    context.addIssue({
-      code: z.ZodIssueCode.custom,
-      path: ["cefrLevel"],
-      message: "topic generation includes B1-C2 only; A1/A2 must be filtered",
-    });
-  }
-  if (
-    candidate.decision === "generate" &&
-    candidate.topicEvidence.audienceBand === "expert_only"
-  ) {
-    context.addIssue({
-      code: z.ZodIssueCode.custom,
-      path: ["topicEvidence", "audienceBand"],
-      message: "expert-only vocabulary must be filtered by the default topic policy",
-    });
-  }
-});
+export const TopicManifestCandidateSchema = z
+  .preprocess((value) => {
+    if (!value || typeof value !== "object") return value;
+    const {
+      evidenceType: _evidenceType,
+      topicEvidence: _topicEvidence,
+      ...base
+    } = value as Record<string, unknown>;
+    return base;
+  }, SenseAwareManifestCandidateSchema)
+  .and(
+    z
+      .object({
+        evidenceType: z.literal("generated_topic_scenario"),
+        topicEvidence: z
+          .object({
+            relevanceLayer: z.enum(["L1", "L2", "L3", "L4", "L5"]),
+            audienceBand: z.enum([
+              "everyday",
+              "informed_non_expert",
+              "professional_common",
+              "expert_only",
+            ]),
+            publicUsefulness: z.enum(["high", "medium", "low"]),
+            relevanceReason: UsefulTextSchema,
+            coverageBranchIds: z.array(IdentifierSchema).min(1).max(100),
+            communicationFunctions: z.array(IdentifierSchema).min(1).max(100),
+          })
+          .strict(),
+      })
+      .passthrough(),
+  )
+  .superRefine((candidate, context) => {
+    if (
+      candidate.decision === "generate" &&
+      (!candidate.cefrLevel || ["A1", "A2"].includes(candidate.cefrLevel))
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["cefrLevel"],
+        message: "topic generation includes B1-C2 only; A1/A2 must be filtered",
+      });
+    }
+    if (
+      candidate.decision === "generate" &&
+      candidate.topicEvidence.audienceBand === "expert_only"
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["topicEvidence", "audienceBand"],
+        message:
+          "expert-only vocabulary must be filtered by the default topic policy",
+      });
+    }
+  });
 
 export const ManifestCandidateSchema = z.union([
   LegacyManifestCandidateSchema,
@@ -323,7 +335,11 @@ const SuppliedSeedItemSchema = z
     seedId: IdentifierSchema,
     suppliedText: z.string().trim().min(1).max(500),
     normalizedForm: z.string().trim().min(1).max(500),
-    disposition: z.enum(["candidate_linked", "duplicate", "unsupported_source"]),
+    disposition: z.enum([
+      "candidate_linked",
+      "duplicate",
+      "unsupported_source",
+    ]),
     candidateId: IdentifierSchema.optional(),
     duplicateOfSeedId: IdentifierSchema.optional(),
     reason: UsefulTextSchema.optional(),
@@ -331,13 +347,29 @@ const SuppliedSeedItemSchema = z
   .strict()
   .superRefine((item, context) => {
     if (item.disposition === "candidate_linked" && !item.candidateId)
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["candidateId"], message: "candidate_linked requires candidateId" });
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["candidateId"],
+        message: "candidate_linked requires candidateId",
+      });
     if (item.disposition === "duplicate" && !item.duplicateOfSeedId)
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["duplicateOfSeedId"], message: "duplicate requires duplicateOfSeedId" });
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["duplicateOfSeedId"],
+        message: "duplicate requires duplicateOfSeedId",
+      });
     if (item.disposition === "unsupported_source" && !item.reason)
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["reason"], message: "unsupported_source requires a specific reason" });
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["reason"],
+        message: "unsupported_source requires a specific reason",
+      });
     if (item.disposition !== "candidate_linked" && item.candidateId)
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["candidateId"], message: "only candidate_linked seeds may reference a candidate" });
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["candidateId"],
+        message: "only candidate_linked seeds may reference a candidate",
+      });
   });
 
 const SuppliedSeedAuditSchema = z
@@ -380,25 +412,41 @@ const InventoryItemSchema = z
   .strict()
   .superRefine((item, context) => {
     if (item.disposition === "candidate" && !item.candidateId)
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["candidateId"], message: "candidate disposition requires candidateId" });
-    if (item.disposition === "excluded" && (!item.exclusionCode || !item.reason))
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["reason"], message: "excluded inventory requires a stable code and specific reason" });
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["candidateId"],
+        message: "candidate disposition requires candidateId",
+      });
+    if (
+      item.disposition === "excluded" &&
+      (!item.exclusionCode || !item.reason)
+    )
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["reason"],
+        message:
+          "excluded inventory requires a stable code and specific reason",
+      });
   });
 
 const InventoryAuditSchema = z
   .object({
     items: z.array(InventoryItemSchema).min(1).max(100_000),
-    counts: z.object({
-      total: z.number().int().positive(),
-      candidateLinked: z.number().int().nonnegative(),
-      excluded: z.number().int().nonnegative(),
-      untracked: z.literal(0),
-    }).strict(),
-    recallPass: z.object({
-      completed: z.literal(true),
-      unresolvedInventoryIds: z.array(IdentifierSchema).max(0),
-      missedFindings: z.array(UsefulTextSchema).max(0),
-    }).strict(),
+    counts: z
+      .object({
+        total: z.number().int().positive(),
+        candidateLinked: z.number().int().nonnegative(),
+        excluded: z.number().int().nonnegative(),
+        untracked: z.literal(0),
+      })
+      .strict(),
+    recallPass: z
+      .object({
+        completed: z.literal(true),
+        unresolvedInventoryIds: z.array(IdentifierSchema).max(0),
+        missedFindings: z.array(UsefulTextSchema).max(0),
+      })
+      .strict(),
   })
   .strict();
 
@@ -446,19 +494,43 @@ const VerifiedInventoryItemSchema = z
   .strict()
   .superRefine((item, context) => {
     if (item.endOffset <= item.startOffset) {
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["endOffset"], message: "endOffset must follow startOffset" });
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["endOffset"],
+        message: "endOffset must follow startOffset",
+      });
     }
     if (item.disposition === "candidate_linked" && !item.candidateId) {
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["candidateId"], message: "candidate_linked requires candidateId" });
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["candidateId"],
+        message: "candidate_linked requires candidateId",
+      });
     }
     if (item.disposition !== "candidate_linked" && !item.reason) {
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["reason"], message: "every exclusion requires one specific reason" });
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["reason"],
+        message: "every exclusion requires one specific reason",
+      });
     }
     if (item.disposition === "verified_existing" && !item.matchedWordId) {
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["matchedWordId"], message: "verified_existing requires a PostgreSQL word identity" });
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["matchedWordId"],
+        message: "verified_existing requires a PostgreSQL word identity",
+      });
     }
-    if (item.disposition === "subsumed_by_expression" && !item.subsumedByCandidateId) {
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["subsumedByCandidateId"], message: "subsumed_by_expression requires the selected expression candidate" });
+    if (
+      item.disposition === "subsumed_by_expression" &&
+      !item.subsumedByCandidateId
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["subsumedByCandidateId"],
+        message:
+          "subsumed_by_expression requires the selected expression candidate",
+      });
     }
   });
 
@@ -474,35 +546,49 @@ const RecallFindingSchema = z
   .strict()
   .superRefine((finding, context) => {
     if (finding.disposition === "candidate_linked" && !finding.candidateId) {
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["candidateId"], message: "candidate_linked recall findings require candidateId" });
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["candidateId"],
+        message: "candidate_linked recall findings require candidateId",
+      });
     }
     if (finding.disposition !== "candidate_linked" && !finding.reason) {
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["reason"], message: "excluded recall findings require one specific reason" });
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["reason"],
+        message: "excluded recall findings require one specific reason",
+      });
     }
   });
 
 const VerifiedInventoryAuditSchema = z
   .object({
-    seed: z.object({
-      generator: z.literal("backend-deterministic-inventory"),
-      generatorVersion: IdentifierSchema,
-      sourceHash: Sha256Schema,
-      inventoryHash: Sha256Schema,
-    }).strict(),
+    seed: z
+      .object({
+        generator: z.literal("backend-deterministic-inventory"),
+        generatorVersion: IdentifierSchema,
+        sourceHash: Sha256Schema,
+        inventoryHash: Sha256Schema,
+      })
+      .strict(),
     items: z.array(VerifiedInventoryItemSchema).min(1).max(500_000),
-    counts: z.object({
-      totalOccurrences: z.number().int().positive(),
-      candidateLinked: z.number().int().nonnegative(),
-      excluded: z.number().int().nonnegative(),
-      untracked: z.literal(0),
-    }).strict(),
-    recallPass: z.object({
-      completed: z.literal(true),
-      method: z.literal("blind_sentence_rescan"),
-      runId: IdentifierSchema,
-      findings: z.array(RecallFindingSchema).max(100_000),
-      unresolvedFindingIds: z.array(IdentifierSchema).max(0),
-    }).strict(),
+    counts: z
+      .object({
+        totalOccurrences: z.number().int().positive(),
+        candidateLinked: z.number().int().nonnegative(),
+        excluded: z.number().int().nonnegative(),
+        untracked: z.literal(0),
+      })
+      .strict(),
+    recallPass: z
+      .object({
+        completed: z.literal(true),
+        method: z.literal("blind_sentence_rescan"),
+        runId: IdentifierSchema,
+        findings: z.array(RecallFindingSchema).max(100_000),
+        unresolvedFindingIds: z.array(IdentifierSchema).max(0),
+      })
+      .strict(),
     frozenAt: z.string().datetime(),
   })
   .strict();
@@ -559,103 +645,144 @@ const TaxonomyAwareContentManifestSchema = LegacyContentManifestSchema.omit({
   })
   .strict();
 
-const ExhaustiveContentManifestSchema = TaxonomyAwareContentManifestSchema.omit({
-  formatVersion: true,
-})
+const ExhaustiveContentManifestSchema = TaxonomyAwareContentManifestSchema.omit(
+  {
+    formatVersion: true,
+  },
+)
   .extend({
     formatVersion: z.literal(EXHAUSTIVE_CONTENT_MANIFEST_VERSION),
     inventoryAudit: InventoryAuditSchema,
   })
   .strict();
 
-const VerifiedExhaustiveContentManifestSchema = TaxonomyAwareContentManifestSchema.omit({
-  formatVersion: true,
-})
-  .extend({
-    formatVersion: z.literal(VERIFIED_EXHAUSTIVE_CONTENT_MANIFEST_VERSION),
-    inventoryAudit: VerifiedInventoryAuditSchema,
+const VerifiedExhaustiveContentManifestSchema =
+  TaxonomyAwareContentManifestSchema.omit({
+    formatVersion: true,
   })
-  .strict();
+    .extend({
+      formatVersion: z.literal(VERIFIED_EXHAUSTIVE_CONTENT_MANIFEST_VERSION),
+      inventoryAudit: VerifiedInventoryAuditSchema,
+    })
+    .strict();
 
-const TopicCoverageBranchSchema = z.object({
-  branchId: IdentifierSchema,
-  name: z.string().trim().min(2).max(180),
-  branchType: z.enum(["universal", "topic_specific"]),
-  status: z.enum([
-    "covered",
-    "not_applicable",
-    "expert_only_excluded",
-    "low_frequency_excluded",
-    "coverage_gap",
-  ]),
-  candidateIds: z.array(IdentifierSchema).max(50_000),
-  reason: UsefulTextSchema.optional(),
-}).strict().superRefine((branch, context) => {
-  if (branch.status !== "covered" && !branch.reason) {
-    context.addIssue({
-      code: z.ZodIssueCode.custom,
-      path: ["reason"],
-      message: "non-covered topic branches require a specific reason",
-    });
-  }
-});
+const TopicCoverageBranchSchema = z
+  .object({
+    branchId: IdentifierSchema,
+    name: z.string().trim().min(2).max(180),
+    branchType: z.enum(["universal", "topic_specific"]),
+    status: z.enum([
+      "covered",
+      "not_applicable",
+      "expert_only_excluded",
+      "low_frequency_excluded",
+      "coverage_gap",
+    ]),
+    candidateIds: z.array(IdentifierSchema).max(50_000),
+    reason: UsefulTextSchema.optional(),
+  })
+  .strict()
+  .superRefine((branch, context) => {
+    if (branch.status !== "covered" && !branch.reason) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["reason"],
+        message: "non-covered topic branches require a specific reason",
+      });
+    }
+  });
 
 const TopicContentManifestSchema = LegacyContentManifestSchema.omit({
   formatVersion: true,
   source: true,
   candidates: true,
-}).extend({
-  formatVersion: z.literal(TOPIC_CONTENT_MANIFEST_VERSION),
-  source: z.object({
-    name: z.string().trim().min(1).max(255),
-    type: z.literal("topic"),
-    contentHash: Sha256Schema,
-    totalPages: z.literal(1),
-    totalChunks: z.number().int().positive().max(50_000),
-  }).strict(),
-  topicProfile: z.object({
-    suppliedTopic: z.string().trim().min(2).max(200),
-    normalizedTopic: z.string().trim().min(2).max(200),
-    intendedContexts: z.array(z.string().trim().min(2).max(500)).min(1).max(100),
-    maximumAudienceBand: z.literal("informed_non_expert"),
-    includedCefrLevels: z.tuple([
-      z.literal("B1"),
-      z.literal("B2"),
-      z.literal("C1"),
-      z.literal("C2"),
-    ]),
-    excludedCefrLevels: z.tuple([z.literal("A1"), z.literal("A2")]),
-  }).strict(),
-  coverageAudit: z.object({
-    universalDimensionIds: z.array(IdentifierSchema).min(25).max(100),
-    dynamicallyDiscoveredBranchIds: z.array(IdentifierSchema).min(1).max(10_000),
-    branches: z.array(TopicCoverageBranchSchema).min(26).max(10_000),
-    recallPassCompleted: z.literal(true),
-    unresolvedRecallFindings: z.literal(0),
-    untrackedCandidates: z.literal(0),
-    coverageGaps: z.literal(0),
-  }).strict(),
-  communicationCoverageAudit: z.object({
-    functions: z.array(z.object({
-      functionId: IdentifierSchema,
-      status: z.enum(["covered", "not_applicable"]),
-      candidateIds: z.array(IdentifierSchema).max(50_000),
-      reason: UsefulTextSchema.optional(),
-    }).strict()).min(12).max(100),
-    uncoveredFunctions: z.array(IdentifierSchema).max(0),
-  }).strict(),
-  executionPlan: z.object({
-    automaticContinuation: z.literal(true),
-    approvalRequired: z.literal(false),
-    maximumWaves: z.literal(5),
-    waves: z.array(z.object({
-      waveNumber: z.number().int().positive().max(5),
-      batchNumbers: z.array(z.number().int().positive()).min(1).max(10_000),
-      candidateCount: z.number().int().positive(),
-    }).strict()).min(1).max(5),
-  }).strict(),
-  candidates: z.array(TopicManifestCandidateSchema).max(50_000),
-}).strict();
+})
+  .extend({
+    formatVersion: z.literal(TOPIC_CONTENT_MANIFEST_VERSION),
+    source: z
+      .object({
+        name: z.string().trim().min(1).max(255),
+        type: z.literal("topic"),
+        contentHash: Sha256Schema,
+        totalPages: z.literal(1),
+        totalChunks: z.number().int().positive().max(50_000),
+      })
+      .strict(),
+    topicProfile: z
+      .object({
+        suppliedTopic: z.string().trim().min(2).max(200),
+        normalizedTopic: z.string().trim().min(2).max(200),
+        intendedContexts: z
+          .array(z.string().trim().min(2).max(500))
+          .min(1)
+          .max(100),
+        maximumAudienceBand: z.literal("informed_non_expert"),
+        includedCefrLevels: z.tuple([
+          z.literal("B1"),
+          z.literal("B2"),
+          z.literal("C1"),
+          z.literal("C2"),
+        ]),
+        excludedCefrLevels: z.tuple([z.literal("A1"), z.literal("A2")]),
+      })
+      .strict(),
+    coverageAudit: z
+      .object({
+        universalDimensionIds: z.array(IdentifierSchema).min(25).max(100),
+        dynamicallyDiscoveredBranchIds: z
+          .array(IdentifierSchema)
+          .min(1)
+          .max(10_000),
+        branches: z.array(TopicCoverageBranchSchema).min(26).max(10_000),
+        recallPassCompleted: z.literal(true),
+        unresolvedRecallFindings: z.literal(0),
+        untrackedCandidates: z.literal(0),
+        coverageGaps: z.literal(0),
+      })
+      .strict(),
+    communicationCoverageAudit: z
+      .object({
+        functions: z
+          .array(
+            z
+              .object({
+                functionId: IdentifierSchema,
+                status: z.enum(["covered", "not_applicable"]),
+                candidateIds: z.array(IdentifierSchema).max(50_000),
+                reason: UsefulTextSchema.optional(),
+              })
+              .strict(),
+          )
+          .min(12)
+          .max(100),
+        uncoveredFunctions: z.array(IdentifierSchema).max(0),
+      })
+      .strict(),
+    executionPlan: z
+      .object({
+        automaticContinuation: z.literal(true),
+        approvalRequired: z.literal(false),
+        maximumWaves: z.literal(5),
+        waves: z
+          .array(
+            z
+              .object({
+                waveNumber: z.number().int().positive().max(5),
+                batchNumbers: z
+                  .array(z.number().int().positive())
+                  .min(1)
+                  .max(10_000),
+                candidateCount: z.number().int().positive(),
+              })
+              .strict(),
+          )
+          .min(1)
+          .max(5),
+      })
+      .strict(),
+    candidates: z.array(TopicManifestCandidateSchema).max(50_000),
+  })
+  .strict();
 
 export const ContentManifestSchema = z.union([
   LegacyContentManifestSchema,
@@ -712,14 +839,18 @@ const ExhaustiveContentBatchSchema = LegacyContentBatchSchema.omit({
 const VerifiedExhaustiveContentBatchSchema = LegacyContentBatchSchema.omit({
   formatVersion: true,
 })
-  .extend({ formatVersion: z.literal(VERIFIED_EXHAUSTIVE_CONTENT_BATCH_VERSION) })
+  .extend({
+    formatVersion: z.literal(VERIFIED_EXHAUSTIVE_CONTENT_BATCH_VERSION),
+  })
   .strict();
 
 const TopicContentBatchSchema = LegacyContentBatchSchema.omit({
   formatVersion: true,
-}).extend({
-  formatVersion: z.literal(TOPIC_CONTENT_BATCH_VERSION),
-}).strict();
+})
+  .extend({
+    formatVersion: z.literal(TOPIC_CONTENT_BATCH_VERSION),
+  })
+  .strict();
 
 export const ContentBatchSchema = z.union([
   LegacyContentBatchSchema,
@@ -800,7 +931,9 @@ export function isTaxonomyAwareManifest(
 export function isVerifiedExhaustiveManifest(
   manifest: ContentManifest,
 ): manifest is z.infer<typeof VerifiedExhaustiveContentManifestSchema> {
-  return manifest.formatVersion === VERIFIED_EXHAUSTIVE_CONTENT_MANIFEST_VERSION;
+  return (
+    manifest.formatVersion === VERIFIED_EXHAUSTIVE_CONTENT_MANIFEST_VERSION
+  );
 }
 
 export function isExhaustiveManifest(
@@ -841,8 +974,14 @@ export function validateContentManifest(
     );
     if (duplicates(branchIds).length)
       issues.push("coverageAudit.branches: branch IDs must be unique");
-    if (manifest.coverageAudit.branches.some((branch) => branch.status === "coverage_gap"))
-      issues.push("coverageAudit: applicable topic branches still contain coverage gaps");
+    if (
+      manifest.coverageAudit.branches.some(
+        (branch) => branch.status === "coverage_gap",
+      )
+    )
+      issues.push(
+        "coverageAudit: applicable topic branches still contain coverage gaps",
+      );
     const referencedCandidateIds = new Set(
       manifest.coverageAudit.branches.flatMap((branch) => branch.candidateIds),
     );
@@ -860,7 +999,7 @@ export function validateContentManifest(
     );
     if (
       JSON.stringify([...plannedBatchNumbers].sort((a, b) => a - b)) !==
-      JSON.stringify([...wavedBatchNumbers].sort((a, b) => a - b)) ||
+        JSON.stringify([...wavedBatchNumbers].sort((a, b) => a - b)) ||
       duplicates(wavedBatchNumbers.map(String)).length
     )
       issues.push(
@@ -878,7 +1017,9 @@ export function validateContentManifest(
 
   for (const candidate of manifest.candidates) {
     if (candidate.decision !== "generate") continue;
-    for (const issue of vocabularyExpressionCompatibilityIssues(candidate.term)) {
+    for (const issue of vocabularyExpressionCompatibilityIssues(
+      candidate.term,
+    )) {
       issues.push(
         `${candidate.candidateId}: term is incompatible with lesson validation: ${issue}`,
       );
@@ -919,9 +1060,15 @@ export function validateContentManifest(
   if (manifest.suppliedSeedAudit) {
     const audit = manifest.suppliedSeedAudit;
     const seedIds = audit.items.map((item) => item.seedId);
-    const linked = audit.items.filter((item) => item.disposition === "candidate_linked");
-    const duplicateSeeds = audit.items.filter((item) => item.disposition === "duplicate");
-    const unsupported = audit.items.filter((item) => item.disposition === "unsupported_source");
+    const linked = audit.items.filter(
+      (item) => item.disposition === "candidate_linked",
+    );
+    const duplicateSeeds = audit.items.filter(
+      (item) => item.disposition === "duplicate",
+    );
+    const unsupported = audit.items.filter(
+      (item) => item.disposition === "unsupported_source",
+    );
     if (duplicates(seedIds).length)
       issues.push("suppliedSeedAudit.items: every seedId must be unique");
     if (
@@ -930,7 +1077,10 @@ export function validateContentManifest(
       audit.counts.duplicates !== duplicateSeeds.length ||
       audit.counts.candidateLinked !== linked.length ||
       audit.counts.unsupported !== unsupported.length
-    ) issues.push("suppliedSeedAudit.counts: declared seed totals do not reconcile");
+    )
+      issues.push(
+        "suppliedSeedAudit.counts: declared seed totals do not reconcile",
+      );
     const knownSeedIds = new Set(seedIds);
     const canonicalSeedIds = new Set(
       audit.items
@@ -939,48 +1089,83 @@ export function validateContentManifest(
     );
     for (const item of linked)
       if (!candidateIds.includes(item.candidateId!))
-        issues.push(`${item.seedId}: supplied seed references unknown candidate ${item.candidateId}`);
+        issues.push(
+          `${item.seedId}: supplied seed references unknown candidate ${item.candidateId}`,
+        );
     for (const item of duplicateSeeds) {
       if (!knownSeedIds.has(item.duplicateOfSeedId!))
-        issues.push(`${item.seedId}: duplicate references unknown supplied seed ${item.duplicateOfSeedId}`);
+        issues.push(
+          `${item.seedId}: duplicate references unknown supplied seed ${item.duplicateOfSeedId}`,
+        );
       else if (!canonicalSeedIds.has(item.duplicateOfSeedId!))
-        issues.push(`${item.seedId}: duplicate must reference a canonical non-duplicate supplied seed`);
+        issues.push(
+          `${item.seedId}: duplicate must reference a canonical non-duplicate supplied seed`,
+        );
       if (item.duplicateOfSeedId === item.seedId)
         issues.push(`${item.seedId}: duplicate cannot reference itself`);
     }
     if (audit.scope === "supplied_items_only") {
-      const linkedCandidateIds = new Set(linked.map((item) => item.candidateId));
+      const linkedCandidateIds = new Set(
+        linked.map((item) => item.candidateId),
+      );
       for (const candidateId of candidateIds)
         if (!linkedCandidateIds.has(candidateId))
-          issues.push(`${candidateId}: supplied-items-only candidate has no supplied seed link`);
+          issues.push(
+            `${candidateId}: supplied-items-only candidate has no supplied seed link`,
+          );
     }
   }
   if (isExhaustiveManifest(manifest)) {
-    const inventoryIds = manifest.inventoryAudit.items.map((item) => item.inventoryId);
+    const inventoryIds = manifest.inventoryAudit.items.map(
+      (item) => item.inventoryId,
+    );
     if (duplicates(inventoryIds).length)
       issues.push("inventoryAudit.items: every inventoryId must be unique");
-    const linked = manifest.inventoryAudit.items.filter((item) => item.disposition === "candidate");
-    const excluded = manifest.inventoryAudit.items.filter((item) => item.disposition === "excluded");
+    const linked = manifest.inventoryAudit.items.filter(
+      (item) => item.disposition === "candidate",
+    );
+    const excluded = manifest.inventoryAudit.items.filter(
+      (item) => item.disposition === "excluded",
+    );
     if (
-      manifest.inventoryAudit.counts.total !== manifest.inventoryAudit.items.length ||
+      manifest.inventoryAudit.counts.total !==
+        manifest.inventoryAudit.items.length ||
       manifest.inventoryAudit.counts.candidateLinked !== linked.length ||
       manifest.inventoryAudit.counts.excluded !== excluded.length
-    ) issues.push("inventoryAudit.counts: declared inventory totals do not reconcile");
+    )
+      issues.push(
+        "inventoryAudit.counts: declared inventory totals do not reconcile",
+      );
     const candidateLinks = new Set(linked.map((item) => item.candidateId));
     for (const item of linked) {
       if (!candidateIds.includes(item.candidateId!))
-        issues.push(`${item.inventoryId}: inventory references unknown candidate ${item.candidateId}`);
-      if (!manifest.coverage.chunks.some((chunk) => chunk.chunkId === item.chunkId))
-        issues.push(`${item.inventoryId}: inventory references unknown chunk ${item.chunkId}`);
+        issues.push(
+          `${item.inventoryId}: inventory references unknown candidate ${item.candidateId}`,
+        );
+      if (
+        !manifest.coverage.chunks.some(
+          (chunk) => chunk.chunkId === item.chunkId,
+        )
+      )
+        issues.push(
+          `${item.inventoryId}: inventory references unknown chunk ${item.chunkId}`,
+        );
     }
     for (const candidateId of candidateIds)
       if (!candidateLinks.has(candidateId))
-        issues.push(`${candidateId}: candidate has no deterministic inventory link`);
+        issues.push(
+          `${candidateId}: candidate has no deterministic inventory link`,
+        );
   }
   if (isVerifiedExhaustiveManifest(manifest)) {
     const audit = manifest.inventoryAudit;
-    if (audit.seed.sourceHash.toLowerCase() !== manifest.source.contentHash.toLowerCase())
-      issues.push("inventoryAudit.seed.sourceHash must match the immutable manifest source hash");
+    if (
+      audit.seed.sourceHash.toLowerCase() !==
+      manifest.source.contentHash.toLowerCase()
+    )
+      issues.push(
+        "inventoryAudit.seed.sourceHash must match the immutable manifest source hash",
+      );
     const inventoryIds = audit.items.map((item) => item.inventoryId);
     const occurrenceIds = audit.items.map((item) => item.occurrenceId);
     if (duplicates(inventoryIds).length)
@@ -988,48 +1173,96 @@ export function validateContentManifest(
     if (duplicates(occurrenceIds).length)
       issues.push("inventoryAudit.items: every occurrenceId must be unique");
 
-    const linked = audit.items.filter((item) => item.disposition === "candidate_linked");
-    const excluded = audit.items.filter((item) => item.disposition !== "candidate_linked");
+    const linked = audit.items.filter(
+      (item) => item.disposition === "candidate_linked",
+    );
+    const excluded = audit.items.filter(
+      (item) => item.disposition !== "candidate_linked",
+    );
     if (
       audit.counts.totalOccurrences !== audit.items.length ||
       audit.counts.candidateLinked !== linked.length ||
       audit.counts.excluded !== excluded.length
-    ) issues.push("inventoryAudit.counts: declared occurrence totals do not reconcile");
+    )
+      issues.push(
+        "inventoryAudit.counts: declared occurrence totals do not reconcile",
+      );
 
     const candidateLinks = new Set(linked.map((item) => item.candidateId));
     const occurrenceSet = new Set(occurrenceIds);
     for (const item of linked) {
       if (!candidateIds.includes(item.candidateId!))
-        issues.push(`${item.inventoryId}: inventory references unknown candidate ${item.candidateId}`);
-      const candidate = manifest.candidates.find((value) => value.candidateId === item.candidateId);
-      if (candidate && !candidate.occurrences.some((occurrence) =>
-        occurrence.page === item.page &&
-        occurrence.chunkId === item.chunkId &&
-        normalizedText(occurrence.sentence) === normalizedText(item.sentence)))
-        issues.push(`${item.inventoryId}: linked occurrence does not match candidate source evidence`);
+        issues.push(
+          `${item.inventoryId}: inventory references unknown candidate ${item.candidateId}`,
+        );
+      const candidate = manifest.candidates.find(
+        (value) => value.candidateId === item.candidateId,
+      );
+      if (
+        candidate &&
+        !candidate.occurrences.some(
+          (occurrence) =>
+            occurrence.page === item.page &&
+            occurrence.chunkId === item.chunkId &&
+            normalizedText(occurrence.sentence) ===
+              normalizedText(item.sentence),
+        )
+      )
+        issues.push(
+          `${item.inventoryId}: linked occurrence does not match candidate source evidence`,
+        );
     }
     for (const item of audit.items) {
-      const chunk = manifest.coverage.chunks.find((value) => value.chunkId === item.chunkId);
-      if (!chunk) issues.push(`${item.inventoryId}: inventory references unknown chunk ${item.chunkId}`);
+      const chunk = manifest.coverage.chunks.find(
+        (value) => value.chunkId === item.chunkId,
+      );
+      if (!chunk)
+        issues.push(
+          `${item.inventoryId}: inventory references unknown chunk ${item.chunkId}`,
+        );
       else if (item.page < chunk.pageStart || item.page > chunk.pageEnd)
-        issues.push(`${item.inventoryId}: inventory page is outside chunk ${item.chunkId} page range`);
-      if (item.disposition === "subsumed_by_expression" && !candidateIds.includes(item.subsumedByCandidateId!))
-        issues.push(`${item.inventoryId}: subsumed expression candidate does not exist`);
+        issues.push(
+          `${item.inventoryId}: inventory page is outside chunk ${item.chunkId} page range`,
+        );
+      if (
+        item.disposition === "subsumed_by_expression" &&
+        !candidateIds.includes(item.subsumedByCandidateId!)
+      )
+        issues.push(
+          `${item.inventoryId}: subsumed expression candidate does not exist`,
+        );
     }
     for (const candidateId of candidateIds)
       if (!candidateLinks.has(candidateId))
-        issues.push(`${candidateId}: candidate has no deterministic occurrence link`);
+        issues.push(
+          `${candidateId}: candidate has no deterministic occurrence link`,
+        );
     for (const candidate of manifest.candidates)
-      if (candidate.decision === "existing" && !("matchedWordId" in candidate && candidate.matchedWordId))
-        issues.push(`${candidate.candidateId}: existing v5 candidates require a verified PostgreSQL word identity`);
+      if (
+        candidate.decision === "existing" &&
+        !("matchedWordId" in candidate && candidate.matchedWordId)
+      )
+        issues.push(
+          `${candidate.candidateId}: existing v5 candidates require a verified PostgreSQL word identity`,
+        );
 
     for (const finding of audit.recallPass.findings) {
       if (!occurrenceSet.has(finding.occurrenceId))
-        issues.push(`${finding.findingId}: recall finding has no deterministic occurrence`);
-      if (finding.disposition === "candidate_linked" && !candidateIds.includes(finding.candidateId!))
-        issues.push(`${finding.findingId}: recall finding references unknown candidate`);
+        issues.push(
+          `${finding.findingId}: recall finding has no deterministic occurrence`,
+        );
+      if (
+        finding.disposition === "candidate_linked" &&
+        !candidateIds.includes(finding.candidateId!)
+      )
+        issues.push(
+          `${finding.findingId}: recall finding references unknown candidate`,
+        );
     }
-    if (duplicates(audit.recallPass.findings.map((finding) => finding.findingId)).length)
+    if (
+      duplicates(audit.recallPass.findings.map((finding) => finding.findingId))
+        .length
+    )
       issues.push("inventoryAudit.recallPass: every findingId must be unique");
   }
   if (isTaxonomyAwareManifest(manifest)) {
@@ -1292,8 +1525,9 @@ export function preflightContentManifest(
     ready: validation.valid,
     manifestHash: validation.hash,
     generatedCandidates:
-      manifest?.candidates.filter((candidate) => candidate.decision === "generate")
-        .length ?? 0,
+      manifest?.candidates.filter(
+        (candidate) => candidate.decision === "generate",
+      ).length ?? 0,
     plannedBatches: manifest?.generationPlan.batches.length ?? 0,
     issues: validation.issues,
   };
@@ -1323,7 +1557,8 @@ export function validateContentBatch(
         batch.formatVersion === CONTENT_BATCH_VERSION) ||
       (manifest.formatVersion === EXHAUSTIVE_CONTENT_MANIFEST_VERSION &&
         batch.formatVersion === EXHAUSTIVE_CONTENT_BATCH_VERSION) ||
-      (manifest.formatVersion === VERIFIED_EXHAUSTIVE_CONTENT_MANIFEST_VERSION &&
+      (manifest.formatVersion ===
+        VERIFIED_EXHAUSTIVE_CONTENT_MANIFEST_VERSION &&
         batch.formatVersion === VERIFIED_EXHAUSTIVE_CONTENT_BATCH_VERSION) ||
       (manifest.formatVersion === TOPIC_CONTENT_MANIFEST_VERSION &&
         batch.formatVersion === TOPIC_CONTENT_BATCH_VERSION);

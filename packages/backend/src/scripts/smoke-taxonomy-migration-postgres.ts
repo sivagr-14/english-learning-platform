@@ -147,9 +147,9 @@ async function main() {
       ),
     };
     assert.deepEqual(counts, {
-      domains: 22,
-      usageGroups: 88,
-      specificCategories: 440,
+      domains: 25,
+      usageGroups: 100,
+      specificCategories: 500,
     });
 
     const migrated = await database("vocabulary_words as word")
@@ -205,7 +205,7 @@ async function main() {
     console.log(
       JSON.stringify({
         status: "passed",
-        catalogue: "22 domains / 88 usage groups / 440 specific categories",
+        catalogue: "25 domains / 100 usage groups / 500 specific categories",
         existingDatabaseUpgrade: "passed",
         idempotentReplay: "passed",
         existingEntryBackfill: "passed",

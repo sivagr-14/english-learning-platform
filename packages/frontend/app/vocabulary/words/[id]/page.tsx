@@ -5,6 +5,7 @@ import { ReactNode, Suspense, useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
+import QuickLesson from "@/components/QuickLesson";
 import WordCategoryPicker from "@/components/WordCategoryPicker";
 import { getApiClient } from "@/lib/api/client";
 
@@ -395,6 +396,7 @@ function VocabularyWordContent() {
   const params = useParams<{ id: string }>();
   const searchParams = useSearchParams();
   const contextQuery = searchParams.toString();
+  const [otherMeanings, setOtherMeanings] = useState<any[]>([]);
   const [word, setWord] = useState<WordDetail | null>(null);
   const [navigation, setNavigation] = useState<WordNavigation | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -412,6 +414,7 @@ function VocabularyWordContent() {
         `/api/vocabulary/words/${params.id}${contextQuery ? `?${contextQuery}` : ""}`,
       );
       setWord(response.data.word);
+      setOtherMeanings(response.data.otherMeanings || []);
       setNavigation(response.data.navigation);
       setIsLoading(false);
     };
@@ -559,9 +562,30 @@ function VocabularyWordContent() {
               )}
             </section>
 
+            <QuickLesson key={word.id} word={word} />
+            {otherMeanings.length > 0 && (
+              <section className="rounded border bg-white p-4">
+                <h2 className="font-semibold">Other meanings</h2>
+                <ul className="mt-2 space-y-2">
+                  {otherMeanings.map((sense) => (
+                    <li key={sense.id}>
+                      <Link
+                        className="text-blue-800 underline"
+                        href={`/vocabulary/words/${sense.id}`}
+                      >
+                        {sense.display_label} — {sense.english_meaning}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
             <WordCategoryPicker wordIds={[word.id]} />
 
-            <section className="rounded-lg border border-gray-200 bg-white p-6">
+            <details className="rounded-lg border border-gray-200 bg-white p-6">
+              <summary className="cursor-pointer text-lg font-semibold">
+                Explore the complete lesson
+              </summary>
               <div className="mb-5 border-b border-gray-200 pb-4">
                 <h2 className="text-xl font-semibold text-gray-900">
                   Vocabulary Lesson
@@ -574,7 +598,7 @@ function VocabularyWordContent() {
                 lesson={word.lesson_data || {}}
                 word={word}
               />
-            </section>
+            </details>
             {navigationControls}
           </main>
         )}

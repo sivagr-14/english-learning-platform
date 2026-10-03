@@ -41,7 +41,9 @@
     "start": "node scripts/dev.js",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
-    "docker:build": "docker compose build"
+    "docker:build": "docker compose build",
+    "collection:plan": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/plan-fluency-collection.ts",
+    "smoke:fluency": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/smoke-fluency-postgres.ts"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

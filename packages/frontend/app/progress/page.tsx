@@ -41,16 +41,16 @@ export default function ProgressPage() {
     <AuthenticatedPage>
       <AppShell
         title="Learning Progress"
-        description="Track what you are learning, what is mastered, and how accurately you recall vocabulary across categories."
+        description="Track what you are learning, your self-rated recall. Use Fluency Practice to track listening and production separately."
       >
         <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
           {[
             ["Total entries", summary?.totalEntries],
             ["Learning", summary?.learning],
-            ["Mastered", summary?.mastered],
+            ["Recall established", summary?.mastered],
             ["Due now", summary?.dueNow],
             ["Reviews", summary?.reviews],
-            ["Accuracy", summary ? `${summary.accuracy}%` : undefined],
+            ["Self-rated recall", summary ? `${summary.accuracy}%` : undefined],
           ].map(([label, value]) => (
             <div
               key={label}
@@ -66,7 +66,7 @@ export default function ProgressPage() {
 
         <section className="mt-8">
           <h2 className="text-lg font-semibold text-slate-950">
-            Category mastery
+            Category recall
           </h2>
           <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-white">
             {isLoading ? (

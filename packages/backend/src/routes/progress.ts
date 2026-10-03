@@ -42,7 +42,7 @@ router.get(
                 "COUNT(*) FILTER (WHERE status = 'in_progress') AS learning",
               ),
               database.raw(
-                "COUNT(*) FILTER (WHERE status = 'mastered') AS mastered",
+                "COUNT(*) FILTER (WHERE proficiency_level >= 4) AS mastered",
               ),
               database.raw("COALESCE(SUM(times_reviewed), 0) AS reviews"),
               database.raw("COALESCE(SUM(times_correct), 0) AS correct"),
@@ -99,7 +99,7 @@ router.get(
             .countDistinct({ total: "vocabulary_words.id" })
             .select(
               database.raw(
-                "COUNT(DISTINCT user_progress.word_id) FILTER (WHERE user_progress.status = 'mastered') AS mastered",
+                "COUNT(DISTINCT user_progress.word_id) FILTER (WHERE user_progress.proficiency_level >= 4) AS mastered",
               ),
             )
             .havingRaw("COUNT(DISTINCT vocabulary_words.id) > 0")

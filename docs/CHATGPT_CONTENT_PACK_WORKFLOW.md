@@ -171,7 +171,8 @@ already assessed or saved data.
 
 ## Controlled taxonomy guarantee
 
-New manifests use taxonomy `2026.2`, containing 22 domains, 88 usage groups and 440 specific
+New manifests use taxonomy `2026.3`, containing 25 domains, 100 usage groups and 500 specific
+learning categories. Historical taxonomy `2026.2` contains 22 domains, 88 usage groups and 440 specific
 learning categories. Existing `2026.1` manifests remain compatible with their
 15 domains, 60 usage groups and 300 specific learning categories. ChatGPT must classify each generated contextual sense by
 choosing one exact chain:
@@ -618,3 +619,103 @@ confirmation or a `continue` message at a cycle or wave boundary. Retry
 recoverable generation, validation, rate-limit, network and delivery failures up
 to the stored retry limit. Pause only for a genuine unrecoverable structural,
 manifest-integrity or delivery blocker.
+
+
+## Fluency collection and visible delivery packs — 2026.1
+
+A `chatgpt-fluency-collection-request-v1` wraps the existing portable topic
+request with collection policy and the learner's current matching vocabulary.
+The app prepares it in Coverage & Collection. Its outer request hash covers
+all fields before requestId/requestHash. Use its nested topic request with the
+existing topic manifest and batch contracts. Authored topic scenarios remain
+`generated_topic_scenario`; never claim they are quotations from real sources.
+Source-backed assessment continues to require the original app preparation,
+source-unit reconciliation and exact evidence. A collection request is not an
+assessed manifest or evidence that 40,000 eligible senses have been found.
+
+New assessments use taxonomy `2026.3`: 25 domains, 100 usage groups and 500
+specific categories. The original 440 paths remain unchanged. The additions
+cover professional communication, linking ideas and conversational nuance.
+Both historical `2026.1` and `2026.2` paths remain valid within their original
+catalogues. Never assign a 2026.3-only path to a historical manifest.
+
+The collection target is 40,000 distinct term-plus-contextual-sense entries,
+including existing entries only after their quality and identity are checked.
+Professional communication means rationale, trade-offs, principles, strategy,
+expectations, setbacks, respectful pushback and official communication. It is
+not a technical glossary. High or medium frequency must be supported for the
+specific sense and intended audience; never invent a corpus count or infer
+frequency solely from an AI's confidence. Record evidence and uncertainty in
+the assessment review. Exclude rare/obsolete senses, proper names, extraction
+noise, arbitrary word windows, same-sense duplicates and irrelevant expert-only
+terminology. Category and expression-type targets guide source selection;
+they must never truncate exhaustive source assessment or pad discovery counts.
+The default topic contract remains B1–C2. Foundation-gap generation is a future
+versioned policy extension; do not silently relax frozen CEFR constraints.
+
+Keep one primary taxonomy path per sense. Personal situation/function tags are
+additive and never create a second copy of the same sense. Same word plus a
+genuinely different meaning remains a separate entry with a permanent suffix
+assigned by the backend. Never renumber or reuse ranks. Related meanings link
+through the real normalized term, with ownership enforced.
+
+### Approximately 100 visible packs, smaller immutable units
+
+A visible delivery pack groups up to 400 entries from consecutive accepted
+immutable batches. 40,000 new entries arranged in full packs would occupy 100
+visible packs. Uneven source plans and existing entries can change that number.
+The existing safe 50–100-entry generation units, hashes, retry boundaries and
+import transactions remain intact. Never attempt 400 complete lessons in one
+response merely to reduce the visible pack count. All eight lesson sections
+remain mandatory. A pack is a presentation/orchestration layer, not a new
+lesson schema, import bypass or reason to rewrite an existing manifest.
+
+After complete manifest preflight, run:
+
+`yarn collection:plan <new-collection-id> <output.json> <manifest.json> [...]`
+
+The planner rejects invalid manifests, duplicate manifest identities and
+identical term/sense keys across the supplied plans. It freezes original
+manifest hashes, batch numbers and candidate memberships in
+`chatgpt-fluency-collection-v1`. Supply manifests in deliberate delivery order.
+Identical retries are safe; changed content requires a new identity and output
+path. A matching sense-key check is not a substitute for semantic review of
+synonymously worded senses. Do not combine overlapping plans without resolving
+the overlap in new valid source manifests first.
+
+Pack completion requires every original unit to be present, fully committed,
+and database-verified, with selection and language/teaching review completed.
+The `packDeliveryState` helper fails closed on missing receipts, mismatched
+hashes/counts or missing review. Report excluded or quarantined entries
+explicitly; they cannot be reported as part of the committed 40,000 target.
+Register the CLI index in Coverage & Collection after its manifests synchronize.
+The app verifies every original manifest against the signed-in account, rejects
+identity conflicts, and stores the index immutably. It displays one row per
+visible pack using actual batch counts, manifest hashes, database verification
+and editorial review receipts. The planning target is separate from this ledger.
+
+An editorial review receipt contains `manifestId`, `manifestHash`, `batchNumber`,
+`reviewer`, and `candidates`. Each candidate requires its exact `candidateId`, a
+specific `frequencyEvidence` explanation and a `languageTeachingReview` note.
+Every frozen candidate must appear exactly once. Register the receipt against
+the corresponding collection; identical retries are safe and conflicting
+receipts are rejected. These are recorded editorial attestations, not an
+automatic guarantee that the reviewer is correct. Never create a review receipt
+before actually performing those checks.
+
+### Audit and learning evidence
+
+The new coverage view includes empty categories and per-level counts. Current
+lesson format is not synonymous with quality. Its paginated audit checks the
+automated lesson contract and sense-key presence; it does not establish corpus
+frequency, provenance, semantic uniqueness or editorial naturalness. Complete
+those reviews before certifying the collection. Exported collection requests
+contain matching vocabulary and taxonomy, never database credentials.
+
+Fluency practice keeps recognition, recall, listening, speaking and writing
+separate, with self-assessed attempts, local-calendar review days and delayed
+retrieval. Multiple same-day successes cannot establish retention. Browser
+speech is synthetic; recordings remain in the current tab. Neither these
+features nor a successful typed response imply automated pronunciation or
+language grading. Old progress and review history remain stored; flashcard
+scores are labelled recall evidence rather than certified fluency.
