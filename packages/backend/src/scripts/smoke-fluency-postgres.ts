@@ -242,8 +242,13 @@ export async function smokeFluency() {
       entry_count: 1,
       committed_count: 1,
       payload: {},
-      committed_word_ids: [wordId],
+      // pg serializes bare arrays as PostgreSQL arrays, not JSON.
+      committed_word_ids: JSON.stringify([wordId]),
     });
+    const committedBatch = await database("content_pack_batches")
+      .where({ id: `${manifestId}-batch-001` })
+      .first();
+    assert.deepEqual(committedBatch.committed_word_ids, [wordId]);
     const review = {
       manifestId,
       manifestHash,
