@@ -12,6 +12,8 @@ const navigation = [
   { href: "/categories", label: "Categories" },
   { href: "/search", label: "Search" },
   { href: "/flashcards", label: "Review" },
+  { href: "/practice", label: "Fluency Practice" },
+  { href: "/coverage", label: "Coverage & Collection" },
   { href: "/progress", label: "Progress" },
   { href: "/generate", label: "ChatGPT Imports" },
 ];

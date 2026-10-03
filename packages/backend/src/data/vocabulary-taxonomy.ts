@@ -1,7 +1,9 @@
 export const LEGACY_TAXONOMY_VERSION = "2026.1" as const;
-export const TAXONOMY_VERSION = "2026.2" as const;
+export const PREVIOUS_TAXONOMY_VERSION = "2026.2" as const;
+export const TAXONOMY_VERSION = "2026.3" as const;
 export const SUPPORTED_TAXONOMY_VERSIONS = [
   LEGACY_TAXONOMY_VERSION,
+  PREVIOUS_TAXONOMY_VERSION,
   TAXONOMY_VERSION,
 ] as const;
 
@@ -790,46 +792,74 @@ const title = (key: string) =>
 
 const ADDITIONAL_DOMAIN_SPECS = {
   finance_economics: {
-    personal_finance: "budgeting_saving banking_accounts credit_debt insurance_risk taxes_pensions",
-    markets_business: "prices_inflation supply_demand trade_investment companies_industries economic_cycles",
-    accounting_commerce: "revenue_costs profit_loss payments_invoicing assets_liabilities financial_reporting",
-    economic_policy: "public_spending interest_rates employment_wages inequality_distribution global_economy",
+    personal_finance:
+      "budgeting_saving banking_accounts credit_debt insurance_risk taxes_pensions",
+    markets_business:
+      "prices_inflation supply_demand trade_investment companies_industries economic_cycles",
+    accounting_commerce:
+      "revenue_costs profit_loss payments_invoicing assets_liabilities financial_reporting",
+    economic_policy:
+      "public_spending interest_rates employment_wages inequality_distribution global_economy",
   },
   media_journalism: {
-    news_reporting: "headlines_breaking_news reporting_sources interviews_quotes fact_checking corrections_updates",
-    journalism_analysis: "editorials_opinion investigations political_reporting business_reporting science_health_reporting",
-    media_literacy: "bias_framing misinformation credibility_evidence privacy_ethics algorithms_attention",
-    publishing_broadcasting: "newspapers_magazines radio_podcasts television_broadcasts digital_publishing audience_engagement",
+    news_reporting:
+      "headlines_breaking_news reporting_sources interviews_quotes fact_checking corrections_updates",
+    journalism_analysis:
+      "editorials_opinion investigations political_reporting business_reporting science_health_reporting",
+    media_literacy:
+      "bias_framing misinformation credibility_evidence privacy_ethics algorithms_attention",
+    publishing_broadcasting:
+      "newspapers_magazines radio_podcasts television_broadcasts digital_publishing audience_engagement",
   },
   arts_culture: {
-    visual_arts: "painting_drawing sculpture_crafts photography_design exhibitions_galleries criticism_interpretation",
-    literature: "fiction_narrative poetry drama_theatre authorship_publishing literary_analysis",
-    music_performance: "instruments_sound singing_composition concerts_performance genres_styles music_criticism",
-    heritage_identity: "traditions_customs museums_archives cultural_identity festivals_ceremonies preservation_exchange",
+    visual_arts:
+      "painting_drawing sculpture_crafts photography_design exhibitions_galleries criticism_interpretation",
+    literature:
+      "fiction_narrative poetry drama_theatre authorship_publishing literary_analysis",
+    music_performance:
+      "instruments_sound singing_composition concerts_performance genres_styles music_criticism",
+    heritage_identity:
+      "traditions_customs museums_archives cultural_identity festivals_ceremonies preservation_exchange",
   },
   government_law: {
-    government_institutions: "elections_voting legislatures_policies public_administration diplomacy_international_relations local_government",
-    legal_processes: "laws_regulations courts_trials evidence_testimony contracts_obligations penalties_appeals",
-    rights_responsibilities: "civil_rights equality_discrimination privacy_freedom citizenship_immigration duties_compliance",
-    public_policy: "taxation_services welfare_social_policy education_health_policy regulation_enforcement policy_debate_reform",
+    government_institutions:
+      "elections_voting legislatures_policies public_administration diplomacy_international_relations local_government",
+    legal_processes:
+      "laws_regulations courts_trials evidence_testimony contracts_obligations penalties_appeals",
+    rights_responsibilities:
+      "civil_rights equality_discrimination privacy_freedom citizenship_immigration duties_compliance",
+    public_policy:
+      "taxation_services welfare_social_policy education_health_policy regulation_enforcement policy_debate_reform",
   },
   science_engineering: {
-    scientific_method: "observation_measurement hypotheses_experiments evidence_analysis uncertainty_replication research_communication",
-    physical_life_sciences: "physics_chemistry biology_genetics medicine_biotech earth_space ecology_evolution",
-    engineering_design: "requirements_constraints modelling_prototypes materials_manufacturing systems_optimization testing_reliability",
-    mathematics_data: "quantities_calculation geometry_measurement probability_statistics data_modelling algorithms_computation",
+    scientific_method:
+      "observation_measurement hypotheses_experiments evidence_analysis uncertainty_replication research_communication",
+    physical_life_sciences:
+      "physics_chemistry biology_genetics medicine_biotech earth_space ecology_evolution",
+    engineering_design:
+      "requirements_constraints modelling_prototypes materials_manufacturing systems_optimization testing_reliability",
+    mathematics_data:
+      "quantities_calculation geometry_measurement probability_statistics data_modelling algorithms_computation",
   },
   sports_fitness: {
-    exercise_training: "strength_conditioning endurance_cardio flexibility_mobility training_plans recovery_rest",
-    sports_play: "team_sports individual_sports rules_officiating tactics_strategy skills_technique",
-    competition_performance: "events_tournaments scores_results winning_losing athletes_coaching records_achievement",
-    active_lifestyle: "recreational_activity outdoor_sports gyms_equipment motivation_consistency injury_prevention",
+    exercise_training:
+      "strength_conditioning endurance_cardio flexibility_mobility training_plans recovery_rest",
+    sports_play:
+      "team_sports individual_sports rules_officiating tactics_strategy skills_technique",
+    competition_performance:
+      "events_tournaments scores_results winning_losing athletes_coaching records_achievement",
+    active_lifestyle:
+      "recreational_activity outdoor_sports gyms_equipment motivation_consistency injury_prevention",
   },
   safety_emergencies: {
-    personal_public_safety: "hazards_precautions workplace_safety road_safety online_safety safeguarding",
-    crime_investigation: "offences_suspects police_investigation evidence_forensics prevention_security victims_witnesses",
-    emergency_response: "calling_for_help fire_rescue medical_emergencies evacuation_shelter disaster_response",
-    risk_crisis_management: "risk_assessment contingency_planning incident_command crisis_communication recovery_resilience",
+    personal_public_safety:
+      "hazards_precautions workplace_safety road_safety online_safety safeguarding",
+    crime_investigation:
+      "offences_suspects police_investigation evidence_forensics prevention_security victims_witnesses",
+    emergency_response:
+      "calling_for_help fire_rescue medical_emergencies evacuation_shelter disaster_response",
+    risk_crisis_management:
+      "risk_assessment contingency_planning incident_command crisis_communication recovery_resilience",
   },
 } as const;
 
@@ -847,9 +877,57 @@ const ADDITIONAL_TAXONOMY: readonly RawDomain[] = Object.entries(
   })),
 }));
 
+const FLUENCY_DOMAIN_SPECS = {
+  professional_communication: {
+    reasoning_and_strategy:
+      "trade_offs_and_priorities rationale_and_evidence guiding_principles assumptions_and_constraints strategic_direction",
+    delivery_and_expectations:
+      "commitments_and_estimates setbacks_and_recovery dependencies_and_readiness scope_and_boundaries expectation_management",
+    constructive_discussion:
+      "respectful_pushback challenging_assumptions resolving_differences gaining_agreement negotiating_compromises",
+    official_communication:
+      "concise_status_briefings diplomatic_escalations recommendations_and_proposals decision_records accountable_handovers",
+  },
+  linking_ideas: {
+    logical_relationships:
+      "cause_and_effect contrast_and_comparison concession_and_counterpoints conditions_and_provisos exceptions_and_limits",
+    organising_explanations:
+      "sequencing_steps introducing_context adding_information illustrating_with_examples summarising_conclusions",
+    precision_and_stance:
+      "hedging_and_certainty qualifying_claims emphasis_and_focus evidence_and_inference perspective_and_balance",
+    reformulation:
+      "rephrasing_clearly simplifying_complex_ideas correcting_a_statement narrowing_the_point connecting_back",
+  },
+  conversational_nuance: {
+    spontaneous_responses:
+      "acknowledging_and_backchannels reacting_to_news buying_thinking_time expressing_surprise tentative_responses",
+    repairing_conversation:
+      "self_correction asking_for_repetition paraphrasing_unknown_words resolving_misunderstanding returning_to_a_point",
+    social_intentions:
+      "softening_requests declining_tactfully indirect_suggestions understatement_and_humour interpreting_implications",
+    storytelling_and_register:
+      "setting_the_scene connecting_events reporting_what_people_said explaining_outcomes adapting_to_the_audience",
+  },
+} as const;
+
+const FLUENCY_TAXONOMY: readonly RawDomain[] = Object.entries(
+  FLUENCY_DOMAIN_SPECS,
+).map(([key, specs]) => ({
+  key,
+  name: title(key),
+  groups: Object.entries(specs).map(([groupKey, categories]) => ({
+    key: groupKey,
+    name: title(groupKey),
+    categories: categories
+      .split(" ")
+      .map((category) => [category, title(category)] as const),
+  })),
+}));
+
 const ACTIVE_TAXONOMY: readonly RawDomain[] = [
   ...RAW_TAXONOMY,
   ...ADDITIONAL_TAXONOMY,
+  ...FLUENCY_TAXONOMY,
 ];
 
 export type SupportedTaxonomyVersion =
@@ -981,6 +1059,8 @@ export function taxonomyPathForCategoryKey(
   if (!group || !domain) return null;
   if (taxonomyVersion === LEGACY_TAXONOMY_VERSION && domain.sortOrder > 15)
     return null;
+  if (taxonomyVersion === PREVIOUS_TAXONOMY_VERSION && domain.sortOrder > 22)
+    return null;
   return {
     taxonomyVersion,
     domainKey: domain.key,
@@ -1001,13 +1081,14 @@ export function isValidTaxonomyPath(input: {
   const taxonomyVersion = SUPPORTED_TAXONOMY_VERSIONS.find(
     (version) => version === input.taxonomyVersion,
   );
-  const path = input.categoryKey && taxonomyVersion
-    ? taxonomyPathForCategoryKey(input.categoryKey, taxonomyVersion)
-    : null;
+  const path =
+    input.categoryKey && taxonomyVersion
+      ? taxonomyPathForCategoryKey(input.categoryKey, taxonomyVersion)
+      : null;
   return Boolean(
     path &&
-      input.domainKey === path.domainKey &&
-      input.usageGroupKey === path.usageGroupKey,
+    input.domainKey === path.domainKey &&
+    input.usageGroupKey === path.usageGroupKey,
   );
 }
 
@@ -1021,12 +1102,12 @@ export function legacyTaxonomyPath(categoryName?: string): TaxonomyPath {
 }
 
 export function assertTaxonomyCatalogue(): void {
-  if (TAXONOMY_DOMAINS.length !== 22)
-    throw new Error("Taxonomy must contain 22 domains.");
-  if (TAXONOMY_USAGE_GROUPS.length !== 88)
-    throw new Error("Taxonomy must contain 88 usage groups.");
-  if (TAXONOMY_SPECIFIC_CATEGORIES.length !== 440) {
-    throw new Error("Taxonomy must contain 440 specific categories.");
+  if (TAXONOMY_DOMAINS.length !== 25)
+    throw new Error("Taxonomy must contain 25 domains.");
+  if (TAXONOMY_USAGE_GROUPS.length !== 100)
+    throw new Error("Taxonomy must contain 100 usage groups.");
+  if (TAXONOMY_SPECIFIC_CATEGORIES.length !== 500) {
+    throw new Error("Taxonomy must contain 500 specific categories.");
   }
   const keys = new Set(
     TAXONOMY_SPECIFIC_CATEGORIES.map((category) => category.key),

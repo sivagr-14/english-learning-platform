@@ -248,7 +248,11 @@ async function getTaxonomy(userId: string) {
   // Word counts only change when an import commits, so a short TTL is safe
   // even without wiring explicit invalidation into every write path yet --
   // worst case a learner sees counts up to 5 minutes stale.
-  await cacheSetJson(taxonomyCacheKey(userId), result, TAXONOMY_CACHE_TTL_SECONDS);
+  await cacheSetJson(
+    taxonomyCacheKey(userId),
+    result,
+    TAXONOMY_CACHE_TTL_SECONDS,
+  );
   return result;
 }
 
@@ -761,7 +765,20 @@ router.get(
         navigation = buildNavigation(await rowsQuery, String(req.params.id));
       }
 
+      const otherMeanings = await applyOwnership(
+        database("vocabulary_words as vw"),
+        req.userId as string,
+      )
+        .whereRaw(
+          "vw.normalized_term = (SELECT normalized_term FROM vocabulary_words WHERE id = ?)",
+          [word.id],
+        )
+        .whereNot("vw.id", word.id)
+        .select("vw.id", "vw.word", "vw.sense_rank", "vw.english_meaning")
+        .orderBy("vw.sense_rank")
+        .limit(100);
       res.json({
+        otherMeanings: otherMeanings.map(withDisplayLabel),
         word: {
           ...withDisplayLabel(word),
           cefr_level: normalizeCefrLevel(word.cefr_level),

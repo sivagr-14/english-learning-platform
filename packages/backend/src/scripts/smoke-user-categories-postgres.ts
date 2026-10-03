@@ -248,11 +248,11 @@ async function main() {
       .set(authorization)
       .expect(200);
     assert.deepEqual(taxonomyResponse.body.counts, {
-      domains: 22,
-      usage_groups: 88,
-      specific_categories: 440,
+      domains: 25,
+      usage_groups: 100,
+      specific_categories: 500,
     });
-    assert.equal(taxonomyResponse.body.domains.length, 22);
+    assert.equal(taxonomyResponse.body.domains.length, 25);
     assert(
       taxonomyResponse.body.domains.every(
         (domain: any) =>
@@ -371,3 +371,4 @@ main()
     await closeRedis();
     await database.destroy();
   });
+

@@ -404,3 +404,52 @@ dynamically discovered branches, communication functions and the independent
 recall pass reconcile with zero gaps or untracked candidates. Generate 50-100
 complete lessons per immutable cycle and drain all cycles across at most five
 balanced waves automatically, without confirmation between cycles or waves.
+
+
+## Fluency collection teaching requirements — 2026.1
+
+The collection prioritises useful everyday and professional communication.
+Teach trade-offs, guiding principles, strategy, expectations, setbacks,
+respectful disagreement, concise updates and official correspondence. Do not
+substitute a glossary of API, cloud and security definitions for communication
+practice. One lesson teaches one demonstrated contextual meaning; another
+setting for that same meaning is an example or tag, not a duplicate entry.
+
+Keep all eight simplified-v2 sections. Present a concise first layer using the
+existing fields: plain-English meaning, selective Tamil meaning, core idea,
+short conversation, reusable pattern, important distinction, memory cue and a
+production prompt. The detailed sections remain available below it. Do not
+append unsupported fields to the strict lesson payload.
+
+Mini-conversations should normally have two to four realistic turns. Establish
+speaker intention and enough context to infer the expression's meaning. Use
+natural exchanges, not two people reciting dictionary definitions. Patterns
+must show the required grammar or slots. Linking expressions must clarify
+clause structure, relevant punctuation and register: for example, given + noun
+phrase differs grammatically from given that + clause. Do not label nevertheless
+as interchangeable with every use of but, or teach an idiom as a universal
+professional substitute for clear wording.
+
+Use a concise, accurate memory anchor when helpful. Do not force a fanciful
+mnemonic, fabricated etymology, extra dictionary sense, or irrelevant Advanced
+Nuance. Include meaningful example variation within the same sense. A second
+workplace/everyday setting is useful only when natural for the expression.
+Avoid padding examples with technical jargon merely because the learner works
+in IT. Explain when an expression may minimise a serious issue, sound too
+casual, imply blame, or be unnecessarily formal.
+
+Recognition tasks should check the intended meaning. Production tasks should
+ask for a realistic utterance or short message with an identifiable purpose.
+Do not leak the complete answer in the prompt. The app prompts before reveal,
+then shows examples and patterns for self-comparison. Accepting a different
+natural answer requires semantic judgement; exact string equality is not an
+appropriate free-response grader. Typed responses and recordings are
+self-assessed unless a separate grading capability has actually been deployed.
+
+A complete collection delivery requires separate selection and language/
+teaching review in addition to schema validation. Check sense-specific usage
+frequency against suitable evidence, contextual appropriateness, collocations,
+conversation naturalness, meaningful contrasts, duplicate senses and useful
+practice. Record uncertainty rather than inventing evidence. Quantity targets
+and visible packs of up to 400 never weaken the lesson contract or imply that
+400 full lessons should be generated in one operation.

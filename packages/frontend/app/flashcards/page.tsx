@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getApiClient } from "@/lib/api/client";
 import useAuthStore from "@/lib/store/auth";
@@ -49,6 +49,9 @@ export default function FlashcardsPage() {
   const [selectedCategory, setSelectedCategory] =
     useState<RecallCategory | null>(null);
   const [cards, setCards] = useState<Card[]>([]);
+  const reviewIds = useRef<Record<string, string>>({});
+  const [saving, setSaving] = useState(false);
+  const [reviewError, setReviewError] = useState("");
   const [index, setIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
   const [isLoadingCategories, setIsLoadingCategories] = useState(true);
@@ -102,21 +105,31 @@ export default function FlashcardsPage() {
   const card = cards[index];
 
   const review = async (rating: (typeof ratings)[number]["id"]) => {
-    if (!card) return;
+    if (!card || saving) return;
+    setSaving(true);
+    setReviewError("");
+    try {
+      reviewIds.current[card.id] ||= crypto.randomUUID();
+      await getApiClient().post(`/api/flashcards/${card.id}/review`, {
+        rating,
+        requestId: reviewIds.current[card.id],
+      });
+      delete reviewIds.current[card.id];
 
-    await getApiClient().post(`/api/flashcards/${card.id}/review`, {
-      rating,
-    });
+      const nextCards = cards.filter((_, cardIndex) => cardIndex !== index);
+      setCards(nextCards);
+      setIndex(Math.min(index, Math.max(0, nextCards.length - 1)));
+      setShowAnswer(false);
 
-    const nextCards = cards.filter((_, cardIndex) => cardIndex !== index);
-    setCards(nextCards);
-    setIndex(Math.min(index, Math.max(0, nextCards.length - 1)));
-    setShowAnswer(false);
-
-    if (selectedCategory && nextCards.length === 0) {
-      setCategories((current) =>
-        current.filter((category) => category.id !== selectedCategory.id),
-      );
+      if (selectedCategory && nextCards.length === 0) {
+        setCategories((current) =>
+          current.filter((category) => category.id !== selectedCategory.id),
+        );
+      }
+    } catch {
+      setReviewError("Could not save this review. Retry the same rating.");
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -297,10 +310,12 @@ export default function FlashcardsPage() {
                     </p>
                   </section>
 
+                  {reviewError && <p role="alert">{reviewError}</p>}
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                     {ratings.map((rating) => (
                       <button
                         key={rating.id}
+                        disabled={saving}
                         type="button"
                         onClick={() => review(rating.id)}
                         className={`rounded-lg px-4 py-3 text-sm font-medium text-white ${rating.tone}`}

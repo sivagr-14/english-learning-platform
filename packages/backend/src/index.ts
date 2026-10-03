@@ -57,7 +57,10 @@ app.get("/health", (_req, res) => {
 
 app.get("/ready", async (_req, res) => {
   const [databaseReady, redisReady] = await Promise.all([
-    database.raw("select 1").then(() => true).catch(() => false),
+    database
+      .raw("select 1")
+      .then(() => true)
+      .catch(() => false),
     getRedisClient()
       .then(async (redis) => {
         if (!redis) return false;
@@ -83,6 +86,12 @@ app.use("/api/vocabulary", require("./routes/vocabulary").default);
 app.use("/api/progress", require("./routes/progress").default);
 app.use("/api/flashcards", require("./routes/flashcards").default);
 app.use("/api/control", require("./routes/control").default);
+
+app.use(
+  "/api/fluency/collections",
+  require("./routes/fluency-collections").default,
+);
+app.use("/api/fluency", require("./routes/fluency").default);
 
 // 404 handler
 app.use((req, res) => {
