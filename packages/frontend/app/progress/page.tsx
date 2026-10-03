@@ -28,12 +28,18 @@ export default function ProgressPage() {
   const [data, setData] = useState<ProgressData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [error, setError] = useState(false);
+  const [reload, setReload] = useState(0);
+
   useEffect(() => {
+    setError(false);
+    setIsLoading(true);
     getApiClient()
       .get("/api/progress")
       .then((response) => setData(response.data))
+      .catch(() => setError(true))
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [reload]);
 
   const summary = data?.summary;
 
@@ -43,6 +49,17 @@ export default function ProgressPage() {
         title="Learning Progress"
         description="Track what you are learning, your self-rated recall. Use Fluency Practice to track listening and production separately."
       >
+        {error && (
+          <div role="alert" className="notice">
+            Your progress couldn’t load.{" "}
+            <button
+              className="ml-2 underline font-semibold"
+              onClick={() => setReload((n) => n + 1)}
+            >
+              Try again
+            </button>
+          </div>
+        )}
         <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
           {[
             ["Total entries", summary?.totalEntries],
@@ -58,7 +75,7 @@ export default function ProgressPage() {
             >
               <p className="text-xs font-medium text-slate-500">{label}</p>
               <p className="mt-2 text-2xl font-bold text-slate-950">
-                {isLoading ? "—" : (value ?? 0)}
+                {isLoading || error ? "—" : (value ?? 0)}
               </p>
             </div>
           ))}
@@ -71,7 +88,7 @@ export default function ProgressPage() {
           <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-white">
             {isLoading ? (
               <p className="p-6 text-sm text-slate-500">Loading progress…</p>
-            ) : !data?.categories.length ? (
+            ) : error ? null : !data?.categories.length ? (
               <div className="p-8 text-center">
                 <h3 className="font-semibold text-slate-950">
                   No vocabulary to measure yet
@@ -100,7 +117,14 @@ export default function ProgressPage() {
                           {category.track_name}
                         </p>
                       </div>
-                      <div className="h-2 overflow-hidden rounded-full bg-slate-100">
+                      <div
+                        role="progressbar"
+                        aria-label={`${category.category_name} recall established`}
+                        aria-valuenow={percentage}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        className="h-2 overflow-hidden rounded-full bg-slate-100"
+                      >
                         <div
                           className="h-full rounded-full"
                           style={{

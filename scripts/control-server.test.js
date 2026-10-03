@@ -17,6 +17,8 @@ const {
 
 test('control page presents the browser-based startup action', () => {
   const page = controlPage();
+  assert.match(page, /<title>Mastery Skills<\/title>/);
+  assert.match(page, /<h1>Mastery Skills<\/h1>/);
   assert.match(page, /Update from GitHub &amp; start/);
   assert.match(page, /Start installed version/);
   assert.match(page, /\/__control\/start/);

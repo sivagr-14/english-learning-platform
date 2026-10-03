@@ -35,15 +35,6 @@ interface WordNavigation {
   total: number;
 }
 
-const lessonTones = [
-  "border-sky-200 bg-sky-50",
-  "border-emerald-200 bg-emerald-50",
-  "border-amber-200 bg-amber-50",
-  "border-indigo-200 bg-indigo-50",
-  "border-rose-200 bg-rose-50",
-  "border-teal-200 bg-teal-50",
-];
-
 function formatLabel(value: string) {
   return value
     .replace(/_/g, " ")
@@ -149,46 +140,36 @@ function LessonPanel({
   title: string;
   children: ReactNode;
 }) {
-  const tone = lessonTones[(number - 1) % lessonTones.length];
-
   return (
-    <section className={`rounded-lg border p-5 ${tone}`}>
-      <div className="mb-4 flex items-center gap-3 border-b border-white/70 pb-3">
-        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-sm font-bold text-gray-900 shadow-sm">
-          {number}
+    <section
+      id={`lesson-section-${number}`}
+      tabIndex={-1}
+      className="lesson-panel"
+      aria-labelledby={`lesson-heading-${number}`}
+    >
+      <div className="lesson-panel-heading">
+        <span className="lesson-panel-number">
+          {String(number).padStart(2, "0")}
         </span>
-        <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+        <h3 id={`lesson-heading-${number}`}>{title}</h3>
       </div>
-      <div className="rounded-lg bg-white p-4 shadow-sm">{children}</div>
+      {children}
     </section>
   );
 }
 
 function FieldTable({ rows }: { rows: Array<[string, unknown]> }) {
   const visibleRows = rows.filter(([, value]) => hasContent(value));
-
   if (!visibleRows.length) return null;
-
   return (
-    <div className="overflow-hidden rounded-lg border border-gray-200">
-      <table className="w-full border-collapse text-sm">
-        <tbody>
-          {visibleRows.map(([label, value]) => (
-            <tr
-              key={label}
-              className="border-b border-gray-100 last:border-b-0"
-            >
-              <th className="w-48 bg-gray-50 px-4 py-3 text-left font-semibold text-gray-800">
-                {label}
-              </th>
-              <td className="px-4 py-3 text-gray-700">
-                {renderSimpleValue(value)}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <dl className="lesson-fields">
+      {visibleRows.map(([label, value]) => (
+        <div key={label}>
+          <dt>{formatLabel(label)}</dt>
+          <dd>{renderSimpleValue(value)}</dd>
+        </div>
+      ))}
+    </dl>
   );
 }
 
@@ -282,7 +263,7 @@ function SimplifiedLessonTemplate({
               <h4 className="text-sm font-semibold text-gray-900">
                 Tamil Meaning
               </h4>
-              <p className="mt-2 text-sm leading-6 text-blue-700">
+              <p lang="ta" className="mt-2 text-sm leading-6 text-blue-700">
                 {word.tamil_meaning}
               </p>
             </div>
@@ -510,11 +491,11 @@ function VocabularyWordContent() {
             {error || "Vocabulary entry not found."}
           </div>
         ) : (
-          <main className="space-y-6">
+          <div className="space-y-6">
             <section className="rounded-lg border border-gray-200 bg-white p-6">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-4xl font-bold text-gray-900">
+                  <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                     {word.display_label || word.word}
                   </h2>
                   <p className="mt-2 text-sm text-gray-600">
@@ -586,6 +567,30 @@ function VocabularyWordContent() {
               <summary className="cursor-pointer text-lg font-semibold">
                 Explore the complete lesson
               </summary>
+              <nav className="lesson-jump" aria-label="Lesson sections">
+                {[
+                  "Overview",
+                  "Meaning in Context",
+                  "Usage Guide",
+                  "Patterns & Collocations",
+                  "Natural Examples",
+                  "Mistakes & Differences",
+                  "Memory & Practice",
+                  "Advanced Nuance",
+                ].map((title, index) => (
+                  <a
+                    key={title}
+                    href={`#lesson-section-${index + 1}`}
+                    onClick={() =>
+                      document
+                        .getElementById(`lesson-section-${index + 1}`)
+                        ?.focus({ preventScroll: true })
+                    }
+                  >
+                    {index + 1}. {title}
+                  </a>
+                ))}
+              </nav>
               <div className="mb-5 border-b border-gray-200 pb-4">
                 <h2 className="text-xl font-semibold text-gray-900">
                   Vocabulary Lesson
@@ -600,7 +605,7 @@ function VocabularyWordContent() {
               />
             </details>
             {navigationControls}
-          </main>
+          </div>
         )}
       </div>
     </AppShell>

@@ -97,7 +97,9 @@ function bytesToBase64(bytes: Uint8Array): string {
   let result = "";
   const chunkSize = 0x8000;
   for (let offset = 0; offset < bytes.length; offset += chunkSize) {
-    result += String.fromCharCode(...bytes.subarray(offset, offset + chunkSize));
+    result += String.fromCharCode(
+      ...bytes.subarray(offset, offset + chunkSize),
+    );
   }
   return btoa(result);
 }
@@ -363,7 +365,8 @@ export default function ChatGPTImportsPage() {
       if (job.status === "completed") return job.request;
       if (job.status === "failed") {
         throw new Error(
-          job.error || "Source preparation failed. You can retry the same source.",
+          job.error ||
+            "Source preparation failed. You can retry the same source.",
         );
       }
       await new Promise((resolve) => window.setTimeout(resolve, 1000));
@@ -492,6 +495,7 @@ export default function ChatGPTImportsPage() {
           />
           <div className="mt-3 flex flex-wrap items-center gap-3">
             <input
+              aria-label="Upload a source document"
               type="file"
               accept=".txt,.md,.html,.htm,.vtt,.pdf,.srt,.docx,.epub"
               onChange={(event) => {
@@ -513,7 +517,10 @@ export default function ChatGPTImportsPage() {
             </button>
           </div>
           <p className="mt-3 text-xs text-slate-500">
-            Maximum source size: 25 MB. Large sources continue in a durable background job, so the browser request timeout cannot cancel preparation. The downloaded request is immutable and contains no database credentials.
+            Maximum source size: 25 MB. Large sources continue in a durable
+            background job, so the browser request timeout cannot cancel
+            preparation. The downloaded request is immutable and contains no
+            database credentials.
           </p>
         </section>
 
@@ -619,7 +626,8 @@ export default function ChatGPTImportsPage() {
                   No ChatGPT imports yet
                 </h3>
                 <p className="mt-2 text-sm text-slate-600">
-                  For your practical test, prepare a small source above, attach the downloaded request in ChatGPT, and write Generate.
+                  For your practical test, prepare a small source above, attach
+                  the downloaded request in ChatGPT, and write Generate.
                 </p>
               </div>
             ) : (

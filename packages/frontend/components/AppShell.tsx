@@ -2,20 +2,36 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { getApiClient } from "@/lib/api/client";
+import Icon from "./Icon";
 import useAuthStore from "@/lib/store/auth";
 
 const navigation = [
-  { href: "/dashboard", label: "Home" },
-  { href: "/vocabulary", label: "Vocabulary" },
-  { href: "/categories", label: "Categories" },
-  { href: "/search", label: "Search" },
-  { href: "/flashcards", label: "Review" },
-  { href: "/practice", label: "Fluency Practice" },
-  { href: "/coverage", label: "Coverage & Collection" },
-  { href: "/progress", label: "Progress" },
-  { href: "/generate", label: "ChatGPT Imports" },
+  {
+    group: "Your learning",
+    items: [
+      { href: "/dashboard", label: "Home", icon: "home" },
+      { href: "/practice", label: "Fluency Practice", icon: "speak" },
+      { href: "/flashcards", label: "Spaced Review", icon: "review" },
+      { href: "/progress", label: "Progress", icon: "chart" },
+    ],
+  },
+  {
+    group: "Explore",
+    items: [
+      { href: "/vocabulary", label: "Vocabulary", icon: "book" },
+      { href: "/categories", label: "Categories", icon: "grid" },
+      { href: "/search", label: "Search", icon: "search" },
+    ],
+  },
+  {
+    group: "Your collection",
+    items: [
+      { href: "/coverage", label: "Coverage & Collection", icon: "chart" },
+      { href: "/generate", label: "ChatGPT Imports", icon: "upload" },
+    ],
+  },
 ];
 
 export default function AppShell({
@@ -30,6 +46,21 @@ export default function AppShell({
   actions?: ReactNode;
 }) {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+  useEffect(() => {
+    const close = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && menuOpen) {
+        setMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, [menuOpen]);
   const router = useRouter();
   const { user, logout } = useAuthStore();
   const [isRestarting, setIsRestarting] = useState(false);
@@ -102,99 +133,137 @@ export default function AppShell({
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <Link
-              href="/dashboard"
-              className="text-lg font-bold tracking-tight text-slate-950 hover:text-blue-700"
-            >
-              English Mastery
-            </Link>
-            {appRevision && (
-              <span
-                title="Installed GitHub commit"
-                className="rounded bg-slate-100 px-2 py-1 font-mono text-[11px] text-slate-500"
-              >
-                {appRevision}
-              </span>
-            )}
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="hidden text-sm text-slate-500 sm:inline">
-              {user?.first_name || user?.email}
+    <div className="app-frame">
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <aside className="app-sidebar">
+        <div className="brand-row">
+          <Link
+            href="/dashboard"
+            className="brand"
+            aria-label="Mastery Skills home"
+          >
+            <span className="brand-mark">
+              <Icon name="book" />
             </span>
-            <button
-              type="button"
-              onClick={updateAndRestart}
-              disabled={isUpdating || isRestarting}
-              className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm font-medium text-emerald-700 hover:bg-emerald-100 disabled:cursor-wait disabled:opacity-60"
-            >
-              {isUpdating ? "Updating…" : "Update & restart"}
-            </button>
-            <button
-              type="button"
-              onClick={restartApp}
-              disabled={isRestarting || isUpdating}
-              className="rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-sm font-medium text-blue-700 hover:bg-blue-100 disabled:cursor-wait disabled:opacity-60"
-            >
-              {isRestarting ? "Restarting…" : "Restart current"}
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                logout();
-                router.push("/login");
-              }}
-              className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
-            >
-              Sign out
-            </button>
-          </div>
+            <span>
+              Mastery Skills<small>Make yourself understood.</small>
+            </span>
+          </Link>
+          <button
+            ref={menuButton}
+            className="mobile-menu"
+            aria-expanded={menuOpen}
+            aria-controls="app-navigation"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <Icon name={menuOpen ? "close" : "menu"} />
+            <span className="sr-only">
+              {menuOpen ? "Close navigation" : "Open navigation"}
+            </span>
+          </button>
         </div>
         <nav
+          id="app-navigation"
           aria-label="Primary navigation"
-          className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-4 sm:px-6 lg:px-8"
+          className={`app-navigation ${menuOpen ? "is-open" : ""}`}
         >
-          {navigation.map((item) => {
-            const active =
-              pathname === item.href ||
-              (item.href !== "/dashboard" && pathname.startsWith(item.href));
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={`whitespace-nowrap border-b-2 px-3 py-3 text-sm font-medium ${
-                  active
-                    ? "border-blue-600 text-blue-700"
-                    : "border-transparent text-slate-600 hover:border-slate-300 hover:text-slate-950"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
-      </header>
-
-      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="mb-7 flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
-              {title}
-            </h1>
-            {description && (
-              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
-                {description}
-              </p>
-            )}
+          {navigation.map((group) => (
+            <div className="nav-group" key={group.group}>
+              <p className="nav-caption">{group.group}</p>
+              {group.items.map((item) => {
+                const active =
+                  pathname === item.href ||
+                  pathname.startsWith(`${item.href}/`) ||
+                  (item.href === "/categories" &&
+                    pathname.startsWith("/taxonomy/"));
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={`nav-item ${active ? "is-active" : ""}`}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <Icon name={item.icon} />
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          ))}
+          <div className="sidebar-note">
+            <span className="eyebrow">Small steps, lasting progress</span>
+            <p>Recall a little. Say it your way. Come back tomorrow.</p>
           </div>
-          {actions}
-        </div>
-        {children}
-      </main>
+        </nav>
+      </aside>
+      <div className="app-workspace">
+        <header className="workspace-bar">
+          <span className="workspace-label">Your English, every day</span>
+          <div className="flex items-center gap-3">
+            <Link href="/search" className="search-shortcut">
+              <Icon name="search" />
+              <span>Find an expression</span>
+            </Link>
+            <details className="account-menu">
+              <summary>
+                <span className="avatar" aria-hidden="true">
+                  {(user?.first_name || user?.email || "L")
+                    .slice(0, 1)
+                    .toUpperCase()}
+                </span>
+                <span>Account</span>
+              </summary>
+              <div className="account-panel">
+                <p className="mb-4 break-words text-sm font-semibold">
+                  {user?.first_name || user?.email || "Your account"}
+                </p>
+                <button
+                  onClick={updateAndRestart}
+                  disabled={isUpdating || isRestarting}
+                >
+                  {isUpdating ? "Updating…" : "Update & restart"}
+                </button>
+                <button
+                  onClick={restartApp}
+                  disabled={isRestarting || isUpdating}
+                >
+                  {isRestarting ? "Restarting…" : "Restart current"}
+                </button>
+                <button
+                  onClick={() => {
+                    logout();
+                    router.push("/login");
+                  }}
+                >
+                  Sign out
+                </button>
+                {appRevision && (
+                  <p className="mt-3 break-all text-xs text-slate-500">
+                    Installed version: {appRevision}
+                  </p>
+                )}
+              </div>
+            </details>
+          </div>
+        </header>
+        <main id="main-content" tabIndex={-1} className="workspace-main">
+          <div className="page-heading">
+            <div>
+              <p className="eyebrow">Learn with intention</p>
+              <h1>{title}</h1>
+              {description && <p className="page-description">{description}</p>}
+            </div>
+            {actions && <div className="page-actions">{actions}</div>}
+          </div>
+          {children}
+          <footer className="workspace-footer">
+            Understand it. Make it yours. Use it in real life.
+          </footer>
+        </main>
+      </div>
     </div>
   );
 }

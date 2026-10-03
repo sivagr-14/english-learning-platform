@@ -31,16 +31,16 @@ export default function VocabularyWordList({
   }
 
   return (
-    <div className="space-y-3">
+    <div className="grid gap-4 xl:grid-cols-2">
       {words.map((word) => (
         <Link
           key={word.id}
           href={hrefForWord(word)}
-          className="block rounded-xl border border-slate-200 bg-white p-4 transition hover:border-blue-300 hover:bg-blue-50"
+          className="block min-w-0 rounded-xl border border-slate-200 bg-white p-5 transition hover:border-blue-300 hover:bg-blue-50"
         >
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0">
-              <h2 className="truncate font-semibold text-slate-950">
+              <h2 className="text-lg font-semibold tracking-tight text-slate-950">
                 {word.display_label || word.word}
               </h2>
               <p className="mt-1 text-xs text-slate-500">
@@ -48,12 +48,12 @@ export default function VocabularyWordList({
                 {word.category_name ? ` · ${word.category_name}` : ""}
                 {word.is_starter_sample ? " · Starter sample" : ""}
               </p>
-              <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-600">
+              <p className="mt-2 text-sm leading-6 text-slate-600">
                 {word.english_meaning}
               </p>
             </div>
             <span className="shrink-0 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
-              Open
+              Read lesson →
             </span>
           </div>
         </Link>

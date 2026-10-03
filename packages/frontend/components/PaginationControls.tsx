@@ -17,7 +17,7 @@ export default function PaginationControls({
   return (
     <nav
       aria-label="Result pages"
-      className="mt-6 flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4"
+      className="pagination-controls mt-6 flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4"
     >
       <button
         type="button"

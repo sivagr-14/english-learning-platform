@@ -342,7 +342,7 @@ class ControlManager {
     ]);
     if (frontend && backend && this.phase !== 'starting') {
       this.phase = 'ready';
-      this.currentStep = 'English Mastery is running';
+      this.currentStep = 'Mastery Skills is running';
     } else if (this.phase === 'ready' && (!frontend || !backend)) {
       this.phase = 'error';
       this.currentStep = 'A service stopped unexpectedly';
@@ -1138,7 +1138,7 @@ class ControlManager {
       await this.waitForServices();
 
       this.phase = 'ready';
-      this.currentStep = 'English Mastery is ready';
+      this.currentStep = 'Mastery Skills is ready';
       this.log('Open http://localhost:3000');
     } catch (error) {
       this.stopServices();
@@ -1172,7 +1172,7 @@ function controlPage() {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>English Mastery</title>
+  <title>Mastery Skills</title>
   <style>
     :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     * { box-sizing: border-box; }
@@ -1206,7 +1206,7 @@ function controlPage() {
 <body>
   <main>
     <div class="eyebrow">Local learning workspace</div>
-    <h1>English Mastery</h1>
+    <h1>Mastery Skills</h1>
     <p class="intro">Update from GitHub main or start the installed version. The app checks configuration, dependencies, Docker, PostgreSQL, Redis, migrations, content and web-service health for you.</p>
     <section id="status" class="status idle" aria-live="polite">
       <div class="dot" aria-hidden="true"></div>
@@ -1430,7 +1430,7 @@ if (require.main === module) {
     process.exit(1);
   });
   server.listen(controlPort, controlHost, () => {
-    console.log(`English Mastery control page: http://localhost:${controlPort}`);
+    console.log(`Mastery Skills control page: http://localhost:${controlPort}`);
   });
   const contentSyncTimer = setInterval(() => {
     void manager.synchronizeChatGPTContent().catch((error) =>

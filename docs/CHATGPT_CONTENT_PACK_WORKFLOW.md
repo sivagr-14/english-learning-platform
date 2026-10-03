@@ -719,3 +719,15 @@ speech is synthetic; recordings remain in the current tab. Neither these
 features nor a successful typed response imply automated pronunciation or
 language grading. Old progress and review history remain stored; flashcard
 scores are labelled recall evidence rather than certified fluency.
+
+## Editorial review and the learning interface
+
+The eight-section editorial review is recorded in
+`docs/LESSON_EFFECTIVENESS_REVIEW.md`. The quick lesson and section navigator are
+presentation layers: all eight sections, contextual sense identities, immutable
+batch membership and editorial completion requirements remain mandatory.
+Apply the editorial precision checklist in the generation instructions before
+recording a language/teaching review. Schema compliance alone cannot verify sense
+purity, natural conversation, Tamil accuracy, usage frequency or fluent production.
+The repository's starter lessons are examples, not an automatically certified
+editorial gold standard; the review records specific correction candidates.

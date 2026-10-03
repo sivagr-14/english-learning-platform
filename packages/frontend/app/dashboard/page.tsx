@@ -1,182 +1,196 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
+import Icon from "@/components/Icon";
 import { getApiClient } from "@/lib/api/client";
 import useAuthStore from "@/lib/store/auth";
 
 interface ProgressSummary {
   totalEntries: number;
-  learning: number;
   mastered: number;
   dueNow: number;
-  reviews: number;
   accuracy: number;
 }
-
-interface ControlSummary {
-  assessments: number;
-  pendingApproval: number;
-  activeJobs: number;
-}
-
-const emptyProgress: ProgressSummary = {
-  totalEntries: 0,
-  learning: 0,
-  mastered: 0,
-  dueNow: 0,
-  reviews: 0,
-  accuracy: 0,
-};
-
+const paths = [
+  {
+    href: "/practice?focus=professional",
+    icon: "speak",
+    title: "Communicate at work",
+    description:
+      "Practise clear updates, thoughtful disagreement and everyday professional conversations.",
+    action: "Practise with purpose",
+  },
+  {
+    href: "/vocabulary",
+    icon: "book",
+    title: "Find your next expression",
+    description:
+      "Explore meanings, natural conversations and practical examples in your vocabulary library.",
+    action: "Explore your vocabulary",
+  },
+  {
+    href: "/progress",
+    icon: "chart",
+    title: "See your progress",
+    description:
+      "Follow your review history and recall. Build confidence through regular, meaningful practice.",
+    action: "View learning progress",
+  },
+];
 export default function DashboardPage() {
   const user = useAuthStore((state) => state.user);
-  const [progress, setProgress] = useState(emptyProgress);
-  const [control, setControl] = useState<ControlSummary>({
-    assessments: 0,
-    pendingApproval: 0,
-    activeJobs: 0,
-  });
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    Promise.all([
-      getApiClient().get("/api/progress"),
-      getApiClient().get("/api/control/overview"),
-    ])
-      .then(([progressResponse, controlResponse]) => {
-        setProgress(progressResponse.data.summary);
-        setControl(controlResponse.data.summary);
-      })
-      .finally(() => setIsLoading(false));
+  const [progress, setProgress] = useState<ProgressSummary | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const load = useCallback(async () => {
+    setLoading(true);
+    setError(false);
+    try {
+      const result = await getApiClient().get("/api/progress");
+      setProgress(result.data.summary);
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }, []);
-
+  useEffect(() => {
+    void load();
+  }, [load]);
+  const ready = !loading && !error && progress;
   const stats = [
-    { label: "Vocabulary", value: progress.totalEntries },
-    { label: "Due now", value: progress.dueNow },
-    { label: "Recall established", value: progress.mastered },
-    { label: "Accuracy", value: `${progress.accuracy}%` },
+    {
+      label: "Expressions in your library",
+      value: progress?.totalEntries.toLocaleString(),
+    },
+    { label: "Ready for review", value: progress?.dueNow.toLocaleString() },
+    { label: "Recall established", value: progress?.mastered.toLocaleString() },
+    {
+      label: "Self-rated recall accuracy",
+      value: `${progress?.accuracy ?? 0}%`,
+    },
   ];
-
   return (
     <AuthenticatedPage>
       <AppShell
-        title={`Welcome, ${user?.first_name || "learner"}`}
-        description="Your personal vocabulary workspace. Validated lessons are imported automatically after complete source assessment."
+        title={
+          user?.first_name
+            ? `Make progress, ${user.first_name}.`
+            : "A little practice. A stronger voice."
+        }
+        description="Build the English you can use. Start with a short review, then put an expression into your own words."
       >
-        <section
-          aria-label="Learning summary"
-          className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
-            >
-              <p className="text-sm font-medium text-slate-500">{stat.label}</p>
-              <p className="mt-2 text-3xl font-bold text-slate-950">
-                {isLoading ? "—" : stat.value}
-              </p>
-            </div>
-          ))}
-        </section>
-
-        <section className="mt-7 grid gap-5 lg:grid-cols-[1.35fr_1fr]">
-          <div className="rounded-xl border border-blue-200 bg-blue-50 p-6">
-            <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">
-              Daily focus
-            </p>
-            <h2 className="mt-2 text-xl font-semibold text-slate-950">
-              {progress.dueNow
-                ? `${progress.dueNow} vocabulary cards are ready`
-                : "Your review queue is clear"}
+        {error && (
+          <div className="notice" role="alert">
+            Your learning summary couldn’t load. You can still open your
+            lessons.{" "}
+            <button className="ml-2 underline font-semibold" onClick={load}>
+              Try again
+            </button>
+          </div>
+        )}
+        <section className="learning-hero" aria-labelledby="daily-heading">
+          <div>
+            <p className="eyebrow">Your next step</p>
+            <h2 id="daily-heading">
+              {ready && progress.dueNow > 0
+                ? `${progress.dueNow} opportunities to remember.`
+                : "Turn understanding into conversation."}
             </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Review one category at a time and rate how easily you recalled the
-              answer. Your next review date adjusts after every response.
+            <p>
+              {ready && progress.totalEntries === 0
+                ? "Your library is ready for its first lessons. Explore the categories or prepare content through ChatGPT Imports."
+                : "Bring familiar expressions back to mind. Then practise using them in a situation that matters to you."}
             </p>
-            <Link
-              href="/flashcards"
-              className="mt-5 inline-flex rounded-lg bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-800"
-            >
-              {progress.dueNow ? "Start review" : "Open review queue"}
-            </Link>
-          </div>
-
-          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                  ChatGPT control
-                </p>
-                <h2 className="mt-2 text-xl font-semibold text-slate-950">
-                  Content processing
-                </h2>
-              </div>
-              <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
-                {control.activeJobs} active
-              </span>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                className="btn-primary"
+                href={
+                  ready && progress.dueNow > 0 ? "/flashcards" : "/practice"
+                }
+              >
+                {ready && progress.dueNow > 0
+                  ? "Start your review"
+                  : "Start fluency practice"}
+                <Icon name="arrow" />
+              </Link>
+              <Link className="btn-secondary" href="/vocabulary">
+                Explore lessons
+              </Link>
             </div>
-            <dl className="mt-5 grid grid-cols-2 gap-4 text-sm">
-              <div>
-                <dt className="text-slate-500">Assessments</dt>
-                <dd className="mt-1 text-xl font-semibold text-slate-950">
-                  {control.assessments}
-                </dd>
+          </div>
+          <div
+            className="learning-route"
+            aria-label="A simple learning routine"
+          >
+            {[
+              ["01", "Bring it back", "Recall before you reveal."],
+              ["02", "Make it yours", "Say or write your own response."],
+              ["03", "Build lasting recall", "Return on a different day."],
+            ].map(([n, t, d]) => (
+              <div key={n} className="route-step">
+                <span>{n}</span>
+                <div>
+                  <strong>{t}</strong>
+                  <small>{d}</small>
+                </div>
               </div>
-              <div>
-                <dt className="text-slate-500">Automatic recovery</dt>
-                <dd className="mt-1 text-xl font-semibold text-slate-950">
-                  {control.pendingApproval}
-                </dd>
-              </div>
-            </dl>
-            <Link
-              href="/generate"
-              className="mt-5 inline-flex text-sm font-semibold text-blue-700 hover:text-blue-800"
-            >
-              View active imports →
-            </Link>
+            ))}
           </div>
         </section>
-
-        <section className="mt-7">
-          <h2 className="text-lg font-semibold text-slate-950">Continue</h2>
-          <div className="mt-3 grid gap-4 md:grid-cols-3">
-            {[
-              {
-                href: "/vocabulary",
-                title: "Vocabulary library",
-                description:
-                  "Browse complete lessons by category, CEFR and usage value.",
-              },
-              {
-                href: "/progress",
-                title: "Learning progress",
-                description:
-                  "See mastery, review accuracy and category coverage.",
-              },
-              {
-                href: "/generate",
-                title: "Add content through ChatGPT",
-                description:
-                  "Share text or a file in ChatGPT, then inspect assessment and processing status here.",
-              },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm hover:border-blue-300 hover:bg-blue-50"
-              >
-                <h3 className="font-semibold text-slate-950">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  {item.description}
-                </p>
+        <section aria-label="Learning summary" aria-busy={loading}>
+          <dl className="stat-grid">
+            {stats.map((stat) => (
+              <div className="stat-card" key={stat.label}>
+                <dt>{stat.label}</dt>
+                <dd>
+                  {ready ? (
+                    stat.value
+                  ) : (
+                    <span aria-label={loading ? "Loading" : "Unavailable"}>
+                      —
+                    </span>
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+        <section aria-labelledby="paths-heading">
+          <div className="section-heading">
+            <h2 id="paths-heading">Make room for real-life English</h2>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {paths.map((path) => (
+              <Link key={path.href} href={path.href} className="path-card">
+                <span className="path-icon">
+                  <Icon name={path.icon} />
+                </span>
+                <h3>{path.title}</h3>
+                <p>{path.description}</p>
+                <span className="path-action">
+                  {path.action}
+                  <Icon name="arrow" width="16" height="16" />
+                </span>
               </Link>
             ))}
           </div>
+        </section>
+        <section className="mt-7 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-5">
+          <div>
+            <h2 className="text-sm font-semibold">Grow a useful collection</h2>
+            <p className="mt-1 text-sm text-slate-600">
+              See what you have, discover gaps and add carefully reviewed
+              lessons.
+            </p>
+          </div>
+          <Link href="/coverage" className="btn-secondary">
+            Explore coverage
+            <Icon name="arrow" />
+          </Link>
         </section>
       </AppShell>
     </AuthenticatedPage>
