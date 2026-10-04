@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "fluency-collection-20261003-v1",
+  "releaseId": "learning-experience-20261003-v1",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "07016e8f56da0a62759de1cca3141ba3ecfdab76f5631b7f236455173877cd7e",
-      "sizeBytes": 41479
+      "sha256": "bed0ffe523145fa7aea6425543cb1dad811fbd9dc0b0a0fd9ed1e077f5b9ac0d",
+      "sizeBytes": 42211
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "d712a66f436ef7744f5b4e9b40e88e3588574b2b4fce907a858b660eb7266464",
-      "sizeBytes": 22730
+      "sha256": "fd60901cc636151620b7f9caff028e319905b1acaa52ff6a2a6e4ec2f2726f21",
+      "sizeBytes": 24555
     }
   ]
 }

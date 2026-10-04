@@ -453,3 +453,31 @@ conversation naturalness, meaningful contrasts, duplicate senses and useful
 practice. Record uncertainty rather than inventing evidence. Quantity targets
 and visible packs of up to 400 never weaken the lesson contract or imply that
 400 full lessons should be generated in one operation.
+
+## Editorial precision after the eight-section review
+
+Retain all eight simplified-v2 sections and the existing payload fields. Apply
+these editorial checks within them; do not invent new unversioned schema keys.
+
+- Keep the contextual meaning consistent across overview, source explanation,
+  patterns, examples and tasks. A different meaning needs its own entry, not an
+  example that broadens the current entry invisibly. Cross-reference related
+  meanings in advanced nuance when helpful.
+- For each reusable pattern, verify the grammar independently. Separate
+  “something becomes manageable” from “make something manageable”; slash-separated
+  verbs must actually share the displayed construction.
+- Distinguish incorrect English from unusual, socially risky or overly formal
+  English. Explain register choices and offer a natural alternative. Avoid
+  categorical “never use” claims when an expression is simply less typical.
+- Conversations should reveal intention, response and an outcome or next action,
+  normally within two to four turns. Do not add filler turns to meet a quota.
+- Recognition tasks should contrast plausible language choices in context.
+  Production tasks should specify an audience and purpose, require the target
+  sense, and allow more than one natural response. Offer fictional scenarios
+  where a personal example would require sensitive disclosure.
+- Check every factual distinction. For example, logical validity and soundness
+  are different; neither is identical to persuasiveness. Do not turn a convenient
+  teaching simplification into a false claim.
+- Treat mnemonic imagery as a cue, not proof of etymology or a replacement for
+  delayed retrieval. Do not claim mastery, native-like fluency, corpus frequency
+  or translation accuracy merely because the schema passes.

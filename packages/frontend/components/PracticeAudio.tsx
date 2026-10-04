@@ -12,6 +12,8 @@ export default function PracticeAudio({
   const stream = useRef<MediaStream | null>(null);
   const audioUrl = useRef("");
   const mounted = useRef(true);
+  const acquiring = useRef(false);
+  const [requesting, setRequesting] = useState(false);
   const [recording, setRecording] = useState(false);
   const [url, setUrl] = useState("");
   const [error, setError] = useState("");
@@ -44,6 +46,9 @@ export default function PracticeAudio({
     window.speechSynthesis.speak(utterance);
   };
   const startRecording = async () => {
+    if (acquiring.current || recording) return;
+    acquiring.current = true;
+    setRequesting(true);
     setError("");
     try {
       if (
@@ -79,7 +84,11 @@ export default function PracticeAudio({
       setRecording(true);
     } catch (e) {
       stream.current?.getTracks().forEach((t) => t.stop());
-      setError(e instanceof Error ? e.message : "Microphone unavailable.");
+      if (mounted.current)
+        setError(e instanceof Error ? e.message : "Microphone unavailable.");
+    } finally {
+      acquiring.current = false;
+      if (mounted.current) setRequesting(false);
     }
   };
   return (
@@ -100,11 +109,17 @@ export default function PracticeAudio({
         {record && (
           <button
             className="rounded border px-3 py-2"
+            disabled={requesting}
+            aria-pressed={recording}
             onClick={() =>
               recording ? recorder.current?.stop() : void startRecording()
             }
           >
-            {recording ? "Stop recording" : "Record my response"}
+            {requesting
+              ? "Waiting for microphone…"
+              : recording
+                ? "Stop recording"
+                : "Record my response"}
           </button>
         )}
       </div>

@@ -11,8 +11,13 @@ const selectStyle = "rounded border bg-white p-2";
 function Practice() {
   const params = useSearchParams();
   const wordId = params.get("wordId");
+  const requestedFocus = ["professional", "conversation", "linking"].includes(
+    params.get("focus") || "",
+  )
+    ? params.get("focus")
+    : null;
   const [skill, setSkill] = useState("recall");
-  const [focus, setFocus] = useState("balanced");
+  const [focus, setFocus] = useState(requestedFocus || "balanced");
   const [mode, setMode] = useState("due");
   const [cards, setCards] = useState<any[]>([]);
   const [profile, setProfile] = useState({
@@ -49,10 +54,10 @@ function Practice() {
       .get("/api/fluency/profile")
       .then((r) => {
         setProfile(r.data.profile);
-        setFocus(r.data.profile.focus);
+        setFocus(requestedFocus || r.data.profile.focus);
       })
       .catch(() => setError("Could not load learning preferences."));
-  }, []);
+  }, [requestedFocus]);
   useEffect(() => {
     let active = true;
     setLoading(true);

@@ -3,7 +3,7 @@ import "./globals.css";
 import ClientLayout from "./ClientLayout";
 
 export const metadata: Metadata = {
-  title: "English Mastery",
+  title: "Mastery Skills",
   description:
     "ChatGPT-controlled vocabulary learning, active recall, spaced review, Tamil support, and progress tracking.",
 };

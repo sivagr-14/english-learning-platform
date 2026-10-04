@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'next/navigation';
-import { authApi } from '@/lib/api/auth';
-import useAuthStore from '@/lib/store/auth';
-import { LoginSchema, type LoginFormData } from '@/lib/schemas/auth';
-import Link from 'next/link';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { authApi } from "@/lib/api/auth";
+import useAuthStore from "@/lib/store/auth";
+import { LoginSchema, type LoginFormData } from "@/lib/schemas/auth";
+import Link from "next/link";
 
 export function LoginForm() {
   const router = useRouter();
@@ -30,9 +30,11 @@ export function LoginForm() {
     try {
       const response = await authApi.login(data);
       login(response.user, response.token, response.refreshToken);
-      router.push('/dashboard');
+      router.push("/dashboard");
     } catch (error) {
-      const errorMessage = (error as any)?.response?.data?.message || 'Login failed. Please try again.';
+      const errorMessage =
+        (error as any)?.response?.data?.message ||
+        "Login failed. Please try again.";
       setServerError(errorMessage);
     } finally {
       setIsLoading(false);
@@ -42,46 +44,65 @@ export function LoginForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       {serverError && (
-        <div className="p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+        <div
+          role="alert"
+          className="p-3 bg-red-100 border border-red-400 text-red-700 rounded"
+        >
           {serverError}
         </div>
       )}
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
           Email
         </label>
         <input
           id="email"
+          autoComplete="email"
+          aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? "email-error" : undefined}
           type="email"
           placeholder="you@example.com"
-          {...register('email')}
+          {...register("email")}
           className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-            errors.email ? 'border-red-500' : 'border-gray-300'
+            errors.email ? "border-red-500" : "border-gray-300"
           }`}
           disabled={isLoading}
         />
         {errors.email && (
-          <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+          <p id="email-error" className="mt-1 text-sm text-red-600">
+            {errors.email.message}
+          </p>
         )}
       </div>
 
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+        <label
+          htmlFor="password"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
           Password
         </label>
         <input
           id="password"
+          autoComplete="current-password"
+          aria-invalid={!!errors.password}
+          aria-describedby={errors.password ? "password-error" : undefined}
           type="password"
           placeholder="••••••••"
-          {...register('password')}
+          {...register("password")}
           className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-            errors.password ? 'border-red-500' : 'border-gray-300'
+            errors.password ? "border-red-500" : "border-gray-300"
           }`}
           disabled={isLoading}
         />
         {errors.password && (
-          <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>
+          <p id="password-error" className="mt-1 text-sm text-red-600">
+            {errors.password.message}
+          </p>
         )}
       </div>
 
@@ -90,7 +111,7 @@ export function LoginForm() {
         disabled={isLoading}
         className="w-full px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:bg-gray-400 transition"
       >
-        {isLoading ? 'Signing in...' : 'Sign In'}
+        {isLoading ? "Signing in..." : "Sign In"}
       </button>
 
       <div className="relative">
@@ -106,8 +127,9 @@ export function LoginForm() {
         <button
           type="button"
           onClick={() => {
-            const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
-            const state = encodeURIComponent('provider=google');
+            const apiBase =
+              process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
+            const state = encodeURIComponent("provider=google");
             window.location.href = `${apiBase}/api/auth/oauth/google/start?state=${state}`;
           }}
           className="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
@@ -136,29 +158,36 @@ export function LoginForm() {
         <button
           type="button"
           onClick={() => {
-            const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
-            const state = encodeURIComponent('provider=github');
+            const apiBase =
+              process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
+            const state = encodeURIComponent("provider=github");
             window.location.href = `${apiBase}/api/auth/oauth/github/start?state=${state}`;
           }}
           className="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
         >
           <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
           </svg>
           GitHub
         </button>
       </div>
 
       <div className="text-center text-sm text-gray-600">
-        Don&apos;t have an account?{' '}
-        <Link href="/register" className="text-blue-600 hover:underline font-medium">
+        Don&apos;t have an account?{" "}
+        <Link
+          href="/register"
+          className="text-blue-600 hover:underline font-medium"
+        >
           Sign up
         </Link>
       </div>
 
       <div className="text-center text-sm text-gray-600">
-        Or{' '}
-        <Link href="/login/magic-link" className="text-blue-600 hover:underline font-medium">
+        Or{" "}
+        <Link
+          href="/login/magic-link"
+          className="text-blue-600 hover:underline font-medium"
+        >
           sign in with magic link
         </Link>
       </div>

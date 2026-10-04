@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { authApi } from '@/lib/api/auth';
-import { MagicLinkSchema, type MagicLinkFormData } from '@/lib/schemas/auth';
-import Link from 'next/link';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { authApi } from "@/lib/api/auth";
+import { MagicLinkSchema, type MagicLinkFormData } from "@/lib/schemas/auth";
+import Link from "next/link";
 
 export function MagicLinkForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +32,9 @@ export function MagicLinkForm() {
       setSentEmail(data.email);
       reset();
     } catch (error) {
-      const errorMessage = (error as any)?.response?.data?.message || 'Failed to send magic link. Please try again.';
+      const errorMessage =
+        (error as any)?.response?.data?.message ||
+        "Failed to send magic link. Please try again.";
       setServerError(errorMessage);
     } finally {
       setIsLoading(false);
@@ -41,15 +43,18 @@ export function MagicLinkForm() {
 
   if (isSuccess) {
     return (
-      <div className="space-y-4 text-center">
+      <div role="status" className="space-y-4 text-center">
         <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-          <h3 className="font-semibold text-green-900 mb-2">Check your email!</h3>
+          <h3 className="font-semibold text-green-900 mb-2">
+            Check your email!
+          </h3>
           <p className="text-green-700 text-sm mb-4">
-            We&apos;ve sent a sign-in link to{' '}
+            We&apos;ve sent a sign-in link to{" "}
             <span className="font-semibold">{sentEmail}</span>
           </p>
           <p className="text-green-600 text-sm">
-            The link will expire in 15 minutes. If you don&apos;t see it, check your spam folder.
+            The link will expire in 15 minutes. If you don&apos;t see it, check
+            your spam folder.
           </p>
         </div>
 
@@ -66,7 +71,10 @@ export function MagicLinkForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       {serverError && (
-        <div className="p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+        <div
+          role="alert"
+          className="p-3 bg-red-100 border border-red-400 text-red-700 rounded"
+        >
           {serverError}
         </div>
       )}
@@ -76,21 +84,29 @@ export function MagicLinkForm() {
       </p>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
           Email
         </label>
         <input
           id="email"
+          autoComplete="email"
+          aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? "email-error" : undefined}
           type="email"
           placeholder="you@example.com"
-          {...register('email')}
+          {...register("email")}
           className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-            errors.email ? 'border-red-500' : 'border-gray-300'
+            errors.email ? "border-red-500" : "border-gray-300"
           }`}
           disabled={isLoading}
         />
         {errors.email && (
-          <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+          <p id="email-error" className="mt-1 text-sm text-red-600">
+            {errors.email.message}
+          </p>
         )}
       </div>
 
@@ -99,11 +115,14 @@ export function MagicLinkForm() {
         disabled={isLoading}
         className="w-full px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:bg-gray-400 transition"
       >
-        {isLoading ? 'Sending link...' : 'Send sign-in link'}
+        {isLoading ? "Sending link..." : "Send sign-in link"}
       </button>
 
       <div className="text-center text-sm text-gray-600">
-        <Link href="/login" className="text-blue-600 hover:underline font-medium">
+        <Link
+          href="/login"
+          className="text-blue-600 hover:underline font-medium"
+        >
           Back to login
         </Link>
       </div>

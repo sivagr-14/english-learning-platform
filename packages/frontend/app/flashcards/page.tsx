@@ -51,6 +51,8 @@ export default function FlashcardsPage() {
   const [cards, setCards] = useState<Card[]>([]);
   const reviewIds = useRef<Record<string, string>>({});
   const [saving, setSaving] = useState(false);
+  const [loadError, setLoadError] = useState("");
+  const [reload, setReload] = useState(0);
   const [reviewError, setReviewError] = useState("");
   const [index, setIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -73,6 +75,7 @@ export default function FlashcardsPage() {
 
     const loadCategories = async () => {
       setIsLoadingCategories(true);
+      setLoadError("");
       const response = await getApiClient().get("/api/flashcards/categories");
       setCategories(response.data.categories);
       setSelectedCategory(null);
@@ -82,10 +85,14 @@ export default function FlashcardsPage() {
       setIsLoadingCategories(false);
     };
 
-    loadCategories().catch(() => setIsLoadingCategories(false));
-  }, [isHydrated, isAuthenticated]);
+    loadCategories().catch(() => {
+      setLoadError("Could not load your review categories. Please try again.");
+      setIsLoadingCategories(false);
+    });
+  }, [isHydrated, isAuthenticated, reload]);
 
   const loadCards = async (category: RecallCategory) => {
+    setLoadError("");
     setSelectedCategory(category);
     setIsLoadingCards(true);
     setCards([]);
@@ -97,6 +104,8 @@ export default function FlashcardsPage() {
         params: { categoryId: category.id },
       });
       setCards(response.data.cards);
+    } catch {
+      setLoadError("Could not load your review cards. Please try again.");
     } finally {
       setIsLoadingCards(false);
     }
@@ -146,6 +155,21 @@ export default function FlashcardsPage() {
           : "Choose one category and recall each answer before revealing it."
       }
     >
+      {loadError && (
+        <div className="notice" role="alert">
+          {loadError}{" "}
+          <button
+            className="ml-2 font-semibold underline"
+            onClick={() =>
+              selectedCategory
+                ? void loadCards(selectedCategory)
+                : setReload((n) => n + 1)
+            }
+          >
+            Try again
+          </button>
+        </div>
+      )}
       {!selectedCategory ? (
         <section className="rounded-lg border border-gray-200 bg-white p-6">
           <h2 className="text-lg font-semibold text-gray-900">
@@ -159,7 +183,7 @@ export default function FlashcardsPage() {
             <div className="mt-6 rounded-lg bg-gray-50 p-6 text-sm text-gray-600">
               Loading categories...
             </div>
-          ) : categories.length === 0 ? (
+          ) : loadError ? null : categories.length === 0 ? (
             <div className="mt-6 rounded-lg bg-gray-50 p-6 text-sm text-gray-600">
               No cards are due now.
             </div>
@@ -183,9 +207,7 @@ export default function FlashcardsPage() {
                     </div>
                     <span
                       className="rounded-full px-3 py-1 text-sm font-medium text-white"
-                      style={{
-                        backgroundColor: category.color_code || "#2563eb",
-                      }}
+                      style={{ backgroundColor: "#126b60" }}
                     >
                       {category.due_count}
                     </span>
@@ -214,7 +236,7 @@ export default function FlashcardsPage() {
             <div className="rounded-lg border border-gray-200 bg-white p-8 text-sm text-gray-600">
               Loading recall cards...
             </div>
-          ) : !card ? (
+          ) : loadError ? null : !card ? (
             <div className="rounded-lg border border-gray-200 bg-white p-8 text-center">
               <h2 className="text-xl font-semibold text-gray-900">
                 No cards due in this category

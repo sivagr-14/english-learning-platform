@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "featureId": "polished-learning-experience",
+  "title": "Responsive learning workspace and eight-section editorial review",
+  "implementationPaths": [
+    "packages/backend/src/services/email.service.ts",
+    "packages/frontend/app/layout.tsx",
+    "scripts/control-server.js",
+    "scripts/start-app.js",
+    "packages/frontend/app/error.tsx",
+    "packages/frontend/app/loading.tsx",
+    "packages/frontend/components/AuthShell.tsx",
+    "packages/frontend/components/Icon.tsx",
+    "package.json",
+    "packages/frontend/app/dashboard/page.tsx",
+    "packages/frontend/app/flashcards/page.tsx",
+    "packages/frontend/app/generate/page.tsx",
+    "packages/frontend/app/globals.css",
+    "packages/frontend/app/login/LoginForm.tsx",
+    "packages/frontend/app/login/magic-link/MagicLinkForm.tsx",
+    "packages/frontend/app/login/magic-link/page.tsx",
+    "packages/frontend/app/login/magic-link/verify/MagicLinkVerify.tsx",
+    "packages/frontend/app/login/magic-link/verify/page.tsx",
+    "packages/frontend/app/login/oauth-callback/page.tsx",
+    "packages/frontend/app/login/page.tsx",
+    "packages/frontend/app/practice/page.tsx",
+    "packages/frontend/app/progress/page.tsx",
+    "packages/frontend/app/register/RegisterForm.tsx",
+    "packages/frontend/app/register/page.tsx",
+    "packages/frontend/app/vocabulary/words/[id]/page.tsx",
+    "packages/frontend/components/AppShell.tsx",
+    "packages/frontend/components/PaginationControls.tsx",
+    "packages/frontend/components/PracticeAudio.tsx",
+    "packages/frontend/components/QuickLesson.tsx",
+    "packages/frontend/components/VocabularyWordList.tsx",
+    "yarn.lock"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/email.service.test.ts",
+    "scripts/control-server.test.js",
+    "tests/playwright/fluency.spec.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "Editorial review and the learning interface"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "Editorial precision after the eight-section review"
+        ]
+      }
+    ]
+  }
+}

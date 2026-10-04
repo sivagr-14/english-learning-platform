@@ -1,3 +1,4 @@
+import { source as axeSource } from "axe-core";
 import { expect, test } from "playwright/test";
 import { STARTER_SAMPLES } from "../../packages/backend/src/data/starter-samples";
 
@@ -9,6 +10,11 @@ const card = {
   english_meaning: sample.englishMeaning,
   tamil_meaning: sample.tamilMeaning,
   core_idea: sample.coreIdea,
+  track_name: "Everyday communication",
+  category_name: "Clear explanations",
+  word_type: sample.wordType,
+  frequency: sample.frequency,
+  pronunciation: sample.pronunciation,
   cefr_level: sample.cefrLevel,
   lesson_data: sample.lesson,
   tags: [],
@@ -31,6 +37,32 @@ test.beforeEach(async ({ page }) => {
   await page.route("**/api/**", async (r) => {
     const path = new URL(r.request().url()).pathname;
     let data: any = {};
+    if (path === "/api/progress")
+      data = {
+        summary: {
+          totalEntries: 1284,
+          dueNow: 12,
+          mastered: 342,
+          accuracy: 86,
+          learning: 84,
+          reviews: 612,
+        },
+        categories: [],
+      };
+    if (path.endsWith("/content-packs"))
+      data = { manifests: [], ingestErrors: [] };
+    if (path.endsWith("/starter-samples"))
+      data = { available: 12, loaded: 12, outdated: 0, version: 4 };
+    if (path.endsWith("/taxonomy"))
+      data = {
+        domains: [],
+        counts: { domains: 25, usage_groups: 100, specific_categories: 500 },
+      };
+    if (path.endsWith("/search"))
+      data = {
+        words: [card],
+        pagination: { page: 1, limit: 50, total: 1, total_pages: 1 },
+      };
     if (path.endsWith("/profile"))
       data = {
         profile: {
@@ -96,7 +128,9 @@ test("requires a response and self-review before saving production practice", as
   page,
 }) => {
   await page.goto("/practice");
-  await page.getByRole("combobox", { name: "Skill", exact: true }).selectOption("writing");
+  await page
+    .getByRole("combobox", { name: "Skill", exact: true })
+    .selectOption("writing");
   await expect(
     page.getByRole("button", { name: "Compare with the lesson" }),
   ).toBeDisabled();
@@ -150,8 +184,181 @@ test("quick lesson retains detailed sections and links distinct meanings", async
   await expect(
     page.getByRole("link", { name: /Another contextual meaning/ }),
   ).toBeVisible();
-  await page.locator("summary").filter({ hasText: "Explore the complete lesson" }).click();
+  await page
+    .locator("summary")
+    .filter({ hasText: "Explore the complete lesson" })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Advanced Nuance", exact: true }),
   ).toBeVisible();
 });
+
+test("mobile navigation is keyboard accessible and closes on Escape", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/dashboard");
+  const toggle = page.getByRole("button", { name: "Open navigation" });
+  await expect(toggle).toBeVisible();
+  await expect(
+    page.getByRole("navigation", { name: "Primary navigation" }),
+  ).toBeHidden();
+  await toggle.focus();
+  await page.keyboard.press("Enter");
+  await expect(
+    page.getByRole("navigation", { name: "Primary navigation" }),
+  ).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(toggle).toBeFocused();
+  await expect(
+    page.getByRole("navigation", { name: "Primary navigation" }),
+  ).toBeHidden();
+  await toggle.click();
+  await page
+    .getByRole("link", { name: "Fluency Practice", exact: true })
+    .click();
+  await expect(page).toHaveURL(/practice/);
+  await expect(
+    page.getByRole("navigation", { name: "Primary navigation" }),
+  ).toBeHidden();
+});
+
+test("dashboard retry distinguishes unavailable data and professional path opens correctly", async ({
+  page,
+}) => {
+  let fail = true;
+  await page.route("**/api/progress", (r) =>
+    r.fulfill(
+      fail
+        ? { status: 503, json: {} }
+        : {
+            json: {
+              summary: {
+                totalEntries: 24,
+                dueNow: 2,
+                mastered: 8,
+                accuracy: 90,
+              },
+              categories: [],
+            },
+          },
+    ),
+  );
+  await page.goto("/dashboard");
+  await expect(
+    page.getByRole("alert").filter({ hasText: "Your learning summary" }),
+  ).toContainText("couldn’t load");
+  fail = false;
+  await page.getByRole("button", { name: "Try again" }).click();
+  await expect(
+    page.getByRole("heading", { name: "2 opportunities to remember." }),
+  ).toBeVisible();
+  await page.getByRole("link", { name: /Communicate at work/ }).click();
+  await expect(
+    page.getByRole("combobox", { name: "Path", exact: true }),
+  ).toHaveValue("professional");
+});
+
+test("skip link and all eight lesson anchors work without a pointer", async ({
+  page,
+}) => {
+  await page.goto(`/vocabulary/words/${card.id}`);
+  await expect(
+    page.getByRole("heading", { name: "Understand it quickly" }),
+  ).toBeVisible();
+  await page.keyboard.press("Tab");
+  await expect(
+    page.getByRole("link", { name: "Skip to content" }),
+  ).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#main-content")).toBeFocused();
+  await page
+    .locator("summary")
+    .filter({ hasText: "Explore the complete lesson" })
+    .click();
+  const nav = page.getByRole("navigation", { name: "Lesson sections" });
+  await expect(nav.getByRole("link")).toHaveCount(8);
+  await nav.getByRole("link", { name: "8. Advanced Nuance" }).click();
+  await expect(page.locator("#lesson-section-8")).toBeFocused();
+});
+
+for (const width of [390, 1440]) {
+  test(`screen accessibility and overflow at ${width}px`, async ({
+    page,
+  }, testInfo) => {
+    await page.setViewportSize({ width, height: 1000 });
+    const errors: string[] = [];
+    page.on("pageerror", (e) => errors.push(e.message));
+    for (const route of [
+      "/dashboard",
+      "/vocabulary",
+      "/categories",
+      "/search?q=clear",
+      "/practice",
+      "/flashcards",
+      "/progress",
+      "/coverage",
+      "/generate",
+      `/vocabulary/words/${card.id}`,
+      "/login",
+      "/register",
+      "/login/magic-link",
+      "/login/magic-link/verify",
+    ]) {
+      const response = await page.goto(route);
+      expect(response?.status(), route).toBe(200);
+      await expect(page).toHaveTitle("Mastery Skills");
+      await expect(
+        page.getByRole("heading", { level: 1 }).first(),
+      ).toBeVisible();
+      if (route === "/login/magic-link/verify")
+        await expect(
+          page.getByRole("heading", { name: "Sign-in link", exact: true }),
+        ).toBeVisible();
+      // Wait for the fixture-backed content, rather than inspect a loading shell.
+      if (route === "/dashboard")
+        await expect(page.getByText("1,284", { exact: true })).toBeVisible();
+      if (route.startsWith("/vocabulary/words/")) {
+        await expect(
+          page.getByRole("heading", { name: "Understand it quickly" }),
+        ).toBeVisible();
+        await page
+          .locator("summary")
+          .filter({ hasText: "Explore the complete lesson" })
+          .click();
+      }
+      await page.addScriptTag({ content: axeSource });
+      const violations = await page.evaluate(async () =>
+        (
+          await (window as any).axe.run(document, {
+            runOnly: {
+              type: "tag",
+              values: ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"],
+            },
+          })
+        ).violations.map((v: any) => ({
+          id: v.id,
+          impact: v.impact,
+          nodes: v.nodes.map((n: any) => n.target),
+        })),
+      );
+      expect(violations, route).toEqual([]);
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= window.innerWidth,
+        ),
+        `Overflow: ${route}`,
+      ).toBe(true);
+      if (
+        ["/dashboard", `/vocabulary/words/${card.id}`, "/login"].includes(route)
+      )
+        await page.screenshot({
+          path: testInfo.outputPath(
+            `${route.split("/").filter(Boolean).join("-")}-${width}.png`,
+          ),
+          fullPage: true,
+        });
+    }
+    expect(errors).toEqual([]);
+  });
+}

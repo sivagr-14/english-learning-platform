@@ -51,12 +51,12 @@ export class EmailService {
 
     const emailOptions: EmailOptions = {
       to: email,
-      subject: "Your Magic Link - English Learning Platform",
+      subject: "Your Magic Link - Mastery Skills",
       html: `
         <html>
           <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
             <div style="max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #2c3e50;">Welcome to English Mastery!</h2>
+              <h2 style="color: #2c3e50;">Welcome to Mastery Skills!</h2>
               
               <p>We received a request to sign in to your account using this email address.</p>
               
@@ -83,14 +83,14 @@ export class EmailService {
               
               <p style="font-size: 12px; color: #7f8c8d; margin-top: 20px;">
                 Best regards,<br/>
-                English Mastery Team
+                Mastery Skills Team
               </p>
             </div>
           </body>
         </html>
       `,
       text: `
-        Sign in to English Mastery Platform
+        Sign in to Mastery Skills
         
         Click the link below to sign in (valid for 15 minutes):
         ${magicLinkUrl}
@@ -124,7 +124,7 @@ export class EmailService {
 
     const emailOptions: EmailOptions = {
       to: email,
-      subject: "Welcome to English Mastery - Start Your Learning Journey",
+      subject: "Welcome to Mastery Skills - Start Your Learning Journey",
       html: `
         <html>
           <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -166,14 +166,14 @@ export class EmailService {
               
               <p style="font-size: 12px; color: #7f8c8d; margin-top: 20px;">
                 Best regards,<br/>
-                English Mastery Team
+                Mastery Skills Team
               </p>
             </div>
           </body>
         </html>
       `,
       text: `
-        Welcome to English Mastery, ${firstName}!
+        Welcome to Mastery Skills, ${firstName}!
         
         Your account has been created. Start your learning journey at:
         http://localhost:3000/dashboard

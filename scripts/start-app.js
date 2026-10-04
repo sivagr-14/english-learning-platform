@@ -297,7 +297,7 @@ function openBrowser() {
 
 function printHelp() {
   console.log(`
-English Mastery local launcher
+Mastery Skills local launcher
 
 Usage:
   yarn app:start:legacy    Validate everything, migrate, and start in Terminal
@@ -361,7 +361,7 @@ async function main() {
     );
   }
 
-  heading('Starting English Mastery');
+  heading('Starting Mastery Skills');
   const child = spawn(process.execPath, [path.join('scripts', 'dev.js')], {
     cwd: repoRoot,
     env: process.env,
