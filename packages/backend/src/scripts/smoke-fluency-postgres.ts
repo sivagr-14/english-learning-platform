@@ -273,7 +273,7 @@ export async function smokeFluency() {
       true,
     );
     // Exercise SQL-backed queue creation at the actual target collection size.
-    const scale = Number(process.env.FLUENCY_SMOKE_ENTRIES || 40000);
+    const scale = Number(process.env.FLUENCY_SMOKE_ENTRIES || 80000);
     for (let offset = 0; offset < scale; offset += 500) {
       await database("vocabulary_words").insert(
         Array.from({ length: Math.min(500, scale - offset) }, (_, n) => ({
@@ -285,6 +285,45 @@ export async function smokeFluency() {
         })),
       );
     }
+    for (const [mode, q, expectedCount] of [
+      ["prefix", "fixture-", scale],
+      ["suffix", "fixture-79999", scale >= 80000 ? 1 : 0],
+      ["exact", "fixture-12", scale > 12 ? 1 : 0],
+      ["tokens", "12 fixture", undefined],
+      ["contains", "%", 0],
+    ] as const) {
+      const search = await get(
+        `/vocabulary/search?q=${encodeURIComponent(q)}&match=${mode}&limit=7`,
+      );
+      assert.equal(search.status, 200);
+      assert(search.body.words.length <= 7);
+      if (expectedCount !== undefined)
+        assert.equal(search.body.pagination.total, expectedCount);
+      if (mode === "tokens")
+        assert(
+          search.body.words.every(
+            (word: any) =>
+              word.word.includes("12") && word.word.includes("fixture"),
+          ),
+        );
+    }
+    for (const mode of [
+      "all",
+      "prefix",
+      "suffix",
+      "contains",
+      "exact",
+      "tokens",
+    ]) {
+      const search = await get(
+        `/vocabulary/search?q=${encodeURIComponent(sample.word)}&match=${mode}`,
+      );
+      assert(!search.body.words.some((word: any) => word.id === privateId));
+    }
+    assert.equal(
+      (await get("/vocabulary/search?q=test&match=invalid")).status,
+      400,
+    );
     const due = await get("/flashcards/due");
     assert.equal(due.status, 200);
     assert(due.body.cards.length <= 10);

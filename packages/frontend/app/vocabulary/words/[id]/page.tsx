@@ -414,7 +414,7 @@ function VocabularyWordContent() {
     source === "category" && categoryId
       ? `/categories/${categoryId}?page=${sourcePage}`
       : source === "search" && query
-        ? `/search?q=${encodeURIComponent(query)}&page=${sourcePage}`
+        ? `/search?q=${encodeURIComponent(query)}&match=${encodeURIComponent(searchParams.get("match") || "all")}&page=${sourcePage}`
         : "/vocabulary";
   const backLabel =
     source === "category"

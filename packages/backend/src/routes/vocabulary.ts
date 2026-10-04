@@ -28,6 +28,13 @@ import {
 } from "../services/vocabulary-sense.service";
 import { TAXONOMY_VERSION } from "../data/vocabulary-taxonomy";
 
+import {
+  SEARCH_MODES,
+  SearchMode,
+  escapeSearchPattern,
+  wordSearchPatterns,
+} from "../services/vocabulary-search";
+
 const router: Router = express.Router();
 const DEFAULT_PAGE_SIZE = 50;
 
@@ -38,10 +45,12 @@ const paginationSchema = z.object({
 
 const searchSchema = paginationSchema.extend({
   q: z.string().trim().min(1).max(100),
+  match: z.enum(SEARCH_MODES).default("all"),
 });
 
 const detailContextSchema = z.object({
   from: z.enum(["category", "search"]).optional(),
+  match: z.enum(SEARCH_MODES).default("all"),
   categoryId: z.string().uuid().optional(),
   q: z.string().trim().min(1).max(100).optional(),
   page: z.coerce.number().int().min(1).optional(),
@@ -101,9 +110,20 @@ function applyCategory(query: any, categoryId: string) {
   ]);
 }
 
-function applySearch(query: any, queryText: string, userId: string) {
+function applySearch(
+  query: any,
+  queryText: string,
+  userId: string,
+  mode: SearchMode,
+) {
   const parsed = parseVocabularyDisplayLabel(queryText);
-  const term = `%${parsed.term}%`;
+  const term = `%${escapeSearchPattern(parsed.term)}%`;
+  if (mode !== "all") {
+    for (const pattern of wordSearchPatterns(parsed.term, mode))
+      query.whereILike("vw.word", pattern);
+    if (parsed.senseRank) query.where("vw.sense_rank", parsed.senseRank);
+    return query;
+  }
 
   query.where((builder: any) => {
     builder
@@ -149,7 +169,11 @@ function addSearchOrder(query: any, queryText: string) {
         WHEN vw.word ILIKE ? THEN 2
         ELSE 3
       END`,
-      [parsed.term, `${parsed.term}%`, `%${parsed.term}%`],
+      [
+        parsed.term,
+        `${escapeSearchPattern(parsed.term)}%`,
+        `%${escapeSearchPattern(parsed.term)}%`,
+      ],
     )
     .orderByRaw("LOWER(vw.word)")
     .orderBy("vw.sense_rank")
@@ -174,14 +198,18 @@ function categoryWordsBase(userId: string, categoryId: string) {
   return query;
 }
 
-function searchWordsBase(userId: string, queryText: string) {
+function searchWordsBase(
+  userId: string,
+  queryText: string,
+  mode: SearchMode = "all",
+) {
   const query = database("vocabulary_words as vw").join(
     "vocabulary_categories as vc",
     "vw.category_id",
     "vc.id",
   );
   applyOwnership(query, userId);
-  applySearch(query, queryText, userId);
+  applySearch(query, queryText, userId, mode);
   return query;
 }
 
@@ -658,10 +686,11 @@ router.get(
     try {
       const {
         q,
+        match,
         page = 1,
         limit = DEFAULT_PAGE_SIZE,
       } = searchSchema.parse(req.query);
-      const base = searchWordsBase(req.userId as string, q);
+      const base = searchWordsBase(req.userId as string, q, match);
       const [{ total }] = await base
         .clone()
         .clearSelect()
@@ -760,6 +789,7 @@ router.get(
         const rowsQuery = searchWordsBase(
           req.userId as string,
           context.q,
+          context.match,
         ).select("vw.id", "vw.word");
         addSearchOrder(rowsQuery, context.q);
         navigation = buildNavigation(await rowsQuery, String(req.params.id));

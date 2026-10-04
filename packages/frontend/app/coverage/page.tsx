@@ -6,6 +6,12 @@ import AuthenticatedPage from "@/components/AuthenticatedPage";
 import { getApiClient } from "@/lib/api/client";
 
 export default function CoveragePage() {
+  const [target, setTarget] = useState("80000");
+  const validTarget =
+    Number.isInteger(Number(target)) &&
+    Number(target) >= 400 &&
+    Number(target) <= 200000;
+  const [preparing, setPreparing] = useState(false);
   const [data, setData] = useState<any>(null);
   const [collections, setCollections] = useState<any[]>([]);
   const [selectedCollection, setSelectedCollection] = useState("");
@@ -80,13 +86,20 @@ export default function CoveragePage() {
     }
   };
   const prepare = async () => {
+    if (!validTarget || preparing) return;
+    setPreparing(true);
+    setError("");
     try {
-      const r = await getApiClient().post("/api/fluency/collection-request");
+      const r = await getApiClient().post("/api/fluency/collection-request", {
+        targetSenses: Number(target),
+      });
       download(r.data, `${r.data.requestId}.json`);
     } catch {
       setError(
         "Could not prepare the collection request. Try again after checking the backend.",
       );
+    } finally {
+      setPreparing(false);
     }
   };
   const registerFile = async (file: File | undefined, review: boolean) => {
@@ -141,7 +154,12 @@ export default function CoveragePage() {
                   "Empty categories",
                   data.categories.filter((c: any) => !c.entries).length,
                 ],
-                ["Collection target", "40,000 senses"],
+                [
+                  "Planning target",
+                  validTarget
+                    ? `${Number(target).toLocaleString()} senses`
+                    : "Enter a target",
+                ],
               ].map(([label, value]) => (
                 <div key={label} className="rounded border bg-white p-4">
                   <p className="text-sm text-slate-500">{label}</p>
@@ -154,13 +172,15 @@ export default function CoveragePage() {
                 Collection delivery plan
               </h2>
               <p>
-                Plan for approximately 100 visible packs of up to 400 entries.
-                Each pack groups smaller validated units. Existing valid entries
-                reduce the remaining work; candidates are selected for
-                usefulness, never to fill a numerical quota.
+                Plan for approximately{" "}
+                {validTarget ? Math.ceil(Number(target) / 400) : "—"} visible
+                packs of up to 400 entries. Each pack groups smaller validated
+                units. Existing valid entries reduce the remaining work;
+                candidates are selected for usefulness, never to fill a
+                numerical quota.
               </p>
               <p>
-                The target is a planning goal, not 100 already-assessed packs.
+                The target is a planning goal, not already-assessed packs.
                 Freeze pack membership only after complete manifests pass
                 validation. Same word + different meaning remains a separate
                 entry.
@@ -170,11 +190,35 @@ export default function CoveragePage() {
                 principles, strategy, setbacks, expectations and tactful
                 discussion—not a technical glossary.
               </p>
+              <label className="block text-sm font-medium">
+                Target senses (400–200,000)
+                <input
+                  type="number"
+                  min={400}
+                  max={200000}
+                  step={1}
+                  value={target}
+                  onChange={(e) => setTarget(e.target.value)}
+                  aria-invalid={!validTarget}
+                  className="ml-3 w-40 rounded border p-2"
+                />
+              </label>
+              {!validTarget && (
+                <p role="alert">Enter a whole number from 400 to 200,000.</p>
+              )}
+              <p className="text-sm text-slate-600">
+                40,000 is about 100 packs; 80,000 is about 200. Start with a
+                reviewed 400-entry pilot. This setting changes new requests
+                only.
+              </p>
               <button
+                disabled={!validTarget || preparing}
                 className="rounded bg-blue-700 px-4 py-2 text-white"
                 onClick={prepare}
               >
-                Prepare collection request for ChatGPT
+                {preparing
+                  ? "Preparing request…"
+                  : "Prepare collection request for ChatGPT"}
               </button>
               <p className="text-sm">
                 Attach the downloaded request in ChatGPT. It includes current

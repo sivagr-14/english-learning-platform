@@ -481,3 +481,9 @@ these editorial checks within them; do not invent new unversioned schema keys.
 - Treat mnemonic imagery as a cue, not proof of etymology or a replacement for
   delayed retrieval. Do not claim mastery, native-like fluency, corpus frequency
   or translation accuracy merely because the schema passes.
+
+## Configurable collections and the first 400-entry pilot — 2026.2
+
+New collection requests default to an 80,000-sense planning goal and accept 400–200,000. Read the request policy instead of assuming 40,000. Earlier 40,000/approximately 100-pack guidance remains applicable to legacy frozen plans only. At 400 per visible pack, 80,000 is approximately 200 packs; numerical targets never justify rare vocabulary, invented frequency evidence, duplicate senses or shortened lessons. Existing version 2026.1 hashes and unit membership remain unchanged. For new collection indexes pass `--target-senses=80000` (or the request target) to `collection:plan`.
+
+Follow `docs/FIRST_400_ENTRY_PILOT_PLAN.md` for the initial pilot allocation and all-eight-section acceptance checklist. Obtain the actual account request/baseline before final candidate selection, sense allocation or import-ready generation. One 400-entry visible pack uses four validated 100-entry units or eight 50-entry units; keep the complete assessment, provenance, per-candidate editorial review, deduplication and database verification gates. A generated scenario demonstrates meaning but does not establish corpus frequency. Never claim 400 lessons generated, imported or reviewed from a plan alone. Same word plus a genuinely different meaning remains a separate permanent sense entry.

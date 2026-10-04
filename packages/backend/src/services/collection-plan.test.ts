@@ -1,4 +1,8 @@
-import { createCollectionPlan, packDeliveryState } from "./collection-plan";
+import {
+  collectionPolicy,
+  createCollectionPlan,
+  packDeliveryState,
+} from "./collection-plan";
 
 function manifest(count: number) {
   const candidates = Array.from({ length: count }, (_, i) => ({
@@ -119,3 +123,22 @@ it("requires matching hashes, complete counts, language review and database veri
         .complete,
     ).toBe(false);
 });
+
+it("supports 80,000-sense planning without padding the pilot or changing legacy hashes", () => {
+  const source = manifest(400);
+  const oldPlan = createCollectionPlan("pilot-test", [source]);
+  const next = createCollectionPlan("pilot-test", [source], 80000);
+  expect(oldPlan.policy.version).toBe("fluency-collection-2026.1");
+  expect(oldPlan.policy.targetSenses).toBe(40000);
+  expect(next.policy.targetSenses).toBe(80000);
+  expect(next.entryCount).toBe(400);
+  expect(next.packs).toEqual(oldPlan.packs);
+  expect(next.hash).not.toBe(oldPlan.hash);
+  expect(createCollectionPlan("pilot-test", [source]).hash).toBe(oldPlan.hash);
+});
+it.each([0, 399, 400.5, 200001, NaN, Infinity])(
+  "rejects invalid target %s",
+  (target) => {
+    expect(() => collectionPolicy(target)).toThrow(/target/);
+  },
+);

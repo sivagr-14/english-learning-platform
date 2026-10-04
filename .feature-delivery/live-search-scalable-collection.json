@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "featureId": "live-search-scalable-collection",
+  "title": "Live pattern search, configurable collection targets and 400-entry pilot plan",
+  "implementationPaths": [
+    "packages/backend/src/routes/fluency-collections.ts",
+    "packages/backend/src/routes/fluency.ts",
+    "packages/backend/src/routes/vocabulary.ts",
+    "packages/backend/src/scripts/plan-fluency-collection.ts",
+    "packages/backend/src/services/collection-plan.ts",
+    "packages/frontend/app/coverage/page.tsx",
+    "packages/frontend/app/search/page.tsx",
+    "packages/frontend/app/vocabulary/words/[id]/page.tsx",
+    "packages/frontend/next-env.d.ts",
+    "packages/backend/src/services/vocabulary-search.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/vocabulary-search.test.ts",
+    "packages/backend/src/services/collection-plan.test.ts",
+    "packages/backend/src/scripts/smoke-fluency-postgres.ts",
+    "tests/playwright/fluency.spec.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "Configurable collections and the first 400-entry pilot"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "Configurable collections and the first 400-entry pilot"
+        ]
+      }
+    ]
+  }
+}
