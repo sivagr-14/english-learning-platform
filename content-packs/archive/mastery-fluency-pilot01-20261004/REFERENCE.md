@@ -1,6 +1,6 @@
 # Mastery Skills — Pack 01 reference
 
-**Status: 100 complete lessons generated and structurally validated (unit 001); units 002–004 remain pending. Local database import/read-back is not verified here.**
+**Status: 200 complete lessons generated and structurally validated (units 001–002); units 003–004 remain pending. Local database import/read-back is not verified here.**
 
 This is the requested 400-entry pilot, not exhaustive coverage of the 80,000-entry collection. Four immutable internal batches of 100 preserve all eight lesson sections.
 
