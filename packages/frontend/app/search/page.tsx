@@ -46,7 +46,7 @@ function SearchContent() {
         router.replace(
           input.trim()
             ? `/search?q=${encodeURIComponent(input.trim())}&match=${match}&page=1`
-            : "/search",
+            : `/search?match=${match}`,
           { scroll: false },
         ),
       250,
@@ -93,11 +93,12 @@ function SearchContent() {
 
   const submit = (event: FormEvent) => {
     event.preventDefault();
+    if (composing) return;
     const nextQuery = input.trim();
     router.push(
       nextQuery
         ? `/search?q=${encodeURIComponent(nextQuery)}&match=${match}&page=1`
-        : "/search",
+        : `/search?match=${match}`,
     );
   };
 
