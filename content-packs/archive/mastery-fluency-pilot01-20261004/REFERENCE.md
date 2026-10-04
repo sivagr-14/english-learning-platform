@@ -1,6 +1,6 @@
 # Mastery Skills — Pack 01 reference
 
-**Status: assessed sense inventory; lesson batches are not yet delivered.**
+**Status: 100 complete lessons generated and structurally validated (unit 001); units 002–004 remain pending. Local database import/read-back is not verified here.**
 
 This is the requested 400-entry pilot, not exhaustive coverage of the 80,000-entry collection. Four immutable internal batches of 100 preserve all eight lesson sections.
 
@@ -434,6 +434,6 @@ Frequency and CEFR are editorial estimates, not measured corpus statistics or ex
 
 ## Review limitations
 
-Structural manifest preflight passed. All lesson content, per-candidate editorial checks, batch validation and local PostgreSQL read-back remain pending. Permanent sense ranks are allocated by the app, never by this reference list.
+Structural manifest preflight and unit 001 batch validation passed. The first 100 lessons received author self-review, not an independent human review or corpus audit. The remaining 300 lessons and local PostgreSQL read-back remain pending. Permanent sense ranks are allocated by the app, never by this reference list.
 
 The inventory was scoped by the learner to one 400-entry pilot. Catalogue categories outside this pilot remain future work; the coverage ledger is limited to this scope.
