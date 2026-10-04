@@ -1,0 +1,820 @@
+{
+  "manifestId": "mastery-fluency-pilot01-20261004",
+  "manifestHash": "090ce049a998f3f619e4884937dc0d2ebf98f315d4f2dff4f214da93a22060e0",
+  "batchNumber": 3,
+  "reviewer": "ChatGPT author self-review; not an independent human or corpus audit",
+  "productionPreflight": {
+    "ready": true,
+    "manifestHash": "090ce049a998f3f619e4884937dc0d2ebf98f315d4f2dff4f214da93a22060e0",
+    "generatedCandidates": 400,
+    "plannedBatches": 4,
+    "issues": []
+  },
+  "productionBatchValidation": {
+    "valid": true,
+    "hash": "04975eb690bc00b6ebff9c28c2b3e4b264ef5bbd642042033aa4903650d24ed6",
+    "issues": []
+  },
+  "entries": [
+    {
+      "candidateId": "pilot01-0201",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Consideration invites evaluation; reference supplies background information.",
+      "pragmaticReview": "for your consideration: It does not specify whether a decision is required; add a deadline and explicit request when necessary.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0202",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Information provides awareness; an instruction tells the reader what to do.",
+      "pragmaticReview": "for your information: Spoken with heavy stress, this phrase can sound defensive or corrective; FYI is briefer and less formal.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0203",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "For the record establishes a fact explicitly; off the record asks that remarks not be publicly attributed.",
+      "pragmaticReview": "for the record: It may signal disagreement with an existing account; keep the following statement factual rather than accusatory.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0204",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Discussed confirms a conversation took place; agreed confirms a shared decision.",
+      "pragmaticReview": "as discussed: Do not use a prior discussion as evidence that someone accepted your proposal.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0205",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Agreed implies acceptance; proposed only indicates a suggestion.",
+      "pragmaticReview": "as agreed: Use this only when agreement actually exists; otherwise it can pressure the reader through a false assumption.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0206",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Requested refers to what someone asked for; agreed refers to a mutual decision.",
+      "pragmaticReview": "as requested: Identify the document or change clearly so the reader can see how the request was fulfilled.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0207",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Outlined means main points were presented; specified suggests precise details were given.",
+      "pragmaticReview": "as outlined: An outline is not necessarily a full specification, so do not imply every detail was settled.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0208",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "With regard to introduces a subject; because of introduces a cause.",
+      "pragmaticReview": "with regard to: With regards to is widespread, but with regard to is the conventional edited form; regarding is more concise.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0209",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In response to identifies the trigger for a reaction; in relation to only establishes a connection.",
+      "pragmaticReview": "in response to: It can describe actions as well as written replies; specify which feedback led to which change.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0210",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In relation to marks a connection; in response to marks a reaction.",
+      "pragmaticReview": "in relation to: About is often clearer in everyday email; the longer phrase suits formal correspondence.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0211",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "On behalf of means representing someone; for may simply mean benefiting them.",
+      "pragmaticReview": "on behalf of: Representation implies authority or permission; do not imply you speak for everyone without that basis.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0212",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In accordance with indicates compliance; in line with may indicate broad consistency.",
+      "pragmaticReview": "in accordance with: Common in official rules; use following or under when those give the same meaning more simply.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0213",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In line with indicates consistency; identical to requires exact sameness.",
+      "pragmaticReview": "in line with: Two values may be broadly in line without matching exactly; give numbers when the tolerance matters.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0214",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Subject to makes an offer conditional; confirmed states that the condition has been satisfied.",
+      "pragmaticReview": "subject to: Keep the condition visible rather than burying it after an apparently unconditional promise.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0215",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "With immediate effect starts now; from Monday starts at a specified future point.",
+      "pragmaticReview": "with immediate effect: Official notices should include the date or time if readers may receive them later.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0216",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Until further notice is indefinite but changeable; permanently rules out planned resumption.",
+      "pragmaticReview": "until further notice: Give an update channel because the phrase itself supplies no end date.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0217",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "This phrase leaves timing flexible; by Friday gives an explicit deadline.",
+      "pragmaticReview": "at your earliest convenience: It can sound pressuring despite its polite form; use a specific date when timing is important.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0218",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Close of business refers to the working day's end; midnight ends the calendar day.",
+      "pragmaticReview": "by close of business: COB is ambiguous across teams and time zones; specify the clock time and zone for important deadlines.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0219",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Attached means included as a file; below means in the body of the message.",
+      "pragmaticReview": "please find attached: The phrase is correct but traditional; I have attached is often warmer and more direct.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0220",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Please note that highlights information; please confirm that requests verification.",
+      "pragmaticReview": "please note that: It draws attention but does not prove the recipient has read or accepted the information.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0221",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "This construction requests an action politely; I appreciate it thanks someone for help already given.",
+      "pragmaticReview": "I would appreciate it if: Would and could soften the request, but a demanding tone can still make it sound like an order.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0222",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Confirm verifies a detail; explain gives reasons or describes how something works.",
+      "pragmaticReview": "could you confirm: Use whether when uncertain; confirm that can imply you already expect the statement to be true.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0223",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Advise is the verb; advice is the uncountable noun.",
+      "pragmaticReview": "please advise: It is concise but can sound abrupt; Could you advise how to proceed? is gentler.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0224",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Enquire asks for information; request asks for information or an action directly.",
+      "pragmaticReview": "I am writing to enquire: Enquire is common in British correspondence; inquire is also correct, especially in American English.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0225",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Acknowledging a report is not the same as accepting that every allegation is proven.",
+      "pragmaticReview": "thank you for bringing this to my attention: Follow the thanks with an appropriate check or action so it does not feel like an empty response.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0226",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Patience is willingness to wait; patients are people receiving medical care.",
+      "pragmaticReview": "thank you for your patience: It acknowledges waiting but does not replace an apology or a realistic update when you caused a delay.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0227",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Inconvenience describes trouble or disruption; serious harm deserves a more specific acknowledgement.",
+      "pragmaticReview": "sorry for the inconvenience: For a major loss this phrase can minimise impact; name the actual problem and explain the remedy.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0228",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "This is a formal apology; excuse me usually addresses a minor immediate interruption.",
+      "pragmaticReview": "please accept my apologies: An apology is stronger when it names responsibility and repair rather than asking the recipient to dismiss the problem.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0229",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "To is a preposition here, so it takes hearing; hope to hear uses an infinitive.",
+      "pragmaticReview": "I look forward to hearing from you: The closing welcomes a reply but sets no deadline; state timing separately when required.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0230",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Acknowledging receipt confirms arrival; approving confirms acceptance of the contents.",
+      "pragmaticReview": "acknowledge receipt: Receipt alone does not create agreement, so avoid treating a delivery acknowledgement as consent.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0231",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Seek clarification removes ambiguity; seek approval asks for permission.",
+      "pragmaticReview": "seek clarification: Seek takes a direct object without for; ask for clarification is the alternative construction.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0232",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Requesting an extension asks for more time; announcing a delay does not ask permission.",
+      "pragmaticReview": "request an extension: Give the proposed date and reason; the request does not change the deadline until accepted.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0233",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "An update reports changes since the previous information; an overview explains the whole situation.",
+      "pragmaticReview": "provide an update: State what changed, what remains unresolved and the next expected event.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0234",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Raise a concern flags a possible problem; make an accusation asserts wrongdoing.",
+      "pragmaticReview": "raise a concern: Describe evidence and likely impact without assuming motives; a concern can be valid before its cause is known.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0235",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Escalation seeks higher authority; complaining simply expresses dissatisfaction.",
+      "pragmaticReview": "escalate an issue: Explain the decision or help needed so escalation does not sound like a threat.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0236",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "A revised timeline changes timing; a revised scope changes what work is included.",
+      "pragmaticReview": "revised timeline: Show changed milestones and dependencies rather than merely replacing the final date.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0237",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Proposed marks a suggestion; agreed marks an accepted approach.",
+      "pragmaticReview": "proposed approach: Keep recommendation and approval status separate so readers know whether to comment or begin.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0238",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "An outcome is the intended result; an output is a produced item that may help achieve it.",
+      "pragmaticReview": "agreed outcome: Agreement on a broad outcome does not imply agreement on every method or measure.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0239",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Next steps identify actions; aspirations describe desired results without a route.",
+      "pragmaticReview": "next steps: Assign owners and dates to prevent a list of intentions from being mistaken for a plan.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0240",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Outstanding here means unresolved, not exceptionally good.",
+      "pragmaticReview": "outstanding action: Name the owner and due date; outstanding does not by itself mean overdue.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0241",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "A decision log tracks choices and reasons; meeting minutes cover a wider record of a meeting.",
+      "pragmaticReview": "decision log: Useful entries include date, owner, alternatives and rationale so later readers understand the choice.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0242",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Minutes are a concise meeting record; a transcript reproduces speech much more fully.",
+      "pragmaticReview": "meeting minutes: Record decisions and actions accurately without implying that every spoken comment was approved.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0243",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "A point of contact handles communication; a decision-maker has authority to approve.",
+      "pragmaticReview": "point of contact: The contact may coordinate answers without owning every decision; state escalation routes where needed.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0244",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Handover notes support transfer of responsibility; personal notes may lack the context a successor needs.",
+      "pragmaticReview": "handover notes: Include open issues and next actions, not just a history of completed work.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0245",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Sign-off is approval; acknowledgement only confirms something was received or noticed.",
+      "pragmaticReview": "sign-off: The noun is hyphenated; the verb is sign off, as in sign off the design.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0246",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Approval in principle supports the broad idea; final approval authorises proceeding under settled conditions.",
+      "pragmaticReview": "approval in principle: List remaining conditions explicitly because people may otherwise mistake preliminary support for permission.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0247",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Written confirmation records an arrangement; a verbal assurance is spoken and may be harder to check later.",
+      "pragmaticReview": "written confirmation: It should state the relevant terms; a vague email saying fine may leave important details uncertain.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0248",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Documentation is uncountable; documents are individual countable items.",
+      "pragmaticReview": "supporting documentation: Name the required evidence and acceptable format instead of asking for unnecessary personal records.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0249",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Clarification required asks for precision; rejected records a negative decision.",
+      "pragmaticReview": "clarification required: A helpful status names the ambiguous field and the exact question to answer.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0250",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Given that takes a clause; given takes a noun phrase such as given the rain.",
+      "pragmaticReview": "given that: It presents the reason as accepted information; do not use it to disguise a disputed assumption.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0251",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Provided that sets a condition; given that states an accepted reason.",
+      "pragmaticReview": "provided that: Future conditions normally use present tense here; the phrase is more formal than as long as.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0252",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In this sense as long as means provided that; it does not measure duration.",
+      "pragmaticReview": "as long as: A condition may remain active throughout an activity, as in keeping noise low.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0253",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Assuming that uses an unverified premise; given that usually treats the premise as established.",
+      "pragmaticReview": "assuming that: State important assumptions openly so a forecast can be revised if they fail.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0254",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "On condition that makes a requirement explicit; unless states the exception preventing an outcome.",
+      "pragmaticReview": "on condition that: Often stronger and more contractual than as long as; make the required action unambiguous.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0255",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In the event of takes a noun phrase; in the event that takes a clause.",
+      "pragmaticReview": "in the event of: Common in contingency notices; ordinary if is often clearer in conversation.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0256",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In case motivates a precaution now; if makes the action conditional on an event.",
+      "pragmaticReview": "in case: The precaution happens before the possible problem, which is why in case and if are not interchangeable.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0257",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Even if considers a possibility; even though acknowledges a real fact.",
+      "pragmaticReview": "even if: It stresses that the condition will not change the decision, even if that condition seems difficult.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0258",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Whether introduces alternatives; weather refers to atmospheric conditions.",
+      "pragmaticReview": "whether or not: In reply whether or not you can attend, both yes and no responses are requested.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0259",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Despite takes a noun or -ing form; although introduces a clause.",
+      "pragmaticReview": "despite: Do not add of after despite; use in spite of when that three-word form is intended.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0260",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In spite of and despite share this meaning; despite is shorter.",
+      "pragmaticReview": "in spite of: Write spite as a separate word; spiteful emotion is not the meaning of this fixed expression.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0261",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Although subordinates a contrasting clause; but coordinates two clauses.",
+      "pragmaticReview": "although: Do not normally pair although and but for the same contrast in standard written English.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0262",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Even though emphasises a real contrast; even if covers a hypothetical condition.",
+      "pragmaticReview": "even though: It adds emphasis compared with although, especially when the outcome is surprising.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0263",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Whereas contrasts facts; because gives a reason.",
+      "pragmaticReview": "whereas: Use parallel information on both sides so readers can compare the same dimension or alternatives.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0264",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "While here means although; it does not indicate simultaneous time.",
+      "pragmaticReview": "while: Use although if readers might interpret while as a time relationship.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0265",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "However is a linking adverb; but is a coordinating conjunction.",
+      "pragmaticReview": "however: In edited writing, do not join two complete clauses with only a comma before however.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0266",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Nonetheless means despite that; moreover adds support without contrast.",
+      "pragmaticReview": "nonetheless: It often signals a surprising result that survives the previous limitation; it is more written than conversational.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0267",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Sentence-initial still can mean nevertheless; mid-clause still often means continuing.",
+      "pragmaticReview": "still: Pause after initial still to signal the contrast rather than ongoing time.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0268",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Yet as a conjunction contrasts facts; not yet describes an action still pending.",
+      "pragmaticReview": "yet: It often highlights a surprising combination and can also link adjectives.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0269",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Even so refers back to a stated situation; even if introduces a possible condition.",
+      "pragmaticReview": "even so: It concedes the previous point without allowing it to settle the conclusion.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0270",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "That said qualifies your previous statement; therefore draws a consequence.",
+      "pragmaticReview": "that said: Often conversational in tone; the second point should genuinely balance the first.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0271",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Having said that qualifies your earlier point; as mentioned repeats or refers to it.",
+      "pragmaticReview": "having said that: It is a discourse formula rather than a literal report of when you spoke; avoid using it for unrelated topic changes.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0272",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "On the other hand offers another side; on the contrary rejects the previous claim.",
+      "pragmaticReview": "on the other hand: On the one hand is optional when the first side is already clear.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0273",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "By contrast emphasises difference; similarly emphasises likeness.",
+      "pragmaticReview": "by contrast: Use comparable subjects so the contrast is meaningful rather than a switch to unrelated information.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0274",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Conversely reverses a relationship; however introduces a broader contrast.",
+      "pragmaticReview": "conversely: A reverse claim is not automatically logically true; check its evidence rather than assuming symmetry.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0275",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Rather than contrasts alternatives; instead of explicitly substitutes one for another.",
+      "pragmaticReview": "rather than: Keep parallel grammar after shared auxiliaries: should clarify rather than add.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0276",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Instead of takes a noun or -ing form; instead alone can link a separate sentence.",
+      "pragmaticReview": "instead of: The phrase specifies the replaced alternative, so make both options clear.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0277",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Regardless of removes a factor from the decision; despite acknowledges an obstacle.",
+      "pragmaticReview": "regardless of: It does not mean all factors are irrelevant, only the one named after of.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0278",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Irrespective of and regardless of overlap; irrespective of is generally more formal.",
+      "pragmaticReview": "irrespective of: Avoid needless formality in a casual invitation; whatever your department may be clearer.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0279",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Except for removes an exception; including adds something to the group.",
+      "pragmaticReview": "except for: It often qualifies a general judgement rather than listing every excluded item.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0280",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Apart from can mean except for; it can also mean in addition to in other contexts.",
+      "pragmaticReview": "apart from: Here it excludes an exception; make the sentence clear enough to avoid the additive interpretation.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0281",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Than marks comparison or exception; then marks time or sequence.",
+      "pragmaticReview": "other than: Especially natural after negatives such as no, nothing and nobody.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0282",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Save for means except for here; it does not mean preserve something for later.",
+      "pragmaticReview": "save for: This is literary or formal; except for is usually more natural in ordinary conversation.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0283",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Insofar as limits degree or scope; because presents a cause.",
+      "pragmaticReview": "insofar as: It is formal and can sound legalistic; to the extent that is often easier to process.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0284",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "To the extent that marks degree; provided that usually establishes a yes-or-no condition.",
+      "pragmaticReview": "to the extent that: The claim may hold partly rather than completely; identify which aspect limits it.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0285",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In terms of selects a comparison dimension; overall combines multiple considerations.",
+      "pragmaticReview": "in terms of: Name a useful dimension; the phrase adds little if it only repeats the subject.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0286",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "As far as I know limits certainty; I can confirm asserts verification.",
+      "pragmaticReview": "as far as: It signals an information boundary and should not substitute for checking a crucial fact.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0287",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "As for shifts attention to a topic; as far as usually introduces a limit or perspective.",
+      "pragmaticReview": "as for: With a sharp tone it can imply irritation, especially before naming a person.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0288",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "To is a preposition here; it takes a noun or -ing form.",
+      "pragmaticReview": "when it comes to: It foregrounds a subject conversationally; regarding may fit a very concise formal note.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0289",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "This refers to prior information; bear in mind asks someone to remember a point.",
+      "pragmaticReview": "with this in mind: Make the reference clear; several preceding facts can make this ambiguous.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0290",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "For this reason points back to a cause; for example introduces an illustration.",
+      "pragmaticReview": "for this reason: The preceding fact must actually support the conclusion; proximity alone does not establish causation.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0291",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Owing to takes a noun phrase; because takes a clause.",
+      "pragmaticReview": "owing to: It sounds more formal than because of and is common in notices.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0292",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Due to takes a noun phrase; because introduces a full clause.",
+      "pragmaticReview": "due to: Sentence-initial due to is standard in much modern usage; older restrictions are not universal rules.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0293",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In consequence links a result; in consequence of introduces its cause.",
+      "pragmaticReview": "in consequence: The phrase is formal and less conversational than as a result; do not use it merely to mean afterwards.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0294",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Therefore marks an inference or result; however marks contrast.",
+      "pragmaticReview": "therefore: A valid grammatical connection does not prove the reasoning; check that the conclusion follows.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0295",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Accordingly means in a fitting way; according to introduces the source or standard explicitly.",
+      "pragmaticReview": "accordingly: The required adjustment is inferred from earlier information; specify it if readers could interpret it differently.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0296",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In this sense as such means in that capacity; therefore means for that reason.",
+      "pragmaticReview": "as such: Make the preceding role or category explicit so such has a clear referent.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0297",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In turn here links a further consequence; taking turns alternates participants.",
+      "pragmaticReview": "in turn: Keep the causal chain credible; it does not mean every later event was caused by the earlier one.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0298",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Moreover adds support; nevertheless introduces a concession.",
+      "pragmaticReview": "moreover: It is relatively formal and can sound heavy in casual conversation; also often suffices.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0299",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Furthermore adds another supporting point; for instance supplies an example of a point.",
+      "pragmaticReview": "furthermore: Use it to develop an argument, not simply to decorate a list of unrelated facts.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0300",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Besides adds a reason; beside means next to.",
+      "pragmaticReview": "besides: In conversation it can present a reason as decisive and sometimes sound dismissive of further debate.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    }
+  ]
+}
