@@ -396,8 +396,14 @@ test("live search preserves pattern selection in lesson navigation and cancels s
   await expect(page.getByRole("link", { name: /road/ }).first()).toBeVisible();
   releaseSlow();
   await expect(page.getByRole("link", { name: /^slow/ })).toHaveCount(0);
-  await page.getByLabel("Match", { exact: true }).selectOption("suffix");
+  await page
+    .getByRole("combobox", { name: "Match", exact: true })
+    .selectOption("suffix");
   await expect(page).toHaveURL(/match=suffix/);
+  await field.fill("");
+  await expect(page).toHaveURL(/search\?match=suffix$/);
+  await expect(page.getByRole("combobox", { name: "Match", exact: true })).toHaveValue("suffix");
+  await field.fill("road");
   const result = page.getByRole("link", { name: /road/ }).first();
   await expect(result).toHaveAttribute("href", /match=suffix/);
   await result.click();
