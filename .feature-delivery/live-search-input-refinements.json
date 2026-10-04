@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "featureId": "live-search-input-refinements",
+  "title": "Keep search mode on clear and respect composed text input",
+  "implementationPaths": [
+    "packages/frontend/app/search/page.tsx"
+  ],
+  "validationPaths": [
+    "tests/playwright/fluency.spec.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "Input composition and clearing behavior do not change vocabulary generation, selection, lesson schemas or collection contracts."
+  }
+}
