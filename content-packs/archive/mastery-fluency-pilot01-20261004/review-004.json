@@ -1,0 +1,820 @@
+{
+  "manifestId": "mastery-fluency-pilot01-20261004",
+  "manifestHash": "090ce049a998f3f619e4884937dc0d2ebf98f315d4f2dff4f214da93a22060e0",
+  "batchNumber": 4,
+  "reviewer": "ChatGPT author self-review; not an independent human or corpus audit",
+  "productionPreflight": {
+    "ready": true,
+    "manifestHash": "090ce049a998f3f619e4884937dc0d2ebf98f315d4f2dff4f214da93a22060e0",
+    "generatedCandidates": 400,
+    "plannedBatches": 4,
+    "issues": []
+  },
+  "productionBatchValidation": {
+    "valid": true,
+    "hash": "fd701ce9cd790d3b4874412e7949ec8960b54cf21404a809b52fbc8b27c94834",
+    "issues": []
+  },
+  "entries": [
+    {
+      "candidateId": "pilot01-0301",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "On top of that adds another factor; instead introduces a replacement.",
+      "pragmaticReview": "on top of that: Often accumulates difficulties, but it can also add benefits; match the emotional tone to the situation.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0302",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Not to mention actually adds a point; do not mention asks someone to leave a point unstated.",
+      "pragmaticReview": "not to mention: It presents the extra point as obvious or substantial, often strengthening an argument.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0303",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "What is more strengthens a point; what is next asks about sequence.",
+      "pragmaticReview": "what is more: The contraction what's more is frequent in conversation and less stiff than the full form.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0304",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In particular singles out something; in general describes the wider group.",
+      "pragmaticReview": "in particular: It highlights a subset without excluding all other members of the group.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0305",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Specifically narrows a request; especially stresses importance without necessarily restricting it.",
+      "pragmaticReview": "specifically: It may correct an overly broad answer, so keep the tone calm when repeating the requested detail.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0306",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Namely identifies exactly what was meant; for example gives one possible illustration.",
+      "pragmaticReview": "namely: Use it when the following item or list specifies the earlier reference, not merely one sample.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0307",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "For instance gives an example; namely gives exact identification.",
+      "pragmaticReview": "for instance: The example should illustrate the claim and need not exhaust all possibilities.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0308",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In other words restates meaning; moreover adds a new supporting point.",
+      "pragmaticReview": "in other words: A restatement must preserve the original claim, not introduce a stronger conclusion unnoticed.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0309",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "This phrase reframes an idea; to sum up compresses several points.",
+      "pragmaticReview": "to put it another way: Use a new angle or simpler structure rather than repeating the same unclear wording.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0310",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "That is to say clarifies a preceding expression; that said adds a qualifying contrast.",
+      "pragmaticReview": "that is to say: It is relatively formal; I mean or in other words often sounds more natural in speech.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0311",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In short gives a compact summary; shortly usually means soon.",
+      "pragmaticReview": "in short: A useful summary keeps the main qualification rather than oversimplifying the decision.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0312",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "To sum up signals a concluding overview; to begin with opens the discussion.",
+      "pragmaticReview": "to sum up: Do not introduce a major new argument after announcing a summary unless you mark it clearly.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0313",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Make do accepts a less suitable substitute; make use of does not imply shortage.",
+      "pragmaticReview": "make do: It often suggests temporary compromise, so avoid presenting inadequate long-term provision as acceptable by default.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0314",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Get by means manage adequately; thrive means do very well.",
+      "pragmaticReview": "get by: It may imply little spare capacity, not comfortable success.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0315",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Sort out aims to resolve confusion; look into investigates without promising resolution.",
+      "pragmaticReview": "sort out: With a pronoun, place it between sort and out; name the issue so the promise is specific.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0316",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Deal with means handle; solve guarantees a resolution more strongly.",
+      "pragmaticReview": "deal with: With people as the object it may sound dismissive; explain the practical task rather than treating the person as a problem.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0317",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Look into promises investigation; sort out promises an attempt at resolution.",
+      "pragmaticReview": "look into: It is an inseparable construction in this sense; follow it with a realistic update time.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0318",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Check on monitors welfare or status; check out explores or examines something of interest.",
+      "pragmaticReview": "check on: It can imply care or oversight; explain your purpose to avoid sounding distrustful.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0319",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Check in with someone makes contact; check someone in registers their arrival.",
+      "pragmaticReview": "check in: A friendly check-in should give room for an honest answer rather than demand a positive report.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0320",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Check out explores something; check on verifies its state or welfare.",
+      "pragmaticReview": "check out: It is informal; examine or visit may suit a more formal recommendation.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0321",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Drop by suggests a brief casual visit; arrange a meeting suggests a planned appointment.",
+      "pragmaticReview": "drop by: Casual does not mean uninvited visits are always welcome; check availability when needed.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0322",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Pop in emphasises a quick informal visit; stay over includes an overnight stay.",
+      "pragmaticReview": "pop in: Especially common in British speech; use visit briefly for a more formal audience.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0323",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Stop by suggests a brief visit; stop off explicitly emphasises a break along a journey.",
+      "pragmaticReview": "stop by: It can be planned or spontaneous, so do not treat it as necessarily unannounced.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0324",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Come round invites a visit toward the speaker; go round describes travelling to another person's home.",
+      "pragmaticReview": "come round: Common British usage; come over is a widely understood alternative for this visiting sense.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0325",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Head out focuses on leaving; arrive focuses on reaching the destination.",
+      "pragmaticReview": "head out: It is conversational and often signals imminent departure rather than a formal travel plan.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0326",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Set off starts a journey; get around describes travel within an area.",
+      "pragmaticReview": "set off: Set has the same form in present and past, so time words or context establish the tense.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0327",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Get around describes local mobility; set off describes starting a journey.",
+      "pragmaticReview": "get around: Ask about accessibility and distances rather than assuming one transport option suits everyone.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0328",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Pick up collects; drop off delivers and leaves someone or something.",
+      "pragmaticReview": "pick up: With a pronoun the object goes between pick and up; specify place and time for arrangements.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0329",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Drop off delivers; pick up collects.",
+      "pragmaticReview": "drop off: The visit may be very brief; clarify if you also need the person to wait or help inside.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0330",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Run out of says none remains; run low on says a small amount remains.",
+      "pragmaticReview": "run out of: It focuses on depletion, not simply forgetting to buy something in the first place.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0331",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Stock up buys a reserve; top up replenishes an existing amount.",
+      "pragmaticReview": "stock up on: It implies future use, but buying more than can be stored or used defeats the purpose.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0332",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Use up emphasises total consumption; use alone does not imply exhaustion.",
+      "pragmaticReview": "use up: The result may be desirable, as with leftovers, or inconvenient, as with shared hot water.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0333",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Wear out concerns loss of usefulness through use; wear off often describes an effect gradually disappearing.",
+      "pragmaticReview": "wear out: It suggests cumulative use, whereas break may describe a sudden failure.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0334",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Break down stops a machine working; wear out describes deterioration through use.",
+      "pragmaticReview": "break down: The past tense is broke down; broken down is used with has or had.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0335",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Act up informally describes unreliable operation; break down suggests a more definite failure.",
+      "pragmaticReview": "act up: It does not diagnose the cause, so add the observable symptom when requesting help.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0336",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Put aside reserves resources; spend uses them for a current purpose.",
+      "pragmaticReview": "put aside: The reserved amount may be moved elsewhere or simply earmarked; state the saving purpose clearly.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0337",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Save up stresses gradual accumulation toward a goal; put aside stresses reserving an amount.",
+      "pragmaticReview": "save up: The particle up often suggests reaching a useful total rather than merely spending less.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0338",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Pay back returns borrowed money; pay for covers the cost of goods or services.",
+      "pragmaticReview": "pay back: Use a clear amount and date to avoid ambiguity about repayment commitments.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0339",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Split the bill means share payment; the division need not be equal.",
+      "pragmaticReview": "split the bill: Clarify the method before paying, especially when orders differ greatly in price.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0340",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Chip in contributes to a shared effort; pay back repays a debt.",
+      "pragmaticReview": "chip in: Keep voluntary contributions genuinely optional; the phrase often implies a modest shared contribution.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0341",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Cut down on reduces; cut out removes entirely.",
+      "pragmaticReview": "cut down on: State the amount or habit you want to reduce so progress is observable.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0342",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Stick to follows a commitment; stick with can mean continue using or supporting something.",
+      "pragmaticReview": "stick to: Consistency is useful, but the phrase should not discourage revising a plan when evidence changes.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0343",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Get used to describes adaptation; used to plus a verb describes a past habit.",
+      "pragmaticReview": "get used to: To is a preposition here; be used to describes the resulting familiar state.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0344",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Look forward to expresses positive anticipation; expect simply predicts.",
+      "pragmaticReview": "look forward to: The -ing form follows to; looking forward to often sounds warmer and more immediate in conversation.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0345",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Feel up to concerns energy or readiness; be up for concerns willingness or interest.",
+      "pragmaticReview": "feel up to: Often used negatively to decline gently; it need not disclose a medical reason.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0346",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Be up for expresses willingness; feel up to emphasises sufficient energy.",
+      "pragmaticReview": "be up for: Informal and friendly; would you be interested in is a more formal invitation.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0347",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Keen on takes a noun or -ing form; keen to takes an infinitive.",
+      "pragmaticReview": "be keen on: In British English not keen on often softens a negative opinion without meaning mild enthusiasm.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0348",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Be into describes interest; get into describes developing that interest.",
+      "pragmaticReview": "be into: Informal; interested in is safer in formal introductions or reports.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0349",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Tied up means temporarily unavailable; snowed under suggests an excessive workload.",
+      "pragmaticReview": "be tied up: Give an alternative time when declining so the phrase does not sound like a dismissal.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0350",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Snowed under suggests being overwhelmed; busy can describe a manageable workload.",
+      "pragmaticReview": "be snowed under: It is an informal exaggeration, not a measured workload report; add numbers when requesting resources.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0351",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Stretched thin divides limited capacity among many demands; tied up describes temporary unavailability.",
+      "pragmaticReview": "be stretched thin: It can describe staffing, money or attention, so specify which resource needs relief.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0352",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Make time for deliberately prioritises; have time for merely states availability.",
+      "pragmaticReview": "make time for: The phrase recognises that time must be allocated, but should not imply everyone can remove fixed constraints.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0353",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Fit in finds a schedule slot; squeeze in emphasises that the schedule is especially tight.",
+      "pragmaticReview": "fit in: This lesson concerns scheduling, not social belonging; name the activity and available window.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0354",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Squeeze in stresses limited space or time; fit in can sound less pressured.",
+      "pragmaticReview": "squeeze in: It can make a guest feel like an inconvenience; a clear available time may sound more welcoming.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0355",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Put someone up provides accommodation; put up with tolerates something.",
+      "pragmaticReview": "put someone up: Always include the person clearly; changing the particle pattern changes the meaning.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0356",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Stay over includes an overnight stay; drop by usually means a brief visit.",
+      "pragmaticReview": "stay over: Confirm practical details such as timing and sleeping arrangements rather than assuming an invitation covers them.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0357",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Show around guides a visitor through a place; explain describes it without necessarily moving through it.",
+      "pragmaticReview": "show around: Around is common across varieties; round is also common in British English.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0358",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Help out suggests practical assistance in a need; take over assumes responsibility or control.",
+      "pragmaticReview": "help out: It often implies a limited contribution, so agree the task and time rather than leaving the request open-ended.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0359",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Count on expresses confident expectation; hope for expresses a wish without the same assurance.",
+      "pragmaticReview": "count on: Do not give this assurance for something outside your control; qualify the commitment if necessary.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0360",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Rely on emphasises dependence; count on often emphasises confident expectation.",
+      "pragmaticReview": "rely on: Dependence may be risky even when the support is usually reliable; name a backup where needed.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0361",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Makes sense means understandable or logical; is true asserts factual correctness.",
+      "pragmaticReview": "that makes sense: Understanding reasoning does not prove its assumptions, so check evidence before treating agreement as verification.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0362",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Fair enough accepts a position as reasonable; excellent expresses strong approval.",
+      "pragmaticReview": "fair enough: A flat delivery may sound reluctant, so add a constructive next step when warmth matters.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0363",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Relief is the noun; relieve is the verb describing removal of worry or discomfort.",
+      "pragmaticReview": "that is a relief: It fits reassuring news following concern, not simply any pleasant event.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0364",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "What a shame expresses disappointment; shame on you condemns someone's behaviour.",
+      "pragmaticReview": "what a shame: This use does not accuse anyone of wrongdoing; tone can convey sympathy for another person's loss.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0365",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "That is a pity comments on a disappointing situation; I pity you can sound patronising toward a person.",
+      "pragmaticReview": "that is a pity: It can sound restrained, so stronger sympathy may be needed for a serious loss.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0366",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "How come keeps statement word order; why normally uses question inversion.",
+      "pragmaticReview": "how come: It is informal and may express surprise; why is preferable in formal writing.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0367",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "No wonder treats a fact as unsurprising once a cause is known; I wonder expresses uncertainty.",
+      "pragmaticReview": "no wonder: An unsympathetic tone can imply blame; use care when explaining another person's difficulty.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0368",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "That explains it signals a newly understood cause; I thought as much confirms a prior suspicion.",
+      "pragmaticReview": "that explains it: Treat the explanation as provisional if the new information is uncertain.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0369",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "I thought as much confirms an earlier suspicion; that explains it can mark a new realisation.",
+      "pragmaticReview": "I thought as much: It may sound smug if you imply the answer was obvious; soften it when someone reports bad news.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0370",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "You never know encourages openness to uncertainty; definitely promises certainty.",
+      "pragmaticReview": "you never know: It supports a low-cost attempt but provides no evidence that success is likely.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0371",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "You have a point acknowledges merit; you are completely right endorses the whole claim.",
+      "pragmaticReview": "you have a point: Follow with the specific valid reason to avoid a formulaic response.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0372",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Could not agree more means agreement is already maximal; could agree more leaves room for more agreement.",
+      "pragmaticReview": "I could not agree more: The negative form creates a strongly positive response; contractions are natural in speech.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0373",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Not necessarily challenges inevitability; definitely not rejects the possibility more strongly.",
+      "pragmaticReview": "not necessarily: It leaves open that the claim may be true in some cases; explain a relevant exception.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0374",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Not quite indicates a remaining gap; not at all denies the quality entirely.",
+      "pragmaticReview": "not quite: It can gently correct an answer, but name the gap so the learner knows what to change.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0375",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "More or less gives approximation; exactly claims precision.",
+      "pragmaticReview": "more or less: It can mean almost complete as well as approximately equal within the same broad approximate sense; quantify any important gap.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0376",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "So far so good is provisional; a confirmed success is a completed judgement.",
+      "pragmaticReview": "so far so good: It explicitly limits the assessment to current experience and leaves later results open.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0377",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "So much for dismisses a failed expectation; so much of refers to a large quantity.",
+      "pragmaticReview": "so much for: Often ironic or irritated; avoid directing it at someone's effort when supportive feedback is needed.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0378",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Up to you assigns choice; up for it expresses willingness.",
+      "pragmaticReview": "it is up to you: Tone may convey freedom or withdrawal of help; offer useful information without taking away the choice.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0379",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Suit yourself accepts someone's choice, often with distance; whatever works for you usually accommodates it warmly.",
+      "pragmaticReview": "suit yourself: Even without rude words, a clipped tone can make it dismissive; avoid it in delicate customer communication.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0380",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "This phrase accommodates preference; suit yourself may convey annoyance.",
+      "pragmaticReview": "whatever works for you: Offer only options you can actually support; otherwise the apparent flexibility is misleading.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0381",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Worth a try judges the attempt worthwhile; likely to work predicts success.",
+      "pragmaticReview": "it is worth a try: A small possible benefit can justify a low-cost attempt even when success is uncertain.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0382",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "It cannot hurt presents an action as low-risk; it is guaranteed to help predicts a benefit.",
+      "pragmaticReview": "it cannot hurt: This is a casual risk judgement, not a literal guarantee; do not use it to dismiss real costs or dangers.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0383",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "The proverb values eventual action; it does not say lateness has no consequences.",
+      "pragmaticReview": "better late than never: It may be lightly humorous, but is a poor substitute for apologising when your delay harmed someone.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0384",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "The proverb favours a precaution; better late than never concerns eventual action.",
+      "pragmaticReview": "better safe than sorry: A precaution should be proportionate to its cost and benefit, not an excuse for endless checking.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0385",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "This acknowledges practical difficulty; impossible rules out success entirely.",
+      "pragmaticReview": "easier said than done: Follow it with a constraint or workable step so it does not simply dismiss a suggestion.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0386",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "The phrase reassures about a manageable problem; it does not mean the problem has no impact.",
+      "pragmaticReview": "it is not the end of the world: Acknowledge disappointment first; otherwise reassurance can sound like minimising someone's distress.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0387",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "One thing at a time sets sequential focus; all at once attempts simultaneous action.",
+      "pragmaticReview": "one thing at a time: It can calm overload, but should not prevent independent tasks being shared sensibly.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0388",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "One way or another expresses determination despite an unknown method; one by one describes sequence.",
+      "pragmaticReview": "one way or another: It does not authorise any method regardless of cost or rules; agree practical limits.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0389",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Sooner or later predicts eventual occurrence; soon predicts a relatively short wait.",
+      "pragmaticReview": "sooner or later: It gives no useful deadline and can sound ominous in warnings; add timing when action is required.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0390",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Every now and then means occasionally; every day describes a regular daily pattern.",
+      "pragmaticReview": "every now and then: The gaps are unspecified, so do not use it where a precise maintenance or reporting interval is needed.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0391",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Once in a while means occasionally; once means one occurrence.",
+      "pragmaticReview": "once in a while: It suggests irregularity rather than a fixed interval and can vary greatly by speaker.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0392",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Out of the blue stresses lack of warning; suddenly stresses speed or abruptness.",
+      "pragmaticReview": "out of the blue: The surprise may be pleasant or unpleasant; the idiom does not determine its emotional value.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0393",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "At the last minute means very late; in the nick of time emphasises narrowly avoiding failure.",
+      "pragmaticReview": "at the last minute: It is usually figurative, not exactly sixty seconds; last-minute takes a hyphen before a noun.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0394",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In the nick of time means just early enough; too late means the opportunity was missed.",
+      "pragmaticReview": "in the nick of time: It implies a narrowly avoided problem and is stronger than merely on time.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0395",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "This describes an impulsive decision; at the last minute describes late timing whether planned or not.",
+      "pragmaticReview": "on the spur of the moment: A spontaneous choice is not necessarily careless; its wisdom depends on the consequences.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0396",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "For the time being marks a temporary state; permanently removes that temporary limit.",
+      "pragmaticReview": "for the time being: It gives no end date, so name a review point if people need to plan around the arrangement.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0397",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In the meantime fills a waiting interval; for the time being marks a temporary state without necessarily naming the next event.",
+      "pragmaticReview": "in the meantime: Identify the event being awaited so the time relationship is clear.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0398",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "Hindsight uses knowledge gained later; foresight anticipates before events happen.",
+      "pragmaticReview": "in hindsight: Do not judge an earlier decision as obviously foolish using information unavailable at the time.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0399",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "In retrospect broadly reconsiders the past; in hindsight often emphasises knowledge unavailable then.",
+      "pragmaticReview": "in retrospect: It can confirm an earlier choice as well as criticise it; reflection need not express regret.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    },
+    {
+      "candidateId": "pilot01-0400",
+      "exactMeaning": true,
+      "exactScenario": true,
+      "languageReview": "As a matter of fact adds or corrects factual information; in my opinion introduces a judgement.",
+      "pragmaticReview": "as a matter of fact: It can sound corrective or defensive; actually or a direct statement may be gentler depending on tone.",
+      "evidenceLimit": "Editorial usefulness and level estimate; no independent corpus-frequency claim."
+    }
+  ]
+}

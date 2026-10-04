@@ -1,0 +1,46 @@
+{
+  "manifestId": "mastery-fluency-pilot01-20261004",
+  "manifestPreflight": {
+    "ready": true,
+    "manifestHash": "090ce049a998f3f619e4884937dc0d2ebf98f315d4f2dff4f214da93a22060e0",
+    "generatedCandidates": 400,
+    "plannedBatches": 4,
+    "issues": []
+  },
+  "generatedEntries": 400,
+  "remainingEntries": 0,
+  "batches": [
+    {
+      "number": 1,
+      "entries": 100,
+      "valid": true,
+      "canonicalHash": "fe886f2baf2c0c4af72173beeb9f77392b1ade92d3d27b435fd9b6a4c7d3cfdb",
+      "gitBlobHash": "e1aaad5d524c694325bf32e8b94b22421697201e"
+    },
+    {
+      "number": 2,
+      "entries": 100,
+      "valid": true,
+      "canonicalHash": "a04d0b1a905f69de28079fa3aabfc35d51fb9fc7941b22aef38502a61c6bd845",
+      "gitBlobHash": "9ce89b5f08595830de9ce52614b94cd4de9a0f31"
+    },
+    {
+      "number": 3,
+      "entries": 100,
+      "valid": true,
+      "canonicalHash": "04975eb690bc00b6ebff9c28c2b3e4b264ef5bbd642042033aa4903650d24ed6",
+      "gitBlobHash": "9508e3f22a3ec9892e6c7c0007d9ad0b47fe3c14"
+    },
+    {
+      "number": 4,
+      "entries": 100,
+      "valid": true,
+      "canonicalHash": "fd701ce9cd790d3b4874412e7949ec8960b54cf21404a809b52fbc8b27c94834",
+      "gitBlobHash": "62707753bc2a0cd6794f70ff6190a94a9e0ddb23"
+    }
+  ],
+  "exactFrozenMeaningsAndScenarios": 400,
+  "editorialStatus": "Unit 003 conversation corrections provided separately. Not yet applied to immutable import payload or local database. Unit 004 corrected before delivery.",
+  "databaseVerification": "Not performed; only the local app can verify PostgreSQL import/read-back.",
+  "reviewType": "Author self-review, not independent human or corpus certification"
+}

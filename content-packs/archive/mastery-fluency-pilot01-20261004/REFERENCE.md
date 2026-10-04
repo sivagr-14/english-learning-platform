@@ -1,6 +1,8 @@
 # Mastery Skills — Pack 01 reference
 
-**Status: 300 complete lessons generated, validated and delivered (units 001–003); unit 004 remains pending: 100 entries. Local database import/read-back is not verified here.**
+**Status: 400 lessons generated and structurally validated across units 001–004; all four payloads delivered. Zero lesson-generation units remain. Local database import/read-back is not verified here.**
+
+**Editorial correction outstanding:** Unit 003 contains a conversation assembly defect: replies were authored for the second example but paired with the frozen scenario. The immutable batch has been preserved. See [corrected conversations](CONVERSATION-CORRECTIONS-003.md) and [complete corrected lesson proposals](CONVERSATION-CORRECTIONS-003.json). These are archive-only corrections; applying them to stored lessons through the app's supported versioned update path is still required. Unit 004 was corrected before delivery. Structural validation alone did not detect the conversational mismatch, so this pack must not be described as fully quality-cleared for in-app use yet.
 
 This is the requested 400-entry pilot, not exhaustive coverage of the 80,000-entry collection. Four immutable internal batches of 100 preserve all eight lesson sections.
 
