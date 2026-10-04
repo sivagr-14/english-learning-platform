@@ -21,6 +21,15 @@ const record = (value: any) =>
 const planInput = z
   .object({
     collectionId: z.string().regex(/^[a-z0-9][a-z0-9._-]{2,119}$/),
+    policy: z
+      .object({
+        version: z.enum([
+          "fluency-collection-2026.1",
+          "fluency-collection-2026.2",
+        ]),
+        targetSenses: z.number().int().min(400).max(200000),
+      })
+      .passthrough(),
     packs: z
       .array(
         z
@@ -58,6 +67,9 @@ router.post(
     const expected = createCollectionPlan(
       input.collectionId,
       ids.map((id) => record(rows.find((r: any) => r.id === id)?.payload)),
+      input.policy.version === "fluency-collection-2026.2"
+        ? input.policy.targetSenses
+        : undefined,
     );
     if (contentPackHash(expected) !== contentPackHash(input))
       throw new AppError(

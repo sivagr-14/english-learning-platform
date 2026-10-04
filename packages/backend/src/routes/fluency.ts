@@ -21,7 +21,7 @@ import {
 } from "../data/vocabulary-taxonomy";
 
 import { buildPortableTopicRequest } from "../services/topic-request.service";
-import { COLLECTION_POLICY } from "../services/collection-plan";
+import { collectionPolicy } from "../services/collection-plan";
 import { createHash } from "crypto";
 
 const router = Router();
@@ -428,6 +428,11 @@ router.get(
 router.post(
   "/collection-request",
   wrap(async (req: AuthenticatedRequest, res: any) => {
+    const { targetSenses } = z
+      .object({
+        targetSenses: z.number().int().min(400).max(200000).default(80000),
+      })
+      .parse(req.body || {});
     const topicRequest = await buildPortableTopicRequest(
       database,
       req.userId!,
@@ -435,12 +440,12 @@ router.post(
         topic:
           "Everyday English and professional communication across the complete learning catalogue",
         intendedContext:
-          "Natural speech and useful writing across all categories. Professional focus: trade-offs, strategy, principles, setbacks, expectations, respectful disagreement, explanations and official communication. Exclude rare senses and expert-only technical glossary items. Counts must emerge from assessment; do not pad to 40,000.",
+          "Natural speech and useful writing across all categories. Professional focus: trade-offs, strategy, principles, setbacks, expectations, respectful disagreement, explanations and official communication. Exclude rare senses and expert-only technical glossary items. Counts must emerge from assessment; do not pad to a numerical target.",
       },
     );
     const payload = {
       formatVersion: "chatgpt-fluency-collection-request-v1",
-      policy: COLLECTION_POLICY,
+      policy: collectionPolicy(targetSenses),
       topicRequest,
       instructions:
         "Audit existing entries separately. Decompose coverage across every catalogue category and communication function; resolve overlap by term plus sense. Use the nested topic request and existing topic manifest/batch contracts. Do not manufacture source evidence. Freeze complete topic manifests before lessons. Group accepted immutable units into visible packs with collection:plan. Language and teaching review are required separately from structural validation.",

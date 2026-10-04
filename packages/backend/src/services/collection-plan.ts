@@ -36,11 +36,29 @@ export const COLLECTION_POLICY = {
   ],
 } as const;
 
+/** Targets guide planning only; they never pad or limit accepted vocabulary. */
+export function collectionPolicy(targetSenses: number) {
+  if (
+    !Number.isSafeInteger(targetSenses) ||
+    targetSenses < 400 ||
+    targetSenses > 200000
+  )
+    throw new Error(
+      "Collection target must be a whole number between 400 and 200,000",
+    );
+  return {
+    ...COLLECTION_POLICY,
+    version: "fluency-collection-2026.2",
+    targetSenses,
+  };
+}
+
 /** Presentation grouping only. Original manifests, batch identities, evidence,
  * candidate membership and database transactions are never rewritten. */
 export function createCollectionPlan(
   collectionId: string,
   manifests: unknown[],
+  targetSenses?: number,
 ) {
   if (!/^[a-z0-9][a-z0-9._-]{2,119}$/.test(collectionId))
     throw new Error("Invalid collection ID");
@@ -102,7 +120,10 @@ export function createCollectionPlan(
   const payload = {
     formatVersion: "chatgpt-fluency-collection-v1",
     collectionId,
-    policy: COLLECTION_POLICY,
+    policy:
+      targetSenses === undefined
+        ? COLLECTION_POLICY
+        : collectionPolicy(targetSenses),
     entryCount: senseIds.size,
     packs,
   };

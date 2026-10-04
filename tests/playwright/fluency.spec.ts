@@ -362,3 +362,71 @@ for (const width of [390, 1440]) {
     expect(errors).toEqual([]);
   });
 }
+
+test("live search preserves pattern selection in lesson navigation and cancels stale results", async ({
+  page,
+}) => {
+  let slowStarted: () => void = () => {};
+  const started = new Promise<void>((resolve) => {
+    slowStarted = resolve;
+  });
+  let releaseSlow: () => void = () => {};
+  const gate = new Promise<void>((resolve) => {
+    releaseSlow = resolve;
+  });
+  await page.route("**/api/vocabulary/search?**", async (route) => {
+    const url = new URL(route.request().url());
+    const q = url.searchParams.get("q");
+    if (q === "slow") {
+      slowStarted();
+      await gate;
+    }
+    await route.fulfill({
+      json: {
+        words: [{ ...card, word: q, display_label: q }],
+        pagination: { page: 1, limit: 50, total: 1, total_pages: 1 },
+      },
+    });
+  });
+  await page.goto("/search");
+  const field = page.getByRole("searchbox", { name: "Search vocabulary" });
+  await field.fill("slow");
+  await started;
+  await field.fill("road");
+  await expect(page.getByRole("link", { name: /road/ }).first()).toBeVisible();
+  releaseSlow();
+  await expect(page.getByRole("link", { name: /^slow/ })).toHaveCount(0);
+  await page.getByLabel("Match", { exact: true }).selectOption("suffix");
+  await expect(page).toHaveURL(/match=suffix/);
+  const result = page.getByRole("link", { name: /road/ }).first();
+  await expect(result).toHaveAttribute("href", /match=suffix/);
+  await result.click();
+  await expect(
+    page.getByRole("link", { name: /Back to search/ }),
+  ).toHaveAttribute("href", /match=suffix/);
+});
+
+test("collection request carries the selected target and blocks invalid numbers", async ({
+  page,
+}) => {
+  let sent: any;
+  await page.route("**/api/fluency/collection-request", async (route) => {
+    sent = route.request().postDataJSON();
+    await route.fulfill({ json: { requestId: "pilot-request", policy: sent } });
+  });
+  await page.goto("/coverage");
+  const target = page.getByRole("spinbutton", { name: /Target senses/ });
+  await expect(target).toHaveValue("80000");
+  await expect(page.getByText(/approximately 200 visible packs/)).toBeVisible();
+  await target.fill("400");
+  await page
+    .getByRole("button", { name: "Prepare collection request for ChatGPT" })
+    .click();
+  await expect.poll(() => sent?.targetSenses).toBe(400);
+  await target.fill("399");
+  await expect(
+    page.getByRole("button", {
+      name: "Prepare collection request for ChatGPT",
+    }),
+  ).toBeDisabled();
+});
