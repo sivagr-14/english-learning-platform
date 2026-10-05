@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "featureId": "lesson-profile-text-limits",
+  "title": "Preserve full lesson profile explanations during import",
+  "implementationPaths": [
+    "packages/backend/src/database/migrations/10003_expand_lesson_profile_text.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/scripts/smoke-lesson-profile-text-postgres.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This migration aligns legacy PostgreSQL projection columns with the existing simplified-v2 lesson contract. It changes no generation instructions, content-pack schema, selection rules, validation requirements or immutable delivered content."
+  }
+}
