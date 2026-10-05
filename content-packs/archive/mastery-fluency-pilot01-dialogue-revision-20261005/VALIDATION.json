@@ -6325,5 +6325,11 @@
   },
   "entries": 100,
   "changedFieldOnly": "lesson.natural_examples.mini_conversation",
-  "databaseImportVerified": false
+  "databaseImportVerified": false,
+  "productionMainSourceBlobs": {
+    "content-pack-contract.ts": "d8a79de9d44648cc92d5952436ff95bb448ac35c",
+    "vocabulary-lesson-template.ts": "24de6564d43b2d31da5d04755566e501f75d5910",
+    "vocabulary-sense.service.ts": "c9dd9ff8936272d41d45dabd9403a27cfc19bc46",
+    "vocabulary-taxonomy.ts": "affef02e644bd670e24fc1e511a68ce3c4cbeef0"
+  }
 }

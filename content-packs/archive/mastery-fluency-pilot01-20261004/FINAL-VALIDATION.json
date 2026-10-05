@@ -40,7 +40,7 @@
     }
   ],
   "exactFrozenMeaningsAndScenarios": 400,
-  "editorialStatus": "Unit 003 conversation corrections provided separately. Not yet applied to immutable import payload or local database. Unit 004 corrected before delivery.",
+  "editorialStatus": "A separate 100-entry same-sense revision is delivered for Unit 003; original immutable payloads remain unchanged. Local application/read-back is deferred and unverified.",
   "databaseVerification": "Not performed; only the local app can verify PostgreSQL import/read-back.",
   "reviewType": "Author self-review, not independent human or corpus certification"
 }

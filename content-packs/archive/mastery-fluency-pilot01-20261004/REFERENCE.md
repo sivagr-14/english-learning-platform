@@ -2,7 +2,7 @@
 
 **Status: 400 lessons generated and structurally validated across units 001–004; all four payloads delivered. Zero lesson-generation units remain. Local database import/read-back is not verified here.**
 
-**Editorial correction outstanding:** Unit 003 contains a conversation assembly defect: replies were authored for the second example but paired with the frozen scenario. The immutable batch has been preserved. See [corrected conversations](CONVERSATION-CORRECTIONS-003.md) and [complete corrected lesson proposals](CONVERSATION-CORRECTIONS-003.json). These are archive-only corrections; applying them to stored lessons through the app's supported versioned update path is still required. Unit 004 was corrected before delivery. Structural validation alone did not detect the conversational mismatch, so this pack must not be described as fully quality-cleared for in-app use yet.
+**Editorial correction delivered:** A separately validated [100-entry same-sense revision](../mastery-fluency-pilot01-dialogue-revision-20261005/REFERENCE.md) corrects Unit 003's mini-conversations while preserving all original immutable files. It includes a further speaker-coherence correction for pilot01-0254. Import the original pilot before applying the revision. Local application and database read-back remain unverified; the older archive-only proposals are retained as historical review material. Unit 004 was corrected before its original delivery. Structural validation alone is not a guarantee of teaching quality.
 
 This is the requested 400-entry pilot, not exhaustive coverage of the 80,000-entry collection. Four immutable internal batches of 100 preserve all eight lesson sections.
 
