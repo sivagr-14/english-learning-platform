@@ -1,0 +1,678 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 3,
+  "checkpointRange": {
+    "firstOrdinal": 201,
+    "lastOrdinal": 220
+  },
+  "entryCount": 20,
+  "profileDraftCount": 20,
+  "pronunciationTextReviewed": 20,
+  "tamilMeaningReviewed": 20,
+  "blockedCount": 0,
+  "correctedDatabaseEntries": 0,
+  "scope": "Editorial checkpoint for four Overview fields, IPA text and contextual Tamil meaning. Not a complete lesson, import payload, recorded-audio asset, or app-update claim.",
+  "corrections": [
+    {
+      "ordinal": 201,
+      "wordId": "1b4757b8-aff2-41b4-a9c6-2119c64593f5",
+      "word": "on track",
+      "senseKey": "progressing-as-planned-toward-a-goal",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5d71cdc16ce92800cf9c55c8d5950d4d6660a0df603d3d69400a97682c1290e7",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ɒn træk/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "திட்டமிட்டபடி இலக்கை நோக்கி முன்னேறிக் கொண்டிருப்பது",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative planning expression: progress is compared with staying on the correct route toward a destination.",
+        "connotation": "Positive and reassuring here: the review is progressing as planned.",
+        "tone": "Confident and matter-of-fact here: the speaker expects the Thursday target to be met.",
+        "register": "Neutral and common in everyday and professional planning. It can describe schedules, budgets or goals."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 202,
+      "wordId": "1b47e804-f6b9-4296-a222-bce5c2cd7483",
+      "word": "in progress",
+      "senseKey": "started-but-not-yet-completed",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "60267fbaee667637e9ecc6b00ed785f2ffcfe3fe11127860729db581c07029c0",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ɪn ˈprəʊɡres/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "தொடங்கியுள்ளதாலும் இன்னும் முடிவடையாத நிலையில் இருப்பது",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "State expression meaning that an activity has started but is not yet complete.",
+        "connotation": "Neutral: it reports the current stage without implying success, delay or failure.",
+        "tone": "Factual and status-focused here: “still” emphasizes that the final check continues.",
+        "register": "Neutral; natural in everyday updates, workplace reports and system-status messages."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 203,
+      "wordId": "1b610a52-00dc-4534-9016-3d5b3de3f924",
+      "word": "be up for",
+      "senseKey": "to-be-willing-or-interested-in-doing-something",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a535a0622c172e4b9c08d61fb592f1adbc894b09d8c612e5371757d2114adc6f",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/biː ˈʌp fɔː/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "ஏதாவது செய்ய விருப்பமாக அல்லது தயாராக இருப்பது",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Informal idiomatic phrase asking whether someone is willing or interested in an activity.",
+        "connotation": "Positive and inviting here: the walk is offered as an optional shared activity.",
+        "tone": "Friendly and low-pressure here: the question leaves the listener free to accept or decline.",
+        "register": "Informal conversation. “Would you be interested in…” is more suitable for a formal invitation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 204,
+      "wordId": "1bae70e7-4978-48c6-9d0a-25b4229a82a2",
+      "word": "at your earliest convenience",
+      "senseKey": "as-soon-as-is-reasonably-convenient-for-the-other-person",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "b4cd25256c8a3c4189adf08b94778a4a2e6d91ea39df581bede40182a02fd594",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ət jɔːr ˈɜːliəst kənˈviːniəns/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "மற்றவருக்கு நியாயமாக வசதியான மிக விரைவான நேரத்தில்",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Polite time phrase requesting action as soon as the other person's circumstances reasonably allow.",
+        "connotation": "Polite on the surface, but it can carry mild pressure because a prompt response is expected.",
+        "tone": "Formal and courteous here: “please” softens the request for the signed form.",
+        "register": "Formal workplace and administrative English. Use a clear deadline when the timing is genuinely important."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 205,
+      "wordId": "1bcd3a03-2312-4546-aa1d-fba0f275fe96",
+      "word": "hesitate",
+      "senseKey": "pause-from-uncertainty",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "706e7516fd0f95456e64b5c5edfdd49da16fb28c1590c2f9aaea8a9c4052ebe4",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ˈhezɪteɪt/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "நிச்சயமின்மை காரணமாகச் செயல்படுவதற்கு முன் தயங்குவது",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract verb for pausing or holding back because of uncertainty; here, uncertainty about sharing views.",
+        "connotation": "Slightly negative here because hesitation prevents open participation, though hesitation can also show care.",
+        "tone": "Encouraging and inclusive here: the speaker invites hesitant people to speak honestly.",
+        "register": "Neutral and common in everyday and professional English. The OCR-spaced source remains understandable but should not be treated as clean quotation text."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 206,
+      "wordId": "1bd87742-d1d3-4913-a85d-9850a1fb6b20",
+      "word": "going forward",
+      "senseKey": "from-now-on-or-in-future-activity",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "914389dd4cb6f34f32683b29f8f33ef5c9ea082b6b5b50d4e3e0df2724f9aadb",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ˌɡəʊɪŋ ˈfɔːwəd/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "இனிமேல் அல்லது எதிர்கால நடவடிக்கைகளில்",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Discourse phrase that shifts attention to a policy or practice from the present point onward.",
+        "connotation": "Neutral to constructive here: it introduces a simpler future reporting practice.",
+        "tone": "Decisive and forward-looking here: the speaker announces what will change.",
+        "register": "Common in workplace speech and writing. “From now on” is usually clearer in ordinary conversation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 207,
+      "wordId": "1c087af6-7f69-4c22-90dd-4395682c54b1",
+      "word": "kinship",
+      "senseKey": "sense-of-connection",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c5c18fa417fa49e5ff2957b05d70f571686b0e39bd37d2c1c50c04e19ddcc245",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ˈkɪnʃɪp/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "பகிரப்பட்ட பண்புகள் அல்லது அனுபவங்களால் உருவாகும் நெருக்கமான தொடர்புணர்வு",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract extension of family relationship: a felt connection based on shared qualities or experience.",
+        "connotation": "Positive here: even difficult people are presented as capable of mutual connection.",
+        "tone": "Reflective and hopeful here: the passage emphasizes shared humanity despite difficulty.",
+        "register": "Neutral to literary; natural in reflective writing and thoughtful conversation. It need not imply a biological family relationship."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 208,
+      "wordId": "1c0966f3-7bb8-4fea-bf46-fb493d999284",
+      "word": "phase out",
+      "senseKey": "to-stop-using-or-providing-something-gradually",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "be4452a56b02cc6d40f9a74c5224044454afb19ce17dfe0b3b03ade466d6cc2c",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/feɪz aʊt/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "ஏதாவது ஒன்றைப் பயன்படுத்துவதையோ வழங்குவதையோ படிப்படியாக நிறுத்துவது",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Phrasal verb for ending use or provision gradually rather than all at once.",
+        "connotation": "Neutral here: the phrase describes the transition method, not whether ending paper forms is good or bad.",
+        "tone": "Planned and practical here: the sentence states a gradual change with a deadline.",
+        "register": "Neutral to professional; common in policy, technology and product planning. Name the replacement when readers need operational clarity."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 209,
+      "wordId": "1c0d83ff-5a2e-4f76-bbd6-884a90ea7c04",
+      "word": "at someone’s cue",
+      "senseKey": "on-given-signal",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "790e3f37185af81aba8859d95ebaeec9efab3658e38c456588af831f42d65706",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ət ˈsʌmwʌnz kjuː/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "ஒருவர் கொடுக்கும் சைகையின்போது தொடங்குவது",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Set phrase meaning when another person gives the signal to begin; the cue can be spoken, visual or contextual.",
+        "connotation": "Neutral by itself: it shows coordinated timing, while the negative judgement comes from “yammer” and “incoherently.”",
+        "tone": "Mocking and critical here: the narration presents Royce's speech as long and confused.",
+        "register": "Neutral in staged, coordinated or narrative contexts. The damaged OCR limits confidence in punctuation but not in this sense."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 210,
+      "wordId": "1c15014f-9045-4f0e-8701-22024b3843f6",
+      "word": "crucial",
+      "senseKey": "crucial-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c9dec114001dad0509b2842c62fff943bbf658f139a755246751ec4f1dabe624",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ˈkruːʃəl/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "முடிவை நிர்ணயிக்கும் அளவுக்கு மிகவும் முக்கியமான",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract adjective meaning extremely important to the result; here, data preparation strongly affects later work.",
+        "connotation": "Emphatic and importance-marking, but not positive or negative by itself.",
+        "tone": "Instructional and emphatic here: the course highlights a step learners must not overlook.",
+        "register": "Neutral to formal; common in professional, academic and everyday explanation. “Very crucial” is redundant in careful edited English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 211,
+      "wordId": "1c469111-919d-479a-8d87-bc8a86a31674",
+      "word": "what are we aiming for",
+      "senseKey": "used-to-ask-what-result-or-standard-a-group-wants-to-achieve",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "08f58d79a981e5a62b1dd42065752f49b1ce8dc0ab78c64d8e91a9a62bb375b7",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/wɒt ɑː wi ˈeɪmɪŋ fɔː/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "நாம் எந்த முடிவை அல்லது தரநிலையை அடைய முயல்கிறோம் என்று கேட்பது",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conversational planning question used to identify the desired result or standard.",
+        "connotation": "Constructive and goal-focused here: it invites shared clarity before work proceeds.",
+        "tone": "Collaborative and practical here: “we” frames the first-month target as a group concern.",
+        "register": "Neutral; natural in meetings and everyday planning. A formal document may use “What is the objective?”"
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 212,
+      "wordId": "1c6b36f8-97b3-4249-b60c-7cf3ed48fc23",
+      "word": "waded",
+      "senseKey": "walked-through-shallow-water",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "612ed6740fd733beae38483391169d71a8a1682ecdec1e478f7c1455c19b627a",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ˈweɪdɪd/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "ஆழமில்லாத நீரில் நடந்து சென்றார்",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal past-tense verb for walking through shallow water, which makes movement slower or more effortful than ordinary walking.",
+        "connotation": "Neutral here: it describes physical movement without praising or criticizing it.",
+        "tone": "Simple and descriptive here: the repeated action shows Wilbur following her into the brook.",
+        "register": "Neutral narrative vocabulary. The base form is “wade”; this entry records the past form used in the sentence."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 213,
+      "wordId": "1c705e8c-6167-488a-997d-408907ad1430",
+      "word": "stray off track",
+      "senseKey": "deviate-from-course",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0c9deecf98ee4ed08b3ee22b18abc856be4216196eb929e7a5d7e16f30243a00",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/streɪ ɒf træk/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "நோக்கமிட்ட பாதை, பொருள் அல்லது இலக்கிலிருந்து விலகுவது",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative expression comparing departure from a topic or goal with leaving the correct physical route.",
+        "connotation": "Negative and cautionary here: greater deviation makes recovery more difficult.",
+        "tone": "Warning and explanatory here: the sentence stresses the increasing cost of moving farther away from the intended course.",
+        "register": "Neutral and common in coaching, meetings and planning. The OCR is damaged, but the conditional warning remains clear."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 214,
+      "wordId": "1c93a63d-6111-441a-bdb6-bf96b97727f3",
+      "word": "spit",
+      "senseKey": "saliva",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "54e3f69ed7c7c3f22445b292c8e8e6c716188e83ee5b6fd01df5185d5365d379",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/spɪt/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "வாயிலிருந்து வெளியேறும் உமிழ்நீர்",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal informal noun for saliva expelled from the mouth; here, droplets are sprayed while shouting.",
+        "connotation": "Unpleasant here because it emphasizes loss of control and an uncomfortable physical detail.",
+        "tone": "Vivid and mocking here: exaggerated bodily details portray the angry denial as extreme.",
+        "register": "Informal everyday vocabulary. “Saliva” is the neutral clinical term; the OCR-damaged quotation should not be reused as polished example text."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 215,
+      "wordId": "1cb697a2-a1e4-4051-8455-b2a98ea815e4",
+      "word": "be stretched thin",
+      "senseKey": "to-have-too-little-time-or-capacity-for-all-ones-responsibilities",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "111357f6354c3724676e6ea8bf23fa61151736a76782ba2b65f977b2d41eac72",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/biː stretʃt θɪn/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "அனைத்து பொறுப்புகளையும் சமாளிக்க போதிய நேரமோ திறனோ இல்லாத நிலை",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative idiom comparing limited time or capacity with material stretched so far that it becomes thin.",
+        "connotation": "Negative and concerned here: staff absence is expected to leave insufficient capacity.",
+        "tone": "Cautious and practical here: “likely” predicts pressure without claiming certainty.",
+        "register": "Conversational to neutral professional English. Specify whether the shortage concerns staff, time, money or attention when needed."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 216,
+      "wordId": "1cc10037-6064-4b22-8e21-e40a6dac0051",
+      "word": "mutually",
+      "senseKey": "shared-by-both-sides",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "328eb77d8eaca5e0983af11205945bbb1e56651daa81f58f351ffc38acb0f423",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ˈmjuːtʃuəli/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "இரு தரப்பினராலும் பகிரப்பட்ட அல்லது அனுபவிக்கப்பட்ட வகையில்",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract adverb showing that something applies to, is shared by or benefits both sides; here, a solution would satisfy both.",
+        "connotation": "Positive in “mutually satisfactory” because both parties would benefit, though the passage says such a result seems impossible to him.",
+        "tone": "Pessimistic here: “no possibility” rejects hope of a solution acceptable to both sides.",
+        "register": "Neutral to formal; common in negotiation, relationships and professional writing. The OCR is damaged but the grammatical role is clear."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 217,
+      "wordId": "1d06eabb-0d18-4203-b549-8bde00333172",
+      "word": "working agreement",
+      "senseKey": "an-agreed-set-of-practical-rules-for-how-people-work-together",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "cd98cd6456f6c6e14b8f13b172165b055d612da7cc6b75d0806e4d62f676e442",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ˈwɜːkɪŋ əˌɡriːmənt/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "மக்கள் ஒன்றாக எவ்வாறு பணிபுரிவார்கள் என்பதை நிர்ணயிக்கும் ஒப்புக்கொண்ட நடைமுறை விதிகள்",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Professional noun phrase for practical rules a group agrees to follow while working together.",
+        "connotation": "Collaborative and constructive here: the group has made expectations explicit.",
+        "tone": "Matter-of-fact and procedural here: the sentence states the agreed rule for urgent requests.",
+        "register": "Professional but not necessarily legal. Do not confuse it with an employment contract or another binding legal agreement."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 218,
+      "wordId": "1d0adbf1-86d1-4b47-9eff-7a8c29a4f74d",
+      "word": "soften the blow",
+      "senseKey": "reduce-bad-impact",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f17c21774b1c60518a707f590e79f997c7db4f09135b058cbe75db89f3e616ff",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ˈsɒfən ðə bləʊ/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "விரும்பத்தகாத செய்தி அல்லது மாற்றத்தின் தாக்கத்தை ஏற்றுக்கொள்ள எளிதாகக் குறைப்பது",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative idiom: reducing emotional harm is compared with making a physical blow less severe.",
+        "connotation": "Mixed here: the promotion and higher pay reduce distress but do not remove the disruption of displacement.",
+        "tone": "Pragmatic and cautiously reassuring here: benefits are presented as compensation for an unwelcome move.",
+        "register": "Neutral conversational and professional English. Avoid it if the wording would minimize serious harm."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 219,
+      "wordId": "1d171de2-5ff5-4f1e-adf3-4a9e023143b9",
+      "word": "burden of proof",
+      "senseKey": "the-responsibility-to-provide-evidence-supporting-a-claim",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "358857dafeea8149dc353950ab6bfe952e4d0b975e48f87f9c7486dfebc83e81",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/ˌbɜːdən əv ˈpruːf/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "ஒரு கூற்றை ஆதரிக்கும் சான்றுகளை வழங்க வேண்டிய பொறுப்பு",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract legal and reasoning term for the responsibility to support a claim with sufficient evidence.",
+        "connotation": "Neutral, but it assigns responsibility to the claimant rather than to people who question the claim.",
+        "tone": "Firm and analytical here: the sentence states who must demonstrate that the change saves money.",
+        "register": "Formal to professional; common in law, debate and evidence-based decision-making. The required standard of proof depends on the setting."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    },
+    {
+      "ordinal": 220,
+      "wordId": "1d534b96-4aad-457c-b13c-677667b8b462",
+      "word": "besides",
+      "senseKey": "used-to-add-another-reason-for-what-has-been-said",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "ffe747a2b7e32c434f7b6f497225fbd1aadd962f5d2c2051ee748736bf96428d",
+      "pronunciation": {
+        "kind": "verified_ipa_text",
+        "value": "/bɪˈsaɪdz/",
+        "audioAssetClaim": false
+      },
+      "tamilMeaning": {
+        "value": "முன்னர் கூறியதை ஆதரிக்க மேலும் ஒரு காரணத்தைச் சேர்க்கப் பயன்படும் இணைப்புச் சொல்",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Logical connector adding another reason to support the preceding preference.",
+        "connotation": "Neutral by itself; here it strengthens the case for an earlier meeting with a practical reason.",
+        "tone": "Mildly persuasive and conversational here: the second sentence adds supporting evidence.",
+        "register": "Common in conversation and informal writing. “In addition” is more formal; “beside” without -s has a different meaning."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected",
+        "pronunciation_text": "reviewed",
+        "tamil_meaning": "corrected"
+      },
+      "status": "editorial_checkpoint_not_import_payload"
+    }
+  ]
+}
