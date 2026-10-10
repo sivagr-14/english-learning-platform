@@ -13,9 +13,15 @@
   "databaseUpdatesVerified": 0,
   "nextGroup": 3,
   "nextOrdinal": 201,
-  "status": "editorial_review_in_progress_not_import_ready",
+  "status": "delivery_blocked_broader_lesson_rewrite_required",
   "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
   "automatedLessonIssues": 97,
   "automatedDraftLessonIssues": 8,
-  "note": "Ordinary source-expression checks include OCR/inflection mismatches. These are flags, not proof that a frozen manifest is invalid."
+  "note": "Ordinary source-expression checks include OCR/inflection mismatches. These are flags, not proof that a frozen manifest is invalid.",
+  "deliveryBlocker": "DELIVERY-BLOCKER-20261011.md",
+  "pronunciationReviewProcessed": 0,
+  "tamilMeaningReviewProcessed": 0,
+  "pendingPronunciationReview": 1863,
+  "pendingTamilMeaningReview": 1863,
+  "audioImplementationStatus": "pending"
 }
