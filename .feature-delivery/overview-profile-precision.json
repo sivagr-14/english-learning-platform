@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "featureId": "overview-profile-precision",
+  "title": "Require contextual explanations in the four Overview fields",
+  "implementationPaths": ["VOCABULARY_GENERATION_INSTRUCTIONS.md", "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"],
+  "validationPaths": ["scripts/validate-feature-delivery.js", "docs/OVERVIEW_PROFILE_REVIEW_20261010.md"],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": ["VOCABULARY_GENERATION_INSTRUCTIONS.md", "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"],
+    "requiredMarkers": [
+      {"path": "VOCABULARY_GENERATION_INSTRUCTIONS.md", "contains": ["### Approved teaching examples", "### Existing-collection review", "Do not infer tone from a word-and-definition-only collection request."]},
+      {"path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md", "contains": ["## Existing Overview profile corrections — 2026-10-10", "A repeated-text scan is triage,"]}
+    ]
+  }
+}

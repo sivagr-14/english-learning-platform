@@ -348,18 +348,120 @@ frequency-by-context sections.
 
 ## Meaning & Usage Profile
 
-Use only these four items:
+Use exactly the existing four fields in `overview.meaning_usage_profile`.
+Write learner-facing explanations, not instructions to the generator. Normally
+use one or two short B1-friendly sentences per field. Do not repeat the same
+definition in all four fields.
 
-- **Meaning type:** literal, abstract, figurative, idiomatic, technical, or a
-  useful combination
-- **Connotation:** positive, negative, neutral, mixed, or context-dependent
-- **Tone:** the speaker’s relevant attitude, such as serious, friendly, polite,
-  critical, humorous, reflective or forceful
-- **Register:** informal, neutral, formal, professional or academic as
-  applicable
+1. **Meaning type:** Name only the applicable type or useful combination:
+   literal, abstract, figurative, idiomatic or technical. Explain this one
+   contextual meaning. For figurative/idiomatic usage, explain the image-to-meaning
+   connection when useful, without inventing an etymology. For linking
+   expressions, identify the logical relationship (for example concession,
+   cause or addition); for conversational expressions, identify the function
+   (for example reassurance or polite refusal). These are valid descriptions,
+   not forced literal/figurative classifications. Do not list every possible type.
+2. **Connotation:** State the relevant positive, negative, neutral or mixed
+   association and explain why. Use context-dependent only with concrete
+   contrasting situations. Distinguish the expression's associations from the
+   event it describes: an unpleasant topic does not automatically make the
+   word negatively loaded. Explain approval, criticism or reassurance only
+   where the assessed sense supports it.
+3. **Tone:** Describe the speaker's attitude in the recorded source sentence
+   or labelled teaching scenario, and identify the wording or situation that
+   supports the interpretation. Do not imply that the word always has that
+   tone. If no distinctive attitude is evident, say so plainly and explain
+   what the sentence does communicate. Do not invent emotion, intention or
+   surrounding context to fill this field.
+4. **Register:** State formality and the situations/audiences where this sense
+   sounds natural. Professional is a usage setting, not automatically a
+   formal register. Add a simpler or more formal alternative, or a warning
+   about sounding dismissive, judgemental or abrupt, only when useful for
+   this particular expression.
 
-Do not list every possible label. State only the values that actually apply and
-briefly explain important context.
+Connotation concerns associations with the expression; tone concerns the
+speaker's attitude in the example; register concerns situation and audience.
+Keep one contextual sense per entry. Explain related imagery within that sense;
+give genuinely different meanings separate identities. A heavy suitcase and a
+heavy workload must not become one lesson merely to demonstrate two labels.
+
+Reject standalone filler such as “clear and context-sensitive”, “appropriate
+to the context”, “use the correct register”, “context-dependent and fixed by
+the recorded source situation”, and “neutral; use the register appropriate to
+this assessed contextual sense”. Merely appending the word or its definition
+to reusable boilerplate does not make an explanation specific. Repeated labels
+can be correct, but repeated explanations require individual semantic review.
+
+### Approved teaching examples
+
+These are authored teaching sentences, not external-source quotations. They
+illustrate the editorial standard; do not copy their profiles to other senses.
+
+**A bump in the road:** “The supplier delay is a bump in the road, but we can
+still meet the deadline.”
+
+- Meaning type: Figurative idiom: a temporary difficulty in an otherwise
+  continuing plan. Like a bump that briefly interrupts a journey, it slows
+  progress without necessarily stopping it.
+- Connotation: A difficulty presented as manageable. The expression suggests
+  that the problem is limited rather than disastrous.
+- Tone: Reassuring and cautiously optimistic here: “we can still meet the
+  deadline” shows confidence despite the delay.
+- Register: Conversational; natural in everyday speech and workplace
+  discussions. “Temporary setback” may be more precise in a formal report;
+  avoid the idiom if it would minimise a serious problem.
+
+**Trade-off:** “There is a trade-off between a faster launch and more time
+for testing.”
+
+- Meaning type: Abstract: gaining one benefit involves accepting a
+  disadvantage or giving up another benefit. Here, launching sooner leaves
+  less time for testing.
+- Connotation: Usually neutral: it presents competing benefits as a practical
+  choice, without automatically calling either option good or bad.
+- Tone: Analytical and measured here: the speaker explains competing
+  priorities without blaming anyone.
+- Register: Neutral; natural in planning, business and informed everyday
+  discussion. “What we gain versus what we give up” is a simpler explanation
+  for someone unfamiliar with the term.
+
+**Nevertheless:** “The evidence is limited. Nevertheless, it supports a small
+pilot.”
+
+- Meaning type: Logical connector expressing concession: the second statement
+  remains true despite the difficulty mentioned first. Limited evidence still
+  provides some support for a pilot.
+- Connotation: Neutral: the connector does not express approval or criticism
+  by itself; it highlights an unexpected contrast.
+- Tone: Measured and cautiously supportive here: the speaker acknowledges
+  limited evidence before supporting a small next step.
+- Register: Relatively formal; natural in reports, essays and careful
+  professional explanations. “Even so” often sounds more conversational.
+
+**Stubborn:** “He remained stubborn and refused to consider the team's
+suggestions.”
+
+- Meaning type: Abstract description of behaviour: unwilling to change an
+  opinion or decision, even when others offer reasons to reconsider.
+- Connotation: Negative here: it suggests unreasonable resistance.
+  “Determined” would normally present persistence more positively.
+- Tone: Critical or disapproving here: “refused to consider” presents his
+  response as a problem.
+- Register: Common in everyday and workplace English, but personally
+  judgemental. For diplomatic feedback, describe the behaviour: “He was
+  unwilling to reconsider the proposal.”
+
+### Existing-collection review
+
+Review each entry against its exact sense and actual lesson sentence. Record
+each field as retained, corrected or blocked with a specific reason; do not
+claim semantic review from schema validation or a duplicate-text scan alone.
+Do not infer tone from a word-and-definition-only collection request. Retrieve
+the current complete lesson before constructing an import-ready update.
+Change only deficient Overview fields in the authoring copy, retain valid
+fields and other lesson content, then validate and deliver the complete lesson
+through the versioned update contract below. Preserve sense identity, permanent
+rank, taxonomy and learner progress. Never rewrite an immutable delivered batch.
 
 ## Update behavior
 
@@ -487,3 +589,4 @@ these editorial checks within them; do not invent new unversioned schema keys.
 New collection requests default to an 80,000-sense planning goal and accept 400–200,000. Read the request policy instead of assuming 40,000. Earlier 40,000/approximately 100-pack guidance remains applicable to legacy frozen plans only. At 400 per visible pack, 80,000 is approximately 200 packs; numerical targets never justify rare vocabulary, invented frequency evidence, duplicate senses or shortened lessons. Existing version 2026.1 hashes and unit membership remain unchanged. For new collection indexes pass `--target-senses=80000` (or the request target) to `collection:plan`.
 
 Follow `docs/FIRST_400_ENTRY_PILOT_PLAN.md` for the initial pilot allocation and all-eight-section acceptance checklist. Obtain the actual account request/baseline before final candidate selection, sense allocation or import-ready generation. One 400-entry visible pack uses four validated 100-entry units or eight 50-entry units; keep the complete assessment, provenance, per-candidate editorial review, deduplication and database verification gates. A generated scenario demonstrates meaning but does not establish corpus frequency. Never claim 400 lessons generated, imported or reviewed from a plan alone. Same word plus a genuinely different meaning remains a separate permanent sense entry.
+
