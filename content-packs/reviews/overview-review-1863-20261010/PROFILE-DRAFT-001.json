@@ -1,0 +1,2912 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 1,
+  "entryCount": 100,
+  "profileDraftCount": 100,
+  "blockedCount": 0,
+  "correctedDatabaseEntries": 0,
+  "scope": "Four Overview fields only; not a complete-lesson quality certification.",
+  "corrections": [
+    {
+      "ordinal": 1,
+      "wordId": "000a02ed-b5eb-44f3-ad6e-923c8be86592",
+      "word": "thus",
+      "senseKey": "therefore",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ffe8dffb5586fd925c8856b12182208cc30bea605fe3ac651bc204fc10845d55",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Logical connector showing a result or conclusion: the old response fails at a higher level, leading to the observation about success.",
+        "connotation": "Neutral: it links a conclusion to the preceding reasoning without adding approval or blame.",
+        "tone": "Reflective and explanatory here: the writer draws a surprising conclusion from the failed response.",
+        "register": "Relatively formal; natural in essays and reasoned explanations. “So” is more usual in casual conversation."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 2,
+      "wordId": "000d94ee-1c9c-45ec-adfa-c4bb03d6881c",
+      "word": "labeled data",
+      "senseKey": "labeled-data-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b942927603e975907c99bd2439ab64e7a00848bad3c8a4f62bd3772c472207cc",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical noun phrase: training examples paired with the category or answer a supervised model should learn to predict.",
+        "connotation": "Neutral: the labels describe the data's role, not whether its quality is good.",
+        "tone": "Instructional here: “you'll need” identifies a requirement for supervised learning.",
+        "register": "Specialist terminology used in machine learning courses and discussions; explain “examples with known answers” to a general audience."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 3,
+      "wordId": "00350c91-7923-4bdc-9aef-50773d5eb379",
+      "word": "it struck me",
+      "senseKey": "suddenly-realized",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bed37bfced70580e7574c2be0f3a7be67878bb3460c22bb9223b1a00d0e61603",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative expression for a sudden realization; an idea arrives with the suddenness of a strike, without a physical blow.",
+        "connotation": "Usually neutral: the realization itself may be welcome or unwelcome.",
+        "tone": "Reflective and sudden here: “and then” marks the moment of realization, but the excerpt does not reveal the emotion attached to it.",
+        "register": "Natural in everyday storytelling and professional reflection. “I suddenly realized” is a plainer alternative."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 4,
+      "wordId": "004a9b8d-8a93-4f17-83b4-94cad59ba7d4",
+      "word": "figure out",
+      "senseKey": "understand-or-solve",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "61e2a72746c15523d2662e8f0fc679667d43762323bc37ce057bfeba722b364b",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract phrasal verb: work something out or reach an understanding; here, understand what the person just did.",
+        "connotation": "Neutral: it emphasizes arriving at an answer rather than judging the answer.",
+        "tone": "Practical and instructive here: the imperative tells the reader how to understand someone's results.",
+        "register": "Common conversational English, also natural in workplace discussion. “Determine” may suit a more formal report."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 5,
+      "wordId": "00623bbf-e0e1-4d4a-99b6-29fae7a71d5f",
+      "word": "bound to",
+      "senseKey": "certain-or-very-likely",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8dd3a99fd9b0b95d665de8eb9f3ae05808dc2f3aeb88b4b854004211ab92537a",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Expression of strong likelihood: the speaker expects harsh feedback to cause problems.",
+        "connotation": "Neutral by itself; the negative expectation comes from “cause real problems,” not from the expression alone.",
+        "tone": "Wary and confident in the prediction here: “I know” strengthens the expectation of trouble.",
+        "register": "Common in speech and ordinary writing. Use “very likely to” when you want the probability claim to be explicit."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 6,
+      "wordId": "00a07d01-831b-4599-bffa-6ed2bbe212da",
+      "word": "have all eyes pinned on you",
+      "senseKey": "receive-intense-attention",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b9c02a73c2ac0e21673ecf3f0bd3884f16f96409b2b0e809ccf233d5e173d172",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative description of intense attention: the audience's eyes are pictured as fixed on the speaker.",
+        "connotation": "Suggests conspicuous scrutiny; it can imply pressure without necessarily implying hostility.",
+        "tone": "Self-conscious here: the speaker notices the large audience before describing a sudden private question.",
+        "register": "Vivid narrative wording. “All eyes were on me” is the established everyday expression; the exported headword needs a separate wording review."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 7,
+      "wordId": "00ca1c88-0268-496b-bbba-ef1b49c4e0ab",
+      "word": "curiosity",
+      "senseKey": null,
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "99c1700cecf96dfdd014fc950e02e406f38ac96ea460ab83e8bb298018419531",
+      "before": {
+        "tone": "Inquisitive, open, and exploratory.",
+        "register": "Neutral; natural in conversation, education, psychology, and academic writing.",
+        "connotation": "Usually positive in learning, but negative when it becomes intrusive.",
+        "meaning_type": "Abstract emotional and intellectual meaning, with a less frequent concrete sense for an unusual object."
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract noun naming the desire to discover or learn; here, that desire motivates an expedition.",
+        "connotation": "Positive here: curiosity is presented as a reason to investigate, although curiosity can also lead to intrusive behaviour.",
+        "tone": "Adventurous and enthusiastic here: “overwhelming” and the decision to organize an expedition emphasize strong interest.",
+        "register": "Neutral and widely usable in everyday, educational and professional English. “Nosiness” would instead criticize unwanted interest in others' affairs."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 8,
+      "wordId": "00de7fb0-42c7-42c6-8de2-b9b75f2489b7",
+      "word": "check out",
+      "senseKey": "to-examine-or-explore-something-that-may-be-interesting-or-useful",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "771d4e1531a79656aad18526fad181b655b86112c5fcb7cd9e01a2fd61f0f07e",
+      "before": {
+        "tone": "Informal, curious recommendation.",
+        "register": "Conversational wording: It is informal; examine or visit may suit a more formal recommendation.",
+        "connotation": "Neutral relationship or function: to examine or explore something that may be interesting or useful.",
+        "meaning_type": "Contextual expression: to examine or explore something that may be interesting or useful"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract phrasal verb meaning to visit or examine something to see what it is like; here, explore a new library.",
+        "connotation": "Mildly positive here: the suggestion treats the library as potentially interesting.",
+        "tone": "Casual and inviting: “we should” proposes a shared weekend activity.",
+        "register": "Informal and common in conversation. “Visit” is a neutral alternative for this library example."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 9,
+      "wordId": "00ece789-8451-4bee-9592-aeee1376c327",
+      "word": "reliable",
+      "senseKey": "consistently-dependable",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9c65b223fd655ba3b2f67c9b52ffb532a1fa411fb0aa4db7aebbfe8a64bd8708",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract description of dependability: the husband should consistently do what can reasonably be expected of him.",
+        "connotation": "Positive: reliability is a valued quality; “more reliable” suggests that the present situation falls short.",
+        "tone": "Dissatisfied but focused on a desired improvement: the speaker states what they want from their husband.",
+        "register": "Neutral and common across personal and workplace situations. Criticizing someone's reliability can still feel personal even though the word is not slang."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 10,
+      "wordId": "01100007-d29c-4aad-bb72-262e5ea31458",
+      "word": "monopoly",
+      "senseKey": "exclusive-control",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "51006d21acd0ecd59b1e7cbccda9fc9ccb58aa87d02e9a474cc87d08ff4f4271",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract idea of exclusive possession or control, extended here to fear: hospitals are not the only places where people are afraid.",
+        "connotation": "Neutral as a concept of exclusivity; the negative subject here is fear.",
+        "tone": "Emphatic and explanatory: “of course” presents the point as obvious and broadens the discussion beyond hospitals.",
+        "register": "“Have a monopoly on” is natural in general commentary as well as business writing; this example is not an economic market definition."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 11,
+      "wordId": "0118d6a0-59a4-464c-a3cd-4cd850fdc86c",
+      "word": "bully one’s way through",
+      "senseKey": "force-progress",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "53fd1a3ccb99a11e51a787616d44631ac50e210467a2ac813280a5be0991c745",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative description of making progress by intimidation: force a way through opposition rather than gain cooperation.",
+        "connotation": "Negative: “bully” presents the method as domineering or unfair.",
+        "tone": "Self-critical here: “we try” includes the writer among people who resort to intimidation.",
+        "register": "Natural in everyday criticism and discussion of behaviour. In diplomatic feedback, describe the pressure used rather than label a person a bully."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 12,
+      "wordId": "01321bef-30d3-434c-8816-40ef74935298",
+      "word": "discipline",
+      "senseKey": "controlled-practice",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9da9c6609dc47078889411a171de7bfa92e07d71ea5261da9f84a5d7552bb4db",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract quality of self-control and consistent effort; here, a quality praised in colleagues' work.",
+        "connotation": "Positive in this sense: discipline supports dependable effort rather than referring to punishment.",
+        "tone": "Appreciative here: the authors explicitly thank their colleagues for this quality.",
+        "register": "Neutral and natural in education, work and personal development. Specify “self-discipline” when confusion with punishment is possible."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 13,
+      "wordId": "0138c532-b854-420a-a44b-3a5db8288b6e",
+      "word": "deal-breaker",
+      "senseKey": "a-problem-or-condition-that-makes-an-agreement-or-choice-unacceptable",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8ba38390dae4529a3134927349ec29254ab09a5718767d8614a24a97c007a4cb",
+      "before": {
+        "tone": "Conversational, firm.",
+        "register": "Best suited to conversation. Use it only for a decisive barrier, or it can make a negotiable concern sound final.",
+        "connotation": "Conversational, firm. A drawback reduces attractiveness; a deal-breaker rules the option out.",
+        "meaning_type": "Contextual meaning: a problem or condition that makes an agreement or choice unacceptable"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract compound: a condition serious enough to make someone reject an agreement or option.",
+        "connotation": "Strongly negative toward the condition: it signals that the problem crosses an acceptance limit.",
+        "tone": "Firm but conditional here: “would be” identifies a clause the speaker could not accept.",
+        "register": "Common in workplace negotiation and everyday choices. “An unacceptable condition” is a more formal alternative."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 14,
+      "wordId": "01432b60-7841-40aa-b18c-197b80a70d6b",
+      "word": "even so",
+      "senseKey": "despite-the-situation-just-described",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "c72f3fbaf494b38f4ad0fd4a4ff10fcf956aa51c43b5895472575ebc4a50866a",
+      "before": {
+        "tone": "Neutral, concessive.",
+        "register": "Neutral or professional wording: It concedes the previous point without allowing it to settle the conclusion.",
+        "connotation": "Neutral relationship or function: despite the situation just described.",
+        "meaning_type": "Grammatical relationship: despite the situation just described"
+      },
+      "proposedProfile": {
+        "meaning_type": "Logical connector expressing concession: the unavoidable delay does not remove the duty to inform the customer.",
+        "connotation": "Neutral: it marks a contrast between a difficulty and what should still have happened.",
+        "tone": "Measured and corrective here: the speaker accepts the delay but criticizes the lack of communication.",
+        "register": "Neutral and natural in speech or writing. “Nevertheless” usually sounds more formal."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 15,
+      "wordId": "0193678d-fab1-40a8-b4a9-5b6e7d952fa4",
+      "word": "pitch",
+      "senseKey": "present-persuasively",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a8aa1951cda065ab7cfb68345901540c6658d2b56bbfb322a275059349dab0f6",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract verb for presenting a proposal persuasively; here, the CEO puts forward his preferred option.",
+        "connotation": "Neutral as an act of persuasion; the narrator's “unpopular” and “potentially disastrous” supply the criticism.",
+        "tone": "Critical toward the proposal here, because the narrator describes its reception and possible consequences negatively.",
+        "register": "Common in business and creative work, and conversational elsewhere. “Present” is a less promotional alternative."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 16,
+      "wordId": "019da80b-2c90-40e2-92e7-396f4efb50c6",
+      "word": "pencil in",
+      "senseKey": "to-make-a-tentative-arrangement-that-may-change",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3ca4dd21affe4d2acfa98fcfda8da21c640b78bb101472af81ce1ce30eeefb41",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to make a tentative arrangement that may change"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative phrasal verb for making a provisional arrangement: a pencil entry can be changed more easily than a permanent commitment.",
+        "connotation": "Neutral: it signals flexibility rather than unreliability.",
+        "tone": "Tentative and collaborative here: “Can we” proposes Thursday without treating it as confirmed.",
+        "register": "Common conversational workplace English. “Provisionally schedule” is more formal."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 17,
+      "wordId": "01b03707-86ad-4c66-af8b-ecfc3fe0a659",
+      "word": "address",
+      "senseKey": "deal-directly-with-concern",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bc3156cb974895356160539d8e80437b1a6b81a724040fb6c66cf8761c959c11",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract verb meaning to respond directly to a concern; here, respond to worries about disrespect or harmful intentions.",
+        "connotation": "Neutral: addressing a concern does not by itself prove that the concern has been resolved.",
+        "tone": "Instructional here: the passage explains what a contrasting statement is intended to do.",
+        "register": "Neutral to formal; very common in professional explanations. “Deal with” is often more conversational."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 18,
+      "wordId": "01b7183e-d725-4d54-b44d-dcae5fc2ac3a",
+      "word": "intricate",
+      "senseKey": "highly-complex",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5080d494c535ea939b3c662e57c9053839918516b9cb2e5671e2501497b28dbc",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract description of complexity: the social issues have many connected details that are difficult to untangle.",
+        "connotation": "Not necessarily negative: intricate things can be impressive, though here the word highlights difficulty.",
+        "tone": "Analytical here: the writer contrasts complex social problems with physical threats.",
+        "register": "Neutral descriptive vocabulary used in careful speech and writing. “Complicated” is a simpler option here."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 19,
+      "wordId": "01f1cc3c-e858-4c5d-ba79-ff81bc480a10",
+      "word": "eons",
+      "senseKey": "extremely-long-periods",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "72e43d44d7a12c08c53416ee10d0deb6a06bfad88a27bdbac84ddb472d2c109b",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "A time expression for extremely long periods; here, it emphasizes the long history behind inherited reactions.",
+        "connotation": "Adds a sense of vast duration rather than approval or criticism.",
+        "tone": "Emphatic here: “maybe even eons” expands the timescale beyond years of personal practice.",
+        "register": "Vivid general writing and sometimes humorous conversation. Avoid treating it as a precise scientific duration in this example."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 20,
+      "wordId": "01f8927d-0a36-4601-993c-1a6f65625e4e",
+      "word": "consume",
+      "senseKey": "eat-or-drink",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6babd030f2b3bd1361a5cb418c30a7a29d997ab3a5de19319aee489be90f142b",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal verb for eating or drinking; here, the girls have drunk a large quantity of soda.",
+        "connotation": "Neutral: the amount, rather than the verb, creates the sense of excess.",
+        "tone": "Playfully exaggerated here: “enough ... to fill a small barrel” emphasizes how much they drank.",
+        "register": "More formal than “eat” or “drink”; common in reports and descriptive writing. “Drunk” is more ordinary in this soda example."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 21,
+      "wordId": "022aeba7-5027-4c1a-8ee4-8240099bacea",
+      "word": "preen",
+      "senseKey": "display-self-satisfaction",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "dadb191dc9ff945fe034f2b52ee21be7ae61601e9b1da235258714d6ff5b7a24",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative verb for displaying self-satisfaction, drawing on the image of a bird grooming its feathers.",
+        "connotation": "Usually negative in this human sense: it suggests vanity or excessive pride.",
+        "tone": "Self-questioning and critical here: the speaker rejects showing off as a worthwhile aim.",
+        "register": "Expressive vocabulary in commentary and description. “Show off” is more common in casual speech."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 22,
+      "wordId": "0251ad3c-c016-41bd-b48e-f19a251ec725",
+      "word": "bring forward",
+      "senseKey": "to-move-an-event-to-an-earlier-time-or-date",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ca7a8cfd964cbb9adc22b223fc2b27b70daa198db941ea06ea1f27d7fb598c9a",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to move an event to an earlier time or date"
+      },
+      "proposedProfile": {
+        "meaning_type": "Time-related phrasal verb: reschedule an event for an earlier date or time.",
+        "connotation": "Neutral: the new time may help or inconvenience people depending on the situation.",
+        "tone": "Polite and practical here: “Could we” asks for a scheduling change and gives the holiday as the reason.",
+        "register": "Common in British and international workplace English. “Move the review to an earlier date” is clearer across audiences."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 23,
+      "wordId": "02b74885-5b75-4ced-84ad-70cf33d6729c",
+      "word": "set up",
+      "senseKey": "establish-or-arrange",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6e13acc1370cd3121ad85c4ba8abd0c993530b52afe72d7443470e1e586c100e",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract phrasal verb for establishing or arranging something; here, create additional choices for a discussion.",
+        "connotation": "Neutral: it describes creating options, without guaranteeing they are good ones.",
+        "tone": "Approving and instructional here: the writer presents making new choices as a skill of effective dialogue.",
+        "register": "Common across everyday and workplace English. “Create” is a straightforward alternative for choices."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 24,
+      "wordId": "02ca06f6-2b53-428c-9163-7b1812a8a32b",
+      "word": "recovery plan",
+      "senseKey": "a-set-of-actions-intended-to-restore-progress-after-a-problem",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0a1864bcec59735136d2ff0a7bd6dec03f9be67194b1409ce645477ed3dca29a",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Abstract or practical concept: a set of actions intended to restore progress after a problem"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract planning phrase: actions designed to get work progressing again after a disruption has occurred.",
+        "connotation": "Constructive: it focuses on restoring progress, while acknowledging that something has gone wrong.",
+        "tone": "Practical and factual here: new owners and dates explain how the plan responds to the delay.",
+        "register": "Neutral professional wording, natural in project updates. Explain the actual recovery actions rather than relying on the phrase alone."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 25,
+      "wordId": "02cdb638-a236-4ee1-ad9f-dcb513fa0661",
+      "word": "come down to",
+      "senseKey": "depend-on-essential-factor",
+      "senseRank": 3,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "38259958003102b0057c63d7d6197c09d80e5b72aa3bbaab895ed42cf7e2020f",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract phrasal verb for identifying the essential deciding factor; here, the important factor is handling crucial conversations.",
+        "connotation": "Neutral: it reduces a complex issue to its central point without automatically judging that point.",
+        "tone": "Emphatic and summarizing here: “all” gives conversation handling decisive importance.",
+        "register": "Common in speech and accessible explanatory writing. “Depends mainly on” states the relationship more explicitly."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 26,
+      "wordId": "02eeb6ba-acaa-4c66-97aa-6f14e4bdf869",
+      "word": "owing to",
+      "senseKey": "because-of-a-particular-cause",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "53b8aaef2cea5b7b2de40432d8a0b7a166feffa06d761aefbb331878bbe619c5",
+      "before": {
+        "tone": "Formal causal explanation.",
+        "register": "Formal wording: It sounds more formal than because of and is common in notices.",
+        "connotation": "Neutral relationship or function: because of a particular cause.",
+        "meaning_type": "Grammatical relationship: because of a particular cause"
+      },
+      "proposedProfile": {
+        "meaning_type": "Logical phrase introducing a cause: staff illness explains why the meeting was postponed.",
+        "connotation": "Neutral: the phrase identifies a reason without itself expressing blame.",
+        "tone": "Matter-of-fact here: the sentence reports the postponement and its cause without a distinctive emotional attitude.",
+        "register": "Relatively formal, common in notices and reports. “Because of” sounds more ordinary in conversation."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 27,
+      "wordId": "02f8208b-5fa7-4cb8-9d4f-ef2134688e52",
+      "word": "periodically",
+      "senseKey": "periodically-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ab15c6bbfd10df157fe94cc0952cd55589f903291c078626ba5d0781f94d2b89",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Time adverb meaning at intervals; here, predictions are run repeatedly on batches rather than necessarily continuously.",
+        "connotation": "Neutral: it describes timing, not whether the frequency is sufficient.",
+        "tone": "Technical and factual here: the sentence explains how the prediction process is scheduled.",
+        "register": "Neutral to formal; common in operational descriptions. “From time to time” is less precise and more conversational."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 28,
+      "wordId": "034b3c8d-3ae9-4209-9c6c-aa41c9816034",
+      "word": "pick up the slack",
+      "senseKey": "to-do-extra-work-because-someone-or-something-is-not-doing-enough",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "449b50f92b5bfef8596610d33d9ad22885249674aa17d8c4da66aa6a2c774818",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Figurative or idiomatic: to do extra work because someone or something is not doing enough"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative idiom: take on work left undone by others, as though taking up looseness in a rope.",
+        "connotation": "Can suggest helpful cooperation or an unfair extra burden; here, colleagues cover temporary absences.",
+        "tone": "Practical and cooperative here: the evening team is described as covering work while two people are away.",
+        "register": "Conversational, including ordinary workplace discussions. “Cover the extra work” is more direct in a formal allocation plan."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 29,
+      "wordId": "037b5071-1b99-43b4-9277-b467f31adee4",
+      "word": "rule out",
+      "senseKey": "to-decide-that-a-possibility-cannot-or-should-not-be-considered",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a8cc08b69f1f4600038b8d4793d2cd54c0b40d667e24fd4fdae4c3682ea08656",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to decide that a possibility cannot or should not be considered"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract phrasal verb meaning to exclude a possibility; in the negative, a further delay remains possible.",
+        "connotation": "Neutral: it expresses an assessment rather than approval or dislike of the possibility.",
+        "tone": "Cautious here: “cannot” and “at this stage” avoid giving an assurance that there will be no delay.",
+        "register": "Neutral and widely used in discussion, reports and news. It does not mean that the remaining possibility is certain or likely."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 30,
+      "wordId": "039012d2-546f-43df-8d91-fe54a1496107",
+      "word": "terror",
+      "senseKey": "extreme-fear",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "dd868030d9c4fed0dd9d0e3a4c043bca203dfd6de564bce5b74103d2eae1cd40",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract noun for extremely strong fear; here, it describes how frightened Kevin's colleagues appeared.",
+        "connotation": "Strongly negative as an emotional experience; it is much more intense than mild concern.",
+        "tone": "Dramatic here: the contrast between their apparent terror and Kevin continuing heightens the tension.",
+        "register": "Common in vivid narrative and serious accounts of fear. It may overstate ordinary workplace nervousness."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 31,
+      "wordId": "039ef67b-a168-468e-b612-b03fc9f7aa49",
+      "word": "take precedence",
+      "senseKey": "to-be-treated-as-more-important-than-something-else",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "992efb21509f3296c8c20c5197763e9345680d6fa9257e044bb86a6a2df980de",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to be treated as more important than something else"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract expression of priority: urgent customer issues should be handled before routine paperwork.",
+        "connotation": "Neutral: it ranks importance without claiming that lower-priority tasks have no value.",
+        "tone": "Firm and procedural here: the sentence states the expected order of attention.",
+        "register": "Neutral to formal, common in workplace policies and explanations. “Come first” is more conversational."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 32,
+      "wordId": "03a4dc34-bbae-4840-8113-77f4d6133708",
+      "word": "could you be more specific",
+      "senseKey": "used-to-ask-for-precise-details-rather-than-a-general-statement",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4a448bd33a1cfa7bb59ca6f892fb03cf8a33924f75228d601b3d9f083850af45",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: used to ask for precise details rather than a general statement"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conversational request for clarification: ask the other person to name the precise changes required.",
+        "connotation": "Usually neutral: it requests detail rather than necessarily rejecting the original statement.",
+        "tone": "Polite but direct here: “Could you” softens the request for a more exact explanation.",
+        "register": "Natural in everyday and professional conversation. The same words can sound impatient with a sharp delivery, but that delivery is not shown here."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 33,
+      "wordId": "03a870a0-e07a-4e01-a443-77b194cd0885",
+      "word": "self-image",
+      "senseKey": "view-of-oneself",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8159b4246a01aec06d15c160e2ecaee93f289600c562e6b56d20fcee43695b6a",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract noun for a person's view of their own character or abilities; here, that view is said to be damaged.",
+        "connotation": "Neutral as a psychological concept; “destroy” makes the action toward it strongly negative.",
+        "tone": "Defensive and self-justifying in the quoted speech: “had to” presents harming the other person as necessary to preserve integrity.",
+        "register": "Neutral in personal reflection and psychology discussions. “How someone sees themselves” is a simpler explanation."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 34,
+      "wordId": "03b91ecd-1bae-43c6-a2b1-afcb827001d6",
+      "word": "typically",
+      "senseKey": "in-the-usual-case",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8045313649c9e119b28f22e97ffdc7b76001b8a669aa330e8ca5afd81ad4fbac",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Adverb describing what usually happens, rather than what happens in every case.",
+        "connotation": "Neutral: it signals a usual pattern without judging it.",
+        "tone": "No distinctive attitude can be established from the incomplete fragment “What typically set”; the surrounding sentence is needed.",
+        "register": "Neutral and useful in general explanations, reports and conversation. “Usually” is a simpler alternative."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 35,
+      "wordId": "03e7db1c-afbc-49c9-8120-8bc61930f84b",
+      "word": "manageable",
+      "senseKey": null,
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0c6461d69745605b77d1515041ddd081b768764ecc154591342c498383e3d779",
+      "before": {
+        "tone": "Calm and realistic",
+        "register": "Neutral; natural in everyday and professional English",
+        "connotation": "Positive or reassuring",
+        "meaning_type": "Abstract"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract adjective: small or organized enough to control or complete without excessive difficulty.",
+        "connotation": "Positive or reassuring: it suggests that a task is within someone's capacity.",
+        "tone": "Practical and reassuring here: breaking the task into steps is presented as making it possible to handle.",
+        "register": "Neutral and natural in everyday, educational and workplace English. It means feasible to handle, not necessarily easy."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 36,
+      "wordId": "03fbcc4b-708e-4322-a7e6-0baa6e679c8a",
+      "word": "volatile",
+      "senseKey": "volatile-demonstrated-course-sense",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f5df8009121a648d3d737ac6488709e595dfb6d8f9d3eb87a5c8a3f3cadbc45d",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract description of instability: market conditions can change quickly and unpredictably.",
+        "connotation": "Often cautionary in this market sense because sudden changes create financial uncertainty.",
+        "tone": "Warning and conversational here: the example contrasts a hoped-for profit with a sudden drop and a disappointed reaction.",
+        "register": "Standard financial vocabulary, also familiar in general news. This lesson teaches market instability, not the physical evaporation sense."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 37,
+      "wordId": "043d7825-c7c9-421c-96d4-2d57bcde8714",
+      "word": "freely",
+      "senseKey": "without-restraint",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b196f445b1afbdc4bb98205f7c93b6787e0dc09aa7ef4209ad541639acbdf1da",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract adverb for acting without restraint or pressure; here, people share ideas openly.",
+        "connotation": "Positive here: freedom to contribute is presented as desirable rather than careless or uncontrolled.",
+        "tone": "The fragment emphasizes openness, but does not provide enough of the sentence to establish a stronger speaker attitude.",
+        "register": "Neutral and common in discussions of communication. It does not mean “without payment” in this sense."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 38,
+      "wordId": "0443a2f1-fbd5-4292-94bb-d5cad8e6557a",
+      "word": "pop in",
+      "senseKey": "to-make-a-quick-informal-visit",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b97d17dacf70154b9ec08b7081c4f6af29a3cdef2589164bc01ea79e9e9b16cd",
+      "before": {
+        "tone": "Informal British visiting.",
+        "register": "Conversational wording: Especially common in British speech; use visit briefly for a more formal audience.",
+        "connotation": "Neutral relationship or function: to make a quick informal visit.",
+        "meaning_type": "Contextual expression: to make a quick informal visit"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conversational phrasal verb for making a short, informal visit; here, briefly visiting to collect keys.",
+        "connotation": "Often friendly and low-pressure: it presents the visit as brief rather than a major appointment.",
+        "tone": "Casual and considerate here: the speaker asks whether tomorrow would be acceptable.",
+        "register": "Informal, especially common in British English. “Visit briefly” is more formal; “stop by” is another conversational choice."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 39,
+      "wordId": "04595394-19fe-4ae0-9239-5be3d0f3d783",
+      "word": "hostile",
+      "senseKey": "unfriendly-and-aggressive",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "04c7bb549521f57c15759b74ac313585dfd3cb0396734197973016681082ea81",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; suitable for everyday, professional, or academic discussion when this exact sense is intended",
+        "connotation": "negative because it signals conflict",
+        "meaning_type": "literal or abstract according to the assessed sentence"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract description of an unfriendly or opposing attitude; here, a crowd may react against the speaker.",
+        "connotation": "Negative: it suggests antagonism rather than simple disagreement or lack of enthusiasm.",
+        "tone": "Cautionary here: “potentially” identifies a risk that could make the speaker defensive about their image.",
+        "register": "Neutral vocabulary for describing conflict, but a strong judgement of people. Explain the observed behaviour when a diplomatic description is needed."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 40,
+      "wordId": "04b08d78-fefe-4d1b-8e45-bc1f9b76fd8e",
+      "word": "personal identifiers",
+      "senseKey": "personal-identifiers-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d4ded3ffd1a6d9edaff85f7482abeaf73eb9707899a89a360b5b678141a9e54f",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical noun phrase for pieces of information that can identify a person.",
+        "connotation": "Neutral as a data category; the mention of privacy and legal reasons explains why careful handling matters.",
+        "tone": "Explanatory and procedural here: the speaker describes removing or anonymizing identifying information.",
+        "register": "Standard privacy and data-management wording. Give examples such as a name or account identifier when speaking to a general audience."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 41,
+      "wordId": "04d74d53-f2a1-42f6-a798-4f07d4805149",
+      "word": "unfortunate",
+      "senseKey": "unlucky-or-regrettable",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ae2df374e1b53f95d89a838a15f62c35e2a86250005fc5c36486ec9fb58e182e",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract evaluation of a situation as regrettable or unlucky; here, the reality is presented as undesirable.",
+        "connotation": "Negative, but relatively restrained: it expresses regret without necessarily assigning blame.",
+        "tone": "Resigned in the viewpoint being reported: “merely a reflection” presents the difficulty as something people believe they must accept.",
+        "register": "Neutral to formal; common in polite statements of regret. “Unlucky” is more personal and does not fit every use."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 42,
+      "wordId": "05487f3d-c9ca-41bd-8de2-7fb9086bf9ac",
+      "word": "be into",
+      "senseKey": "to-be-interested-in-or-enthusiastic-about-something",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "805a6a21ff3632bf62eacc6fe819ef7fbc5b62e21a5b6c3a4a8b28460e7ea852",
+      "before": {
+        "tone": "Informal enthusiasm.",
+        "register": "Conversational wording: Informal; interested in is safer in formal introductions or reports.",
+        "connotation": "Neutral relationship or function: to be interested in or enthusiastic about something.",
+        "meaning_type": "Contextual expression: to be interested in or enthusiastic about something"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conversational expression of interest or enthusiasm; here, enjoying or following sport.",
+        "connotation": "Usually positive toward the interest, but the negative form does not criticize people who lack it.",
+        "tone": "Welcoming here: “do not have to” reassures people that an interest in sport is not required to enjoy the event.",
+        "register": "Informal and natural in conversation. “Be interested in” suits more formal writing."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 43,
+      "wordId": "0549d32c-5603-4079-a827-8493b6d14515",
+      "word": "pull yourself out of",
+      "senseKey": "disengage-from",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "05c40bf3a2f9e47dffde6b9d6161550b19a0374f1e24530423aee04791027dfc",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative phrasal expression: step mentally back from an argument to observe what is happening.",
+        "connotation": "Constructive here: disengaging briefly allows awareness rather than simply abandoning the discussion.",
+        "tone": "Reflective and cautionary here: “nearly impossible” highlights how strong emotions make stepping back difficult.",
+        "register": "Natural in general discussion of difficult situations. “Step back from the argument” is a simpler expression for this mental action."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 44,
+      "wordId": "055bde6d-35bb-4a07-b638-8f61efb6e213",
+      "word": "due diligence",
+      "senseKey": "careful-checks-made-before-an-important-decision-or-agreement",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c5652e7971029d3a4c20d849e1484e502feee5dbca82a9aa388dde29a5d1ca00",
+      "before": {
+        "tone": "Formal, careful.",
+        "register": "More formal than everyday alternatives. This lesson teaches general communication, not a claim that a particular legal duty has been satisfied.",
+        "connotation": "Formal, careful. A quick check may cover one fact; due diligence suggests a systematic review appropriate to the decision.",
+        "meaning_type": "Contextual meaning: careful checks made before an important decision or agreement"
+      },
+      "proposedProfile": {
+        "meaning_type": "Established professional phrase for careful investigation before an important choice or agreement.",
+        "connotation": "Positive in this example: it presents checking the supplier as responsible preparation, without guaranteeing a good outcome.",
+        "tone": "Prudent and advisory here: “should complete” recommends checks before selection.",
+        "register": "Common in business and legal contexts. For a general audience, explain which checks are involved rather than leave the phrase unexplained."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 45,
+      "wordId": "056dfeb6-3170-45d8-a5c0-bdfc9d0ae05a",
+      "word": "name-calling",
+      "senseKey": "insulting-with-labels",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "02b16ee405edd9eb990dd279f3a75363f2df8e40ecb58d4750ee6c8751f4674c",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract noun for insulting people with offensive labels instead of addressing their ideas or actions.",
+        "connotation": "Negative: it presents the behaviour as disrespectful and unhelpful.",
+        "tone": "Disapproving here: threats and name-calling are contrasted with open, honest and effective discussion.",
+        "register": "Common in everyday and workplace talk about conflict. It refers to insults, not the neutral act of naming something."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 46,
+      "wordId": "057163a7-4267-40ec-8c07-838d1916440a",
+      "word": "colorful",
+      "senseKey": "lively-and-interesting",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "09176bc5ba038140cecb074f71efb871c484717271dffd829b93636de41f901c",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative adjective for a lively or distinctive personality, extending the idea of vivid colour to character.",
+        "connotation": "Often appreciative or amused, but it can also politely suggest eccentricity; here it sits beside the less flattering “crotchety.”",
+        "tone": "Wry and mildly amused here: the narrator gives an entertaining description of the neighbour and the unusual conversation.",
+        "register": "Natural descriptive vocabulary in conversation and narrative. It does not describe the neighbour's physical colours in this sense."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 47,
+      "wordId": "05a5da9c-cdb4-4d5d-856d-07795ef285c2",
+      "word": "amorous",
+      "senseKey": "showing-sexual-affection",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3f202af235de85623583d86fcf72f5cd73651c8419f7772ab3ebc149f6fe9ff5",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract adjective for romantic or sexual affection; here, Jotham wants an affectionate or intimate encounter.",
+        "connotation": "Not inherently approving or disapproving; any implication of welcome or unwelcome attention depends on the situation.",
+        "tone": "The sentence stops after “and,” so it does not establish whether the wish is welcomed, mocked or criticized.",
+        "register": "Somewhat literary or formal, and sometimes playfully indirect. “Romantic” or “sexually affectionate” may be clearer depending on the intended context."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 48,
+      "wordId": "05d8abd2-de80-4e04-9d8c-9515863ea285",
+      "word": "abrasively",
+      "senseKey": "harshly-and-rudely",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "97e6bce69f98f6429d8c1bda0fbede1b619a3105fef738d0c7c7a298b44ae3d5",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract adverb for a harsh, irritating manner, extending the idea of an abrasive surface rubbing roughly.",
+        "connotation": "Negative: it suggests that the way of speaking needlessly irritates or offends others.",
+        "tone": "Self-reflective here: the speaker asks how to persuade while avoiding a harsh manner.",
+        "register": "Descriptive vocabulary used in feedback and commentary. “Harshly” is simpler; “directly” is not an equivalent criticism."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 49,
+      "wordId": "05eb869f-851b-4d3f-b005-68acc526b289",
+      "word": "compatible",
+      "senseKey": "able-to-work-together",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "24567334fcb8ad512ec35d02801789e57d3698a301684e41f2d6c77c6319abb4",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract adjective for things that can coexist or work together without conflict; here, goals can be pursued together.",
+        "connotation": "Positive in this setting: compatibility makes cooperation possible despite different strategies.",
+        "tone": "Encouraging and explanatory here: discovering compatible goals offers a route toward a shared purpose.",
+        "register": "Neutral and common in both personal and professional contexts. It means able to fit together, not necessarily identical."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 50,
+      "wordId": "06311f5c-9025-4ab0-a101-6607d20109fc",
+      "word": "contingency plan",
+      "senseKey": "a-prepared-alternative-for-dealing-with-a-possible-future-problem",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "959f93cd204989db3be3a3fe8c2870b75ce03cd74568533d6906253e1a7ff135",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Abstract or practical concept: a prepared alternative for dealing with a possible future problem"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract planning phrase: a prepared fallback for a problem that might occur in the future.",
+        "connotation": "Prudent and constructive here: preparation reduces disruption without implying that the problem will definitely happen.",
+        "tone": "Practical and conditional here: going online is tied specifically to the possibility of the hall closing.",
+        "register": "Neutral professional wording, also natural in event planning. “Backup plan” is more conversational."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 51,
+      "wordId": "063907b3-223a-4ec6-9558-74f68ef38a10",
+      "word": "ribbon-cutting ceremony",
+      "senseKey": "formal-opening-event",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "1b08579f3f922133927387a8c3e7fb5ba392527f89f9168980fa497ea53441da",
+      "before": {
+        "tone": "clear and explanatory",
+        "register": "neutral everyday English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "concrete or abstract vocabulary in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal event name: an opening ceremony in which cutting a ribbon marks the start of a building's or project's public use.",
+        "connotation": "Usually celebratory because it marks an opening or achievement; the phrase does not say how important the project is.",
+        "tone": "Matter-of-fact here: the sentence simply states that someone will attend.",
+        "register": "Standard wording in event announcements and local news; a general audience usually understands it without explanation."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 52,
+      "wordId": "069f4cc5-c90e-4e48-83ba-cc7e2b8010aa",
+      "word": "smugly",
+      "senseKey": "with-self-satisfaction",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "860e1f925b86cefcee82d3ba44457a7c3dfe54c14bb41b8bad7c442a38b1316f",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract adverb for behaving with excessive self-satisfaction or a sense of superiority.",
+        "connotation": "Negative: it suggests that the person's satisfaction is irritating or undeserved.",
+        "tone": "Accusatory here: “always,” “skulking” and the claim that she thinks you are a slob create a strongly critical portrayal.",
+        "register": "Common in descriptive writing and personal criticism. It makes a judgement about attitude, so use observable behaviour in diplomatic feedback."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 53,
+      "wordId": "06a5b50a-fade-4b57-9547-973a10ebefb3",
+      "word": "on a tight budget",
+      "senseKey": "with-only-a-small-amount-of-money-available-to-spend",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6b52bb4b86e3601989ab08231fe336401cf338601692745894983dcefeaa18b9",
+      "before": {
+        "tone": "Neutral, personal.",
+        "register": "Usable in clear general or professional communication. It is a natural way to set a spending boundary without revealing exact income.",
+        "connotation": "Neutral, personal. A tight budget limits spending; a tight deadline limits time.",
+        "meaning_type": "Contextual meaning: with only a small amount of money available to spend"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative expression for having little money available: “tight” presents the spending limit as restrictive.",
+        "connotation": "Neutral about the people involved; it indicates financial constraint rather than automatically implying poverty or poor planning.",
+        "tone": "Practical here: the sentence gives a limitation affecting how the celebration is organized.",
+        "register": "Common conversational and workplace English. “With limited funds” is a more formal alternative."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 54,
+      "wordId": "06a8323b-6c22-4135-950a-be87fb15126f",
+      "word": "decision tree",
+      "senseKey": "decision-tree-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8790dfacdc8576360d000ee302ac9a7a594c00defce05eb17cd6d38601d1714d",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical model name: a predictive system follows branching rules, resembling the branching structure of a tree.",
+        "connotation": "Neutral: the name describes a model structure, not its accuracy or fairness.",
+        "tone": "Instructional here: the speaker uses maximum depth to explain a decision tree's adjustable settings.",
+        "register": "Standard machine-learning terminology. A general audience benefits from “a model that follows a sequence of branching questions.”"
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 55,
+      "wordId": "06c1a8e3-ce4b-4ef8-95a2-347818afdd2a",
+      "word": "run by",
+      "senseKey": "to-present-an-idea-to-someone-for-their-opinion-or-approval",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2b5eb94e0582a5f673fffbb09e1030ff24a2c36115eb0ce298fb4190198dd12e",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to present an idea to someone for their opinion or approval"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract phrasal verb for asking someone to consider an idea; here, obtain feedback before sending a proposal.",
+        "connotation": "Collaborative: it invites another person's judgement without necessarily making a formal approval request.",
+        "tone": "Polite and consultative here: “Can I” asks permission to seek the listener's opinion.",
+        "register": "Conversational, especially in workplace exchanges. “Ask for your feedback on” is clearer in formal correspondence."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 56,
+      "wordId": "06c6b1f7-a14c-4c26-b2cb-88203d0c8ca4",
+      "word": "I beg to differ",
+      "senseKey": "used-to-state-polite-but-firm-disagreement",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f3d0ba11590253a2c6eb2aab19b874e8c1e146035cc4a9f1d2242d3af9cc05c0",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: used to state polite but firm disagreement"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conversational formula for stating disagreement while keeping a conventionally polite form.",
+        "connotation": "Signals firm opposition to the claim; the polite wording does not make the disagreement weak.",
+        "tone": "Firm and corrective here: the speaker immediately cites the survey as a reason to reject the conclusion.",
+        "register": "Formal or deliberately emphatic in conversation; it can sound stiff or ironic. “I see it differently” is often softer."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 57,
+      "wordId": "06cda910-722c-4375-9cc3-6c3f90558293",
+      "word": "take over",
+      "senseKey": "assume-control-or-duty",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bf445e279d7e789c2ebc6bbd80613581ba9ac464688c04ad90657f3b8e403101",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract phrasal verb for assuming another person's responsibility; here, continue the task after the other person's turn.",
+        "connotation": "Neutral: taking responsibility can be cooperative or unwanted depending on context.",
+        "tone": "Collaborative and practical here: the question appears to arrange a handover after the game.",
+        "register": "Common in everyday and workplace English. State the task when the surrounding conversation does not make it clear."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 58,
+      "wordId": "06f6de97-553e-423d-8f8b-64b2f3cc8c67",
+      "word": "factor in",
+      "senseKey": "to-include-something-when-calculating-or-deciding",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2a44c5f9f6034037dd38844ded48e6824de8a6205b88c4a91eab26d8b5619ce6",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to include something when calculating or deciding"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract phrasal verb meaning to include a consideration in planning or calculation; here, allow time for training.",
+        "connotation": "Neutral: it asks for a factor to be considered without claiming that it is the only important one.",
+        "tone": "Practical and cautionary here: “Remember” prompts the listener not to overlook training time.",
+        "register": "Common in professional planning and ordinary conversation. “Include” is a simpler alternative where the object is clear."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 59,
+      "wordId": "06fb358d-51c7-4a44-9c9e-7ae93069d0de",
+      "word": "fuming",
+      "senseKey": "extremely-angry",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b5aa909d727aea603d3b47cc84b40dd0dd062ba452a95daffe26f26dcd97d2a3",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative description of intense anger, as though someone were giving off fumes or steam.",
+        "connotation": "Strongly negative as an emotional state; it suggests more anger than being merely annoyed.",
+        "tone": "Dramatic here: tiredness and disappointment build toward all six people becoming very angry.",
+        "register": "Common expressive vocabulary in conversation and narrative. “Very angry” is plainer for formal reporting."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 60,
+      "wordId": "0710b584-7b34-43fb-9983-49fed1e0f82c",
+      "word": "standardized job titles",
+      "senseKey": "standardized-job-titles-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f244e8bc04e74494efb8ee0ab2b6c3895cf7ce765942a883a6f0e3834e18434e",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical workplace phrase: job-role names made consistent so that different wording can be processed or compared.",
+        "connotation": "Neutral: standardization concerns consistency, not whether a job is prestigious or an applicant is qualified.",
+        "tone": "Explanatory here: the sentence describes a possible use of natural language processing on a résumé.",
+        "register": "Natural in recruitment-data and HR-system discussions. Explain “consistent names for equivalent job roles” to a nontechnical audience."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 61,
+      "wordId": "07488c20-2a2f-4818-ae6e-f8c4ec8b2f9c",
+      "word": "drag your feet",
+      "senseKey": "delay-reluctantly",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4e1601c5801a05d09152a2d43444bef3a92b7cc487b09971a9252482e5a46c1e",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative idiom for delaying action through reluctance, as though moving one's feet slowly instead of proceeding willingly.",
+        "connotation": "Usually negative: it implies avoidable hesitation rather than a delay outside someone's control.",
+        "tone": "Critical of the reluctant group here: their delay is contrasted with people who would have agreed to move.",
+        "register": "Common conversational English, including workplace criticism. Describe the actual delay when you do not know the person's motive."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 62,
+      "wordId": "078ac38a-f9c8-4df8-b682-8ba4608384a5",
+      "word": "in principle",
+      "senseKey": "as-a-general-idea-before-practical-details-are-settled",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "60b4281050a182c8c77859bfffd1588ad0fa82f59199099f19e6bfbb8f3f6b78",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: as a general idea, before practical details are settled"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract qualifying phrase: agreement with the general idea, while practical details remain unsettled.",
+        "connotation": "Usually supportive but limited: it leaves room for conditions and changes before final agreement.",
+        "tone": "Cautiously supportive here: the speaker approves the proposal's idea while explicitly questioning its cost.",
+        "register": "Neutral to formal; common in negotiations and planning. It must not be treated as unconditional approval."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 63,
+      "wordId": "07b3f868-0168-43a1-8ad9-4922d8501e41",
+      "word": "keep someone posted",
+      "senseKey": "to-continue-giving-someone-the-latest-information",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a89195a72a4d29c964cdaf0add618c574b2ca664eb59156bd2b0c994a1a1af20",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Figurative or idiomatic: to continue giving someone the latest information"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conversational expression requesting continuing updates as new information becomes available.",
+        "connotation": "Cooperative: it asks to remain informed rather than automatically implying mistrust.",
+        "tone": "Polite and practical here: “Please” introduces a request for delivery-date updates.",
+        "register": "Common in everyday and workplace communication. “Keep me informed” is slightly more formal."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 64,
+      "wordId": "07c4b6d3-04b0-467d-914b-06b9d08c651d",
+      "word": "insight",
+      "senseKey": "deep-understanding",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "01170a46077c2d32a81c0e20343a14ff4e47df9e921d3997142ef1c59d72d38f",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract noun for a deep or clarifying understanding, rather than simply possession of information.",
+        "connotation": "Positive here: insight is treated as valuable understanding gained through experience.",
+        "tone": "Appreciative and reflective here: the writer describes coming to understand the title after engaging more deeply with the material.",
+        "register": "Neutral vocabulary used in reflection, education and professional discussion. A genuine insight should identify what became clearer."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 65,
+      "wordId": "07caaf68-0506-46e5-9c8e-5500db4ded21",
+      "word": "rumor",
+      "senseKey": "unverified-information",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "08e030a168bb4bf2642c022e4c2e9f8d650bd98fe8f95c01b8b25cf3155eb961",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract noun for a circulating report whose truth has not been reliably confirmed.",
+        "connotation": "Cautionary: calling information a rumor warns that the speaker is not presenting it as verified fact.",
+        "tone": "Reporting unconfirmed information here: “The rumor is” distances the speaker from certainty about the furniture cost.",
+        "register": "Common in everyday talk and news discussion. Formal reports should distinguish an unverified claim from established evidence."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 66,
+      "wordId": "07ef3d44-9995-408e-8f72-c15203e782f9",
+      "word": "run through",
+      "senseKey": "to-review-or-explain-something-relatively-quickly",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "51d24a6d240e4ac9535511c88f624fef3e304bed102c71660f600115a2414dd0",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to review or explain something relatively quickly"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract phrasal verb for reviewing or explaining a set of points fairly quickly; here, review the agenda.",
+        "connotation": "Neutral: it suggests a brief review without necessarily implying careless treatment.",
+        "tone": "Collaborative and practical here: “Let us” proposes a shared check before others arrive.",
+        "register": "Common conversational workplace English. “Review briefly” is more formal and explicit."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 67,
+      "wordId": "08666da3-9f90-4084-8259-83908d3739c0",
+      "word": "sensitive data",
+      "senseKey": "sensitive-data-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6429f6bd9a65f08d2ec8bbc8f15a2f8767286635ea7fb3141ade9c753f26cbb7",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical privacy phrase for information needing careful protection because exposure or misuse could cause harm.",
+        "connotation": "Cautionary about handling: sensitivity describes potential consequences, not whether the information is bad or embarrassing.",
+        "tone": "Procedural here: the speaker introduces the next step without expressing a distinctive emotion.",
+        "register": "Common in privacy, security and workplace policies. The exact legal categories can vary, so this general phrase is not itself a legal classification."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 68,
+      "wordId": "08725cef-a210-4247-9e38-b5a0215a5629",
+      "word": "image recognition",
+      "senseKey": "image-recognition-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6273fa8f640a020f1051c0d69581ddbcd6922baad867a7b3b69554481ec074a2",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical noun phrase for computational identification of objects, features or patterns in images.",
+        "connotation": "Neutral: the phrase identifies a capability without saying whether a particular application is accurate or desirable.",
+        "tone": "Explanatory here: the speaker lists it as one example of what the technology can do.",
+        "register": "Standard computing terminology, also common in technology news. Give a concrete example for audiences unfamiliar with it."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 69,
+      "wordId": "0897e046-98fc-4105-a5ac-a721684227c3",
+      "word": "practice makes perfect",
+      "senseKey": "repetition-improves-skill",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d7c7d9cab9fb778fb9d24bb0777bac12a9837e17624968427844fae79d043c14",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Proverb expressing the idea that repeated practice improves skill; “perfect” is an emphatic ideal rather than a guaranteed result.",
+        "connotation": "Usually encouraging, but the quoted passage challenges the unqualified proverb and stresses the quality of practice.",
+        "tone": "Corrective and emphatic here: “doesn't” rejects the familiar claim before replacing it with “perfect practice.”",
+        "register": "Familiar everyday saying, useful in encouragement. Avoid presenting it as a literal guarantee that repetition alone produces mastery."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 70,
+      "wordId": "08c2f0d8-28d7-4b80-b528-b005e49aeceb",
+      "word": "initiate",
+      "senseKey": "cause-to-begin",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a538d8894249abd5b135b18c0ec585d846a68f1b164869dd8f5768c7565ae500",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract verb meaning to start an action or process; here, she starts the conversation.",
+        "connotation": "Neutral: it identifies who begins, without saying whether starting was welcome or successful.",
+        "tone": "Factual with emphasis on responsibility here: “She's the one” identifies her as the person who starts the talk.",
+        "register": "More formal than “start”; common in reports and professional discussion, though “start the conversation” is more everyday."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 71,
+      "wordId": "08d0d4d5-64da-4c21-968d-36a51c9e8c37",
+      "word": "grunted",
+      "senseKey": "made-a-short-low-rough-sound-like-a-pig",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a38fb90c978edddad4ba3da548c8b50eb06a5d2e0237932dc2047970e7a22516",
+      "before": {
+        "tone": "The pig makes its characteristic low sound after feeding.",
+        "register": "Neutral and natural in narrative or everyday English.",
+        "connotation": "Mostly neutral; its emotional effect comes from the surrounding scene.",
+        "meaning_type": "Contextual action or state meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal past-tense verb describing a short, low, rough sound; here, the character makes the sound before walking into the box.",
+        "connotation": "Neutral as a sound description; it does not by itself prove anger or satisfaction.",
+        "tone": "Observational and quiet here: the sequence ends with the character walking sleepily, without an explicit emotional judgement.",
+        "register": "Common in narrative descriptions of animals or people. In human dialogue, a grunt may suggest reluctance, but that interpretation is not established here."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 72,
+      "wordId": "08daa19a-2317-4476-994f-cfa5e6025e50",
+      "word": "irony",
+      "senseKey": "contradictory-result",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a5ab895b9a0398fbcc7dd6d3f235d39b7def192f438c28c94086ea5e7da79514",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract noun for an unexpected contrast between an outcome and what would normally be expected.",
+        "connotation": "Often invites reflection or wry amusement; it need not mean that the outcome is funny.",
+        "tone": "Reflective here: “a certain irony” points out a contrast, but the quoted sentence does not supply enough detail to identify it.",
+        "register": "Neutral to somewhat literary in commentary. Explain the actual contrast rather than use it as a synonym for any coincidence."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 73,
+      "wordId": "08dab1e5-cdd3-454d-a94e-252101b4ab43",
+      "word": "emphasize",
+      "senseKey": "give-special-importance",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "532b388666e3d90febf45fb64fb9a2d85050ef907809a27c6b4a6aa682c4261f",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract verb for giving special stress or importance; here, the speaker stresses the spoken word “very.”",
+        "connotation": "Neutral as an act of emphasis; the surrounding description makes this particular stress sound accusatory.",
+        "tone": "Dramatic and critical here: the narrator compares the effect of the stressed word to an extreme accusation.",
+        "register": "Neutral and widely usable in speech, writing and workplace communication. “Stress” is a common alternative in this spoken-word sense."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 74,
+      "wordId": "090e746d-1461-45bd-839d-032db3b4e3e2",
+      "word": "on-site",
+      "senseKey": "at-work-location",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b88f7aa4effbb85b42277c8d9efd874b86286d08be5815b1e430dc9a495cf9ca",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal location adjective: the workshop takes place at the relevant organization's location.",
+        "connotation": "Neutral: it states location, not the quality or intensity of the workshop.",
+        "tone": "Explanatory here: the authors establish the setting before describing a typical objection from participants.",
+        "register": "Common workplace wording. “At the workplace” is clearer when the intended site has not been named."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 75,
+      "wordId": "0937bcc8-7114-48c0-ad8a-50187f156646",
+      "word": "nearly",
+      "senseKey": "almost",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "91677b3c44aade173606144811ed75d23d78292266b29abbdc8ec21b0aa3c9ae",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Quantity modifier meaning almost, but not quite; here, the proportion is a little below 90 percent.",
+        "connotation": "Neutral: it qualifies the amount without itself praising the result.",
+        "tone": "Confident in the reported finding here: “Sure enough” presents the percentage as confirming expectations.",
+        "register": "Neutral and common in everyday and formal writing. “Almost” is usually a direct alternative in this percentage example."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 76,
+      "wordId": "09440a31-9e0c-4904-9047-1a6105e27a93",
+      "word": "contrast",
+      "senseKey": "show-difference",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9f8b745b39ac9d258bf51921afa81edfab198d84df3f12bf592db84b9d8680cc",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract verb for setting different things against each other to make the difference clear. The passage names “Contrast” as a dialogue skill without explaining its full method.",
+        "connotation": "Neutral as a comparison method; the surrounding passage presents the named skill as useful.",
+        "tone": "Instructional and approving here: the writer introduces skills said to rebuild respect or purpose.",
+        "register": "Neutral to formal. The course-specific technique needs its surrounding explanation before it can be equated with every ordinary use of “contrast.”"
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 77,
+      "wordId": "09591b3f-7280-48c6-a3cb-b359aa01fe6b",
+      "word": "global explainability",
+      "senseKey": "global-explainability-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "49f31059b95406e5db58f3abbbc98dc9a82c85880139661c4562cf321b446610",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical concept: explaining how a model behaves overall, rather than why it produced one particular result.",
+        "connotation": "Neutral: it describes the scope of an explanation, not a guarantee that the model is trustworthy.",
+        "tone": "Instructional here: the speaker explicitly contrasts overall behaviour with an individual prediction.",
+        "register": "Specialist machine-learning terminology. “An overall explanation of the model's behaviour” is easier for a general audience."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 78,
+      "wordId": "097bf644-f512-48ba-b75a-dbdb548d4822",
+      "word": "skewed",
+      "senseKey": "skewed-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "47c197ee18c3e650d2dd0b755a47eab61dc4cac44043877146fa144b26b44d8f",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract description of distortion or imbalance; here, the question asks whether model outputs are shifting away from a suitable distribution.",
+        "connotation": "Concern is implied in this example because skewed outputs are linked with possible bias; the term does not always mean unfairness in statistical use.",
+        "tone": "Investigative and cautious here: the question asks whether a problem is developing rather than asserting that it exists.",
+        "register": "Common in data analysis and general commentary. Explain what distribution or comparison is intended instead of assuming that every uneven result is wrong."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 79,
+      "wordId": "099c6495-ce4f-43fd-bf92-c9b179b28749",
+      "word": "melanoma",
+      "senseKey": "malignant-skin-cancer",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "65e6af50e14908ccb08ec3e092c912295c02bb98d58f77384de6eb121d19c8ea",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical medical noun naming a cancer arising in pigment-producing cells; the passage uses it as the disease studied.",
+        "connotation": "The illness is serious, but the medical term itself is descriptive rather than insulting or approving.",
+        "tone": "Clinical and explanatory here: the narrator describes participants, treatment and study groups.",
+        "register": "Standard medical terminology, also used in public health information. This field identifies the word's use; it does not provide medical advice."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 80,
+      "wordId": "09a77572-082e-4c14-9344-befa411819fc",
+      "word": "splash",
+      "senseKey": "noticeable-disruptive-effect",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b484de12aa1048a7184c2bfe251935d9ed4060867dd182e7721d095083e787b4",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative image of a disturbance: adding an idea to a “pool of meaning” is compared with dropping something into water and causing a splash.",
+        "connotation": "Negative in this instance because the imagined disturbance is defensiveness; “splash” is not always negative in other contexts.",
+        "tone": "Cautionary and illustrative here: the writer uses the water image to explain why speakers anticipate defensive reactions.",
+        "register": "Creative explanatory wording. “Trigger a defensive reaction” is more direct in ordinary professional writing."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 81,
+      "wordId": "09c7711c-6045-495e-85db-6b8939299536",
+      "word": "act on",
+      "senseKey": "take-action-based-on",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0ee386e36e7bea86d282fb9a0b3e4b7a82b14912897ba20dd6a8444e74e6645c",
+      "before": {
+        "tone": "clear and explanatory",
+        "register": "neutral everyday English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "idiomatic or multi-word expression"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract phrasal verb meaning to do something in response to advice, information or a decision; here, carry out decisions made together.",
+        "connotation": "Positive here: willingness to act is presented as a benefit of shared understanding.",
+        "tone": "Explanatory and approving here: “willingly” links shared meaning with cooperation in implementing decisions.",
+        "register": "Neutral and common in everyday or professional English. Acting on a decision goes beyond merely agreeing with it."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 82,
+      "wordId": "09ca5694-0c2d-4c67-a9b4-84913f7a89fb",
+      "word": "loan approvals",
+      "senseKey": "loan-approvals-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e5d2aa939ae0bb31bb4fb5dd0027f3983d18bc84b23b13b85debcc391e60194d",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "proposedProfile": {
+        "meaning_type": "Established financial phrase for decisions to accept requests to borrow money.",
+        "connotation": "Neutral: approval is favourable to the applicant, but the phrase does not judge whether the lending decision is wise or fair.",
+        "tone": "Illustrative here: “Take” introduces loan approvals as an example; the short sentence supplies no further attitude.",
+        "register": "Common in banking and financial explanations. For a general audience, say “decisions to approve people's loan applications.”"
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 83,
+      "wordId": "09f7fade-12eb-434f-b7ee-b07e90b1a4bf",
+      "word": "in consequence",
+      "senseKey": "as-a-result-of-what-happened",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "5c89adeea85b0bf312bf697c7e076f7611bcbd1ddcd9481833e425707e3010a6",
+      "before": {
+        "tone": "Formal result marker.",
+        "register": "Formal wording: The phrase is formal and less conversational than as a result; do not use it merely to mean afterwards.",
+        "connotation": "Neutral relationship or function: as a result of what happened.",
+        "meaning_type": "Grammatical relationship: as a result of what happened"
+      },
+      "proposedProfile": {
+        "meaning_type": "Logical connector presenting a result: falling demand explains the reduction in the company's orders.",
+        "connotation": "Neutral: it marks a causal consequence without adding praise or blame.",
+        "tone": "Matter-of-fact and explanatory here: the sentence reports a decline and the company's response.",
+        "register": "Formal and less conversational than “as a result.” It is natural in careful written explanations but can sound stiff in casual speech."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 84,
+      "wordId": "0a00d8aa-ff47-4460-a7a2-31e295f6e533",
+      "word": "except for",
+      "senseKey": "excluding-one-specified-person-thing-or-detail",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "68cc6b85258473fd45a6186c7f04d38f5b9e3b995e07cf1401491debed2f763e",
+      "before": {
+        "tone": "Neutral exception.",
+        "register": "Neutral or professional wording: It often qualifies a general judgement rather than listing every excluded item.",
+        "connotation": "Neutral relationship or function: excluding one specified person, thing or detail.",
+        "meaning_type": "Grammatical relationship: excluding one specified person, thing or detail"
+      },
+      "proposedProfile": {
+        "meaning_type": "Phrase marking an exception: the cost summary is the one part excluded from the claim that the report is complete.",
+        "connotation": "Neutral: it identifies a limit to a statement rather than necessarily criticizing the exception.",
+        "tone": "Factual and qualifying here: the speaker narrows the completion claim to make it accurate.",
+        "register": "Neutral and common in everyday and professional English. Follow it with the excluded person, thing or detail."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 85,
+      "wordId": "0a32be94-25c7-40a6-b6ce-234603ecdf4a",
+      "word": "bystander",
+      "senseKey": "observer-not-involved",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "06fc18b4ed07b087163399131cec9abc645ca0ec90ad81a6c0c03b1947636350",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal noun for someone present but not participating, used here as part of a figurative description of life's conflicts.",
+        "connotation": "Can suggest non-involvement, but the passage questions whether apparent non-participants are entirely innocent.",
+        "tone": "Reflective and mildly challenging here: “rarely ... completely innocent” asks readers to reconsider their own responsibility.",
+        "register": "Common general vocabulary. In this passage it is extended beyond physically witnessing a single event."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 86,
+      "wordId": "0a5591e2-6ed9-417b-abad-ad7042c3e4f0",
+      "word": "up front",
+      "senseKey": "openly-and-at-the-beginning-before-an-agreement-or-activity",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "698424d38b5c5cfadd44ea4885ffb033f65cbf9f23ec9c26966e7305800499ea",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: openly and at the beginning, before an agreement or activity"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract time-and-openness expression: disclose information clearly at the beginning, before others commit or plan.",
+        "connotation": "Positive here: early disclosure is presented as helpful transparency.",
+        "tone": "Polite and practical here: “Please explain” asks for limitations early enough to plan around them.",
+        "register": "Common conversational and workplace English. “At the outset” is more formal; this is not the advance-payment sense."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 87,
+      "wordId": "0a5efb7f-d517-40ce-984e-9c24f082fc8d",
+      "word": "cue",
+      "senseKey": "signal-for-action",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a55c22243ed25f9d470a780acc6f661831dd8559faf6e5e5222f8ca82a821b1f",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract noun for a signal that prompts an action or helps someone notice something.",
+        "connotation": "Neutral: a cue supplies a prompt without determining whether the response is good or bad.",
+        "tone": "Direct and inquisitive here: the question asks the reader to identify signals, but does not itself specify their emotional significance.",
+        "register": "Neutral and common in learning, communication and performance contexts. Name the situation when “cues” alone would be unclear."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 88,
+      "wordId": "0a84d43c-d901-4586-aac1-59faed578d1c",
+      "word": "composure",
+      "senseKey": "calm-self-control",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3c50b9963c7bd44ab5fe2e454838d20210199d028343510d05d10ca67031d0eb",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; suitable for everyday, professional, or academic discussion when this exact sense is intended",
+        "connotation": "neutral in this assessed use",
+        "meaning_type": "literal or abstract according to the assessed sentence"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract noun for keeping calm and controlling reactions under pressure.",
+        "connotation": "Positive: it values emotional steadiness without implying that the person feels no emotion.",
+        "tone": "Admiring and curious here: the authors ask how Greta maintained calm while “under fire.”",
+        "register": "Neutral to formal; common in descriptions of difficult interactions. “Stay calm” is the everyday verbal equivalent."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 89,
+      "wordId": "0a857fff-a165-4c33-a221-c22b23e330b8",
+      "word": "systematically",
+      "senseKey": "systematically-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ae98ba55d7366fce4abf6cc02cac07341102944be9bd379f9d5960d3bca05fd9",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Adverb describing a consistent pattern; here, unfair outcomes recur for particular groups rather than appearing only as isolated accidents.",
+        "connotation": "Neutral by itself; “unfair outcomes” makes the described pattern undesirable.",
+        "tone": "Analytical here: the sentence uses recurring unfairness to explain what it means for a model to be biased.",
+        "register": "Common in research and professional explanations. It does not necessarily mean someone deliberately planned the unfairness."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 90,
+      "wordId": "0a8f6b55-c86d-45f2-91d2-de4324b3b373",
+      "word": "revised timeline",
+      "senseKey": "an-updated-schedule-showing-when-planned-work-will-happen",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "b563fe1b34088f6448f5535dd76f1e3613e3f49764c506abe20ffc644a7b4ed3",
+      "before": {
+        "tone": "Neutral planning language.",
+        "register": "Neutral or professional wording: Show changed milestones and dependencies rather than merely replacing the final date.",
+        "connotation": "Neutral relationship or function: an updated schedule showing when planned work will happen.",
+        "meaning_type": "Contextual expression: an updated schedule showing when planned work will happen"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract scheduling phrase: an existing timetable has been changed to reflect a new plan.",
+        "connotation": "Neutral: a revision may be an improvement or a response to difficulty; the phrase alone does not imply failure.",
+        "tone": "Factual here: the sentence identifies an additional week for testing without blaming anyone.",
+        "register": "Common in workplace planning. “Updated schedule” is an equally natural, slightly plainer alternative."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 91,
+      "wordId": "0aa40551-e405-4dfe-8429-be30b5be4ed8",
+      "word": "burden",
+      "senseKey": "heavy-responsibility",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "904d89da41e2df01c925a01116cc7e40f5c7e0f45adcc967017afe1562959a4f",
+      "before": {
+        "tone": "clear and explanatory",
+        "register": "neutral everyday English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "concrete or abstract vocabulary in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative noun for a difficult responsibility, drawing on the idea of a heavy load someone must carry.",
+        "connotation": "Negative in this sense: it emphasizes the effort or pressure a responsibility places on a person.",
+        "tone": "Reassuring or defensive here: “I'm not trying” denies an intention to place that pressure on the listener.",
+        "register": "Common in both everyday and professional English. “Responsibility” is more neutral when the hardship is not the point."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 92,
+      "wordId": "0bb0590e-56d9-4926-9cf1-60d39a6e5803",
+      "word": "how does that work in practice",
+      "senseKey": "used-to-ask-how-an-idea-is-carried-out-in-real-situations",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6dcbe3d385b47e25fdbf4a3870756e853e429fa4a1d4d5472aa69d78ab2ef490",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: used to ask how an idea is carried out in real situations"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conversational question about implementation: ask how an idea functions in a real situation rather than only in theory.",
+        "connotation": "Neutral: it can request useful detail without rejecting the idea.",
+        "tone": "Practical and probing here: the manager's absence is offered as a specific situation to explain.",
+        "register": "Natural in professional and everyday discussions. The full question is clearer than an unexplained challenge such as “Really?”"
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 93,
+      "wordId": "0bb87de2-9767-4d9b-91a6-a6554be80fc1",
+      "word": "dashboards",
+      "senseKey": "dashboards-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d6a65e83c3de1011053d77079b5780e30c9564ceb3a72ded0c4d8fd1f6033d0d",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical or abstract meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical noun for visual displays that bring important measurements together for monitoring; the computing use extends the vehicle-instrument image.",
+        "connotation": "Neutral: a dashboard can support monitoring but does not guarantee that problems will be detected.",
+        "tone": "Explanatory here: the sentence lists dashboards and automated alerts as ways some teams monitor drift.",
+        "register": "Standard workplace and software vocabulary. “A screen showing key measurements” is a useful explanation for new users."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 94,
+      "wordId": "0bba578f-0223-4c26-b5c1-4b506318d4c0",
+      "word": "come charging back",
+      "senseKey": "return-aggressively",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9d87a397c5ae7b69a05675ed2a122e4c05e3cbc839e48a7ea0240b43cb2af73e",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative description of returning forcefully to a confrontation, like rushing back into a physical charge.",
+        "connotation": "Negative or cautionary here: it suggests an aggressive return rather than a calm resumption.",
+        "tone": "Challenging and self-reflective here: the question asks readers to notice a pattern of withdrawal followed by forceful confrontation.",
+        "register": "Vivid conversational or narrative wording. “Return to the discussion aggressively” is more explicit in a behaviour report."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 95,
+      "wordId": "0bc1ce57-38f8-4dc4-a554-2aacd65f54b8",
+      "word": "setback",
+      "senseKey": "a-problem-that-delays-or-reverses-progress",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "70c12759dd7da82f88d6d6236e0e48e6180c57a51f0eedf504eee86b330f0f76",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Abstract or practical concept: a problem that delays or reverses progress"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract noun for a problem that interrupts, delays or reverses progress.",
+        "connotation": "Negative but often limited: it names a difficulty without necessarily implying total failure.",
+        "tone": "Resilient and matter-of-fact here: losing the venue is acknowledged, then balanced by finding another hall.",
+        "register": "Neutral and common in everyday and workplace English. Its severity depends on the situation; it is not automatically a minor problem."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 96,
+      "wordId": "0bc8d243-d1e0-433a-9389-7c7b2bb2023d",
+      "word": "terminology",
+      "senseKey": "terminology-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e4e939bfe88e8bc35c5654776f496c2163582991fa116d9464cac6eba771399d",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract noun for the specialized words used in a subject or profession.",
+        "connotation": "Neutral: specialized vocabulary can be useful or confusing depending on the audience; the word does not itself criticize jargon.",
+        "tone": "Explanatory and cautionary here: changing applicants' wording is presented as a possible reason for model performance to decline.",
+        "register": "Neutral to formal; common in education and professional discussion. “The terms people use” is a plainer explanation."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 97,
+      "wordId": "0bd4b7f2-ae36-4dc9-9ee0-de7fd31245a2",
+      "word": "every now and then",
+      "senseKey": "occasionally-with-gaps-between-occurrences",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "98d12fcd1affba97a0e76bc55824542c333268a14f1ccb5822491aee741999fd",
+      "before": {
+        "tone": "Conversational occasional frequency.",
+        "register": "Conversational wording: The gaps are unspecified, so do not use it where a precise maintenance or reporting interval is needed.",
+        "connotation": "Neutral relationship or function: occasionally, with gaps between occurrences.",
+        "meaning_type": "Contextual expression: occasionally, with gaps between occurrences"
+      },
+      "proposedProfile": {
+        "meaning_type": "Time expression meaning occasionally, with intervals between events; no fixed schedule is implied.",
+        "connotation": "Neutral: it describes how often something happens without judging whether that frequency is enough.",
+        "tone": "Relaxed and matter-of-fact here: the speaker describes occasional coffee meetings.",
+        "register": "Common conversational English. “Occasionally” is more compact and somewhat more formal."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 98,
+      "wordId": "0bff6f3c-d06f-4c30-984f-30c99d8d85cc",
+      "word": "snap",
+      "senseKey": "speak-sharply",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e5143c08c76a289e45dde8c0b8f03b5ee0bbc8c0b7cc380d8847bee7790fdbcc",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative verb for speaking sharply and suddenly in anger or impatience, rather than describing a physical break.",
+        "connotation": "Negative here: it presents the speaker's manner as hurtful or unpleasant.",
+        "tone": "Critical and warning here: “self-defeating” and the effect on the loved one explain why repeated sharp remarks cause trouble.",
+        "register": "Common in everyday speech and narrative. “Spoke sharply” is a more explicit description for a formal account."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 99,
+      "wordId": "0c1400ae-d9bc-49a0-8550-344f13e6ba78",
+      "word": "gnaw at",
+      "senseKey": "cause-persistent-worry",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a20a7b0b8bb476a542927aff18c3b0d359b8e08368b2a305418b2e4c4c3a761c",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative phrasal verb for persistent worry, pictured as something repeatedly biting or wearing at a person.",
+        "connotation": "Negative: it emphasizes an ongoing mental discomfort rather than a passing thought.",
+        "tone": "Reflective and probing here: the question asks readers to identify the conversations that trouble them most.",
+        "register": "Expressive vocabulary in conversation and personal writing. “Keep worrying you” is a simpler alternative."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    },
+    {
+      "ordinal": 100,
+      "wordId": "0c1b0219-b274-4f39-908a-c371722fd501",
+      "word": "caught on quickly",
+      "senseKey": "understood-or-learned-something-quickly",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ecc77adb542cdb6e0e83619f7d7853e3a221ed427f015187e6d954d1dea4fcf5",
+      "before": {
+        "tone": "In this passage, caught on quickly supports a clear narrative tone.",
+        "register": "caught on quickly is frequent in general English.",
+        "connotation": "The connotation of caught on quickly is neutral unless the described situation is negative.",
+        "meaning_type": "caught on quickly has a contextual meaning describing understood or learned something quickly."
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract phrasal verb meaning to understand or learn; “quickly” describes how little time the learning took.",
+        "connotation": "Positive here: fast understanding is presented as an ability of the pig.",
+        "tone": "Approving and lightly affectionate here: “although tiny” introduces a contrast with the pig's appetite and ability to learn.",
+        "register": "Common conversational English and accessible narrative. In a formal learning report, “learned quickly” is more direct."
+      },
+      "editorialNotes": null,
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "status": "editorial_profile_draft_not_import_payload"
+    }
+  ]
+}

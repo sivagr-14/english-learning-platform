@@ -1,0 +1,1677 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "group": {
+    "groupNumber": 7,
+    "firstOrdinal": 593,
+    "lastOrdinal": 690
+  },
+  "entries": [
+    {
+      "ordinal": 593,
+      "wordId": "50d44e77-efa2-4a62-96ba-45e81f3f51fe",
+      "word": "rear",
+      "senseKey": "raise-children",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to care for and raise children until adulthood",
+      "sourceSentence": "Yo u  know,  people  have  diff er­ ent  theories  about how  to  manage  their  finan ces,  spice  up  their  love  live s,  or rear  their  children.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "c007c0b4f12380e71f9d225fb4cbabe6765d72a8bdb030c77c708f534a654c92"
+    },
+    {
+      "ordinal": 594,
+      "wordId": "5100519c-4547-47a9-b3f9-e060eaeae679",
+      "word": "throw in",
+      "senseKey": "add-another-factor",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to add another fact, problem, or element to a situation",
+      "sourceSentence": "Now  let's  throw  in  one  more  complication.",
+      "currentProfile": {
+        "tone": "clear and explanatory",
+        "register": "informal to neutral",
+        "connotation": "neutral in this source context",
+        "meaning_type": "idiomatic or multi-word expression"
+      },
+      "sourceLessonSha256": "18d51cf5d4bc62b097c4ee4c5c44af888e3d0990d1183338fd75364e69bda575"
+    },
+    {
+      "ordinal": 595,
+      "wordId": "51127247-d70d-425c-ac4a-f4b69acfa027",
+      "word": "portion",
+      "senseKey": "part-of-a-whole",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a part or share of a larger whole",
+      "sourceSentence": "A  woman  checked  into  the  hospital  to   have  a  tonsillecto my,  and  the  surgical  team  erroneously  removed  a  portion  of  her  fo ot.",
+      "currentProfile": {
+        "tone": "clear and explanatory",
+        "register": "neutral everyday English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "concrete or abstract vocabulary in the assessed sense"
+      },
+      "sourceLessonSha256": "25a51ac3339e9d3f2e9e0f3eb5d95467657ff311170ca6c72f83dd7586cacce1"
+    },
+    {
+      "ordinal": 596,
+      "wordId": "5122328f-f560-41de-8d00-fbf387141bc4",
+      "word": "that is to say",
+      "senseKey": "used-to-explain-more-precisely-what-has-just-been-stated",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "used to explain more precisely what has just been stated",
+      "sourceSentence": "The trial is limited, that is to say, it covers only one office.",
+      "currentProfile": {
+        "tone": "Formal precision.",
+        "register": "Formal wording: It is relatively formal; I mean or in other words often sounds more natural in speech.",
+        "connotation": "Neutral relationship or function: used to explain more precisely what has just been stated.",
+        "meaning_type": "Grammatical relationship: used to explain more precisely what has just been stated"
+      },
+      "sourceLessonSha256": "e578856b98a2c2cac5d2686fb6211d4fc3fec5bc5b1d51af689e426e3f753aba"
+    },
+    {
+      "ordinal": 597,
+      "wordId": "51341658-64fb-4fe5-a0a4-190b2292a708",
+      "word": "disingenuous",
+      "senseKey": "not-sincere-or-honest",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "not sincere or honest because the speaker conceals their true position",
+      "sourceSentence": "It  would  be  disingenuous  to  admit  you  were  wrong  when  you  wer en't.",
+      "currentProfile": {
+        "tone": "clear and explanatory",
+        "register": "neutral everyday English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "concrete or abstract vocabulary in the assessed sense"
+      },
+      "sourceLessonSha256": "58bcadd55e98490e288d360f1f2c7c1fed59d9d2f06dca4cd90ebdc44d40ed0c"
+    },
+    {
+      "ordinal": 598,
+      "wordId": "51611fa8-4895-4c99-ba41-c9e930f71a3f",
+      "word": "nuance",
+      "senseKey": "subtle-distinction",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a subtle difference in meaning or expression",
+      "sourceSentence": "J  just  worry  that  others  won 't  catch  the  sub tle  nua nces.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "896e505c0660338cbaa0e0ef93a32b064cf87950b80de25a9fa50c71adf55b58"
+    },
+    {
+      "ordinal": 599,
+      "wordId": "51d055ff-4ede-44a1-b3dc-ad33e50ce5a3",
+      "word": "test set",
+      "senseKey": "test-set-ml-course-sense",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "held-back data used to evaluate final model performance",
+      "sourceSentence": "This divides it into training data, validation data, and a test set to evaluate the model's performance fairly.",
+      "currentProfile": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "sourceLessonSha256": "4a0a4287a7ee672a5fe3aa438d7e165f59b5c96ced61a8fb381478ad1ac406f1"
+    },
+    {
+      "ordinal": 600,
+      "wordId": "51f1c025-47cd-467c-9f91-821d548ec93c",
+      "word": "piece together",
+      "senseKey": "assemble-understanding",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to combine separate details in order to form a complete understanding",
+      "sourceSentence": "You  piece  toget her  the  word s,  create  a  certain  mood,  and  oth erw ise  make  up  what  you  th ink  will  work-all  the  while",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "c5c3ee768b0fa52bd2365a6f02b6758284d6a9fdc7832791287a5f1d8f927f25"
+    },
+    {
+      "ordinal": 601,
+      "wordId": "51f7f929-a490-4fb1-822a-f8ef0d5ae23b",
+      "word": "quite the contrary",
+      "senseKey": "opposite-is-true",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "used to emphasize that the opposite of what was suggested is true",
+      "sourceSentence": "Quite  the  contrary .",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "c2c6f1e3b677e3a9b268fa96072d0ba9d391a7fd0b998ea2d3b0e6e4f83e1b2c"
+    },
+    {
+      "ordinal": 602,
+      "wordId": "52450e0d-7f95-42ed-9309-93f1d8254eb4",
+      "word": "corrective action",
+      "senseKey": "steps-taken-to-fix-a-problem-and-prevent-it-continuing",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "steps taken to fix a problem and prevent it continuing",
+      "sourceSentence": "The review identified the cause and recommended corrective action.",
+      "currentProfile": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Abstract or practical concept: steps taken to fix a problem and prevent it continuing"
+      },
+      "sourceLessonSha256": "3dd3a9cfb1e8ef5cfa9cb13ed41d379929398341662d7a41b9a258a747d432b1"
+    },
+    {
+      "ordinal": 603,
+      "wordId": "52701749-ad90-4209-a934-6aa687140ebf",
+      "word": "drive a wedge between",
+      "senseKey": "damage-relationship",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to create disagreement or emotional distance between people",
+      "sourceSentence": "Let' s  make  sure  that  wha tever  we  do,  we  do n' t  drive  a  wedge  in  our working  rela tionshi p.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "998fa0a6e291c755c98b3cd66ed595f441e377d664d12f437611e91cdb84ab33"
+    },
+    {
+      "ordinal": 604,
+      "wordId": "52dabf0f-f1f9-45c9-b445-713cfbb36f29",
+      "word": "contract",
+      "senseKey": "become-infected-with",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to become infected with an illness",
+      "sourceSentence": "In  perhaps  the  most  revealing  of  all  the  health-related  studies,  a  group  of  subjects  who  had  contracted  malignant  melanoma  received  traditional  treatment  and  then  were  divided  into  two  grou ps.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "0f185378b75b7cde3f78968c0d628bf6b596e06f91ea12307639016e5336f048"
+    },
+    {
+      "ordinal": 605,
+      "wordId": "52fd7c53-5bfc-425d-8b77-fc7388032c92",
+      "word": "catastrophic",
+      "senseKey": "catastrophic-demonstrated-course-sense",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "causing extremely serious damage or failure",
+      "sourceSentence": "It's easy to come up with systems where latency is even more catastrophic.",
+      "currentProfile": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "sourceLessonSha256": "8ca960482333f0601c865e1f25851853a501e8a170a98272f47c10227c9b05fd"
+    },
+    {
+      "ordinal": 606,
+      "wordId": "53639f29-0cd6-4461-adfa-c85f4dc9a88d",
+      "word": "reengage",
+      "senseKey": "become-involved-again",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to become involved, attentive, or active again after withdrawing",
+      "sourceSentence": "By  carefully  watching  for  safety  violations,  not  only  can  you  see  when  dialogue  is  in  danger ,  but  you  can   also  reengage  your  brain.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "bbad0528937b7f05626a9e2d7cb598fa4da121779426a4460f11968683569e9d"
+    },
+    {
+      "ordinal": 607,
+      "wordId": "53a6fe85-1457-4813-9d76-d265ed3112de",
+      "word": "in relation to",
+      "senseKey": "concerning-or-connected-with-something",
+      "senseRank": 1,
+      "entryVersion": 2,
+      "meaning": "concerning or connected with something",
+      "sourceSentence": "I have a question in relation to the travel allowance.",
+      "currentProfile": {
+        "tone": "Formal, neutral connection.",
+        "register": "Formal wording: About is often clearer in everyday email; the longer phrase suits formal correspondence.",
+        "connotation": "Neutral relationship or function: concerning or connected with something.",
+        "meaning_type": "Grammatical relationship: concerning or connected with something"
+      },
+      "sourceLessonSha256": "cf960781eaae0a334186dbf40f30162c15a7b1446084c66f336800b441fd3daa"
+    },
+    {
+      "ordinal": 608,
+      "wordId": "5411c6c1-222f-4843-a18a-ee59f7029f0a",
+      "word": "stroke",
+      "senseKey": "brain-blood-flow-emergency",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a medical emergency caused by interrupted or ruptured blood flow in the brain",
+      "sourceSentence": "Yo u're  lucky  you  didn't  suf fer  a  stroke.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "c7cef2818e82f0b26a8de9e9355c836a37f567d0990f753cc9b1cb941f058233"
+    },
+    {
+      "ordinal": 609,
+      "wordId": "541ce27a-361b-4221-879e-cb1b4c5d2716",
+      "word": "make waves",
+      "senseKey": "cause-disruption-or-controversy",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to cause disruption, controversy, or noticeable change",
+      "sourceSentence": "Rather  than  add  to  the  pool  of  meaning,  and  pos sibly  make  waves  along  the  way ,  we  go  to  silence.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "b8f107a3e6383f531291ebd2e887370bddf10ccf545552e3b9c2f52ac4e1a683"
+    },
+    {
+      "ordinal": 610,
+      "wordId": "5451e69d-e3f7-44f6-ace4-39045eb3a5a4",
+      "word": "seldom",
+      "senseKey": "not-often",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "not often; rarely",
+      "sourceSentence": "Jotham  thinks  he  and  Yv onne  are  inti­ mate  with  each  other  far  too  seldom.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "bb2ee4652c6e929b6f938f0baa11a97ff0f94a76b3ed448ada110529d91966e3"
+    },
+    {
+      "ordinal": 611,
+      "wordId": "545a3c32-2084-4ba9-8aa9-9ae12a1aa0ab",
+      "word": "ineffective",
+      "senseKey": "not-producing-result",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "not producing the intended or desired result",
+      "sourceSentence": "Every  time  we  find  ourselves  arguing,  debating,  running  away,  or  otherwise  acting  in  an  ineffective  way,  it's  because  we  don't  know  how  to  share  meaning.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "35d0ee1c646571a9dd14788c9b454311b2edb408fe67dd0b149166e6586d449c"
+    },
+    {
+      "ordinal": 612,
+      "wordId": "545cb3e5-d377-4aae-93ac-a338dc367ce6",
+      "word": "perspective",
+      "senseKey": "way-of-viewing",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a particular way of viewing or understanding something",
+      "sourceSentence": "\"Let  me  put  this  in  perspective.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "c4b40973dbd06e31852e21d0a534ccbf1d3c11094ee219cb33e706b90997690a"
+    },
+    {
+      "ordinal": 613,
+      "wordId": "5477610a-0e58-40b0-9e94-f29ada6fce49",
+      "word": "in addition to",
+      "senseKey": "as-well-as-something-else",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "as well as something else",
+      "sourceSentence": "Wilbur’s appetite had increased; he was beginning to eat scraps of food in addition to milk.",
+      "currentProfile": {
+        "tone": "In this passage, in addition to supports a clear narrative tone.",
+        "register": "in addition to is frequent in general English.",
+        "connotation": "The connotation of in addition to is neutral unless the described situation is negative.",
+        "meaning_type": "in addition to has a contextual meaning describing as well as something else."
+      },
+      "sourceLessonSha256": "a2552fcddeb06ac5f625322845765799542aef6d883dfd8fbb0c395a6d5d223d"
+    },
+    {
+      "ordinal": 614,
+      "wordId": "54b523ea-9e8f-47f0-ae2a-c02d8a37c5f7",
+      "word": "by close of business",
+      "senseKey": "before-the-working-day-ends",
+      "senseRank": 1,
+      "entryVersion": 2,
+      "meaning": "before the working day ends",
+      "sourceSentence": "Please send your comments by close of business on Thursday.",
+      "currentProfile": {
+        "tone": "Professional deadline language.",
+        "register": "Neutral or professional wording: COB is ambiguous across teams and time zones; specify the clock time and zone for important deadlines.",
+        "connotation": "Neutral relationship or function: before the working day ends.",
+        "meaning_type": "Contextual expression: before the working day ends"
+      },
+      "sourceLessonSha256": "f407772e23fd8373bbb4ba14eb044d8ac6c01abcf7cbbb45183031936482af0c"
+    },
+    {
+      "ordinal": 615,
+      "wordId": "54ca2b68-3ef4-40f6-9c3a-b37f854eb94e",
+      "word": "make up",
+      "senseKey": "invent-or-create",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to invent or create something from imagination",
+      "sourceSentence": "You  piece  toget her  the  word s,  create  a  certain  mood,  and  oth erw ise  make  up  what  you  th ink  will  work-all  the  while",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "1f3ad8425bdcf0d303cb2eed9e4c7ac3ade68e4ff9bcb61e626ba794abfe290f"
+    },
+    {
+      "ordinal": 616,
+      "wordId": "55096c9f-7c42-4a0f-bad9-a3d962c1db95",
+      "word": "savvy",
+      "senseKey": "practically-knowledgeable",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "having practical knowledge and good judgment",
+      "sourceSentence": "Why  alter  our  behavior  when  we're  the  only  one  savvy  enough  to  keep  quiet?",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "91afb32c2c0469fde89d9ec1423fe66df7cba8c98bbbc1796288efe529ecd94d"
+    },
+    {
+      "ordinal": 617,
+      "wordId": "552f208a-97d9-4d98-b610-adad4905feec",
+      "word": "countless",
+      "senseKey": "too-many-to-count",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "too numerous to be counted",
+      "sourceSentence": "Countle ss  generations  of  genetic  shaping  drive  humans  to  handle  crucial  conver sations  with  flying  fi sts  and  fleet  fe et,  not  intelligent  persuasion  and  gen­ tle  attentivene ss.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "c0c8cca1048415f894aaae0c5518068f4969eb3a43a7d2d8546ae054f84c1566"
+    },
+    {
+      "ordinal": 618,
+      "wordId": "55cfff11-8197-45b9-88f1-9989cdc3e0be",
+      "word": "destructive",
+      "senseKey": "causing-serious-damage",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "causing serious damage to a relationship, process, or situation",
+      "sourceSentence": "It  turns  out  that  arguing  fo r  decades  doesn  'f  lessen  the  destructive  blow  of  constant  conflict.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "a8692e7888e65602de63ca95424a15f6161612db27db688521999c51e0181fce"
+    },
+    {
+      "ordinal": 619,
+      "wordId": "5640125e-d9bb-4b4c-875c-173a3fcdc962",
+      "word": "draw from",
+      "senseKey": "derive-from-source",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to obtain ideas, strength, evidence, or benefit from a source",
+      "sourceSentence": "Our  research has  shown  that  strong  relatio nships,  careers,  orga nizatio ns,  and  communities  all  draw  fr om  the  same  source  of  power-the  ability  to  talk  openly  about  hig h-stakes,  emotio nal,  controversial  topic s.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "fc6ef48048b586e4ec398a286feb376844f94791a67544be206381ccc8a09825"
+    },
+    {
+      "ordinal": 620,
+      "wordId": "565ad92e-e155-4153-8d25-000c0586db7f",
+      "word": "in one fell swoop",
+      "senseKey": "all-in-one-action",
+      "senseRank": 3,
+      "entryVersion": 1,
+      "meaning": "all at once through one sudden or decisive action",
+      "sourceSentence": "In  one  fell  swoop  you've  lost  buy-in,  destroyed  any  hope  for  candor  in  this  particular  conv ersation,  and  confirmed  every one's  suspicion  that  you  want  honesty-but  only  as  long as  it  makes  you  look  good.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "35dd46773c8aad2ddb2c23c8cb9a27a7a6ad71c2b075d131a722b9d6d6af4d1b"
+    },
+    {
+      "ordinal": 621,
+      "wordId": "56cf5fde-4c0f-4ce3-a63d-bec75c4f0306",
+      "word": "break away from",
+      "senseKey": "escape-pattern-or-control",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to escape from a limiting pattern, influence, or situation",
+      "sourceSentence": "40  CRUCIAL  CONVERSA TIONS  So  how  do  we  break  away  from  perverted  logic  that  keeps  us  trapped  in  hurtful  behavior?",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "67c120a53f4304c8ff42fa23074e2a3b012639c56c5720d1d5d7b38d08687749"
+    },
+    {
+      "ordinal": 622,
+      "wordId": "56d18d6b-b005-487b-bfaa-7754e930b544",
+      "word": "interaction",
+      "senseKey": "mutual-communication-or-effect",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "communication or reciprocal action between people or things",
+      "sourceSentence": "The  crucial  conver sations  we're  referring  to  in  the  title  of  thi s  book  are  interactions  that  happen  to  everyone.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "c9c1925c93163d53e46e1cfea61f28b17745f09c22c11a45647a786a17596daf"
+    },
+    {
+      "ordinal": 623,
+      "wordId": "571f0936-7f96-47c4-aaf9-a4169a4e0d1b",
+      "word": "in due course",
+      "senseKey": "at-the-appropriate-future-time-without-a-specific-date",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "at the appropriate future time, without a specific date",
+      "sourceSentence": "We will share the full schedule in due course.",
+      "currentProfile": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Formal: appropriate in written communication, but gives no exact date.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: at the appropriate future time, without a specific date"
+      },
+      "sourceLessonSha256": "530e20f4ceee9c98cca82bebd20ec129909ef9a403e78eccc65ec929a30c7f05"
+    },
+    {
+      "ordinal": 624,
+      "wordId": "573274f4-f144-426b-af3b-57bc0a29bdf3",
+      "word": "squander",
+      "senseKey": "waste-carelessly",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to waste money, time, or an opportunity carelessly",
+      "sourceSentence": "\"I  can't  believe  that  you're  accusing  me   of  squandering  good  money  on  a  perfectly  fine  office.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "5125697c2135e1387eeaf0b9601eeb1394ae8ec5fd12213e02c1e9d86a896d30"
+    },
+    {
+      "ordinal": 625,
+      "wordId": "57484d67-3929-4c90-b091-94e1e8b5d531",
+      "word": "differently",
+      "senseKey": "in-a-different-way",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "in a way that differs from another person or situation",
+      "sourceSentence": "I know  I'm  being  a bit  self ish  about  things ,  but  I  don't  know  how  to  make  myself  feel  differently.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "152179f844cf8cfeef6d1bd451e239c9eba89b666abe2ff9f7ae1495605f287d"
+    },
+    {
+      "ordinal": 626,
+      "wordId": "5767cc93-5de6-45af-875c-cb643e4c9a19",
+      "word": "emperor",
+      "senseKey": "male-imperial-ruler",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a male ruler of an empire",
+      "sourceSentence": "When  people  first  hear  the  term  \"crucial  conversatio n,\"  many  conjure  up  images  of  presidents,  emperor s,  and  prime  mini sters  seated  around  a  massive  table  while  they  debate the  fu ture  of  the  world .",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; suitable for everyday, professional, or academic discussion when this exact sense is intended",
+        "connotation": "neutral in this assessed use",
+        "meaning_type": "literal or abstract according to the assessed sentence"
+      },
+      "sourceLessonSha256": "33d0ef9c67ac7bad25d93e3001c995d47af432acb0ddf842f8bcf1952de3a980"
+    },
+    {
+      "ordinal": 627,
+      "wordId": "5789e170-20cf-4de2-af06-cc74fd487af5",
+      "word": "get your money's worth",
+      "senseKey": "to-receive-enough-value-or-enjoyment-to-justify-what-you-paid",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "to receive enough value or enjoyment to justify what you paid",
+      "sourceSentence": "We stayed for the whole workshop and really got our money's worth.",
+      "currentProfile": {
+        "tone": "Conversational, evaluative.",
+        "register": "Best suited to conversation. The value may be enjoyment or quality rather than the greatest possible quantity.",
+        "connotation": "Conversational, evaluative. A cheap purchase costs little; getting your money's worth means the value justifies the cost.",
+        "meaning_type": "Idiomatic meaning: to receive enough value or enjoyment to justify what you paid"
+      },
+      "sourceLessonSha256": "288e8753b333a969f56097a79c420c42e5635acb3c96d99efd6127cff6063806"
+    },
+    {
+      "ordinal": 628,
+      "wordId": "578cde80-66c0-4725-a29a-a5623e7736f4",
+      "word": "master",
+      "senseKey": "highly-skilled-person",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a person who is exceptionally skilled at a particular activity",
+      "sourceSentence": "And  thanks  to  our  edit or,  Nancy  Hancock,  a  world-class  partner  in  producing  this  book  and  a  master  of  crucial  conv ersatio ns.",
+      "currentProfile": {
+        "tone": "clear and explanatory, with intensity determined by the sentence",
+        "register": "neutral; natural in careful everyday and professional English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "literal or abstract vocabulary in the assessed sense"
+      },
+      "sourceLessonSha256": "f1eb50937ebff6fe3cf2b113abed9eed70c937b13601cbb5d9dafb91ca99fe44"
+    },
+    {
+      "ordinal": 629,
+      "wordId": "579f84bb-efd4-447b-bc13-afcc088972dc",
+      "word": "stand up to",
+      "senseKey": "resist-a-powerful-person",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to resist or challenge a powerful or intimidating person",
+      "sourceSentence": "For  instance,  high  perf ormers  know  how  to  stand  up  to  the  boss  without  committing  career  suicide.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "9ed5230643e8bc699baef1a8fbb6fe054a1feb09de9e7ce3736d455bd6b6db65"
+    },
+    {
+      "ordinal": 630,
+      "wordId": "57a2e6ba-d83e-409d-ae37-085cc3a85deb",
+      "word": "inform",
+      "senseKey": "provide-basis-for-action",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to provide knowledge that shapes a decision or action",
+      "sourceSentence": "This  pool  not  only  informs  us  but  also  propels  our  every action.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "69a65c1b6634754a7f22333176c6374979a3c5ae30fb3765ba3842dbd68138d0"
+    },
+    {
+      "ordinal": 631,
+      "wordId": "57a9f403-286d-4ce9-a314-d05cabce84c8",
+      "word": "change the subject",
+      "senseKey": "shift-topic",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to deliberately shift a conversation to a different topic",
+      "sourceSentence": "Family  members  change  the  subject  when  an  issue  gets  too  risk y.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "e53556fd0538f91c7af046057c66e01dd57503d750acfb81b105b4c4bbc9f1cb"
+    },
+    {
+      "ordinal": 632,
+      "wordId": "57c26d7e-8b47-4bc6-bae9-353220ffbf91",
+      "word": "latitude",
+      "senseKey": "freedom-to-choose-how-to-act-within-an-arrangement",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "freedom to choose how to act within an arrangement",
+      "sourceSentence": "Managers have some latitude in arranging working hours.",
+      "currentProfile": {
+        "tone": "Neutral, professional.",
+        "register": "Usable in clear general or professional communication. Usually uncountable in this sense; more latitude does not mean there are no limits.",
+        "connotation": "Neutral, professional. Latitude describes permitted freedom; authority describes the power to make a decision.",
+        "meaning_type": "Contextual meaning: freedom to choose how to act within an arrangement"
+      },
+      "sourceLessonSha256": "298dcfb12a54481d3d8489cd9fad5e02da5e92594843f42be121a304dd96a240"
+    },
+    {
+      "ordinal": 633,
+      "wordId": "582cd7e6-bac0-4134-b1c1-e03166d2326a",
+      "word": "heated debate",
+      "senseKey": "angry-intense-discussion",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "an intense discussion in which people express strong, often angry disagreement",
+      "sourceSentence": "\"  From  that  moment  on  you  end  up  in  a  heated   debate  over  placing  the  new  fen ce-three  inches  one  way  or  the  other.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; suitable for everyday, professional, or academic discussion when this exact sense is intended",
+        "connotation": "negative because it signals conflict",
+        "meaning_type": "a fixed multi-word expression"
+      },
+      "sourceLessonSha256": "8cc7deb41d9ea2a6110d48248e8196a6792d58fcca8bea2a83161450253aca05"
+    },
+    {
+      "ordinal": 634,
+      "wordId": "586b8daf-5c7e-4af7-b41e-9b2701b5205d",
+      "word": "manufacturing",
+      "senseKey": "industrial-production",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "the large-scale industrial production of goods",
+      "sourceSentence": "A  manufacturing  company  has  been  out  on  strike  for  over  six  mont hs.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "2d43a6c1d1db181dc718140e3a665620c7d935ddaa8dfaa62f41abc8fa1b9813"
+    },
+    {
+      "ordinal": 635,
+      "wordId": "5898943c-cd97-4abb-969a-d0db176d9f4b",
+      "word": "priority",
+      "senseKey": "matter-of-greatest-importance",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "something treated as more important than other matters",
+      "sourceSentence": "XIV  FOREWORD  other  priorities,  and the  class  is  just  not that  important  to  me  at  this  time.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "9690346020ba42fd5df2d48c8396034b756b4adf5fc2a6b4d17b77fff79e7bbb"
+    },
+    {
+      "ordinal": 636,
+      "wordId": "58cf8f4f-b37a-46d6-bac9-e200f7174864",
+      "word": "split the bill",
+      "senseKey": "to-share-the-cost-of-a-meal-or-purchase",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "to share the cost of a meal or purchase",
+      "sourceSentence": "Shall we split the bill equally?",
+      "currentProfile": {
+        "tone": "Conversational cooperative payment.",
+        "register": "Conversational wording: Clarify the method before paying, especially when orders differ greatly in price.",
+        "connotation": "Neutral relationship or function: to share the cost of a meal or purchase.",
+        "meaning_type": "Contextual expression: to share the cost of a meal or purchase"
+      },
+      "sourceLessonSha256": "1045e468cd895c2c4e6ea0a7be9185dd8481d8a907308564d107eb13c04043eb"
+    },
+    {
+      "ordinal": 637,
+      "wordId": "59339dba-15ad-49df-b42b-2a3f4f223907",
+      "word": "data preprocessing",
+      "senseKey": "data-preprocessing-ml-course-sense",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "preparing raw data through cleaning and transformation before modeling",
+      "sourceSentence": "This is also sometimes called data preprocessing.",
+      "currentProfile": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "sourceLessonSha256": "20290224cb2698d3b71372ebbbbbdd6e8e379be8490db912c1580a6d8e5006d2"
+    },
+    {
+      "ordinal": 638,
+      "wordId": "597f95b0-7655-4065-8491-976b9b1eb4af",
+      "word": "traceability",
+      "senseKey": "traceability-ml-context",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "the ability to follow the history of data, code, experiments, and deployments",
+      "sourceSentence": "Their training pipelines include steps to tag and store each experiment, attach metadata to each deployment, and that way, no matter how many clients or models they manage, they always have traceability.",
+      "currentProfile": {
+        "tone": "Professional and analytical in this lesson.",
+        "register": "Professional and academic technical English.",
+        "connotation": "Neutral; it describes a measurable concept or engineering process.",
+        "meaning_type": "Technical and abstract meaning in machine-learning engineering."
+      },
+      "sourceLessonSha256": "74c89b5a8975ea09fec99327c800bcebdfa10280742636f1b4e5499d70527a09"
+    },
+    {
+      "ordinal": 639,
+      "wordId": "598f6304-d187-4a4a-bfb7-671b0f431bf4",
+      "word": "tolerate",
+      "senseKey": "accept-unpleasant",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to accept an unpleasant person or situation without objecting",
+      "sourceSentence": "At first  you  sort  of  tolerated  each  other.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "4618294ef25e2c22315436af247b8dbb1f78ca1da4f5ada817d9030860c2c2c2"
+    },
+    {
+      "ordinal": 640,
+      "wordId": "59a9f96d-883a-4851-8b6b-e42c1056045c",
+      "word": "offset",
+      "senseKey": "counterbalance-effect",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to balance or reduce the effect of something negative",
+      "sourceSentence": "22   CRUCIAL  CONVE RSATI ONS  increased time  investment  is  more  than  of fset by  the  quality of  the  decision.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "9c4316acd59a7f6d4bae2e72425fb8a2e72aee553e62e9e8cf46d95981f74851"
+    },
+    {
+      "ordinal": 641,
+      "wordId": "59ae3ce0-3786-4b0f-9c07-44e2d14e3216",
+      "word": "set the direction",
+      "senseKey": "to-establish-the-course-or-priorities-for-future-action",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "to establish the course or priorities for future action",
+      "sourceSentence": "The leadership team will set the direction, and each office will plan its work.",
+      "currentProfile": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to establish the course or priorities for future action"
+      },
+      "sourceLessonSha256": "fa05f3498af386539a1858507eae911a954143f983cd81ef0fb8435a25da6a05"
+    },
+    {
+      "ordinal": 642,
+      "wordId": "59b1a27b-3771-4eba-9449-478d66683d0b",
+      "word": "as for",
+      "senseKey": "used-to-introduce-a-particular-person-or-subject",
+      "senseRank": 1,
+      "entryVersion": 2,
+      "meaning": "used to introduce a particular person or subject",
+      "sourceSentence": "As for the training, we can arrange that next month.",
+      "currentProfile": {
+        "tone": "Neutral topic shift; tone-sensitive.",
+        "register": "Neutral or professional wording: With a sharp tone it can imply irritation, especially before naming a person.",
+        "connotation": "Neutral relationship or function: used to introduce a particular person or subject.",
+        "meaning_type": "Contextual expression: used to introduce a particular person or subject"
+      },
+      "sourceLessonSha256": "ab346a763bf5997be102ae05eed5509513f24d686e74560b39bd25ed13d0c61c"
+    },
+    {
+      "ordinal": 643,
+      "wordId": "59d53432-d72d-4ba9-b533-c150cdd8b55d",
+      "word": "directive",
+      "senseKey": "controlling-instruction",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "an instruction or question intended to direct behavior",
+      "sourceSentence": "Methods  include  cutting  others  off,  overstating  your  fac ts,  speaking  in  absolutes,  changing  sub­ jects,  or  using  directive  questions  to  control the  conv ersation.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "beee2351fc023a69d6539369db9f96d4bee407fd94fa22d7a92f1e227081f7dc"
+    },
+    {
+      "ordinal": 644,
+      "wordId": "59e11758-a2d6-4df7-8df8-66f7e07cdcce",
+      "word": "adrenal gland",
+      "senseKey": "hormone-producing-gland",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a gland above the kidney that releases hormones involved in stress responses",
+      "sourceSentence": "Yo ur  adrenal  gland s  do  it,  and  then  you  have  to  live  with  it.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "6b0433b51823eebfe21a3fe04c3a32308d124c944a6a87a4fb11e92af131310f"
+    },
+    {
+      "ordinal": 645,
+      "wordId": "59f1aeea-08dc-41b3-b27f-39166d06deea",
+      "word": "inability",
+      "senseKey": "lack-of-ability",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "the state of being unable to do something",
+      "sourceSentence": "In  this  case,  the  inability  to  work  through  tough  issues  devastates  individ uals,  ruins  fam ilies,  and  poisons  commun ities.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "3062d9bc57de11fe20813d82ef44fb27509197bae5aad99221ae7a1cca14545e"
+    },
+    {
+      "ordinal": 646,
+      "wordId": "5a62ba49-35ff-4f6d-852b-18613eb1a391",
+      "word": "dig into",
+      "senseKey": "examine-thoroughly",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to examine or investigate something thoroughly",
+      "sourceSentence": "I  encourage  you  to  really  dig  into  this  material,  to  pause  and  think  deeply  about  each  part  and  how  the  parts  are  sequenced.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "8b261948a216bb0ab1a82d5eea3824d425e74018a32e8230324de342d7220468"
+    },
+    {
+      "ordinal": 647,
+      "wordId": "5a833464-34d4-4b94-b8f1-480d37522231",
+      "word": "supervisor",
+      "senseKey": "work-overseer",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a person responsible for overseeing employees or work",
+      "sourceSentence": "Unf ortunat ely,  you also  think  the  supervisors  are  overpaid  and  underqualified.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "a4446dad77262bdcd51cc2689663053e31de94cce96e2d423df482871b952753"
+    },
+    {
+      "ordinal": 648,
+      "wordId": "5a9562f3-9456-4597-81d7-b1d40025c9e5",
+      "word": "ensue",
+      "senseKey": "happen-afterward",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to happen as a result or afterward",
+      "sourceSentence": "Battles  ensue.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "2efece091cb3bb6174cdbc74b3fd0a68a3ff28868acdc9a839e02a66979c06d3"
+    },
+    {
+      "ordinal": 649,
+      "wordId": "5a9a6548-5d7e-4a0d-b87b-bfba417f36b3",
+      "word": "simultaneously",
+      "senseKey": "at-the-same-time",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "at exactly or nearly the same time",
+      "sourceSentence": "Did  you  notice  how at  one  point  all  of  our  jaws  dropped  simultaneously?",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "95e4f908a0a4b54f6cd640579d2813d48848f4d308b839b7ffa5ecc8ca0d7b36"
+    },
+    {
+      "ordinal": 650,
+      "wordId": "5ab712c3-ee59-4bb8-8a00-a1389a480fed",
+      "word": "destroy",
+      "senseKey": "ruin-completely",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to damage something so severely that it no longer exists or works",
+      "sourceSentence": "In  one  fell  swoop  you've  lost  buy-in,  destroyed  any  hope  for  candor  in  this  particular  conv ersation,  and  confirmed  every one's  suspicion  that  you  want  honesty-but  only  as  long as  it  makes  you  look  good.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "bbbdda8804ca2096c204cf67d27084f49499961c102d0d583b776b9118e57164"
+    },
+    {
+      "ordinal": 651,
+      "wordId": "5ad5319b-7572-473d-95d4-38dcada91e24",
+      "word": "adrenaline",
+      "senseKey": "stress-response-hormone",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a hormone that prepares the body for urgent action",
+      "sourceSentence": "Tw o  tiny  organs  seated  neatly  atop  your  kidneys  pump  adrenaline  into your  bloodstream.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "526ebb4c0fbb4b6db3f728d68ff4d206fe13a4e93d0a55d6e7786cdc9a7d8e50"
+    },
+    {
+      "ordinal": 652,
+      "wordId": "5ae4618c-1d88-4efe-9234-878fc9555e58",
+      "word": "moreover",
+      "senseKey": "used-to-add-another-point-supporting-an-argument",
+      "senseRank": 1,
+      "entryVersion": 2,
+      "meaning": "used to add another point supporting an argument",
+      "sourceSentence": "The proposal is affordable. Moreover, it can be implemented quickly.",
+      "currentProfile": {
+        "tone": "Formal argumentative addition.",
+        "register": "Formal wording: It is relatively formal and can sound heavy in casual conversation; also often suffices.",
+        "connotation": "Neutral relationship or function: used to add another point supporting an argument.",
+        "meaning_type": "Grammatical relationship: used to add another point supporting an argument"
+      },
+      "sourceLessonSha256": "b567f076576a2ea72645123fdcc59b8c24b831cfad0698b06153f5151a8ed123"
+    },
+    {
+      "ordinal": 653,
+      "wordId": "5ae7a63f-a4e1-490b-955b-616bf5ed955a",
+      "word": "feel disrespected",
+      "senseKey": "perceive-lack-of-respect",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to believe that another person has failed to show proper respect",
+      "sourceSentence": "When  people  feel disrespected,  they  become  highly  charged .",
+      "currentProfile": {
+        "tone": "serious and emotionally aware",
+        "register": "neutral everyday English",
+        "connotation": "negative and personally sensitive",
+        "meaning_type": "emotional-state collocation describing perceived lack of respect"
+      },
+      "sourceLessonSha256": "306c54a1e5f6217775bd1539e71c780dc9d68a948363f98365ec57c435333c29"
+    },
+    {
+      "ordinal": 654,
+      "wordId": "5afc4f97-723e-48a5-90f8-85a79fe45619",
+      "word": "walk away renewed",
+      "senseKey": "leave-feeling-restored",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to leave an experience feeling restored or refreshed",
+      "sourceSentence": "You  can't  simply  drink  a  magic  potion  and  walk  away  renewed .",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "3d8acd1361cc0ad4ad53f4ccea9b0843f68e196259ee633de85f919b51f9db34"
+    },
+    {
+      "ordinal": 655,
+      "wordId": "5b038a45-7029-4db2-8820-3180222170b6",
+      "word": "inevitable",
+      "senseKey": "inevitable-demonstrated-course-sense",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "certain to happen and impossible to avoid",
+      "sourceSentence": "Model drift and degradation are inevitable.",
+      "currentProfile": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "sourceLessonSha256": "ea4d7ea92432eaff8bd5afd095f3264e53e54d46764e0eff05901026b4556bcf"
+    },
+    {
+      "ordinal": 656,
+      "wordId": "5b101459-85bf-4d13-b7c4-63ff6c8988e9",
+      "word": "fraud detection",
+      "senseKey": "fraud-detection-ml-course-sense",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "the process of identifying suspicious or dishonest activity",
+      "sourceSentence": "But a few examples of things we can do with it are image recognition, fraud detection, speech recognition, spam detection.",
+      "currentProfile": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "sourceLessonSha256": "46ce4c3c2bf86c16195f93563b4076c852572f71db76a669bcae4192d5646252"
+    },
+    {
+      "ordinal": 657,
+      "wordId": "5b3234a7-f68c-4062-a831-7f0bea985677",
+      "word": "cut back",
+      "senseKey": "reduce-amount",
+      "senseRank": 3,
+      "entryVersion": 1,
+      "meaning": "to reduce the amount, cost, or use of something",
+      "sourceSentence": "You said  something  to him  about  cutting  back  his  time  on  the  phone  and  online,  and  he  came  back  with:  \"P lease  don't  send  me  to a  youth  home !",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "2425e244987a7fd5f99487492da5135f63a40492a716510fa4937f0b1ef94cd8"
+    },
+    {
+      "ordinal": 658,
+      "wordId": "5b6d6394-1a8a-4ec6-b12e-fbda27ef464d",
+      "word": "incident",
+      "senseKey": "notable-unpleasant-event",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "an event, especially an unpleasant or unusual one",
+      "sourceSentence": "You 're  in  the  middle  of  a  casual  discussion  with  your  spouse  and  he  or  she  brings  up  an  \"ugly  incident\"  that  took place  at  yesterday's  neighborhood  block  par ty.",
+      "currentProfile": {
+        "tone": "clear and explanatory",
+        "register": "neutral everyday English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "concrete or abstract vocabulary in the assessed sense"
+      },
+      "sourceLessonSha256": "164ddc6a2d06420380f52ea932ff7258a7954ac3f3f94642ddc9de5de912a04a"
+    },
+    {
+      "ordinal": 659,
+      "wordId": "5b7f3c6c-efcd-4edd-834e-3d7a16067ea5",
+      "word": "sweeping",
+      "senseKey": "wide-ranging",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "extending broadly and affecting many things",
+      "sourceSentence": "And  one  final,  sweeping,  large  thanks.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "8eeec1b8ed14658648068e0628356b906022a7cc7ba1c9c78bbec4214c0f99d3"
+    },
+    {
+      "ordinal": 660,
+      "wordId": "5bb9168e-3db0-4b2a-96a6-7c96337144f9",
+      "word": "technique",
+      "senseKey": "method-for-doing-something",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a particular method used to produce a result",
+      "sourceSentence": "With  this  tortured  technique  we  give  loved  ones  the  cold  shoulder in  order  to  get  them  to  treat  us  better  (what's  the  logic  in  tha t?",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "91c3b22f9e93d136b5f2182e48d7c3047181ff68b99942875e9a345437cf37e5"
+    },
+    {
+      "ordinal": 661,
+      "wordId": "5bce92e2-0987-47d1-9315-84249a047800",
+      "word": "performance management",
+      "senseKey": "employee-performance-system",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "an organizational system for setting, monitoring, and improving employee performance",
+      "sourceSentence": "Every  organization  that  attempted  to  bring  about  improveme nts-at  least  the  compan ies  we  had  heard  of -began  by  revamping  their  performance-management  syste ms.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "37498a7fa5a52714ddebc0078cbf161eaa9a581e52a8a4aa36469b99858a9e0a"
+    },
+    {
+      "ordinal": 662,
+      "wordId": "5be48b1c-d37a-441a-81d4-000d619c5e3b",
+      "word": "clever",
+      "senseKey": "quick-and-inventive",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "quick to understand and inventive in solving problems",
+      "sourceSentence": "A  rather  clever  person  once  hinted  how  to  do  this  in the  form  of a  prayer -\"Lord,  help  me  forgive  those  who  sin  diff erently  than  I.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "938d4998895017781e4a2b13ce017b16a3a1884b2ea5b45d2835897904dc4a55"
+    },
+    {
+      "ordinal": 663,
+      "wordId": "5c64363f-18be-487c-bdbc-ac8e4db05f1c",
+      "word": "walk away from",
+      "senseKey": "leave-without-addressing",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to leave or disengage from a difficult issue instead of addressing it",
+      "sourceSentence": "Do  you  walk  away  from  some  issues  only  to  come  charging  back  into  other s?",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "7dbc75faa811e3a7db96c33237051c5c0937c3744f6544ada49a9a3a603c5729"
+    },
+    {
+      "ordinal": 664,
+      "wordId": "5c71384b-a7fd-4463-b664-bad01e598348",
+      "word": "peered through",
+      "senseKey": "looked-carefully-through-a-narrow-opening-because-seeing-was-difficult",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "looked carefully through a narrow opening because seeing was difficult",
+      "sourceSentence": "Fern peered through the door.",
+      "currentProfile": {
+        "tone": "Fern looks intently through the small doorway to see Wilbur inside.",
+        "register": "Neutral and natural in narrative or everyday English.",
+        "connotation": "Mostly neutral; its emotional effect comes from the surrounding scene.",
+        "meaning_type": "Contextual action or state meaning."
+      },
+      "sourceLessonSha256": "2ec13a641e19bc561ff931e09d098d75f05b60d681632c0410ece5b92e977de8"
+    },
+    {
+      "ordinal": 665,
+      "wordId": "5c9b8e39-8712-4315-9b06-55beeba270ae",
+      "word": "you never know",
+      "senseKey": "used-to-suggest-that-an-unexpected-result-is-still-possible",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "used to suggest that an unexpected result is still possible",
+      "sourceSentence": "Apply for the role; you never know, they may welcome your experience.",
+      "currentProfile": {
+        "tone": "Conversational, hopeful.",
+        "register": "Conversational wording: It supports a low-cost attempt but provides no evidence that success is likely.",
+        "connotation": "Neutral relationship or function: used to suggest that an unexpected result is still possible.",
+        "meaning_type": "Contextual expression: used to suggest that an unexpected result is still possible"
+      },
+      "sourceLessonSha256": "d0ec89684b6997febce072d4db90e128a9c112e1943d6fb4d2f5b7687f8e05d5"
+    },
+    {
+      "ordinal": 666,
+      "wordId": "5d5c9252-6fa4-4aba-8ba4-362d32f88a06",
+      "word": "with all due respect",
+      "senseKey": "used-to-introduce-disagreement-while-claiming-to-show-respect",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "used to introduce disagreement while claiming to show respect",
+      "sourceSentence": "With all due respect, I do not think that addresses the customer's concern.",
+      "currentProfile": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: used to introduce disagreement while claiming to show respect"
+      },
+      "sourceLessonSha256": "57629531273bc34d56dec4e5f00266d627e8361f1d3a6be4b003f8f7dda0f405"
+    },
+    {
+      "ordinal": 667,
+      "wordId": "5d633e4b-2f6c-4056-925c-1ba2e6e7903a",
+      "word": "find yourself in",
+      "senseKey": "discover-oneself-in-situation",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "to unexpectedly realize that one is in a particular situation",
+      "sourceSentence": "Sometimes  we  find  ourselves  in  the  middle  of  a  debate  because  we  clearly  have  different  purpo ses.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "e5aab400e9b7813147fcb2f414bdd4da371a8f3da0584077aba046b16b9f7adc"
+    },
+    {
+      "ordinal": 668,
+      "wordId": "5dbb9898-c195-47ee-bf33-4f07575ce701",
+      "word": "tendency",
+      "senseKey": "usual-inclination",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a natural or usual inclination to behave in a particular way",
+      "sourceSentence": "We 're  asking you  to  fight  your  natural  tendency  to  respond  in  kind .",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "0d69ca8b88324d24ae0540ad0bce2c5ebe2b44dc052e973fcfd98e0368120417"
+    },
+    {
+      "ordinal": 669,
+      "wordId": "5dcbccf7-46cf-4a9a-abd2-28fe7e7d79b2",
+      "word": "acronym",
+      "senseKey": "initial-letter-word",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a word formed from the initial letters of a phrase",
+      "sourceSentence": "The  four  skills  they  use  form  the  acronym  CRIB  .",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "b4746633c11444776617d9693f0e66b7511c150880533a5cc84476b3bfec10d2"
+    },
+    {
+      "ordinal": 670,
+      "wordId": "5dee8736-2086-4e14-a5b1-2b6b1d75fed2",
+      "word": "emerge",
+      "senseKey": "become-apparent",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to become known, visible, or apparent",
+      "sourceSentence": "Each  time,  as  we  compiled  the  names  into  a  list,  a  pattern  emerg ed.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "a62a7e1a8a1ac97ea5ab94ca17c4b7848546d3f0f7d2d973a2eb261adfb6be78"
+    },
+    {
+      "ordinal": 671,
+      "wordId": "5deed50f-78f0-44ff-9eb5-8708d22f3665",
+      "word": "sugarcoat",
+      "senseKey": "make-seem-less-unpleasant",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to make an unpleasant fact seem more acceptable",
+      "sourceSentence": "Sarcasm,  sugarcoating,  and  couching  are  some  of  the  more  popular  for ms .",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "46c633e0cb01878d7c568a90e1d269bab2373905f794759eb5836fe6f93d63fe"
+    },
+    {
+      "ordinal": 672,
+      "wordId": "5dfd647d-d8b8-4d92-97d2-50458073f547",
+      "word": "silent fuming",
+      "senseKey": "unspoken-anger",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "remaining silent while feeling and showing strong anger",
+      "sourceSentence": "13  heated  discussions,  they  learned  that  people  fall  into  three  cate­ gor ies-those  who  digre ss  into  threats  and  name-calling,  those  who  revert  to  silent  fuming,  and  those  who  speak  open ly,  hon­ estl y,  and  effe ctivel y.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "f22680b918a5291cdbc6f4a98800e3f5d775c4361c4d1331e84c03046cdd8c30"
+    },
+    {
+      "ordinal": 673,
+      "wordId": "5e0750ce-1dc7-4e08-9a3a-907dd6099f9f",
+      "word": "hygiene",
+      "senseKey": "cleanliness-practices",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "practices and conditions that maintain cleanliness and health",
+      "sourceSentence": "Other  topics  that  could  easily  lead  to  disaster  include  •  Ending  a  relationship  •  Talking  to  a  coworker  who  behaves  offen sively  or  makes  sugges­ tive  comments  •  Asking  a  friend  to  repay  a  loan  •  Giving  the  boss  fee dback  about  her  behavior  •  Approaching  a  boss  who  is  breaking  his  own  safety  or  quality  policies  •  Critiquing  a  colleague's  work  •  Asking  a  roommate  to  move  out  •  Resolving  custody  or  visitation  issues  with  an  ex-spouse  •  Dealing  with  a  rebellious  teen  •  Ta lking  to  a  team  member  who  isn't  keeping  commitments  •  Discussi ng  problems  with  sexual  intimacy  •  Confronting  a  loved  one  about  a  subs tance  abuse  problem  •  Talking to  a  colleague  who  is  hoarding  inf onnation  or  resources  •  Giving  an  unf avorab le  performance review  •  Asking  in-laws  to  quit  interfering  •  Talking  to  a  coworker  about  a  personal  hygiene  problem  OUR  AUDACIOUS  CLAI M  Let's  say  that  either  you  avoid  tough  issues  or  when  you  do  bring  them  up,   you're  on  your  worst  behavior.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "c65f1917edf35e015b36678b85fa29b27df8ddce34c77c787ceeef076863f29b"
+    },
+    {
+      "ordinal": 674,
+      "wordId": "5e09f463-b411-4049-9e55-664a65a92e9f",
+      "word": "get along with",
+      "senseKey": "have-good-relations",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to have a friendly or workable relationship with someone",
+      "sourceSentence": "Even  something  as  trivial  as a  debate  over  a  property  line  aff ects  how  you  get  along  with  your  neighbor.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "931fc487fed0fa291dfad5704f66652673f96e6d74d74f1dac1802db01c2c583"
+    },
+    {
+      "ordinal": 675,
+      "wordId": "5e407a13-4975-4092-9065-06cf1157b5cd",
+      "word": "even if",
+      "senseKey": "whether-or-not-an-unexpected-or-difficult-condition-occurs",
+      "senseRank": 1,
+      "entryVersion": 2,
+      "meaning": "whether or not an unexpected or difficult condition occurs",
+      "sourceSentence": "We should document the decision even if everyone agrees now.",
+      "currentProfile": {
+        "tone": "Neutral, emphatic condition.",
+        "register": "Neutral or professional wording: It stresses that the condition will not change the decision, even if that condition seems difficult.",
+        "connotation": "Neutral relationship or function: whether or not an unexpected or difficult condition occurs.",
+        "meaning_type": "Grammatical relationship: whether or not an unexpected or difficult condition occurs"
+      },
+      "sourceLessonSha256": "8efcdde73108baafc6de9fc5883272476bf80ea5a4187d5ccd34c909f8b8a855"
+    },
+    {
+      "ordinal": 676,
+      "wordId": "5e578ab9-701f-45d9-98f7-bb9cf6bb0c50",
+      "word": "ringer",
+      "senseKey": "staged-confrontation-show",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "a reference to a confrontational television show or similarly chaotic scene",
+      "sourceSentence": "Do  your  community  meetings  look  more  like  the  Jerry  Sp ringer  show  than  an  energetic  forum  for  healthy  commu nication?",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "9814aeb7a9ffa25cc2084739d2cad1b8ea52ad0a2cb50140d3c08243acbac5ad"
+    },
+    {
+      "ordinal": 677,
+      "wordId": "5eb4a62e-5e1e-43ec-8be4-7037c042be3e",
+      "word": "pressing",
+      "senseKey": "requiring-urgent-attention",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "requiring immediate or urgent attention",
+      "sourceSentence": "Solve  pressing  problems.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "4cd7fd0168c9de12b8deaba4911a0ad18d7a17f359d56608da381d95a6ea7fd1"
+    },
+    {
+      "ordinal": 678,
+      "wordId": "5ec83cde-2db8-4a5b-802d-7e25bd9fd873",
+      "word": "tentative",
+      "senseKey": "not-yet-definite-or-fully-certain",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "not yet definite or fully certain",
+      "sourceSentence": "We have reached a tentative agreement, subject to budget approval.",
+      "currentProfile": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: not yet definite or fully certain"
+      },
+      "sourceLessonSha256": "5a813e3898af36dfd2ac344c86cf7814f0693c27c4ec80e605dd2295115038de"
+    },
+    {
+      "ordinal": 679,
+      "wordId": "5f3d2094-d035-4a00-85e1-8d1f20f4ed2c",
+      "word": "memorable",
+      "senseKey": "worth-remembering",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "interesting or special enough to be remembered",
+      "sourceSentence": "I  think  you'll  disco ver,  as  have  I,  that  crucial conversatio ns, as  powerful ly  described  in  this  book,  reflect  the  insight  of  this  excerpt  of  Robert  Frost's  beaut iful  and  memorable  poem,  \"The  Road  Not  Taken\" :  Tw o  roads  div erged  in  a  yellow  wood,  And  so rry  I  could  not  travel  both  And  be one  travel er,  long  I  stood  And  looked  down  one  as  fa r  as  I  coul d  To  where  it  bent  in  the  un dergro wth;  ...",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "3667b43e655af7d43f57652e95454fb6205341281cb265eaa8dc0acdec56ea50"
+    },
+    {
+      "ordinal": 680,
+      "wordId": "5f634a88-3312-40c0-b3c8-cb1a70e5f3b3",
+      "word": "prime minister",
+      "senseKey": "head-of-government",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "the head of government in a parliamentary political system",
+      "sourceSentence": "When  people  first  hear  the  term  \"crucial  conversatio n,\"  many  conjure  up  images  of  presidents,  emperor s,  and  prime  mini sters  seated  around  a  massive  table  while  they  debate the  fu ture  of  the  world .",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "2577b4ace08d7e37205d513806ca463d1e39dfe1be22cc3eabb6a180849ba864"
+    },
+    {
+      "ordinal": 681,
+      "wordId": "5f9a95e1-2e68-4714-80bc-a63ab6431792",
+      "word": "offend",
+      "senseKey": "cause-offence",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to make someone feel upset, insulted, or angry",
+      "sourceSentence": "Is  there  a  way  to  tell your peer your real  concerns  and  not  insult  or  offend  him?",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "fc749bc7e866c146ea6fc26701b9d7ba59d2a6823998a80fa8af85784fa957c1"
+    },
+    {
+      "ordinal": 682,
+      "wordId": "5fd70a95-cf4c-471f-a2c3-f64fff29be77",
+      "word": "ground truth",
+      "senseKey": "ground-truth-ml-course-sense",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "verified real-world information used as the correct reference",
+      "sourceSentence": "A feedback loop is the process of collecting new ground truth after a prediction is made.",
+      "currentProfile": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "sourceLessonSha256": "1c93786dc122800876039b786fc07a6ab014f9fb981151c02fc1c29e1b3c79b6"
+    },
+    {
+      "ordinal": 683,
+      "wordId": "5fdad19b-fe23-428d-8b82-728cd5c17040",
+      "word": "candid",
+      "senseKey": "honest-and-direct",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "honest and direct, even when the truth may be uncomfortable",
+      "sourceSentence": "Perhaps  we  can  express  our  candid  opinion  to  our  boss  and  be  safe.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "978522392c63a824f01bf456f102a228000583e553735770eb8b1e8f6ba962aa"
+    },
+    {
+      "ordinal": 684,
+      "wordId": "600c360c-03f2-43b8-8988-f27921d73bcd",
+      "word": "put off doing something",
+      "senseKey": "delay-action",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to delay doing something, especially because it is unpleasant",
+      "sourceSentence": "I  have  put  off  returning  phone  calls  or  emails  because  I  simply didn't  want  to  deal  with  the  person  who  sent  them.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "8fd74a342f0e7f8d382bee9658cabafebe96438c0925aa819e02e827cb21e7d5"
+    },
+    {
+      "ordinal": 685,
+      "wordId": "602c4015-1e7e-4fe5-9afb-adff4dbe5261",
+      "word": "parental",
+      "senseKey": "relating-to-parents",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "relating to a parent or parents",
+      "sourceSentence": "\"  \"Tell  my  spouse  that  her  parental  style  is  too  controlling?",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "82e0de616517229757d220597ba291090fdd4ea82a272e767be620f3d4e604c4"
+    },
+    {
+      "ordinal": 686,
+      "wordId": "60a4c5c2-f097-423c-92d5-e3e29732ef89",
+      "word": "set off",
+      "senseKey": "to-begin-a-journey",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "to begin a journey",
+      "sourceSentence": "We plan to set off before the morning traffic builds up.",
+      "currentProfile": {
+        "tone": "Neutral travel narration.",
+        "register": "Neutral or professional wording: Set has the same form in present and past, so time words or context establish the tense.",
+        "connotation": "Neutral relationship or function: to begin a journey.",
+        "meaning_type": "Contextual expression: to begin a journey"
+      },
+      "sourceLessonSha256": "5fe5fd01c84aa13def4d99c580a1352135a07eb2d9969ecd713a18234ff2e0b5"
+    },
+    {
+      "ordinal": 687,
+      "wordId": "60df325d-3d73-4025-9a86-2fff83783890",
+      "word": "control yourself",
+      "senseKey": "manage-your-emotions-and-behaviour",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "manage your emotions and behaviour",
+      "sourceSentence": "‘Fern,’ he said gently, ‘you will have to learn to control yourself.",
+      "currentProfile": {
+        "tone": "In this passage, control yourself supports a clear narrative tone.",
+        "register": "control yourself is frequent in general English.",
+        "connotation": "The connotation of control yourself is neutral unless the described situation is negative.",
+        "meaning_type": "control yourself has a contextual meaning describing manage your emotions and behaviour."
+      },
+      "sourceLessonSha256": "17e7bde240f54573b681d9c8014a4132225a129f1c8f796557414db95bc923d1"
+    },
+    {
+      "ordinal": 688,
+      "wordId": "60ec6963-6270-4169-a1f5-53ec2063b880",
+      "word": "misinterpret",
+      "senseKey": "understand-incorrectly",
+      "senseRank": 2,
+      "entryVersion": 1,
+      "meaning": "to understand or explain something incorrectly",
+      "sourceSentence": "When  others  misinterpret  either  your  pur pose  or  your  intent,  step  out  of  the  argument  and  rebuild  safety  by  using  a  skill  called  Co nt rasting.",
+      "currentProfile": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "sourceLessonSha256": "7ae6c422ba8e350b827fee836a1c0fbd6650febad3fc6ff2f7b4060e07d327b0"
+    },
+    {
+      "ordinal": 689,
+      "wordId": "6114e9c0-6449-448a-a7ec-f85ea99ebcf5",
+      "word": "so as not to wake",
+      "senseKey": "in-order-to-avoid-waking-someone",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "in order to avoid waking someone",
+      "sourceSentence": "carriage very slowly and smoothly so as not to wake her infants.",
+      "currentProfile": {
+        "tone": "In this passage, so as not to wake supports a clear narrative tone.",
+        "register": "so as not to wake is frequent in general English.",
+        "connotation": "The connotation of so as not to wake is neutral unless the described situation is negative.",
+        "meaning_type": "so as not to wake has a contextual meaning describing in order to avoid waking someone."
+      },
+      "sourceLessonSha256": "d8370e5bdf7bda35479317f3d15975f9c1f27c0f0152e20a13302a909ac6b073"
+    },
+    {
+      "ordinal": 690,
+      "wordId": "61196243-6485-4cdc-a6f7-9e65bbb4f4ed",
+      "word": "put things in perspective",
+      "senseKey": "to-view-a-situation-in-relation-to-its-wider-importance",
+      "senseRank": 1,
+      "entryVersion": 1,
+      "meaning": "to view a situation in relation to its wider importance",
+      "sourceSentence": "The customer feedback helped put things in perspective.",
+      "currentProfile": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Figurative or idiomatic: to view a situation in relation to its wider importance"
+      },
+      "sourceLessonSha256": "12d66499eb0a97188105ff278287dd835d2d7cd8bba2207bcdbb7fddc956d70e"
+    }
+  ]
+}
