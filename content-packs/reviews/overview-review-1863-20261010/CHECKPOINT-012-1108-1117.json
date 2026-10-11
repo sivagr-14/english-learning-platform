@@ -1,0 +1,443 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 12,
+  "fixedGroupFirstOrdinal": 1083,
+  "fixedGroupLastOrdinal": 1180,
+  "firstOrdinal": 1108,
+  "lastOrdinal": 1117,
+  "entryCount": 10,
+  "profileDraftCount": 8,
+  "blockedCount": 2,
+  "tamilReviewCompletedCount": 8,
+  "pronunciationTextReviewCompletedCount": 10,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "b00c54b5db2e83abfb3cd17e47f00ccc006e662f",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group012 Overview Tamil and pronunciation-text review; not an import payload.",
+  "definitionRepairFlags": [
+    1109
+  ],
+  "corrections": [
+    {
+      "ordinal": 1108,
+      "wordId": "9a0a57bc-cf6e-479d-8b4a-2eba9e7b5afc",
+      "word": "maintainable",
+      "senseKey": "maintainable-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f86eef418a17787c7038f104a0d4abc0185f0d1bf5f4b74dd8b84d17046c105e",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical quality: able to be kept effective and updated over time.",
+        "connotation": "Positive; suggests that future upkeep and changes are manageable.",
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "எளிதாக பராமரிக்கக்கூடிய",
+        "value": "காலப்போக்கில் பராமரித்துப் புதுப்பித்து பயனுள்ளதாக வைத்திருக்கக்கூடிய",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/maintainable/",
+        "value": "Approximate pronunciation: mayn-TAY-nuh-buhl. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 1109,
+      "wordId": "9a7225ef-ba8f-4979-be52-96799290aee1",
+      "word": "untimely",
+      "senseKey": "happening-earlier-than-expected-or-at-an-tragically-inappropriate-time",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7b7b60994bb66425d50abc0f49f7f45e350ad14b887e1cb0c1a2036b21f39b8c",
+      "before": {
+        "tone": "The pig’s death would have occurred tragically early in its life.",
+        "register": "Neutral and natural in narrative or everyday English.",
+        "connotation": "Negative in this passage; it highlights weakness, distress, or harm.",
+        "meaning_type": "Descriptive meaning used to add precise detail."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal timing: happening too early or at an unfortunate time.",
+        "connotation": "Negative; untimely death suggests a life ending too soon.",
+        "tone": "Sombre about an early death, with relief that it was prevented.",
+        "register": "Somewhat formal; common in reports and narrative."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "காலத்திற்கு முன்பான / அகாலமான",
+        "value": "காலத்திற்கு முன்பான / அகாலமான",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/untimely/",
+        "value": "Approximate pronunciation: un-TYM-lee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Correct original definition's grammar ('at an tragically') during full-lesson repair; no identity change needed."
+    },
+    {
+      "ordinal": 1110,
+      "wordId": "9a7458ab-5174-4f3f-b234-2f817837fb02",
+      "word": "apology",
+      "senseKey": "sincere-expression-of-regret",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "000cb12f7baf36cbe930d7910ec8683bacf759d42f9ccdca5aa717cc059cd7b2",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal noun: a statement expressing regret for harm or difficulty caused.",
+        "connotation": "Usually positive about acknowledging harm, without guaranteeing forgiveness.",
+        "tone": "Explanatory and sincere about taking responsibility for one's part in causing pain.",
+        "register": "Common in everyday, professional and formal English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a sincere statement expressing regret for causing harm or difficulty",
+        "value": "பிறருக்கு ஏற்படுத்திய தீங்கு அல்லது சிரமத்திற்காக மனவருத்தத்தைத் தெரிவிக்கும் மன்னிப்புக் கோரல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/apology/",
+        "value": "Approximate pronunciation: uh-POL-uh-jee (common British form). Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 1111,
+      "wordId": "9ab8cb36-7fd9-48e0-81c4-60d98d16e7e4",
+      "word": "be on the same wavelength",
+      "senseKey": "to-understand-each-other-easily-and-think-in-compatible-ways",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8946d78511dc488080bdb437fe1baaed67ce780f71c7bd6fa7069061bc3bfb4f",
+      "before": {
+        "tone": "Conversational, positive.",
+        "register": "Best suited to conversation. It is figurative and informal; it does not imply people agree on everything.",
+        "connotation": "Conversational, positive. Agreeing on one point is narrower than being on the same wavelength, which suggests easy mutual understanding.",
+        "meaning_type": "Idiomatic meaning: to understand each other easily and think in compatible ways"
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic meaning: to understand each other easily and think in compatible ways",
+        "connotation": "Positive; suggests easy mutual understanding, not agreement on every issue.",
+        "tone": "Conversational, positive.",
+        "register": "Common in everyday conversation and informal professional discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "ஒருவரை ஒருவர் எளிதில் புரிந்துகொள்ளும் ஒரே எண்ணப்போக்கு கொண்டிருத்தல்",
+        "value": "ஒருவரை ஒருவர் எளிதில் புரிந்துகொள்ளும் ஒரே எண்ணப்போக்கு கொண்டிருத்தல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/bi ɒn ðə ˌseɪm ˈweɪv.leŋθ/",
+        "value": "/bi ɒn ðə ˌseɪm ˈweɪv.leŋθ/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 1112,
+      "wordId": "9abc51d2-5178-46e1-a6e9-e46f0eaff1c0",
+      "word": "track record",
+      "senseKey": "past-performance-history",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3bea4f930c334703f91ee6813bbb1bf7b405f7235933ba67dd7a52f2512650fb",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative noun phrase: a person's or organization's history of results.",
+        "connotation": "Neutral by itself; a record can be strong or poor.",
+        "tone": "Sceptical about the task being easy, based on ordinary past performance.",
+        "register": "Common in business, news and general discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a person’s or organization’s history of performance or results",
+        "value": "ஒருவரின் அல்லது நிறுவனத்தின் முந்தைய செயல்பாடுகளும் முடிவுகளும் கொண்ட வரலாறு",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/track record/",
+        "value": "Approximate pronunciation: TRAK REK-ord (record is a noun). Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 1113,
+      "wordId": "9b5d0762-d65c-4f6a-8f84-c944cf22cff6",
+      "word": "allegation",
+      "senseKey": "unproven-accusation",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ec0ed1c73e5ee86f574e5c1ed7b8f2d7383fb9c51f2dc18326ab8a6a7f8bc993",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": null,
+      "fieldDecisions": null,
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a claim that someone has done something wrong, usually without proof yet",
+        "value": null,
+        "decision": "blocked",
+        "status": "blocked_pending_sense_resolution"
+      },
+      "pronunciation": {
+        "before": "/allegation/",
+        "value": "Approximate pronunciation: al-uh-GAY-shun. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "quarantined_unresolved_source_sense_mismatch",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Unresolved source/sense mismatch: stored unproven-accusation sense requires a claim of wrongdoing. The sentence refers to 'this simple allegation' but supplies no allegation content; it could be a general assertion. Original lesson repeats the definition and provides no additional evidence. Do not invent an accusation."
+    },
+    {
+      "ordinal": 1114,
+      "wordId": "9b62c3b3-748d-487c-b935-1c45b9c27b07",
+      "word": "settle upon",
+      "senseKey": "descend-or-come-to-rest",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5746ec30398657b5a634b50bcac359a0920cb79f6b7bb6476b87328136e7c2c5",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: to descend upon or gradually affect someone, pictured as fog settling.",
+        "connotation": "Neutral by itself; the image suggests something arriving without deliberate action.",
+        "tone": "Corrective and vivid in rejecting the idea that emotions simply arrive like fog.",
+        "register": "Common in narrative and descriptive writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to descend, come to rest, or gradually affect someone",
+        "value": "ஒருவரின் மீது படிப்படியாக வந்து படிதல் அல்லது தாக்கம் ஏற்படுத்துதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/settle upon/",
+        "value": "Approximate pronunciation: SET-uhl uh-PON. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "The source rejects a fog comparison; this review does not certify a psychological theory of emotion."
+    },
+    {
+      "ordinal": 1115,
+      "wordId": "9b62e66c-68da-4fe1-8852-6124aac269ac",
+      "word": "shut someone down",
+      "senseKey": "stop-expression",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "021f01bfcf2abe7b3bf2ebdc3ea85ee93001441b5a0601926b426b08dd086f90",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative phrasal verb: to stop someone speaking or participating.",
+        "connotation": "Usually negative about silencing someone, though it can sometimes set a necessary boundary.",
+        "tone": "Concerned and questioning about whether honest feedback will be silenced.",
+        "register": "Informal; common in everyday and workplace discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to prevent someone from speaking, participating, or continuing",
+        "value": "ஒருவரைப் பேசவோ பங்கேற்கவோ விடாமல் தடுத்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/shut someone down/",
+        "value": "Approximate pronunciation: shut SUM-wun DOWN. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 1116,
+      "wordId": "9b72da10-ea29-4ed2-9a26-e06578617180",
+      "word": "redesign",
+      "senseKey": "design-again",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4aa5cf2bcbd54f35c2939da68a9838d8d03ebed6d4a4cfd18c1e2cc616616f2f",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": null,
+      "fieldDecisions": null,
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to design something again in a different or improved way",
+        "value": null,
+        "decision": "blocked",
+        "status": "blocked_pending_sense_resolution"
+      },
+      "pronunciation": {
+        "before": "/redesign/",
+        "value": "Approximate pronunciation: ree-dih-ZYN. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "quarantined_confirmed_sense_conflict",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Confirmed grammatical sense conflict: the stored definition is the verb 'to design again', but source 'the redesign of the office' is a noun. Original export confirms the verb gloss and generic word_type; preserve sense identity and quarantine pending reconciliation."
+    },
+    {
+      "ordinal": 1117,
+      "wordId": "9b98f64c-a576-441e-b139-cf8c4f490bd3",
+      "word": "assessment",
+      "senseKey": "systematic-evaluation",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a7b5268bf333aab4378e125fa604ad36d911befc8177cafc409d50cff2a5ebc5",
+      "before": {
+        "tone": "objective",
+        "register": "professional or academic English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "technical and abstract meaning in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract evaluation: systematically judging ability, condition or performance.",
+        "connotation": "neutral in this source context",
+        "tone": "objective",
+        "register": "professional or academic English"
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "retained",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஒருவரின் திறன், நிலை அல்லது செயல்திறனை முறையாக மதிப்பிடுதல்",
+        "value": "ஒருவரின் திறன், நிலை அல்லது செயல்திறனை முறையாக மதிப்பிடுதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/əˈsesmənt/",
+        "value": "/əˈsesmənt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source combines a score-sheet heading and a broken instruction fragment; no missing directions are reconstructed."
+    }
+  ]
+}
