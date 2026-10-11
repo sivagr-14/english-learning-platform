@@ -1,0 +1,900 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 13,
+  "fixedGroupFirstOrdinal": 1181,
+  "fixedGroupLastOrdinal": 1278,
+  "firstOrdinal": 1191,
+  "lastOrdinal": 1210,
+  "entryCount": 20,
+  "profileDraftCount": 20,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 20,
+  "pronunciationTextReviewCompletedCount": 20,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "7af2c631b9595d5775d0f6fb8a03ac9b6980aa80",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group013 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1191,
+      "wordId": "a7770275-a71e-4b39-a1d1-b05b07155ebb",
+      "word": "potentially",
+      "senseKey": "possibly-in-future",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ea63611718af9f1820b27f984299fd7e9484ee061fe2d3ae141df39281ddca16",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract possibility: something could happen if circumstances develop that way.",
+        "connotation": "Neutral about possibility; the danger comes from 'disastrous', not from potentially.",
+        "tone": "Cautionary here: the narrator presents the CEO's preferred option as a possible disaster.",
+        "register": "Neutral; natural in reports, planning and everyday discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: possibly, if circumstances develop in a certain way",
+        "value": "சூழ்நிலையைப் பொறுத்து நிகழக்கூடிய வகையில்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/potentially/",
+        "value": "Approximate pronunciation: puh-TEN-shuh-lee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1192,
+      "wordId": "a78ea15a-dc16-429e-8d27-f3e685666df9",
+      "word": "whereas",
+      "senseKey": "used-to-contrast-two-facts-or-situations",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "5851efb71367c7b85d539b534e5ff3d41fa5504c362229a030063377a6b7469a",
+      "before": {
+        "tone": "Neutral to formal comparison.",
+        "register": "Neutral or professional wording: Use parallel information on both sides so readers can compare the same dimension or alternatives.",
+        "connotation": "Neutral relationship or function: used to contrast two facts or situations.",
+        "meaning_type": "Grammatical relationship: used to contrast two facts or situations"
+      },
+      "proposedProfile": {
+        "meaning_type": "Logical connector of contrast: sets the time benefit of one option against the cost benefit of another.",
+        "connotation": "Neutral; compares differences without choosing a winner.",
+        "tone": "Neutral to formal comparison.",
+        "register": "Neutral to formal; common in comparisons, reports and careful explanations."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "இரண்டு உண்மைகளை ஒப்பிட்டு வேறுபடுத்துவது",
+        "value": "இரண்டு உண்மைகளை ஒப்பிட்டு வேறுபடுத்துவது",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/weərˈæz/",
+        "value": "/weərˈæz/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1193,
+      "wordId": "a7d2e2bc-a55a-4ee2-889f-9d945b536c07",
+      "word": "firm up",
+      "senseKey": "to-make-an-arrangement-or-idea-more-definite",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d67d3defe1caddf83cb3febd6c6cea1948e88e5360b400ee99de8baa899e62f2",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to make an arrangement or idea more definite"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative phrasal verb: make a plan definite, as if making something firmer.",
+        "connotation": "Usually constructive; suggests removing uncertainty from arrangements.",
+        "tone": "Practical and cooperative here: the dates will be confirmed after everyone replies.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஏற்பாட்டை உறுதியாக்குதல்",
+        "value": "ஏற்பாட்டை உறுதியாக்குதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/fɜːm ʌp/",
+        "value": "/fɜːm ʌp/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1194,
+      "wordId": "a7dbf60b-f2f6-45b4-a194-01dfc6ce4ea1",
+      "word": "madly",
+      "senseKey": "with-frantic-intensity",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b614fc2fb2a05625c2b2b73929da28cb27708f8caf00449e073726e48cd31dc2",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative intensifier: doing something with frantic effort or great intensity.",
+        "connotation": "Suggests hectic effort rather than calm control; it is not a clinical description.",
+        "tone": "Lively and sympathetic here: the writer stresses how hard it is to monitor yourself while handling two tasks.",
+        "register": "Informal and expressive; common in conversation and lively explanatory writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: with great or frantic intensity",
+        "value": "மிகுந்த பரபரப்புடனும் தீவிரமாகவும்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/madly/",
+        "value": "Approximate pronunciation: MAD-lee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1195,
+      "wordId": "a7ef5c2c-dd19-4847-90f8-f1bdbebe623d",
+      "word": "at a minimum",
+      "senseKey": "used-to-state-the-least-amount-or-action-considered-necessary",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "22ed1a2a8049005f005fbacbe8eeafd3b4a6cd4b3e0cdd14cb19ebc742d18848",
+      "before": {
+        "tone": "Neutral, firm.",
+        "register": "Usable in clear general or professional communication. It may imply that more would be desirable, so state whether the minimum alone is acceptable.",
+        "connotation": "Neutral, firm. At a minimum sets a lower bound; at most sets an upper bound.",
+        "meaning_type": "Contextual meaning: used to state the least amount or action considered necessary"
+      },
+      "proposedProfile": {
+        "meaning_type": "Lower-bound expression: states the least information the update must include.",
+        "connotation": "Neutral; sets a basic requirement and leaves room for more.",
+        "tone": "Neutral, firm.",
+        "register": "Neutral; useful for requirements in everyday and workplace communication."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "குறைந்தபட்சமாக",
+        "value": "குறைந்தபட்சமாக",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ət ə ˈmɪn.ɪ.məm/",
+        "value": "/ət ə ˈmɪn.ɪ.məm/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1196,
+      "wordId": "a7f1dadb-f915-4d8b-b9cc-6b7f4e535208",
+      "word": "divert",
+      "senseKey": "redirect-resource",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9de4c1721e8aa7e4401248b493e1bac3f771455f8f2eb028f7d9011c346736f3",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal action: redirect a flow; here, blood is sent towards different bodily tasks.",
+        "connotation": "Neutral about redirection itself; benefit or harm depends on what receives the resource.",
+        "tone": "Explanatory here: the writer describes the body's response to a threatening situation.",
+        "register": "Neutral; common for traffic, resources and flows, including scientific explanations."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to redirect something from its usual course or purpose",
+        "value": "வழக்கமான பாதையிலிருந்து வேறு திசைக்குத் திருப்புதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/divert/",
+        "value": "Approximate pronunciation: dye-VURT or dih-VURT. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1197,
+      "wordId": "a83b75a5-423b-4b9d-956a-7826bc81e32f",
+      "word": "nonetheless",
+      "senseKey": "despite-the-fact-just-mentioned",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "ab68d3999949f7563fa2b865ec1b33a15eea1e28c64a752eed31b4d84617d61e",
+      "before": {
+        "tone": "Formal, concessive.",
+        "register": "Formal wording: It often signals a surprising result that survives the previous limitation; it is more written than conversational.",
+        "connotation": "Neutral relationship or function: despite the fact just mentioned.",
+        "meaning_type": "Grammatical relationship: despite the fact just mentioned"
+      },
+      "proposedProfile": {
+        "meaning_type": "Logical connector of concession: the evidence remains useful despite being limited.",
+        "connotation": "Neutral; signals that a limitation does not cancel the following claim.",
+        "tone": "Measured and cautiously positive here: the speaker accepts a limitation but sees a useful starting point.",
+        "register": "Relatively formal; common in reports and essays. 'Even so' is more conversational."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "முன்பு கூறிய தடையிருந்தபோதிலும்",
+        "value": "முன்பு கூறிய தடையிருந்தபோதிலும்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌnʌnðəˈles/",
+        "value": "/ˌnʌnðəˈles/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1198,
+      "wordId": "a83e8af0-feba-456b-8053-35edb0c5bddd",
+      "word": "took hold of",
+      "senseKey": "grasped-something-firmly",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "fb34e42e17c12bc592c0aec5a53af78017f0c08fe5b164ab123cd5745914ce3d",
+      "before": {
+        "tone": "In this passage, took hold of supports a clear narrative tone.",
+        "register": "took hold of is frequent in general English.",
+        "connotation": "The connotation of took hold of is neutral unless the described situation is negative.",
+        "meaning_type": "took hold of has a contextual meaning describing grasped something firmly."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal physical action in the past: grasped the axe firmly.",
+        "connotation": "Neutral about grasping; the surrounding scene supplies the distress and danger.",
+        "tone": "Tense and distressed here: tears and the attempt to pull away the axe show a struggle.",
+        "register": "Neutral; natural in everyday descriptions and storytelling."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "உறுதியாகப் பிடித்தல்",
+        "value": "உறுதியாகப் பிடித்தாள்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/took hold of/",
+        "value": "Approximate pronunciation: took HOLD uv; took rhymes with book. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1199,
+      "wordId": "a85c1866-d37f-4370-9ef5-b3bf5110429a",
+      "word": "find a way out",
+      "senseKey": "discover-an-escape-or-solution",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8d7846c6a8602e78cbb9738aab4bc8cb4a993026ef883e8f69dbce1f71fab671",
+      "before": {
+        "tone": "reflective and problem-solving",
+        "register": "neutral conversational English",
+        "connotation": "hopeful but often used when the situation feels difficult",
+        "meaning_type": "figurative expression for discovering a solution or escape"
+      },
+      "proposedProfile": {
+        "meaning_type": "figurative expression for discovering a solution or escape",
+        "connotation": "A way out suggests relief from difficulty; 'never' makes that possibility seem unavailable here.",
+        "tone": "Reflective but discouraged here: 'we think we'll never' describes a belief that no solution is possible.",
+        "register": "neutral conversational English"
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஒரு சிக்கலிலிருந்து வெளியேற அல்லது அதைத் தீர்க்கும் வழியை கண்டுபிடித்தல்",
+        "value": "ஒரு சிக்கலிலிருந்து வெளியேற அல்லது அதைத் தீர்க்கும் வழியை கண்டுபிடித்தல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/faɪnd ə weɪ aʊt/",
+        "value": "/faɪnd ə weɪ aʊt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1200,
+      "wordId": "a87ebb47-d685-4d83-87f7-d5ab1350f67b",
+      "word": "get sucked into",
+      "senseKey": "become-unwillingly-involved",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d33f70ded2e30b5654862b23010ca37f70aa4d727ba1e99d2d244a14b35e8453",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative expression: be pulled into involvement, as if by a force that draws things inward.",
+        "connotation": "Negative here; suggests unwanted involvement and reduced control over the situation.",
+        "tone": "Warning and disapproving here: 'easily' and 'silly games' caution against getting involved.",
+        "register": "Informal; natural in conversation and accessible advice."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to become drawn into an activity or conflict, often without intending to",
+        "value": "விருப்பமின்றியே ஒரு செயலில் அல்லது மோதலில் இழுத்துவிடப்படுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/get sucked into/",
+        "value": "Approximate pronunciation: get SUKT IN-too. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1201,
+      "wordId": "a87f4b55-865a-450c-948b-ed3dea7543de",
+      "word": "dual-process",
+      "senseKey": "handle-two-streams",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5d05515eae6c09b6ef3e8b17d5149dd766a857b417ffc52b3bada8e13aefeff7",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical description in this passage: attend to both what is said and the conditions of the conversation.",
+        "connotation": "Neutral about the two-task skill; difficulty is expressed by 'have trouble'.",
+        "tone": "Reassuring and explanatory here: 'most of us' presents the difficulty as shared.",
+        "register": "Specialized explanatory wording; in everyday speech, say 'pay attention to two things at once'."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to attend to two streams of information or tasks at the same time",
+        "value": "ஒரே நேரத்தில் இரண்டு வகையான தகவல்கள் அல்லது பணிகளில் கவனம் செலுத்துதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/dual-process/",
+        "value": "Approximate pronunciation: DOO-uhl PROH-sess. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1202,
+      "wordId": "a8c68878-0820-4e77-a98c-d4dcb017d5a1",
+      "word": "loaded",
+      "senseKey": "ready-to-cause-harm",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "183a3a07c808c6f896cad592f06eb919f5e28f81ab13929e5b392d0fc4dccb5c",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal description inside a simile: a weapon contains ammunition; the pointing finger is compared to that threatening weapon.",
+        "connotation": "Threatening in this comparison; it suggests readiness to cause harm.",
+        "tone": "Vivid and cautionary here: comparing a finger to a loaded weapon highlights aggressive behaviour.",
+        "register": "Neutral for weapons; the comparison is expressive and suited to storytelling or communication advice."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: containing ammunition or figuratively ready to cause harm",
+        "value": "தோட்டாக்கள் நிரப்பப்பட்ட; இங்கு தாக்கத் தயாராக இருப்பது போன்ற",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/loaded/",
+        "value": "Approximate pronunciation: LOH-did. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Loaded literally describes the weapon within a simile; the finger is not literally loaded."
+    },
+    {
+      "ordinal": 1203,
+      "wordId": "a8e71566-a61f-45eb-b63f-601d04ca3bad",
+      "word": "noble",
+      "senseKey": "morally-admirable",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ce05f25aa107087906702b36a9b2894bbe5a80e14bb44603fddfda73df90b614",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract moral description: motives guided by admirable principles.",
+        "connotation": "Positive; praises the original motives as morally better.",
+        "tone": "Reflective and cautionary here: the writer contrasts good original motives with less healthy replacements.",
+        "register": "Neutral to formal; common in moral reflection and descriptions of ideals."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: having admirable moral qualities or high principles",
+        "value": "உயர்ந்த ஒழுக்க நெறிகளும் நல்ல நோக்கமும் கொண்ட",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/noble/",
+        "value": "Approximate pronunciation: NOH-buhl. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1204,
+      "wordId": "a8ee35fa-40b1-45a7-9bd5-8a348bd19f9d",
+      "word": "commitment",
+      "senseKey": "dedication-to-action",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "49635c6e7bbd7d047303bc105209a9add2d220a8a30595104f04c4a7df7a3f32",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract dedication: a firm willingness to carry out a decision.",
+        "connotation": "Positive here; stronger commitment is listed as a benefit of working together.",
+        "tone": "Explanatory and optimistic here: the writer lists possible improvements in decisions and follow-through.",
+        "register": "Neutral; common in relationships, work and discussions of responsibilities."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a firm decision or dedication to carry out an action",
+        "value": "எடுத்த முடிவைச் செயல்படுத்துவதில் உறுதியான ஈடுபாடு",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/commitment/",
+        "value": "Approximate pronunciation: kuh-MIT-muhnt. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1205,
+      "wordId": "a908f2cb-c99e-403a-9d17-15b67dd9d1ec",
+      "word": "out of nowhere",
+      "senseKey": "unexpectedly",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "740cd7dd5280d9ff7942d6e8f0380ae648d3c3e2aa60ca5f3b5113804d111d03",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative expression: something happens unexpectedly, as if it had no visible starting point.",
+        "connotation": "Suggests surprise; the fragment does not establish whether the event is welcome.",
+        "tone": "Matter-of-fact about repeated unexpected arrivals; 'they' is unidentified, so a more specific attitude cannot be determined.",
+        "register": "Conversational; natural in storytelling and everyday descriptions of sudden events."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: appearing or happening unexpectedly",
+        "value": "எதிர்பாராத விதமாகத் திடீரென்று",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/out of nowhere/",
+        "value": "Approximate pronunciation: out uv NOH-wair. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "The antecedent of 'they' is unavailable; no positive or negative outcome is inferred."
+    },
+    {
+      "ordinal": 1206,
+      "wordId": "a9116d97-2cfc-4d1f-8d4c-a2758d432139",
+      "word": "embrace",
+      "senseKey": "accept-enthusiastically",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "066e9f7767efb2b5dd7513302c260388622128e454ada787c639022a56f59383",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative verb: willingly accept and support an idea, as if welcoming it with open arms.",
+        "connotation": "Positive; suggests active acceptance rather than reluctant agreement.",
+        "tone": "Purposeful and encouraging here: the manager wants others to support the cost-reduction effort.",
+        "register": "Neutral to formal; common in professional writing about change and new ideas."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to accept and support an idea, change, or plan willingly and enthusiastically",
+        "value": "ஒரு கருத்தை அல்லது முயற்சியை விருப்பத்துடன் ஏற்று ஆதரித்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/embrace/",
+        "value": "Approximate pronunciation: em-BRAYS. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1207,
+      "wordId": "a9122e69-2e23-48e9-bf8a-cdc1f6e45035",
+      "word": "ripple effect",
+      "senseKey": "a-spreading-series-of-consequences-from-one-event",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "57547f4930bb651292ebf6b8f9fe7c570e3851afa12ca2e7c3a66a896e37c74c",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Abstract or practical concept: a spreading series of consequences from one event"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative concept: consequences spread from one event like ripples across water.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "tone": "Explanatory here: the sentence traces wider consequences of an office closure without specifying each effect.",
+        "register": "Neutral; common in news, business and general discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "ஒரு நிகழ்விலிருந்து பரவும் தொடர் விளைவுகள்",
+        "value": "ஒரு நிகழ்விலிருந்து பரவும் தொடர் விளைவுகள்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈrɪpəl ɪˌfekt/",
+        "value": "/ˈrɪpəl ɪˌfekt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1208,
+      "wordId": "a9263191-dd13-4220-ac7c-6b60f6a3b91e",
+      "word": "buy time",
+      "senseKey": "to-create-a-delay-that-gives-someone-more-time-to-prepare-or-decide",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b122e1ccea3b49af331d0b5b902921677c7dcc3ccf995531d8cc585ee8671cb6",
+      "before": {
+        "tone": "Conversational, strategic.",
+        "register": "Best suited to conversation. The phrase can imply a temporary tactic, so avoid using it to justify misleading reassurance.",
+        "connotation": "Conversational, strategic. Buying time creates breathing room; solving the problem removes the underlying difficulty.",
+        "meaning_type": "Idiomatic meaning: to create a delay that gives someone more time to prepare or decide"
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic meaning: to create a delay that gives someone more time to prepare or decide",
+        "connotation": "Often practical and constructive; the extra time here allows careful checking.",
+        "tone": "Practical and strategic here: the extension is proposed as time for reviewing the figures.",
+        "register": "Conversational to neutral; natural in everyday and workplace planning."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "கூடுதல் அவகாசத்தைப் பெறுதல்",
+        "value": "கூடுதல் அவகாசத்தைப் பெறுதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/baɪ ˈtaɪm/",
+        "value": "/baɪ ˈtaɪm/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1209,
+      "wordId": "a96caf03-9535-444e-a4df-a35189d47139",
+      "word": "capacity",
+      "senseKey": "ability-or-potential",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "29ed719e19f75b1cad6a06a308f843e3714445cd7d995c77b306d15ba511abea",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract ability: the power to find or develop solutions, not the amount a container holds.",
+        "connotation": "Positive when enhanced here; greater ability is presented as useful.",
+        "tone": "Urgent and constructive here: 'imperative' stresses the need to strengthen relationships and problem-solving ability.",
+        "register": "Neutral to formal; common in professional and educational discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the ability or potential to do or understand something",
+        "value": "ஒன்றைச் செய்ய அல்லது புரிந்துகொள்ளும் திறன்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/capacity/",
+        "value": "Approximate pronunciation: kuh-PASS-uh-tee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    },
+    {
+      "ordinal": 1210,
+      "wordId": "a9fc9d81-e381-4e72-a195-951d83c24d12",
+      "word": "custody",
+      "senseKey": "legal-care-of-child",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e96178823faafcd17cc828cff232698a1da4068cf1a55a6b14e650e94d5bfd1e",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical legal sense: the right and responsibility to care for a child.",
+        "connotation": "Neutral as a legal term; the possible conflict belongs to the situation.",
+        "tone": "Cautionary here: custody discussions with an ex-spouse appear in a list of potentially difficult conversations.",
+        "register": "Standard in legal and family discussions; explain it as 'legal responsibility for a child's care' when needed."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the legal right and responsibility to care for a child",
+        "value": "குழந்தையைப் பராமரிக்கும் சட்ட உரிமையும் பொறுப்பும்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/custody/",
+        "value": "Approximate pronunciation: KUS-tuh-dee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Profile reviewed against exact supplied sense and source; unchanged header wording retained after inspection."
+    }
+  ]
+}
