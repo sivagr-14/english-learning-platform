@@ -1,0 +1,240 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 14,
+  "fixedGroupFirstOrdinal": 1279,
+  "fixedGroupLastOrdinal": 1376,
+  "firstOrdinal": 1279,
+  "lastOrdinal": 1283,
+  "entryCount": 5,
+  "profileDraftCount": 5,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 5,
+  "pronunciationTextReviewCompletedCount": 5,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "03019ab9056547b632b2bab8daf372af54347831",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group014 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1279,
+      "wordId": "b5bb91ab-89a4-4e2b-b26b-b46edc9d4c94",
+      "word": "I am not quite convinced",
+      "senseKey": "used-to-express-polite-doubt-about-an-argument",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "909ab01e5a58ed1def701ecaea7207d23e90b0748954e037a097270115e5de63",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: used to express polite doubt about an argument"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conversational expression of doubt: politely says that the argument has not fully persuaded you.",
+        "connotation": "Softens disagreement; 'not quite' leaves room for further evidence or explanation.",
+        "tone": "Polite and cautious here: the speaker doubts whether a shorter trial will supply enough evidence.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "மரியாதையாக முழுமையான நம்பிக்கையின்மையை வெளிப்படுத்தும் தொடர்",
+        "value": "எனக்கு இன்னும் முழுமையாக நம்பிக்கை ஏற்படவில்லை என்று மரியாதையாகக் கூறுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/aɪ əm nɒt kwaɪt kənˈvɪnst/",
+        "value": "/aɪ əm nɒt kwaɪt kənˈvɪnst/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Tamil corrected to lack of full persuasion, not complete disbelief."
+    },
+    {
+      "ordinal": 1280,
+      "wordId": "b5c49439-2398-461c-be59-66e27fe7cd85",
+      "word": "somewhat",
+      "senseKey": "to-some-degree",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "986d1cb2861732541987b29f22b10fcc17726fa0e4a11307634551b2eb72f1ea",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract degree modifier: partly or to a limited degree, here describing the neighbour's irritability.",
+        "connotation": "Neutral by itself; softens the negative description 'crotchety'.",
+        "tone": "Lightly teasing here: the narrator tempers the description of the neighbour while calling him colourful.",
+        "register": "Neutral to slightly formal; 'a bit' is more conversational."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to some degree, but not greatly",
+        "value": "ஓரளவு; மிக அதிகமாக அல்ல",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/somewhat/",
+        "value": "Approximate pronunciation: SUM-wut. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and sentence reviewed. Other lesson sections still require separate review."
+    },
+    {
+      "ordinal": 1281,
+      "wordId": "b5ff3d9b-e219-4834-b70e-cc3109744c0c",
+      "word": "union",
+      "senseKey": "organized-worker-group",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5a7d03392f6bfa7d729233dd2a0a407e08f74da8e6f35ed7f87b9d14776a00cb",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal organization: a group of workers that represents their shared rights and interests.",
+        "connotation": "Neutral as an organizational term; the disappointing contract does not make union itself a negative label.",
+        "tone": "Matter-of-fact but critical of the outcome here: 'worse' contrasts the settlement with the original demands.",
+        "register": "Neutral; common in workplace, labour and news discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: an organized group of workers formed to protect their rights and interests",
+        "value": "தொழிலாளர்களின் உரிமைகளையும் நலன்களையும் பாதுகாக்கும் தொழிற்சங்கம்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/union/",
+        "value": "Approximate pronunciation: YOON-yuhn. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and sentence reviewed. Other lesson sections still require separate review."
+    },
+    {
+      "ordinal": 1282,
+      "wordId": "b60806a0-99c7-404e-824d-cd0fc3b52a12",
+      "word": "with immediate effect",
+      "senseKey": "starting-to-apply-from-now",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "93274c2032fba9e75728c5c79ee534f402f9e35f00501c9dbe006772288a7804",
+      "before": {
+        "tone": "Formal, decisive notice.",
+        "register": "Formal wording: Official notices should include the date or time if readers may receive them later.",
+        "connotation": "Neutral relationship or function: starting to apply from now.",
+        "meaning_type": "Contextual expression: starting to apply from now"
+      },
+      "proposedProfile": {
+        "meaning_type": "Time expression: a rule or decision starts applying now.",
+        "connotation": "Neutral; specifies the start time without judging the change.",
+        "tone": "Formal, decisive notice.",
+        "register": "Formal; common in official announcements and policy notices."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "உடனடியாக அமலுக்கு வரும் வகையில்",
+        "value": "உடனடியாக அமலுக்கு வரும் வகையில்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/wɪð ɪˌmiːdiət ɪˈfekt/",
+        "value": "/wɪð ɪˌmiːdiət ɪˈfekt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and sentence reviewed. Other lesson sections still require separate review."
+    },
+    {
+      "ordinal": 1283,
+      "wordId": "b6695cb7-2a53-4702-96dc-c84e249a169a",
+      "word": "trade-off",
+      "senseKey": "balance-competing-benefits",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3c4460e67b1f6c595af9e2283c5e02ac116586cbc0784fa02cc4bda2e197be07",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract choice: getting one benefit requires giving up another.",
+        "connotation": "Usually neutral about competing benefits; 'simplistic' criticizes the particular trade-offs described here.",
+        "tone": "Critical here: the writer says these choices limit creative thinking and justify unhelpful behaviour.",
+        "register": "Neutral; common in planning, business and informed everyday discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a compromise in which gaining one benefit requires giving up another",
+        "value": "ஒரு நன்மையைப் பெறுவதற்காக மற்றொரு நன்மையை விட்டுக்கொடுக்கும் சமரசம்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/trade-off/",
+        "value": "Approximate pronunciation: TRAYD-awf. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and sentence reviewed. Other lesson sections still require separate review."
+    }
+  ]
+}
