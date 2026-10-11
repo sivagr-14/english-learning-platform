@@ -1,0 +1,34 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "kind": "append_only_receipt_metadata_errata",
+  "reason": "A copied scope description names partial group009 in later receipts. Entry ranges, groupNumber, identities, source hashes, correction records and counts remain authoritative and unchanged.",
+  "corrections": [
+    {
+      "receipt": "PROFILE-DRAFT-009.json",
+      "field": "scope",
+      "incorrectValue": "Immutable partial group009 review. Full-lesson repairs and import validation pending.",
+      "correctValue": "Immutable complete group009 Overview, Tamil meaning and pronunciation-text editorial review. Full-lesson repairs and import validation pending."
+    },
+    {
+      "receipt": "CHECKPOINT-010-887-935.json",
+      "field": "scope",
+      "incorrectValue": "Immutable partial group009 review. Full-lesson repairs and import validation pending.",
+      "correctValue": "Immutable partial group010 review, ordinals887–935. Full-lesson repairs and import validation pending."
+    },
+    {
+      "receipt": "PROFILE-DRAFT-010.json",
+      "field": "scope",
+      "incorrectValue": "Immutable partial group009 review. Full-lesson repairs and import validation pending.",
+      "correctValue": "Immutable complete group010 Overview, Tamil meaning and pronunciation-text editorial review. Full-lesson repairs and import validation pending."
+    },
+    {
+      "receipt": "CHECKPOINT-011-985-1033.json",
+      "field": "scope",
+      "incorrectValue": "Immutable partial group009 review. Full-lesson repairs and import validation pending.",
+      "correctValue": "Immutable partial group011 review, ordinals985–1033. Full-lesson repairs and import validation pending."
+    }
+  ],
+  "changesToEntryData": false,
+  "changesToCounts": false
+}
