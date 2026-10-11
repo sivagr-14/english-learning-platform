@@ -1,0 +1,460 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 13,
+  "fixedGroupFirstOrdinal": 1181,
+  "fixedGroupLastOrdinal": 1278,
+  "firstOrdinal": 1241,
+  "lastOrdinal": 1250,
+  "entryCount": 10,
+  "profileDraftCount": 10,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 10,
+  "pronunciationTextReviewCompletedCount": 10,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "7af2c631b9595d5775d0f6fb8a03ac9b6980aa80",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group013 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1241,
+      "wordId": "b0279dce-cde4-4448-9746-88c92ad9b729",
+      "word": "stumped",
+      "senseKey": "unable-to-solve",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9c2211cbab2a3b1feb79d5e61fe77d29455ba47a72850762ba4e8fad75033bb7",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative description of difficulty: unable to answer or work out a problem.",
+        "connotation": "Suggests being stuck, without implying permanent inability.",
+        "tone": "Frank admission of being unable to solve something; the short sentence does not establish frustration or humour.",
+        "register": "Informal; natural in conversation about puzzling questions or problems."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: unable to answer, understand, or solve something",
+        "value": "பதில் அல்லது தீர்வு தெரியாமல் திணறுகிற",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/stumped/",
+        "value": "Approximate pronunciation: STUMPT. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "OCR spacing remains immutable. Fragment does not identify the problem or establish an emotion."
+    },
+    {
+      "ordinal": 1242,
+      "wordId": "b0479d45-224b-4533-8dea-7babf259ef1d",
+      "word": "play-by-play",
+      "senseKey": "detailed-running-description",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "cb879d35d4db20d6243dd63d1707a601ff1b2e3c0db139dd27e5dfd284fc24b1",
+      "before": {
+        "tone": "clear and explanatory",
+        "register": "neutral everyday English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "concrete or abstract vocabulary in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Extended use of sports-commentary language: a detailed, step-by-step account of what happened in the meeting.",
+        "connotation": "Neutral about detail; a play-by-play can be useful or excessive, but neither is established here.",
+        "tone": "Lively and descriptive here: the narrator shows friends discussing the meeting in detail.",
+        "register": "Conversational; common outside sport when describing a detailed account."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "நிகழ்வுகள் நடக்கும் போதே அல்லது படிப்படியாக மீளமைத்து வழங்கப்படும் விரிவான விளக்கம்",
+        "value": "நிகழ்வுகள் நடக்கும் போதே அல்லது படிப்படியாக மீளமைத்து வழங்கப்படும் விரிவான விளக்கம்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌpleɪ baɪ ˈpleɪ/",
+        "value": "/ˌpleɪ baɪ ˈpleɪ/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; valid source/header wording preserved."
+    },
+    {
+      "ordinal": 1243,
+      "wordId": "b047c49d-5d19-4ece-8adf-f78f7ba84a03",
+      "word": "consistent with",
+      "senseKey": "matching-evidence-or-information",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "acaa772f97c21197b376ffeb7ae9b072f1c659e7e3dac57858104d0ab97360f7",
+      "before": {
+        "tone": "Serious and descriptive, supporting a tense wilderness narrative.",
+        "register": "Neutral; natural in narrative and informative English.",
+        "connotation": "Neutral in this passage; it describes the scene without praise or criticism.",
+        "meaning_type": "Abstract comparison of evidence."
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract comparison of evidence.",
+        "connotation": "Neutral in this passage; it describes the scene without praise or criticism.",
+        "tone": "Observational here: Elena notices a complete match between the wildlife's behaviour and the diary notes.",
+        "register": "Neutral; natural in narrative and informative English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "குறிப்பிட்ட ஆதாரம் அல்லது தகவலுடன் ஒத்துப்போகும்",
+        "value": "குறிப்பிட்ட ஆதாரம் அல்லது தகவலுடன் ஒத்துப்போகும்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/kənˈsɪs.tənt wɪð/",
+        "value": "/kənˈsɪs.tənt wɪð/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; valid source/header wording preserved."
+    },
+    {
+      "ordinal": 1244,
+      "wordId": "b0df1c84-88fa-4b37-a3ad-2b0c2b5ad8ce",
+      "word": "opposite",
+      "senseKey": "completely-different",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e55b36ec0d76f5d08ad0615d02c3d715f2ea1b3516e7f7f2fe3056ab7dc8c39b",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract noun: one of two contrasting positions, presented here as ends of a scale.",
+        "connotation": "Neutral; difference does not make either position good or bad.",
+        "tone": "Explanatory and approving of an alternative here: the writer contrasts a simple compromise with a 'higher' solution.",
+        "register": "Neutral; common in discussion of contrasting ideas or qualities."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a person or thing completely different from another",
+        "value": "மற்றொன்றுக்கு முற்றிலும் மாறான ஒன்று; இங்கு எதிரெதிரான நிலைப்பாடு",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/opposite/",
+        "value": "Approximate pronunciation: OP-uh-zit. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "The source's description of Buddhism is not independently verified; the opposite-position sense is clear."
+    },
+    {
+      "ordinal": 1245,
+      "wordId": "b0f452d4-0cb5-4243-a251-544d448eb2f3",
+      "word": "therapist",
+      "senseKey": "trained-treatment-professional",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e322c81e8826f16c7aa5a1f34c4fa3e3056c8a0ff61d15f4813a6c9158292d6f",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal professional role: someone trained to help treat mental, emotional or physical difficulties.",
+        "connotation": "Neutral as a professional title; implies relevant support or expertise.",
+        "tone": "Humorous and emphatic here: an imagined team rushing to help highlights the lack of support during a difficult conversation.",
+        "register": "Neutral; common in everyday discussion of treatment and support."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a trained professional who helps treat mental, emotional, or physical problems",
+        "value": "மன, உணர்ச்சி அல்லது உடல் பிரச்சினைகளுக்குச் சிகிச்சை அளிக்கப் பயிற்சி பெற்ற நிபுணர்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/therapist/",
+        "value": "Approximate pronunciation: THER-uh-pist; th as in thin. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; valid source/header wording preserved."
+    },
+    {
+      "ordinal": 1246,
+      "wordId": "b114f3c9-c969-4ccc-ab72-174b3cdc18df",
+      "word": "must-have",
+      "senseKey": "something-regarded-as-essential-for-a-particular-purpose",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ae2ddf82db7a1267e0e267cf4802dcfdd95b11a991bee27bc0a75da7e5915277",
+      "before": {
+        "tone": "Conversational, emphatic.",
+        "register": "Best suited to conversation. It is common in planning and marketing; specify whose requirement it is rather than implying everyone needs it.",
+        "connotation": "Conversational, emphatic. A must-have is essential for your stated purpose; a benefit may be useful without being necessary.",
+        "meaning_type": "Contextual meaning: something regarded as essential for a particular purpose"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract requirement expressed as a noun: something considered essential for a purpose.",
+        "connotation": "Strongly emphasizes necessity; here transport is a requirement rather than a bonus.",
+        "tone": "Conversational, emphatic.",
+        "register": "Informal; common in planning and marketing. 'Essential requirement' is more formal."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "கட்டாயமாகத் தேவைப்படும் அம்சம்",
+        "value": "கட்டாயமாகத் தேவைப்படும் அம்சம்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌmʌst ˈhæv/",
+        "value": "/ˌmʌst ˈhæv/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; valid source/header wording preserved."
+    },
+    {
+      "ordinal": 1247,
+      "wordId": "b11a26a8-1841-4a5b-9bda-bdef5b38c118",
+      "word": "wilderness",
+      "senseKey": "remote-untouched-natural-area",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a10576847fafe23115ef7857ad75a721dd81e2024fbbfe8730cd4d9988652c57",
+      "before": {
+        "tone": "Serious and descriptive, supporting a tense wilderness narrative.",
+        "register": "Neutral; natural in narrative and informative English.",
+        "connotation": "Neutral in this passage; it describes the scene without praise or criticism.",
+        "meaning_type": "Literal geographical description."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal geographical description.",
+        "connotation": "Suggests remoteness and limited human control; it can evoke beauty or danger, with uncertainty emphasized here.",
+        "tone": "Serious and descriptive here: moving deeper into increasingly unpredictable terrain suggests growing difficulty.",
+        "register": "Neutral; natural in narrative and informative English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "மனிதர்களால் பெரிதாக மாற்றப்படாத தொலைதூர இயற்கைப் பகுதி",
+        "value": "மனிதர்களால் பெரிதாக மாற்றப்படாத தொலைதூர இயற்கைப் பகுதி",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈwɪl.də.nəs/",
+        "value": "/ˈwɪl.də.nəs/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; valid source/header wording preserved."
+    },
+    {
+      "ordinal": 1248,
+      "wordId": "b170a5d3-1ad6-428c-af2a-93f3a9172917",
+      "word": "stress",
+      "senseKey": "mental-or-emotional-pressure",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7874b0a86dc9a0564caa95283a00b5c93472871d2a7dc753fabcbca53aaa3b61",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract mental or emotional pressure caused by demanding circumstances.",
+        "connotation": "Usually negative; suggests strain rather than comfortable challenge.",
+        "tone": "Concerned and emphatic here: 'frightening speed' and increased pressures present change as demanding.",
+        "register": "Neutral; common in everyday, workplace and health discussions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: mental or emotional pressure caused by difficult demands or circumstances",
+        "value": "கடினமான சூழ்நிலைகளால் ஏற்படும் மன அழுத்தம்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/stress/",
+        "value": "Approximate pronunciation: STRESS. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; valid source/header wording preserved."
+    },
+    {
+      "ordinal": 1249,
+      "wordId": "b17a3ca9-b7fe-41bf-8057-eaa0f5106da4",
+      "word": "well-being",
+      "senseKey": "health-and-contentment",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "aa91432f984ad78a1364246a729e3c4870db0b81b74108251e3439c3c33a4577",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract state: being healthy, comfortable and content.",
+        "connotation": "Positive; refers to a desirable overall condition.",
+        "tone": "Encouraging here: the question invites readers to consider conversations that might improve their lives.",
+        "register": "Neutral; common in everyday, workplace and public-health discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the state of being healthy, comfortable, and content",
+        "value": "உடல் நலத்துடனும் மனநிறைவுடனும் வாழும் நிலை",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/well-being/",
+        "value": "Approximate pronunciation: WEL BEE-ing. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source health claims are not independently verified; this receipt describes language and tone only."
+    },
+    {
+      "ordinal": 1250,
+      "wordId": "b1a86435-31a0-4263-a9f7-6a63cf1367bc",
+      "word": "lay out",
+      "senseKey": "present-clearly-in-order",
+      "senseRank": 3,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3768e10b1fa8ea9025b62fd60307be2c68d1b0db84f0f1c51460e0ce36d0b0da",
+      "before": {
+        "tone": "clear and deliberate",
+        "register": "neutral professional English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "figurative meaning in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative phrasal verb: present information in a clear order, as if arranging it where others can see it.",
+        "connotation": "Neutral and practical; suggests making the context easy to understand.",
+        "tone": "Careful and advisory here: 'you'll want to' and 'carefully' recommend thoughtful preparation.",
+        "register": "Neutral; common in conversation, presentations and workplace explanations."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தகவல், காரணங்கள் அல்லது சூழலை தெளிவாகவும் ஒழுங்காகவும் முன்வைத்தல்",
+        "value": "தகவல், காரணங்கள் அல்லது சூழலை தெளிவாகவும் ஒழுங்காகவும் முன்வைத்தல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/leɪ aʊt/",
+        "value": "/leɪ aʊt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; valid source/header wording preserved."
+    }
+  ]
+}
