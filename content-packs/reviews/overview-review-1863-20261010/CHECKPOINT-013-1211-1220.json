@@ -1,0 +1,460 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 13,
+  "fixedGroupFirstOrdinal": 1181,
+  "fixedGroupLastOrdinal": 1278,
+  "firstOrdinal": 1211,
+  "lastOrdinal": 1220,
+  "entryCount": 10,
+  "profileDraftCount": 10,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 10,
+  "pronunciationTextReviewCompletedCount": 10,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "7af2c631b9595d5775d0f6fb8a03ac9b6980aa80",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group013 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1211,
+      "wordId": "aa6fd572-3b6f-41bd-bdb3-98333114b3e2",
+      "word": "semblance",
+      "senseKey": "small-appearance-of-quality",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c34fc53648171e2164a10eaad8a7f554dc1b56b21b3cace54e101922f283af64",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract appearance: even a small outward sign of a quality, here social sensitivity.",
+        "connotation": "Often suggests that the appearance may be weaker than the real quality; 'any' stresses even the smallest sign.",
+        "tone": "Cautionary here: the writer warns that being absorbed in ideas can make us insensitive to others.",
+        "register": "Relatively formal; common in reflective writing. 'Any sign of' is simpler."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a slight appearance or outward sign of a quality",
+        "value": "ஒரு பண்பு இருப்பதற்கான சிறிய வெளிப்புற அறிகுறி",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/semblance/",
+        "value": "Approximate pronunciation: SEM-bluhns. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; existing accurate wording retained."
+    },
+    {
+      "ordinal": 1212,
+      "wordId": "aa72ea4a-306f-4529-91fe-2d05ddd2c06b",
+      "word": "real-life",
+      "senseKey": "occurring-in-reality",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0140c300a8d2cca79266838db5d9403c49035f656389b34638770176311e0abd",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal description: happening in actual life, rather than only in theory or fiction.",
+        "connotation": "Usually suggests practical relevance or authenticity; real-life examples can show how a skill works.",
+        "tone": "Explanatory and sympathetic here: lack of observed examples helps explain why someone must improvise.",
+        "register": "Neutral; natural in everyday, educational and professional discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: occurring in actual life rather than theory or fiction",
+        "value": "கற்பனையில் அல்லாமல் நிஜ வாழ்க்கையில் நிகழ்கிற",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/real-life/",
+        "value": "Approximate pronunciation: REEL-lyfe. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; existing accurate wording retained."
+    },
+    {
+      "ordinal": 1213,
+      "wordId": "ab0ad24f-a15a-46f9-b4f5-0fbf9738ec4b",
+      "word": "modest",
+      "senseKey": "limited-in-scale",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "fd3216064d1c18cb9566b296b5442eff50fbb584f0e89da1fddcb78f71e3e701",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract description of degree: small or limited in amount, here an improvement in ability.",
+        "connotation": "Understated and neutral about size; it does not criticize the improvement.",
+        "tone": "Emphatic here: 'just' contrasts a small improvement with a much larger reported change.",
+        "register": "Neutral to formal; common in reports and measured descriptions of change."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: limited rather than large in size, amount, or ambition",
+        "value": "அளவில் சிறிய அல்லது குறைந்த",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/modest/",
+        "value": "Approximate pronunciation: MOD-ist. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "The source reports a statistical association; the claim is not independently verified and is not presented as causal advice."
+    },
+    {
+      "ordinal": 1214,
+      "wordId": "ab31ea65-b508-49f8-b8ff-a43dbd408080",
+      "word": "proposed approach",
+      "senseKey": "a-suggested-way-of-carrying-out-work-or-solving-a-problem",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "9a872176fb8e3a70bc6058b9882e583a3134c472f9f095eefe29659c51823d63",
+      "before": {
+        "tone": "Neutral, tentative professional language.",
+        "register": "Neutral or professional wording: Keep recommendation and approval status separate so readers know whether to comment or begin.",
+        "connotation": "Neutral relationship or function: a suggested way of carrying out work or solving a problem.",
+        "meaning_type": "Contextual expression: a suggested way of carrying out work or solving a problem"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract planning phrase: a suggested method of doing the work, not yet presented as a final decision.",
+        "connotation": "Neutral; 'proposed' leaves the method open for discussion.",
+        "tone": "Neutral, tentative professional language.",
+        "register": "Neutral to formal; natural in plans, reports and workplace discussions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "பரிந்துரைக்கப்பட்ட செயல்முறை",
+        "value": "பரிந்துரைக்கப்பட்ட செயல்முறை",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/prəˌpəʊzd əˈprəʊtʃ/",
+        "value": "/prəˌpəʊzd əˈprəʊtʃ/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; existing accurate wording retained."
+    },
+    {
+      "ordinal": 1215,
+      "wordId": "ab36845f-1f8e-44dd-a2de-452f794466d1",
+      "word": "downpours",
+      "senseKey": "sudden-heavy-rain",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9a288b27cea82eebc0b248f269a275c50bc38f8021554c5e27c6bf803d0e4016",
+      "before": {
+        "tone": "Serious and descriptive, supporting a tense wilderness narrative.",
+        "register": "Neutral; natural in narrative and informative English.",
+        "connotation": "Neutral in this passage; it describes the scene without praise or criticism.",
+        "meaning_type": "Literal weather description."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal weather description.",
+        "connotation": "Neutral about weather itself, though downpours often suggest difficult outdoor conditions.",
+        "tone": "Tense and descriptive here: the heavy rain threatens to slow the travellers.",
+        "register": "Neutral; natural in narrative and informative English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "திடீரெனப் பெய்யும் மிகக் கனமான மழைகள்",
+        "value": "திடீரெனப் பெய்யும் மிகப் பலத்த மழைகள்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈdaʊn.pɔːz/",
+        "value": "/ˈdaʊn.pɔːz/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; existing accurate wording retained."
+    },
+    {
+      "ordinal": 1216,
+      "wordId": "ab3fbf46-1e8d-4fd5-b946-95eb72943916",
+      "word": "instantly",
+      "senseKey": null,
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0d9ea4f3822e44798ca4f816a7e73033bbb9d4ea7a334a60cdb528a831984aad",
+      "before": {
+        "tone": "Fast, decisive, and sometimes dramatic.",
+        "register": "Neutral and frequent in speech, narrative, and technology descriptions.",
+        "connotation": "Neutral, though it can add excitement or emphasis.",
+        "meaning_type": "Abstract time meaning: it indicates the absence of noticeable delay."
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract time meaning: it indicates the absence of noticeable delay.",
+        "connotation": "Neutral about speed; it emphasizes that the realization happened without delay.",
+        "tone": "The narration emphasizes immediate recognition of the diary's importance; no distinct emotion is stated.",
+        "register": "Neutral and frequent in speech, narrative, and technology descriptions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "உடனடியாக; எந்தத் தாமதமும் இல்லாமல்.",
+        "value": "உடனடியாக; எந்தத் தாமதமும் இல்லாமல்.",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈɪn.stənt.li/",
+        "value": "/ˈɪn.stənt.li/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Original null senseKey preserved. Meaning is clear in source; missing identity metadata must be resolved through production contract before delivery."
+    },
+    {
+      "ordinal": 1217,
+      "wordId": "ab42bb65-3d96-4615-8f90-5f4830e67df9",
+      "word": "comically",
+      "senseKey": "in-an-amusing-way",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "850b223e372ed91c6b7f6b37287127e2b3b30b75ca488c7c7c3cc1e21671b4b9",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract manner: so amusing or absurd that it invites laughter.",
+        "connotation": "Dismissive here; it presents the thinking as absurdly unrealistic rather than merely mistaken.",
+        "tone": "The sentence reports some people's mocking view; it does not establish that the narrator shares it.",
+        "register": "Neutral but expressive; common in reviews and descriptive writing, and potentially unkind when criticizing ideas."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: in a way that is amusing or absurd",
+        "value": "சிரிப்பை வரவழைக்கும் அளவுக்கு அபத்தமாக",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/comically/",
+        "value": "Approximate pronunciation: KOM-ik-lee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; existing accurate wording retained."
+    },
+    {
+      "ordinal": 1218,
+      "wordId": "ab5de251-7cb9-45d2-a349-12a5917b9878",
+      "word": "on the spur of the moment",
+      "senseKey": "because-of-a-sudden-impulse-rather-than-an-earlier-plan",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "491e6146be9a15203fdd0b630b381d0bbdc166e9ffcb4dbcedae73c81b23d3d7",
+      "before": {
+        "tone": "Conversational spontaneity.",
+        "register": "Conversational wording: A spontaneous choice is not necessarily careless; its wisdom depends on the consequences.",
+        "connotation": "Neutral relationship or function: because of a sudden impulse rather than an earlier plan.",
+        "meaning_type": "Idiomatic: because of a sudden impulse rather than an earlier plan"
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic: because of a sudden impulse rather than an earlier plan",
+        "connotation": "Suggests spontaneity; the trip example does not say whether the choice was wise or careless.",
+        "tone": "Conversational spontaneity.",
+        "register": "Conversational; natural in personal stories and everyday discussion of unplanned decisions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "முன்திட்டமின்றி உடனடி உந்துதலால்",
+        "value": "முன்திட்டமின்றி உடனடி உந்துதலால்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ɒn ðə ˌspɜːr əv ðə ˈməʊmənt/",
+        "value": "/ɒn ðə ˌspɜːr əv ðə ˈməʊmənt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; existing accurate wording retained."
+    },
+    {
+      "ordinal": 1219,
+      "wordId": "ab8b34ac-9d23-4f68-9289-b80b20b628db",
+      "word": "I see where you are coming from",
+      "senseKey": "used-to-show-understanding-of-another-persons-viewpoint",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ce9fe91fc371e275495dd192a9a5f161fdba3198850b2bf0f4fc3edb91f4ac72",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: used to show understanding of another person's viewpoint"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conversational acknowledgement: shows that you understand another person's viewpoint without necessarily agreeing.",
+        "connotation": "Usually respectful; recognizes the reasoning behind another person's position.",
+        "tone": "Understanding but concerned here: the speaker acknowledges the view before raising the deadline.",
+        "register": "Conversational to neutral; natural in discussions and workplace disagreement."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "மற்றொருவரின் பார்வையை புரிந்துள்ளதாக காட்டும் தொடர்",
+        "value": "உங்கள் பார்வையும் அதற்கான காரணமும் எனக்குப் புரிகிறது",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/aɪ siː weə ju ə ˈkʌmɪŋ frɒm/",
+        "value": "/aɪ siː weə ju ə ˈkʌmɪŋ frɒm/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; existing accurate wording retained."
+    },
+    {
+      "ordinal": 1220,
+      "wordId": "ac155bda-ca33-4286-8829-39efbc9b098a",
+      "word": "vanished",
+      "senseKey": "disappeared-suddenly-or-completely",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d12968cb02316f5448f61767dda140c1180e3ee5e0f8230bb1a95b88b5a0d945",
+      "before": {
+        "tone": "In this passage, vanished supports a clear narrative tone.",
+        "register": "vanished is frequent in general English.",
+        "connotation": "The connotation of vanished is neutral unless the described situation is negative.",
+        "meaning_type": "vanished has a contextual meaning describing disappeared suddenly or completely."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal visual disappearance in the past: the bus went out of sight around a bend.",
+        "connotation": "Neutral here; the bus is no longer visible, with no suggestion that it ceased to exist.",
+        "tone": "Observational here: the sentence follows someone watching the bus until it disappears; his feelings are not stated.",
+        "register": "Neutral; common in storytelling and everyday descriptions of something disappearing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "மறைந்தது",
+        "value": "மறைந்தது",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/vanished/",
+        "value": "Approximate pronunciation: VAN-isht. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense reviewed; existing accurate wording retained."
+    }
+  ]
+}
