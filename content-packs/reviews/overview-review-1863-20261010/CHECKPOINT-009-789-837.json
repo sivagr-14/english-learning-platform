@@ -1,0 +1,2166 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 9,
+  "fixedGroupFirstOrdinal": 789,
+  "fixedGroupLastOrdinal": 886,
+  "firstOrdinal": 789,
+  "lastOrdinal": 837,
+  "entryCount": 49,
+  "profileDraftCount": 48,
+  "blockedCount": 1,
+  "tamilReviewCompletedCount": 48,
+  "pronunciationTextReviewCompletedCount": 49,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "1e4555677dea519ab651e971bcb3dce48dd9d7df",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group009 review. Full-lesson repairs and import validation pending.",
+  "corrections": [
+    {
+      "ordinal": 789,
+      "wordId": "6df257c6-7064-422e-b45e-6f2d56771c1a",
+      "word": "far-reaching",
+      "senseKey": "having-a-large-influence-across-many-areas-or-over-a-long-time",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bbd8f29fd1a53523aaf664ad0783eb099a717ac1a105f92d7239ded505c68f95",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: having a large influence across many areas or over a long time"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: having effects across many areas or for a long time.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "tone": "Serious and cautionary about the staffing decision's wider effects.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "பரவலான நீண்டகால தாக்கமுள்ள",
+        "value": "பரவலான நீண்டகால தாக்கமுள்ள",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌfɑː ˈriːtʃɪŋ/",
+        "value": "/ˌfɑː ˈriːtʃɪŋ/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 790,
+      "wordId": "6e00cc0f-309b-4a92-ab82-7e70c0d76575",
+      "word": "resolve",
+      "senseKey": "solve-difficulty",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4703a62fcf126e06a6f98f711f81e06f96c607a4eb3b96b9151ef289d7e7941d",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal verb: to find a satisfactory solution to a problem or disagreement.",
+        "connotation": "Usually positive; suggests settling a difficulty rather than avoiding it.",
+        "tone": "Serious and cautionary about handling custody or visitation disagreements.",
+        "register": "Common in everyday, professional and formal English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to find a satisfactory solution to a problem or disagreement",
+        "value": "ஒரு பிரச்சினை அல்லது கருத்து வேறுபாட்டிற்குத் திருப்திகரமான தீர்வு காணுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/resolve/",
+        "value": "Approximate phonetic guidance (English): rih-ZOLV",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Long source includes a list and heading intrusion; the relevant phrase is resolving custody or visitation issues, not every listed action."
+    },
+    {
+      "ordinal": 791,
+      "wordId": "6e180067-5ad6-4ff9-9f21-aee7142daacc",
+      "word": "get back into the swing of things",
+      "senseKey": "to-become-comfortable-with-a-routine-again-after-a-break",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c53e5072aad0e42b7197dbd9aa81266a1ce975cb4dd8a164479267e96c1d98b1",
+      "before": {
+        "tone": "Informal, reassuring.",
+        "register": "Best suited to conversation. The idiom acknowledges a normal adjustment period rather than a lack of ability.",
+        "connotation": "Informal, reassuring. Getting back into a routine concerns renewed ease; starting from scratch means beginning without an existing foundation.",
+        "meaning_type": "Idiomatic meaning: to become comfortable with a routine again after a break"
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic meaning: to become comfortable with a routine again after a break",
+        "connotation": "Reassuring; presents readjustment as normal rather than evidence of inability.",
+        "tone": "Informal, reassuring.",
+        "register": "Common in informal conversation about returning to work or daily routines."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "இடைவேளைக்குப் பிறகு பழைய வழக்கத்திற்குத் திரும்புதல்",
+        "value": "இடைவேளைக்குப் பிறகு பழைய வழக்கத்திற்குத் திரும்புதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ɡet bæk ˌɪn.tə ðə ˈswɪŋ əv θɪŋz/",
+        "value": "/ɡet bæk ˌɪn.tə ðə ˈswɪŋ əv θɪŋz/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 792,
+      "wordId": "6e2a11a1-beb9-4c51-abd4-57b65d4009af",
+      "word": "do away with",
+      "senseKey": "kill-or-permanently-remove-someone-or-something",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "12b845a26dd8005e10f2a83082fe78a66cff25c9a48554a629cd99244626f03c",
+      "before": {
+        "tone": "In this passage, do away with supports a clear narrative tone.",
+        "register": "do away with is regularly useful in descriptive or narrative English.",
+        "connotation": "The connotation of do away with is neutral unless the described situation is negative.",
+        "meaning_type": "do away with has a contextual meaning describing kill or permanently remove someone or something."
+      },
+      "proposedProfile": null,
+      "fieldDecisions": null,
+      "tamilMeaning": {
+        "before": "கொன்றுவிடுதல் அல்லது ஒழித்தல்",
+        "value": null,
+        "decision": "blocked",
+        "status": "blocked_pending_sense_resolution"
+      },
+      "pronunciation": {
+        "before": "/do away with/",
+        "value": "Approximate phonetic guidance (English): doo uh-WAY with",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "quarantined_unresolved_source_sense_mismatch",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Quarantined unresolved evidence: source only says 'do away with it.' The full source referent is missing, and the stored definition combines killing with permanent removal. Do not invent an animal/person referent or silently narrow this identity."
+    },
+    {
+      "ordinal": 793,
+      "wordId": "6e3ffc84-72eb-4259-a1b2-79c23852131e",
+      "word": "alert",
+      "senseKey": "watchful-and-aware",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "81e3a7f936e368950ff37b4be3e16e886fa089375dbf8ffd5a7650f6ad2ec358",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal adjective: watchful and ready to notice a change.",
+        "connotation": "Positive; suggests attention and readiness rather than panic.",
+        "tone": "Instructive about noticing when a conversation becomes important.",
+        "register": "Common in everyday, professional and safety-related English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: watchful and ready to notice an important change",
+        "value": "முக்கிய மாற்றத்தைக் கவனிக்கத் தயாராகவும் விழிப்புடனும் இருக்கும்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/alert/",
+        "value": "Approximate phonetic guidance (English): uh-LURT",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 794,
+      "wordId": "6ec8be59-a584-49df-b2ca-075462921f75",
+      "word": "routine",
+      "senseKey": "regular-pattern",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9ec79226865239ff874aad25a2f018af84860f47b88ea39fa8a7702319a5e06a",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal noun: a regular pattern of ordinary activities.",
+        "connotation": "Neutral; routines can provide stability or feel repetitive.",
+        "tone": "Reflective about a conversation changing everyday life for better or worse.",
+        "register": "Common in everyday and professional English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a regular and repeated way of doing ordinary activities",
+        "value": "அன்றாடச் செயல்களைச் செய்யும் வழக்கமான முறை",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/routine/",
+        "value": "Approximate phonetic guidance (English): roo-TEEN",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 795,
+      "wordId": "6f38a941-0110-40e7-8c90-150000fab0b8",
+      "word": "executive",
+      "senseKey": "senior-manager",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "47ef493626f52f580a635df662bcc9424ae9dc849cc66a6bde2bb3be304a8b80",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal noun: a senior manager who makes major decisions.",
+        "connotation": "Neutral as a job title; it does not itself imply hypocrisy.",
+        "tone": "Sceptical and accusatory in comparing her with previous senior managers.",
+        "register": "Common in business, news and professional English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a senior manager responsible for major organizational decisions",
+        "value": "ஒரு நிறுவனத்தின் முக்கிய முடிவுகளுக்குப் பொறுப்பான மூத்த நிர்வாகி",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/executive/",
+        "value": "Approximate phonetic guidance (English): ig-ZEK-yuh-tiv",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "The rhetorical accusation of hypocrisy belongs to the passage; the executive job title itself is neutral."
+    },
+    {
+      "ordinal": 796,
+      "wordId": "6f711642-23ff-4983-a54a-fdeede500fef",
+      "word": "be snowed under",
+      "senseKey": "to-have-far-more-work-than-one-can-comfortably-handle",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "61db3e2d4d5dcad86d1bfa904562b343e152b7e4bfd82d0441661f64033d9d91",
+      "before": {
+        "tone": "Informal, overwhelmed.",
+        "register": "Conversational wording: It is an informal exaggeration, not a measured workload report; add numbers when requesting resources.",
+        "connotation": "Neutral relationship or function: to have far more work than one can comfortably handle.",
+        "meaning_type": "Idiomatic: to have far more work than one can comfortably handle"
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic: to have far more work than one can comfortably handle",
+        "connotation": "Negative; suggests overload and difficulty keeping up.",
+        "tone": "Informal, overwhelmed.",
+        "register": "Informal; common in conversation about heavy workloads."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "சமாளிக்க முடியாத அளவு வேலை குவிந்திருத்தல்",
+        "value": "சமாளிக்க முடியாத அளவு வேலை குவிந்திருத்தல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/bi snəʊd ˈʌndə/",
+        "value": "/bi snəʊd ˈʌndə/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 797,
+      "wordId": "6fb5a957-b66b-407b-9e97-61b1bfbf38e9",
+      "word": "get back to dialogue",
+      "senseKey": "resume-constructive-discussion",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "aba16172387aa8a3e7a3baf002ee54c93a031b2ede8b7e65325a1c5d6e6b01e3",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: to return to open and constructive discussion.",
+        "connotation": "Positive; suggests restoring useful communication after difficulty.",
+        "tone": "Constructive and questioning about rebuilding trust and shared purpose.",
+        "register": "Common in communication training and professional discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to return to an open and constructive discussion",
+        "value": "மீண்டும் வெளிப்படையான, பயனுள்ள உரையாடலுக்குத் திரும்புதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/get back to dialogue/",
+        "value": "Approximate phonetic guidance (English): get BAK tuh DYE-uh-log",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 798,
+      "wordId": "6fdc3949-2ea0-45f2-8667-87f751f6521c",
+      "word": "let off steam",
+      "senseKey": "to-release-strong-feelings-or-tension-through-words-or-activity",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "565d2e242e9f5e1fc64355152fb648862c9b06963e8d78f1ad283e0c88cd511e",
+      "before": {
+        "tone": "Informal, emotional.",
+        "register": "Best suited to conversation. The expression should not be used to excuse hurtful behaviour.",
+        "connotation": "Informal, emotional. Letting off steam releases tension; taking it out on someone unfairly directs anger at another person.",
+        "meaning_type": "Idiomatic meaning: to release strong feelings or tension through words or activity"
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic meaning: to release strong feelings or tension through words or activity",
+        "connotation": "Often positive when the release is harmless; it does not excuse hurting others.",
+        "tone": "Matter-of-fact and positive about running to release tension.",
+        "register": "Informal; common in everyday conversation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "மனஅழுத்தம் அல்லது கோபத்தை வெளியேற்றுதல்",
+        "value": "மனஅழுத்தம் அல்லது கோபத்தை வெளியேற்றுதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌlet ɒf ˈstiːm/",
+        "value": "/ˌlet ɒf ˈstiːm/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 799,
+      "wordId": "70051d54-cd16-4ecd-9e50-708c243f2952",
+      "word": "innocently",
+      "senseKey": "without-harmful-intent",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2d9de9d95c21719335c3d47626b5ab0f995f7b33c0662a1c217ab1f578ab329a",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: without intending harm, offence or deception.",
+        "connotation": "Usually sympathetic; distinguishes intention from another person's interpretation.",
+        "tone": "Explanatory about harmless intentions being misunderstood.",
+        "register": "Common in everyday and general writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: without intending harm, offence, or deception",
+        "value": "தீங்கோ அவமதிப்போ ஏமாற்றமோ செய்யும் நோக்கமின்றி",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/innocently/",
+        "value": "Approximate phonetic guidance (English): IN-uh-suhnt-lee",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 800,
+      "wordId": "702262cd-68e7-4fe4-a00e-e4daadc056db",
+      "word": "reflective",
+      "senseKey": "thoughtfully-considering",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8354e867ed99e4a061ccc8be587c2297a231c02c8294a1baf454d933302157f7",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: showing careful or deep thought.",
+        "connotation": "Positive here; suggests thoughtful attention rather than a quick reaction.",
+        "tone": "Observant and approving as people begin thinking carefully.",
+        "register": "Common in everyday, educational and literary English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: showing deep or careful thought",
+        "value": "ஆழ்ந்து அல்லது கவனமாகச் சிந்திப்பதைக் காட்டும்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/reflective/",
+        "value": "Approximate phonetic guidance (English): rih-FLEK-tiv",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 801,
+      "wordId": "7025df1f-ae3f-4b21-b140-c80c941af359",
+      "word": "up to a point",
+      "senseKey": "to-a-limited-degree-but-not-completely",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3b9edea3fe2aa6f98dacbd0c0e6fae8c7607c1fbc8f55a0ac74411e8dbee39a4",
+      "before": {
+        "tone": "Measured, qualified.",
+        "register": "Usable in clear general or professional communication. It often prepares the listener for a reservation, so explain the limit.",
+        "connotation": "Measured, qualified. Up to a point accepts something within limits; completely accepts it without that qualification.",
+        "meaning_type": "Contextual meaning: to a limited degree, but not completely"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal degree expression: partly, but with a limit.",
+        "connotation": "Neutral; signals a qualification or reservation.",
+        "tone": "Measured, qualified.",
+        "register": "Common in everyday and professional discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "ஒரு வரம்புவரை",
+        "value": "ஒரு வரம்புவரை",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌʌp tə ə ˈpɔɪnt/",
+        "value": "/ˌʌp tə ə ˈpɔɪnt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 802,
+      "wordId": "7027ed95-c21d-4fc9-9135-663ea114993a",
+      "word": "bottom line",
+      "senseKey": "final-result",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "70a55b2c97998712acc74ac0ddb88a370b8ca940c4abff7433c08692b07ba5fc",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: the final practical result, especially a financial result.",
+        "connotation": "Neutral; emphasizes business outcomes rather than interpersonal feelings.",
+        "tone": "Ironically sceptical about whether communication affects business results.",
+        "register": "Common in business discussion and general conversation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the final result or most important practical consideration",
+        "value": "இறுதி நடைமுறை விளைவு; இங்கு தொழிலின் நிதிசார் முடிவு",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/bottom line/",
+        "value": "Approximate phonetic guidance (English): BOT-uhm line",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Bottom line carries a business-result/financial emphasis in this passage; no actual accounts or profit figures are given."
+    },
+    {
+      "ordinal": 803,
+      "wordId": "708c4e5a-c17a-405b-805f-b8fb9576fa68",
+      "word": "incompatible",
+      "senseKey": "unable-to-exist-together",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "312c7747611f06c813b9959edfbb9dc3ddc43b1e66552394443b043c0e8ecb73",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: unable to fit, work or be achieved together.",
+        "connotation": "Negative when people want a shared solution.",
+        "tone": "Frustrated in treating going out and staying home as impossible to combine.",
+        "register": "Common in everyday, professional and technical English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: so different that two things cannot exist, work, or be achieved together",
+        "value": "ஒன்றாகச் செயல்படவோ நிறைவேறவோ முடியாத அளவுக்கு முரண்பட்ட",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/incompatible/",
+        "value": "Approximate phonetic guidance (English): in-kuhm-PAT-uh-buhl",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 804,
+      "wordId": "70b01b28-0414-4ae5-a4b5-80b0338a45ec",
+      "word": "latency",
+      "senseKey": "latency-ml-context",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8c6012355ae834eb5449ac5ae2399273b169a5074289f92bd58743b135775ee3",
+      "before": {
+        "tone": "Professional and analytical in this lesson.",
+        "register": "Professional and academic technical English.",
+        "connotation": "Neutral; it describes a measurable concept or engineering process.",
+        "meaning_type": "Technical and abstract meaning in machine-learning engineering."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+        "connotation": "Neutral; it describes a measurable concept or engineering process.",
+        "tone": "Professional and analytical in this lesson.",
+        "register": "Professional and academic technical English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "retained",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "கோரிக்கைக்கும் பதிலுக்கும் இடையிலான தாமதம்",
+        "value": "கோரிக்கைக்கும் பதிலுக்கும் இடையிலான தாமதம்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈleɪtənsi/",
+        "value": "/ˈleɪtənsi/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "All four existing Overview fields retained."
+    },
+    {
+      "ordinal": 805,
+      "wordId": "70b77b03-558c-46d6-af16-98002ffb87f5",
+      "word": "in particular",
+      "senseKey": "especially-one-person-thing-or-aspect-among-others",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "47b7c897102701b3b6f2a8f78ff85f62577732d21e09623448946c6185f4affa",
+      "before": {
+        "tone": "Neutral, selective emphasis.",
+        "register": "Neutral or professional wording: It highlights a subset without excluding all other members of the group.",
+        "connotation": "Neutral relationship or function: especially one person, thing or aspect among others.",
+        "meaning_type": "Contextual expression: especially one person, thing or aspect among others"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal focus phrase: especially one item or aspect among others.",
+        "connotation": "Neutral; emphasizes a part without necessarily excluding the rest.",
+        "tone": "Neutral, selective emphasis.",
+        "register": "Common in everyday, professional and formal English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "குறிப்பாக",
+        "value": "குறிப்பாக",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ɪn pəˈtɪkjʊlə/",
+        "value": "/ɪn pəˈtɪkjʊlə/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 806,
+      "wordId": "70fa0a96-7f83-4df7-89dd-3f60e477cebe",
+      "word": "mask",
+      "senseKey": "hide-true-feelings",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2d2a646dfe0d2b5079f8203f737c9c70e81bd09688f10325366ade804a4e47fa",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative verb: to hide true feelings or opinions behind other wording or behaviour.",
+        "connotation": "Often negative when it prevents honest communication.",
+        "tone": "Critical and explanatory about concealing or weakening true opinions.",
+        "register": "Common in general and psychological discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to conceal true opinions or feelings behind safer words or behavior",
+        "value": "உண்மையான கருத்துகள் அல்லது உணர்வுகளை வேறு சொற்கள் அல்லது நடத்தையால் மறைத்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/mask/",
+        "value": "Approximate phonetic guidance (English): MASK",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Page header intrudes in source; original evidence remains unchanged."
+    },
+    {
+      "ordinal": 807,
+      "wordId": "710d5b34-aab4-47f1-b324-ebaffe09ccd6",
+      "word": "fail silently",
+      "senseKey": "fail-silently-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5c0748d46f7f81391449a8d5afd733b58a435fded5184d56ac2ccce968873a7d",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical: to stop working correctly without an obvious error signal.",
+        "connotation": "Negative; hidden failure is difficult to notice and fix.",
+        "tone": "Cautionary about a system appearing successful in development but failing in real use.",
+        "register": "Common in software engineering and technical operations."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "வெளிப்படையான பிழையின்றி செயலிழத்தல்",
+        "value": "வெளிப்படையான பிழைச் செய்தி இல்லாமல் தவறாகச் செயல்படுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/fail silently/",
+        "value": "Approximate phonetic guidance (English): fayl SY-luhnt-lee",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Tamil repaired to clarify absence of an obvious error signal, not absence of an underlying fault."
+    },
+    {
+      "ordinal": 808,
+      "wordId": "71182621-0443-446d-8652-1879a3972754",
+      "word": "subtle",
+      "senseKey": "subtle-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c90e7cff7db61cb26c9ba2ee0c23991abf595fda772832fc0b49dc2b78dc48e6",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: not obvious and easy to overlook.",
+        "connotation": "Neutral by itself; the hard-to-notice problems are unwelcome here.",
+        "tone": "Cautious and instructive about checking each preparation step.",
+        "register": "Common in everyday, professional and academic English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "எளிதில் கவனிக்க முடியாத நுண்மையான",
+        "value": "எளிதில் கவனிக்க முடியாத நுண்மையான",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/subtle/",
+        "value": "Approximate phonetic guidance (English): SUT-uhl (b is silent)",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 809,
+      "wordId": "711aa12b-a267-498d-8d47-d55e83ac8192",
+      "word": "talk through",
+      "senseKey": "discuss-to-resolution",
+      "senseRank": 3,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "dfd30db3883b8d32089de51a2d012ea2e91dc7337a780e5b97e933d38a6e1a42",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal conversational action: to discuss a matter carefully to understand or resolve it.",
+        "connotation": "Constructive here; suggests working through details together.",
+        "tone": "Practical about using the remaining time to discuss the issue.",
+        "register": "Common in everyday and workplace conversation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to discuss something carefully in order to understand or resolve it",
+        "value": "ஒன்றைப் புரிந்துகொள்ளவோ தீர்க்கவோ கவனமாக விவாதித்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/talk through/",
+        "value": "Approximate phonetic guidance (English): tawk THROO",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 810,
+      "wordId": "71303459-023c-4661-b6e1-435666accdc4",
+      "word": "unproductive conflict",
+      "senseKey": "conflict-without-benefit",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d72661a2980946e8c9aabadee0f145412b4bb15267a38f1dcb30ab03a19a2a81",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: disagreement that uses effort without producing useful results.",
+        "connotation": "Negative; stresses wasted energy rather than helpful disagreement.",
+        "tone": "Encouraging about moving from pointless conflict towards shared goals.",
+        "register": "Common in workplace and relationship discussions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: disagreement that consumes effort without producing useful results",
+        "value": "பயனுள்ள முடிவின்றி முயற்சியை வீணாக்கும் மோதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/unproductive conflict/",
+        "value": "Approximate phonetic guidance (English): un-pruh-DUK-tiv KON-flikt",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 811,
+      "wordId": "71b5c078-625e-48ed-9e48-28d4f5e2fb5a",
+      "word": "tricky",
+      "senseKey": "requiring-careful-handling",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c8bab62ae7e0b4a1f21fd2c36716a8313bacd5949bbf36d3f4bbdb9bb20d9a15",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: difficult to manage because care or skill is needed.",
+        "connotation": "Mildly negative; often suggests a manageable challenge.",
+        "tone": "Conversational and cautionary; the fragment does not identify the difficulty.",
+        "register": "Informal to neutral; common in everyday and workplace English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: difficult to handle or solve because it requires care or skill",
+        "value": "கவனமோ திறமையோ தேவைப்படுவதால் கையாளக் கடினமான",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/tricky/",
+        "value": "Approximate phonetic guidance (English): TRIK-ee",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Fragment names a difficult part without explaining it."
+    },
+    {
+      "ordinal": 812,
+      "wordId": "723be5e0-3d67-4821-a04a-5b6e254cdbc1",
+      "word": "rationale",
+      "senseKey": "the-reasons-that-explain-a-decision-or-plan",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "dec69542c01b40b59beb6edc1d81e35ddf85368988b67edf0ea210e73c340819",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Abstract or practical concept: the reasons that explain a decision or plan"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: the reasons supporting a decision or plan.",
+        "connotation": "Neutral; asks for reasoning rather than automatically rejecting a decision.",
+        "tone": "Questioning and analytical about postponing the launch.",
+        "register": "Common in professional, academic and formal discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "முடிவிற்கான காரண விளக்கம்",
+        "value": "முடிவிற்கான காரண விளக்கம்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌræʃəˈnæl/",
+        "value": "/ˌræʃəˈnæl/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 813,
+      "wordId": "72401b89-3be3-4bad-8a75-d01e3d22624e",
+      "word": "accidentally",
+      "senseKey": null,
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "11310bad54e5f2c5e9617fffc7f6dca43e19fbc0c6f18eef3427e36d1006da85",
+      "before": {
+        "tone": "Often apologetic for mistakes and surprised for discoveries.",
+        "register": "Neutral and natural in everyday, professional, and written English.",
+        "connotation": "Neutral; the event itself may have good or bad consequences.",
+        "meaning_type": "Abstract manner meaning: it explains the absence of intention."
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract manner meaning: it explains the absence of intention.",
+        "connotation": "Neutral; the event itself may have good or bad consequences.",
+        "tone": "Descriptive of an unexpected discovery whose importance she quickly recognizes.",
+        "register": "Neutral and natural in everyday, professional, and written English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "தற்செயலாக; நினைத்துச் செய்யாமல்.",
+        "value": "தற்செயலாக; நினைத்துச் செய்யாமல்.",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌæk.sɪˈden.təl.i/",
+        "value": "/ˌæk.sɪˈden.təl.i/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Three valid fields retained; generic tone examples replaced with the actual discovery context."
+    },
+    {
+      "ordinal": 814,
+      "wordId": "727cd997-fd35-4b09-b0c4-a8755b8b3998",
+      "word": "invariably",
+      "senseKey": "always-without-exception",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4ace7894005328921c634715c58c491d470be6b6410c735fcb8a930b9ca06d62",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal frequency word: always or almost always, as presented by the speaker.",
+        "connotation": "Emphatic; suggests a regular pattern rather than an occasional event.",
+        "tone": "Wry and confident about an objection repeatedly heard in workshops.",
+        "register": "Somewhat formal; common in general and analytical writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: always or almost always, without meaningful exception",
+        "value": "எப்போதும் அல்லது கிட்டத்தட்ட ஒவ்வொரு முறையும்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/invariably/",
+        "value": "Approximate phonetic guidance (English): in-VAIR-ee-uh-blee",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source presents a repeated workshop observation, not a statistically verified universal frequency."
+    },
+    {
+      "ordinal": 815,
+      "wordId": "729ed4b8-4887-490c-8237-27c8b5b67af0",
+      "word": "anywhere near",
+      "senseKey": "approximately-close-to",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "dff292d80a1512d80d1d2ef87c550ac72b3846a34c321d026b8dd9e0e3b5c4c5",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative degree phrase: close to a stated amount or level.",
+        "connotation": "Neutral comparison; with not it strongly denies being close to the amount.",
+        "tone": "Emphatic and corrective about spending much less than the stated sum.",
+        "register": "Common in conversation and general writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: close to a stated amount or degree",
+        "value": "குறிப்பிட்ட அளவுக்கு அருகில்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/anywhere near/",
+        "value": "Approximate phonetic guidance (English): EN-ee-wair NEER",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 816,
+      "wordId": "730a3034-ab72-480a-ae12-ba264795ae43",
+      "word": "spice up",
+      "senseKey": "make-more-exciting",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "af3e8d9675939bd822b489c9f2e480050dbc4267f5f3e12578b823731d2242bf",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: to make something more lively or interesting.",
+        "connotation": "Positive; suggests adding excitement to something familiar.",
+        "tone": "Light and conversational about improving one's romantic life.",
+        "register": "Informal; common in conversation and lifestyle writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to make something more interesting, lively, or exciting",
+        "value": "ஒன்றை மேலும் சுவாரசியமாகவும் உற்சாகமாகவும் மாற்றுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/spice up/",
+        "value": "Approximate phonetic guidance (English): spys UP",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 817,
+      "wordId": "730d6891-5a05-49f9-9569-fe78c951604d",
+      "word": "that makes sense",
+      "senseKey": "used-to-say-that-an-explanation-seems-logical-or-understandable",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "016b4306c908ce14df64ab4c325d61d3f8bfefebcc98be5fa2c6ef28576aecc7",
+      "before": {
+        "tone": "Conversational, accepting.",
+        "register": "Conversational wording: Understanding reasoning does not prove its assumptions, so check evidence before treating agreement as verification.",
+        "connotation": "Neutral relationship or function: used to say that an explanation seems logical or understandable.",
+        "meaning_type": "Contextual expression: used to say that an explanation seems logical or understandable"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal response phrase: acknowledges that an explanation is understandable or logical.",
+        "connotation": "Positive towards the reasoning, without proving its assumptions.",
+        "tone": "Conversational, accepting.",
+        "register": "Common in everyday and workplace conversation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "அந்த விளக்கம் நியாயமாக புரிகிறது",
+        "value": "அந்த விளக்கம் நியாயமாக புரிகிறது",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ðæt meɪks ˈsens/",
+        "value": "/ðæt meɪks ˈsens/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 818,
+      "wordId": "733c9332-c6d5-4230-875b-1c37f3dfd749",
+      "word": "tumble out",
+      "senseKey": "emerge-uncontrolled",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c30174fd88c20f890eadbdc109e936571baf9696a2e56ab998121a504e5cd8ee",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: to come out suddenly and without much control.",
+        "connotation": "Can suggest spontaneity or lost control; the remarks are hurtful here.",
+        "tone": "Critical of suppressed opinions emerging as sarcastic attacks.",
+        "register": "Common in descriptive writing and conversation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to come out suddenly and without control",
+        "value": "திடீரெனக் கட்டுப்பாடின்றி வெளிப்படுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/tumble out/",
+        "value": "Approximate phonetic guidance (English): TUM-buhl OWT",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 819,
+      "wordId": "73671f44-4898-4404-916e-11da9a17b60a",
+      "word": "make time for",
+      "senseKey": "to-deliberately-arrange-time-for-someone-or-something-important",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "baa19ceaacdd0aa983e99cfb321cb06bb70ebb7f24d930011f59893dc551b8dd",
+      "before": {
+        "tone": "Neutral, intentional prioritisation.",
+        "register": "Neutral or professional wording: The phrase recognises that time must be allocated, but should not imply everyone can remove fixed constraints.",
+        "connotation": "Neutral relationship or function: to deliberately arrange time for someone or something important.",
+        "meaning_type": "Contextual expression: to deliberately arrange time for someone or something important"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: to deliberately reserve time for someone or something.",
+        "connotation": "Positive; treats an activity as worth attention.",
+        "tone": "Neutral, intentional prioritisation.",
+        "register": "Common in everyday and workplace conversation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "முக்கியமான ஒன்றிற்காக நேரம் ஒதுக்குதல்",
+        "value": "முக்கியமான ஒன்றிற்காக நேரம் ஒதுக்குதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/meɪk ˈtaɪm fə/",
+        "value": "/meɪk ˈtaɪm fə/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 820,
+      "wordId": "737fc2a3-b05b-4fbe-b91e-ba119b0ffc88",
+      "word": "policy",
+      "senseKey": "official-rule-or-principle",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ded2d67d83d0421d3ee5aa1724b893ab69b6da8b93eb1f6641516d0161ffb3aa",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: an official rule or guiding principle used by an organization.",
+        "connotation": "Neutral; a policy may be useful, poor or inconsistently followed.",
+        "tone": "Serious about approaching a boss who breaks their own rules.",
+        "register": "Common in workplace, government and general English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: an official rule or principle guiding decisions and behaviour in an organization",
+        "value": "ஒரு நிறுவனத்தின் முடிவுகளையும் நடத்தையையும் வழிநடத்தும் அதிகாரப்பூர்வ விதி அல்லது கொள்கை",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/policy/",
+        "value": "Approximate phonetic guidance (English): POL-uh-see",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Relevant target is safety/quality policies within a longer list; do not treat the whole list as a single example of policy."
+    },
+    {
+      "ordinal": 821,
+      "wordId": "7385354b-1885-4a86-ab93-b16260189c3b",
+      "word": "speaking of",
+      "senseKey": "used-to-connect-a-new-topic-to-something-just-mentioned",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b11332875ce109952f1838b42c2e514abe281f92f7fcff0463b07f7567f4ed24",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: used to connect a new topic to something just mentioned"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal topic link: introduces a subject connected with something just mentioned.",
+        "connotation": "Neutral; helps a conversation move to a related matter.",
+        "tone": "Conversational and practical in shifting to train bookings.",
+        "register": "Common in everyday and informal workplace conversation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "இப்போது குறிப்பிடப்பட்ட விஷயத்துடன் புதிய தலைப்பை இணைக்கும் தொடர்",
+        "value": "இப்போது குறிப்பிடப்பட்ட விஷயத்துடன் புதிய தலைப்பை இணைக்கும் தொடர்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈspiːkɪŋ əv/",
+        "value": "/ˈspiːkɪŋ əv/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 822,
+      "wordId": "739feda9-9385-4f3c-9c47-05817a174324",
+      "word": "merely",
+      "senseKey": "only-and-nothing-more",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ffa6bf13fb5e08d66107b9dcfe2a529b3b1ad65b9de3b44287277a92a06e69ca",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal limiting word: only, and no more than that.",
+        "connotation": "Can minimize importance; here the examples are only a small part of a larger problem.",
+        "tone": "Emphatic and concerned about the greater scale of the problems.",
+        "register": "Common in general and formal writing; only is plainer in speech."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: only; and nothing more important or substantial",
+        "value": "வெறும்; அதற்கு மேல் ஒன்றுமில்லாமல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/merely/",
+        "value": "Approximate phonetic guidance (English): MEER-lee",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 823,
+      "wordId": "73a15782-33c1-4982-a700-5abd89946c57",
+      "word": "impute",
+      "senseKey": "impute-ml-context",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7d0ffac463e1a83add642238f181340fefce878ee34494d8a30feaadad475139",
+      "before": {
+        "tone": "Professional and analytical in this lesson.",
+        "register": "Professional and academic technical English.",
+        "connotation": "Neutral; it describes a measurable concept or engineering process.",
+        "meaning_type": "Technical and abstract meaning in machine-learning engineering."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+        "connotation": "Neutral; it describes a measurable concept or engineering process.",
+        "tone": "Professional and analytical in this lesson.",
+        "register": "Professional and academic technical English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "retained",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "காணாமற்போன மதிப்பை மதிப்பீட்டால் நிரப்புதல்",
+        "value": "காணாமற்போன மதிப்பை மதிப்பீட்டால் நிரப்புதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ɪmˈpjuːt/",
+        "value": "/ɪmˈpjuːt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "All existing Overview fields retained. Imputation is an estimate, not recovery of a known missing truth; this remains a full-lesson nuance requirement."
+    },
+    {
+      "ordinal": 824,
+      "wordId": "73bb3b7a-260b-4865-adad-f3c0b6ef3944",
+      "word": "to clarify",
+      "senseKey": "used-to-make-an-earlier-point-more-precise",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ecc13f6fb8519db9333d56875c404c699e0e8559f231195d06e08fb6f3b375b3",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: used to make an earlier point more precise"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal introductory phrase: makes a previous point more precise.",
+        "connotation": "Neutral; helps prevent misunderstanding.",
+        "tone": "Clear and corrective about what the estimate includes.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "முந்தைய கருத்தை இன்னும் துல்லியமாக்கும் தொடர்",
+        "value": "முந்தைய கருத்தை இன்னும் துல்லியமாக்கும் தொடர்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/tə ˈklærɪfaɪ/",
+        "value": "/tə ˈklærɪfaɪ/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 825,
+      "wordId": "74072f20-f2e8-4633-9fac-8e5bd6df0dfd",
+      "word": "sleep on it",
+      "senseKey": "to-wait-until-the-next-day-before-making-a-decision",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7536685cbda203bfb953ace49fa4426947aee67711e79b52ccf7582080a50351",
+      "before": {
+        "tone": "Conversational, thoughtful.",
+        "register": "Best suited to conversation. It usually suggests a short delay, often overnight, so agree when you will reply.",
+        "connotation": "Conversational, thoughtful. Sleeping on it delays a decision for reflection; putting it off may postpone it without a plan.",
+        "meaning_type": "Idiomatic meaning: to wait until the next day before making a decision"
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic meaning: to wait until the next day before making a decision",
+        "connotation": "Thoughtful; suggests a short pause for reflection rather than rejection.",
+        "tone": "Conversational, thoughtful.",
+        "register": "Common in everyday and workplace conversation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "முடிவெடுப்பதற்கு முன் ஒரு இரவு யோசித்தல்",
+        "value": "முடிவெடுப்பதற்கு முன் ஒரு இரவு யோசித்தல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈsliːp ɒn ɪt/",
+        "value": "/ˈsliːp ɒn ɪt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 826,
+      "wordId": "74074da0-2d8a-4023-89da-477f231aef87",
+      "word": "approach",
+      "senseKey": "move-toward-or-address",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7bf40b18ae37429946037f9f871d9efccece585b81679a820c08dc02f35f5d99",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal verb: to go to or begin a discussion with someone about a matter.",
+        "connotation": "Neutral; the purpose may be cooperative or confrontational.",
+        "tone": "Cautionary about raising rule-breaking with someone in authority.",
+        "register": "Common in everyday, professional and formal English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to move toward or begin dealing with someone or something",
+        "value": "ஒருவரிடம் சென்று ஒரு விஷயத்தைப் பற்றிப் பேசத் தொடங்குதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/approach/",
+        "value": "Approximate phonetic guidance (English): uh-PROHCH",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Approaching the boss means initiating discussion, not necessarily physical movement alone."
+    },
+    {
+      "ordinal": 827,
+      "wordId": "740a44ea-d98b-4b08-baf8-780775eb76ac",
+      "word": "one way or another",
+      "senseKey": "by-some-method-even-if-the-exact-method-is-not-yet-known",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5be474b662d33a3ecec6642a1d1946dcedb9a7543b0b347e8732d2301476ff62",
+      "before": {
+        "tone": "Conversational determination.",
+        "register": "Conversational wording: It does not authorise any method regardless of cost or rules; agree practical limits.",
+        "connotation": "Neutral relationship or function: by some method, even if the exact method is not yet known.",
+        "meaning_type": "Contextual expression: by some method, even if the exact method is not yet known"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal expression: by some method, though it is not yet fixed.",
+        "connotation": "Often suggests determination and flexibility.",
+        "tone": "Conversational determination.",
+        "register": "Common in everyday and workplace conversation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "ஏதாவது ஒரு முறையில்",
+        "value": "ஏதாவது ஒரு முறையில்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/wʌn weɪ ɔːr əˈnʌðə/",
+        "value": "/wʌn weɪ ɔːr əˈnʌðə/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 828,
+      "wordId": "7434c345-2953-4a1e-b430-58dc8e79f243",
+      "word": "infant",
+      "senseKey": "a-very-young-baby-or-young-animal",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a53e6ff8d7b8bd8ff5e0193e24e91514ce4af1fc995dd748dc4711dae7c8d14c",
+      "before": {
+        "tone": "In this passage, infant supports a clear narrative tone.",
+        "register": "infant is frequent in general English.",
+        "connotation": "The connotation of infant is neutral unless the described situation is negative.",
+        "meaning_type": "infant has a contextual meaning describing a very young baby or young animal."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: a very young baby or animal treated as a baby.",
+        "connotation": "Suggests vulnerability and a need for care.",
+        "tone": "Tender and descriptive in the bottle-feeding scene; the fragment gives no name.",
+        "register": "Common in formal descriptions of babies; literary when used affectionately for an animal."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "குழந்தை அல்லது மிக இளம் குட்டி",
+        "value": "குழந்தை அல்லது மிக இளம் குட்டி",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/infant/",
+        "value": "Approximate phonetic guidance (English): IN-fuhnt",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "The supplied fragment shows bottle-feeding but does not identify the baby or animal by name."
+    },
+    {
+      "ordinal": 829,
+      "wordId": "7477a69e-799c-4daf-ade8-b90c3c2655e2",
+      "word": "individually",
+      "senseKey": "as-separate-individuals",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a7169e535e318ff7b6b1eedd5dc37b348ae03badbafd43cd9c7b4b075f0290b9",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: separately, considering each person or thing on its own.",
+        "connotation": "Neutral; contrasts individual qualities with group behaviour.",
+        "tone": "Cautionary about smart people making poor decisions together.",
+        "register": "Common in everyday, professional and academic English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: separately, with each person or thing considered on its own",
+        "value": "ஒவ்வொருவரையும் அல்லது ஒவ்வொன்றையும் தனித்தனியாகக் கருதி",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/individually/",
+        "value": "Approximate phonetic guidance (English): in-duh-VIJ-oo-uh-lee",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 830,
+      "wordId": "74b843c1-f9d0-455a-85c5-d36bca0c8d71",
+      "word": "whys and wherefores",
+      "senseKey": "reasons-and-details",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "1504c6960a181efa5ecc7e241e244e2101fe52b718f864638d1311b244e54f63",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic expression: the reasons and detailed explanations behind something.",
+        "connotation": "Neutral to inquisitive; suggests interest in the full reasons.",
+        "tone": "Constructive about understanding proposals before building on them.",
+        "register": "Somewhat old-fashioned and conversational; reasons and details is plainer."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the reasons and detailed explanations behind something",
+        "value": "ஒன்றின் பின்னுள்ள காரணங்களும் விரிவான விளக்கங்களும்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/whys and wherefores/",
+        "value": "Approximate phonetic guidance (English): wyz and WAIR-forz",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 831,
+      "wordId": "74ba8bcf-a0fa-46f9-b915-78cb8d614d39",
+      "word": "exert",
+      "senseKey": "apply-force-or-influence",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "76e63e08e60ce862e65fd1d9e99bc47a7d529008e75fcc862929baad66c27697",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: to apply effort, force or influence.",
+        "connotation": "Neutral; what is applied and why determine its value.",
+        "tone": "Encouraging about learning to influence one's feelings.",
+        "register": "Somewhat formal; common in professional and general writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to apply effort, force, or influence",
+        "value": "முயற்சி, வலிமை அல்லது செல்வாக்கைப் பயன்படுத்துதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/exert/",
+        "value": "Approximate phonetic guidance (English): ig-ZURT",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 832,
+      "wordId": "74ce6d00-adba-4eeb-9a8e-94bc965f7dc1",
+      "word": "competent",
+      "senseKey": "having-required-ability",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2ead3341cc8ace639dab3af5eed26ab2cd5ca3d112e0da7a7eb75d8e404ef230",
+      "before": {
+        "tone": "clear and explanatory",
+        "register": "neutral everyday English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "concrete or abstract vocabulary in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: having enough knowledge and ability to do a task well.",
+        "connotation": "Positive; especially strong praise in most competent.",
+        "tone": "Warmly admiring of the employee's ability and hard work.",
+        "register": "neutral everyday English"
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஒரு பணியை வெற்றிகரமாகச் செய்யத் தேவையான அறிவும் திறனும் கொண்ட",
+        "value": "ஒரு பணியை வெற்றிகரமாகச் செய்யத் தேவையான அறிவும் திறனும் கொண்ட",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈkɒmpɪtənt/",
+        "value": "/ˈkɒmpɪtənt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 833,
+      "wordId": "751d730e-4f18-40b9-bf55-389fbd52ba67",
+      "word": "decrease",
+      "senseKey": "reduction-in-amount",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "67388ee5135ba48882e9a264685c1d58963078526140b77a460fae5c7a7b48a7",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal noun: a reduction in amount, level or rate.",
+        "connotation": "Neutral by itself; a lower death rate is welcome in this account.",
+        "tone": "Explanatory and impressed by the reported reduction.",
+        "register": "Common in everyday, professional and academic English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a reduction in the amount, level, or rate of something",
+        "value": "அளவு, நிலை அல்லது விகிதத்தில் ஏற்படும் குறைவு",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/decrease/",
+        "value": "Approximate phonetic guidance (English): DEE-krees (noun)",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Noun decrease uses initial stress. The source reports an association with mortality; this review does not verify study results or imply a medical causal guarantee."
+    },
+    {
+      "ordinal": 834,
+      "wordId": "753b09e2-7edd-4c74-b990-64e662ab7bfc",
+      "word": "apparent",
+      "senseKey": "seeming-or-visible",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0f5d2202e05d40e765b1adc81331e4368947c786d913eb23a35174a3acbdbe14",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: seeming evident from what can be observed.",
+        "connotation": "Neutral; describes an appearance without proving it is the whole truth.",
+        "tone": "Tense about Kevin continuing despite colleagues' visible fear.",
+        "register": "Common in general, professional and formal writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: seeming to be true or clearly visible, though not necessarily certain",
+        "value": "பார்ப்பதற்கு உண்மையாக அல்லது தெளிவாகத் தோன்றும்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/apparent/",
+        "value": "Approximate phonetic guidance (English): uh-PAIR-uhnt",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 835,
+      "wordId": "7588dbce-7e34-4fd2-bb87-ccbe27bc42e0",
+      "word": "insane",
+      "senseKey": "extremely-unreasonable",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "1e66b8462b86aa47b818554b36b0ec17a06ab47d68236c7a775983ccd74348eb",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative criticism: extremely unreasonable or foolish.",
+        "connotation": "Strongly negative and potentially hurtful; not a clinical description here.",
+        "tone": "Harsh and dismissive towards another person's idea.",
+        "register": "Informal and forceful; avoid it in respectful professional feedback."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: extremely unreasonable, foolish, or shocking",
+        "value": "மிகவும் நியாயமற்ற அல்லது முட்டாள்தனமான என்று கடுமையாகக் கூறுவது",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/insane/",
+        "value": "Approximate phonetic guidance (English): in-SAYN",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Figurative hostile criticism of an idea; not a mental-health diagnosis."
+    },
+    {
+      "ordinal": 836,
+      "wordId": "75d6b6e7-da99-4d1f-8fd4-bc195e5f0de8",
+      "word": "flirt",
+      "senseKey": "behave-with-romantic-interest",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "cd62f02d24567ab0f4c09d7268fb1d9976e5cc402b3784604a785ce327dbdf9e",
+      "before": {
+        "tone": "clear and explanatory, with intensity determined by the sentence",
+        "register": "neutral; natural in careful everyday and professional English",
+        "connotation": "context-dependent; it can signal discomfort or interpersonal sensitivity",
+        "meaning_type": "literal or abstract vocabulary in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: to act playfully as if romantically or sexually interested in someone.",
+        "connotation": "context-dependent; it can signal discomfort or interpersonal sensitivity",
+        "tone": "Accusatory and sensitive in the spouse's account of the party.",
+        "register": "Common in everyday conversation and general writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "காதல் அல்லது பாலியல் ஆர்வம் இருப்பதுபோல் விளையாட்டாக நட",
+        "value": "காதல் அல்லது பாலியல் ஆர்வம் இருப்பதுபோல் விளையாட்டாக நடந்துகொள்ளுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/flɜːt/",
+        "value": "/flɜːt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Tamil imperative corrected to an infinitive-style meaning. The spouse's accusation is not independently established as fact."
+    },
+    {
+      "ordinal": 837,
+      "wordId": "75e663db-a646-4442-9d1a-a4652b17d47e",
+      "word": "absorb",
+      "senseKey": "receive-without-reacting",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "fc1dcc9107e75f47e978c7a6d786b8ee08a8609d2655aa1390ab91208b9a533b",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: to take in difficult feedback without becoming overwhelmed.",
+        "connotation": "Positive here; suggests composure and an ability to listen.",
+        "tone": "Curious and admiring about handling threatening feedback.",
+        "register": "Common in general, professional and psychological discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to take in difficult information or criticism without being overwhelmed",
+        "value": "கடினமான தகவலையோ விமர்சனத்தையோ மனமுடைந்து போகாமல் ஏற்றுக்கொள்ளுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/absorb/",
+        "value": "Approximate phonetic guidance (English): uhb-ZORB",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source starts mid-question after a page header; no complete preceding sentence inferred."
+    }
+  ]
+}
