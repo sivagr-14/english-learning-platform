@@ -1,0 +1,1100 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 8,
+  "fixedGroupFirstOrdinal": 691,
+  "fixedGroupLastOrdinal": 788,
+  "firstOrdinal": 691,
+  "lastOrdinal": 715,
+  "entryCount": 25,
+  "profileDraftCount": 23,
+  "blockedCount": 2,
+  "tamilReviewCompletedCount": 23,
+  "pronunciationTextReviewCompletedCount": 25,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "002e287c3e8cd251451afadcbe1f277bf7720644",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Partial immutable group-008 checkpoint. Reuse these decisions; resume at 716. Broader repairs and production validation pending.",
+  "corrections": [
+    {
+      "ordinal": 691,
+      "wordId": "6119cc77-4744-4b71-a0b9-24ddabb2aeaf",
+      "word": "outweigh",
+      "senseKey": "greater-in-importance",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "06b7a2570e0ef691f1db18103c5bdcb0e1a1503ed4254d76194e68e01bf4d58e",
+      "before": {
+        "tone": "Serious, descriptive narrative tone.",
+        "register": "Neutral to formal; natural in educated speech and writing.",
+        "connotation": "Neutral to positive connotation in this passage.",
+        "meaning_type": "Abstract meaning applied to a person, action, or quality."
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: to have greater importance or effect than something else.",
+        "connotation": "Neutral comparison; the risks are presented as more important than the possible benefits here.",
+        "tone": "Serious and cautionary about whether the research is worth the risk.",
+        "register": "Neutral to formal; natural in educated speech and writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "விட அதிக முக்கியத்துவம் கொண்டிருத்தல்",
+        "value": "விட அதிக முக்கியத்துவம் கொண்டிருத்தல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌaʊtˈweɪ/",
+        "value": "/ˌaʊtˈweɪ/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Outweigh is a neutral comparison, not a positive evaluation here: the source argues that risks exceed possible rewards."
+    },
+    {
+      "ordinal": 692,
+      "wordId": "61446279-fcb7-43ee-afa8-c1c10a0b1097",
+      "word": "compel",
+      "senseKey": "force-or-persuade",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9448422ef7040c975ee232c04008e8369b758f385c5ee4d30a19fa11ccd7cc49",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: to force or strongly press someone to do or accept something.",
+        "connotation": "Often negative when it restricts another person's freedom to decide.",
+        "tone": "Critical of trying to make others accept one's own view.",
+        "register": "Somewhat formal; common in general and professional writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to force or strongly persuade someone to do something",
+        "value": "ஒன்றைச் செய்யவோ ஏற்கவோ ஒருவரைக் கட்டாயப்படுத்துதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/compel/",
+        "value": "Approximate phonetic guidance (English): kuhm-PEL",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 693,
+      "wordId": "6156e8b2-d041-4f4e-bab9-71418659c9f5",
+      "word": "stifle",
+      "senseKey": "prevent-expression",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "60d985dc6c81fbe9981cb702660d7a685604237864b05cc798ec65774e97c62c",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: to hold back a sound, feeling or reaction so it is not expressed.",
+        "connotation": "Can suggest restraint or suppression; here it concerns hiding laughter.",
+        "tone": "Comic and embarrassed as the audience unsuccessfully tries not to laugh.",
+        "register": "Common in descriptive and literary writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to prevent a feeling, reaction, or sound from being expressed",
+        "value": "உணர்ச்சி, சிரிப்பு அல்லது ஒலி வெளிப்படாமல் அடக்குதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/stifle/",
+        "value": "Approximate phonetic guidance (English): STY-fuhl",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 694,
+      "wordId": "6165eb0c-f358-4c92-9f41-c1a47d8128df",
+      "word": "wrap up",
+      "senseKey": "to-bring-an-activity-to-a-conclusion",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6aa2fa1db567c3e26b2762b0cb68cc1e233032710ab8acc470b9ea98f87e8919",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to bring an activity to a conclusion"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: to bring an activity to an end.",
+        "connotation": "Neutral; often suggests finishing in an organized way.",
+        "tone": "Practical and purposeful about ending the meeting with agreed actions.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஒரு செயலை முடிவுக்கு கொண்டுவருதல்",
+        "value": "ஒரு செயலை முடிவுக்கு கொண்டுவருதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ræp ˈʌp/",
+        "value": "/ræp ˈʌp/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 695,
+      "wordId": "6170b344-3137-4b0b-89bc-246f21bdddb4",
+      "word": "measurement bias",
+      "senseKey": "measurement-bias-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d485dcda569e7464cd93a5c48202c119dd4e60f0b757161cbb569ccd448a0b71",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical: systematic error caused by measuring or recording information differently across groups.",
+        "connotation": "Negative; identifies a source of unreliable or unfair comparisons.",
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "குழுக்களுக்கிடையில் அளவீடு மாறுவதால் ஏற்படும் பாகுபாடு",
+        "value": "குழுக்களுக்கிடையில் அளவீடு மாறுவதால் ஏற்படும் பாகுபாடு",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/measurement bias/",
+        "value": "Approximate phonetic guidance (English): MEZH-er-muhnt BYE-uhs",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 696,
+      "wordId": "618fb375-4089-4161-8e64-d067f5350f84",
+      "word": "as requested",
+      "senseKey": "indicating-that-something-fulfils-an-earlier-request",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "3378ced15fb6ff241091c1e78b8c0c5244ad1c00a835a7966bf229401d74a28e",
+      "before": {
+        "tone": "Polite professional fulfilment.",
+        "register": "Neutral or professional wording: Identify the document or change clearly so the reader can see how the request was fulfilled.",
+        "connotation": "Neutral relationship or function: indicating that something fulfils an earlier request.",
+        "meaning_type": "Contextual expression: indicating that something fulfils an earlier request"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: indicates that an earlier request has been carried out.",
+        "connotation": "Neutral; emphasizes a connection with what was asked for.",
+        "tone": "Polite professional fulfilment.",
+        "register": "Common in professional correspondence and formal replies."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "கோரியபடி",
+        "value": "கோரியபடி",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/əz rɪˈkwestɪd/",
+        "value": "/əz rɪˈkwestɪd/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 697,
+      "wordId": "61aafef1-1e2a-453c-9179-dd911fbfd3cb",
+      "word": "deployment",
+      "senseKey": "deployment-ml-context",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "12261a355a505e1e62decdbceff9f9789f0a334d90329ce90aea6e470471124e",
+      "before": {
+        "tone": "Professional and analytical in this lesson.",
+        "register": "Professional and academic technical English.",
+        "connotation": "Neutral; it describes a measurable concept or engineering process.",
+        "meaning_type": "Technical and abstract meaning in machine-learning engineering."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical and abstract meaning in machine-learning engineering.",
+        "connotation": "Neutral; it describes a measurable concept or engineering process.",
+        "tone": "Professional and analytical in this lesson.",
+        "register": "Professional and academic technical English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "retained",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "பயிற்சியுற்ற மாதிரியை பயன்பாட்டிற்கு கொண்டுவருதல்",
+        "value": "பயிற்சியுற்ற மாதிரியை பயன்பாட்டிற்கு கொண்டுவருதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/dɪˈplɔɪmənt/",
+        "value": "/dɪˈplɔɪmənt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "All four existing Overview fields retained."
+    },
+    {
+      "ordinal": 698,
+      "wordId": "61bafd5e-0421-4beb-a1b0-507fbefce4dc",
+      "word": "ingenuously",
+      "senseKey": "innocently-and-openly",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "180d38f2c533bd514b26ce066fae71cf39eb08b74c1e20f6bb9f48a8300b592a",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": null,
+      "fieldDecisions": null,
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: in an innocent, open, and unsuspecting way",
+        "value": null,
+        "decision": "blocked",
+        "status": "blocked_pending_sense_resolution"
+      },
+      "pronunciation": {
+        "before": "/ingenuously/",
+        "value": "Approximate phonetic guidance (English): in-JEN-yoo-uhs-lee (not disingenuously)",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "quarantined_unresolved_source_sense_mismatch",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Unresolved source/sense ambiguity quarantined. Exact source stops at the question 'What's wrong?' and describes a denial game; it does not establish genuine innocent openness. Do not invent the missing answer or change the word to disingenuously."
+    },
+    {
+      "ordinal": 699,
+      "wordId": "623c2bce-429b-49cb-b901-215384354ee1",
+      "word": "fade into the shadows",
+      "senseKey": "withdraw-from-attention",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "fb38ba5e41009528e866946d95ab1ff42e643f15738100fc333169af0efab369",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: to withdraw gradually from attention.",
+        "connotation": "Can suggest discretion, embarrassment or avoidance; the context decides.",
+        "tone": "Wry and critical of Brent defending himself instead of apologizing or becoming less visible.",
+        "register": "Vivid descriptive wording, common in narrative and commentary."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to gradually withdraw from notice or public attention",
+        "value": "பிறரின் கவனத்திலிருந்து படிப்படியாக ஒதுங்குதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/fade into the shadows/",
+        "value": "Approximate phonetic guidance (English): fayd IN-too thuh SHAD-ohz",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 700,
+      "wordId": "62a3d378-19a5-40a0-aefe-2fa079e37ff1",
+      "word": "what is holding us back",
+      "senseKey": "used-to-ask-what-is-preventing-progress",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0ecaa1b03cdd1e22516ce1000635106dd87fbd7f2f180658e76e144cc21a1c5d",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: used to ask what is preventing progress"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative question: asks what is preventing progress.",
+        "connotation": "Neutral; focuses attention on an obstacle rather than automatically blaming a person.",
+        "tone": "Direct and problem-solving about the delay in reaching a decision.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "முன்னேற்றத்தை தடுக்கும் காரணத்தை கேட்கும் தொடர்",
+        "value": "முன்னேற்றத்தை தடுக்கும் காரணத்தை கேட்கும் தொடர்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/wɒt ɪz ˈhəʊldɪŋ əs bæk/",
+        "value": "/wɒt ɪz ˈhəʊldɪŋ əs bæk/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 701,
+      "wordId": "62f6db4d-f552-4f0b-bba7-da73a3026c65",
+      "word": "course correction",
+      "senseKey": "a-change-in-direction-made-to-keep-work-moving-toward-its-goal",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e7561e4cef44184bdc09174ad22002556da7ce247a91d56f48fd0b39b824d39b",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Abstract or practical concept: a change in direction made to keep work moving toward its goal"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: an adjustment to a plan so work continues towards its goal.",
+        "connotation": "Usually constructive; acknowledges that the current approach needs change.",
+        "tone": "Practical and responsive to what the pilot revealed.",
+        "register": "Common in workplace, policy and general discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "இலக்கை அடைய திசையை மாற்றுதல்",
+        "value": "இலக்கை அடைய திசையை மாற்றுதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/kɔːs kəˈrekʃən/",
+        "value": "/kɔːs kəˈrekʃən/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 702,
+      "wordId": "6306ee19-a3b3-413d-9f70-f5600ba786f5",
+      "word": "in the pipeline",
+      "senseKey": "being-planned-or-developed-but-not-yet-available",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "739163ff9b109bbb533c507e2559c260fc790487d962f3a782ecedc6487de0d6",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Professional and conversational; plainer alternatives may suit a wider audience.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Figurative or idiomatic: being planned or developed but not yet available"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative or idiomatic: being planned or developed but not yet available",
+        "connotation": "Often suggests future possibilities, without promising a completion date.",
+        "tone": "Informative and mildly positive about courses being developed.",
+        "register": "Professional and conversational; plainer alternatives may suit a wider audience."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "திட்டமிடப்பட்டு அல்லது உருவாக்கப்பட்டு கொண்டிருக்கும்",
+        "value": "திட்டமிடப்பட்டு அல்லது உருவாக்கப்பட்டு கொண்டிருக்கும்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ɪn ðə ˈpaɪplaɪn/",
+        "value": "/ɪn ðə ˈpaɪplaɪn/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 703,
+      "wordId": "63121ab0-b99c-4238-aa2f-b407cf3ed60d",
+      "word": "heed",
+      "senseKey": "pay-careful-attention",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5b7d556c27c21ee67b34d6657756a937e92b2449a101819befd532e6d565d9af",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": null,
+      "fieldDecisions": null,
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to pay careful attention to advice, a warning, or a fact",
+        "value": null,
+        "decision": "blocked",
+        "status": "blocked_pending_sense_resolution"
+      },
+      "pronunciation": {
+        "before": "/heed/",
+        "value": "Approximate phonetic guidance (English): HEED",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "quarantined_confirmed_source_sense_conflict",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Quarantined grammatical mismatch: frozen entry defines verb heed ('to pay careful attention'), but the source has noun heed as the object of pay. Preserve key and evidence; resolve source/teaching part of speech before replacement."
+    },
+    {
+      "ordinal": 704,
+      "wordId": "6389cfa9-c296-465d-b8be-1aada2cad357",
+      "word": "appetite",
+      "senseKey": "the-desire-to-eat-food",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "1a595f21e842e6ea2dc3be42de91b7fc1e5111ee9d507146a0095791a9ad1624",
+      "before": {
+        "tone": "In this passage, appetite supports a clear narrative tone.",
+        "register": "appetite is frequent in general English.",
+        "connotation": "The connotation of appetite is neutral unless the described situation is negative.",
+        "meaning_type": "appetite has a contextual meaning describing the desire to eat food."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal: the desire to eat food.",
+        "connotation": "Neutral by itself; a good appetite is presented as a positive sign here.",
+        "tone": "Warm and approving about the tiny pig eating well.",
+        "register": "Common in everyday and health-related discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "பசி அல்லது சாப்பிடும் ஆர்வம்",
+        "value": "பசி அல்லது சாப்பிடும் ஆர்வம்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/appetite/",
+        "value": "Approximate phonetic guidance (English): AP-uh-tyte",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source starts with a noun phrase, but eating sense and approving description of appetite are clear."
+    },
+    {
+      "ordinal": 705,
+      "wordId": "63a4f566-48d0-4985-a296-475036dbfe5a",
+      "word": "scheduled process",
+      "senseKey": "scheduled-process-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "52428035c65a65dec48c602c77c0c346d61de6c0e4eaa7fa952d5870ab20d1d7",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical: an automated operation set to run at planned times.",
+        "connotation": "Neutral; describes timing rather than the quality or urgency of the work.",
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "திட்டமிட்ட நேரங்களில் இயங்க அமைக்கப்பட்ட தானியங்கி செயல்",
+        "value": "திட்டமிட்ட நேரங்களில் இயங்க அமைக்கப்பட்ட தானியங்கி செயல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/scheduled process/",
+        "value": "Approximate phonetic guidance (English): SKED-joold PROH-sess; British also SHED-yoold PROH-sess",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Pronunciation gives both common American and British variants of scheduled; no audio or dictionary verification claimed."
+    },
+    {
+      "ordinal": 706,
+      "wordId": "63af871f-bd9b-44b7-8c48-99aad031c10e",
+      "word": "despair",
+      "senseKey": "complete-loss-of-hope",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7dfe409e277cc603b667794b397adef62e79ba7d1bba5e1f70ec8e39e00fb349",
+      "before": {
+        "tone": "clear and explanatory",
+        "register": "neutral everyday English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "abstract vocabulary in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal emotional state: a complete loss of hope.",
+        "connotation": "Strongly negative; much stronger than ordinary disappointment.",
+        "tone": "Bleak and exaggerated in the contrast between two disastrous paths.",
+        "register": "Common in general and literary writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "நம்பிக்கையை முழுமையாக இழந்த நிலை",
+        "value": "நம்பிக்கையை முழுமையாக இழந்த நிலை",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/dɪˈspeə/",
+        "value": "/dɪˈspeə/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "The two disastrous paths may be dark humour or rhetorical exaggeration; wider context is not supplied, so no speaker attribution is invented."
+    },
+    {
+      "ordinal": 707,
+      "wordId": "63d22433-bbbb-4c71-a3bc-1239b3afee39",
+      "word": "I thought as much",
+      "senseKey": "used-to-say-that-new-information-confirms-what-one-suspected",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3ef18276124414e9af7326f71f17caae3fb603d0e8f4c63932fb96780a0ab51f",
+      "before": {
+        "tone": "Conversational, confirming.",
+        "register": "Conversational wording: It may sound smug if you imply the answer was obvious; soften it when someone reports bad news.",
+        "connotation": "Neutral relationship or function: used to say that new information confirms what one suspected.",
+        "meaning_type": "Contextual expression: used to say that new information confirms what one suspected"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal response phrase: new information confirms what the speaker already suspected.",
+        "connotation": "Neutral; can sound satisfied or smug depending on delivery.",
+        "tone": "Conversational, confirming.",
+        "register": "Common in everyday conversation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "நானும் அப்படித்தான் நினைத்தேன்",
+        "value": "நானும் அப்படித்தான் நினைத்தேன்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/aɪ θɔːt əz ˈmʌtʃ/",
+        "value": "/aɪ θɔːt əz ˈmʌtʃ/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 708,
+      "wordId": "640c233c-fa5b-46a4-bad6-af5d96a1855c",
+      "word": "could you elaborate",
+      "senseKey": "used-to-politely-ask-for-more-explanation-or-detail",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "511f83087be7f7ee96f94036b5078af5e0acc6e030d7035f387de139770a7b87",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: used to politely ask for more explanation or detail"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal request: politely asks for more detail or explanation.",
+        "connotation": "Usually constructive; shows a wish to understand more fully.",
+        "tone": "Polite and inquisitive about the risks already mentioned.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "மேலும் விளக்கம் அல்லது விவரம் கேட்கும் மரியாதையான தொடர்",
+        "value": "மேலும் விளக்கம் அல்லது விவரம் கேட்கும் மரியாதையான தொடர்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/kʊd ju ɪˈlæbəreɪt/",
+        "value": "/kʊd ju ɪˈlæbəreɪt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 709,
+      "wordId": "64119494-6b64-41ad-be73-fb8e490a1c95",
+      "word": "mute",
+      "senseKey": "silent",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "24d582b5ce596d338719a07e943fcecfba89a9edf6c58b44bc67ca21a895869d",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal adjective: silent or not speaking.",
+        "connotation": "Neutral by itself; here it suggests unhelpful silence after apparent agreement.",
+        "tone": "Critical and memorable in the rhyming label Salute and Stay Mute.",
+        "register": "General English; the phrase uses silence figuratively as a communication habit, not a disability label."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: silent or not speaking",
+        "value": "பேசாமல் அமைதியாக இருக்கும்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/mute/",
+        "value": "Approximate phonetic guidance (English): MYOOT",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Stay Mute is part of a rhyming label; do not infer a speech disability."
+    },
+    {
+      "ordinal": 710,
+      "wordId": "641335bf-8cd6-43b7-99f7-125863f461c7",
+      "word": "woodshed",
+      "senseKey": "a-small-building-or-room-used-for-storing-firewood",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "76e476d2a855ca40ca9d5b6d9e220bc2159b3d7561a969722aac28c900cc46b5",
+      "before": {
+        "tone": "The outbuilding where Wilbur’s larger box is kept.",
+        "register": "Neutral and natural in narrative or everyday English.",
+        "connotation": "Mostly neutral; its emotional effect comes from the surrounding scene.",
+        "meaning_type": "Literal meaning naming a concrete thing or condition."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal meaning naming a concrete thing or condition.",
+        "connotation": "Mostly neutral; its emotional effect comes from the surrounding scene.",
+        "tone": "Matter-of-fact about moving the pig's box after Mrs Arable complained.",
+        "register": "Neutral and natural in narrative or everyday English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "விறகு சேமிக்கும் கொட்டகை",
+        "value": "விறகு சேமிக்கும் கொட்டகை",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/woodshed/",
+        "value": "Approximate phonetic guidance (English): WOOD-shed (wood rhymes with good)",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Existing tone field was a location description, not tone; replaced with a contextual attitude."
+    },
+    {
+      "ordinal": 711,
+      "wordId": "641add2c-ebd3-47dc-9ebb-29c934a79999",
+      "word": "draw a conclusion",
+      "senseKey": null,
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "90ba59b8154ae8a41811c0d4432bec6581204b94df6568e8c6cb0b0ce89dc64c",
+      "before": {
+        "tone": "Analytical and careful",
+        "register": "Neutral to formal; common in academic and professional English",
+        "connotation": "Neutral in most contexts",
+        "meaning_type": "Abstract and figurative"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract and figurative",
+        "connotation": "Neutral in most contexts",
+        "tone": "Analytical and careful",
+        "register": "Neutral to formal; common in academic and professional English"
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "retained",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஆதாரங்களை ஆராய்ந்து ஒரு முடிவுக்கு வருதல்",
+        "value": "ஆதாரங்களை ஆராய்ந்து ஒரு முடிவுக்கு வருதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/drɔː ə kənˈkluːʒən/",
+        "value": "/drɔː ə kənˈkluːʒən/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "All four existing Overview fields retained."
+    },
+    {
+      "ordinal": 712,
+      "wordId": "644bd66e-4925-41d5-a149-b7d37ed7ba7d",
+      "word": "domain",
+      "senseKey": "area-of-activity-or-knowledge",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7dbde1fb7c51b7efcaa5207271e32c2d375cbaafc7873fd463b753e75ff9ff04",
+      "before": {
+        "tone": "clear and explanatory, with intensity determined by the sentence",
+        "register": "neutral; natural in careful everyday and professional English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "literal or abstract vocabulary in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract: a distinct area of life, knowledge or activity.",
+        "connotation": "Neutral; identifies an area without ranking its value.",
+        "tone": "Confident and encouraging about skills that can help in many areas of life.",
+        "register": "Common in formal, academic and professional discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "செயல், அறிவு அல்லது வாழ்க்கையின் தனிப்பட்ட துறை",
+        "value": "செயல், அறிவு அல்லது வாழ்க்கையின் தனிப்பட்ட துறை",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/dəˈmeɪn/",
+        "value": "/dəˈmeɪn/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 713,
+      "wordId": "64a5ed9b-2545-43d6-9840-14b0f92010df",
+      "word": "starve",
+      "senseKey": "deprive-of-needed-resource",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a4167d4cb2658c34a7dd2918ab26bc6c9b905827c4f6c1cff53845d9696e50b8",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: to deprive a process or group of something it needs.",
+        "connotation": "Negative; emphasizes harmful lack rather than a small reduction.",
+        "tone": "Cautionary and critical of withholding ideas to protect one's job.",
+        "register": "Vivid general writing; not literal lack of food in this passage."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to deprive a person, system, or process of something essential",
+        "value": "ஒருவருக்கோ ஒரு செயல்முறைக்கோ அத்தியாவசியமான ஒன்றைக் கிடைக்காமல் செய்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/starve/",
+        "value": "Approximate phonetic guidance (English): STARV",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Starving the shared pool is a metaphor for withholding ideas; the phrase about getting shot is not established as a literal threat."
+    },
+    {
+      "ordinal": 714,
+      "wordId": "64f84879-4ade-4361-bcdc-d68766fa88d4",
+      "word": "clarification required",
+      "senseKey": "indicating-that-more-precise-information-is-needed",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "6118a4d875230971e9d17ba1f124e50aba458f5853897f7e93d700629d9b7d51",
+      "before": {
+        "tone": "Formal, action-requesting status.",
+        "register": "Formal wording: A helpful status names the ambiguous field and the exact question to answer.",
+        "connotation": "Neutral relationship or function: indicating that more precise information is needed.",
+        "meaning_type": "Contextual expression: indicating that more precise information is needed"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal status phrase: more precise information is needed.",
+        "connotation": "Neutral; signals an unresolved detail rather than rejection of the whole work.",
+        "tone": "Formal, action-requesting status.",
+        "register": "Common in review records, forms and professional correspondence."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "மேலும் தெளிவான தகவல் தேவை",
+        "value": "மேலும் தெளிவான தகவல் தேவை",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌklærɪfɪˈkeɪʃən rɪˈkwaɪəd/",
+        "value": "/ˌklærɪfɪˈkeɪʃən rɪˈkwaɪəd/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reviewed against the supplied contextual meaning and source sentence."
+    },
+    {
+      "ordinal": 715,
+      "wordId": "64fa7bfc-50f2-4e74-a362-767e78d47558",
+      "word": "malignant",
+      "senseKey": "cancerous-and-harmful",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a3f3acb459a942297b03113563aee36ae489c49df434ebe0a00d1f21ceead5b7",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal medical adjective: cancerous, with the potential to invade tissue or spread.",
+        "connotation": "Serious and negative because it describes harmful disease.",
+        "tone": "Factual and serious in the introduction to a medical study.",
+        "register": "Medical vocabulary also common in general reporting about cancer."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: cancerous and capable of spreading",
+        "value": "புற்றுநோய்த் தன்மை கொண்டதும் அருகிலுள்ள திசுக்களை ஊடுருவவோ பிற பகுதிகளுக்குப் பரவவோ கூடியதும்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/malignant/",
+        "value": "Approximate phonetic guidance (English): muh-LIG-nuhnt",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Medical meaning cross-checked against NCI What Is Cancer?, https://www.cancer.gov/about-cancer/understanding/what-is-cancer (accessed 2026-10-11). This entry's adjective is clear even though contract at ordinal604 in the same source has a separate infected-with identity conflict. No study outcome is supplied or verified."
+    }
+  ]
+}
