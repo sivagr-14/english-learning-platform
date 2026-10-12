@@ -1,0 +1,240 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 15,
+  "fixedGroupFirstOrdinal": 1377,
+  "fixedGroupLastOrdinal": 1474,
+  "firstOrdinal": 1445,
+  "lastOrdinal": 1449,
+  "entryCount": 5,
+  "profileDraftCount": 5,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 5,
+  "pronunciationTextReviewCompletedCount": 5,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "b6130b50a6f84dbaa5f93cea3658bbd8fe39c9bd",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group015 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1445,
+      "wordId": "c7dcb21d-3454-4bba-8dc1-7778851f51e3",
+      "word": "apart from",
+      "senseKey": "except-for-a-particular-thing-or-person",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "d420be0bbd4addc471b6376351a4c62f10d0745268a00bbc5f83b6814a8ace62",
+      "before": {
+        "tone": "Neutral exception.",
+        "register": "Neutral or professional wording: Here it excludes an exception; make the sentence clear enough to avoid the additive interpretation.",
+        "connotation": "Neutral relationship or function: except for a particular thing or person.",
+        "meaning_type": "Grammatical relationship: except for a particular thing or person"
+      },
+      "proposedProfile": {
+        "meaning_type": "Grammatical relationship: except for a particular thing or person",
+        "connotation": "Neutral relationship or function: except for a particular thing or person.",
+        "tone": "Neutral exception.",
+        "register": "Neutral or professional wording: Here it excludes an exception; make the sentence clear enough to avoid the additive interpretation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "retained",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஒன்றைத் தவிர",
+        "value": "ஒன்றைத் தவிர",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/əˈpɑːt frəm/",
+        "value": "/əˈpɑːt frəm/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1446,
+      "wordId": "c7dda960-4562-4b81-b9d5-5dbe95334bc6",
+      "word": "statesman",
+      "senseKey": "experienced-respected-leader",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f2373abaac8de82f6c1ddd2bba440e878fc0df08534cf8e53631846caa02d95b",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative institutional use: an experienced senior figure in a school, compared to a respected political leader.",
+        "connotation": "Usually respectful; here the status is his own view, not necessarily shared by others.",
+        "tone": "Reports his self-image; the fragment is too short to establish whether the narrator is sincere or ironic.",
+        "register": "Formal; 'elder statesman' can also describe an experienced senior figure outside politics."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: an experienced and respected political or institutional leader",
+        "value": "அனுபவமும் மதிப்பும் கொண்ட மூத்த தலைவர்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/statesman/",
+        "value": "Approximate pronunciation: STAYTS-muhn. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Truncated sentence with page/header noise; no narrator irony inferred. Remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1447,
+      "wordId": "c7f4de51-c524-48fa-99c7-6d1f3dcb92f4",
+      "word": "safety is at risk",
+      "senseKey": "secure-dialogue-threatened",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7aef40e8a30bc7997f9f5bdad1c985a1ca0b0956ead2c16845091529a7acdd71",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract conversational safety: people may no longer feel secure enough to speak openly and respectfully.",
+        "connotation": "Negative; signals a threat to constructive discussion.",
+        "tone": "Cautionary and explanatory; contrasts noticing a warning sign with simply reacting to an attack.",
+        "register": "Neutral wording with a specialized meaning in communication training."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the conditions for open and respectful discussion are threatened",
+        "value": "வெளிப்படையாகவும் மரியாதையுடனும் பேசுவதற்கான பாதுகாப்பான சூழல் பாதிக்கப்படும் நிலையில் உள்ளது",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/safety is at risk/",
+        "value": "Approximate pronunciation: SAYF-tee iz at RISK. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1448,
+      "wordId": "c80441ab-449d-484c-819e-803f28ab6ea7",
+      "word": "overwhelmed",
+      "senseKey": null,
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6414f403b9f1908d917b82b8a237f019359b09e153f298f6445fa44a2f966849",
+      "before": {
+        "tone": "Emotional and candid",
+        "register": "Neutral; very common in everyday English",
+        "connotation": "Usually negative, but can be positive with gratitude or joy",
+        "meaning_type": "Usually abstract; sometimes literal in passive constructions"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract emotional state: feeling unable to cope with too many demands, here many decisions.",
+        "connotation": "Negative here; suggests pressure beyond what the speaker feels able to manage.",
+        "tone": "Emotional and candid",
+        "register": "Neutral; very common in everyday English"
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "அளவுக்கு மீறிய அழுத்தத்தால் சமாளிக்க முடியாமல் உணருதல்",
+        "value": "அளவுக்கு மீறிய அழுத்தத்தால் சமாளிக்க முடியாமல் உணருதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌoʊvərˈwelmd/",
+        "value": "/ˌoʊvərˈwelmd/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Original null senseKey preserved. Resolve required identity fields under the production update contract before delivery; do not invent a key. Remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1449,
+      "wordId": "c806e631-401f-4593-9454-ef7addc7090f",
+      "word": "shuffle one’s feet",
+      "senseKey": "move-feet-nervously",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f6a9c25f53ba2982356f10f74ca13ca180cf381b1994ca2bb0b0d5fd48892c82",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal bodily movement: move the feet awkwardly, here while looking down and appearing hurt.",
+        "connotation": "Suggests discomfort or embarrassment in this scene; not necessarily a deliberate display.",
+        "tone": "Descriptive and subdued; the movements create an impression of someone feeling wounded.",
+        "register": "Neutral everyday English; common in narrative descriptions of body language."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to move one’s feet awkwardly, often from nervousness or embarrassment",
+        "value": "சங்கடம் அல்லது பதற்றத்தால் கால்களைத் தயக்கத்துடன் அசைத்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/shuffle one’s feet/",
+        "value": "Approximate pronunciation: SHUF-uhl wunz FEET. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    }
+  ]
+}
