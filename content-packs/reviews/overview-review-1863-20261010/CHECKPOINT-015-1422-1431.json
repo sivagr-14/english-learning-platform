@@ -1,0 +1,450 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 15,
+  "fixedGroupFirstOrdinal": 1377,
+  "fixedGroupLastOrdinal": 1474,
+  "firstOrdinal": 1422,
+  "lastOrdinal": 1431,
+  "entryCount": 10,
+  "profileDraftCount": 8,
+  "blockedCount": 2,
+  "tamilReviewCompletedCount": 8,
+  "pronunciationTextReviewCompletedCount": 10,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "b6130b50a6f84dbaa5f93cea3658bbd8fe39c9bd",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group015 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1422,
+      "wordId": "c6085140-8a90-4bc3-a74b-1fad4880e7ca",
+      "word": "straight-line",
+      "senseKey": "following-direct-linear-path",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "1f497c7592b6394b9bf7e70fea8e03028687ebfb7a5cc7f58411d7b504a31c6a",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Geometric description used in an abstract comparison: a range laid out along one straight line.",
+        "connotation": "Neutral about shape; the passage presents this simple line as an incomplete way to understand the better solution.",
+        "tone": "Explanatory and contrasting; compares a line between opposites with a triangle's higher point.",
+        "register": "Neutral to technical; common in descriptions of geometry and linear models."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: following a direct linear path without deviation",
+        "value": "விலகாமல் நேர்கோட்டில் அமைந்த",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/straight-line/",
+        "value": "Approximate pronunciation: STRAYT-lyne. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1423,
+      "wordId": "c60c4908-1daa-40b0-a234-4b759edb170b",
+      "word": "get the ball rolling",
+      "senseKey": "to-make-the-first-move-that-starts-an-activity",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6cedba575d04375b23a57b2e0a977100f613d99159e8fba53e7801a49fe65cc9",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Figurative or idiomatic: to make the first move that starts an activity"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative or idiomatic: to make the first move that starts an activity",
+        "connotation": "Usually positive; suggests initiative and getting an activity started.",
+        "tone": "Willing and practical; the speaker offers to send the first invitation.",
+        "register": "Informal and conversational; also common in workplace discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "ஒரு செயலை தொடங்க முதல் நடவடிக்கை எடுப்பது",
+        "value": "ஒரு செயலை தொடங்க முதல் நடவடிக்கை எடுப்பது",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ɡet ðə bɔːl ˈrəʊlɪŋ/",
+        "value": "/ɡet ðə bɔːl ˈrəʊlɪŋ/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1424,
+      "wordId": "c62f7e74-f793-4496-a1c3-a6b0a84b3a11",
+      "word": "judgment",
+      "senseKey": "ability-to-decide-wisely",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3cd8015aaec1375df66852316a39bfa72446c57c2ca7d857ae66b39821e9696e",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": null,
+      "fieldDecisions": {
+        "meaning_type": "blocked",
+        "connotation": "blocked",
+        "tone": "blocked",
+        "register": "blocked"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the ability to make sensible decisions after careful consideration",
+        "value": null,
+        "decision": "blocked",
+        "status": "blocked_pending_sense_resolution"
+      },
+      "pronunciation": {
+        "before": "/judgment/",
+        "value": "Approximate pronunciation: JUJ-muhnt. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "quarantined_unresolved_source_sense_mismatch",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Original export checked: source 'Suspend judgment' concerns withholding evaluation, while sense key and gloss specify the ability to decide wisely. Resolve source/gloss identity before same-sense delivery; no silent sense change."
+    },
+    {
+      "ordinal": 1425,
+      "wordId": "c63a1479-cff4-483e-8172-19f749a0f261",
+      "word": "hone",
+      "senseKey": "refine-skill",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bc28e2ea08c5e5cedcd047ad5c701e7b0cce5ae07a6bead218eaddc59ed36792",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": null,
+      "fieldDecisions": {
+        "meaning_type": "blocked",
+        "connotation": "blocked",
+        "tone": "blocked",
+        "register": "blocked"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to sharpen or improve a skill, method, or idea through practice",
+        "value": null,
+        "decision": "blocked",
+        "status": "blocked_pending_sense_resolution"
+      },
+      "pronunciation": {
+        "before": "/hone/",
+        "value": "Approximate pronunciation: HOHN. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "quarantined_source_extraction_error",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Original export checked: source contains 'hones ty' (honesty), not hone or an inflected form. Likely substring/OCR extraction error. Preserve stored identity and obtain valid same-sense evidence before drafting Overview or Tamil. Pronunciation guidance applies only to the stored term."
+    },
+    {
+      "ordinal": 1426,
+      "wordId": "c6424dc9-b7ba-488d-9205-b69236c8c7f0",
+      "word": "component",
+      "senseKey": "constituent-part",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f302d85fa741682646173fdc2a063b73d3d1ad1699b8cfb72149acff371578e7",
+      "before": {
+        "tone": "clear and explanatory, with intensity determined by the sentence",
+        "register": "neutral; natural in careful everyday and professional English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "literal or abstract vocabulary in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract part of a larger whole, here one part of a person's behavior under stress.",
+        "connotation": "Neutral as a word; 'less healthy' gives the particular behavior a negative evaluation.",
+        "tone": "Explanatory and cautionary; describes turning to unhelpful parts of a stress response.",
+        "register": "neutral; natural in careful everyday and professional English"
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஒரு பெரிய அமைப்பின் கூறு",
+        "value": "ஒரு பெரிய அமைப்பின் கூறு",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/kəmˈpəʊnənt/",
+        "value": "/kəmˈpəʊnənt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1427,
+      "wordId": "c64e1148-0acb-47b8-98a2-c958f9a99d61",
+      "word": "prolonged",
+      "senseKey": "continuing-for-a-long-time",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "dce63dd95942703a01ce7d9c9356bac016f0f667f32c4c4ee91cbd90e4af84bb",
+      "before": {
+        "tone": "clear and explanatory",
+        "register": "neutral everyday English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "abstract vocabulary in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Describes duration: continuing for a long time, here periods of silence.",
+        "connotation": "Neutral about length itself; here the long silence has a troubling association with later violence.",
+        "tone": "Serious and cautionary; presents extended silence as something that may precede violence.",
+        "register": "Neutral to formal; common in descriptions of periods, delays and continuing conditions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "நீண்ட காலம் அல்லது எதிர்பார்த்ததைவிட அதிக நேரம் தொடரும்",
+        "value": "நீண்ட காலம் அல்லது எதிர்பார்த்ததைவிட அதிக நேரம் தொடரும்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/prəˈlɒŋd/",
+        "value": "/prəˈlɒŋd/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1428,
+      "wordId": "c65becbb-25a8-4216-9870-5e3fb9b48a10",
+      "word": "devastate",
+      "senseKey": "cause-severe-damage",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6576c8af5f32121e15f9b78e4e783e72d1a043e7a6fcc1bfe1c08afe1419c3a1",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Severe harm in an emotional or social sense here; the sentence does not establish physical destruction.",
+        "connotation": "Strongly negative; much stronger than simply upsetting someone.",
+        "tone": "Urgent and dramatic; stresses severe effects on individuals, families and communities.",
+        "register": "Neutral but forceful; common in descriptions of serious damage or distress."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to cause severe emotional, social, or physical damage",
+        "value": "கடுமையான பாதிப்பை அல்லது மனச்சிதைவை ஏற்படுத்துதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/devastate/",
+        "value": "Approximate pronunciation: DEV-uh-stayt. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1429,
+      "wordId": "c6b024b9-c91c-4ebf-8269-fb7565a7c15d",
+      "word": "not necessarily",
+      "senseKey": "used-to-say-that-something-is-not-always-true-or-inevitable",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f847713f65b62abe229deb62f879a5fc1480312698798fb1aa39265761e01e01",
+      "before": {
+        "tone": "Neutral, cautious disagreement.",
+        "register": "Neutral or professional wording: It leaves open that the claim may be true in some cases; explain a relevant exception.",
+        "connotation": "Positive: communicates acceptance, appreciation or encouragement.",
+        "meaning_type": "Contextual expression: used to say that something is not always true or inevitable"
+      },
+      "proposedProfile": {
+        "meaning_type": "Logical qualification: says the claimed connection is not always true, while allowing that it can sometimes hold.",
+        "connotation": "Neutral and cautious; questions certainty rather than expressing acceptance or praise.",
+        "tone": "Neutral, cautious disagreement.",
+        "register": "Neutral or professional wording: It leaves open that the claim may be true in some cases; explain a relevant exception."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "எப்போதும் அப்படியாக வேண்டியதில்லை",
+        "value": "எப்போதும் அப்படியாக வேண்டியதில்லை",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/nɒt ˌnesəˈserəli/",
+        "value": "/nɒt ˌnesəˈserəli/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1430,
+      "wordId": "c6c14ff8-22fb-4394-8fea-b73894989a53",
+      "word": "pragmatic",
+      "senseKey": "focused-on-what-works-in-real-conditions",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "1526c401b8051f8f741a447d182a969b5b3b521305df2985c65d5be55c73a320",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Evaluative: assesses the strength or suitability of an idea.",
+        "meaning_type": "Contextual usage: focused on what works in real conditions"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract evaluation: focused on what can work in real conditions, here what a small team can maintain.",
+        "connotation": "Positive here; favors a usable, manageable solution over an impractical one.",
+        "tone": "Practical and realistic; stresses the team's actual capacity.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "நடைமுறைக்கு ஏற்ற தீர்வை நாடும்",
+        "value": "நடைமுறைக்கு ஏற்ற தீர்வை நாடும்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈpræɡmətɪk/",
+        "value": "/ˈpræɡmətɪk/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1431,
+      "wordId": "c6f4280b-4055-4594-a984-278b801e430e",
+      "word": "capably",
+      "senseKey": "with-skill-and-competence",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7e6b6cbf25cb26fc2dc905f381c6cbb7c46bbcf314222e5e70cfac166c652807",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Describes manner: doing something with skill and competence.",
+        "connotation": "Positive; praises skill in sharing views, even when others may disagree.",
+        "tone": "Approving and encouraging; emphasizes effective communication under difficult conditions.",
+        "register": "Neutral to somewhat formal; common in evaluations of performance."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: in a skilled and competent way",
+        "value": "திறமையாகவும் தகுதியுடனும்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/capably/",
+        "value": "Approximate pronunciation: KAY-puh-blee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    }
+  ]
+}
