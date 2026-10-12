@@ -1,0 +1,152 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 14,
+  "fixedGroupFirstOrdinal": 1279,
+  "fixedGroupLastOrdinal": 1376,
+  "firstOrdinal": 1304,
+  "lastOrdinal": 1306,
+  "entryCount": 3,
+  "profileDraftCount": 3,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 3,
+  "pronunciationTextReviewCompletedCount": 3,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "03019ab9056547b632b2bab8daf372af54347831",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group014 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1304,
+      "wordId": "b8b54656-fe5a-4b3e-9bd9-a9109b80847b",
+      "word": "denial",
+      "senseKey": "refusal-to-accept",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "54e8f4a340b4b975742df9526f3e7e0216f11b5a7668a7feb559b8b9c7007f6b",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract rejection: refusing to accept something as true, here expressed aloud.",
+        "connotation": "Can suggest resistance to an uncomfortable truth; the fragment does not reveal the claim being rejected.",
+        "tone": "Mocking and exaggerated here: spraying spit and the python-sized vein portray an agitated denial.",
+        "register": "Neutral; common in everyday, official and psychological discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: refusal to accept an unpleasant truth",
+        "value": "ஏற்க விருப்பமில்லாத உண்மையை ஒப்புக்கொள்ள மறுத்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/denial/",
+        "value": "Approximate pronunciation: dih-NY-uhl. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source omits the denied claim. Retain supplied refusal-to-accept meaning but do not assert the claim is true or identify it. Retrieve surrounding context before full replacement semantic validation."
+    },
+    {
+      "ordinal": 1305,
+      "wordId": "b8bbd7e3-e22a-4ae8-9896-d2bba046e80c",
+      "word": "flaw",
+      "senseKey": "fault-or-weakness",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6ca5de0ad86c4ce90961bc754090191e2ba3cf55782bb8dc7d0e7d6646709c9d",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract weakness: a fault in an argument that makes it imperfect.",
+        "connotation": "Negative about the quality of the reasoning; it names a weakness, not a personal defect.",
+        "tone": "Critical and self-reflective here: 'we quibble' presents fault-finding as part of an unhelpful exchange.",
+        "register": "Neutral; common in reviews, reasoning and everyday evaluation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a fault or weakness that makes something imperfect",
+        "value": "ஒன்றின் தரத்தைக் குறைக்கும் குறைபாடு அல்லது பலவீனம்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/flaw/",
+        "value": "Approximate pronunciation: FLAW. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact supplied sense and sentence reviewed; no full-lesson certification."
+    },
+    {
+      "ordinal": 1306,
+      "wordId": "b8cfdf8d-eca7-4acb-861c-9b841f17cc00",
+      "word": "manner",
+      "senseKey": "kind-or-method",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "1d84bac6f12acb68b58baa6889faa84f8ab034c8f078b5f962179458d28f846a",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract category: a kind or form, here in the expression 'every manner of force'.",
+        "connotation": "Neutral as a way of naming kinds; the use of force supplies the negative association.",
+        "tone": "Critical here: the sentence describes using every kind of force simply to get one's way.",
+        "register": "'Every manner of' is formal or literary; 'every kind of' is more conversational."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a particular kind, way, or method of doing something",
+        "value": "ஒரு வகை அல்லது விதம்; இங்கு எல்லா வகையான வலிமையும்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/manner/",
+        "value": "Approximate pronunciation: MAN-er. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact supplied sense and sentence reviewed; no full-lesson certification."
+    }
+  ]
+}
