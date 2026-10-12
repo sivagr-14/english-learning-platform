@@ -1,0 +1,152 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 15,
+  "fixedGroupFirstOrdinal": 1377,
+  "fixedGroupLastOrdinal": 1474,
+  "firstOrdinal": 1432,
+  "lastOrdinal": 1434,
+  "entryCount": 3,
+  "profileDraftCount": 3,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 3,
+  "pronunciationTextReviewCompletedCount": 3,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "b6130b50a6f84dbaa5f93cea3658bbd8fe39c9bd",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group015 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1432,
+      "wordId": "c70272cc-93e5-43cd-b498-37b3fa17a4b3",
+      "word": "healthcare",
+      "senseKey": "medical-care-system",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "751483b7f68435166b613d5a38ac5b426ae0843b7612df58f487a04c87356f57",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Names services and systems for protecting or improving health; here it describes the field of the professionals.",
+        "connotation": "Neutral; names a field of work, while the fear belongs to the people described.",
+        "tone": "Concerned and explanatory in this fragment; the larger problem being explained is not supplied.",
+        "register": "Neutral; common in everyday, professional and policy discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: services and systems concerned with maintaining or improving health",
+        "value": "உடல்நலத்தைப் பாதுகாக்கவும் மேம்படுத்தவும் வழங்கப்படும் மருத்துவச் சேவைகள்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/healthcare/",
+        "value": "Approximate pronunciation: HELTH-kair. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source is a sentence fragment using the hyphenated form health-care; wider cause/result not provided. Remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1433,
+      "wordId": "c7079a02-7f6d-44e3-bac2-30e7f0ce1dfd",
+      "word": "correct me if I am wrong",
+      "senseKey": "used-to-invite-correction-while-stating-ones-current-understanding",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "cd05025824349ccfdd325b4d7c511ebbe7d5ec470909d5b4c7a79653999a4d92",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: used to invite correction while stating one's current understanding"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conversational expression: invites correction before stating what the speaker currently believes.",
+        "connotation": "Usually cooperative and open to correction; it can sound challenging with different delivery.",
+        "tone": "Polite and tentative here; checks whether Friday remains the deadline.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "தற்போதைய புரிதலை கூறி திருத்தத்தை வரவேற்கும் தொடர்",
+        "value": "தற்போதைய புரிதலை கூறி திருத்தத்தை வரவேற்கும் தொடர்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/kəˈrekt mi ɪf aɪ əm ˈrɒŋ/",
+        "value": "/kəˈrekt mi ɪf aɪ əm ˈrɒŋ/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1434,
+      "wordId": "c71e21ea-4a1a-4b1e-a753-3c854b316d23",
+      "word": "put a pitcher",
+      "senseKey": "placed-a-large-serving-jug-on-a-surface",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f384a0fa4d237e75086ca71241454f7ce7f8c43cc65a7d57904b17e84cb6818d",
+      "before": {
+        "tone": "The action of setting a serving container down on the table.",
+        "register": "Neutral and natural in narrative or everyday English.",
+        "connotation": "Mostly neutral; its emotional effect comes from the surrounding scene.",
+        "meaning_type": "Contextual action or state meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal action: placed a serving jug on the table. This is an ordinary verb-and-object phrase, not an idiom.",
+        "connotation": "Mostly neutral; its emotional effect comes from the surrounding scene.",
+        "tone": "Simple, matter-of-fact narration of placing the cream on the table.",
+        "register": "Neutral and natural in narrative or everyday English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஒரு பெரிய கூஜாவை வைத்தார்",
+        "value": "ஒரு பெரிய கூஜாவை வைத்தார்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/put a pitcher/",
+        "value": "Approximate pronunciation: put uh PIT-cher. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Preserve stored expression and identity; put a pitcher is an ordinary compositional fragment and requires a destination in this placement construction. Do not teach it as a fixed idiom. Remaining lesson sections not certified."
+    }
+  ]
+}
