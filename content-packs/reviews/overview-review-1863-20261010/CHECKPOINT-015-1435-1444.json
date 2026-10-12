@@ -1,0 +1,460 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 15,
+  "fixedGroupFirstOrdinal": 1377,
+  "fixedGroupLastOrdinal": 1474,
+  "firstOrdinal": 1435,
+  "lastOrdinal": 1444,
+  "entryCount": 10,
+  "profileDraftCount": 10,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 10,
+  "pronunciationTextReviewCompletedCount": 10,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "b6130b50a6f84dbaa5f93cea3658bbd8fe39c9bd",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group015 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1435,
+      "wordId": "c72a276e-0cf9-47d6-ae44-0b66aee556d3",
+      "word": "futilely",
+      "senseKey": "without-useful-result",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bcb57c1e7eca533ecefa88dbcb336dc92f5c70cc658ab3538fc7b09a5c132d05",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Describes an unsuccessful effort: trying without achieving the intended result, here holding back laughter.",
+        "connotation": "Negative about the attempt's success, not necessarily about the people trying.",
+        "tone": "Amused and embarrassing in this scene; the audience cannot suppress its laughter.",
+        "register": "Somewhat formal or literary; 'unsuccessfully' or 'in vain' is more usual."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: in a way that cannot produce a useful result",
+        "value": "பலனின்றி; முயற்சி வெற்றியடையாமல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/futilely/",
+        "value": "Approximate pronunciation: FYOO-tyle-lee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1436,
+      "wordId": "c7455b5d-4686-47f4-b35d-0247b45998d3",
+      "word": "sprint",
+      "senseKey": "run-at-full-speed",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8b73f7ea423500ddef5bfe1abc805fc3b0e123ec591c4d50d725e5f49f06c39d",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal running action: move very fast, here running past without stopping.",
+        "connotation": "Neutral about speed; negative here because running past is interpreted as avoiding an explanation.",
+        "tone": "Hurt and accusatory in the description of being passed by without contact.",
+        "register": "Neutral; common in sport and everyday descriptions of fast running."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to run at full speed over a short distance",
+        "value": "குறுகிய தூரத்தை முழு வேகத்தில் ஓடுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/sprint/",
+        "value": "Approximate pronunciation: SPRINT. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1437,
+      "wordId": "c75aad5b-27b8-46ee-9bdd-ab8f210e1490",
+      "word": "reflection",
+      "senseKey": "visible-result-of-reality",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7c1a27e3aa31639b99c3f4c88fda895746d0a811694a727dc744efa6437c4662",
+      "before": {
+        "tone": "analytical",
+        "register": "neutral formal English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "figurative meaning in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: something shows the nature of reality, like an image reflects an object.",
+        "connotation": "Neutral as a word; the reality being represented is described as unfortunate.",
+        "tone": "Analytical, reporting their viewpoint rather than necessarily endorsing it.",
+        "register": "neutral formal English"
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "அடிப்படையான உண்மையின் தன்மையை காட்டும் அல்லது வெளிப்படுத்தும் ஒன்று",
+        "value": "அடிப்படையான உண்மையின் தன்மையை காட்டும் அல்லது வெளிப்படுத்தும் ஒன்று",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/rɪˈflekʃən/",
+        "value": "/rɪˈflekʃən/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1438,
+      "wordId": "c765959e-1dc9-4fdb-95ab-6cb0d69899d3",
+      "word": "evidence",
+      "senseKey": "facts-supporting-belief",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b1d527ef86bbfe3b94ae7af7053fdf65c9817a0d5bd1d5ed05d9449e86b259d6",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract support: facts or information used to support a conclusion.",
+        "connotation": "Neutral; calling something evidence does not alone establish how strong it is.",
+        "tone": "Persuasive and questioning; introduces a further reason to take crucial conversations seriously.",
+        "register": "Neutral to formal; common in research, arguments and everyday explanations."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: facts or information that support a conclusion or belief",
+        "value": "ஒரு முடிவு அல்லது நம்பிக்கையை ஆதரிக்கும் தகவல்கள் அல்லது சான்றுகள்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/evidence/",
+        "value": "Approximate pronunciation: EV-ih-duhns. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source includes OCR page/header noise and a health-related persuasive claim. Language review only; the underlying health claim is not independently verified or endorsed. Remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1439,
+      "wordId": "c76805e4-9f98-4966-b084-b8d93830e8f0",
+      "word": "restore",
+      "senseKey": "bring-back-condition",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "581a56cb17c814b49a12b741618018129c25265a04811fb83bc874f3612e5386",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract restoration: bring back a relationship quality, here mutual respect.",
+        "connotation": "Positive here because renewed respect allows dialogue to replace silence and violence.",
+        "tone": "Hopeful and approving; describes an important improvement after many years.",
+        "register": "Neutral to formal; common with trust, respect, order and confidence."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to bring a condition, relationship, or quality back into existence",
+        "value": "முன்பு இருந்த நிலை அல்லது உறவின் தன்மையை மீண்டும் கொண்டுவருதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/restore/",
+        "value": "Approximate pronunciation: ri-STOR. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1440,
+      "wordId": "c771e34b-6a30-4b0c-9564-898c46398c5d",
+      "word": "bust one’s hump",
+      "senseKey": "work-extremely-hard",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "af795194f6d3b4e6237e489f7206eed5b85914048415a1274fad084a5c62b2fb",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic: work extremely hard, not literally injure a hump.",
+        "connotation": "Emphasizes strenuous effort; here it carries resentment about working hard for someone.",
+        "tone": "Angry and frustrated; announces a refusal to make that effort again.",
+        "register": "Very informal, especially American English; unsuitable for formal professional writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to work extremely hard",
+        "value": "மிகவும் கடுமையாக உழைத்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/bust one’s hump/",
+        "value": "Approximate pronunciation: bust wunz HUMP. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source uses inflected busting and pronoun our; preserve this evidence for final expression matching. Remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1441,
+      "wordId": "c7a6a82f-728f-4f48-98b6-a3e3df6b368b",
+      "word": "namely",
+      "senseKey": "used-to-identify-exactly-what-was-just-referred-to",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "84394f1e6c51a5ce54a9defbd869c80dd2b3c87eb8dc33b9512716de134df34e",
+      "before": {
+        "tone": "Neutral to formal specification.",
+        "register": "Neutral or professional wording: Use it when the following item or list specifies the earlier reference, not merely one sample.",
+        "connotation": "Neutral relationship or function: used to identify exactly what was just referred to.",
+        "meaning_type": "Grammatical relationship: used to identify exactly what was just referred to"
+      },
+      "proposedProfile": {
+        "meaning_type": "Grammatical relationship: used to identify exactly what was just referred to",
+        "connotation": "Neutral relationship or function: used to identify exactly what was just referred to.",
+        "tone": "Neutral to formal specification.",
+        "register": "Neutral or professional wording: Use it when the following item or list specifies the earlier reference, not merely one sample."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "retained",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "அதாவது துல்லியமாக",
+        "value": "அதாவது துல்லியமாக",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈneɪmli/",
+        "value": "/ˈneɪmli/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1442,
+      "wordId": "c7bbcc60-315e-44bc-9323-55ef5298413f",
+      "word": "incoherently",
+      "senseKey": "without-clear-logic",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9e1315741800e29d18707490db6ebb642918a9fa69803c8f22f2f59d6fac7634",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Describes unclear expression: speech lacks understandable connections between ideas.",
+        "connotation": "Negative; criticizes the clarity of what is being said.",
+        "tone": "Mocking and dismissive here, strengthened by 'yammer on'.",
+        "register": "Neutral to formal; common in descriptions of unclear speech or writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: in a way that is difficult to understand or lacks logical connection",
+        "value": "புரிந்துகொள்ள முடியாதபடி, கருத்துத் தொடர்பின்றி",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/incoherently/",
+        "value": "Approximate pronunciation: in-koh-HEER-uhnt-lee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1443,
+      "wordId": "c7d4f54c-137b-4fa0-b53b-5189bfac2c96",
+      "word": "follow-up question",
+      "senseKey": "a-question-asked-to-learn-more-about-an-earlier-answer",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7cd5fee6f9f94cf65c3da8b5283a6373da758941c314f89c732054806e5c44ab",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Abstract or practical concept: a question asked to learn more about an earlier answer"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract communication term: a further question that seeks more information about an earlier answer.",
+        "connotation": "Neutral; shows a wish for more detail without necessarily expressing doubt.",
+        "tone": "Polite and matter-of-fact; introduces an additional question about the estimate.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "முந்தைய பதிலை மேலும் அறிய கேட்கப்படும் கேள்வி",
+        "value": "முந்தைய பதிலை மேலும் அறிய கேட்கப்படும் கேள்வி",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈfɒləʊ ʌp ˌkwestʃən/",
+        "value": "/ˈfɒləʊ ʌp ˌkwestʃən/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1444,
+      "wordId": "c7d7dd2e-76a8-45e4-ac1a-957e9edfec6f",
+      "word": "flow of meaning",
+      "senseKey": "exchange-of-understanding",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6560a3e6c87b3b3f7eecd24e34943ad0825d64a8d0b452d1a9c06852bab24fc1",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: ideas and understanding pass between people as if they were flowing.",
+        "connotation": "Positive in 'free flow'; suggests open sharing without unnecessary barriers.",
+        "tone": "Concise and defining; explains what the passage calls dialogue.",
+        "register": "Abstract language used in communication training; 'exchange of ideas and understanding' is plainer."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the movement and exchange of ideas and understanding between people",
+        "value": "மக்களிடையே கருத்துகளும் புரிதலும் பரிமாறிக்கொள்ளப்படுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/flow of meaning/",
+        "value": "Approximate pronunciation: FLOH uhv MEE-ning. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    }
+  ]
+}
