@@ -1,0 +1,460 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 15,
+  "fixedGroupFirstOrdinal": 1377,
+  "fixedGroupLastOrdinal": 1474,
+  "firstOrdinal": 1392,
+  "lastOrdinal": 1401,
+  "entryCount": 10,
+  "profileDraftCount": 10,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 10,
+  "pronunciationTextReviewCompletedCount": 10,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "b6130b50a6f84dbaa5f93cea3658bbd8fe39c9bd",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group015 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1392,
+      "wordId": "c37f333c-a7a5-425f-88a1-e22172bac810",
+      "word": "assumption",
+      "senseKey": "something-accepted-as-true-without-complete-proof",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "266f85a5efa8a725ce641e1190d25ab6de8255eb34548d415d44fa841e18dced",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Abstract or practical concept: something accepted as true without complete proof"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract: an idea accepted as true for planning before it is fully proved, here reviewer availability.",
+        "connotation": "Neutral; an assumption may be useful, but its truth still needs checking.",
+        "tone": "Careful and explanatory; makes the estimate's dependence on two reviewers explicit.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "உறுதிப்படுத்தாமல் உண்மை எனக் கொள்ளும் கருத்து",
+        "value": "உறுதிப்படுத்தாமல் உண்மை எனக் கொள்ளும் கருத்து",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/əˈsʌmpʃən/",
+        "value": "/əˈsʌmpʃən/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1393,
+      "wordId": "c380166b-8d76-4edc-b240-7b212cfc350f",
+      "word": "broach",
+      "senseKey": "introduce-sensitive-topic",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4b48120ebdba3d542a97f19bbd1bbb8ca8f6988a1847d30807427549cd1c61c2",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: introduce a subject for discussion, especially one that may be difficult.",
+        "connotation": "Neutral; often suggests care in starting a sensitive conversation.",
+        "tone": "Matter-of-fact here: reports Yvonne's decision without showing her exact feelings.",
+        "register": "Neutral to formal; more careful than 'bring up'."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to introduce a difficult or sensitive subject for discussion",
+        "value": "நுணுக்கமான அல்லது கடினமான விஷயத்தைப் பேசத் தொடங்குதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/broach/",
+        "value": "Approximate pronunciation: BROHCH. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1394,
+      "wordId": "c389c413-738c-48ac-8503-4faaa243f2d3",
+      "word": "a host of",
+      "senseKey": "a-large-number-of",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6dc57cc498d2d89f869c6a5999ffc3db0a69d7bb2555be95c0979086c2b423c4",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Quantity expression: a large number of people or things, not a person receiving guests.",
+        "connotation": "Neutral about number; here the many people provide examples of poor behavior.",
+        "tone": "Conversational and gently teasing, especially in 'yes, even your parents'.",
+        "register": "Neutral to somewhat formal; common in speech and writing when stressing a large number."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a large number or wide range of people or things",
+        "value": "ஏராளமான",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/a host of/",
+        "value": "Approximate pronunciation: uh HOHST uhv. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1395,
+      "wordId": "c3b7fa21-ac03-4630-9da9-92041c143fe2",
+      "word": "jurisdictions",
+      "senseKey": "jurisdictions-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6c3892dbcd85515c05bce13c73cb0fb8608b0103cdbe42daafe92cb01761b3d1",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Legal term: areas governed by particular legal authorities.",
+        "connotation": "Neutral in this professional course context.",
+        "tone": "Analytical and explanatory.",
+        "register": "Formal and legal; also used in professional discussions of rules across regions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "retained",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "குறிப்பிட்ட சட்ட அதிகாரப் பகுதிகள்",
+        "value": "குறிப்பிட்ட சட்ட அதிகாரப் பகுதிகள்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/jurisdictions/",
+        "value": "Approximate pronunciation: joor-is-DIK-shuhnz. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Editorial review of the term and source wording only; no current legal requirement independently verified or asserted. Remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1396,
+      "wordId": "c3e325b5-5c9e-4bf3-ae20-fe1922670725",
+      "word": "verbal blow to the gut",
+      "senseKey": "deeply-hurtful-remark",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b5ea9e512a24e2ebdc7f6c22606d0a0098918e7075fb8e52ca434935cc706211",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: a deeply hurtful remark is compared to a punch in the stomach.",
+        "connotation": "Strongly negative; stresses the emotional force of spoken words.",
+        "tone": "Vivid and questioning; contrasts calm responses to harsh remarks with extreme reactions to small signals.",
+        "register": "Informal and dramatic; more vivid than 'a hurtful remark'."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a spoken remark that causes sudden and severe emotional pain",
+        "value": "மனதைத் திடீரெனக் கடுமையாகக் காயப்படுத்தும் பேச்சு",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/verbal blow to the gut/",
+        "value": "Approximate pronunciation: VUR-buhl BLOH tuh thuh GUT. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1397,
+      "wordId": "c3ffaa34-a973-4547-8f78-35d27289c976",
+      "word": "open question",
+      "senseKey": "a-question-inviting-explanation-rather-than-a-simple-yes-or-no",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "509340751ed549e2976a400c388b4e474166ba5f0bd54aab44e91008ecdb23e1",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Abstract or practical concept: a question inviting explanation rather than a simple yes or no"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract communication concept: a question that invites an explanation rather than just yes or no.",
+        "connotation": "Usually positive in discussion; encourages a fuller answer without guaranteeing useful information.",
+        "tone": "Helpful and explanatory; offers an example and cautiously says it may reveal more.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஆம் அல்லது இல்லை என்பதற்கு மேல் விளக்கம் கேட்கும் கேள்வி",
+        "value": "ஆம் அல்லது இல்லை என்பதற்கு மேல் விளக்கம் கேட்கும் கேள்வி",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌəʊpən ˈkwestʃən/",
+        "value": "/ˌəʊpən ˈkwestʃən/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1398,
+      "wordId": "c4038b9a-cbb1-4729-8db0-1939977c28b8",
+      "word": "significance",
+      "senseKey": "importance-and-consequence",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "5eb9f47ad364dd9d81f3fb006e42099fe4c3c2f0bad32ed20bd9f49849e2863c",
+      "before": {
+        "tone": "Serious, descriptive narrative tone.",
+        "register": "Neutral to formal; natural in educated speech and writing.",
+        "connotation": "Neutral to positive connotation in this passage.",
+        "meaning_type": "Abstract meaning in this source context."
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract meaning: the importance of the diary or what its discovery could mean.",
+        "connotation": "Signals importance without, by itself, proving the discovery is good or bad.",
+        "tone": "Serious, descriptive narrative tone.",
+        "register": "Neutral to formal; natural in educated speech and writing."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "முக்கியத்துவம்",
+        "value": "முக்கியத்துவம்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/sɪɡˈnɪfɪkəns/",
+        "value": "/sɪɡˈnɪfɪkəns/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1399,
+      "wordId": "c4194eaf-4ac9-4822-8ded-4299df1e7ae2",
+      "word": "chain of command",
+      "senseKey": "the-hierarchy-through-which-authority-and-instructions-pass",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "cf11b99b48c42e17f478abde9bf960b6f614d19b4d6d714961d0b8389cb9c418",
+      "before": {
+        "tone": "Formal, hierarchical.",
+        "register": "More formal than everyday alternatives. It can sound rigid in a collaborative team; reporting line may be more suitable for routine work.",
+        "connotation": "Formal, hierarchical. An organisation chart shows roles; the chain of command stresses authority and reporting order.",
+        "meaning_type": "Contextual meaning: the hierarchy through which authority and instructions pass"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative organizational term: the ordered levels through which authority and instructions pass.",
+        "connotation": "Neutral; stresses hierarchy and clear responsibility, useful here in an emergency.",
+        "tone": "Formal and explanatory; reports that the plan makes authority clear.",
+        "register": "Formal; common in military, emergency and organizational settings."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "அதிகாரமும் அறிவுறுத்தல்களும் செல்லும் படிநிலை வரிசை",
+        "value": "அதிகாரமும் அறிவுறுத்தல்களும் செல்லும் படிநிலை வரிசை",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌtʃeɪn əv kəˈmɑːnd/",
+        "value": "/ˌtʃeɪn əv kəˈmɑːnd/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1400,
+      "wordId": "c42cc20f-daa7-4744-ad74-11d3e81810fb",
+      "word": "cubicle",
+      "senseKey": "partitioned-workspace",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "aa3fa2f313e9f28dd9ee5f5d4a6e2778aca75da8ef9da9b9bc208a0fadc25602",
+      "before": {
+        "tone": "matter-of-fact",
+        "register": "neutral workplace English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "literal meaning in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal meaning: a small office workspace separated by partitions.",
+        "connotation": "neutral in this source context",
+        "tone": "The noun is matter-of-fact; the surrounding sentence humorously exaggerates a clash between untidy and very tidy coworkers.",
+        "register": "neutral workplace English"
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "தாழ்ந்த தடுப்புகளால் பிரிக்கப்பட்ட சிறிய அலுவலகப் பணியிடம்",
+        "value": "தாழ்ந்த தடுப்புகளால் பிரிக்கப்பட்ட சிறிய அலுவலகப் பணியிடம்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈkjuːbɪkəl/",
+        "value": "/ˈkjuːbɪkəl/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1401,
+      "wordId": "c43e4581-2997-420b-8a57-1af81881f31f",
+      "word": "head out",
+      "senseKey": "to-leave-a-place-in-order-to-go-somewhere",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2e916af0adeac343ce8c6820843e1a740c2b20941dfc3a6b1ceaea3b7505baaa",
+      "before": {
+        "tone": "Conversational departure.",
+        "register": "Conversational wording: It is conversational and often signals imminent departure rather than a formal travel plan.",
+        "connotation": "Neutral relationship or function: to leave a place in order to go somewhere.",
+        "meaning_type": "Contextual expression: to leave a place in order to go somewhere"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conventional phrasal verb: leave a place to go somewhere.",
+        "connotation": "Neutral relationship or function: to leave a place in order to go somewhere.",
+        "tone": "Conversational and mildly urgent; suggests leaving soon to catch the train.",
+        "register": "Conversational wording: It is conversational and often signals imminent departure rather than a formal travel plan."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "வெளியே புறப்படுதல்",
+        "value": "வெளியே புறப்படுதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/hed ˈaʊt/",
+        "value": "/hed ˈaʊt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    }
+  ]
+}
