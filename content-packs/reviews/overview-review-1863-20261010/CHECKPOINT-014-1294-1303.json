@@ -1,0 +1,455 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 14,
+  "fixedGroupFirstOrdinal": 1279,
+  "fixedGroupLastOrdinal": 1376,
+  "firstOrdinal": 1294,
+  "lastOrdinal": 1303,
+  "entryCount": 10,
+  "profileDraftCount": 9,
+  "blockedCount": 1,
+  "tamilReviewCompletedCount": 9,
+  "pronunciationTextReviewCompletedCount": 10,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "03019ab9056547b632b2bab8daf372af54347831",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group014 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1294,
+      "wordId": "b7add477-01d0-44c6-8b01-c9f8624e61d1",
+      "word": "emotions run strong",
+      "senseKey": "feelings-are-intense",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b7fce60f2603cbe3c0c8096aae3b84af7a5801a4a0ad2d8fcf9b327ecb0079f2",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative description of intensity: people have powerful feelings; the emotions are not literally running.",
+        "connotation": "Emphasizes intensity without identifying whether the feelings are pleasant or unpleasant.",
+        "tone": "Matter-of-fact here: 'third' lists another condition. The short sentence does not identify a particular emotion.",
+        "register": "Neutral and expressive; natural in discussion of emotionally important situations."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: people experience particularly intense feelings in a situation",
+        "value": "உணர்ச்சிகள் மிகவும் தீவிரமாக இருக்கும் நிலை",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/emotions run strong/",
+        "value": "Approximate pronunciation: ih-MOH-shunz run STRONG. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1295,
+      "wordId": "b7b48f36-cf65-40cf-b9e4-b57073d8bdcb",
+      "word": "in one go",
+      "senseKey": "in-one-go-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "91c4b013a2b06267cac585a2cf259b5f55e6fdc141c49f814252f1c64cd6ed2c",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Idiomatic meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic expression: in one continuous attempt or operation rather than several separate ones.",
+        "connotation": "Neutral about doing something together; here it suggests a practical processing option.",
+        "tone": "Analytical and explanatory.",
+        "register": "Conversational to neutral; natural in everyday speech and accessible workplace explanations."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "ஒரே முறையில்",
+        "value": "ஒரே தொடர்ச்சியான முயற்சியில் அல்லது செயல்பாட்டில்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/in one go/",
+        "value": "Approximate pronunciation: in wun GOH. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1296,
+      "wordId": "b7c2ab94-9137-45b6-b8fc-f75060ec78b3",
+      "word": "correlated",
+      "senseKey": "correlated-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "60bad468799c296288f29ff255d3f54496497a3b609eed7a93090abb157a512d",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical statistical relationship: changes in one variable are associated with changes in another, without proving causation.",
+        "connotation": "Neutral as a statistical description; the possible performance problem comes from the particular modelling situation.",
+        "tone": "Cautionary and explanatory here: the speaker says many related features can sometimes reduce performance.",
+        "register": "Technical; common in statistics, research and data analysis."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "ஒன்றோடொன்று புள்ளியியல் தொடர்புடைய",
+        "value": "ஒன்றோடொன்று புள்ளியியல் தொடர்புடைய",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/correlated/",
+        "value": "Approximate pronunciation: KOR-uh-lay-tid. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1297,
+      "wordId": "b7d31af1-11bc-4174-bc65-45cb5c443114",
+      "word": "check into",
+      "senseKey": "register-at-institution",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e59cd67438194310327e31ed0a89f41e3048cd1abee7324518da7f9a4678d1fd",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal institutional action: arrive and register for a stay, here at a hospital.",
+        "connotation": "Neutral about registration; the later error does not make the phrase itself negative.",
+        "tone": "Serious and factual in wording here: routine admission is followed by a reported surgical error.",
+        "register": "Neutral; common in everyday accounts of hospital or hotel stays."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to arrive and register at a hospital, hotel, or similar institution",
+        "value": "மருத்துவமனை அல்லது விடுதி போன்ற இடத்தில் தங்குவதற்காக வந்து பதிவு செய்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/check into/",
+        "value": "Approximate pronunciation: chek IN-too. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Reported surgical event not independently verified; this receipt reviews the language only."
+    },
+    {
+      "ordinal": 1298,
+      "wordId": "b7d85f97-6e7b-4a4d-b707-3faf2e041706",
+      "word": "a compelling argument",
+      "senseKey": null,
+      "senseRank": 1,
+      "expectedEntryVersion": 3,
+      "expectedLessonSha256": "18cb7431d05f02b06e818fc45b434e53136e6ea85ec509238c2dd186abbe7cf1",
+      "before": {
+        "tone": "Persuasive and thoughtful",
+        "register": "Neutral to formal; common in professional and academic English",
+        "connotation": "Positive when evaluating the quality of reasoning",
+        "meaning_type": "Abstract"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract evaluation of reasoning: an argument is strongly convincing and holds attention.",
+        "connotation": "Positive when evaluating the quality of reasoning",
+        "tone": "Approving here: the speaker praises the report's case for taking early action.",
+        "register": "Neutral to formal; common in professional and academic English"
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "மிகவும் நம்ப வைக்கும் வாதம்",
+        "value": "மிகவும் நம்ப வைக்கும் வாதம்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ə kəmˈpelɪŋ ˈɑːrɡjəmənt/",
+        "value": "/ə kəmˈpelɪŋ ˈɑːrɡjəmənt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Null senseKey preserved. Clear sense; resolve missing identity metadata through production update contract before delivery."
+    },
+    {
+      "ordinal": 1299,
+      "wordId": "b7f92aa0-b2f0-4cfb-acc9-5c5a118e55b5",
+      "word": "palatable",
+      "senseKey": "acceptable-or-easy-to-accept",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "fc69a66f8732d827da6094738d581dc14b7ae1abab98a056fe2910ff4f785b45",
+      "before": {
+        "tone": "clear and explanatory, with intensity determined by the sentence",
+        "register": "neutral; natural in careful everyday and professional English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "literal or abstract vocabulary in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative acceptance: an uncomfortable subject is made easier to accept, like food made easier to eat.",
+        "connotation": "Suggests acceptability rather than truth or quality; sugarcoating may hide something unpleasant.",
+        "tone": "Explanatory with a critical edge here: 'sugarcoating' suggests softening the message instead of addressing it directly.",
+        "register": "neutral; natural in careful everyday and professional English"
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஏற்றுக்கொள்ள எளிதான",
+        "value": "ஏற்றுக்கொள்ள எளிதான",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈpælətəbəl/",
+        "value": "/ˈpælətəbəl/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1300,
+      "wordId": "b81284b9-ebc1-4944-ba05-404efa115918",
+      "word": "dumbed-down",
+      "senseKey": "oversimplified",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4d5e2707eee7d19f8e4244565fbf46865ec75bc706c252c9fe49ce1d5c8239ef",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": null,
+      "fieldDecisions": {
+        "meaning_type": "blocked",
+        "connotation": "blocked",
+        "tone": "blocked",
+        "register": "blocked"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: made simpler and less intellectually demanding",
+        "value": null,
+        "decision": "blocked",
+        "status": "blocked_pending_sense_resolution"
+      },
+      "pronunciation": {
+        "before": "/dumbed-down/",
+        "value": "Approximate pronunciation: dumd DOWN; b is silent. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "quarantined_unresolved_source_sense_mismatch",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Stored oversimplified sense and definition concern making material less demanding. Source describes people's impaired thinking in a 'doped-up, dumbed-down state'. Full contextual reconciliation needed before treating these as the same sense; no silent identity/gloss change."
+    },
+    {
+      "ordinal": 1301,
+      "wordId": "b84ed365-91fe-44f5-84fc-2ddfcfaee4bf",
+      "word": "authority",
+      "senseKey": "power-to-direct",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e8c7cb468be0e92b03804a3d40a8abb15ae93148d5ea85b1f88484b003ec01ab",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract institutional power: the right to direct others or make decisions.",
+        "connotation": "Neutral as a kind of power; the promotion presents increased authority as a benefit.",
+        "tone": "Positive but balanced here: career gains and pay are weighed against the difficulty of moving.",
+        "register": "Neutral; common in professional, organizational and everyday discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the power or right to give orders, make decisions, or control others",
+        "value": "கட்டளையிடவும் முடிவெடுக்கவும் பிறரை வழிநடத்தவும் உள்ள அதிகாரம்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/authority/",
+        "value": "Approximate pronunciation: uh-THOR-uh-tee; th as in thin. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1302,
+      "wordId": "b885efa3-83ad-477d-a5dd-3a1d364374bd",
+      "word": "excel",
+      "senseKey": "perform-extremely-well",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "918594dc292a126260717ee696db5557570806f2e5666babae0f610801abc94b",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract performance: do exceptionally well at an activity.",
+        "connotation": "Strongly positive; goes beyond merely completing the task adequately.",
+        "tone": "Admiring here: success is emphasized precisely when the conversations became difficult and important.",
+        "register": "Neutral; common in evaluations, education and general descriptions of achievement."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to perform extremely well in an activity or subject",
+        "value": "ஒரு செயலில் மிகச் சிறப்பாகச் செயல்படுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/excel/",
+        "value": "Approximate pronunciation: ik-SEL. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1303,
+      "wordId": "b8a45c21-3a95-49d2-ac16-1c34acb3841d",
+      "word": "justifiable",
+      "senseKey": "supported-by-a-sufficiently-good-reason",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "acba8e23d2a5df1065c8f9d12dedb29bcc3bb8889ec2709ceac6123c5cb95c67",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Evaluative: assesses the strength or suitability of an idea.",
+        "meaning_type": "Contextual usage: supported by a sufficiently good reason"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract evaluation: an action has a sufficiently good reason to support it.",
+        "connotation": "Qualified approval; a defensible action need not be ideal.",
+        "tone": "Measured and conditional here: preventing a serious error makes the short delay acceptable.",
+        "register": "Neutral to formal; common in reasoned discussion of decisions and actions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "நியாயமான காரணம் காட்டக்கூடிய",
+        "value": "நியாயமான காரணம் காட்டக்கூடிய",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈdʒʌstɪfaɪəbəl/",
+        "value": "/ˈdʒʌstɪfaɪəbəl/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and source reviewed; remaining lesson sections not certified."
+    }
+  ]
+}
