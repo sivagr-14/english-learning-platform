@@ -1,0 +1,455 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 14,
+  "fixedGroupFirstOrdinal": 1279,
+  "fixedGroupLastOrdinal": 1376,
+  "firstOrdinal": 1284,
+  "lastOrdinal": 1293,
+  "entryCount": 10,
+  "profileDraftCount": 9,
+  "blockedCount": 1,
+  "tamilReviewCompletedCount": 9,
+  "pronunciationTextReviewCompletedCount": 10,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "03019ab9056547b632b2bab8daf372af54347831",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group014 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1284,
+      "wordId": "b69084b3-d8ce-435d-8835-229d42267bbd",
+      "word": "otherwise",
+      "senseKey": "in-a-different-way",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "efdd09235ef8fad4a75f2a42ad3d299c01607410e896d7a78f8080863ec2f511",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": null,
+      "fieldDecisions": {
+        "meaning_type": "blocked",
+        "connotation": "blocked",
+        "tone": "blocked",
+        "register": "blocked"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: in circumstances different from those mentioned",
+        "value": null,
+        "decision": "blocked",
+        "status": "blocked_pending_sense_resolution"
+      },
+      "pronunciation": {
+        "before": "/otherwise/",
+        "value": "Approximate pronunciation: UTH-er-wyz; th as in this. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "quarantined_unresolved_source_sense_mismatch",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source 'or otherwise acting' means in another way; stored definition says in circumstances different from those mentioned. SenseKey in-a-different-way supports the source but conflicts with the stored gloss. Resolve the existing identity/definition before same-sense delivery; do not silently replace it."
+    },
+    {
+      "ordinal": 1285,
+      "wordId": "b696e3b5-1f8c-4594-a940-2173df0b7bcb",
+      "word": "normalization",
+      "senseKey": "normalization-ml-context",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "78f5778c3e79efd357d9e028daa49c9d8fe95fe811ab07ed6ec48db132cb9197",
+      "before": {
+        "tone": "Professional and analytical in this lesson.",
+        "register": "Professional and academic technical English.",
+        "connotation": "Neutral; it describes a measurable concept or engineering process.",
+        "meaning_type": "Technical and abstract meaning in machine-learning engineering."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical process: transform values to a consistent scale or format.",
+        "connotation": "Neutral about a data-processing operation; it does not imply that the data were morally or socially abnormal.",
+        "tone": "Matter-of-fact here: 'then we have' simply names the next topics, without a detailed evaluation.",
+        "register": "Professional and academic technical English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "மதிப்புகளை ஒரே அளவு அல்லது வடிவத்திற்கு மாற்றுதல்",
+        "value": "மதிப்புகளை ஒரே அளவு அல்லது வடிவத்திற்கு மாற்றுதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌnɔːməlaɪˈzeɪʃən/",
+        "value": "/ˌnɔːməlaɪˈzeɪʃən/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source is a short topic list; no detailed attitude or particular normalization algorithm inferred."
+    },
+    {
+      "ordinal": 1286,
+      "wordId": "b6e1d212-d276-458d-b411-c9e3bcf7c06e",
+      "word": "auto repair shop",
+      "senseKey": "vehicle-repair-business",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d87cc283f653d2ed30622086e19e1416c416912e3548041e83558496cd914370",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal place: a business where motor vehicles are repaired and maintained.",
+        "connotation": "Neutral; the frustration in the example concerns being left waiting, not the type of business.",
+        "tone": "The scenario sets up a complaint about a long wait; the actual words spoken to the spouse are not supplied.",
+        "register": "Neutral, especially American English; 'garage' is a common British alternative."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a business where motor vehicles are repaired and maintained",
+        "value": "மோட்டார் வாகனங்களைப் பழுது பார்த்துப் பராமரிக்கும் நிலையம்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/auto repair shop/",
+        "value": "Approximate pronunciation: AW-toh ri-PAIR shop. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and sentence reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1287,
+      "wordId": "b6fb1718-bd74-4a1e-8a30-d4cb41a4b28d",
+      "word": "set a precedent",
+      "senseKey": "to-create-an-example-that-may-guide-similar-future-decisions",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b9b0aabdd200ff854cf869201b50d07d44acd1a156000bbb610ffc723b6a68e2",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Figurative or idiomatic: to create an example that may guide similar future decisions"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract decision-making expression: create an example that may guide later similar decisions.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "tone": "Cautious here: 'could' raises the possible future consequences of approving an exception.",
+        "register": "Neutral to formal; common in legal, policy and workplace discussions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "பின்னைய முடிவுகளுக்கு முன்னுதாரணம் ஏற்படுத்துதல்",
+        "value": "பின்னைய முடிவுகளுக்கு முன்னுதாரணம் ஏற்படுத்துதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/set ə ˈpresɪdənt/",
+        "value": "/set ə ˈpresɪdənt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and sentence reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1288,
+      "wordId": "b749d790-e2fe-4f7c-98dc-cb2b844c6be2",
+      "word": "insignificant",
+      "senseKey": "too-small-to-matter",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8c21759e94a1c915e839f4da0b6864bb45474dd204b226259e42633665cfaa49",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract judgement of importance: too minor to deserve much attention.",
+        "connotation": "Can sound dismissive; 'seemingly' makes the judgement tentative here.",
+        "tone": "Warning here: the writer argues that even apparently minor conversations can shape later behaviour.",
+        "register": "Neutral to formal; common in evaluation, but potentially hurtful when applied to someone's concerns."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: too small or unimportant to deserve attention",
+        "value": "கவனிக்கத் தேவையில்லாத அளவுக்குச் சிறிய அல்லது முக்கியத்துவமற்ற",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/insignificant/",
+        "value": "Approximate pronunciation: in-sig-NIF-ih-kuhnt. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and sentence reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1289,
+      "wordId": "b75a3429-be93-4c87-bead-e6dc11ef26fc",
+      "word": "under way",
+      "senseKey": "already-started-and-currently-happening",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "32fb89adbf6db9fb912351b77b7beb1a4ae9227335e46e7d259587bde5096596",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: already started and currently happening"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conventional status expression: something has begun and is continuing.",
+        "connotation": "Neutral about progress; being under way does not guarantee success.",
+        "tone": "Practical and informative here: the handover has started and is expected to finish tomorrow.",
+        "register": "Neutral; common in news, progress reports and everyday updates."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "ஏற்கனவே தொடங்கி நடைபெற்று வரும் நிலையில்",
+        "value": "ஏற்கனவே தொடங்கி நடைபெற்று வரும் நிலையில்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌʌndə ˈweɪ/",
+        "value": "/ˌʌndə ˈweɪ/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and sentence reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1290,
+      "wordId": "b776ee1b-ce02-42f7-af99-be5ce7a5f4b1",
+      "word": "take charge",
+      "senseKey": "assume-control",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6bc28d9849c1acc48c409c4a677fab1ed2dff1713eb4023bc288cd475efdb5b2",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract action: assume control or responsibility for a situation.",
+        "connotation": "Often suggests useful leadership, though taking control can be unwelcome if imposed.",
+        "tone": "Encouraging here: the writer praises people acting without waiting for a leader to assume control.",
+        "register": "Neutral; common in everyday and workplace discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to assume control or responsibility for a situation",
+        "value": "ஒரு சூழ்நிலையின் பொறுப்பை அல்லது கட்டுப்பாட்டை ஏற்றுக்கொள்ளுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/take charge/",
+        "value": "Approximate pronunciation: tayk CHARJ. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and sentence reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1291,
+      "wordId": "b789fd1e-607c-4834-9e94-ea143f17dfa8",
+      "word": "nag",
+      "senseKey": "repeatedly-criticize",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e3adfccc2b0ff67d7e60518b50ffd4cb0577f4719e39ad976acb9b0fef89d6db",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal communication behaviour: repeatedly complain or press someone about doing something.",
+        "connotation": "Negative; presents repetition as irritating rather than helpful reminding.",
+        "tone": "Critical here: calling the reminders 'nagging' portrays the speaker's behaviour unfavourably.",
+        "register": "Conversational and judgemental; describe the repeated requests directly for more diplomatic feedback."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to repeatedly complain to or criticize someone",
+        "value": "ஒருவரிடம் மீண்டும் மீண்டும் குறைகூறுதல் அல்லது நச்சரித்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/nag/",
+        "value": "Approximate pronunciation: NAG. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and sentence reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1292,
+      "wordId": "b79dd2cf-a7c1-472d-8f2c-e17b51b54e72",
+      "word": "perverted",
+      "senseKey": "distorted-from-proper-form",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "dec64a471c9bb42efb7bd564d5a12de1dfe6533dda3e213272d6f891803cc0f3",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract description of distortion: logic has been twisted away from reasonable thinking.",
+        "connotation": "Strongly negative; condemns the reasoning as distorted and harmful.",
+        "tone": "Critical and problem-solving here: the question seeks escape from logic linked to hurtful behaviour.",
+        "register": "Strong, judgemental wording; 'distorted logic' is often clearer in professional discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: distorted from a proper, reasonable, or acceptable form",
+        "value": "நியாயமான வடிவத்திலிருந்து திரிக்கப்பட்ட",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/perverted/",
+        "value": "Approximate pronunciation: per-VUR-tid. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual sense and sentence reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1293,
+      "wordId": "b7a413a1-fcd1-45e3-90dd-de78a12abe80",
+      "word": "identifiable information",
+      "senseKey": "identifiable-information-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e510899743ca8973011a6b281edc3ff427cdfc3ca8370a547633027f8f3e0da7",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical privacy concept: information that can reveal who a particular person is.",
+        "connotation": "Neutral as a data category; it calls attention to the possibility of identification.",
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஒரு நபரை அடையாளம் காணக்கூடிய தகவல்",
+        "value": "ஒரு நபரை அடையாளம் காணக்கூடிய தகவல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/identifiable information/",
+        "value": "Approximate pronunciation: eye-den-tih-FY-uh-buhl in-fer-MAY-shun. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source quotation says personal identifiable information; preserve immutable quotation. Standard teaching prose should use personally identifiable information when expanding the term."
+    }
+  ]
+}
