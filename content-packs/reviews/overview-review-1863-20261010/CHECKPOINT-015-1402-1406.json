@@ -1,0 +1,240 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 15,
+  "fixedGroupFirstOrdinal": 1377,
+  "fixedGroupLastOrdinal": 1474,
+  "firstOrdinal": 1402,
+  "lastOrdinal": 1406,
+  "entryCount": 5,
+  "profileDraftCount": 5,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 5,
+  "pronunciationTextReviewCompletedCount": 5,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "b6130b50a6f84dbaa5f93cea3658bbd8fe39c9bd",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group015 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1402,
+      "wordId": "c452abc0-759f-43db-8232-1181fc47e988",
+      "word": "romantically",
+      "senseKey": "in-romantic-way",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "803ba68367797b7302c2f4fa4d8acc06d77c3a8afdf41a64e0f241903bd0931c",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract relationship meaning: concerning love or intimacy between partners.",
+        "connotation": "Neutral about the relationship area; 'not in sync' identifies a difficulty rather than making romance negative.",
+        "tone": "Gentle and tentative; 'I'd like to talk' opens a discussion about a mismatch between partners.",
+        "register": "Neutral; common in personal discussions of love and relationships."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: in a way connected with love or an intimate relationship",
+        "value": "காதல் அல்லது நெருக்கமான உறவு சார்ந்து",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/romantically/",
+        "value": "Approximate pronunciation: roh-MAN-tik-lee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1403,
+      "wordId": "c46218be-80ab-4690-84ec-5911f043bb61",
+      "word": "irrespective of",
+      "senseKey": "without-allowing-a-particular-factor-to-make-a-difference",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "5752c12476f431ce071f1a9ff204d823b0c91600e7d5784698591e3c69ddcead",
+      "before": {
+        "tone": "Formal, impartial.",
+        "register": "Formal wording: Avoid needless formality in a casual invitation; whatever your department may be clearer.",
+        "connotation": "Neutral relationship or function: without allowing a particular factor to make a difference.",
+        "meaning_type": "Grammatical relationship: without allowing a particular factor to make a difference"
+      },
+      "proposedProfile": {
+        "meaning_type": "Grammatical relationship: without allowing a particular factor to make a difference",
+        "connotation": "Neutral relationship or function: without allowing a particular factor to make a difference.",
+        "tone": "Formal, impartial.",
+        "register": "Formal wording: Avoid needless formality in a casual invitation; whatever your department may be clearer."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "retained",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "குறிப்பிட்ட காரணத்தை பொருட்படுத்தாமல்",
+        "value": "குறிப்பிட்ட காரணத்தை பொருட்படுத்தாமல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌɪrɪˈspektɪv əv/",
+        "value": "/ˌɪrɪˈspektɪv əv/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1404,
+      "wordId": "c470f1d0-290a-45e7-b7a6-166e0d15842d",
+      "word": "maximum depth",
+      "senseKey": "maximum-depth-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "78e84cac87a4c5a5c86bff774f72af8818f09c4cd75d1cb7f0f01e2b08343b62",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical collocation."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical collocation: a limit on how far a decision tree can split into further levels.",
+        "connotation": "Neutral; names a model setting, not a judgment that deeper trees are better.",
+        "tone": "Analytical and explanatory.",
+        "register": "Technical computing and machine-learning English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "முடிவு மரத்தில் அனுமதிக்கப்படும் அதிகபட்ச அடுக்கு எண்ணிக்கை",
+        "value": "முடிவு மரத்தில் அனுமதிக்கப்படும் அதிகபட்ச அடுக்கு எண்ணிக்கை",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/maximum depth/",
+        "value": "Approximate pronunciation: MAK-si-muhm DEPTH. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1405,
+      "wordId": "c47ad110-6386-4c5d-99e1-2e9b1cbf3555",
+      "word": "robustness",
+      "senseKey": "robustness-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b9171144b5064dfdd0628996c857d75a6b4d6a01f8de486611670fc75c56971f",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional course context.",
+        "meaning_type": "Abstract or technical meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical and abstract: a model's ability to remain reliable when the data or conditions vary.",
+        "connotation": "Usually a desirable quality; the sentence describes testing it without claiming the model has passed.",
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "மாறுபட்ட சூழல்களிலும் நிலைத்திருக்கும் திறன்",
+        "value": "மாறுபட்ட அல்லது கடினமான சூழல்களிலும் நம்பகமாகச் செயல்படும் திறன்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/robustness/",
+        "value": "Approximate pronunciation: roh-BUST-nuhs. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1406,
+      "wordId": "c4da7960-22f8-4c16-847b-6114a3ed0940",
+      "word": "in the meantime",
+      "senseKey": "during-the-period-before-another-event-happens",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8b8104e5057275017b2228f55045152962aa6d2c4677e58de05cabe693d996a7",
+      "before": {
+        "tone": "Neutral interim action.",
+        "register": "Neutral or professional wording: Identify the event being awaited so the time relationship is clear.",
+        "connotation": "Neutral relationship or function: during the period before another event happens.",
+        "meaning_type": "Contextual expression: during the period before another event happens"
+      },
+      "proposedProfile": {
+        "meaning_type": "Time-linking expression: during the wait before another event, here before the room is ready.",
+        "connotation": "Neutral relationship or function: during the period before another event happens.",
+        "tone": "Practical and reassuring; proposes somewhere to leave the bags while waiting.",
+        "register": "Neutral or professional wording: Identify the event being awaited so the time relationship is clear."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "அடுத்த நிகழ்வுக்கு இடைப்பட்ட நேரத்தில்",
+        "value": "அடுத்த நிகழ்வுக்கு இடைப்பட்ட நேரத்தில்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ɪn ðə ˈmiːntaɪm/",
+        "value": "/ɪn ðə ˈmiːntaɪm/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    }
+  ]
+}
