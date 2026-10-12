@@ -1,0 +1,240 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 15,
+  "fixedGroupFirstOrdinal": 1377,
+  "fixedGroupLastOrdinal": 1474,
+  "firstOrdinal": 1417,
+  "lastOrdinal": 1421,
+  "entryCount": 5,
+  "profileDraftCount": 5,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 5,
+  "pronunciationTextReviewCompletedCount": 5,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "b6130b50a6f84dbaa5f93cea3658bbd8fe39c9bd",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group015 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1417,
+      "wordId": "c59b89d9-30ef-45fe-b9da-e3be4388451f",
+      "word": "underqualified",
+      "senseKey": "lacking-required-qualifications",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "754250c6d886f6a4a3de6dd5ff1db07668f524e8dca660c3d02212669e504f01",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract assessment: lacking the qualifications or experience needed for a role.",
+        "connotation": "Negative; judges a person's preparation as insufficient, not their worth as a person.",
+        "tone": "Critical and dissatisfied here; reports the view that supervisors lack qualifications despite high pay.",
+        "register": "Neutral to professional; common in recruitment and workplace evaluations."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: not having enough qualifications or experience for a role",
+        "value": "ஒரு பணிக்குத் தேவையான தகுதி அல்லது அனுபவம் போதாத",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/underqualified/",
+        "value": "Approximate pronunciation: un-der-KWOL-uh-fyd. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1418,
+      "wordId": "c5a5299a-b0d5-4a8f-a8fc-6ef433f3ad98",
+      "word": "scratching",
+      "senseKey": "making-a-repeated-scraping-sound-with-claws-or-feet",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f25cea378bd5e833d2170923679c59ff53ea007e33f41f0be8e0f3c4341da731",
+      "before": {
+        "tone": "A scraping noise made by the pig moving inside the carton.",
+        "register": "Neutral and natural in narrative or everyday English.",
+        "connotation": "Mostly neutral; its emotional effect comes from the surrounding scene.",
+        "meaning_type": "Descriptive meaning used to add precise detail."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal sound description: a repeated scraping noise from movement against a surface.",
+        "connotation": "Mostly neutral; its emotional effect comes from the surrounding scene.",
+        "tone": "Descriptive and slightly suspenseful; movement and noise draw attention to the carton without naming their cause in this sentence.",
+        "register": "Neutral and natural in narrative or everyday English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "retained",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "சுரண்டும் ஓசை எழுப்பும்",
+        "value": "சுரண்டும் ஓசை எழுப்பும்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/scratching/",
+        "value": "Approximate pronunciation: SKRACH-ing. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "The supplied sentence does not identify the sound-maker; do not carry the old tone field's pig attribution into the new tone. Remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1419,
+      "wordId": "c5a7f259-2d0b-4a96-a73e-796fcd4f6e81",
+      "word": "outbreak",
+      "senseKey": "sudden-start",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "96cf3795ceb120aac95058e4dcdeb8a10d3e92584627c3b38809dccd3c87cfdc",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: a sudden appearance of unwanted behavior under stress, not an outbreak of disease.",
+        "connotation": "Negative here; treats the behavior as something to notice and manage.",
+        "tone": "Brief and instructional; the bullet tells readers to watch for their stress reactions.",
+        "register": "Neutral word used figuratively in this training context; also common in news about sudden harmful events."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a sudden beginning or increase of something harmful",
+        "value": "மனஅழுத்தத்தில் விரும்பத்தகாத நடத்தை திடீரென வெளிப்படுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/outbreak/",
+        "value": "Approximate pronunciation: OWT-brayk. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1420,
+      "wordId": "c5bcb0bd-b397-4a55-95db-1026e9d0bc93",
+      "word": "visitation",
+      "senseKey": "legal-access-to-child",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8f7407f8c719bc13a07598c403ad80d69b1ac2d4dfb55cd54ba95c5016196f5c",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Legal and family-related term: arranged time for a separated parent to see their child.",
+        "connotation": "Neutral; names an arrangement, while the passage presents disagreements about it as sensitive.",
+        "tone": "Cautionary and practical in a list of topics that can lead to difficult conversations.",
+        "register": "Formal and legal, especially in American English; used in discussions of separated parents and children."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: court-recognized time or access with a child after parental separation",
+        "value": "பிரிந்த பெற்றோர் தங்கள் குழந்தையைச் சந்திக்க அனுமதிக்கப்பட்ட நேரம் அல்லது உரிமை",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/visitation/",
+        "value": "Approximate pronunciation: viz-ih-TAY-shuhn. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source includes a long list and an OCR heading; reviewed the custody/visitation bullet without treating unrelated bullets as this word's context. Language review only, not a legal determination. Remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1421,
+      "wordId": "c5ea4a16-1e6e-4334-8a9f-49000d2bb5ea",
+      "word": "supplant",
+      "senseKey": "replace-in-position",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "32e83dc6b3bc1bc40fd41ef368347b561705b7371cf354f3914ed6311bb24f7a",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract replacement: one motive takes the place of another.",
+        "connotation": "Negative here because less healthy motives replace better ones; replacement is not always bad in other contexts.",
+        "tone": "Cautionary and critical; warns how motives can change during tense conversations.",
+        "register": "Formal; 'replace' is more common in everyday speech."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to replace something, especially by taking its position or function",
+        "value": "ஒன்றின் இடத்தைப் பிடித்து அதை மாற்றியமைத்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/supplant/",
+        "value": "Approximate pronunciation: suh-PLANT. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    }
+  ]
+}
