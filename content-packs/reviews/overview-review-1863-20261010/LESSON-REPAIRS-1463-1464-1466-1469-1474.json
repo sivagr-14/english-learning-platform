@@ -1,0 +1,581 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-1463-1464-1466-1469-1474",
+  "scope": "Immutable full-lesson repair drafts outside active inbox; not a content pack and not ready to sync.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "sourceHashSerialization": "Python json.dumps(lesson_data, sort_keys=True, ensure_ascii=False) with default separators, UTF-8 SHA256; matches existing review receipts.",
+  "sourceExportHashVerified": true,
+  "records": [
+    {
+      "ordinal": 1463,
+      "wordId": "c9b6fac3-0216-4f48-b990-0977e328038e",
+      "senseKey": "bring-image-to-mind",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c3ce8fde71181a61116217bbba859eb0ddae1a675770330c0f02f6ca4830388a",
+      "profileReceipt": "CHECKPOINT-015-1450-1474.json",
+      "entry": {
+        "word": "conjure up",
+        "wordType": "phrasal verb",
+        "pronunciation": "Approximate pronunciation: KUN-juh up. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மனதில் ஓர் உருவம் அல்லது காட்சியைத் தோன்றச் செய்தல்",
+        "englishMeaning": "to make an image, idea, or memory appear in the mind",
+        "coreIdea": "Bring a vivid picture or memory into the mind.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative phrasal verb: make an image appear in the mind, here world leaders debating around a table.",
+              "connotation": "Vivid but not inherently positive or negative; the imagined scene determines the association.",
+              "tone": "Illustrative: uses a striking mental picture to explain a common first impression.",
+              "register": "Neutral, vivid wording in conversation and descriptive writing; more expressive than 'think of'."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "When  people  first  hear  the  term  \"crucial  conversatio n,\"  many  conjure  up  images  of  presidents,  emperor s,  and  prime  mini sters  seated  around  a  massive  table  while  they  debate the  fu ture  of  the  world .",
+            "contextual_meaning": "to make an image, idea, or memory appear in the mind",
+            "simple_explanation": "Hearing the expression makes people imagine world leaders having a very important discussion."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use conjure up when words, sounds or smells bring a vivid image or memory to mind.",
+              "Use it for deliberately imagining a scene as well as for memories triggered by something."
+            ],
+            "when_not_to_use": [
+              "Do not use conjure up merely to say you remember a fact such as a password; remember is usually more natural.",
+              "Do not assume the imagined scene is real just because someone can conjure it up."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "conjure up + image or memory; conjure + image or memory + up",
+            "common_collocations": [
+              "conjure up images",
+              "conjure up memories",
+              "conjure up a picture"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The smell of fresh bread conjured up memories of her grandmother's kitchen.",
+              "example_2": "The word adventure can conjure up images of mountains and distant islands."
+            },
+            "mini_conversation": "A: What does that song make you think of?\nB: It conjures up memories of our school trips.\nA: Let's find the old photos."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect word order with a pronoun: 'I can conjure up it in my mind.'",
+            "correction": "Say: 'I can conjure it up in my mind.' A short object pronoun goes between conjure and up.",
+            "important_difference": "Remember may simply mean retrieve information; conjure up emphasizes an image or memory becoming vivid in the mind."
+          },
+          "memory_practice": {
+            "memory_trigger": "Picture a familiar smell making an old kitchen scene appear in your mind.",
+            "memory_sentence": "That song can conjure up memories of summer.",
+            "recall_question": "When a smell conjures up a memory, does it create a physical object or bring something to mind?",
+            "recognition_task": "Choose the natural description of a smell triggering a vivid childhood scene: A: The smell conjured up memories. B: The smell wrote down memories. Answer: A.",
+            "production_task": "Write two sentences to a friend about a fictional song or smell. Use conjure up to describe the scene it brings to mind."
+          },
+          "advanced_nuance": [
+            "Conjure up does not always mean inventing something false: it can describe real memories as well as imagined scenes.",
+            "With a noun, both 'conjure up an image' and 'conjure an image up' are possible; with it, use 'conjure it up'."
+          ]
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "The original teaching sections repeat the gloss or generic instructions instead of demonstrating the expression.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Conjure up: examples cover evoked memories and imagined images within the mental-image sense; separable-object and pronoun order checked; no claim that vividness establishes truth.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "validatorBlobSha": "24de6564d43b2d31da5d04755566e501f75d5910",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 1464,
+      "wordId": "c9c5d3c9-0f7d-4e4b-acbd-4e4c58bd001e",
+      "senseKey": "tactful-negotiator",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f9cee0b4b6e1594e36215913cd74bedc5cfc8c26e1ae8d598c104a58243ec434",
+      "profileReceipt": "CHECKPOINT-015-1450-1474.json",
+      "entry": {
+        "word": "diplomat",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: DIP-luh-mat. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கடினமான மனிதர்களையும் சூழ்நிலைகளையும் சாதுரியமாகக் கையாள்பவர்",
+        "englishMeaning": "a person skilled at dealing tactfully with difficult people or situations",
+        "coreIdea": "A person who handles disagreement with tact.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative personal role: someone who deals tactfully with difficult people, rather than an official representing a country.",
+              "connotation": "Positive; suggests tact and skill in avoiding unnecessary conflict.",
+              "tone": "Wry and mildly humorous: 'doesn't exactly' understates how aggression makes a tactful response difficult.",
+              "register": "Neutral figurative use, especially in everyday discussions of people's social skills."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "This  kind  of  aggre ssive  behavior  doesn't  exactly  bring  out  the  diplomat  in  you.",
+            "contextual_meaning": "a person skilled at dealing tactfully with difficult people or situations",
+            "simple_explanation": "Aggressive behavior can make it hard for you to respond calmly and choose words that avoid further conflict."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Call someone a diplomat figuratively when they handle disagreement tactfully and keep people talking.",
+              "Use 'the diplomat in someone' to describe the tactful side of that person's character."
+            ],
+            "when_not_to_use": [
+              "Do not use diplomat simply to mean someone who is silent; a tactful person may speak firmly.",
+              "If there could be confusion with an official government role, say 'a natural diplomat when handling disagreements'."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "be a diplomat; be a natural diplomat; bring out the diplomat in someone",
+            "common_collocations": [
+              "a natural diplomat",
+              "a skilled diplomat",
+              "the diplomat in you"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "My sister is a natural diplomat: she helps our relatives disagree without starting an argument.",
+              "example_2": "You need to be a diplomat to explain this change to two teams with different priorities."
+            },
+            "mini_conversation": "A: How did you tell both teams they needed to compromise?\nB: I explained what each side would gain.\nA: You're quite a diplomat. Could you help with the next meeting?"
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: 'She is very diplomat with upset customers.' Diplomat is a noun, not the adjective.",
+            "correction": "Say: 'She is a real diplomat with upset customers' or 'She is very diplomatic with upset customers'.",
+            "important_difference": "Diplomat names the person; diplomatic describes a tactful person, comment or action. This lesson uses diplomat figuratively, not as a government job title."
+          },
+          "memory_practice": {
+            "memory_trigger": "Picture someone finding words that let both sides keep talking.",
+            "memory_sentence": "Our team needs a diplomat who can handle both sides tactfully.",
+            "recall_question": "In the figurative sense, what skill makes someone a diplomat?",
+            "recognition_task": "Who is acting as a diplomat? A: A person insults both sides. B: A person explains each side's concerns respectfully and seeks agreement. Answer: B.",
+            "production_task": "Describe a fictional colleague to your manager using diplomat. Give an example of how that colleague handles disagreement tactfully."
+          },
+          "advanced_nuance": [
+            "Calling someone a diplomat usually praises their tact, but the compliment can be ironic if the surrounding words show the opposite.",
+            "A diplomat in this figurative sense can still disagree clearly; tact does not require agreeing with everyone."
+          ]
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "The original teaching sections repeat the gloss or generic instructions instead of demonstrating the expression.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Diplomat: examples consistently teach figurative tact; noun/adjective contrast checked; firmness is not confused with aggression or automatic agreement.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "validatorBlobSha": "24de6564d43b2d31da5d04755566e501f75d5910",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 1466,
+      "wordId": "ca4c9040-042f-4169-9302-a14912dadc15",
+      "senseKey": "critical-remark",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b6cd3ecb737534c611a2a8187905af91a3159ac525d3f7328d02c1f39a0bc427",
+      "profileReceipt": "CHECKPOINT-015-1450-1474.json",
+      "entry": {
+        "word": "potshot",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: POT-shot. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒருவரைக் குறிவைத்து இகழ்ச்சியாகக் கூறும் விமர்சனக் குறிப்பு",
+        "englishMeaning": "a critical remark aimed at someone",
+        "coreIdea": "A quick verbal attack instead of a constructive point.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative critical attack: a disparaging remark aimed at someone, compared to taking a casual shot.",
+              "connotation": "Negative; presents the remark as an unconstructive attack rather than a reasoned concern.",
+              "tone": "Disapproving: contrasts the attack with discussing the concern openly.",
+              "register": "Informal; common in commentary and conversation, especially 'take a potshot at someone'."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Rather  than  talking  out  his  concern, he's  tak­ ing  a  potshot.",
+            "contextual_meaning": "a critical remark aimed at someone",
+            "simple_explanation": "He makes a critical remark aimed at the other person rather than discussing what is worrying him."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use potshot for a quick or unfair critical remark aimed at someone or their work.",
+              "Use 'take a potshot at' to describe the act of making such a remark."
+            ],
+            "when_not_to_use": [
+              "Do not call careful, evidence-based feedback a potshot unless you mean to criticize it as unfair or unhelpful.",
+              "Avoid potshot in a neutral account if you do not want to suggest that the criticism is an attack."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "take a potshot at + person or thing; take potshots at + person or thing",
+            "common_collocations": [
+              "take a potshot",
+              "take potshots at a rival",
+              "a cheap potshot"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Instead of explaining the budget problem, he took a potshot at the manager's skills.",
+              "example_2": "The article takes several potshots at the actor without seriously discussing the film."
+            },
+            "mini_conversation": "A: His comment about my ability felt like a potshot.\nB: Ask him which part of the plan he actually disagrees with.\nA: I will. We need useful feedback."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Unnatural verb choice in this expression: 'She did a potshot at the speaker.'",
+            "correction": "Say: 'She took a potshot at the speaker.' Use take a potshot at for this kind of verbal criticism.",
+            "important_difference": "Criticism can be fair and detailed; calling it a potshot presents it as a quick attack, often without a constructive purpose."
+          },
+          "memory_practice": {
+            "memory_trigger": "Picture a sharp remark aimed at a person rather than at solving the problem.",
+            "memory_sentence": "He took a potshot at me instead of answering the question.",
+            "recall_question": "Does calling a remark a potshot usually present it as constructive feedback?",
+            "recognition_task": "Which is more likely to be a potshot? A: 'Your figures miss the transport costs; let's add them.' B: 'You never understand anything, do you?' Answer: B, a personal attack.",
+            "production_task": "Write a fictional meeting summary using potshot to describe an unhelpful personal remark. Then state how the discussion returned to the actual issue."
+          },
+          "advanced_nuance": [
+            "Potshot expresses the speaker's judgment of the criticism. Another person might dispute whether the remark was unfair.",
+            "The plural potshots often suggests several separate critical remarks: 'They kept taking potshots at each other.'"
+          ]
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "The original teaching sections repeat the gloss or generic instructions instead of demonstrating the expression.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Potshot: examples show verbal attacks; take a potshot at pattern checked; the speaker's evaluative judgment is distinguished from objective proof of unfairness.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "validatorBlobSha": "24de6564d43b2d31da5d04755566e501f75d5910",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 1469,
+      "wordId": "ca79c93d-9357-4299-8a36-446fa8d16939",
+      "senseKey": "not-extreme",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7c0b4b0584d4ce12f68e4eec6403adfd67ce5afa97ab17ef1269da83c68b9d1d",
+      "profileReceipt": "CHECKPOINT-015-1450-1474.json",
+      "entry": {
+        "word": "moderate",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: MOD-uh-ruht. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மிதமான அளவிலான; மிக அதிகமல்லாத",
+        "englishMeaning": "average or limited in degree rather than extreme",
+        "coreIdea": "A middle or limited degree, below an extreme.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract degree: neither low nor extreme, here the seriousness of what is at stake in a discussion.",
+              "connotation": "Neutral scale label; 'moderate' does not mean insignificant or safe to ignore.",
+              "tone": "Analytical: classifies the stakes alongside differing opinions and strong emotions.",
+              "register": "Neutral; common in reports and everyday descriptions of degree. Here it is an adjective, not the verb meaning to lead a discussion."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Some  Co mm on  Crucial  Conversati ons  In  each  of  these  examples  of  unhealthy  self-perp etuation,  the  stakes  were  moderate  to  high,  opin ions  varied,  and  emotions  ran  strong.",
+            "contextual_meaning": "average or limited in degree rather than extreme",
+            "simple_explanation": "The importance of the outcomes in these conversations ranged from a middle level to a high level."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use moderate to describe an amount, degree or intensity that is not extreme.",
+              "Use it with a stated scale when a precise level matters, such as moderate rather than high demand."
+            ],
+            "when_not_to_use": [
+              "Do not treat moderate as an exact number unless the relevant scale defines it.",
+              "Do not use moderate to mean no effect or no risk; it still describes a real level."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "moderate + noun; be moderate: moderate demand; demand is moderate",
+            "common_collocations": [
+              "moderate demand",
+              "a moderate increase",
+              "moderate intensity"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The shop reported a moderate increase in sales, well below last year's large jump.",
+              "example_2": "Demand for the evening class is moderate, so one group should be enough."
+            },
+            "mini_conversation": "A: Was there a huge increase in orders?\nB: No, just a moderate increase.\nA: Then we can probably handle it with the current team."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: 'Orders increased moderate.' The verb needs an adverb in that sentence.",
+            "correction": "Say: 'There was a moderate increase in orders' or 'Orders increased moderately'.",
+            "important_difference": "Moderate describes a middle or limited level; low describes a smaller level. Moderate does not automatically mean too small or satisfactory."
+          },
+          "memory_practice": {
+            "memory_trigger": "Picture a level indicator between low and high.",
+            "memory_sentence": "We expect a moderate increase in demand.",
+            "recall_question": "Does moderate demand normally suggest an extreme level?",
+            "recognition_task": "Sales rose a little more than slightly, but far less than dramatically. Choose: A: a moderate increase. B: an extreme increase. Answer: A.",
+            "production_task": "Write an update to a shop manager using moderate to describe a fictional change in demand. Explain how it affects staffing."
+          },
+          "advanced_nuance": [
+            "Moderate depends on the scale being used: what counts as moderate demand for a small shop may be tiny for a large company. Give a number when precision matters.",
+            "The adjective moderate ends with an unstressed sound, approximately MOD-uh-ruht; the verb has a different ending. This lesson teaches the adjective."
+          ]
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "The original teaching sections repeat the gloss or generic instructions instead of demonstrating the expression.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Moderate: degree sense retained; adjective versus adverb grammar checked; contextual scale is acknowledged; adjective pronunciation remains distinct from the verb.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "validatorBlobSha": "24de6564d43b2d31da5d04755566e501f75d5910",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 1474,
+      "wordId": "cc0c585e-a8e3-4b39-9755-8f9f13db2c40",
+      "senseKey": "completely",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ac1464b363a7213a3f410e9ca6e5ecf571f32e5601366abe3273d7731a09a6c0",
+      "profileReceipt": "CHECKPOINT-015-1450-1474.json",
+      "entry": {
+        "word": "totally",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: TOH-tuh-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "முற்றிலும்; முழுமையாக",
+        "englishMeaning": "completely or entirely",
+        "coreIdea": "To the full extent, with nothing left out.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract degree: completely, here failing to pay any attention to the need for safety in a discussion.",
+              "connotation": "Neutral intensifier by itself; here it strengthens criticism of the complete failure to notice a need.",
+              "tone": "Critical and emphatic: 'totally' and 'crying need' stress how serious the omission is.",
+              "register": "Common in everyday speech and accessible writing. 'Completely' is often more measured in formal reports."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Like  Jotham, they  totally  ignore  the  cry­ ing  need  for  more  saf ety .",
+            "contextual_meaning": "completely or entirely",
+            "simple_explanation": "The people pay no attention at all to the urgent need for a safer discussion."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use totally to emphasize that an action or description applies completely.",
+              "Use it in spoken reactions or descriptions when you want a stronger version of completely."
+            ],
+            "when_not_to_use": [
+              "Do not use totally when you mean only partly; that can exaggerate your claim.",
+              "For a measured formal report, completely or an exact description may fit better than emphatic totally."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "totally + verb or adjective: totally ignore a warning; totally different",
+            "common_collocations": [
+              "totally ignore",
+              "totally different",
+              "totally agree"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She totally ignored the warning and continued through the closed gate.",
+              "example_2": "The two proposals are totally different: one cuts services and the other expands them."
+            },
+            "mini_conversation": "A: Did he answer your question?\nB: No, he totally ignored it and changed the subject.\nA: Ask again, and make clear that we need an answer."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: 'The two plans are total different.' Total is an adjective, but different needs an adverb here.",
+            "correction": "Say: 'The two plans are totally different.' Totally strengthens the adjective different.",
+            "important_difference": "Totally means completely, not merely very. It is especially natural with descriptions such as different, wrong or empty."
+          },
+          "memory_practice": {
+            "memory_trigger": "Picture a box marked 100 percent.",
+            "memory_sentence": "They totally ignored the warning.",
+            "recall_question": "If someone totally ignores a warning, how much attention do they give it?",
+            "recognition_task": "A person does not respond to any part of your message. Choose: A: They totally ignored it. B: They partly answered it. Answer: A.",
+            "production_task": "Tell a fictional colleague, in one or two sentences, how two proposals are totally different. Give a concrete difference rather than only stating your opinion."
+          },
+          "advanced_nuance": [
+            "Totally is often emphatic in conversation, so speakers may use it loosely. In a precise report, explain what was completely ignored or how two things differ.",
+            "Totally agree expresses complete agreement, while partly agree deliberately leaves room for disagreement."
+          ]
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "The original teaching sections repeat the gloss or generic instructions instead of demonstrating the expression.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Totally: complete-degree sense retained across verbs and adjectives; total versus totally grammar checked; conversational exaggeration is acknowledged without expanding the lesson into a new sense.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "validatorBlobSha": "24de6564d43b2d31da5d04755566e501f75d5910",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
