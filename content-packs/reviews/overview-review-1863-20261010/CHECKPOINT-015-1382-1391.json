@@ -1,0 +1,460 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 15,
+  "fixedGroupFirstOrdinal": 1377,
+  "fixedGroupLastOrdinal": 1474,
+  "firstOrdinal": 1382,
+  "lastOrdinal": 1391,
+  "entryCount": 10,
+  "profileDraftCount": 10,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 10,
+  "pronunciationTextReviewCompletedCount": 10,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "b6130b50a6f84dbaa5f93cea3658bbd8fe39c9bd",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group015 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1382,
+      "wordId": "c2ede0c8-7150-40c6-a367-302cdd1e991d",
+      "word": "on board",
+      "senseKey": "in-agreement",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "361f3a9e4feff86e66eb974b7d2b3b69a1ba78b9cdc9ee8a2d369a13055308bb",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic: agree with a plan and be willing to support it, not be aboard a vehicle.",
+        "connotation": "Usually positive about cooperation; here claimed support is weakened by reluctant follow-through.",
+        "tone": "Skeptical and cautionary; contrasts what people say with how they act.",
+        "register": "Conversational; common in workplace discussions of support for plans."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: in agreement with and willing to support a plan",
+        "value": "திட்டத்துடன் உடன்பட்டு அதற்கு ஆதரவளிக்கத் தயாராக",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/on board/",
+        "value": "Approximate pronunciation: on BORD. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1383,
+      "wordId": "c2f6f433-0ca5-45c9-97c6-88b6ae6c21d1",
+      "word": "take it in your stride",
+      "senseKey": "to-deal-calmly-with-a-difficulty-or-unexpected-event",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3c30daa088e2132a79f5ae207289643c17e6cd63c3d0e9dd4187aff198bad231",
+      "before": {
+        "tone": "Conversational, approving.",
+        "register": "Best suited to conversation. It often praises resilience, but avoid using it to dismiss someone else's distress.",
+        "connotation": "Conversational, approving. Taking something in your stride means staying composed; ignoring it means failing to deal with it.",
+        "meaning_type": "Idiomatic meaning: to deal calmly with a difficulty or unexpected event"
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic meaning: to deal calmly with a difficulty or unexpected event",
+        "connotation": "Positive; praises calm, practical handling of an unexpected difficulty.",
+        "tone": "Conversational, approving.",
+        "register": "Best suited to conversation. It often praises resilience, but avoid using it to dismiss someone else's distress."
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "எதிர்பாராத சிக்கலை அமைதியாகச் சமாளித்தல்",
+        "value": "எதிர்பாராத சிக்கலை அமைதியாகச் சமாளித்தல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌteɪk ɪt ɪn jɔː ˈstraɪd/",
+        "value": "/ˌteɪk ɪt ɪn jɔː ˈstraɪd/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1384,
+      "wordId": "c3080ff4-91d1-44c3-abe4-e3d7af9ff3b2",
+      "word": "proposal",
+      "senseKey": "suggested-plan",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0f9c471d30324fd72dc387810213ebf6455320b5926f2e7902322069bb135f09",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract: a suggested plan offered for consideration.",
+        "connotation": "Neutral as a word; negative here because the proposal is called inadequate.",
+        "tone": "Critical and concerned; describes a weak plan being accepted after questions stop.",
+        "register": "Neutral to formal; common in meetings, planning and written recommendations."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a formal or informal plan suggested for consideration",
+        "value": "பரிசீலனைக்காக முன்வைக்கப்படும் திட்டம்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/proposal/",
+        "value": "Approximate pronunciation: pruh-POH-zuhl. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1385,
+      "wordId": "c313502b-7929-40f2-bc19-b86d3dbd8c5d",
+      "word": "common understanding",
+      "senseKey": "a-shared-interpretation-of-a-situation-or-requirement",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ed57ae85060bd1d90cf7c119d63012036dcbf3147ea55cd91578086954dce9cc",
+      "before": {
+        "tone": "Neutral, collaborative.",
+        "register": "Usable in clear general or professional communication. Check by asking people to restate the agreement, rather than treating silence as proof.",
+        "connotation": "Neutral, collaborative. People may share information without sharing an interpretation; a common understanding means their interpretations align.",
+        "meaning_type": "Contextual meaning: a shared interpretation of a situation or requirement"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract: a shared interpretation of what something means or aims to do.",
+        "connotation": "Positive here; suggests the agreement needed to work together effectively.",
+        "tone": "Neutral, collaborative.",
+        "register": "Neutral to professional; common in planning, teamwork and explaining requirements."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "அனைவருக்கும் உள்ள ஒரே புரிதல்",
+        "value": "அனைவருக்கும் உள்ள ஒரே புரிதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˌkɒm.ən ˌʌn.dəˈstæn.dɪŋ/",
+        "value": "/ˌkɒm.ən ˌʌn.dəˈstæn.dɪŋ/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1386,
+      "wordId": "c316f4ab-0bbb-4174-818f-d7beb98ff96a",
+      "word": "passively resist",
+      "senseKey": "oppose-without-open-action",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "cba91c8253894cee702b4d36a74b9e777a73e4ba82305e9e009e0ca0085adc56",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract behavior: oppose something without openly confronting it or taking direct action.",
+        "connotation": "Negative here; suggests unspoken disagreement prevents genuine cooperation.",
+        "tone": "Critical and explanatory; links keeping opinions private with quiet opposition.",
+        "register": "Neutral to formal; common in descriptions of behavior and group decisions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to oppose something without direct action",
+        "value": "வெளிப்படையாகச் செயல்படாமல் மறைமுகமாக எதிர்த்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/passively resist/",
+        "value": "Approximate pronunciation: PAS-iv-lee ri-ZIST. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1387,
+      "wordId": "c35b9c36-d78a-4ebe-b18b-5443dd75151f",
+      "word": "imperative",
+      "senseKey": "urgently-necessary",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5d4ea54cf199bda7317fa7dc5e512f476178392460a6fd17c82f3d5d7a20a4c6",
+      "before": {
+        "tone": "urgent and authoritative",
+        "register": "formal to professional",
+        "connotation": "serious and strongly motivating",
+        "meaning_type": "abstract evaluative adjective expressing urgent necessity"
+      },
+      "proposedProfile": {
+        "meaning_type": "abstract evaluative adjective expressing urgent necessity",
+        "connotation": "serious and strongly motivating",
+        "tone": "urgent and authoritative",
+        "register": "formal to professional"
+      },
+      "fieldDecisions": {
+        "meaning_type": "retained",
+        "connotation": "retained",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "மிகவும் முக்கியமானதும் உடனடி கவனம் அல்லது நடவடிக்கை தேவைப்படுவதும்",
+        "value": "மிகவும் முக்கியமானதும் உடனடி கவனம் அல்லது நடவடிக்கை தேவைப்படுவதும்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ɪmˈperətɪv/",
+        "value": "/ɪmˈperətɪv/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1388,
+      "wordId": "c35f18a7-6d77-4a31-b05a-7d6d4d595fa4",
+      "word": "harm",
+      "senseKey": "cause-damage",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5642a4949d04998c21063877b733dfb8528d3d0139217b90c58396c24c700d8e",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Describes causing injury or damage; here a verb, with no particular physical or emotional method specified.",
+        "connotation": "Strongly negative; means hurting someone rather than merely winning an argument.",
+        "tone": "Serious and cautionary; describes anger turning disagreement into a wish to hurt another person.",
+        "register": "Neutral general English; common in descriptions of injury, damage and consequences."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: physical, emotional, or practical damage",
+        "value": "உடல், மனம் அல்லது வாழ்க்கைக்கு தீங்கு விளைவித்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/harm/",
+        "value": "Approximate pronunciation: HARM. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Full original lesson inspected: noun-shaped gloss describes damage, while source uses a verb and sense key is cause-damage. No conflicting stored part of speech was found. Same-sense verb clarification drafted; repair gloss grammar and generic sections before replacement validation."
+    },
+    {
+      "ordinal": 1389,
+      "wordId": "c367580d-7aae-4f65-a37f-b092e7a2b9dd",
+      "word": "a learning curve",
+      "senseKey": "a-period-or-process-in-which-someone-develops-knowledge-through-experience",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4d9092f85155044e7aaabc0cba298aa9ebb09c15b0f28e3694654081b70da521",
+      "before": {
+        "tone": "Neutral, reflective.",
+        "register": "Usable in clear general or professional communication. In everyday speech, a steep learning curve often means a demanding adjustment; technical graphs can use the phrase differently.",
+        "connotation": "Neutral, reflective. A learning curve concerns development through experience; a setback is an obstacle or reversal.",
+        "meaning_type": "Contextual meaning: a period or process in which someone develops knowledge through experience"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative everyday expression: a process of learning through experience, not a literal drawn curve.",
+        "connotation": "Neutral to positive here; emphasizes learning gained from a first experience.",
+        "tone": "Neutral, reflective.",
+        "register": "Usable in clear general or professional communication. In everyday speech, a steep learning curve often means a demanding adjustment; technical graphs can use the phrase differently."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "அனுபவத்தின் மூலம் கற்றுத் திறன் பெறும் செயல்முறை",
+        "value": "அனுபவத்தின் மூலம் கற்றுத் திறன் பெறும் செயல்முறை",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ə ˈlɜː.nɪŋ kɜːv/",
+        "value": "/ə ˈlɜː.nɪŋ kɜːv/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1390,
+      "wordId": "c367907c-1b69-4e35-b5e4-3e75ed755fe1",
+      "word": "borrow power",
+      "senseKey": "use-anothers-authority",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e206ca69780b9973dd12a701cbf893a92aeff5904eaf9988bb10bcdbb74afea2",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: use someone else's authority to influence people, rather than borrow a physical object.",
+        "connotation": "Negative here; suggests using a boss's authority to pressure others instead of discussing fairly.",
+        "tone": "Critical and self-including; 'we' acknowledges the behavior being criticized.",
+        "register": "An understandable figurative phrase in discussion of authority; not a fixed technical term."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to rely on another person’s authority to influence or control others",
+        "value": "மற்றொருவரின் அதிகாரத்தைப் பயன்படுத்தி பிறர்மீது செல்வாக்கு செலுத்துதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/borrow power/",
+        "value": "Approximate pronunciation: BOR-oh POW-er. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1391,
+      "wordId": "c375b4b8-9861-4bfb-82ed-3d01d2d4a38b",
+      "word": "crusty",
+      "senseKey": "rough-and-irritable",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f1f2451160187d9070e49b5d75a9738b7d639297e9c8de4c4f28daabe56ed38f",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative description of personality: rough or irritable, not covered with a physical crust.",
+        "connotation": "Mildly negative about manners; can also be a familiar, amused description of a character.",
+        "tone": "Conversational and descriptive; introduces Curly's rough manner while recalling a film scene.",
+        "register": "Informal; common in descriptions of gruff or irritable people."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: having a rough, unfriendly, or irritable manner",
+        "value": "கடுகடுப்பான அல்லது முரட்டுத்தனமான குணமுடைய",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/crusty/",
+        "value": "Approximate pronunciation: KRUS-tee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    }
+  ]
+}
