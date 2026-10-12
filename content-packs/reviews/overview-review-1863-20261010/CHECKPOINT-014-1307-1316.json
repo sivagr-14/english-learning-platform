@@ -1,0 +1,460 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 14,
+  "fixedGroupFirstOrdinal": 1279,
+  "fixedGroupLastOrdinal": 1376,
+  "firstOrdinal": 1307,
+  "lastOrdinal": 1316,
+  "entryCount": 10,
+  "profileDraftCount": 10,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 10,
+  "pronunciationTextReviewCompletedCount": 10,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "03019ab9056547b632b2bab8daf372af54347831",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group014 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1307,
+      "wordId": "b8ea9953-9d99-4577-86d3-4ec4f09d604f",
+      "word": "with that caveat",
+      "senseKey": "with-the-previously-stated-limitation-or-condition-in-mind",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "caa82870e37f0d937d2e8bdf856f2143a985687403f2e7f60c151b539d1dfe1e",
+      "before": {
+        "tone": "Formal, qualified.",
+        "register": "More formal than everyday alternatives. State the limitation first; that must refer to something the listener can identify.",
+        "connotation": "Formal, qualified. A caveat limits a claim or recommendation; an objection may oppose proceeding altogether.",
+        "meaning_type": "Contextual meaning: with the previously stated limitation or condition in mind"
+      },
+      "proposedProfile": {
+        "meaning_type": "Logical qualification: asks the reader to keep the stated limitation in mind when judging the result.",
+        "connotation": "Neutral and careful; limits confidence without rejecting the results.",
+        "tone": "Cautiously positive here: the small sample is acknowledged before the results are called promising.",
+        "register": "Formal; natural in reports and careful discussion. 'With that limitation in mind' is plainer."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "அந்த வரம்பை மனதில் கொண்டு",
+        "value": "அந்த வரம்பை மனதில் கொண்டு",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/wɪð ðæt ˈkæv.i.æt/",
+        "value": "/wɪð ðæt ˈkæv.i.æt/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1308,
+      "wordId": "b90cfeff-2036-469d-9a1e-e75426cdab4b",
+      "word": "cheap shot",
+      "senseKey": "unfair-attack",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f85a9e2b27f553cff27d153317ecffffc0b5671014be9a67aee1599a73522e41",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative criticism: an unfair verbal attack, pictured as a shot that gives the target little fair chance to respond.",
+        "connotation": "Strongly negative; condemns the attack as unfair or cruel.",
+        "tone": "Challenging and critical here: the question links hidden ugly opinions with sarcastic attacks.",
+        "register": "Informal; common in arguments and commentary about unfair criticism."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: an unfair or cruel criticism or attack",
+        "value": "நியாயமற்ற அல்லது கொடூரமான விமர்சனத் தாக்குதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/cheap shot/",
+        "value": "Approximate pronunciation: cheep SHOT. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1309,
+      "wordId": "b912779f-f802-429f-a81f-19d140981d55",
+      "word": "high-stakes",
+      "senseKey": "involving-serious-consequences",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5e2d17c61e76b077020f7c0cfcf9e5e30ac07d978c5c8735946bd2ffcbcb4b29",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative description of importance: much can be gained or lost, as with a large stake in a contest.",
+        "connotation": "Serious rather than automatically negative; important outcomes may be beneficial or harmful.",
+        "tone": "Encouraging here: 'a lot to gain' stresses the benefit of handling these discussions well.",
+        "register": "Neutral; common in news, business and everyday discussion of consequential decisions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: involving serious risks or important consequences",
+        "value": "கடுமையான அபாயங்கள் அல்லது முக்கிய விளைவுகள் கொண்ட",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/high-stakes/",
+        "value": "Approximate pronunciation: HY STAYKS. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1310,
+      "wordId": "b94362b1-45d6-4606-8da5-6d671e586c3f",
+      "word": "hand over",
+      "senseKey": "to-transfer-responsibility-or-control-to-another-person",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "78f471b9ce1833fed11cc520d1255efbe3af6c12623c70bbcd6cbfe8f51d6051",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to transfer responsibility or control to another person"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract transfer: give another person responsibility or control, here for an account.",
+        "connotation": "Neutral; describes a change of responsibility without judging either person.",
+        "tone": "Practical and definite here: the speaker identifies the recipient and the transfer date.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "பொறுப்பு அல்லது கட்டுப்பாட்டை மற்றொருவருக்கு மாற்றுதல்",
+        "value": "பொறுப்பு அல்லது கட்டுப்பாட்டை மற்றொருவருக்கு மாற்றுதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/hænd ˈəʊvə/",
+        "value": "/hænd ˈəʊvə/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1311,
+      "wordId": "b94ca97e-51ab-41ff-b01e-7dda62b9ea9d",
+      "word": "sit back quietly",
+      "senseKey": "remain-passive",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0b41b9f4c4139d1534205150d9dbf195b3c39ad8e5e2f898111e7b9df6834355",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative passivity: stay uninvolved instead of participating; physical sitting is not the main point.",
+        "connotation": "Negative in this example because silence is linked to weaker commitment.",
+        "tone": "Cautionary here: the writer connects staying uninvolved with a lack of commitment to the decision.",
+        "register": "Conversational to neutral; natural in descriptions of group participation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to remain quiet and passive instead of becoming involved",
+        "value": "ஈடுபடாமல் அமைதியாக ஒதுங்கியிருத்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/sit back quietly/",
+        "value": "Approximate pronunciation: sit BAK KWY-uht-lee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1312,
+      "wordId": "b95a8739-cf58-4a8f-ba04-d91894cad914",
+      "word": "request an extension",
+      "senseKey": "to-formally-ask-for-more-time",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "d5af2cf0351971cb28dbf9ca559efd2e296ddadb7234bbb2517e749dc1ba0b0f",
+      "before": {
+        "tone": "Polite formal negotiation.",
+        "register": "Neutral or professional wording: Give the proposed date and reason; the request does not change the deadline until accepted.",
+        "connotation": "Neutral relationship or function: to formally ask for more time.",
+        "meaning_type": "Contextual expression: to formally ask for more time"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conventional request: formally ask for more time to complete or submit something.",
+        "connotation": "Neutral and respectful; asks for permission rather than announcing a changed deadline.",
+        "tone": "Polite formal negotiation.",
+        "register": "Neutral to formal; common in professional, academic and administrative requests."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "கூடுதல் அவகாசம் கோருதல்",
+        "value": "கூடுதல் அவகாசம் கோருதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/rɪˌkwest ən ɪkˈstenʃən/",
+        "value": "/rɪˌkwest ən ɪkˈstenʃən/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1313,
+      "wordId": "b974ac35-40ae-4cbe-9008-4f1a8a586bc2",
+      "word": "cast",
+      "senseKey": "throw-fishing-line",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7484cb6ae985ef6a7b04f6e1e812a007fa37ba7711e321abe82e5976675e29d7",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal fishing action: send a fishing line and fly out over the water.",
+        "connotation": "Neutral; describes a fishing technique rather than praise or criticism.",
+        "tone": "Instructional in content: the friend repeatedly gives a precise direction; irritation is not explicit.",
+        "register": "Standard fishing vocabulary; natural in everyday talk about angling."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to throw a fishing line or bait out over the water",
+        "value": "மீன்பிடித் தூண்டில் கயிற்றை அல்லது இரையை நீருக்கு மேல் வீசுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/cast/",
+        "value": "Approximate pronunciation: KAST. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1314,
+      "wordId": "b981e163-29fe-4c12-b9e2-190f290798de",
+      "word": "heavily armed",
+      "senseKey": "carrying-several-weapons",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ae0d7c26f219d1cbdc101b2f18a575efaba0b1434c44033dba9325c8fa215f2d",
+      "before": {
+        "tone": "In this passage, heavily armed supports a clear narrative tone.",
+        "register": "heavily armed is regularly useful in descriptive or narrative English.",
+        "connotation": "The connotation of heavily armed is neutral unless the described situation is negative.",
+        "meaning_type": "heavily armed has a contextual meaning describing carrying several weapons."
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal description of equipment, used with possible exaggeration here: carrying several weapons.",
+        "connotation": "Usually suggests danger or strong fighting capacity; the wooden dagger makes the description less imposing here.",
+        "tone": "Playfully exaggerated in this sentence: 'heavily' contrasts with the air rifle and wooden dagger listed.",
+        "register": "Neutral in news and military description; it can sound dramatic or humorous in storytelling."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "பல ஆயுதங்களை ஏந்திய",
+        "value": "பல ஆயுதங்களை ஏந்திய",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/heavily armed/",
+        "value": "Approximate pronunciation: HEV-uh-lee ARMD. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Humorous reading is based on the contrast within the supplied sentence; no age or surrounding plot inferred."
+    },
+    {
+      "ordinal": 1315,
+      "wordId": "b9a5e6cf-1472-4d24-a19b-af7612f1914d",
+      "word": "back away",
+      "senseKey": "withdraw-from",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4d7e1eec1039ddf7faae23e64a607254c41102e601edecd632d6cf91096ad893",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative withdrawal: avoid or retreat from a discussion, as if physically moving backwards.",
+        "connotation": "Can suggest sensible caution or avoidance; 'unfortunately' presents the avoidance negatively here.",
+        "tone": "Regretful and explanatory here: the writer describes retreating from conversations feared to cause harm.",
+        "register": "Neutral to conversational; common in discussion of difficult decisions and interactions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to withdraw from a difficult issue or situation",
+        "value": "கடினமான விஷயம் அல்லது சூழ்நிலையிலிருந்து விலகுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/back away/",
+        "value": "Approximate pronunciation: bak uh-WAY. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1316,
+      "wordId": "b9b34827-546c-4d3a-b462-de0b86889b11",
+      "word": "conclusive",
+      "senseKey": "strong-enough-to-settle-a-question-or-prove-something",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0efbbbee84d2826efa40c6820c37774d0e81646d334704e59c9c6e5b900e0fc0",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Evaluative: assesses the strength or suitability of an idea.",
+        "meaning_type": "Contextual usage: strong enough to settle a question or prove something"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract evaluation of evidence: strong enough to settle the question.",
+        "connotation": "Suggests certainty or decisiveness; the word does not itself say whether the conclusion is welcome.",
+        "tone": "Measured and cautious here: the results have value but do not settle the matter.",
+        "register": "Neutral to formal; common in research, investigations and reasoned discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தீர்மானமான முடிவைத் தரும்",
+        "value": "தீர்மானமான முடிவைத் தரும்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/kənˈkluːsɪv/",
+        "value": "/kənˈkluːsɪv/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    }
+  ]
+}
