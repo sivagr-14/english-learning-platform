@@ -1,0 +1,460 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 14,
+  "fixedGroupFirstOrdinal": 1279,
+  "fixedGroupLastOrdinal": 1376,
+  "firstOrdinal": 1317,
+  "lastOrdinal": 1326,
+  "entryCount": 10,
+  "profileDraftCount": 10,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 10,
+  "pronunciationTextReviewCompletedCount": 10,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "03019ab9056547b632b2bab8daf372af54347831",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group014 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1317,
+      "wordId": "b9d4dcbe-4036-4e7a-ab53-134b49c2425d",
+      "word": "seething",
+      "senseKey": "silently-furious",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "cec93e0a59166b33fcb4de51a71fbc799a46d1fa23d19bd1eb2085d9a10effd8",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: compares intense hidden anger to boiling liquid; nobody is literally boiling.",
+        "connotation": "Negative; suggests strong anger beneath outward silence.",
+        "tone": "Concerned and questioning here, linking hidden anger with harmful attacks.",
+        "register": "Neutral but vivid; common in stories and descriptions of anger."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: feeling intense anger while keeping it largely controlled or unspoken",
+        "value": "வெளிக்காட்டாமல் கடும் கோபத்தில் கொதித்துக்கொண்டிருத்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/seething/",
+        "value": "Approximate pronunciation: SEE-thing (th as in this). Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1318,
+      "wordId": "b9daa327-a092-4dca-9db8-c78cc362134a",
+      "word": "flip a coin",
+      "senseKey": "decide-by-coin-toss",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2c080bcefd84e7b657bea77e1eb141a39d1b70d8d51286975113bf722c348c20",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Literal action used to make a decision: toss a coin and let the result choose between options.",
+        "connotation": "Neutral as a method; here the outcome causes resentment.",
+        "tone": "Dissatisfied here: earlier decisions left the losing side resentful.",
+        "register": "Everyday neutral English, especially in conversation."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to decide between alternatives by tossing a coin",
+        "value": "நாணயத்தைச் சுண்டிவிட்டு அதன் முடிவைக் கொண்டு தீர்மானித்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/flip a coin/",
+        "value": "Approximate pronunciation: flip uh KOYN. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1319,
+      "wordId": "b9e2041c-7cd1-4c54-b5fd-a1aeec19d218",
+      "word": "a rough patch",
+      "senseKey": "a-temporary-period-of-difficulty-in-life-work-or-a-relationship",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "94a54399d367158d012539e16a3ace46985fa8f4465191145158131a8f34b0a7",
+      "before": {
+        "tone": "Conversational, empathetic.",
+        "register": "Best suited to conversation. It often suggests difficulty may pass, but do not promise that someone else's situation will quickly improve.",
+        "connotation": "Conversational, empathetic. A rough patch is a difficult period; a single setback is one adverse event.",
+        "meaning_type": "Contextual meaning: a temporary period of difficulty in life, work or a relationship"
+      },
+      "proposedProfile": {
+        "meaning_type": "Idiomatic: a difficult period, not an uneven piece of ground.",
+        "connotation": "Negative because it describes difficulties, but suggests a period rather than a permanent condition.",
+        "tone": "Conversational, empathetic.",
+        "register": "Conversational; common when discussing difficulties in life, business or relationships."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தற்காலிகமான கடின காலம்",
+        "value": "தற்காலிகமான கடின காலம்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ə ˌrʌf ˈpætʃ/",
+        "value": "/ə ˌrʌf ˈpætʃ/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1320,
+      "wordId": "ba2d46c3-800f-4092-8275-4e9d487b9fce",
+      "word": "bounce ideas off",
+      "senseKey": "to-discuss-ideas-with-someone-to-get-their-reaction",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c173445a64753f0a3a5a9cee452291f0632c6c08e56976b66386c66dff60d99d",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to discuss ideas with someone to get their reaction"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: share ideas with another person to hear their reaction; ideas do not physically bounce.",
+        "connotation": "Usually positive or neutral; suggests openness to another person's views.",
+        "tone": "Friendly and tentative here: 'I would like' makes a polite request for feedback.",
+        "register": "Informal and conversational; also natural in workplace discussions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "யோசனைகளுக்கு மற்றொருவரின் எதிர்வினையை பெற விவாதித்தல்",
+        "value": "யோசனைகளுக்கு மற்றொருவரின் எதிர்வினையை பெற விவாதித்தல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/baʊns aɪˈdɪəz ɒf/",
+        "value": "/baʊns aɪˈdɪəz ɒf/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1321,
+      "wordId": "ba36bd05-56f1-4b11-a7c7-fcded28ce8eb",
+      "word": "precision",
+      "senseKey": "precision-ml-context",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "04b42cc39ee70b687a82f4805dbed44672d153729fea03eb003c95384f1fad03",
+      "before": {
+        "tone": "Professional and analytical in this lesson.",
+        "register": "Professional and academic technical English.",
+        "connotation": "Neutral; it describes a measurable concept or engineering process.",
+        "meaning_type": "Technical and abstract meaning in machine-learning engineering."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical and abstract: the share of positive predictions that are correct, here predictions that borrowers will repay.",
+        "connotation": "Neutral; names a performance measure rather than praising a model by itself.",
+        "tone": "Professional and analytical in this lesson.",
+        "register": "Professional and academic technical English."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "கணிக்கப்பட்ட நேர்மறைகளில் உண்மையானவற்றின் விகிதம்",
+        "value": "நேர்மறை எனக் கணிக்கப்பட்டவற்றில் உண்மையில் நேர்மறையாக இருப்பவற்றின் விகிதம்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/prɪˈsɪʒən/",
+        "value": "/prɪˈsɪʒən/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1322,
+      "wordId": "ba378be5-bade-4bde-a243-2fe87cd4ebaa",
+      "word": "brainstorm",
+      "senseKey": "to-produce-and-discuss-several-possible-ideas",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "358f1330d1685655c2acd3b09b5e314ff28b3bb9b023e0fdd64b6330e9255e83",
+      "before": {
+        "tone": "Measured and explanatory; suitable for discussing plans or judgments.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion.",
+        "connotation": "Neutral in itself: the situation determines whether the result is welcome.",
+        "meaning_type": "Contextual usage: to produce and discuss several possible ideas"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative verb: generate and discuss possible ideas together, not a physical storm.",
+        "connotation": "Usually positive; suggests creative participation without promising that every idea will work.",
+        "tone": "Inviting and practical here: 'Let us' asks people to suggest ways to shorten waiting time.",
+        "register": "Neutral to professional; also usable in ordinary planning and discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "பல சாத்தியமான யோசனைகளை உருவாக்கி விவாதித்தல்",
+        "value": "பல சாத்தியமான யோசனைகளை உருவாக்கி விவாதித்தல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/ˈbreɪnstɔːm/",
+        "value": "/ˈbreɪnstɔːm/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1323,
+      "wordId": "ba3fe7aa-fff3-40fa-9230-fb873994b222",
+      "word": "abruptly",
+      "senseKey": "suddenly-and-sharply",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f2b64c99b91f414179973b3fa742c50ea6f1eb0b869e1c51f53a935b93c35373",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Describes manner: speaking suddenly and sharply, with little preparation or politeness.",
+        "connotation": "Negative here; 'too abruptly' suggests the way of speaking is unhelpfully harsh.",
+        "tone": "Gently critical while acknowledging frustration with the repeated behavior.",
+        "register": "Neutral; used in everyday conversation and writing about actions or speech."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: suddenly and in a manner that may seem rude or unfriendly",
+        "value": "திடீரெனவும் கடுமையாகவும், மரியாதையற்றதாகத் தோன்றும் விதத்தில்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/abruptly/",
+        "value": "Approximate pronunciation: uh-BRUPT-lee. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1324,
+      "wordId": "ba508338-a5d4-4663-9245-c5af03df02c3",
+      "word": "transform",
+      "senseKey": "change-completely",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "76cdcfb2b0ed806c89d9a214e7548f41445c29a9e3ca5cf58e952e028c129694",
+      "before": {
+        "tone": "clear and explanatory",
+        "register": "neutral everyday English",
+        "connotation": "neutral in this source context",
+        "meaning_type": "concrete or abstract vocabulary in the assessed sense"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract change: greatly alter the character and results of conversations.",
+        "connotation": "Positive here because frightening conversations become successful interactions.",
+        "tone": "Encouraging and hopeful; invites the reader to learn how to improve difficult conversations.",
+        "register": "neutral everyday English"
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "retained"
+      },
+      "tamilMeaning": {
+        "before": "ஒரு பொருளின் தன்மை, வடிவம் அல்லது செயல்திறனை பெரிதும் மாற்றுதல்",
+        "value": "ஒரு பொருளின் தன்மை, வடிவம் அல்லது செயல்திறனை பெரிதும் மாற்றுதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/trænsˈfɔːm/",
+        "value": "/trænsˈfɔːm/",
+        "kind": "retained_ipa_editorially_reviewed",
+        "decision": "retained",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1325,
+      "wordId": "baa1b243-97ee-42db-b740-ef77bec5209c",
+      "word": "skyrocket",
+      "senseKey": "rise-very-rapidly",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bd57a5990f659184acba739834037f29355e893c0714bcf8ca4c9587a3389082",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Figurative: rise very quickly, like a rocket going up; here it refers to the crime level.",
+        "connotation": "Negative here because rising crime is undesirable; the verb itself mainly stresses speed and scale.",
+        "tone": "Concerned and emphatic as a question; it does not establish that crime is actually rising.",
+        "register": "Vivid everyday and journalistic English; common in news about numbers and prices."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to rise extremely rapidly",
+        "value": "மிக வேகமாக உயர்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/skyrocket/",
+        "value": "Approximate pronunciation: SKY-rok-it. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Short source question only; no surrounding evidence or actual crime trend inferred. Remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1326,
+      "wordId": "babc4d3f-7d31-4d01-8fb2-e1eef0572c83",
+      "word": "logging",
+      "senseKey": "logging-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3b2756252a9126d672be76ea0296536a6e3504d3f761cf8223caeba02ffa8f60",
+      "before": {
+        "tone": "Analytical and explanatory.",
+        "register": "Professional and academic English.",
+        "connotation": "Neutral in this professional context.",
+        "meaning_type": "Technical or abstract meaning."
+      },
+      "proposedProfile": {
+        "meaning_type": "Technical: systematically record events and data while a computer system runs, not cut down trees.",
+        "connotation": "Neutral; names a monitoring activity that is presented as important.",
+        "tone": "Analytical and explanatory.",
+        "register": "Technical computing English; common in software engineering discussions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "retained",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "நிகழ்வுகள், உள்ளீடுகள், முடிவுகள் மற்றும் பிழைகளை முறையாக பதிவு செய்தல்",
+        "value": "நிகழ்வுகள், உள்ளீடுகள், முடிவுகள் மற்றும் பிழைகளை முறையாக பதிவு செய்தல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/logging/",
+        "value": "Approximate pronunciation: LOG-ing. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    }
+  ]
+}
