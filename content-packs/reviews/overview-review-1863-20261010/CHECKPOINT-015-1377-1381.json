@@ -1,0 +1,240 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "groupNumber": 15,
+  "fixedGroupFirstOrdinal": 1377,
+  "fixedGroupLastOrdinal": 1474,
+  "firstOrdinal": 1377,
+  "lastOrdinal": 1381,
+  "entryCount": 5,
+  "profileDraftCount": 5,
+  "blockedCount": 0,
+  "tamilReviewCompletedCount": 5,
+  "pronunciationTextReviewCompletedCount": 5,
+  "correctedDatabaseEntries": 0,
+  "sourceContextBlobSha": "b6130b50a6f84dbaa5f93cea3658bbd8fe39c9bd",
+  "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+  "scope": "Immutable partial group015 editorial review, not an import payload.",
+  "corrections": [
+    {
+      "ordinal": 1377,
+      "wordId": "c251607f-9776-4a89-bec2-7a86852f20d4",
+      "word": "fond of",
+      "senseKey": "having-affection-or-liking",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "260cbf1a2e425217ffa14b646cc8ea77c5f994b5d6abc9693951fca9275a4623",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract feeling: liking or enjoying something, here war stories.",
+        "connotation": "Positive about the person's liking; the wider sentence mildly criticizes what he prefers to discuss.",
+        "tone": "Conversational and mildly amused or critical; contrasts his favorite stories with scientific topics.",
+        "register": "Neutral and common in conversation and personal descriptions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: having affection for or taking pleasure in someone or something",
+        "value": "விருப்பம் கொண்ட; ரசிக்கின்ற",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/fond of/",
+        "value": "Approximate pronunciation: FOND uhv. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1378,
+      "wordId": "c255a5ed-7e2a-4dc3-be4c-1d4b73671d52",
+      "word": "carry on",
+      "senseKey": "continue-activity",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9c1c07fe5bf339bf5f5c02176c8dc090c42cde548ebe6fe1981551d4e363434f",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conventional phrasal verb: continue an activity, here a conversation; nothing is physically carried.",
+        "connotation": "Neutral about continuing; 'heated' describes the tense conversation.",
+        "tone": "Surprised and questioning; asks how someone noticed so much while continuing to talk.",
+        "register": "Neutral conversational English; common when talking about continuing an activity."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to continue an activity despite another demand or distraction",
+        "value": "மற்றொரு கவனச்சிதறல் இருந்தாலும் செயலைத் தொடருதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/carry on/",
+        "value": "Approximate pronunciation: KAR-ee ON. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1379,
+      "wordId": "c287fe37-6f7e-413f-9fbe-f193b2b46236",
+      "word": "enhance",
+      "senseKey": "improve-quality",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "739342788577e68c928f47b7f34417e043ffa29a1e9d04f85e69b54a54b8c205",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract improvement: increase an ability or make it more effective, here the ability to find solutions.",
+        "connotation": "Positive; suggests a useful improvement in capacity.",
+        "tone": "Urgent and encouraging; presents improved abilities as necessary for solving problems.",
+        "register": "Neutral to formal; frequent in professional and academic discussion."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to improve the quality, value, or effectiveness of something",
+        "value": "திறன் அல்லது தரத்தை மேம்படுத்துதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/enhance/",
+        "value": "Approximate pronunciation: en-HANS. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source uses the inflected form enhanced; retain the verb identity and verify expression matching before delivery. Remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1380,
+      "wordId": "c2b14bc5-9015-4a90-bdef-a4e11abbfa36",
+      "word": "watch for",
+      "senseKey": "remain-alert-to",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "996225e102bc25db5a004f3a32b5324cebc72a3745aac6acef01c0afd7e71a92",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Conventional phrasal verb: remain alert for signs of a problem, rather than simply look at something.",
+        "connotation": "Neutral watchfulness directed toward preventing or detecting an unwanted problem.",
+        "tone": "Direct and instructional; the brief bullet tells the reader what to learn to notice.",
+        "register": "Neutral; common in everyday advice and instructions."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to stay alert for signs that something may occur",
+        "value": "அறிகுறிகள் தோன்றுகிறதா என்று விழிப்புடன் கவனித்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/watch for/",
+        "value": "Approximate pronunciation: WATCH for. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Only a brief instructional bullet is supplied; do not infer further emotion. Remaining lesson sections not certified."
+    },
+    {
+      "ordinal": 1381,
+      "wordId": "c2db3821-74f9-4b63-ace1-6cbf379e5886",
+      "word": "inaccuracy",
+      "senseKey": "incorrect-detail-or-statement",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "58f9aff3fc8c1136748e17c867e26b1d089d2e76e870f508285ecd71d42d054b",
+      "before": {
+        "tone": "clear and context-sensitive",
+        "register": "neutral; use the register appropriate to this assessed contextual sense",
+        "connotation": "context-dependent and fixed by the recorded source situation",
+        "meaning_type": "literal, abstract, figurative, idiomatic, or technical as demonstrated by the source"
+      },
+      "proposedProfile": {
+        "meaning_type": "Abstract: a lack of accuracy or an incorrect point that someone notices.",
+        "connotation": "Negative about accuracy; does not by itself accuse anyone of deliberate dishonesty.",
+        "tone": "Critical and cautionary; describes how a challenge can distract people from solving the original problem.",
+        "register": "Neutral to formal; common when discussing facts, reports and measurements."
+      },
+      "fieldDecisions": {
+        "meaning_type": "corrected",
+        "connotation": "corrected",
+        "tone": "corrected",
+        "register": "corrected"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a detail, statement, or measurement that is not accurate",
+        "value": "துல்லியமின்மை அல்லது தவறான விவரம்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "pronunciation": {
+        "before": "/inaccuracy/",
+        "value": "Approximate pronunciation: in-AK-yuh-ruh-see. Capitals show stress; this is text guidance, not audio.",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "decision": "corrected",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "status": "editorial_profile_draft_not_import_payload",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Exact contextual meaning and source reviewed; remaining lesson sections not certified."
+    }
+  ]
+}
