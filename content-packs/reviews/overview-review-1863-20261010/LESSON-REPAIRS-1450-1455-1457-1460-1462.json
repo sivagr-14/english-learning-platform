@@ -1,0 +1,581 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-1450-1455-1457-1460-1462",
+  "scope": "Immutable full-lesson repair drafts outside active inbox; not a content pack and not ready to sync.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "sourceHashSerialization": "Python json.dumps(lesson_data, sort_keys=True, ensure_ascii=False) with default separators, UTF-8 SHA256; matches existing review receipts.",
+  "sourceExportHashVerified": true,
+  "records": [
+    {
+      "ordinal": 1450,
+      "wordId": "c80deabd-e5bb-4b72-b12e-2b1611e20567",
+      "senseKey": "with-deliberate-action",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "28e974f1376badff5d214dc7d79c72232b77b5b9534fcc6035c34b9683582de0",
+      "profileReceipt": "CHECKPOINT-015-1450-1474.json",
+      "entry": {
+        "word": "actively",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: AK-tiv-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "செயலில் ஈடுபட்டு; முனைப்புடன்",
+        "englishMeaning": "in a deliberate and engaged way rather than passively",
+        "coreIdea": "Move from watching to taking deliberate action.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract manner of action: taking deliberate, engaged steps, here creating options that help everyone.",
+              "connotation": "Positive in this sentence because it values useful participation over passivity; the adverb itself can also describe harmful actions.",
+              "tone": "Encouraging and practical: the reader is pictured finding solutions instead of remaining passive.",
+              "register": "Neutral; natural in everyday explanations, study and workplace discussions."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Instead,  you 'll  be  actively  coming  up  with  options  that  can  serve  every one.",
+            "contextual_meaning": "in a deliberate and engaged way rather than passively",
+            "simple_explanation": "You will put effort into creating useful choices instead of waiting for somebody else to solve the problem."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use actively to emphasize deliberate effort, such as searching for work or taking part in a discussion.",
+              "Use it when simply being present does not show how much someone participates."
+            ],
+            "when_not_to_use": [
+              "Do not use actively just to mean quickly: someone can work actively but slowly.",
+              "If you mean a person has an energetic lifestyle, describe them as active rather than 'actively'."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "actively + action verb: actively seek work; actively participate in a discussion",
+            "common_collocations": [
+              "actively participate",
+              "actively seek work",
+              "actively support a proposal"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She is actively looking for a new job and contacts two employers each day.",
+              "example_2": "Parents actively participated in the discussion about school meals."
+            },
+            "mini_conversation": "A: Are you waiting for the team to suggest a solution?\nB: No, I'm actively looking for alternatives.\nA: Great. Let's compare them tomorrow."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: 'She actively in every meeting.' The adverb cannot replace a verb.",
+            "correction": "Say: 'She actively participates in every meeting.' Actively describes how she participates.",
+            "important_difference": "Being present is not the same as actively participating: participation involves doing something, such as asking questions or offering ideas."
+          },
+          "memory_practice": {
+            "memory_trigger": "Picture a listener raising a hand and offering a solution.",
+            "memory_sentence": "I actively look for solutions instead of waiting for them.",
+            "recall_question": "If someone is actively seeking work, are they just hoping for a job or taking steps to find one?",
+            "recognition_task": "Who is actively helping? A: Mina notices the problem and waits. B: Mina calls the supplier and proposes a fix. Answer: B, because she takes deliberate action.",
+            "production_task": "Write an update to a colleague using actively to describe two steps you are taking to solve a fictional project problem."
+          },
+          "advanced_nuance": [
+            "Actively emphasizes effort or participation, not guaranteed success. Someone can actively seek work without finding a job.",
+            "Actively often comes before the main verb or after an auxiliary: 'actively supports' and 'is actively supporting' are both natural."
+          ]
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "The original teaching sections repeat the gloss or generic instructions instead of demonstrating the expression.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Actively: examples show concrete deliberate effort; adverb/adjective distinction is accurate; participation does not imply success.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "validatorBlobSha": "24de6564d43b2d31da5d04755566e501f75d5910",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 1455,
+      "wordId": "c88445ca-2bdc-48ff-98ea-1251122361df",
+      "senseKey": "with-sudden-intensity",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7e75874030ae5f46838f7ee697a1c79c2186e5c74d7bb7f3fd6d6bd792984cf9",
+      "profileReceipt": "CHECKPOINT-015-1450-1474.json",
+      "entry": {
+        "word": "explosively",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: ik-SPLOH-siv-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "திடீரெனக் கடுமையான உணர்ச்சியுடன் வெடிப்பதுபோல்",
+        "englishMeaning": "in a sudden, violent, or intensely emotional way",
+        "coreIdea": "An emotion bursts out suddenly and strongly.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative manner: reacting with sudden, intense emotion, compared to an explosion; no physical explosion is meant.",
+              "connotation": "Negative here; suggests reactions that are forceful and hard to control.",
+              "tone": "Explanatory and cautionary: contrasts people's emotional reactions to the same trigger.",
+              "register": "Neutral descriptive English; vivid in discussion of anger or conflict. In formal feedback, describe the actual behaviour."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "No  matter  who  is  doing  the  button  pushing,  some  people  tend  to  react  more  explosively  than  others ­ and to  the  same  stimulus,  no less.",
+            "contextual_meaning": "in a sudden, violent, or intensely emotional way",
+            "simple_explanation": "The same provocation can make one person react with much more sudden anger or emotion than another person."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use explosively for a sudden, intense emotional response, especially an angry outburst.",
+              "Use 'react more explosively' when comparing the strength of people's reactions."
+            ],
+            "when_not_to_use": [
+              "Do not use explosively for a calm disagreement or a small sign of annoyance; it would exaggerate the reaction.",
+              "Use angrily if anger matters but there is no sudden outburst to emphasize."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "react explosively to + comment or event; respond explosively when + clause",
+            "common_collocations": [
+              "react explosively",
+              "respond explosively",
+              "react explosively to criticism"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "He reacted explosively to the accusation, shouting and pushing his chair back.",
+              "example_2": "When her brother mocked her again, she responded explosively and stormed out of the kitchen."
+            },
+            "mini_conversation": "A: How did he react to the criticism?\nB: Explosively. He shouted before I could explain.\nA: Let's give him a moment, then try again calmly."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: 'She reacted explosive to the comment.' An adjective does not normally describe the verb react here.",
+            "correction": "Say: 'She reacted explosively to the comment.' Use the adverb explosively to describe the reaction.",
+            "important_difference": "Angrily identifies the emotion; explosively also emphasizes its sudden, powerful release."
+          },
+          "memory_practice": {
+            "memory_trigger": "Imagine anger bursting out like a sudden bang; this is a memory image, not a literal explosion.",
+            "memory_sentence": "He reacted explosively when he heard the accusation.",
+            "recall_question": "What does explosively add to the description of an angry response?",
+            "recognition_task": "Which response is explosive? A: She quietly asks for more details. B: She suddenly shouts and slams the door. Answer: B, because the emotion bursts out strongly.",
+            "production_task": "Describe a fictional character's reaction to unfair criticism using explosively. Include one visible action that shows the intensity."
+          },
+          "advanced_nuance": [
+            "Explosively is stronger and more dramatic than angrily. An explosive reaction can be verbal; it does not automatically mean the person physically attacks someone.",
+            "Use more explosively, rather than 'explosivelier', when comparing reactions."
+          ]
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "The original teaching sections repeat the gloss or generic instructions instead of demonstrating the expression.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Explosively: both examples teach emotional outbursts; figurative imagery is labelled; physical violence is not assumed; comparison form is more explosively.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "validatorBlobSha": "24de6564d43b2d31da5d04755566e501f75d5910",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 1457,
+      "wordId": "c90a44f7-ef0e-4311-a822-c00262fbfdc8",
+      "senseKey": "help-cause",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0b02c3b247816dddd680a6cd180f8ccfc68d1a269add09dadaa3f3f5c5474f5f",
+      "profileReceipt": "CHECKPOINT-015-1450-1474.json",
+      "entry": {
+        "word": "contribute to",
+        "wordType": "verb phrase",
+        "pronunciation": "Approximate pronunciation: kuhn-TRIB-yoot tuh. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு விளைவு அல்லது பிரச்சினை ஏற்படுவதற்குப் பங்காற்றுதல்",
+        "englishMeaning": "to help cause or add to a result, situation, or problem",
+        "coreIdea": "Be one factor that helps produce a result.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract causal relationship: help bring about a result without necessarily being its only cause, here one's own problems.",
+              "connotation": "Neutral by itself; the result in this sentence is undesirable. It can also introduce a beneficial result.",
+              "tone": "Reflective and corrective: asks readers to recognise their own part in the problems they experience.",
+              "register": "Neutral; common in everyday explanations, reports and professional analysis."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "More  often  than  not,  we  do  something  to  contribute  to  the  problems  we're  experienci ng.",
+            "contextual_meaning": "to help cause or add to a result, situation, or problem",
+            "simple_explanation": "Our own actions often play a part in the problems we face, even if other causes are also involved."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use contribute to when one action or condition helps produce a result alongside other factors.",
+              "Use it for either helpful outcomes, such as better teamwork, or harmful outcomes, such as delays."
+            ],
+            "when_not_to_use": [
+              "Do not use contribute to as proof that something is the only cause; it usually leaves room for other causes.",
+              "Do not follow to with a bare verb in this pattern: use a noun or an -ing form."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "something can contribute to + noun or -ing form: contribute to delays; contribute to improving access",
+            "common_collocations": [
+              "contribute to the problem",
+              "contribute to success",
+              "contribute to delays"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Unclear instructions can contribute to delays in the project.",
+              "example_2": "Regular practice contributed to her improvement in English."
+            },
+            "mini_conversation": "A: Why did the delivery arrive late?\nB: Heavy traffic contributed to the delay, but the truck also left late.\nA: Then we need to review both the route and the departure time."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: 'The new signs contribute to reduce confusion.' Here to is a preposition.",
+            "correction": "Say: 'The new signs contribute to reducing confusion' or 'contribute to a reduction in confusion'.",
+            "important_difference": "Cause can present something as directly producing an outcome; contribute to describes a part in producing it, without claiming sole responsibility."
+          },
+          "memory_practice": {
+            "memory_trigger": "Picture several streams feeding one river: each helps create the final flow.",
+            "memory_sentence": "Small misunderstandings can contribute to a bigger conflict.",
+            "recall_question": "If poor planning contributed to a delay, does that mean it was necessarily the only cause?",
+            "recognition_task": "Three factors caused a failure, and one was poor testing. Which is more accurate? A: Poor testing contributed to the failure. B: Poor testing was the only cause. Answer: A.",
+            "production_task": "Write one sentence to a project team using contribute to to explain how unclear responsibilities could cause part of a delay."
+          },
+          "advanced_nuance": [
+            "Contribute to can describe an unintended effect. 'His silence contributed to the misunderstanding' does not mean he wanted to create it.",
+            "The result after contribute to can be positive or negative; the phrase itself does not imply praise."
+          ]
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "The original teaching sections repeat the gloss or generic instructions instead of demonstrating the expression.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Contribute to: both examples use partial causation; to + gerund grammar is correct; helpful and harmful outcomes remain the same causal sense.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "validatorBlobSha": "24de6564d43b2d31da5d04755566e501f75d5910",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 1460,
+      "wordId": "c98ed30e-a3a1-4cd6-b378-7c2276b59e3e",
+      "senseKey": "in-middle-of",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7847a24c142a616450cd4d50d61a71eb51d45252881db30373c97fca4bd66328",
+      "profileReceipt": "CHECKPOINT-015-1450-1474.json",
+      "entry": {
+        "word": "in the midst of",
+        "wordType": "prepositional phrase",
+        "pronunciation": "Approximate pronunciation: in thuh MIDST uv. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு நிகழ்வு நடந்துகொண்டிருக்கும் நடுவில்",
+        "englishMeaning": "in the middle of an event or situation",
+        "coreIdea": "Already inside an event while it is happening.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative situation marker: while an event is happening or while deeply involved in it, here a crucial conversation.",
+              "connotation": "Neutral by itself; 'caught' makes this particular situation sound demanding.",
+              "tone": "Explanatory and reflective: invites the reader to notice their habits during a difficult discussion.",
+              "register": "Neutral to slightly formal; natural in narratives and careful explanations. 'In the middle of' is more conversational."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "It'll  help  you  see  what  tactics  you  typically  revert  to  when  caught  in  the  midst  of  a  crucial  conver­ sation.",
+            "contextual_meaning": "in the middle of an event or situation",
+            "simple_explanation": "During an important conversation, you can notice which tactics you usually fall back on."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use in the midst of when someone is already involved in an event or situation that is still happening.",
+              "Use it to emphasize being occupied or surrounded by ongoing activity, such as a move or a discussion."
+            ],
+            "when_not_to_use": [
+              "Do not use in the midst of for an event that has already finished when you mean 'after'.",
+              "For a routine time reference without emphasis, during or in the middle of may sound simpler."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "be in the midst of + noun or -ing form: in the midst of a discussion; in the midst of moving",
+            "common_collocations": [
+              "in the midst of a crisis",
+              "in the midst of negotiations",
+              "in the midst of moving"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We were in the midst of a meeting when the power went out.",
+              "example_2": "She is in the midst of moving house, so she cannot host visitors this week."
+            },
+            "mini_conversation": "A: Can you review this now?\nB: I'm in the midst of a difficult call.\nA: No problem. I'll send it for you to check afterward."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: 'We are in midst of planning the event.' This fixed phrase normally needs the.",
+            "correction": "Say: 'We are in the midst of planning the event.' Keep in the midst of together.",
+            "important_difference": "During places something within a period; in the midst of more strongly presents someone as already involved in what is happening."
+          },
+          "memory_practice": {
+            "memory_trigger": "Picture yourself surrounded by boxes while a move is still underway.",
+            "memory_sentence": "I stayed calm in the midst of a difficult discussion.",
+            "recall_question": "If someone is in the midst of moving, have they finished the move?",
+            "recognition_task": "The meeting has started and is still going on. Choose: A: We are in the midst of the meeting. B: We are after the meeting. Answer: A.",
+            "production_task": "Write a polite message to a colleague using in the midst of to explain why you cannot respond immediately and say when you will reply."
+          },
+          "advanced_nuance": [
+            "In the midst of does not identify the exact halfway point. You can be in the midst of a long project without knowing how much of it is complete.",
+            "In the midst of can describe a pleasant or difficult event; words such as crisis or celebration determine the emotional setting."
+          ]
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "The original teaching sections repeat the gloss or generic instructions instead of demonstrating the expression.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "In the midst of: both examples describe ongoing involvement; the article the is retained; phrase does not require exact halfway timing.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "validatorBlobSha": "24de6564d43b2d31da5d04755566e501f75d5910",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 1462,
+      "wordId": "c9affae7-4ef6-44d8-97e5-c8911e8c491a",
+      "senseKey": "almost-entirely",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c9b7e8885163964916eac74dab831c4adf129479d47e5d8f65936ec70b5698f9",
+      "profileReceipt": "CHECKPOINT-015-1450-1474.json",
+      "entry": {
+        "word": "virtually",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: VUR-choo-uh-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கிட்டத்தட்ட; ஏறக்குறைய எல்லா சந்தர்ப்பங்களிலும்",
+        "englishMeaning": "almost entirely or in nearly every case",
+        "coreIdea": "Nearly all, with very little left outside the claim.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract degree: almost, with possible exceptions; 'virtually any topic' means almost any topic.",
+              "connotation": "Neutral as a degree word; here it strengthens a positive claim while leaving room for exceptions.",
+              "tone": "Confident and encouraging: presents conversation skills as useful across nearly all topics.",
+              "register": "Neutral; common in speech and writing. This sense concerns approximation, not computers or online activity."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "If  you  know  how  to  handle  (even  master)  crucial  conve rsations ,  you  can  step  up  to  and  effe c­ tively  hold  tough  conversations  about  virtually  any  topic.",
+            "contextual_meaning": "almost entirely or in nearly every case",
+            "simple_explanation": "These conversation skills are presented as useful for almost every topic, while leaving open a small number of exceptions."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use virtually with all, every or any to make a broad claim that allows a few exceptions.",
+              "Use virtually before a strong description such as impossible or identical when the difference is very small."
+            ],
+            "when_not_to_use": [
+              "Do not use virtually to mean only about half or a moderate amount.",
+              "When every single case matters, state the exact result rather than relying on virtually all."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "virtually + all/every/any; virtually + adjective: virtually impossible",
+            "common_collocations": [
+              "virtually all",
+              "virtually every day",
+              "virtually impossible"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Virtually all the seats were taken; only two were still empty.",
+              "example_2": "After the storm, it was virtually impossible to reach the village by road."
+            },
+            "mini_conversation": "A: Did everyone finish the training?\nB: Virtually everyone. Two people still have one lesson left.\nA: I'll send those two a reminder."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: 'Virtually of the students passed.' Virtually cannot stand alone as the quantity before of.",
+            "correction": "Say: 'Virtually all of the students passed.' Virtually modifies all.",
+            "important_difference": "All allows no exceptions; virtually all means almost all and leaves room for a small number of exceptions."
+          },
+          "memory_practice": {
+            "memory_trigger": "Picture a full row of chairs with just one empty seat.",
+            "memory_sentence": "Virtually everyone arrived before the meeting began.",
+            "recall_question": "Does virtually everyone mean exactly every person, or almost every person?",
+            "recognition_task": "Ninety-eight of one hundred people agreed. Choose: A: Virtually everyone agreed. B: Exactly everyone agreed. Answer: A; two people did not agree.",
+            "production_task": "Write a short update to a class teacher using virtually all to describe completion of a fictional assignment, then state the remaining exception."
+          },
+          "advanced_nuance": [
+            "Virtually often treats a small exception as unimportant for the main point. In a precise report, give the number as well as saying virtually all.",
+            "Virtually impossible is not always a claim of absolute impossibility; it presents success as extremely unlikely or difficult in practice."
+          ]
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "The original teaching sections repeat the gloss or generic instructions instead of demonstrating the expression.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Virtually: both examples teach near-completeness; all of is distinguished from an invalid standalone quantity; online/remote meaning is not introduced.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "validatorBlobSha": "24de6564d43b2d31da5d04755566e501f75d5910",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
