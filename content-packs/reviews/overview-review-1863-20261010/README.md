@@ -1,13 +1,21 @@
 # Vocabulary correction review
 
-Read STATUS.json and REVIEW-LEDGER.json for the reconciled current state. Immutable PROFILE-DRAFT-001 through PROFILE-DRAFT-016 and their preserved earlier checkpoints account for ordinals1–1572. PROFILE-DRAFT-015 consolidates existing checkpoints without changing their entry records. PROFILE-DRAFT-016 preserves1475–1498 and adds1499–1572.
+Current state is in STATUS.json and REVIEW-LEDGER.json, reconciled from immutable receipts. PROFILE-DRAFT-001 through PROFILE-DRAFT-018 preserve ordinals1–1768 and reuse prior checkpoints without changing them.
 
-Source: mastery-skills-lessons-review.json, SHA256 `5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207`. The original private export was available and hash-verified; it is not uploaded here.
+Source: mastery-skills-lessons-review.json; SHA256 `5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207`. The original private export remains available and hash-verified; it is not uploaded here.
 
-Overview:1572 processed,1554 profiles,18 quarantines,291 unreviewed. Tamil:1355 reviewed,17 blocked,491 unreviewed. Pronunciation text:1371 reviewed,1 blocked,491 unreviewed. Groups001–002 still need both header reviews. Ten saved whole-lesson repair records passed individual lesson validation; none has complete pack validation or delivery. Audio:pending. PostgreSQL updates verified:0.
+| Work | Completed review | Blocked | Unexamined |
+|---|---:|---:|---:|
+| Overview |1747 profiles|21|95|
+| Tamil |1548|20|295|
+| Pronunciation text |1567|1|295|
 
-Continue source-context/group-017.json at ordinal1573 and drain consecutive missing groups. Read canonical rules and validators from main (current checked commit cbb02c4d1519b3dd28a061f4845d71f6e01e2a26). The historical DELIVERY-BLOCKER-20261011.md is resolved as a scope restriction by later user authorization: necessary whole-lesson repairs are authorized. Quarantine genuine individual sense conflicts and continue other work.
+Overview processed total:1768. Groups001–002 have not had Tamil or pronunciation review. Ten previously saved complete-lesson repairs passed individual lesson validation; complete production pack validation and delivery remain0. Audio implementation pending; PostgreSQL updates verified0.
 
-Review receipts are not import payloads. Preserve valid original content, exact identities, source hashes and learner progress. Complete same-sense replacement packs require full preflight/batch validation and separate semantic review before delivery through the active inbox. Do not merge app PRs. Only local PostgreSQL read-back verifies app updates.
+Continue source-context/group-019.json at ordinal1769. Quarantines remain individual and do not block other entries. The latest confirmed conflict1767 uses fall into for classification while the stored sense describes entering a state. Read each receipt's evidence limitations before final replacement preparation.
 
-Read RECEIPT-SCOPE-ERRATA-20261011.json for prior descriptive scope corrections. Earlier unsupported IPA verification claims are superseded as documented in PROFILE-DRAFT-003.json; pronunciation text review does not certify dictionary verification or audio. Source-expression flags and all quarantines still require final reconciliation.
+Canonical instructions and production validators come from main, checked at cbb02c4d1519b3dd28a061f4845d71f6e01e2a26. DELIVERY-BLOCKER-20261011.md is historical; the user's later authorization permits necessary whole-lesson repairs. Do not stop again for that scope reason.
+
+Receipts are not import payloads. Preserve valid original content, source identity, entry version, taxonomy and learner progress. Deliver complete same-sense replacement packs only after full preflight/batch validation and separate semantic review. Do not merge app PRs. Only local PostgreSQL read-back verifies app updates.
+
+Read RECEIPT-SCOPE-ERRATA-20261011.json for earlier descriptive-scope corrections. PROFILE-DRAFT-003 supersedes unsupported IPA verification claims from its earlier partial checkpoint. Editorial pronunciation text review does not establish dictionary verification or audio playback.
