@@ -1,0 +1,566 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0156-0160",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 156,
+      "wordId": "1504fb92-72da-482d-8ff8-c49505381035",
+      "senseKey": "to-investigate-something-to-understand-or-resolve-it",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "227e522bfdc7357237bb5991a32e99b141db53af3ea84e450918b5f2b660f1ad",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "look into",
+        "wordType": "phrasal verb",
+        "pronunciation": "/lʊk ˈɪntuː/",
+        "tamilMeaning": "ஆராய்ந்து தெரிந்துகொள்ளுதல்",
+        "englishMeaning": "to investigate something to understand or resolve it",
+        "coreIdea": "Shine a torch inside the problem.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb for investigating a matter; here, find out what is wrong with the heating.",
+              "connotation": "Neutral: it promises investigation, not necessarily immediate repair or a successful outcome.",
+              "tone": "Matter-of-fact here: the sentence reports the landlord's promise to investigate.",
+              "register": "Common everyday and workplace English. “Investigate” is more formal."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Promise to investigate a heating complaint and give a follow-up time. A model in this sense: The school will look into the missing lunch payments."
+            ],
+            "when_not_to_use": [
+              "Do not use look into to claim a problem has already been solved; it describes investigation."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Look into leaves the outcome of an investigation open. Adding a realistic update time makes the promise more useful without guaranteeing a repair.",
+            "Look into is inseparable in this sense: look into it, not look it into."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Shine a torch inside the problem.",
+            "memory_sentence": "The school will look into the missing lunch payments.",
+            "production_task": "Promise to investigate a heating complaint and give a follow-up time. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: to investigate something to understand or resolve it. Explain its function in one sentence.",
+            "recognition_task": "A landlord promises to look into a heating problem. Does this establish that the heating has been repaired? Explain what the promise actually covers."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "The landlord promised to look into the heating problem.",
+              "another_setting": "The school will look into the missing lunch payments."
+            },
+            "mini_conversation": "A: The school will look into the missing lunch payments.\nB: When should I expect an update?\nA: We’ll contact you by Friday, even if the investigation is still open."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The landlord promised to look into the heating problem.",
+            "contextual_meaning": "to investigate something to understand or resolve it",
+            "simple_explanation": "The landlord has promised to investigate what is wrong with the heating. This does not tell us that the cause has been found or the problem repaired."
+          },
+          "mistakes_differences": {
+            "correction": "We will look into the issue.",
+            "common_mistake": "We will look the issue into.",
+            "important_difference": "Look into means investigate. Sort out means resolve or organize the matter; looking into a problem may be the first step toward sorting it out."
+          },
+          "patterns_collocations": {
+            "main_pattern": "look into: look into + issue",
+            "common_collocations": [
+              "look into the matter",
+              "look into a complaint"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid investigation examples and grammar retained; investigation distinguished from resolution, conversation completed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 157,
+      "wordId": "1518cb5b-14b2-4bf0-84dd-81135713cbf5",
+      "senseKey": "become-unwanted-involved",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4159e62703aeafe2adf7b474bd9562e5ddaaae3a30b68c3ce9aad3e9f59c95a7",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "interfere",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: in-ter-FEER. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "இடையூறு ஏற்படுத்தும் வகையில் தலையிடுதல்",
+        "englishMeaning": "to become involved in a way that obstructs or disrupts",
+        "coreIdea": "Get involved in a way that others find disruptive.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract verb for unwanted involvement that disrupts or obstructs; here, involvement by in-laws that someone wants stopped.",
+              "connotation": "Negative: it describes the involvement as unwelcome rather than simply helpful participation.",
+              "tone": "Problem-focused here: the example is listed among difficult conversations people may need to have.",
+              "register": "Common in personal and professional discussions, but it attributes an unwelcome effect. Describe the action when the judgement could be disputed."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe unwanted involvement in another person’s decisions or affairs."
+            ],
+            "when_not_to_use": [
+              "Do not call requested help interference merely because another person participates.",
+              "In a sensitive discussion, identify the unwanted action rather than relying only on the accusation You interfere."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Interfere can sound accusatory because it judges the involvement negatively. I don’t want to interfere can soften an offer of advice, but the advice may still be unwelcome.",
+            "Interfere in focuses on entering someone’s affairs; interfere with can focus on disrupting their work or plans. In both patterns here, another person’s involvement is the issue."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture someone taking over a decision that belongs to another person.",
+            "memory_sentence": "Please do not interfere in our decision.",
+            "recall_question": "What judgement does interfere add to simply become involved?",
+            "recognition_task": "A team asks an adviser for suggestions, and the adviser supplies them without taking over. Is interfere necessarily a fair description? Explain what unwanted involvement would add.",
+            "production_task": "Write a calm request to a fictional colleague who keeps changing your team’s plans without consultation. Use interfere and name the action you want changed."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Please do not interfere in our decision about where to live.",
+              "example_2": "The supervisor promised not to interfere with the team’s plans unless they asked for help."
+            },
+            "mini_conversation": "A: I’ve told your team to change the schedule.\nB: Please don’t interfere in that decision; we are still discussing it together.\nA: All right. I’ll share my concern with you first next time."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Other  topics  that  could  easily  lead  to  disaster  include  •  Ending  a  relationship  •  Talking  to  a  coworker  who  behaves  offen sively  or  makes  sugges­ tive  comments  •  Asking  a  friend  to  repay  a  loan  •  Giving  the  boss  fee dback  about  her  behavior  •  Approaching  a  boss  who  is  breaking  his  own  safety  or  quality  policies  •  Critiquing  a  colleague's  work  •  Asking  a  roommate  to  move  out  •  Resolving  custody  or  visitation  issues  with  an  ex-spouse  •  Dealing  with  a  rebellious  teen  •  Ta lking  to  a  team  member  who  isn't  keeping  commitments  •  Discussi ng  problems  with  sexual  intimacy  •  Confronting  a  loved  one  about  a  subs tance  abuse  problem  •  Talking to  a  colleague  who  is  hoarding  inf onnation  or  resources  •  Giving  an  unf avorab le  performance review  •  Asking  in-laws  to  quit  interfering  •  Talking  to  a  coworker  about  a  personal  hygiene  problem  OUR  AUDACIOUS  CLAI M  Let's  say  that  either  you  avoid  tough  issues  or  when  you  do  bring  them  up,   you're  on  your  worst  behavior.",
+            "contextual_meaning": "to become involved in a way that obstructs or disrupts",
+            "simple_explanation": "The list includes asking in-laws to stop unwanted involvement. It does not describe the particular actions they took; interfering expresses the affected person’s negative judgement of that involvement."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Please do not interfere our decision.",
+            "correction": "Say Please do not interfere in our decision. Use a preposition before the matter someone becomes involved in.",
+            "important_difference": "Help presents involvement as useful. Interfere presents it as unwanted or disruptive; the people involved may disagree about that judgement."
+          },
+          "patterns_collocations": {
+            "main_pattern": "interfere in + someone’s affairs/decision; interfere with + someone’s work/plans",
+            "common_collocations": [
+              "interfere in family matters",
+              "interfere in a decision",
+              "interfere with someone’s plans"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Unwanted personal involvement sense preserved; preposition patterns and judgement distinguished from requested help.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 158,
+      "wordId": "1534730c-65d2-4d7a-807c-b1acce88c14c",
+      "senseKey": "careful-noticing",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5ab8ecacbc99e0fdc6da5b8e416f14e02bd4827b4e7eea37f4dcd1c592657fd2",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "observation",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: ob-zer-VAY-shuhn. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கவனித்தறிந்த விஷயம் அல்லது கவனித்தறிதல்",
+        "englishMeaning": "the act or result of carefully noticing what happens",
+        "coreIdea": "What careful attention allows you to notice.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for what someone notices through attentive watching; here, findings compared after observing conversations.",
+              "connotation": "Neutral: an observation is information to examine, not automatically a proven explanation.",
+              "tone": "Analytical and methodical here: comparing observations is followed by testing hypotheses and refining models.",
+              "register": "Neutral to formal; common in research and reflective discussion. Distinguish observed behaviour from interpretations of its cause."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Report a detail noticed through attentive watching or listening, or describe the process of gathering such details."
+            ],
+            "when_not_to_use": [
+              "Do not present an untested explanation of someone’s motive as if it were a direct observation."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Observation can be uncountable for the process, as in careful observation, or countable for a particular noticed detail, as in three observations.",
+            "An observation can still be mistaken or incomplete. Comparing observations helps identify differences in what people noticed; it does not automatically settle the explanation."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture two notebook columns: noticed details and possible explanations.",
+            "memory_sentence": "We compared our observations after the discussion.",
+            "recall_question": "How does an observation differ from a guess about a person’s motive?",
+            "recognition_task": "Which is closer to a direct observation? A: She looked at the clock twice. B: She wanted us to leave. Explain what can be noticed and what has been inferred.",
+            "production_task": "Write two sentences about a fictional meeting: one observation of visible or audible behaviour and one clearly labelled possible explanation."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "My observation was that three people spoke before anyone asked the new member a question.",
+              "example_2": "The students compared their observations of the birds feeding outside the classroom."
+            },
+            "mini_conversation": "A: What did you notice during the discussion?\nB: My main observation was that she paused after every question.\nA: Let’s record the pauses separately from our guesses about why they happened."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Afterward  we  compared  our  observations,  tested  our  hy potheses,  and  honed  our  models  until  we found  the  skills  that  consistently  explain  the  success  of  brilliant  communi cators .",
+            "contextual_meaning": "the act or result of carefully noticing what happens",
+            "simple_explanation": "The researchers compared what they had noticed, then tested possible explanations. Their observations are the noticed details, not automatically proof of why the conversations succeeded."
+          },
+          "mistakes_differences": {
+            "common_mistake": "An interpretation presented as a fact: My observation is that he stayed silent because he disliked us.",
+            "correction": "Separate the claim: My observation is that he stayed silent. I do not yet know why.",
+            "important_difference": "An observation describes what was noticed. An interpretation proposes what it means or why it happened; that explanation may need further evidence."
+          },
+          "patterns_collocations": {
+            "main_pattern": "make/record/compare + observations; observation of + behaviour/event",
+            "common_collocations": [
+              "careful observation",
+              "record an observation",
+              "compare observations"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Noticed evidence distinguished from causal interpretation; countable and uncountable uses explained.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 159,
+      "wordId": "1547e652-5518-45fe-aa4f-d85f8e611b09",
+      "senseKey": "required-precondition",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c630ce4dcb92527e785f0084e97aab871643b33480839e7ba11d4000c6c3e227",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "entry condition",
+        "wordType": "countable noun phrase",
+        "pronunciation": "Approximate pronunciation: EN-tree kuhn-DISH-uhn. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தொடங்குவதற்கு முன் நிறைவேற வேண்டிய நிபந்தனை",
+        "englishMeaning": "a condition that must be met before participation or progress is possible",
+        "coreIdea": "A requirement that must be met before a process starts.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract condition-of-access metaphor: mutual purpose is presented as something required before dialogue can proceed.",
+              "connotation": "Neutral as a requirement, while the passage treats mutual purpose as beneficial.",
+              "tone": "Definite and explanatory here: “is” presents the condition as an essential part of the method.",
+              "register": "Formal explanatory wording. “A requirement for dialogue” is clearer in everyday language; it is not a physical entrance rule here."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "State a required starting condition for participation in a process or discussion."
+            ],
+            "when_not_to_use": [
+              "Do not call a desirable later result an entry condition if it is not required before the process begins."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Entry condition is formal process language. Requirement for starting is often clearer in ordinary conversation.",
+            "Meeting an entry condition allows a process to begin; it does not guarantee that the process will succeed."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a required check completed before a discussion begins.",
+            "memory_sentence": "A shared purpose is an entry condition for this dialogue method.",
+            "recall_question": "When must an entry condition be met: before starting or only after finishing?",
+            "recognition_task": "A group must agree on confidentiality before its discussion starts. Is that an entry condition or a final outcome? Explain the order.",
+            "production_task": "Write a short note for a fictional group discussion naming one entry condition and explaining why the group needs it before beginning."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Agreement on the topic is an entry condition for this structured discussion.",
+              "example_2": "For our joint planning exercise, sharing the relevant information is an entry condition, not an optional final step."
+            },
+            "mini_conversation": "A: Can we start the joint planning session now?\nB: We agreed that sharing the figures was an entry condition, and one team has not done that yet.\nA: I’ll ask them to send the figures before we begin."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Consequ ent ly,  Mutual  Purpo se  is  the  entry  condition  of  dialogue.",
+            "contextual_meaning": "a condition that must be met before participation or progress is possible",
+            "simple_explanation": "The author treats a shared purpose as a requirement for starting constructive dialogue. This is a claim about the author’s method, not a rule for entering a physical place."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Shared purpose is entry condition for this discussion.",
+            "correction": "Say Shared purpose is an entry condition for this discussion. A singular countable phrase needs a determiner here.",
+            "important_difference": "An entry condition must be met before participation or progress can begin. A desired outcome is something the process aims to produce afterward."
+          },
+          "patterns_collocations": {
+            "main_pattern": "an entry condition for + process; meet/satisfy + an entry condition",
+            "common_collocations": [
+              "meet the entry condition",
+              "a necessary entry condition",
+              "an entry condition for discussion"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Starting requirement distinguished from desired outcome; source claim attributed to the dialogue method.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 160,
+      "wordId": "159c92bd-ed23-431c-a996-026098ebd586",
+      "senseKey": "gained-through-effort",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "1c9b527cb00d64d4910a84604ce6c749ece57815eab556fb91ca60e8a8500a22",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "hard-earned",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: HARD URND. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கடுமையாக உழைத்துப் பெற்ற",
+        "englishMeaning": "gained only after considerable effort or work",
+        "coreIdea": "Obtained through a lot of effort.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adjective emphasizing that something was obtained through substantial effort; here, savings built up through work.",
+              "connotation": "Positive toward the effort and value of the savings, often suggesting that they should not be wasted.",
+              "tone": "Conflicted and self-questioning here: the speaker contrasts difficulty justifying the purchase with a strong desire for it.",
+              "register": "Common in everyday and financial discussion. It highlights effort, not a particular amount of money."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Emphasize the effort involved in gaining money, success, trust or knowledge."
+            ],
+            "when_not_to_use": [
+              "Do not use hard-earned merely to mean expensive; a high price does not describe the effort of earning something."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Hard-earned often invites respect for the effort behind an achievement. It can make wasting that achievement seem especially regrettable.",
+            "Hard-earned does not prove that an achievement was fair or deserved in every respect; it specifically emphasizes effort."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture many days of work behind a small savings jar.",
+            "memory_sentence": "She protected her hard-earned savings.",
+            "recall_question": "Does hard-earned describe the amount obtained or the effort behind obtaining it?",
+            "recognition_task": "One prize comes after months of practice; another is won by chance. Which is more naturally called hard-earned? Explain the role of effort.",
+            "production_task": "Write a short message congratulating a fictional friend on a hard-earned achievement. Mention the work that made the description appropriate."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She did not want to spend her hard-earned savings on something she would rarely use.",
+              "example_2": "The team celebrated a hard-earned victory after months of practice."
+            },
+            "mini_conversation": "A: Why are you checking the reviews so carefully?\nB: I’m spending my hard-earned savings, so I want something that will last.\nA: Let’s compare the warranty terms too."
+          },
+          "meaning_in_context": {
+            "source_sentence": "\"  Meaning:  I  can't  jus tify  spending  our  hard-earned  savings  on  this  expensive  toy ,  but  I  really  want  it.",
+            "contextual_meaning": "gained only after considerable effort or work",
+            "simple_explanation": "The speaker emphasizes the work behind the savings and feels torn about spending them on an expensive toy. Hard-earned highlights effort, not how large the savings are."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: He spent his hardly-earned savings.",
+            "correction": "Say He spent his hard-earned savings. Hard means with effort here; hardly normally means almost not.",
+            "important_difference": "Hard-earned emphasizes the effort needed to obtain something. Valuable emphasizes its worth; something can be valuable without being hard-earned."
+          },
+          "patterns_collocations": {
+            "main_pattern": "hard-earned + money/result; protect/value + hard-earned + achievement",
+            "common_collocations": [
+              "hard-earned savings",
+              "a hard-earned victory",
+              "hard-earned trust"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Effort distinguished from price, amount and deservedness; hard/hardly error corrected.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
