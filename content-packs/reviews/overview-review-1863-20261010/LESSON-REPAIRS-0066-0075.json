@@ -1,0 +1,1094 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0066-0075",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 10,
+  "broaderLessonRepairProcessed": 10,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 66,
+      "wordId": "07ef3d44-9995-408e-8f72-c15203e782f9",
+      "senseKey": "to-review-or-explain-something-relatively-quickly",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "51d24a6d240e4ac9535511c88f624fef3e304bed102c71660f600115a2414dd0",
+      "sourceLessonHashSerialization": "Python json.dumps(lesson_data, ensure_ascii=False, sort_keys=True), UTF-8, no trailing newline",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "run through",
+        "wordType": "phrasal verb",
+        "pronunciation": "/rʌn ˈθruː/",
+        "tamilMeaning": "ஒரு விஷயத்தை ஒப்பீட்டளவில் விரைவாக மறுபார்வை செய்தல்",
+        "englishMeaning": "to review or explain something relatively quickly",
+        "coreIdea": "Review the main points fairly quickly.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb for reviewing or explaining a set of points fairly quickly; here, review the agenda.",
+              "connotation": "Neutral: it suggests a brief review without necessarily implying careless treatment.",
+              "tone": "Collaborative and practical here: “Let us” proposes a shared check before others arrive.",
+              "register": "Common conversational workplace English. “Review briefly” is more formal and explicit."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Let us run through the agenda before everyone arrives.",
+            "contextual_meaning": "to review or explain something relatively quickly",
+            "simple_explanation": "The speaker suggests a quick review of the agenda before the other participants arrive."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Briefly review a plan, list or set of instructions, often aloud with another person."
+            ],
+            "when_not_to_use": [
+              "For a detailed investigation of every issue, say examine in detail rather than implying a quick run-through."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "run through + agenda / plan / instructions; run through something with someone",
+            "common_collocations": [
+              "run through the agenda",
+              "run through the main points"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Let us run through the agenda before everyone arrives.",
+              "example_2": "Can you run through the washing-machine controls with me once more?"
+            },
+            "mini_conversation": "A: We have five minutes before the call.\nB: Let us run through the questions now.\nA: Start with the delivery schedule."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Can we run the agenda through with you? This is not the usual order for the review meaning.",
+            "correction": "Say: Can we run through the agenda? With a pronoun, say run through it.",
+            "important_difference": "Run through suggests a relatively quick review; go into detail explicitly promises fuller explanation."
+          },
+          "memory_practice": {
+            "memory_trigger": "Move your finger down a short agenda, checking each main point.",
+            "memory_sentence": "Can we run through the plan before we leave?",
+            "recall_question": "Does run through usually suggest a brief review or an exhaustive investigation?",
+            "recognition_task": "A: Briefly checking five agenda items before a call. B: Spending three days investigating one item. Which better fits run through?",
+            "production_task": "Invite a teammate to run through the steps for a presentation and name the point you especially want to check."
+          },
+          "advanced_nuance": [
+            "Run through can serve either as a reminder or a first explanation. It signals pace and scope, so ask questions if a quick explanation leaves something unclear."
+          ]
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "expectedEntryVersion",
+        "expectedLessonSha256",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections, with source identity and same contextual meaning preserved; no audio playback or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 67,
+      "wordId": "08666da3-9f90-4084-8259-83908d3739c0",
+      "senseKey": "sensitive-data-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6429f6bd9a65f08d2ec8bbc8f15a2f8767286635ea7fb3141ade9c753f26cbb7",
+      "sourceLessonHashSerialization": "Python json.dumps(lesson_data, ensure_ascii=False, sort_keys=True), UTF-8, no trailing newline",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "sensitive data",
+        "wordType": "noun phrase",
+        "pronunciation": "Approximate pronunciation: SEN-sih-tiv DAY-tuh. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தவறான பயன்பாடு பாதிப்பை ஏற்படுத்தக்கூடிய பாதுகாக்க வேண்டிய தகவல்",
+        "englishMeaning": "information requiring special protection because misuse could harm people",
+        "coreIdea": "Information that needs careful protection from misuse.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical privacy phrase for information needing careful protection because exposure or misuse could cause harm.",
+              "connotation": "Cautionary about handling: sensitivity describes potential consequences, not whether the information is bad or embarrassing.",
+              "tone": "Procedural here: the speaker introduces the next step without expressing a distinctive emotion.",
+              "register": "Common in privacy, security and workplace policies. The exact legal categories can vary, so this general phrase is not itself a legal classification."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "And then the next step is to handle sensitive data.",
+            "contextual_meaning": "information requiring special protection because misuse could harm people",
+            "simple_explanation": "The source identifies handling protected information as the next step. It does not specify which categories of information are involved."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss information whose exposure or misuse could harm people, such as confidential personal records."
+            ],
+            "when_not_to_use": [
+              "Do not use sensitive data merely to mean a large or technically complex dataset; sensitivity concerns the consequences of disclosure or misuse."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "protect / handle / store / restrict access to + sensitive data",
+            "common_collocations": [
+              "protect sensitive data",
+              "access to sensitive data"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The team removed sensitive data from the demonstration file.",
+              "example_2": "Only authorised staff can access the sensitive data in these records."
+            },
+            "mini_conversation": "A: Can we use the original records in the training session?\nB: They contain sensitive data. Let us use a fictional example instead.\nA: I will prepare one."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Assuming sensitive data means data that reacts quickly to changes.",
+            "correction": "Here, sensitive data means information needing protection because misuse could cause harm.",
+            "important_difference": "Sensitive data concerns risk from exposure or misuse; inaccurate data concerns correctness. Information can be accurate and still sensitive."
+          },
+          "memory_practice": {
+            "memory_trigger": "A file with a restricted-access label and personal details inside.",
+            "memory_sentence": "Remove sensitive data before sharing the example file.",
+            "recall_question": "What makes information sensitive in this lesson: its size, accuracy or potential harm from misuse?",
+            "recognition_task": "A: A fictional weather table. B: Identifiable confidential personal records. Which is more likely to contain sensitive data?",
+            "production_task": "Write a short request asking a colleague to remove sensitive data from a presentation example. Specify what should be replaced with fictional information."
+          },
+          "advanced_nuance": [
+            "Sensitive data is a broad expression in ordinary technical discussion. When precise compliance categories matter, name the applicable category rather than assuming this general phrase supplies a complete definition."
+          ]
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "expectedEntryVersion",
+        "expectedLessonSha256",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections, with source identity and same contextual meaning preserved; no audio playback or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 68,
+      "wordId": "08725cef-a210-4247-9e38-b5a0215a5629",
+      "senseKey": "image-recognition-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6273fa8f640a020f1051c0d69581ddbcd6922baad867a7b3b69554481ec074a2",
+      "sourceLessonHashSerialization": "Python json.dumps(lesson_data, ensure_ascii=False, sort_keys=True), UTF-8, no trailing newline",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "image recognition",
+        "wordType": "noun phrase",
+        "pronunciation": "Approximate pronunciation: IM-ij rek-ug-NISH-uhn. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "படங்களில் உள்ள பொருட்கள் அல்லது வடிவங்களை தானாக அடையாளம் காணுதல்",
+        "englishMeaning": "the automated identification of objects or patterns in images",
+        "coreIdea": "A system identifies what an image shows.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical noun phrase for computational identification of objects, features or patterns in images.",
+              "connotation": "Neutral: the phrase identifies a capability without saying whether a particular application is accurate or desirable.",
+              "tone": "Explanatory here: the speaker lists it as one example of what the technology can do.",
+              "register": "Standard computing terminology, also common in technology news. Give a concrete example for audiences unfamiliar with it."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "But a few examples of things we can do with it are image recognition, fraud detection, speech recognition, spam detection.",
+            "contextual_meaning": "the automated identification of objects or patterns in images",
+            "simple_explanation": "The speaker lists image recognition as one example of a task that the technology can perform, alongside other recognition or detection tasks."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe automated identification of objects, categories or patterns in images."
+            ],
+            "when_not_to_use": [
+              "If a system creates a new picture rather than identifies content in an existing one, use image generation."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "use image recognition to + identify / classify; an image recognition system",
+            "common_collocations": [
+              "image recognition software",
+              "image recognition accuracy"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The recycling plant uses image recognition to identify different types of packaging.",
+              "example_2": "An image recognition feature groups similar objects in my photo collection."
+            },
+            "mini_conversation": "A: How does the app know that the picture contains a bicycle?\nB: It uses image recognition to classify what is shown.\nA: We should still check uncertain results."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Calling the creation of a new illustration image recognition.",
+            "correction": "Use image recognition for identifying content in an existing image, and image generation for creating a new one.",
+            "important_difference": "Image recognition identifies visual content; image storage simply saves the file without interpreting what it shows."
+          },
+          "memory_practice": {
+            "memory_trigger": "A camera picture receives a label such as bicycle.",
+            "memory_sentence": "Image recognition helps the system identify damaged packages.",
+            "recall_question": "Does image recognition create a picture or identify content in one?",
+            "recognition_task": "A: Label a photograph as showing a dog. B: Save a photograph in a folder without analysing it. Which involves image recognition?",
+            "production_task": "Describe a simple application of image recognition and one type of wrong result a user should check."
+          },
+          "advanced_nuance": [
+            "Image recognition names a task, not a guarantee of human-like understanding. A system may classify an image correctly while missing its wider context, and performance can change with image quality or unfamiliar examples."
+          ]
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "expectedEntryVersion",
+        "expectedLessonSha256",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections, with source identity and same contextual meaning preserved; no audio playback or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 69,
+      "wordId": "0897e046-98fc-4105-a5ac-a721684227c3",
+      "senseKey": "repetition-improves-skill",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d7c7d9cab9fb778fb9d24bb0777bac12a9837e17624968427844fae79d043c14",
+      "sourceLessonHashSerialization": "Python json.dumps(lesson_data, ensure_ascii=False, sort_keys=True), UTF-8, no trailing newline",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "practice makes perfect",
+        "wordType": "proverb",
+        "pronunciation": "Approximate pronunciation: PRAK-tis mayks PUR-fikt. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தொடர்ந்த பயிற்சி திறமையை மேம்படுத்தும்",
+        "englishMeaning": "repeated practice improves ability",
+        "coreIdea": "Regular practice can build skill, but the quality of practice matters.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Proverb expressing the idea that repeated practice improves skill; “perfect” is an emphatic ideal rather than a guaranteed result.",
+              "connotation": "Usually encouraging, but the quoted passage challenges the unqualified proverb and stresses the quality of practice.",
+              "tone": "Corrective and emphatic here: “doesn't” rejects the familiar claim before replacing it with “perfect practice.”",
+              "register": "Familiar everyday saying, useful in encouragement. Avoid presenting it as a literal guarantee that repetition alone produces mastery."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "You  can  still  screw  up,  because  practice   doesn't  make  perfect;  per fe ct  practice  makes  perf ect.",
+            "contextual_meaning": "repeated practice improves ability",
+            "simple_explanation": "The writer challenges the familiar saying practice makes perfect and changes it to perfect practice makes perfect, stressing that repeating mistakes is not enough."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Encourage someone to keep practising a skill rather than give up after early difficulty."
+            ],
+            "when_not_to_use": [
+              "Do not treat the proverb as a literal guarantee of flawless performance or as advice to repeat a harmful technique unchanged."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "practice makes perfect; introduce it as encouragement or qualify it with a comment about effective practice",
+            "common_collocations": [
+              "as the saying goes, practice makes perfect",
+              "remember that practice makes perfect"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Practice makes perfect, her teacher said, encouraging her to try the passage again.",
+              "example_2": "I remind myself that practice makes perfect whenever I struggle with the new keyboard layout."
+            },
+            "mini_conversation": "A: I still make mistakes in this exercise.\nB: Practice makes perfect, but let us check your technique first.\nA: Good idea. I may be repeating the same error."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Taking practice makes perfect to mean that any repetition guarantees perfection.",
+            "correction": "Treat practice makes perfect as encouragement to improve through practice, while using feedback to correct mistakes.",
+            "important_difference": "Practice makes perfect is a broad encouraging saying; deliberate practice describes targeted work on weaknesses with feedback."
+          },
+          "memory_practice": {
+            "memory_trigger": "Repeat a musical phrase, listen, adjust and try again.",
+            "memory_sentence": "Practice makes perfect, but useful feedback helps me improve faster.",
+            "recall_question": "Why does the source qualify the saying practice makes perfect?",
+            "recognition_task": "A: Repeat an error without checking it. B: Practise, obtain feedback and adjust. Which better fits the source's advice?",
+            "production_task": "Encourage a friend who is learning to type. Use practice makes perfect, then add one practical suggestion about correcting mistakes."
+          },
+          "advanced_nuance": [
+            "Practice makes perfect uses perfect rhetorically: it encourages improvement rather than promising a flawless result. The source deliberately plays on that familiar wording to emphasise the quality of the practice."
+          ]
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "expectedEntryVersion",
+        "expectedLessonSha256",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections, with source identity and same contextual meaning preserved; no audio playback or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 70,
+      "wordId": "08c2f0d8-28d7-4b80-b528-b005e49aeceb",
+      "senseKey": "cause-to-begin",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a538d8894249abd5b135b18c0ec585d846a68f1b164869dd8f5768c7565ae500",
+      "sourceLessonHashSerialization": "Python json.dumps(lesson_data, ensure_ascii=False, sort_keys=True), UTF-8, no trailing newline",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "initiate",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: ih-NISH-ee-ayt. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு செயலையோ உரையாடலையோ தொடங்குதல்",
+        "englishMeaning": "to cause a process, action, or discussion to begin",
+        "coreIdea": "Take the first action that gets something started.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract verb meaning to start an action or process; here, she starts the conversation.",
+              "connotation": "Neutral: it identifies who begins, without saying whether starting was welcome or successful.",
+              "tone": "Factual with emphasis on responsibility here: “She's the one” identifies her as the person who starts the talk.",
+              "register": "More formal than “start”; common in reports and professional discussion, though “start the conversation” is more everyday."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "She's  the  one  initiating  the  talk.",
+            "contextual_meaning": "to cause a process, action, or discussion to begin",
+            "simple_explanation": "She is the person starting the conversation, rather than waiting for someone else to begin it."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe starting a discussion, process, investigation or organised action."
+            ],
+            "when_not_to_use": [
+              "If the activity is already underway and you merely continue it, use continue rather than initiate."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "initiate + discussion / process / contact; no preposition before the direct object",
+            "common_collocations": [
+              "initiate a conversation",
+              "initiate a review"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She decided to initiate a conversation about the missed deadline.",
+              "example_2": "The committee will initiate a review of its booking procedure."
+            },
+            "mini_conversation": "A: Neither side is discussing the problem.\nB: Could you initiate a conversation?\nA: Yes. I will invite them to a short meeting."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We will initiate with a review, when you mean start the review itself.",
+            "correction": "Say: We will initiate a review. Initiate takes the activity directly as its object.",
+            "important_difference": "Initiate focuses on starting an activity; lead can describe directing it throughout, including after someone else started it."
+          },
+          "memory_practice": {
+            "memory_trigger": "The first push starts a row of dominoes moving.",
+            "memory_sentence": "I will initiate a discussion about the schedule tomorrow.",
+            "recall_question": "Does initiating a process necessarily mean managing every later stage?",
+            "recognition_task": "A: Opening the first discussion about a problem. B: Joining a discussion already in progress. Which action initiates it?",
+            "production_task": "Write a professional sentence offering to initiate a discussion about a repeated delivery problem."
+          },
+          "advanced_nuance": [
+            "Initiate is more formal than start and often appears with organised processes. In casual conversation, start a chat usually sounds less bureaucratic than initiate a conversation."
+          ]
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "expectedEntryVersion",
+        "expectedLessonSha256",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections, with source identity and same contextual meaning preserved; no audio playback or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 71,
+      "wordId": "08d0d4d5-64da-4c21-968d-36a51c9e8c37",
+      "senseKey": "made-a-short-low-rough-sound-like-a-pig",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a38fb90c978edddad4ba3da548c8b50eb06a5d2e0237932dc2047970e7a22516",
+      "sourceLessonHashSerialization": "Python json.dumps(lesson_data, ensure_ascii=False, sort_keys=True), UTF-8, no trailing newline",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "grunted",
+        "wordType": "verb (past tense)",
+        "pronunciation": "Approximate pronunciation: GRUN-tid. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "உறுமும் குறுகிய ஒலி எழுப்பியது",
+        "englishMeaning": "made a short, low, rough sound like a pig",
+        "coreIdea": "Make a brief, low, rough animal sound.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal past-tense verb describing a short, low, rough sound; here, the character makes the sound before walking into the box.",
+              "connotation": "Neutral as a sound description; it does not by itself prove anger or satisfaction.",
+              "tone": "Observational and quiet here: the sequence ends with the character walking sleepily, without an explicit emotional judgement.",
+              "register": "Common in narrative descriptions of animals or people. In human dialogue, a grunt may suggest reluctance, but that interpretation is not established here."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "When he had finished the last drop, he grunted and walked sleepily into the box.",
+            "contextual_meaning": "made a short, low, rough sound like a pig",
+            "simple_explanation": "After finishing the drink, the pig makes a short low sound and walks sleepily into the box."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a pig or another animal making a short, low, rough sound in a narrative."
+            ],
+            "when_not_to_use": [
+              "Do not use grunted for a long, high-pitched cry; squealed may describe that sound more accurately."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "subject + grunted; grunted softly / loudly; past tense of grunt",
+            "common_collocations": [
+              "grunted softly",
+              "grunted contentedly"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The pig grunted softly as it settled into the straw.",
+              "example_2": "A wild boar grunted from behind the bushes, and we stopped walking."
+            },
+            "mini_conversation": "A: What was that low sound from the pen?\nB: The pig grunted when I put down its food.\nA: It is quiet again now."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The pig did grunted when it woke up.",
+            "correction": "Say: The pig grunted when it woke up. After did, use the base form: The pig did grunt.",
+            "important_difference": "Grunted suggests a short, low, rough sound; squealed suggests a higher-pitched sound, often longer or sharper."
+          },
+          "memory_practice": {
+            "memory_trigger": "A sleepy pig makes one low sound before settling down.",
+            "memory_sentence": "The pig grunted and curled up in the straw.",
+            "recall_question": "What is the base form of grunted, and what kind of sound does it describe here?",
+            "recognition_task": "A: A brief low rough sound. B: A long high-pitched cry. Which better matches grunted?",
+            "production_task": "Write two sentences about an animal settling down after feeding. Use grunted to describe its sound."
+          },
+          "advanced_nuance": [
+            "Grunted describes the sound more directly than the animal's emotion. An adverb such as contentedly adds an interpretation, so the verb alone does not prove that the animal was pleased or angry."
+          ]
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "expectedEntryVersion",
+        "expectedLessonSha256",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections, with source identity and same contextual meaning preserved; no audio playback or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 72,
+      "wordId": "08daa19a-2317-4476-994f-cfa5e6025e50",
+      "senseKey": "contradictory-result",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a5ab895b9a0398fbcc7dd6d3f235d39b7def192f438c28c94086ea5e7da79514",
+      "sourceLessonHashSerialization": "Python json.dumps(lesson_data, ensure_ascii=False, sort_keys=True), UTF-8, no trailing newline",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "irony",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: EYE-ruh-nee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "எதிர்பார்ப்புக்கு மாறாக நிகழ்வதில் உள்ள முரண்பாடு",
+        "englishMeaning": "a situation whose result contrasts unexpectedly with what is expected",
+        "coreIdea": "What happens sharply contrasts with what you would expect.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for an unexpected contrast between an outcome and what would normally be expected.",
+              "connotation": "Often invites reflection or wry amusement; it need not mean that the outcome is funny.",
+              "tone": "Reflective here: “a certain irony” points out a contrast, but the quoted sentence does not supply enough detail to identify it.",
+              "register": "Neutral to somewhat literary in commentary. Explain the actual contrast rather than use it as a synonym for any coincidence."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "There's  a  certain  irony  embedded  in  thi s  fa ct.",
+            "contextual_meaning": "a situation whose result contrasts unexpectedly with what is expected",
+            "simple_explanation": "The writer points to an unexpected contrast in a fact mentioned nearby. This short quotation does not itself explain the underlying contrast."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Identify a meaningful mismatch between an expectation and the actual result."
+            ],
+            "when_not_to_use": [
+              "Do not label every coincidence or unfortunate event irony. Explain the expectation that the result reverses or undermines."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "the irony is that + clause; the irony of + situation; a certain irony in + fact",
+            "common_collocations": [
+              "a bitter irony",
+              "appreciate the irony"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The irony is that the system designed to save time doubled our paperwork.",
+              "example_2": "She appreciated the irony of the noise campaign's opening event being interrupted by loud music."
+            },
+            "mini_conversation": "A: The new form was supposed to simplify registration.\nB: There is some irony in needing a second form to explain it.\nA: Yes, it has made the process harder."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Calling ordinary bad luck irony without showing any contrast with what was expected.",
+            "correction": "Show the contrast: The irony is that the tool meant to reduce errors introduced more of them.",
+            "important_difference": "Irony involves a meaningful contrast with expectation; coincidence is an unexpected connection between events, without necessarily involving that contrast."
+          },
+          "memory_practice": {
+            "memory_trigger": "A time-saving machine creates extra work.",
+            "memory_sentence": "The irony is that our shortcut made the journey longer.",
+            "recall_question": "What expectation and actual result create the irony in your example?",
+            "recognition_task": "A: A noise-control conference disrupted by its own loud equipment. B: Two attendees wearing blue shirts. Which more clearly illustrates situational irony?",
+            "production_task": "Describe an invented plan whose result undermines its stated purpose. Use the irony is that and explain the contrast."
+          },
+          "advanced_nuance": [
+            "Irony in this lesson is situational, not necessarily sarcastic speech. A bitter irony can be painful rather than funny; the word alone does not require amusement."
+          ]
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "expectedEntryVersion",
+        "expectedLessonSha256",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections, with source identity and same contextual meaning preserved; no audio playback or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 73,
+      "wordId": "08dab1e5-cdd3-454d-a94e-252101b4ab43",
+      "senseKey": "give-special-importance",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "532b388666e3d90febf45fb64fb9a2d85050ef907809a27c6b4a6aa682c4261f",
+      "sourceLessonHashSerialization": "Python json.dumps(lesson_data, ensure_ascii=False, sort_keys=True), UTF-8, no trailing newline",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "emphasize",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: EM-fuh-syz. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒன்றுக்கு முக்கியத்துவம் கொடுத்து வலியுறுத்துதல்",
+        "englishMeaning": "to give special importance or stress to something",
+        "coreIdea": "Make a point stand out as especially important.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract verb for giving special stress or importance; here, the speaker stresses the spoken word “very.”",
+              "connotation": "Neutral as an act of emphasis; the surrounding description makes this particular stress sound accusatory.",
+              "tone": "Dramatic and critical here: the narrator compares the effect of the stressed word to an extreme accusation.",
+              "register": "Neutral and widely usable in speech, writing and workplace communication. “Stress” is a common alternative in this spoken-word sense."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "START  WITH  HEART  31  the  fe llow  emphasizes  the  word  very  makes  it  sound  as  if  he's  about  to  accuse  Greta  of  kidnapping  the  Lin dbergh  bab y.",
+            "contextual_meaning": "to give special importance or stress to something",
+            "simple_explanation": "The man puts strong spoken stress on very, making his statement sound especially accusatory."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Give extra prominence to a word, point or requirement in speech or writing."
+            ],
+            "when_not_to_use": [
+              "If you only mention a point once without giving it prominence, mention may be more accurate than emphasize."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "emphasize + point / word / importance; emphasize that + clause",
+            "common_collocations": [
+              "emphasize the importance",
+              "emphasize a key point"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The trainer paused to emphasize the word never.",
+              "example_2": "I want to emphasize that the deadline is Friday, not Monday."
+            },
+            "mini_conversation": "A: Which part should I stress during the briefing?\nB: Emphasize that visitors must sign in.\nA: I will repeat that point at the end."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: I want to emphasize on the deadline.",
+            "correction": "Say: I want to emphasize the deadline. Alternatively, say place emphasis on the deadline.",
+            "important_difference": "Emphasize gives something prominence; repeat says it again. Repetition can create emphasis, but emphasis can also come from stress, position or formatting."
+          },
+          "memory_practice": {
+            "memory_trigger": "Underline one important word in a sentence.",
+            "memory_sentence": "Please emphasize that the first session starts at nine.",
+            "recall_question": "Do you need on immediately after emphasize when naming the point?",
+            "recognition_task": "A: Stress a word and explain why it matters. B: Mention it casually among ten unrelated facts. Which more clearly emphasizes it?",
+            "production_task": "Write a two-sentence project update that emphasizes one deadline without using capital letters throughout."
+          },
+          "advanced_nuance": [
+            "Emphasize can describe audible stress on a particular word or broader prominence given to an idea. In the source, emphasis on very changes the force of the accusation without changing the basic words."
+          ]
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "expectedEntryVersion",
+        "expectedLessonSha256",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections, with source identity and same contextual meaning preserved; no audio playback or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 74,
+      "wordId": "090e746d-1461-45bd-839d-032db3b4e3e2",
+      "senseKey": "at-work-location",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b88f7aa4effbb85b42277c8d9efd874b86286d08be5815b1e430dc9a495cf9ca",
+      "sourceLessonHashSerialization": "Python json.dumps(lesson_data, ensure_ascii=False, sort_keys=True), UTF-8, no trailing newline",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "on-site",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: ON SYT. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "சம்பந்தப்பட்ட பணியிடத்திலேயே நடைபெறும்",
+        "englishMeaning": "located or taking place at the relevant work location",
+        "coreIdea": "Happening at the relevant workplace or premises.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal location adjective: the workshop takes place at the relevant organization's location.",
+              "connotation": "Neutral: it states location, not the quality or intensity of the workshop.",
+              "tone": "Explanatory here: the authors establish the setting before describing a typical objection from participants.",
+              "register": "Common workplace wording. “At the workplace” is clearer when the intended site has not been named."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "42  CRUCIAL  CONVE RSATI ONS  When  we (the  authors)  are in the  middle  of an  on-site  work­ shop  and  we  suggest  there  are  alternatives  to  Sucker's  Choicesj  someone  invariably  says:  \"Maybe  you  can  speak  honestly  and  still  be  heard  in  other  organizatio ns,  but  if  you  try  it  here,  you'll  be  eaten  alive !",
+            "contextual_meaning": "located or taking place at the relevant work location",
+            "simple_explanation": "The authors describe a workshop held at the organisation's own location, where participants question whether the advice will work there."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe services, training or facilities provided at the relevant workplace or project location."
+            ],
+            "when_not_to_use": [
+              "Do not use on-site merely to mean nearby. The activity needs to be at the relevant premises or site."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "on-site + training / support / workshop; work / provide support + on-site",
+            "common_collocations": [
+              "on-site training",
+              "on-site technical support"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The supplier provides on-site training for the new equipment.",
+              "example_2": "The museum has an on-site workshop where damaged displays are repaired."
+            },
+            "mini_conversation": "A: Do we need to travel to the training centre?\nB: No, it is an on-site workshop in our building.\nA: That will save us the journey."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Describing a video call from home as on-site attendance at the office.",
+            "correction": "Use on-site for attendance at the relevant premises; use remote for joining from elsewhere.",
+            "important_difference": "On-site identifies the relevant premises; in person only means physically present together and does not specify which location."
+          },
+          "memory_practice": {
+            "memory_trigger": "The instructor comes to your workplace instead of making you travel.",
+            "memory_sentence": "We have arranged on-site support for the first day.",
+            "recall_question": "Does on-site mean at the relevant premises or merely somewhere nearby?",
+            "recognition_task": "A: A technician repairs equipment in your factory. B: A technician advises you by video from another city. Which provides on-site support?",
+            "production_task": "Tell a colleague that next week's training will be on-site. Specify the building or room so the location is clear."
+          },
+          "advanced_nuance": [
+            "On-site is relative to the relevant site, which may be an office, construction project or customer premises. It does not necessarily mean the speaker's own usual workplace."
+          ]
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "expectedEntryVersion",
+        "expectedLessonSha256",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections, with source identity and same contextual meaning preserved; no audio playback or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 75,
+      "wordId": "0937bcc8-7114-48c0-ad8a-50187f156646",
+      "senseKey": "almost",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "91677b3c44aade173606144811ed75d23d78292266b29abbdc8ec21b0aa3c9ae",
+      "sourceLessonHashSerialization": "Python json.dumps(lesson_data, ensure_ascii=False, sort_keys=True), UTF-8, no trailing newline",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "nearly",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: NEER-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கிட்டத்தட்ட",
+        "englishMeaning": "almost but not completely",
+        "coreIdea": "Very close to a point, but short of reaching it.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Quantity modifier meaning almost, but not quite; here, the proportion is a little below 90 percent.",
+              "connotation": "Neutral: it qualifies the amount without itself praising the result.",
+              "tone": "Confident in the reported finding here: “Sure enough” presents the percentage as confirming expectations.",
+              "register": "Neutral and common in everyday and formal writing. “Almost” is usually a direct alternative in this percentage example."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Sure  enough,  they  had predicted  nearly  90  percent  of  the  divorces  that  occurr ed.",
+            "contextual_meaning": "almost but not completely",
+            "simple_explanation": "The reported prediction rate was close to 90 percent, but below that figure. Nearly qualifies the number rather than making it exact."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe approaching a quantity, state or event without fully reaching it."
+            ],
+            "when_not_to_use": [
+              "Do not use nearly when the exact target has already been reached. For an estimate that may be above or below a figure, use about."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "nearly + number / adjective; nearly + verb; have nearly + past participle",
+            "common_collocations": [
+              "nearly finished",
+              "nearly ninety percent"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We have nearly finished painting the kitchen; only the door remains.",
+              "example_2": "The journey took nearly three hours, arriving just before the three-hour mark."
+            },
+            "mini_conversation": "A: Is the report ready?\nB: Nearly. I just need to check the final table.\nA: Send it once that is done."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Using nearly three hours for a journey known to have taken three hours and twenty minutes.",
+            "correction": "Say over three hours for that duration. Nearly three hours means close to, but short of, three hours.",
+            "important_difference": "Nearly approaches a stated limit from below; about allows an approximation on either side of a number."
+          },
+          "memory_practice": {
+            "memory_trigger": "A progress bar stops just short of the finish line.",
+            "memory_sentence": "We have nearly reached the station.",
+            "recall_question": "If nearly ninety percent passed, was the reported proportion just below or just above ninety percent?",
+            "recognition_task": "A: Eighty-eight out of one hundred. B: Ninety-three out of one hundred. Which is better described as nearly ninety percent?",
+            "production_task": "Describe a task that is nearly finished and name the small part that remains."
+          },
+          "advanced_nuance": [
+            "Nearly can also describe an event that came close to happening: I nearly missed the train normally means I caught it. The exact closeness depends on the situation; nearly is not a fixed numerical range."
+          ]
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "expectedEntryVersion",
+        "expectedLessonSha256",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections, with source identity and same contextual meaning preserved; no audio playback or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ],
+  "lessonValidatorPassed": 10
+}
