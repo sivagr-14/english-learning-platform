@@ -1,19 +1,13 @@
 # Vocabulary correction review
 
-STATUS.json and REVIEW-LEDGER.json are the current reconciled record. Immutable PROFILE-DRAFT-001 through018 cover1–1768. CHECKPOINT-019-1769-1793.json adds the first25 entries of fixed group019. Continue at1794;70 Overview entries remain unexamined.
+All1863 entries now have an Overview disposition:1841 drafted profiles and22 quarantined entries. Immutable PROFILE-DRAFT-001 through019 cover the entire original order. STATUS.json and REVIEW-LEDGER.json are authoritative for current counts; no editorial receipt is an import payload.
 
-Source: mastery-skills-lessons-review.json; SHA256 `5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207`. The private export is available and hash-verified, not published.
+Tamil:1642 reviewed,21 blocked,200 unexamined. Pronunciation text:1662 reviewed,1 blocked,200 unexamined. Next task is header backfill for original groups001–002, starting ordinal1. Preserve those immutable Overview records and save additive header receipts.
 
-| Work | Reviewed | Blocked | Unexamined |
-|---|---:|---:|---:|
-| Overview |1771 profiles|22|70|
-| Tamil |1572|21|270|
-| Pronunciation text |1592|1|270|
+Ten complete-lesson repair records passed individual lesson validation; production replacement-pack validation and delivered updates remain0. Audio implementation and testing are pending. PostgreSQL updates verified0. No ready-to-sync claim is justified.
 
-Overview processed total1793. Groups001–002 still need both header reviews. Ten earlier full-lesson repairs passed individual lesson validation only; validated replacement packs0, delivered updates0, database updates verified0. Audio implementation pending.
+Original export mastery-skills-lessons-review.json remains available and hash-verified:5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207. Do not upload it. Canonical instructions/validators are on main, checked at cbb02c4d1519b3dd28a061f4845d71f6e01e2a26.
 
-Quarantine breakdown:7 confirmed sense conflicts,12 unresolved source/gloss mismatches,3 extraction errors. Preserve all identities and resolve/report each before final reconciliation. Scope is authorized: historical DELIVERY-BLOCKER-20261011.md no longer restricts necessary whole-lesson repairs.
+Necessary whole-lesson repairs are authorized; DELIVERY-BLOCKER-20261011.md is historical. Quarantine individual unresolved senses while continuing other work. Preserve exact identities, sense ranks, source hashes, versions, taxonomy, valid wording and learner progress. Complete same-sense packs need full preflight/batch validation and separate semantic review. Do not merge app PRs; only local PostgreSQL read-back verifies app changes.
 
-Canonical rules and production validators are on main, checked at cbb02c4d1519b3dd28a061f4845d71f6e01e2a26. Review receipts are not import payloads. Prepare complete same-sense replacement packs only after all required repairs, complete production preflight/batch validation and separate semantic review. Preserve valid original wording, versions, taxonomy and learner progress. Do not merge app PRs. Only local PostgreSQL read-back verifies app updates.
-
-Read RECEIPT-SCOPE-ERRATA-20261011.json and the IPA-claim correction in PROFILE-DRAFT-003.json. Pronunciation text review does not certify dictionary-source evidence or audio playback.
+See RECEIPT-SCOPE-ERRATA-20261011.json and PROFILE-DRAFT-003.json for earlier metadata and IPA-claim corrections. Text review is not dictionary-source verification or audio playback verification.
