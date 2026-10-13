@@ -1,0 +1,567 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0041-0045",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 41,
+      "wordId": "04d74d53-f2a1-42f6-a798-4f07d4805149",
+      "senseKey": "unlucky-or-regrettable",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ae2df374e1b53f95d89a838a15f62c35e2a86250005fc5c36486ec9fb58e182e",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "unfortunate",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: un-FOR-chuh-nuht. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "வருந்தத்தக்க; விரும்பத்தகாத",
+        "englishMeaning": "unlucky, regrettable, or producing an undesirable result",
+        "coreIdea": "Something is regrettable or turns out badly.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract evaluation of a situation as regrettable or unlucky; here, the reality is presented as undesirable.",
+              "connotation": "Negative, but relatively restrained: it expresses regret without necessarily assigning blame.",
+              "tone": "Resigned in the viewpoint being reported: “merely a reflection” presents the difficulty as something people believe they must accept.",
+              "register": "Neutral to formal; common in polite statements of regret. “Unlucky” is more personal and does not fit every use."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use unfortunate for a regrettable event, result or situation.",
+              "It can express sympathy or acknowledge that something has gone badly."
+            ],
+            "when_not_to_use": [
+              "Do not use unfortunate alone as a substitute for accepting responsibility when you caused harm.",
+              "For a minor neutral difference, unfortunate may add criticism or regret you do not intend."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Unfortunate can soften a negative judgement, but it may sound too mild for a serious problem.",
+            "The word does not necessarily mean pure bad luck; an unfortunate result can also follow a preventable mistake."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture two plans that fail to fit together, causing disappointment.",
+            "memory_sentence": "An unfortunate delay meant we missed the opening speech.",
+            "recall_question": "Which form describes timing: unfortunate or unfortunately?",
+            "recognition_task": "Which sentence uses the adjective correctly? A: It was an unfortunate mistake. B: It was an unfortunately mistake. Explain the noun relationship.",
+            "production_task": "Write a short message to a friend about a fictional missed event. Use unfortunate and suggest another plan."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "It was an unfortunate coincidence that both buses broke down on the same morning.",
+              "example_2": "The unclear instructions led to an unfortunate misunderstanding."
+            },
+            "mini_conversation": "A: The exhibition closes the day before we arrive.\nB: That's unfortunate. Is there another gallery nearby?\nA: Yes, I'll check its opening hours."
+          },
+          "meaning_in_context": {
+            "source_sentence": "From  their  point  of  view,  Sucker's  Choices  aren't  fa lse  dichotom ies;  they're  merely  a  reflection  of  an  unfortunate  realit y.",
+            "contextual_meaning": "unlucky, regrettable, or producing an undesirable result",
+            "simple_explanation": "The people described see the situation as an unwelcome reality. The writer reports their viewpoint without necessarily agreeing that their choices are truly limited."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “It was unfortunately timing.” A noun such as timing needs the adjective unfortunate.",
+            "correction": "Say: “It was unfortunate timing.” Use unfortunately to comment on a clause: “Unfortunately, we arrived too late.”",
+            "important_difference": "Unfortunate describes a regrettable situation; unfortunately is an adverb that presents a statement as regrettable."
+          },
+          "patterns_collocations": {
+            "main_pattern": "an unfortunate + event/result; it is unfortunate that + clause",
+            "common_collocations": [
+              "an unfortunate coincidence",
+              "an unfortunate outcome",
+              "an unfortunate mistake"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Regrettable sense and adjective/adverb forms checked; source viewpoint not turned into author endorsement.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 42,
+      "wordId": "05487f3d-c9ca-41bd-8de2-7fb9086bf9ac",
+      "senseKey": "to-be-interested-in-or-enthusiastic-about-something",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "805a6a21ff3632bf62eacc6fe819ef7fbc5b62e21a5b6c3a4a8b28460e7ea852",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "be into",
+        "wordType": "expression",
+        "pronunciation": "/bi ˈɪntuː/",
+        "tamilMeaning": "ஒன்றில் ஆர்வம் அல்லது ஈடுபாடு இருப்பது",
+        "englishMeaning": "to be interested in or enthusiastic about something",
+        "coreIdea": "Your attention is inside a favourite subject.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational expression of interest or enthusiasm; here, enjoying or following sport.",
+              "connotation": "Usually positive toward the interest, but the negative form does not criticize people who lack it.",
+              "tone": "Welcoming here: “do not have to” reassures people that an interest in sport is not required to enjoy the event.",
+              "register": "Informal and natural in conversation. “Be interested in” suits more formal writing."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Tell a new acquaintance about a fictional hobby. A model in this sense: You might be into photography after trying the workshop."
+            ],
+            "when_not_to_use": [
+              "Be into describes interest; get into describes developing that interest.",
+              "Informal; interested in is safer in formal introductions or reports."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "be into: Informal; interested in is safer in formal introductions or reports."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Your attention is inside a favourite subject.",
+            "memory_sentence": "You might be into photography after trying the workshop.",
+            "production_task": "Tell a new acquaintance about a fictional hobby. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: to be interested in or enthusiastic about something. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: I am into to cook. B: I am into cooking. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "You do not have to be into sport to enjoy the event.",
+              "another_setting": "You might be into photography after trying the workshop."
+            },
+            "mini_conversation": "A: You might be into photography after trying the workshop.\nB: I would like to borrow a camera first."
+          },
+          "meaning_in_context": {
+            "source_sentence": "You do not have to be into sport to enjoy the event.",
+            "contextual_meaning": "to be interested in or enthusiastic about something",
+            "simple_explanation": "Your attention is inside a favourite subject. Be into describes interest; get into describes developing that interest."
+          },
+          "mistakes_differences": {
+            "correction": "I am into cooking.",
+            "common_mistake": "I am into to cook.",
+            "important_difference": "Be into describes interest; get into describes developing that interest."
+          },
+          "patterns_collocations": {
+            "main_pattern": "be into: be into + noun/-ing",
+            "common_collocations": [
+              "be into music",
+              "be really into cooking"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Be into: interest sense, noun/-ing complement, contrast with developing an interest and conversational invitation checked. Retained valid non-Overview fields.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 43,
+      "wordId": "0549d32c-5603-4079-a827-8493b6d14515",
+      "senseKey": "disengage-from",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "05c40bf3a2f9e47dffde6b9d6161550b19a0374f1e24530423aee04791027dfc",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "pull yourself out of",
+        "wordType": "phrasal verb",
+        "pronunciation": "Approximate pronunciation: pul yer-SELF OUT uhv. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு சூழலிலிருந்து மனதளவிலோ உடலளவிலோ தன்னை விலக்கிக்கொள்ளுதல்",
+        "englishMeaning": "to disengage mentally or physically from a situation",
+        "coreIdea": "Step back from a situation you have become caught up in.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative phrasal expression: step mentally back from an argument to observe what is happening.",
+              "connotation": "Constructive here: disengaging briefly allows awareness rather than simply abandoning the discussion.",
+              "tone": "Reflective and cautionary here: “nearly impossible” highlights how strong emotions make stepping back difficult.",
+              "register": "Natural in general discussion of difficult situations. “Step back from the argument” is a simpler expression for this mental action."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use pull yourself out of when making an effort to disengage from an absorbing or difficult situation.",
+              "In a discussion, it can mean mentally stepping back without physically leaving the room."
+            ],
+            "when_not_to_use": [
+              "Do not assume the expression always means physically escaping a place.",
+              "If someone else removes you, the reflexive yourself no longer identifies the person doing the action."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Pull yourself out of suggests effort because you are caught up in a situation. It does not promise that disengaging will be easy.",
+            "The source uses ourselves because the subject is we. Keep the reflexive aligned with the subject when adapting the expression."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture moving from the middle of a quarrel to an observer's viewpoint.",
+            "memory_sentence": "I pulled myself out of the argument to see what we were missing.",
+            "recall_question": "Must you leave the room to pull yourself out of an argument in this sense?",
+            "recognition_task": "Which fits mental disengagement? A: Pausing to observe the discussion more calmly. B: Becoming more absorbed in trading accusations. Explain the change.",
+            "production_task": "Write a fictional reflection about a tense discussion. Use a natural form of pull yourself out of and explain what taking a step back helped you notice."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "I pulled myself out of the argument long enough to notice that neither of us was listening.",
+              "example_2": "She tried to pull herself out of the heated discussion and consider the problem calmly."
+            },
+            "mini_conversation": "A: We keep repeating the same accusations.\nB: I need to pull myself out of this argument for a moment and think.\nA: Let's pause and return to the actual problem."
+          },
+          "meaning_in_context": {
+            "source_sentence": "When  both  stakes  and  emotions  are  high,  we  get  so  caught  up  in  what  we're  saying  that  it  can  be  nearly  im pos­ sible  to  pull  ourselves  out of the  argument  in  order  to  see  what's  happening  to  ourselves  and  to  othe rs.",
+            "contextual_meaning": "to disengage mentally or physically from a situation",
+            "simple_explanation": "The source describes stepping back mentally from an argument so you can notice how it is affecting everyone."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “We pulled yourself out of the argument.” The reflexive pronoun must match we.",
+            "correction": "Say: “We pulled ourselves out of the argument.” Use myself with I and yourself with you.",
+            "important_difference": "Stepping back can create mental distance. Walking out specifically describes leaving; pulling yourself out of an argument need not involve leaving the room."
+          },
+          "patterns_collocations": {
+            "main_pattern": "pull + reflexive pronoun + out of + situation: pull yourself out of an argument",
+            "common_collocations": [
+              "pull yourself out of an argument",
+              "pull ourselves out of a dispute"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Source-specific mental disengagement retained; reflexive agreement and nonphysical interpretation checked.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 44,
+      "wordId": "055bde6d-35bb-4a07-b638-8f61efb6e213",
+      "senseKey": "careful-checks-made-before-an-important-decision-or-agreement",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c5652e7971029d3a4c20d849e1484e502feee5dbca82a9aa388dde29a5d1ca00",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "due diligence",
+        "wordType": "noun phrase",
+        "pronunciation": "/ˌdjuː ˈdɪl.ɪ.dʒəns/",
+        "tamilMeaning": "முடிவுக்கு முன் செய்யப்படும் முறையான ஆய்வு",
+        "englishMeaning": "careful checks made before an important decision or agreement",
+        "coreIdea": "Picture a checklist inspected before signing an agreement.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Established professional phrase for careful investigation before an important choice or agreement.",
+              "connotation": "Positive in this example: it presents checking the supplier as responsible preparation, without guaranteeing a good outcome.",
+              "tone": "Prudent and advisory here: “should complete” recommends checks before selection.",
+              "register": "Common in business and legal contexts. For a general audience, explain which checks are involved rather than leave the phrase unexplained."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Request time for due diligence and name two things the team needs to verify.",
+              "A natural model: The charity carried out due diligence on its new partner."
+            ],
+            "when_not_to_use": [
+              "A quick check may cover one fact; due diligence suggests a systematic review appropriate to the decision.",
+              "This lesson teaches general communication, not a claim that a particular legal duty has been satisfied."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Due diligence describes a careful review before a decision; it does not promise that the review will uncover every problem.",
+            "The checks in due diligence should relate to the decision. Checking a supplier's references and delivery record is more informative than merely confirming its name."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a checklist inspected before signing an agreement.",
+            "memory_sentence": "The charity carried out due diligence on its new partner.",
+            "production_task": "Request time for due diligence and name two things the team needs to verify. Use the target expression in one or two sentences. Check its pattern and register only after speaking.",
+            "recall_question": "Without looking, retrieve the expression meaning careful checks made before an important decision or agreement. Then say it in a new situation.",
+            "recognition_task": "Choose the natural sentence. A: We made a due diligence on the supplier. B: We carried out due diligence on the supplier. Explain why, then check the correction after answering."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "We should complete our due diligence before selecting the supplier.",
+              "another_setting": "The charity carried out due diligence on its new partner."
+            },
+            "mini_conversation": "A: The charity carried out due diligence on its new partner.\nB: Did it check the references as well as the costs?"
+          },
+          "meaning_in_context": {
+            "source_sentence": "We should complete our due diligence before selecting the supplier.",
+            "contextual_meaning": "careful checks made before an important decision or agreement",
+            "simple_explanation": "Careful checks made before an important decision or agreement. Picture a checklist inspected before signing an agreement."
+          },
+          "mistakes_differences": {
+            "correction": "We carried out due diligence on the supplier.",
+            "common_mistake": "We made a due diligence on the supplier.",
+            "important_difference": "A quick check may cover one fact; due diligence suggests a systematic review appropriate to the decision."
+          },
+          "patterns_collocations": {
+            "main_pattern": "due diligence: carry out/conduct + due diligence on + organisation",
+            "common_collocations": [
+              "conduct due diligence",
+              "supplier due diligence"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Retained useful supplier/charity examples, noun phrase pattern and systematic-review contrast. Replaced disclaimer-only nuance with specific limits and relevant checks; no legal compliance claim.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 45,
+      "wordId": "056dfeb6-3170-45d8-a5c0-bdfc9d0ae05a",
+      "senseKey": "insulting-with-labels",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "02b16ee405edd9eb990dd279f3a75363f2df8e40ecb58d4750ee6c8751f4674c",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "name-calling",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: NAYM kaw-ling. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "இழிவான பெயர்களைக் கூறி ஒருவரை அவமதித்தல்",
+        "englishMeaning": "the act of insulting someone with offensive names or labels",
+        "coreIdea": "Attack a person with insulting labels instead of discussing the issue.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for insulting people with offensive labels instead of addressing their ideas or actions.",
+              "connotation": "Negative: it presents the behaviour as disrespectful and unhelpful.",
+              "tone": "Disapproving here: threats and name-calling are contrasted with open, honest and effective discussion.",
+              "register": "Common in everyday and workplace talk about conflict. It refers to insults, not the neutral act of naming something."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use name-calling to describe insulting someone with hurtful labels.",
+              "It is useful when distinguishing personal attacks from disagreement about an idea."
+            ],
+            "when_not_to_use": [
+              "Do not call every criticism name-calling; a specific criticism of an action may contain no insulting label.",
+              "Using a person's actual name to get their attention is not name-calling in this sense."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Name-calling can happen in speech or writing; the insulting labels, not the medium, define it.",
+            "The expression is normally uncountable: 'some name-calling' or 'an instance of name-calling', rather than 'a name-calling'."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture the discussion shifting from a proposal to hurtful labels about people.",
+            "memory_sentence": "We can disagree without resorting to name-calling.",
+            "recall_question": "How is name-calling different from calling someone's actual name?",
+            "recognition_task": "Which is name-calling? A: Saying a calculation uses the wrong total. B: Calling its author an idiot instead of explaining the error. Explain the target.",
+            "production_task": "Write a calm response to a fictional argument using name-calling. Ask the speakers to return to the issue without repeating an insult."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The debate descended into name-calling when the speakers stopped discussing the proposal.",
+              "example_2": "The teacher stopped the name-calling and asked the children to explain what had happened."
+            },
+            "mini_conversation": "A: He called everyone who disagreed with him an idiot.\nB: That kind of name-calling won't help us decide.\nA: Let's return to the reasons for and against the plan."
+          },
+          "meaning_in_context": {
+            "source_sentence": "13  heated  discussions,  they  learned  that  people  fall  into  three  cate­ gor ies-those  who  digre ss  into  threats  and  name-calling,  those  who  revert  to  silent  fuming,  and  those  who  speak  open ly,  hon­ estl y,  and  effe ctivel y.",
+            "contextual_meaning": "the act of insulting someone with offensive names or labels",
+            "simple_explanation": "The writer groups name-calling with threats as a harmful way that a heated discussion can develop."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Confusing “calling her name” with name-calling gives an ordinary attempt to get attention an insulting meaning.",
+            "correction": "Say “I called her name so she would turn around.” Use name-calling for insults: “The argument turned into name-calling.”",
+            "important_difference": "Criticism can explain a fault in an idea or action. Name-calling targets a person with an insulting label instead."
+          },
+          "patterns_collocations": {
+            "main_pattern": "resort to name-calling; descend into name-calling; stop the name-calling",
+            "common_collocations": [
+              "petty name-calling",
+              "resort to name-calling",
+              "a round of name-calling"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Insulting-label sense distinguished from criticism and actual names; uncountability and respectful fictional task checked.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
