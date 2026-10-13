@@ -1,0 +1,564 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0011-0015",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 11,
+      "wordId": "0118d6a0-59a4-464c-a3cd-4cd850fdc86c",
+      "senseKey": "force-progress",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "53fd1a3ccb99a11e51a787616d44631ac50e210467a2ac813280a5be0991c745",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "bully one’s way through",
+        "wordType": "verb phrase",
+        "pronunciation": "Approximate pronunciation: BUL-ee wunz way THROO. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "பிறரை மிரட்டியோ அடக்கியோ தனக்கு வேண்டியபடி முன்னேறுதல்",
+        "englishMeaning": "to force one’s progress by intimidating or dominating others",
+        "coreIdea": "Get your way by pressuring people instead of winning their agreement.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative description of making progress by intimidation: force a way through opposition rather than gain cooperation.",
+              "connotation": "Negative: “bully” presents the method as domineering or unfair.",
+              "tone": "Self-critical here: “we try” includes the writer among people who resort to intimidation.",
+              "register": "Natural in everyday criticism and discussion of behaviour. In diplomatic feedback, describe the pressure used rather than label a person a bully."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use this expression critically when someone gets through a discussion or process by intimidating others.",
+              "It can describe using status, threats or aggressive demands to overcome objections."
+            ],
+            "when_not_to_use": [
+              "Do not use it simply for working hard through a difficult task; it implies pressure on other people.",
+              "A firm but respectful argument is not necessarily bullying. Describe the actual behaviour before making this accusation."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Bully one's way through strongly criticizes the method used to get a result. It does not simply mean being confident or persistent.",
+            "The expression can describe an unsuccessful attempt: trying to bully your way through does not mean that others eventually agree."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture someone forcing a decision by shouting down objections.",
+            "memory_sentence": "He tried to bully his way through the discussion, but the chair stopped him.",
+            "recall_question": "Does bullying your way through a discussion suggest respectful persuasion or intimidation?",
+            "recognition_task": "Which fits the expression? A: Listening carefully and answering objections. B: Threatening colleagues until they give in. Explain what makes the behaviour bullying.",
+            "production_task": "Describe a fictional meeting to a colleague. Use a natural form of bully one's way through and name the intimidating behaviour you observed."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "He tried to bully his way through the meeting by threatening anyone who disagreed.",
+              "example_2": "You cannot bully your way through negotiations and expect the other side to trust you."
+            },
+            "mini_conversation": "A: He says he'll cancel our funding unless we agree immediately.\nB: He is trying to bully his way through the discussion.\nA: Let's ask for the proposal in writing before we respond."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We  try  to  bully  our  way  through .",
+            "contextual_meaning": "to force one’s progress by intimidating or dominating others",
+            "simple_explanation": "The speakers describe trying to make progress by intimidating or dominating other people. The short sentence does not say who is being pressured."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “She bullied his way through the meeting” when she is the person forcing her own progress.",
+            "correction": "Say: “She bullied her way through the meeting.” The possessive in bully one's way through normally refers to the subject.",
+            "important_difference": "Persuading people aims to gain agreement through reasons; bullying one's way through relies on intimidation or domination."
+          },
+          "patterns_collocations": {
+            "main_pattern": "bully one's way through + discussion/process; change one's to my, your, his, her, our or their",
+            "common_collocations": [
+              "bully your way through a meeting",
+              "bully his way through negotiations"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Replace generic teaching material with specific same-sense instruction.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Possessive slot, regular bullied inflection and negative interpersonal force checked; short-source limitation disclosed.",
+        "scope": "All eight sections and changed headers; does not certify corpus frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 12,
+      "wordId": "01321bef-30d3-434c-8816-40ef74935298",
+      "senseKey": "controlled-practice",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9da9c6609dc47078889411a171de7bfa92e07d71ea5261da9f84a5d7552bb4db",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "discipline",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: DIS-uh-plin. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "நடத்தையைக் கட்டுப்படுத்தி இலக்கை நோக்கித் தொடர்ந்து செயல்படும் ஒழுக்கம்",
+        "englishMeaning": "the ability or practice of controlling behaviour and working consistently toward a goal",
+        "coreIdea": "Keep doing what your goal requires, even when you would rather stop.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract quality of self-control and consistent effort; here, a quality praised in colleagues' work.",
+              "connotation": "Positive in this sense: discipline supports dependable effort rather than referring to punishment.",
+              "tone": "Appreciative here: the authors explicitly thank their colleagues for this quality.",
+              "register": "Neutral and natural in education, work and personal development. Specify “self-discipline” when confusion with punishment is possible."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use discipline for self-control that helps someone keep working toward a goal.",
+              "It fits routines such as regular study, saving money or finishing demanding work."
+            ],
+            "when_not_to_use": [
+              "Do not assume discipline means punishment in this sentence; the writers are praising a personal quality.",
+              "A sudden burst of enthusiasm does not by itself show the steady self-control meant here."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Discipline emphasizes consistent self-control; it does not imply that the person lacks creativity. The source praises both qualities together.",
+            "In this sense discipline is normally uncountable. A discipline meaning a field of study is a separate sense."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a small daily practice session marked on a calendar.",
+            "memory_sentence": "Discipline keeps me practising even when I do not feel motivated.",
+            "recall_question": "How can discipline help on a day when motivation is low?",
+            "recognition_task": "Which shows discipline? A: Studying only when excited about a subject. B: Keeping a realistic study routine even on less exciting days. Explain your choice.",
+            "production_task": "Tell a friend how a fictional learner maintains a study habit. Use discipline and describe one regular action."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "It takes discipline to study every evening after a long day at work.",
+              "example_2": "She showed discipline by following her savings plan instead of buying things she did not need."
+            },
+            "mini_conversation": "A: How did you finish the course while working full-time?\nB: Discipline helped. I studied for half an hour before breakfast each day.\nA: I'll try setting a regular time too."
+          },
+          "meaning_in_context": {
+            "source_sentence": "First,  to  our  colleagues  at  Vi talSmarts,  we  ex press  apprecia­ tion  for  creativ ity,  discipline,  competence,  and  friend ship.",
+            "contextual_meaning": "the ability or practice of controlling behaviour and working consistently toward a goal",
+            "simple_explanation": "The writers thank their colleagues for controlled, consistent effort alongside creativity and competence."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “She has many discipline” for this quality. Discipline is uncountable in the self-control sense.",
+            "correction": "Say: “She has a lot of discipline” or “She shows great discipline.”",
+            "important_difference": "Motivation is the desire or reason to act. Discipline helps you keep acting even when that desire is weak."
+          },
+          "patterns_collocations": {
+            "main_pattern": "have/show discipline; have the discipline to + verb; it takes discipline to + verb",
+            "common_collocations": [
+              "self-discipline",
+              "strict discipline",
+              "the discipline to practise"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Replace generic teaching material with specific same-sense instruction.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Uncountable self-control sense maintained; motivation distinction and coexistence with creativity checked.",
+        "scope": "All eight sections and changed headers; does not certify corpus frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 13,
+      "wordId": "0138c532-b854-420a-a44b-3a5db8288b6e",
+      "senseKey": "a-problem-or-condition-that-makes-an-agreement-or-choice-unacceptable",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8ba38390dae4529a3134927349ec29254ab09a5718767d8614a24a97c007a4cb",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "deal-breaker",
+        "wordType": "noun",
+        "pronunciation": "/ˈdiːl ˌbreɪ.kə/",
+        "tamilMeaning": "ஒப்பந்தத்தை ஏற்க முடியாததாக ஆக்கும் நிபந்தனை",
+        "englishMeaning": "a problem or condition that makes an agreement or choice unacceptable",
+        "coreIdea": "Picture one condition stopping a handshake.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract compound: a condition serious enough to make someone reject an agreement or option.",
+              "connotation": "Strongly negative toward the condition: it signals that the problem crosses an acceptance limit.",
+              "tone": "Firm but conditional here: “would be” identifies a clause the speaker could not accept.",
+              "register": "Common in workplace negotiation and everyday choices. “An unacceptable condition” is a more formal alternative."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Explain politely why an unpredictable cancellation fee is a deal-breaker.",
+              "A natural model: The lack of evening transport is a deal-breaker for me."
+            ],
+            "when_not_to_use": [
+              "A drawback reduces attractiveness; a deal-breaker rules the option out.",
+              "Use it only for a decisive barrier, or it can make a negotiable concern sound final."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "deal-breaker: Use it only for a decisive barrier, or it can make a negotiable concern sound final."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture one condition stopping a handshake.",
+            "memory_sentence": "The lack of evening transport is a deal-breaker for me.",
+            "production_task": "Explain politely why an unpredictable cancellation fee is a deal-breaker. Use the target expression in one or two sentences. Check its pattern and register only after speaking.",
+            "recall_question": "Without looking, retrieve the expression meaning a problem or condition that makes an agreement or choice unacceptable. Then say it in a new situation.",
+            "recognition_task": "Choose the natural sentence. A: The travel time is deal-breaker for me. B: The travel time is a deal-breaker for me. Explain why, then check the correction after answering."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "A clause allowing sudden price increases would be a deal-breaker for us.",
+              "another_setting": "The lack of evening transport is a deal-breaker for me."
+            },
+            "mini_conversation": "A: The lack of evening transport is a deal-breaker for me.\nB: Then this course location will not work."
+          },
+          "meaning_in_context": {
+            "source_sentence": "A clause allowing sudden price increases would be a deal-breaker for us.",
+            "contextual_meaning": "a problem or condition that makes an agreement or choice unacceptable",
+            "simple_explanation": "A problem or condition that makes an agreement or choice unacceptable. Picture one condition stopping a handshake."
+          },
+          "mistakes_differences": {
+            "correction": "The travel time is a deal-breaker for me.",
+            "common_mistake": "The travel time is deal-breaker for me.",
+            "important_difference": "A drawback reduces attractiveness; a deal-breaker rules the option out."
+          },
+          "patterns_collocations": {
+            "main_pattern": "deal-breaker: be a deal-breaker for + person/group",
+            "common_collocations": [
+              "a potential deal-breaker",
+              "an absolute deal-breaker"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy",
+        "all seven non-Overview sections"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile"
+      ],
+      "reason": "All non-Overview sections reviewed and retained as useful term-specific content.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Decisive barrier meaning, countable noun/article, drawback contrast and realistic negotiation/course examples are useful. Retained all non-Overview fields.",
+        "scope": "All eight sections and changed headers; does not certify corpus frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 14,
+      "wordId": "01432b60-7841-40aa-b18c-197b80a70d6b",
+      "senseKey": "despite-the-situation-just-described",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "c72f3fbaf494b38f4ad0fd4a4ff10fcf956aa51c43b5895472575ebc4a50866a",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "even so",
+        "wordType": "linking expression",
+        "pronunciation": "/ˌiːvən ˈsəʊ/",
+        "tamilMeaning": "அந்த நிலையிலும் கூட",
+        "englishMeaning": "despite the situation just described",
+        "coreIdea": "Yes to the fact, still a different conclusion.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Logical connector expressing concession: the unavoidable delay does not remove the duty to inform the customer.",
+              "connotation": "Neutral: it marks a contrast between a difficulty and what should still have happened.",
+              "tone": "Measured and corrective here: the speaker accepts the delay but criticizes the lack of communication.",
+              "register": "Neutral and natural in speech or writing. “Nevertheless” usually sounds more formal."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Accept that a delay was unavoidable while explaining why notice was needed. A model in this sense: The tickets were expensive. Even so, the concert was worth it."
+            ],
+            "when_not_to_use": [
+              "Even so refers back to a stated situation; even if introduces a possible condition.",
+              "It concedes the previous point without allowing it to settle the conclusion."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "even so: It concedes the previous point without allowing it to settle the conclusion."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Yes to the fact, still a different conclusion.",
+            "memory_sentence": "The tickets were expensive. Even so, the concert was worth it.",
+            "production_task": "Accept that a delay was unavoidable while explaining why notice was needed. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: despite the situation just described. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: The expense was high. Even so, it was worth it. B: Even so the expense, it was worth it. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "The delay was unavoidable. Even so, we should have informed the customer.",
+              "another_setting": "The tickets were expensive. Even so, the concert was worth it."
+            },
+            "mini_conversation": "A: The tickets were expensive. Even so, the concert was worth it.\nB: I agree, though we should budget earlier next time."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The delay was unavoidable. Even so, we should have informed the customer.",
+            "contextual_meaning": "despite the situation just described",
+            "simple_explanation": "Yes to the fact, still a different conclusion. Even so refers back to a stated situation; even if introduces a possible condition."
+          },
+          "mistakes_differences": {
+            "correction": "The expense was high. Even so, it was worth it.",
+            "common_mistake": "Even so the expense, it was worth it.",
+            "important_difference": "Even so refers back to a stated situation; even if introduces a possible condition."
+          },
+          "patterns_collocations": {
+            "main_pattern": "even so: statement. Even so, contrasting response",
+            "common_collocations": [
+              "even so, we should act",
+              "even so, it matters"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy",
+        "all seven non-Overview sections"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile"
+      ],
+      "reason": "All non-Overview sections reviewed and retained as useful term-specific content.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Concession connector with complete-clause pattern, even-if contrast, natural examples and punctuation exercise checked. Retained all non-Overview fields.",
+        "scope": "All eight sections and changed headers; does not certify corpus frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 15,
+      "wordId": "0193678d-fab1-40a8-b4a9-5b6e7d952fa4",
+      "senseKey": "present-persuasively",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a8aa1951cda065ab7cfb68345901540c6658d2b56bbfb322a275059349dab0f6",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "pitch",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: pich. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "பிறரைச் சம்மதிக்கச் செய்யும் நோக்கில் யோசனையையோ திட்டத்தையோ முன்வைத்தல்",
+        "englishMeaning": "to present an idea or proposal in an attempt to persuade others",
+        "coreIdea": "Present an idea in a way intended to win support.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract verb for presenting a proposal persuasively; here, the CEO puts forward his preferred option.",
+              "connotation": "Neutral as an act of persuasion; the narrator's “unpopular” and “potentially disastrous” supply the criticism.",
+              "tone": "Critical toward the proposal here, because the narrator describes its reception and possible consequences negatively.",
+              "register": "Common in business and creative work, and conversational elsewhere. “Present” is a less promotional alternative."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use pitch when presenting a proposal with the aim of gaining support, approval or funding.",
+              "You can pitch a business idea, an article or a plan to a person or group."
+            ],
+            "when_not_to_use": [
+              "If you are simply reporting facts without trying to win support, explain or report may be more accurate.",
+              "In very formal correspondence, propose or present may sound less conversational."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Pitch describes an attempt to persuade, not a successful sale or approval. An audience can reject an idea after hearing it pitched.",
+            "The source's criticism concerns Chris's proposal. Pitch itself does not say whether an idea is good, bad or popular."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture explaining your proposal and why someone should support it.",
+            "memory_sentence": "I pitched a cheaper transport plan to the team.",
+            "recall_question": "What response do you usually hope for when you pitch an idea?",
+            "recognition_task": "Which is a pitch? A: Listing yesterday's events without a request. B: Explaining a new plan and asking a manager to back it. Explain the difference.",
+            "production_task": "Tell a colleague about a fictional proposal you intend to present. Use pitch, name your audience and say what support you want."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She pitched a weekend reading club to the library manager.",
+              "example_2": "The team will pitch its new delivery service to potential investors tomorrow."
+            },
+            "mini_conversation": "A: Can we get support for the reading club?\nB: I'll pitch the idea to the library manager on Friday.\nA: Take the list of interested families with you."
+          },
+          "meaning_in_context": {
+            "source_sentence": "MAST ERING  CRUCIAL  CONVE RSATI ONS  19  Then  Chri s,  the  CEO,  pitched  his  prefer ence-one  that  was  both  unpopular  and  potentially  disastrous.",
+            "contextual_meaning": "to present an idea or proposal in an attempt to persuade others",
+            "simple_explanation": "Chris presented his preferred option to persuade others to support it. The writer describes that option as unpopular and potentially disastrous."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Less natural with a short object: “She pitched to the manager her idea.” The usual order places the idea before the audience.",
+            "correction": "Use the usual order: “She pitched her idea to the manager.” Pitch comes before the idea, followed by to and the audience.",
+            "important_difference": "Pitch adds a persuasive purpose to presenting an idea. Mention only says that you referred to it, without necessarily asking for support."
+          },
+          "patterns_collocations": {
+            "main_pattern": "pitch + idea/proposal + to + audience; pitch an idea to someone",
+            "common_collocations": [
+              "pitch an idea",
+              "pitch a proposal",
+              "pitch to investors"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Replace generic teaching material with specific same-sense instruction.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Persuasive verb sense maintained; outcome and source criticism separated. Revised mistake label below distinguishes awkward wording from grammatical impossibility.",
+        "scope": "All eight sections and changed headers; does not certify corpus frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
