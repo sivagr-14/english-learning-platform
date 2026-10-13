@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "featureId": "word-pronunciation-playback",
+  "title": "Expose normal and slow pronunciation playback on every vocabulary detail page",
+  "implementationPaths": ["packages/frontend/app/vocabulary/words/[id]/page.tsx"],
+  "validationPaths": ["docs/WORD_PRONUNCIATION_VALIDATION.md"],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This reuses the existing browser speech controls for the stored raw term. It does not change generated content, transport, validation, taxonomy or import contracts."
+  }
+}
