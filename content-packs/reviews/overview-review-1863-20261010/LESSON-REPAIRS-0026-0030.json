@@ -1,0 +1,552 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0026-0030",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 26,
+      "wordId": "02eeb6ba-acaa-4c66-97aa-6f14e4bdf869",
+      "senseKey": "because-of-a-particular-cause",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "53b8aaef2cea5b7b2de40432d8a0b7a166feffa06d761aefbb331878bbe619c5",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "owing to",
+        "wordType": "prepositional phrase",
+        "pronunciation": "/ˈəʊɪŋ tə/",
+        "tamilMeaning": "காரணமாக",
+        "englishMeaning": "because of a particular cause",
+        "coreIdea": "A cause label attached to the result.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Logical phrase introducing a cause: staff illness explains why the meeting was postponed.",
+              "connotation": "Neutral: the phrase identifies a reason without itself expressing blame.",
+              "tone": "Matter-of-fact here: the sentence reports the postponement and its cause without a distinctive emotional attitude.",
+              "register": "Relatively formal, common in notices and reports. “Because of” sounds more ordinary in conversation."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Write a short postponement notice explaining staff absence. A model in this sense: The match was cancelled owing to heavy rain."
+            ],
+            "when_not_to_use": [
+              "Owing to takes a noun phrase; because takes a clause.",
+              "It sounds more formal than because of and is common in notices."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "owing to: It sounds more formal than because of and is common in notices."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A cause label attached to the result.",
+            "memory_sentence": "The match was cancelled owing to heavy rain.",
+            "production_task": "Write a short postponement notice explaining staff absence. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: because of a particular cause. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: Owing to heavy rain, we cancelled. B: Owing to it rained, we cancelled. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "The meeting was postponed owing to staff illness.",
+              "another_setting": "The match was cancelled owing to heavy rain."
+            },
+            "mini_conversation": "A: The match was cancelled owing to heavy rain.\nB: We can use the tickets for the replacement date."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The meeting was postponed owing to staff illness.",
+            "contextual_meaning": "because of a particular cause",
+            "simple_explanation": "A cause label attached to the result. Owing to takes a noun phrase; because takes a clause."
+          },
+          "mistakes_differences": {
+            "correction": "Owing to heavy rain, we cancelled.",
+            "common_mistake": "Owing to it rained, we cancelled.",
+            "important_difference": "Owing to takes a noun phrase; because takes a clause."
+          },
+          "patterns_collocations": {
+            "main_pattern": "owing to: owing to + noun/-ing",
+            "common_collocations": [
+              "owing to illness",
+              "owing to unforeseen delays"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Owing to: cause meaning, noun/-ing complement, because-clause contrast and formal notice examples checked; retained valid non-Overview sections.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 27,
+      "wordId": "02f8208b-5fa7-4cb8-9d4f-ef2134688e52",
+      "senseKey": "periodically-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ab15c6bbfd10df157fe94cc0952cd55589f903291c078626ba5d0781f94d2b89",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "periodically",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: peer-ee-OD-ik-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "காலம்தோறும்",
+        "englishMeaning": "at regular or repeated intervals",
+        "coreIdea": "An action happens again after gaps in time.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Time adverb meaning at intervals; here, predictions are run repeatedly on batches rather than necessarily continuously.",
+              "connotation": "Neutral: it describes timing, not whether the frequency is sufficient.",
+              "tone": "Technical and factual here: the sentence explains how the prediction process is scheduled.",
+              "register": "Neutral to formal; common in operational descriptions. “From time to time” is less precise and more conversational."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use periodically for an action that is repeated with gaps between occasions.",
+              "It suits maintenance checks, reviews and scheduled processing."
+            ],
+            "when_not_to_use": [
+              "Do not use periodically to mean continuously without a break.",
+              "Give an exact interval, such as every hour, if the reader needs a precise schedule."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Periodically does not by itself specify the length or exact regularity of the gaps; add a schedule when precision matters.",
+            "Periodically describes timing, not how carefully or successfully the task is performed."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture repeated check marks with spaces between them on a timeline.",
+            "memory_sentence": "We check the supplies periodically and order more when needed.",
+            "recall_question": "What separates periodic checks from continuous monitoring?",
+            "recognition_task": "Which is periodic? A: A check at several separate times. B: Watching every moment without stopping. Explain the gaps.",
+            "production_task": "Write a maintenance note for a colleague. Use periodically and give a concrete interval for a fictional equipment check."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We periodically review the contact list to remove outdated numbers.",
+              "example_2": "The caretaker checks the empty building periodically during the winter."
+            },
+            "mini_conversation": "A: Is someone watching the equipment all day?\nB: No, we check it periodically, once every two hours.\nA: Please record each check in the log."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Predictions are run periodically on a batch of inputs.",
+            "contextual_meaning": "at regular or repeated intervals",
+            "simple_explanation": "Predictions are made on groups of inputs at repeated times, rather than being described as one continuous operation."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “The list is updated periodic.” The verb needs the adverb periodically.",
+            "correction": "Say: “The list is updated periodically.” Use periodic before a noun, as in “periodic updates.”",
+            "important_difference": "Periodically means repeatedly with intervals. Continuously means without interruption."
+          },
+          "patterns_collocations": {
+            "main_pattern": "periodically + verb; verb + periodically; be + periodically + past participle",
+            "common_collocations": [
+              "check periodically",
+              "review periodically",
+              "updated periodically"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Adverb position and periodic/periodically distinction checked. No technical correctness inferred from timing.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 28,
+      "wordId": "034b3c8d-3ae9-4209-9c6c-aa41c9816034",
+      "senseKey": "to-do-extra-work-because-someone-or-something-is-not-doing-enough",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "449b50f92b5bfef8596610d33d9ad22885249674aa17d8c4da66aa6a2c774818",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "pick up the slack",
+        "wordType": "idiom",
+        "pronunciation": "/pɪk ʌp ðə ˈslæk/",
+        "tamilMeaning": "ஒருவரின் குறைவால் மீதமுள்ள கூடுதல் பணியை ஏற்றுக்கொள்வது",
+        "englishMeaning": "to do extra work because someone or something is not doing enough",
+        "coreIdea": "Pull a loose rope tight by taking the extra load.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative idiom: take on work left undone by others, as though taking up looseness in a rope.",
+              "connotation": "Can suggest helpful cooperation or an unfair extra burden; here, colleagues cover temporary absences.",
+              "tone": "Practical and cooperative here: the evening team is described as covering work while two people are away.",
+              "register": "Conversational, including ordinary workplace discussions. “Cover the extra work” is more direct in a formal allocation plan."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use “pick up the slack” for this meaning: to do extra work because someone or something is not doing enough. For a concrete situation: The evening team will pick up the slack while two colleagues are away."
+            ],
+            "when_not_to_use": [
+              "Pick up the slack means compensate for a shortfall in effort or capacity; help out does not necessarily imply anyone is falling short."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "pick up the slack: The phrase may sound accusatory, so distinguish planned cover from blaming an absent colleague."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Pull a loose rope tight by taking the extra load.",
+            "memory_sentence": "My sister picked up the slack at home while I recovered from surgery.",
+            "production_task": "Use “pick up the slack” in your own response: Ask for temporary cover during an absence without unfairly criticising the absent person.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “to do extra work because someone or something is not doing enough”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “We need someone to pick up the slack.” B: “We need someone to pick the slack.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "The evening team will pick up the slack while two colleagues are away.",
+              "another_context": "My sister picked up the slack at home while I recovered from surgery."
+            },
+            "mini_conversation": "A: Two colleagues are away next week. Can the evening team pick up the slack?\nB: We can cover the urgent orders, but we need help with deliveries.\nA: I'll arrange that support."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The evening team will pick up the slack while two colleagues are away.",
+            "contextual_meaning": "to do extra work because someone or something is not doing enough",
+            "simple_explanation": "Pull a loose rope tight by taking the extra load. Here, to do extra work because someone or something is not doing enough."
+          },
+          "mistakes_differences": {
+            "correction": "We need someone to pick up the slack.",
+            "common_mistake": "We need someone to pick the slack.",
+            "important_difference": "Pick up the slack means compensate for a shortfall in effort or capacity; help out does not necessarily imply anyone is falling short."
+          },
+          "patterns_collocations": {
+            "main_pattern": "pick up the slack: pick up the slack for/from + person/team",
+            "common_collocations": [
+              "be asked to pick up the slack",
+              "help pick up the slack"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "natural_examples.mini_conversation"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Repaired mismatched 'She' response after a team statement. Retained specific shortfall meaning, non-blaming cover examples, pattern and practice.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 29,
+      "wordId": "037b5071-1b99-43b4-9277-b467f31adee4",
+      "senseKey": "to-decide-that-a-possibility-cannot-or-should-not-be-considered",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a8cc08b69f1f4600038b8d4793d2cd54c0b40d667e24fd4fdae4c3682ea08656",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "rule out",
+        "wordType": "phrasal verb",
+        "pronunciation": "/ruːl aʊt/",
+        "tamilMeaning": "ஒரு வாய்ப்பை நிராகரித்தல்",
+        "englishMeaning": "to decide that a possibility cannot or should not be considered",
+        "coreIdea": "Cross an option off the list.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb meaning to exclude a possibility; in the negative, a further delay remains possible.",
+              "connotation": "Neutral: it expresses an assessment rather than approval or dislike of the possibility.",
+              "tone": "Cautious here: “cannot” and “at this stage” avoid giving an assurance that there will be no delay.",
+              "register": "Neutral and widely used in discussion, reports and news. It does not mean that the remaining possibility is certain or likely."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use “rule out” for this meaning: to decide that a possibility cannot or should not be considered. For a concrete situation: We cannot rule out a further delay at this stage."
+            ],
+            "when_not_to_use": [
+              "Rule out removes an option from consideration; postpone keeps it possible for later."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "rule out: Cannot rule out means something remains possible, not that it is likely or certain."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Cross an option off the list.",
+            "memory_sentence": "The forecast does not rule out rain later in the day.",
+            "production_task": "Use “rule out” in your own response: Explain why you cannot exclude a further delay without predicting that it will happen.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “to decide that a possibility cannot or should not be considered”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “We ruled out to postpone the event.” B: “We ruled out postponing the event.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "We cannot rule out a further delay at this stage.",
+              "another_context": "The forecast does not rule out rain later in the day."
+            },
+            "mini_conversation": "A: We cannot rule out a further delay at this stage.\nB: Then we should keep a backup date available."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We cannot rule out a further delay at this stage.",
+            "contextual_meaning": "to decide that a possibility cannot or should not be considered",
+            "simple_explanation": "Cross an option off the list. Here, to decide that a possibility cannot or should not be considered."
+          },
+          "mistakes_differences": {
+            "correction": "We ruled out postponing the event.",
+            "common_mistake": "We ruled out to postpone the event.",
+            "important_difference": "Rule out removes an option from consideration; postpone keeps it possible for later."
+          },
+          "patterns_collocations": {
+            "main_pattern": "rule out: rule out + noun/-ing",
+            "common_collocations": [
+              "rule out a possibility",
+              "rule out a delay"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Rule out: excluded possibility meaning, -ing complement, cannot-rule-out uncertainty and backup-date exchange checked; retained valid non-Overview sections.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 30,
+      "wordId": "039012d2-546f-43df-8d91-fe54a1496107",
+      "senseKey": "extreme-fear",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "dd868030d9c4fed0dd9d0e3a4c043bca203dfd6de564bce5b74103d2eae1cd40",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "terror",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: TERR-er. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மிகுந்த அச்சம் அல்லது திகில்",
+        "englishMeaning": "an intense or overwhelming feeling of fear",
+        "coreIdea": "Fear so strong that it feels overwhelming.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for extremely strong fear; here, it describes how frightened Kevin's colleagues appeared.",
+              "connotation": "Strongly negative as an emotional experience; it is much more intense than mild concern.",
+              "tone": "Dramatic here: the contrast between their apparent terror and Kevin continuing heightens the tension.",
+              "register": "Common in vivid narrative and serious accounts of fear. It may overstate ordinary workplace nervousness."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use terror for an extremely strong feeling of fear.",
+              "It can describe a frightening experience or intense fear about what might happen."
+            ],
+            "when_not_to_use": [
+              "For mild concern about a small problem, worry or nervousness is usually more accurate.",
+              "Do not assume the person's fear proves that the danger is objectively as great as it feels."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Terror names the feeling, while the source's apparent limits the claim to how the colleagues look.",
+            "In this emotional sense, terror is normally uncountable: 'filled with terror' or 'a feeling of terror'."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a frightened character unable to move for a moment.",
+            "memory_sentence": "She stood in terror as the locked door slowly opened.",
+            "recall_question": "Is terror normally stronger or weaker than ordinary nervousness?",
+            "recognition_task": "Which best fits terror? A: Slight concern about a late bus. B: Overwhelming fear during a frightening escape. Explain the degree of fear.",
+            "production_task": "Write two sentences about a fictional suspense scene. Use terror to describe a character's intense fear without drawing on a personal experience."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She froze in terror when she heard footsteps inside the empty house.",
+              "example_2": "The boy's face showed sheer terror as the dog charged toward him."
+            },
+            "mini_conversation": "A: Why did the character stop moving?\nB: She was frozen with terror when she saw the figure at the window.\nA: So she was too frightened to act."
+          },
+          "meaning_in_context": {
+            "source_sentence": "But  Kevin  ignored  the  apparent  terror  of  his  col­ leagues  and  plunged  on  ahead.",
+            "contextual_meaning": "an intense or overwhelming feeling of fear",
+            "simple_explanation": "Kevin's colleagues appear extremely afraid, but he continues. Apparent signals how their reaction looks; the excerpt does not say exactly what each person feels."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “He was terror.” Terror is the noun naming the feeling.",
+            "correction": "Say: “He felt terror” or “He was terrified.” Terror names the feeling; terrified describes the person.",
+            "important_difference": "Fear covers a broad range of intensity. Terror stresses an extreme, overwhelming degree."
+          },
+          "patterns_collocations": {
+            "main_pattern": "feel terror; in terror; be filled with terror; terror at + frightening event",
+            "common_collocations": [
+              "sheer terror",
+              "a look of terror",
+              "frozen with terror"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Extreme emotional fear only; source apparent preserved, noun/adjective distinction and fictional practice checked.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
