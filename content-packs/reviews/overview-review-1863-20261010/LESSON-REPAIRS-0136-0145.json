@@ -1,0 +1,844 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0136-0145",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 10,
+  "broaderLessonRepairProcessed": 10,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 136,
+      "wordId": "1169752c-b745-4fc3-aea4-3d0f529149ed",
+      "senseKey": "a-fair-assumption-that-someone-acted-honestly-when-the-facts-are-uncertain",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a40589841756a50b9ed0a08cb7f0efc28c9ae206c6f8c4b6269beab562dc6de8",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "benefit of the doubt",
+        "wordType": "idiom",
+        "pronunciation": "/ˌben.ɪ.fɪt əv ðə ˈdaʊt/",
+        "tamilMeaning": "உறுதியான ஆதாரம் இல்லாதபோது நல்லெண்ணத்தில் நம்புதல்",
+        "englishMeaning": "a fair assumption that someone acted honestly when the facts are uncertain",
+        "coreIdea": "Withhold blame while the facts remain uncertain.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Idiomatic phrase for choosing a fair or favourable interpretation when the facts are uncertain.",
+              "connotation": "Positive toward fairness and restraint, without asserting that the person is innocent.",
+              "tone": "Cautious and fair-minded here: the speaker withholds judgement until hearing an explanation.",
+              "register": "Common in everyday and professional discussions of disputed behaviour. It means provisional trust, not ignoring contrary evidence."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "I will give him the benefit of the doubt until we hear his explanation.",
+            "contextual_meaning": "a fair assumption that someone acted honestly when the facts are uncertain",
+            "simple_explanation": "The speaker will provisionally assume that the man acted honestly until his explanation is available."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Choose a fair interpretation of someone's behaviour when you do not yet have enough evidence to judge it."
+            ],
+            "when_not_to_use": [
+              "Do not use it to dismiss clear contrary evidence; the fairness is provisional, not unconditional belief."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "give someone the benefit of the doubt",
+            "common_collocations": [
+              "give her the benefit of the doubt",
+              "deserve the benefit of the doubt"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "I will give him the benefit of the doubt until we hear his explanation.",
+              "example_2": "The parcel arrived damaged, but I gave the courier the benefit of the doubt because I had not seen how it was packed."
+            },
+            "mini_conversation": "A: She did not reply to our invitation.\nB: Let us give her the benefit of the doubt; she may not have received it.\nA: I will check before assuming she ignored us."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Give him benefit of doubt.",
+            "correction": "Say: Give him the benefit of the doubt. Keep both instances of the in the fixed expression.",
+            "important_difference": "The benefit of the doubt is provisional fairness under uncertainty; proof of innocence is evidence establishing that someone was not responsible."
+          },
+          "memory_practice": {
+            "memory_trigger": "Leave the verdict open until the missing facts arrive.",
+            "memory_sentence": "Give her the benefit of the doubt until we know what happened.",
+            "recall_question": "What uncertainty makes giving someone the benefit of the doubt reasonable?",
+            "recognition_task": "A: Wait for an explanation before blaming someone. B: Ignore conclusive evidence against them. Which better fits this expression?",
+            "production_task": "Respond fairly to a colleague's unexplained lateness using benefit of the doubt, and name a fact you would check."
+          },
+          "advanced_nuance": [
+            "Giving someone the benefit of the doubt does not mean being convinced they acted correctly. It is a choice not to adopt the less favourable interpretation while the evidence remains incomplete."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 137,
+      "wordId": "11d64644-9953-4b89-b34f-b063f0f012c6",
+      "senseKey": "begin-open-discussion",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "dc103197d58ab9bd1f444e48d9bfe7e628d7f2a1f5615b0a8701cc06cfa4e36b",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "move to dialogue",
+        "wordType": "verb phrase",
+        "pronunciation": "Approximate pronunciation: moov tuh DYE-uh-log. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "வெளிப்படையான ஆக்கபூர்வமான கருத்துப் பரிமாற்றத்துக்கு மாறுதல்",
+        "englishMeaning": "to shift an interaction toward an open and constructive exchange of views",
+        "coreIdea": "Change the interaction into a constructive exchange.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrase for changing an interaction into an open exchange; here, Yvonne intends to begin a more constructive conversation with Jotham.",
+              "connotation": "Positive in this passage: dialogue is presented as a preferable way of interacting.",
+              "tone": "Tentative and purposeful here: “going to try” expresses an intention without guaranteeing success.",
+              "register": "Natural in discussion of communication methods, though “start an open conversation” may be clearer in everyday speech."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Yvonne  is  going  to  try  to  move  to  dialogue  with  Jotham.",
+            "contextual_meaning": "to shift an interaction toward an open and constructive exchange of views",
+            "simple_explanation": "Yvonne intends to try to start an open exchange with Jotham. The sentence describes her intention, not a successful outcome."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a shift from confrontation, avoidance or one-sided statements toward an exchange where both people can contribute."
+            ],
+            "when_not_to_use": [
+              "If one person only delivers instructions and refuses replies, do not describe that alone as moving to dialogue."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "move to dialogue with + person; move from confrontation to dialogue",
+            "common_collocations": [
+              "move to dialogue with the other side",
+              "try to move to dialogue"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We need to move to dialogue with the residents before deciding how to use the hall.",
+              "example_2": "After weeks of angry messages, the two groups agreed to move to dialogue."
+            },
+            "mini_conversation": "A: We keep repeating our positions without listening.\nB: Let us move to dialogue and ask what each side needs.\nA: I will explain my concern, then hear yours."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Calling a one-sided lecture a move to dialogue merely because someone is speaking.",
+            "correction": "To move to dialogue, create space for the other person to explain and respond as well.",
+            "important_difference": "Move to dialogue describes a change in how people interact; reach agreement describes a possible outcome that dialogue does not guarantee."
+          },
+          "memory_practice": {
+            "memory_trigger": "Two opposing speeches become a conversation with turns for both people.",
+            "memory_sentence": "We can move to dialogue by asking each person to explain their concern.",
+            "recall_question": "Does moving to dialogue guarantee that both people will agree?",
+            "recognition_task": "A: Invite each side to explain and question. B: Repeat a demand while refusing replies. Which moves toward dialogue?",
+            "production_task": "Write an invitation to move to dialogue after a disagreement, specifying how both people will get a chance to speak."
+          },
+          "advanced_nuance": [
+            "Move to dialogue is purposeful communication-method language rather than a fixed idiom. Start an open conversation is often plainer. In either wording, the shift concerns the interaction, not guaranteed agreement."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 138,
+      "wordId": "11ec6a37-7301-42f9-9da2-0fb77e3622f4",
+      "senseKey": "something-that-causes-a-delay",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "36ea94cda78d9319af7d1033e4cd1b8a72d4607fc60e285bcf37b937b3e2901c",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "hold-up",
+        "wordType": "countable noun",
+        "pronunciation": "/ˈhəʊld ʌp/",
+        "tamilMeaning": "தாமதத்தை ஏற்படுத்தும் தடங்கல்",
+        "englishMeaning": "something that causes a delay",
+        "coreIdea": "An obstacle is slowing progress.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract compound for a cause of delay; here, the missing signature prevents progress.",
+              "connotation": "Negative about the obstruction, but often less severe than a permanent failure.",
+              "tone": "Matter-of-fact and focused here: “only” identifies one remaining obstacle.",
+              "register": "Common conversational and workplace English. “Cause of the delay” is clearer in formal writing; this is not the robbery sense."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "The missing signature is the only hold-up.",
+            "contextual_meaning": "something that causes a delay",
+            "simple_explanation": "The missing signature is the remaining reason the process cannot move forward."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Name a delay or the obstacle causing it in everyday planning and work."
+            ],
+            "when_not_to_use": [
+              "For a final cancellation, say cancellation rather than implying that work is merely delayed by a hold-up."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "a hold-up in + process; the hold-up is + obstacle; cause a hold-up",
+            "common_collocations": [
+              "an unexpected hold-up",
+              "a hold-up in delivery"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The missing signature is the only hold-up.",
+              "example_2": "A hold-up at the ticket desk meant we missed the start of the film."
+            },
+            "mini_conversation": "A: Why has the order not been sent?\nB: There is a hold-up with the address confirmation.\nA: I will check the details now."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The missing signature is hold-up.",
+            "correction": "Say: The missing signature is a hold-up, or the only hold-up. The singular countable noun needs a determiner.",
+            "important_difference": "A hold-up delays progress; a cancellation ends the planned activity rather than merely postponing it."
+          },
+          "memory_practice": {
+            "memory_trigger": "A document waits at one blocked step in the process.",
+            "memory_sentence": "The address check is the only hold-up.",
+            "recall_question": "What obstacle is causing the hold-up in the source?",
+            "recognition_task": "A: An order waits for a missing signature. B: An order is delivered on time. Which involves a hold-up?",
+            "production_task": "Explain a hold-up in an invented delivery and state the next step needed to remove it."
+          },
+          "advanced_nuance": [
+            "Hold-up is conversational and can name either the delay or its cause. It also has a separate robbery sense, so naming the process—such as a hold-up in delivery—makes this delay meaning clearer."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 139,
+      "wordId": "11f552a9-70a9-42ef-a0a9-77f2333ec732",
+      "senseKey": "morally-superior",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "636fec50d8f99b715c8528d9303439b0e553bec6b724f7bd8ae0536cb03ac07c",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "self-righteous",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: self RY-chuhs. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தானே ஒழுக்கத்தில் மற்றவர்களைவிட உயர்ந்தவர் என்று கருதுகிற",
+        "englishMeaning": "convinced that one’s own behaviour or beliefs are morally superior",
+        "coreIdea": "Act as though your moral judgement makes you superior.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adjective for believing one's own conduct or beliefs are morally superior to other people's.",
+              "connotation": "Strongly negative: it criticizes perceived moral superiority rather than ordinary confidence.",
+              "tone": "Concerned about the listener's impression here: the question asks how to avoid sounding superior while raising a complaint.",
+              "register": "Common in commentary and personal criticism, but a strong label. Describe the behaviour more specifically in diplomatic feedback."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Is  there  a  way  to  talk  to  your  neighbors  about  their  annoying  behavior  and  not  come  across  as  self-rig hteous  or  demanding?",
+            "contextual_meaning": "convinced that one’s own behaviour or beliefs are morally superior",
+            "simple_explanation": "The speaker wants to raise a complaint without appearing morally superior to the neighbours."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Criticise an attitude of moral superiority, especially when someone appears certain that only their own conduct is right."
+            ],
+            "when_not_to_use": [
+              "Do not equate every firm moral objection with self-righteousness; the criticism concerns the superior attitude, not merely having principles."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "sound / seem / come across as + self-righteous; a self-righteous + tone / lecture",
+            "common_collocations": [
+              "a self-righteous tone",
+              "sound self-righteous"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "His self-righteous lecture made it hard to discuss the actual problem.",
+              "example_2": "She wanted to ask the neighbours to lower the music without sounding self-righteous."
+            },
+            "mini_conversation": "A: I told them that decent people would never behave like that.\nB: That can sound self-righteous. Could you explain how the noise affects you instead?\nA: I will focus on the behaviour and its effect."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Using self-righteous as praise for someone who simply behaves ethically.",
+            "correction": "Use self-righteous to criticise perceived moral superiority; use principled when you intend to praise consistent ethical conduct.",
+            "important_difference": "Principled can praise commitment to values; self-righteous criticises an attitude that one's own moral position makes one superior."
+          },
+          "memory_practice": {
+            "memory_trigger": "A raised finger and a lecture implying that only the speaker is decent.",
+            "memory_sentence": "I can raise the concern without giving a self-righteous lecture.",
+            "recall_question": "What attitude does self-righteous criticise beyond having strong beliefs?",
+            "recognition_task": "A: Explain a concern while listening respectfully. B: Declare that only you have proper morals. Which sounds self-righteous?",
+            "production_task": "Rewrite a fictional morally superior complaint as a specific, respectful request. Explain how the rewrite avoids sounding self-righteous."
+          },
+          "advanced_nuance": [
+            "Self-righteous is a strong judgement about someone's attitude. In a constructive complaint, describing the particular words or behaviour may be more useful than applying this label to the person."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 140,
+      "wordId": "120ff2b1-db50-44b5-b596-8cb2169d6017",
+      "senseKey": "death-happening-earlier-than-expected-or-natural",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d221c31885b0e6a296fcca01f7f7e562fcacba444602b3928da191a5e24da134",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "untimely death",
+        "wordType": "noun phrase",
+        "pronunciation": "Approximate pronunciation: un-TY-mlee DETH. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "அகால மரணம்",
+        "englishMeaning": "death happening earlier than expected or natural",
+        "coreIdea": "A death is regarded as happening too soon.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Established phrase for a death regarded as occurring too soon, before an expected lifespan or appropriate time.",
+              "connotation": "Sad or tragic association: it emphasizes the premature loss rather than giving a medical cause.",
+              "tone": "Relief is suggested by “Saved from,” although the brief fragment does not establish the wider emotional setting.",
+              "register": "Relatively formal or literary, common in tributes and narratives. “Premature death” is more clinical."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "‘Saved from an untimely death.",
+            "contextual_meaning": "death happening earlier than expected or natural",
+            "simple_explanation": "Saved from indicates that an early death was avoided. The fragment alone does not establish the exact danger or wider circumstances."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a death regarded as premature in a narrative, remembrance or tribute."
+            ],
+            "when_not_to_use": [
+              "Do not treat untimely death as an explanation of the medical cause or the precise age involved."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "an untimely death; mourn someone's untimely death; saved from an untimely death",
+            "common_collocations": [
+              "her untimely death",
+              "mourn an untimely death"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The novel begins with the untimely death of a young musician.",
+              "example_2": "The villagers mourned the teacher's untimely death."
+            },
+            "mini_conversation": "A: Why does the tribute call her death untimely?\nB: It presents her untimely death as a loss that came far too soon.\nA: It does not explain the cause, though."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Assuming untimely death identifies a particular cause of death.",
+            "correction": "Untimely death says that the loss occurred too soon; name the cause separately only when it is established and relevant.",
+            "important_difference": "Untimely death emphasises premature loss; sudden death emphasises how unexpectedly or rapidly it occurred. Those descriptions can overlap but are not identical."
+          },
+          "memory_practice": {
+            "memory_trigger": "A life story ends while much still seemed to lie ahead.",
+            "memory_sentence": "The tribute remembered the work she completed before her untimely death.",
+            "recall_question": "Does untimely death identify the cause or express that the loss came too soon?",
+            "recognition_task": "A: A tribute emphasises a life cut short. B: A report lists a precise cause without discussing timing. Which directly explains untimely?",
+            "production_task": "Write one respectful sentence about a fictional character's untimely death, without inventing a medical explanation."
+          },
+          "advanced_nuance": [
+            "Untimely death is evaluative and often mournful: it presents the loss as too early. It does not define a fixed age threshold, and its relatively formal tone suits tributes and narratives."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 141,
+      "wordId": "1242dd57-e9a0-4717-83d3-3e589b4425f9",
+      "senseKey": "wildly-unreasonable",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e334d60a6e4b9e9c5dfe7f46c2a1b486e2de288e800f5d2f0e45555c066a2338",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "outlandish",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: out-LAN-dish. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மிகவும் விசித்திரமான அல்லது அளவுக்கு மீறிய",
+        "englishMeaning": "extremely unusual, exaggerated, or unreasonable",
+        "coreIdea": "So extreme or unusual that it seems hard to accept.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adjective for claims judged extremely unusual or unreasonable.",
+              "connotation": "Negative here: it casts the claims as excessive and hard to accept.",
+              "tone": "Self-critical here: the speaker includes outlandish claims among their own argumentative mistakes.",
+              "register": "Expressive vocabulary in speech and commentary. “Unsupported” is more precise if the actual problem is lack of evidence."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "I  spoke  in  absolutes,  only  pointed  out  fa cts  that  supported  my  view ,  and then  ended  with  a  list  of  outlandish  clai ms.",
+            "contextual_meaning": "extremely unusual, exaggerated, or unreasonable",
+            "simple_explanation": "The writer criticises their own exaggerated or unreasonable claims as part of a poor argument."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a claim, suggestion or idea you judge extremely unusual, exaggerated or unreasonable."
+            ],
+            "when_not_to_use": [
+              "If the only problem is missing evidence, unsupported may be more precise than the stronger judgement outlandish."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "an outlandish + claim / idea / suggestion; seem / sound + outlandish",
+            "common_collocations": [
+              "outlandish claims",
+              "an outlandish suggestion"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "He made the outlandish claim that the whole project could be finished in an hour.",
+              "example_2": "At first, turning the abandoned station into a theatre sounded like an outlandish idea."
+            },
+            "mini_conversation": "A: She says we can double attendance without changing anything.\nB: That sounds outlandish. What evidence supports it?\nA: Let us ask before accepting the prediction."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Using outlandish as a neutral synonym for slightly different.",
+            "correction": "Use outlandish when you mean strikingly unusual or unreasonable; different alone does not carry that strong judgement.",
+            "important_difference": "Unconventional means outside the usual approach; outlandish is stronger and often suggests that the idea is excessive or difficult to believe."
+          },
+          "memory_practice": {
+            "memory_trigger": "An enormous claim towers over the small amount of supporting evidence.",
+            "memory_sentence": "We questioned the outlandish promise of instant success.",
+            "recall_question": "Does outlandish sound neutral or express a strong reaction to an idea?",
+            "recognition_task": "A: A small change to a familiar schedule. B: A promise to complete a year's work in one afternoon. Which sounds outlandish?",
+            "production_task": "Describe an invented outlandish project claim and ask one specific question that would test it."
+          },
+          "advanced_nuance": [
+            "Outlandish expresses the speaker's judgement, not proof of falsity. An idea can initially seem outlandish and later become workable; factual criticism should still identify what is unreasonable or unsupported."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 142,
+      "wordId": "12807929-6ac2-4858-9fef-b32324e154c3",
+      "senseKey": "listen-secretly",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "04884ccb955bfe295146b3e23134ccae3f2aea95c209d6bc11f53bc3e369eb5e",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "eavesdrop",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: EEVZ-drop. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தனிப்பட்ட உரையாடலை மறைவாக ஒட்டுக்கேட்டல்",
+        "englishMeaning": "to secretly listen to a private conversation",
+        "coreIdea": "Listen to a private conversation without openly joining it.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal verb for listening secretly to a private conversation, used here as a narrative invitation to observe an intimate discussion.",
+              "connotation": "Often negative because it suggests intrusion, though the writer is using it to introduce an example rather than confess actual spying.",
+              "tone": "Inviting and slightly playful here: “We'll” brings the reader into the coming scene.",
+              "register": "Common general vocabulary. In professional descriptions, “observe a sample conversation” avoids implying a privacy intrusion."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "We 'll  eavesdrop  on  a  couple  as  they  try  to  discuss  one  of  the  most  delicate  of  topics-p hysical  intima cy.",
+            "contextual_meaning": "to secretly listen to a private conversation",
+            "simple_explanation": "The writer invites readers to observe a couple's private discussion as a narrative example. The wording does not establish actual covert listening by the reader."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe secretly listening to a conversation not intended for you, or a deliberate narrative imitation of that position."
+            ],
+            "when_not_to_use": [
+              "If you accidentally hear a few words without trying to listen, overhear is usually more accurate."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "eavesdrop on + person / conversation",
+            "common_collocations": [
+              "eavesdrop on a conversation",
+              "try to eavesdrop"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "It was rude of him to eavesdrop on the conversation at the next table.",
+              "example_2": "The narrator lets readers eavesdrop on a fictional family's private discussion."
+            },
+            "mini_conversation": "A: Did you hear what they were saying behind the door?\nB: No. I did not want to eavesdrop.\nA: We can ask them if there is anything we need to know."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: He tried to eavesdrop their conversation.",
+            "correction": "Say: He tried to eavesdrop on their conversation. Use on before the people or conversation.",
+            "important_difference": "Eavesdrop generally implies intentional secret listening; overhear can describe hearing something unintentionally."
+          },
+          "memory_practice": {
+            "memory_trigger": "Someone leans toward a private conversation they were not invited to join.",
+            "memory_sentence": "I did not want to eavesdrop on their private discussion.",
+            "recall_question": "What usually distinguishes eavesdrop from accidentally overhear?",
+            "recognition_task": "A: Deliberately listen behind a door. B: Unexpectedly hear a loud remark while walking past. Which more clearly means eavesdrop?",
+            "production_task": "Write two sentences contrasting an accidental overhearing with a decision not to eavesdrop further."
+          },
+          "advanced_nuance": [
+            "Eavesdrop often suggests a privacy intrusion, but writers can use it figuratively to position readers close to fictional private dialogue. That narrative invitation should not be mistaken for a factual claim of spying."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 143,
+      "wordId": "128df86b-f4de-4bbe-a9ad-5e54902ede14",
+      "senseKey": "an-indirect-consequence-caused-by-an-earlier-event",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b5dcd84512e49e84757d7a1150ad5d059068cc73fad85d5ecc16f46e2086ebae",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "knock-on effect",
+        "wordType": "countable noun phrase",
+        "pronunciation": "/ˈnɒk ɒn ɪˌfekt/",
+        "tamilMeaning": "முந்தைய நிகழ்வால் ஏற்படும் மறைமுக தொடர் விளைவு",
+        "englishMeaning": "an indirect consequence caused by an earlier event",
+        "coreIdea": "One event indirectly affects something further along.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative phrase for a secondary consequence that follows from an earlier event, like one impact causing another.",
+              "connotation": "Neutral by itself, though this sentence presents a delay spreading into training as an unwelcome effect.",
+              "tone": "Explanatory here: it links the delivery problem with a later impact on training.",
+              "register": "Common in British and international workplace English. “Indirect consequence” is more formal and explicit."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "The late delivery had a knock-on effect on training.",
+            "contextual_meaning": "an indirect consequence caused by an earlier event",
+            "simple_explanation": "The delivery delay affected training afterward, for example by changing when the training could happen. The quotation does not specify the exact change."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Explain how an initial event produces a secondary consequence in another activity or stage."
+            ],
+            "when_not_to_use": [
+              "Do not call two unrelated problems a knock-on effect merely because they happen at similar times; show the causal link."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "have a knock-on effect on + activity; a knock-on effect of + initial event",
+            "common_collocations": [
+              "a knock-on effect on staffing",
+              "a positive knock-on effect"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The late delivery had a knock-on effect on training.",
+              "example_2": "Longer library opening hours had a positive knock-on effect on attendance at evening clubs."
+            },
+            "mini_conversation": "A: Why has training moved to Thursday?\nB: The equipment arrived late, which had a knock-on effect on the schedule.\nA: I will notify the participants."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The delay had a knock-on effect to training.",
+            "correction": "Say: The delay had a knock-on effect on training. Use on for what is affected.",
+            "important_difference": "A direct effect follows immediately from the action itself; a knock-on effect emphasises a secondary consequence passed on to something else."
+          },
+          "memory_practice": {
+            "memory_trigger": "One falling domino knocks over the next.",
+            "memory_sentence": "The delivery delay had a knock-on effect on the launch.",
+            "recall_question": "What link connects the original event to its knock-on effect?",
+            "recognition_task": "A: A missing part delays assembly, which delays training. B: An unrelated rainstorm occurs that day. Which describes a knock-on effect of the missing part?",
+            "production_task": "Explain a three-step chain in which one project delay has a knock-on effect on another team's work."
+          },
+          "advanced_nuance": [
+            "Knock-on effect is often used for problems, but the consequence can be positive. Naming the direction and affected activity makes the phrase more informative than simply saying there were effects."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 144,
+      "wordId": "130bba17-d526-45de-93e5-d6e5f4cfd66c",
+      "senseKey": "to-make-a-noticeable-difference-to-an-important-result",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "cc6aad51ec531471073a608d76859d338f511bc72120031a8c4d54cb8d50d1c5",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "move the needle",
+        "wordType": "idiom",
+        "pronunciation": "/muːv ðə ˈniːdəl/",
+        "tamilMeaning": "முக்கிய முடிவில் குறிப்பிடத்தக்க மாற்றத்தை ஏற்படுத்துதல்",
+        "englishMeaning": "to make a noticeable difference to an important result",
+        "coreIdea": "Make a noticeable difference to a result that matters.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative idiom for producing a noticeable change in an important measure, as though moving a gauge's needle.",
+              "connotation": "Positive in this example: the desired changes would improve customer satisfaction.",
+              "tone": "Results-focused and advisory here: “should focus” urges attention to changes with a meaningful effect.",
+              "register": "Common business jargon. “Make a measurable difference” is clearer for audiences unfamiliar with the idiom."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "We should focus on changes that move the needle on customer satisfaction.",
+            "contextual_meaning": "to make a noticeable difference to an important result",
+            "simple_explanation": "The speaker recommends prioritising changes that noticeably improve customer satisfaction rather than changes with little impact."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss whether an action makes a meaningful difference to an important outcome or measure."
+            ],
+            "when_not_to_use": [
+              "For effort alone, use work hard or make changes; those actions do not necessarily move the needle on the desired result."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "move the needle on + outcome; do little / fail to move the needle",
+            "common_collocations": [
+              "move the needle on satisfaction",
+              "barely move the needle"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We should focus on changes that move the needle on customer satisfaction.",
+              "example_2": "The new reminders did little to move the needle on attendance."
+            },
+            "mini_conversation": "A: We changed the button colour again.\nB: Did that move the needle on completed bookings?\nA: Not noticeably. Clearer instructions may have more impact."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Saying work moved the needle merely because it took a lot of effort.",
+            "correction": "Use move the needle when there is a noticeable difference in the relevant result, not simply more activity.",
+            "important_difference": "Make an effort describes input; move the needle describes impact on an outcome."
+          },
+          "memory_practice": {
+            "memory_trigger": "A gauge finally shifts after a useful change.",
+            "memory_sentence": "Clearer instructions could move the needle on completed applications.",
+            "recall_question": "What outcome must you examine before claiming that a change moved the needle?",
+            "recognition_task": "A: Many cosmetic changes with no noticeable effect. B: A change that clearly improves completion. Which moves the needle on completion?",
+            "production_task": "Name a small change that might move the needle on a workplace result, and say how you would check its effect."
+          },
+          "advanced_nuance": [
+            "Move the needle is business jargon and does not specify how large or lasting the effect is. Name the measure and the size of the change when precision matters; the idiom alone does not establish causation."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 145,
+      "wordId": "1318832c-87df-48f0-b4fb-566f1638c5d3",
+      "senseKey": "involving-many-parts",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0526129df3ffe06a0fc634d9fa68d5b651094c956571e830c735f9d13949e7e3",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "complicated",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: KOM-plih-kay-tid. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "பல ஒன்றோடொன்று தொடர்புடைய பகுதிகளால் சிக்கலான",
+        "englishMeaning": "involving many connected parts and therefore difficult to understand or solve",
+        "coreIdea": "Many connected parts make the problem hard to understand or solve.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract description of a problem with many connected parts that make it difficult to understand or solve.",
+              "connotation": "Often mildly negative because it highlights difficulty, without implying that the problem is impossible.",
+              "tone": "Explanatory here: the adjective establishes the kind of quality problem being discussed.",
+              "register": "Common neutral vocabulary in everyday and professional English. It does not automatically mean that someone has made the problem unnecessarily difficult."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "For  example,  you're  talk ing  with  a  group  of  supervi sors  about  a  complicated  quality problem.",
+            "contextual_meaning": "involving many connected parts and therefore difficult to understand or solve",
+            "simple_explanation": "The supervisors are discussing a quality problem with interrelated features that make it difficult to work through."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe an issue, explanation or arrangement with many connected details that create difficulty."
+            ],
+            "when_not_to_use": [
+              "A task that requires great physical effort but has few steps may be hard without being complicated."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "a complicated + problem / process; complicated by + additional factor; too complicated to + action",
+            "common_collocations": [
+              "a complicated process",
+              "a complicated relationship"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The team drew a diagram to explain the complicated approval process.",
+              "example_2": "Arranging transport became complicated because everyone arrived at a different time."
+            },
+            "mini_conversation": "A: Why can we not fix the problem with one change?\nB: It is complicated: changing the temperature also affects two later stages.\nA: Let us map those connections first."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Assuming complicated always means impossible to solve.",
+            "correction": "A complicated problem may be solvable once its connected parts are understood and handled in order.",
+            "important_difference": "Difficult describes a broad range of challenges; complicated specifically suggests many details or connected parts that make something difficult."
+          },
+          "memory_practice": {
+            "memory_trigger": "Untangle several linked threads one connection at a time.",
+            "memory_sentence": "A diagram helped us understand the complicated process.",
+            "recall_question": "Can a simple task be difficult without being complicated?",
+            "recognition_task": "A: Lifting one heavy box. B: Coordinating several linked schedules and permissions. Which is more clearly complicated?",
+            "production_task": "Describe a complicated process from an invented project and explain which two parts depend on each other."
+          },
+          "advanced_nuance": [
+            "Complicated does not necessarily mean unnecessarily complex. Overcomplicated adds the judgement that avoidable detail has made something harder; the source adjective alone does not assign that blame."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ],
+  "lessonValidatorPassed": 10
+}

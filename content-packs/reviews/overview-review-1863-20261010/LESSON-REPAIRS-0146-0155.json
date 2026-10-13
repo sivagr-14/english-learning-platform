@@ -1,0 +1,844 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0146-0155",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 10,
+  "broaderLessonRepairProcessed": 10,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 146,
+      "wordId": "131a3a85-37fb-4f33-b9da-3df5a789dc05",
+      "senseKey": "the-practical-possibility-of-carrying-out-a-plan",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "64d2cd9e02b0ba823fea1459c593fbf4c42a157d6856d1a05b9c6b467f2f58f9",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "feasibility",
+        "wordType": "uncountable noun",
+        "pronunciation": "/ˌfiːzəˈbɪləti/",
+        "tamilMeaning": "நடைமுறையில் செய்ய இயலுமை",
+        "englishMeaning": "the practical possibility of carrying out a plan",
+        "coreIdea": "Check whether the plan can realistically be carried out.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for whether a plan can realistically be carried out under the circumstances.",
+              "connotation": "Neutral: assessing feasibility can lead to either acceptance or rejection.",
+              "tone": "Cautious and practical here: the speaker wants to check whether the December timing is achievable.",
+              "register": "Relatively formal and common in planning. “Whether we can realistically do it” is a simpler explanation."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "We need to assess the feasibility of finishing before December.",
+            "contextual_meaning": "the practical possibility of carrying out a plan",
+            "simple_explanation": "The team needs to determine whether finishing before December is achievable under the actual constraints."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Assess whether time, resources, technology or other constraints allow a proposed plan to be carried out."
+            ],
+            "when_not_to_use": [
+              "Do not use feasibility as a synonym for desirability: a possible plan may still be a poor choice."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "assess the feasibility of + noun / gerund; a feasibility study",
+            "common_collocations": [
+              "assess feasibility",
+              "a feasibility study"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We need to assess the feasibility of finishing before December.",
+              "example_2": "The club investigated the feasibility of running evening classes with its current volunteers."
+            },
+            "mini_conversation": "A: Everyone likes the idea of a weekend event.\nB: We still need to check its feasibility. Do we have a venue and enough volunteers?\nA: I will check both."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We assessed the feasibility to finish by Friday.",
+            "correction": "Use feasibility of finishing: We assessed the feasibility of finishing by Friday.",
+            "important_difference": "Feasibility concerns whether a plan can be done; desirability concerns whether it is worth choosing."
+          },
+          "memory_practice": {
+            "memory_trigger": "Check the calendar, budget and available people before committing.",
+            "memory_sentence": "We must check the feasibility of opening on Sundays.",
+            "recall_question": "Can a plan be feasible without being desirable?",
+            "recognition_task": "A: Check whether resources allow the plan. B: Ask whether people like its appearance. Which directly assesses feasibility?",
+            "production_task": "Name two constraints you would examine when assessing the feasibility of a weekend workshop."
+          },
+          "advanced_nuance": [
+            "Feasibility is relative to stated conditions. A plan may be feasible with more staff but not with the current team, so an assessment should name the assumptions behind its conclusion."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 147,
+      "wordId": "1335cf12-e5f9-4950-8cf4-5b5ff77c1c92",
+      "senseKey": "move-from-discomfort",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d4f4187d9efe492ce5c1ef774e3b1f9914ac95f650d206b610aca0c8c38c3b51",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "squirm",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: SKWURM. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "சங்கடத்தாலோ அசௌகரியத்தாலோ உடலை நெளித்தல்",
+        "englishMeaning": "to twist or move uneasily because of discomfort or embarrassment",
+        "coreIdea": "Move uneasily because you feel uncomfortable or embarrassed.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal verb for uneasy twisting or movement, used here to suggest the discomfort or embarrassment someone might be made to feel.",
+              "connotation": "Negative in this context because causing another person discomfort is presented as an unhelpful aim.",
+              "tone": "Self-questioning here: the speaker rejects making the other person squirm as the purpose of the interaction.",
+              "register": "Expressive general vocabulary. “Make someone uncomfortable” is plainer when no physical movement is intended."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Oh  yeah,  I  guess  it's  not  to  make  the  other  person  squirm  or  to  preen  in  fr ont  of  a  crowd .",
+            "contextual_meaning": "to twist or move uneasily because of discomfort or embarrassment",
+            "simple_explanation": "The speaker rejects causing the other person embarrassment or discomfort as the aim of the interaction."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe uneasy twisting or movement caused by discomfort, or vividly describe someone's embarrassment."
+            ],
+            "when_not_to_use": [
+              "For relaxed movement with no discomfort, use shift position rather than implying that the person squirms."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "squirm in + seat; squirm with + embarrassment; make someone squirm",
+            "common_collocations": [
+              "squirm with embarrassment",
+              "make him squirm"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The unexpected question made him squirm in his chair.",
+              "example_2": "I squirm with embarrassment whenever that old recording is played."
+            },
+            "mini_conversation": "A: Did you notice how uncomfortable he looked?\nB: Yes. That personal question made him squirm.\nA: We should return to the issue instead of embarrassing him."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The question made him to squirm.",
+            "correction": "Say: The question made him squirm. After made plus object, use the base verb without to.",
+            "important_difference": "Squirm suggests uneasy movement or embarrassment; fidget can describe restless movements without implying embarrassment."
+          },
+          "memory_practice": {
+            "memory_trigger": "Someone twists in their chair when an embarrassing question is asked.",
+            "memory_sentence": "The awkward personal question made me squirm.",
+            "recall_question": "What feeling often accompanies squirming in this conversational sense?",
+            "recognition_task": "A: Twist uncomfortably under an embarrassing question. B: Sit back comfortably after a pleasant meal. Which fits squirm?",
+            "production_task": "Describe a fictional question that makes a character squirm, then give a more considerate way to raise the issue."
+          },
+          "advanced_nuance": [
+            "Make someone squirm can describe emotional discomfort even when no literal twisting is observed. The source uses it to question an unhelpful conversational aim, not to recommend humiliation."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 148,
+      "wordId": "134628ec-e125-4efc-a1ec-24126d820b15",
+      "senseKey": "when-reconsidering-a-past-event-from-the-present",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e2a014c18c2920710a254b3b186ed04d60dc4e170d41d4b934d27c5bf565ddbd",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "in retrospect",
+        "wordType": "adverbial phrase",
+        "pronunciation": "/ɪn ˈretrəspekt/",
+        "tamilMeaning": "நிகழ்வை இப்போது திரும்பி மதிப்பிடும்போது",
+        "englishMeaning": "when reconsidering a past event from the present",
+        "coreIdea": "Look back using what you know now.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Discourse phrase for looking back at a past event with present knowledge.",
+              "connotation": "Neutral: the later judgement may involve approval, regret or a changed view.",
+              "tone": "Reflective and approving here: the speaker now judges the smaller venue to have been the better option.",
+              "register": "Neutral to formal; common in reviews and reflective writing. “Looking back” sounds more conversational."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "In retrospect, the smaller venue was the better choice.",
+            "contextual_meaning": "when reconsidering a past event from the present",
+            "simple_explanation": "The speaker now judges the smaller venue to have been the better choice after reconsidering the past decision."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Reassess a past decision or event with knowledge gained afterward."
+            ],
+            "when_not_to_use": [
+              "For a prediction about an event that has not happened, use looking ahead rather than in retrospect."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "In retrospect, + judgement about a past event",
+            "common_collocations": [
+              "in retrospect, a good decision",
+              "seems obvious in retrospect"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "In retrospect, the smaller venue was the better choice.",
+              "example_2": "The early warning signs seem obvious in retrospect, although we missed them at the time."
+            },
+            "mini_conversation": "A: Would you choose the same route again?\nB: In retrospect, the train would have been easier.\nA: We did not know how bad the traffic would be."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Using in retrospect for a future prediction rather than a review of the past.",
+            "correction": "Use in retrospect to look back: In retrospect, we should have booked earlier.",
+            "important_difference": "In retrospect uses present knowledge to reassess the past; at the time describes the knowledge or view held then."
+          },
+          "memory_practice": {
+            "memory_trigger": "Turn back to an old decision with new information in your hand.",
+            "memory_sentence": "In retrospect, asking for help earlier would have saved time.",
+            "recall_question": "What knowledge might you have in retrospect that you lacked at the time?",
+            "recognition_task": "A: Review last month's decision using its results. B: Predict next year's results before they occur. Which is retrospective?",
+            "production_task": "Review an invented planning decision using in retrospect, and explain one fact that became clear only later."
+          },
+          "advanced_nuance": [
+            "In retrospect does not always express regret: it can confirm that a decision was good. It also reminds readers that present knowledge may make an earlier choice look easier than it actually was."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 149,
+      "wordId": "136823e8-a82a-4b2b-a724-25636ca34cb3",
+      "senseKey": "to-keep-a-discussion-focused-on-its-intended-subject",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e948f6601fe8be579ef0bb432671f5fb1a72337d432f92df42b1d8e50495b53f",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "stay on topic",
+        "wordType": "verb phrase",
+        "pronunciation": "/steɪ ɒn ˈtɒpɪk/",
+        "tamilMeaning": "விவாதத்தை அதன் நோக்கப்பட்ட பொருளில் கவனம் செலுத்த வைத்தல்",
+        "englishMeaning": "to keep a discussion focused on its intended subject",
+        "coreIdea": "Keep the discussion focused on the intended subject.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational instruction to keep discussing the intended subject rather than move into unrelated matters.",
+              "connotation": "Neutral about focus, but it may imply that the discussion is beginning to wander.",
+              "tone": "Firm and practical here: the speaker directs attention back to resolving the staffing question first.",
+              "register": "Common in meetings, teaching and everyday discussion. A softer request can name the topic to return to."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "We need to stay on topic and settle the staffing question first.",
+            "contextual_meaning": "to keep a discussion focused on its intended subject",
+            "simple_explanation": "The speaker asks the group to focus on the staffing question and resolve it before turning to other matters."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Guide a conversation back to its agreed subject when unrelated issues are distracting the group."
+            ],
+            "when_not_to_use": [
+              "Do not dismiss a relevant concern as off-topic simply because it challenges your view; explain how the discussion's scope is defined."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "stay on topic; help someone stay on topic; stay on topic and + intended action",
+            "common_collocations": [
+              "please stay on topic",
+              "help the group stay on topic"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We need to stay on topic and settle the staffing question first.",
+              "example_2": "The teacher used a short outline to help the class stay on topic during the debate."
+            },
+            "mini_conversation": "A: This reminds me of a completely different event.\nB: Could we stay on topic and finish the staffing question first?\nA: Yes, I will save that story for later."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Please stay in topic.",
+            "correction": "Say: Please stay on topic. On is the usual preposition in this expression.",
+            "important_difference": "Stay on topic concerns relevance; keep it brief concerns length. A long contribution can remain relevant, and a short one can still be off-topic."
+          },
+          "memory_practice": {
+            "memory_trigger": "Bring a wandering discussion back to the heading on the agenda.",
+            "memory_sentence": "Let us stay on topic until we have agreed the next step.",
+            "recall_question": "Does stay on topic ask for relevance, brevity or both automatically?",
+            "recognition_task": "A: Discuss the evidence relevant to the agreed question. B: Tell an unrelated short anecdote. Which stays on topic?",
+            "production_task": "Write a polite request to stay on topic, naming the issue to finish and offering a later time for the new issue."
+          },
+          "advanced_nuance": [
+            "Stay on topic can sound corrective or dismissive if used abruptly. Naming the shared goal and acknowledging the other point helps make it a cooperative request."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 150,
+      "wordId": "13f3c02d-5a4a-4c11-abeb-6e92bc62d8bb",
+      "senseKey": "a-record-of-decisions-and-the-reasons-for-making-them",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "a4fd9d6e0145af947811e605dc8e437a25930b2ecd8c48611d46890dba434377",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "decision log",
+        "wordType": "countable noun phrase",
+        "pronunciation": "/dɪˈsɪʒən lɒɡ/",
+        "tamilMeaning": "முடிவுகளும் காரணங்களும் பதிவான பட்டியல்",
+        "englishMeaning": "a record of decisions and the reasons for making them",
+        "coreIdea": "Record what was decided and why.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Professional noun phrase for a record of decisions and their supporting reasons.",
+              "connotation": "Neutral: keeping a log supports traceability without proving that the decisions themselves were sound.",
+              "tone": "Polite and procedural here: “Please add” requests a specific record update.",
+              "register": "Common project-management wording. “Record of decisions” is clearer outside that setting."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Please add the revised deadline to the decision log.",
+            "contextual_meaning": "a record of decisions and the reasons for making them",
+            "simple_explanation": "The speaker asks for the changed deadline to be entered in the record of decisions."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Refer to a maintained record of decisions and their reasons so others can understand or revisit them later."
+            ],
+            "when_not_to_use": [
+              "Do not call a list of unresolved questions a decision log unless it clearly distinguishes those questions from decisions already made."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "add something to / update / consult + the decision log",
+            "common_collocations": [
+              "update the decision log",
+              "an entry in the decision log"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Please add the revised deadline to the decision log.",
+              "example_2": "The new coordinator checked the decision log to understand why the event had moved indoors."
+            },
+            "mini_conversation": "A: Why did we choose the smaller room?\nB: The reason is in the decision log: we needed step-free access.\nA: That explains the choice."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Recording an undecided suggestion as though it were an agreed decision in the decision log.",
+            "correction": "Record the agreed decision and its reason in the decision log; label unresolved proposals separately.",
+            "important_difference": "A decision log records choices and their reasons; a task list records work to do. One decision can create several tasks."
+          },
+          "memory_practice": {
+            "memory_trigger": "Beside each agreed choice, write why the group chose it.",
+            "memory_sentence": "The decision log explains why we changed the deadline.",
+            "recall_question": "What should a decision log explain beyond the chosen option?",
+            "recognition_task": "A: The selected venue and the reason for choosing it. B: A list of possible venues with no selection. Which is ready for the decision log?",
+            "production_task": "Write a short decision-log entry for a fictional schedule change, including the decision and its reason."
+          },
+          "advanced_nuance": [
+            "A decision log preserves reasoning for later readers, but it does not prove the choice remains right. If conditions change, record the new decision without silently erasing the earlier rationale."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 151,
+      "wordId": "146335d7-abb0-4d7a-a880-817114089578",
+      "senseKey": "terrible-event",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "da1d639f21cc410f75f7140343037ebee47228bc39f8de2145af24b55d3453f6",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "tragedy",
+        "wordType": "countable noun",
+        "pronunciation": "Approximate pronunciation: TRAJ-uh-dee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மிகுந்த துயரத்தை ஏற்படுத்தும் நிகழ்வு அல்லது பேரிழப்பு",
+        "englishMeaning": "a very sad or disastrous event",
+        "coreIdea": "A deeply sad event brings serious loss or suffering.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for a deeply sad or disastrous event, emphasizing its human seriousness.",
+              "connotation": "Strongly negative: it conveys grave loss or suffering rather than an ordinary inconvenience.",
+              "tone": "Shocked or distressed here: asking how it could happen suggests difficulty accepting or understanding the event.",
+              "register": "Common in serious reporting and personal reactions. Using it for a minor setback can sound exaggerated or insensitive."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "How  could  this  tragedy  happen?",
+            "contextual_meaning": "a very sad or disastrous event",
+            "simple_explanation": "The speaker reacts with distress or disbelief to a serious event. The short question does not identify what happened."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe an event involving grave loss or suffering, especially when emphasising its human impact."
+            ],
+            "when_not_to_use": [
+              "Calling an ordinary inconvenience a tragedy can sound exaggerated or insensitive when serious suffering is being discussed."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "a tragedy for + people; the tragedy of + event; prevent / mourn + a tragedy",
+            "common_collocations": [
+              "a terrible tragedy",
+              "a personal tragedy"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The village came together to support the families after the tragedy.",
+              "example_2": "The novel explores how one family rebuilds its life after a personal tragedy."
+            },
+            "mini_conversation": "A: How are the families coping after the tragedy?\nB: Their neighbours are helping with everyday needs.\nA: We should ask what support would be useful."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Treating tragedy as a neutral word for any small problem.",
+            "correction": "Reserve tragedy for serious loss or suffering unless an exaggerated, humorous use is clearly intended and appropriate.",
+            "important_difference": "A setback interrupts progress; a tragedy emphasises grave suffering or loss. The terms carry very different emotional weight."
+          },
+          "memory_practice": {
+            "memory_trigger": "A community gathers to support people after a devastating loss.",
+            "memory_sentence": "The tragedy affected the whole community.",
+            "recall_question": "Why is tragedy stronger than inconvenience?",
+            "recognition_task": "A: A minor delay with no serious harm. B: An event causing grave loss to a community. Which warrants tragedy in serious reporting?",
+            "production_task": "Write a respectful fictional sentence about a community supporting people after a tragedy, without adding sensational details."
+          },
+          "advanced_nuance": [
+            "Tragedy conveys the speaker's sense of profound loss, but does not by itself establish cause or responsibility. A careful account separates that emotional description from factual explanations."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 152,
+      "wordId": "14724b6c-f91b-4fd6-b1ed-1a923756cc1c",
+      "senseKey": "in-tidy-precise-way",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "fb1ed92754275b91c079f669644c7e019a24b405b6b1b084aa32a88237a3e852",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "neatly",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: NEET-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒழுங்காக; நேர்த்தியாக",
+        "englishMeaning": "in a tidy, orderly, or precise way",
+        "coreIdea": "Arranged tidily or precisely in place.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Adverb describing a tidy or precise arrangement; here, the organs are described as positioned just above the kidneys.",
+              "connotation": "Mildly positive in presentation: the arrangement is pictured as compact and orderly.",
+              "tone": "Lightly descriptive here: “seated neatly atop” makes the anatomical position easy to picture.",
+              "register": "Common in everyday descriptions. The sentence uses an accessible image rather than a precise measurement of location."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Tw o  tiny  organs  seated  neatly  atop  your  kidneys  pump  adrenaline  into your  bloodstream.",
+            "contextual_meaning": "in a tidy, orderly, or precise way",
+            "simple_explanation": "The author describes the organs as positioned compactly and orderly above the kidneys. Neatly adds an easy-to-picture description, not a measurement."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a tidy, orderly or precise arrangement or action."
+            ],
+            "when_not_to_use": [
+              "For speed alone, use quickly. Neatly describes the manner or arrangement, not how fast the task happens."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "arrange / fold / stack / write + neatly; neatly + positioned / arranged",
+            "common_collocations": [
+              "neatly arranged",
+              "folded neatly"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She stacked the books neatly on the shelf.",
+              "example_2": "The labels were neatly aligned along the edge of the display."
+            },
+            "mini_conversation": "A: Where should I put these papers?\nB: Stack them neatly in the tray.\nA: I will keep the pages in order."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: She arranged the papers neat.",
+            "correction": "Say: She arranged the papers neatly. The adverb describes how she arranged them.",
+            "important_difference": "Neat describes a thing or result, such as a neat stack; neatly describes an action or arrangement, such as stacked neatly."
+          },
+          "memory_practice": {
+            "memory_trigger": "Edges line up in an orderly stack.",
+            "memory_sentence": "She folded the towel neatly and put it on the shelf.",
+            "recall_question": "Does neatly describe how an action is performed or how quickly it happens?",
+            "recognition_task": "A: Put the pages in an aligned stack. B: Drop them quickly in a scattered pile. Which arranges them neatly?",
+            "production_task": "Describe arranging a small workspace using neatly, naming what is positioned or organised."
+          },
+          "advanced_nuance": [
+            "Neatly can express the writer's impression of order rather than a technical standard of precision. In the source it makes the location vivid; it does not provide exact anatomical measurements."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 153,
+      "wordId": "1476967e-bd99-4e22-ada3-b9ef7740780e",
+      "senseKey": "overly-emotional",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a97e2741cff596ce0177a1c9a729565ebe6b39e19515b849a95ed09952c6157a",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "gushy",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: GUSH-ee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "அளவுக்கு மீறி உணர்ச்சியை வெளிப்படுத்துகிற",
+        "englishMeaning": "excessively emotional, sentimental, or enthusiastic",
+        "coreIdea": "Emotion or enthusiasm seems excessive or sentimental.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adjective for emotion or enthusiasm presented as excessive or sentimental.",
+              "connotation": "Negative or dismissive: it makes the emotional quality sound less serious or credible.",
+              "tone": "Ironic and skeptical in the proposition voiced here: the passage contrasts “soft-and-gushy” conversation with the financial bottom line.",
+              "register": "Informal and judgemental. “Emotionally expressive” is more neutral when excessive sentiment is not intended."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Surely  a  soft-and­ gushy  factor  such  as  how  you  talk  to  one  another  doesn't  have  an  impact  on  the  not  so  soft-and-gushy  bottom  line.",
+            "contextual_meaning": "excessively emotional, sentimental, or enthusiastic",
+            "simple_explanation": "The wording dismissively presents interpersonal communication as soft and sentimental, contrasting it with financial results."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Informally criticise praise, sentiment or enthusiasm that seems excessive to the speaker."
+            ],
+            "when_not_to_use": [
+              "For neutral description of warmth or enthusiasm, use affectionate or enthusiastic rather than adding the criticism implied by gushy."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "a gushy + message / tribute / review; sound / seem + gushy",
+            "common_collocations": [
+              "a gushy message",
+              "gushy praise"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The review was so gushy that it barely mentioned any details about the performance.",
+              "example_2": "He wanted to write a warm thank-you note without sounding gushy."
+            },
+            "mini_conversation": "A: Does this thank-you message sound sincere?\nB: The repeated superlatives make it a little gushy.\nA: I will mention one specific thing I appreciated instead."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Using gushy as an entirely neutral synonym for kind.",
+            "correction": "Use gushy when you intend to suggest excessive sentiment or enthusiasm; kind does not carry that criticism.",
+            "important_difference": "Warm praise can be measured and specific; gushy praise suggests emotional enthusiasm that the speaker considers excessive."
+          },
+          "memory_practice": {
+            "memory_trigger": "A short message overflows with superlatives and sentimental declarations.",
+            "memory_sentence": "I wanted the note to be warm rather than gushy.",
+            "recall_question": "What judgement does gushy add to enthusiastic?",
+            "recognition_task": "A: A restrained thank-you naming one helpful action. B: Repeated extravagant declarations of admiration. Which is more likely to be called gushy?",
+            "production_task": "Rewrite an exaggerated thank-you note so it remains warm but less gushy, using one concrete detail."
+          },
+          "advanced_nuance": [
+            "Gushy is informal and subjective: a message one reader finds affectionate may seem excessive to another. The source uses that dismissive flavour in a contrast with supposedly harder financial concerns."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 154,
+      "wordId": "148fc95c-6352-4728-adcd-691c59a3fa85",
+      "senseKey": "drift-ml-context",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7d6be1ef3d4277a21cf3d47081398d11731091fb2bdaccf3d9cbc4a2cea848e2",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "drift",
+        "wordType": "uncountable noun",
+        "pronunciation": "/drɪft/",
+        "tamilMeaning": "காலப்போக்கில் தரவு அல்லது உறவின் மாற்றம்",
+        "englishMeaning": "a change over time in data or in the relationship a model has learned",
+        "coreIdea": "Data or learned relationships change after a model is deployed.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical noun for changes over time in data or learned relationships that can affect a model.",
+              "connotation": "Cautionary in this setting because drift may require monitoring or updates; change is not automatically evidence of failure.",
+              "tone": "Procedural and forward-looking here: the speaker lists maintenance activities after deployment.",
+              "register": "Standard machine-learning terminology. Explain what is changing rather than rely on “drift” alone with a general audience."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Now that it's live, we need to monitor and maintain it, and this means we'll be tracking the performance, detecting drift, and updating the model if needed.",
+            "contextual_meaning": "a change over time in data or in the relationship a model has learned",
+            "simple_explanation": "The speaker lists detecting changes over time as part of maintaining a live model, alongside tracking performance and making updates when needed."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss changes in incoming data or relevant relationships over time in a deployed modelling system."
+            ],
+            "when_not_to_use": [
+              "Do not call every isolated prediction error drift; a single error does not establish a change over time."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "detect / monitor / investigate + drift; drift in + data / input distribution",
+            "common_collocations": [
+              "detecting drift",
+              "monitoring data drift"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The team monitors drift in incoming data after the model goes live.",
+              "example_2": "A change in how customers filled out the form prompted an investigation of possible drift."
+            },
+            "mini_conversation": "A: Why are the new inputs different from the training sample?\nB: There may be drift in how users complete the form.\nA: Let us compare the patterns and check performance before changing the model."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Declaring drift solely because one prediction was wrong.",
+            "correction": "Investigate changes across time and relevant data; one wrong prediction alone does not establish drift.",
+            "important_difference": "A prediction error concerns one output's correctness; drift concerns change over time in data or relevant relationships."
+          },
+          "memory_practice": {
+            "memory_trigger": "The data arriving today gradually differs from the data used before.",
+            "memory_sentence": "We monitor drift as part of maintaining the deployed model.",
+            "recall_question": "Why is a single wrong prediction insufficient evidence of drift?",
+            "recognition_task": "A: The incoming-data pattern shifts over several months. B: One isolated prediction is wrong with no observed change. Which directly suggests drift?",
+            "production_task": "Describe a fictional change in user behaviour that could lead a team to investigate drift in a deployed model."
+          },
+          "advanced_nuance": [
+            "Drift does not automatically imply that the model is unusable. Its importance depends on what changed and how that change affects the task, so detection and evaluation are separate steps."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 155,
+      "wordId": "14cc278b-9158-440b-b21a-c6d9979ba3f3",
+      "senseKey": "very-amusing-experience",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4d24af1e6c7371c651de1da7483d5e3f6c0807a6b79164bfe5134e9a07d0a666",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "a hoot",
+        "wordType": "informal noun phrase",
+        "pronunciation": "Approximate pronunciation: uh HOOT. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மிகவும் வேடிக்கையான நபர் அல்லது அனுபவம்",
+        "englishMeaning": "a very funny or entertaining person, event, or experience",
+        "coreIdea": "Something or someone is very funny or entertaining.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative informal expression for something very funny or entertaining.",
+              "connotation": "Positive: it conveys that the experience provided considerable amusement.",
+              "tone": "Amused and approving here: the short statement directly evaluates the experience as entertaining.",
+              "register": "Informal and sometimes playfully old-fashioned. “Very funny” or “great fun” is more widely neutral."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "It  was  a  hoot.",
+            "contextual_meaning": "a very funny or entertaining person, event, or experience",
+            "simple_explanation": "The speaker evaluates the experience as highly amusing. The short statement does not identify the event."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Informally describe a funny person, event or experience with cheerful approval."
+            ],
+            "when_not_to_use": [
+              "For a solemn event or a formal evaluation, choose wording that fits the seriousness and audience rather than the playful a hoot."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "be a hoot; someone / something was a hoot",
+            "common_collocations": [
+              "an absolute hoot",
+              "a real hoot"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The improvised puppet show was a hoot.",
+              "example_2": "Your uncle is a hoot; his stories kept everyone laughing."
+            },
+            "mini_conversation": "A: How was the comedy workshop?\nB: It was a hoot. We laughed through most of the exercises.\nA: I might join you next time."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The show was hoot.",
+            "correction": "Say: The show was a hoot. Include the article in this countable informal expression.",
+            "important_difference": "A hoot suggests strong amusement; interesting can describe something engaging without saying it is funny."
+          },
+          "memory_practice": {
+            "memory_trigger": "An entertaining story has everyone laughing around the table.",
+            "memory_sentence": "The amateur comedy show was a hoot.",
+            "recall_question": "Does a hoot praise something as amusing or merely informative?",
+            "recognition_task": "A: A funny performance that keeps the audience laughing. B: A useful but solemn technical briefing. Which is more naturally a hoot?",
+            "production_task": "Describe a fictional entertaining event using a hoot, and add one detail explaining why it was funny."
+          },
+          "advanced_nuance": [
+            "A hoot has a playful, informal flavour and can sound deliberately old-fashioned. In this use it evaluates amusement; it is not a literal description of a bird's call."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ],
+  "lessonValidatorPassed": 10
+}
