@@ -1,0 +1,561 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0111-0115",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 111,
+      "wordId": "0d796cb8-f24c-4488-812f-02d8433ff78e",
+      "senseKey": "formal-approval-that-allows-work-to-proceed-or-be-considered-complete",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "29eb670fed497b121d9312bf44ae264d790291a41cb13fcc01a22b45293e1265",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "sign-off",
+        "wordType": "noun",
+        "pronunciation": "/ˈsaɪn ɒf/",
+        "tamilMeaning": "முறையான இறுதி ஒப்புதல்",
+        "englishMeaning": "formal approval that allows work to proceed or be considered complete",
+        "coreIdea": "An approval stamp releasing the next step.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for the approval needed to proceed; here, the client must approve before printing.",
+              "connotation": "Neutral: it marks authorization, not necessarily enthusiasm about the work.",
+              "tone": "Procedural and firm here: “need” and “before” establish an approval requirement.",
+              "register": "Common workplace terminology. “Formal approval” is clearer for people unfamiliar with project language."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Ask for final approval and identify exactly what the approver is accepting. A model in this sense: We need the owner's sign-off before ordering the replacement windows."
+            ],
+            "when_not_to_use": [
+              "Do not call a receipt acknowledgement sign-off: confirming that a file arrived does not approve its contents."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Sign-off may apply only to a particular version or stage. Approval of an initial design does not automatically approve later changes.",
+            "The noun sign-off is hyphenated. The related verb is written sign off: The manager signed off on the final design."
+          ],
+          "memory_practice": {
+            "memory_trigger": "An approval stamp releasing the next step.",
+            "memory_sentence": "We need the owner's sign-off before ordering the replacement windows.",
+            "production_task": "Ask for final approval and identify exactly what the approver is accepting. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: formal approval that allows work to proceed or be considered complete. Explain its function in one sentence.",
+            "recognition_task": "A client confirms that a design file arrived but says they will review it tomorrow. Do you already have sign-off to print it? Explain what is still missing."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "We need the client's sign-off before printing the brochures.",
+              "another_setting": "We need the owner's sign-off before ordering the replacement windows."
+            },
+            "mini_conversation": "A: We need the owner's sign-off before ordering the replacement windows.\nB: I will send the measurements for approval today."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We need the client's sign-off before printing the brochures.",
+            "contextual_meaning": "formal approval that allows work to proceed or be considered complete",
+            "simple_explanation": "The brochures cannot go to print until the client gives final approval. Here sign-off is the permission to proceed."
+          },
+          "mistakes_differences": {
+            "correction": "Receiving the file does not establish permission. Say We have the client’s sign-off to print it only after the client has approved it.",
+            "common_mistake": "Unclear: We received the file, so we have sign-off to print it.",
+            "important_difference": "Sign-off is approval; acknowledgement only confirms something was received or noticed."
+          },
+          "patterns_collocations": {
+            "main_pattern": "sign-off: obtain sign-off from + approver",
+            "common_collocations": [
+              "final sign-off",
+              "client sign-off"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context",
+        "mistakes_differences"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid sign-off examples, conversation, collocations and production retained. Replaced artificial mistake and grammar-only restriction with the real approval/acknowledgement distinction.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 112,
+      "wordId": "0d993177-de98-4740-a192-337a11267503",
+      "senseKey": "support-and-commitment",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "36c406b9f9dab59a64640c14e185671f0a971ccd9f33f6a2b8f5f77aa8d12bfa",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "buy-in",
+        "wordType": "uncountable noun",
+        "pronunciation": "Approximate pronunciation: BY IN. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு யோசனை அல்லது முடிவை ஏற்றுக்கொண்டு அதற்கு ஆதரவளித்தல்",
+        "englishMeaning": "acceptance of and commitment to an idea, plan, or decision",
+        "coreIdea": "People accept a plan and commit to supporting it.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for acceptance and commitment to a plan; here, the group no longer supports the speaker's approach.",
+              "connotation": "Positive when present: buy-in implies support, though it does not guarantee that a plan is good.",
+              "tone": "Strongly critical here: the passage links lost support with damaged honesty and trust.",
+              "register": "Common business and organizational language. “Support and commitment” is clearer in ordinary conversation."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss whether the people affected by a proposal genuinely support it and are willing to help make it work."
+            ],
+            "when_not_to_use": [
+              "Do not assume silence or reluctant obedience proves buy-in. People may follow an instruction without accepting the plan."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Buy-in is not necessarily permanent. People can withdraw their support if the plan changes or their concerns are ignored.",
+            "Buy-in often refers to a group’s overall support, but a claim of team buy-in should not imply that every member agrees equally."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine people helping to carry out a plan they have accepted.",
+            "memory_sentence": "Listening to the volunteers helped us gain their buy-in.",
+            "recall_question": "What does buy-in involve beyond merely understanding a proposal?",
+            "recognition_task": "Who shows buy-in? A: A worker follows an order while privately rejecting the plan. B: A worker accepts the plan and volunteers to help implement it. Explain the difference.",
+            "production_task": "Write a short message to a project leader explaining how you would gain buy-in from colleagues who are worried about a change."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We gained buy-in from the volunteers by asking them to help design the programme.",
+              "example_2": "The new schedule has little buy-in from parents because it clashes with school collection times."
+            },
+            "mini_conversation": "A: Has the team agreed to the new process?\nB: They understand it, but we still need their buy-in. They are worried about the extra work.\nA: Let’s discuss those concerns before we introduce it."
+          },
+          "meaning_in_context": {
+            "source_sentence": "In  one  fell  swoop  you've  lost  buy-in,  destroyed  any  hope  for  candor  in  this  particular  conv ersation,  and  confirmed  every one's  suspicion  that  you  want  honesty-but  only  as  long as  it  makes  you  look  good.",
+            "contextual_meaning": "acceptance of and commitment to an idea, plan, or decision",
+            "simple_explanation": "The writer says the speaker has lost people’s willingness to support the approach. The damaged trust and openness explain why agreement is no longer secure. The original OCR spacing is retained."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We need a buy-in from every team member.",
+            "correction": "Say We need buy-in from every team member. In this support-and-commitment sense, buy-in is normally uncountable.",
+            "important_difference": "Approval can be a formal permission. Buy-in emphasizes people’s acceptance and commitment; formal approval alone may not create it."
+          },
+          "patterns_collocations": {
+            "main_pattern": "gain/secure/lose + buy-in; buy-in from + people; buy-in for + proposal",
+            "common_collocations": [
+              "gain team buy-in",
+              "secure buy-in from staff",
+              "lose buy-in"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Support and commitment distinguished from obedience and formal approval; OCR evidence retained; uncountable grammar and genuine buy-in examples checked.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 113,
+      "wordId": "0da3814c-a661-41ac-9560-f91ad7e2dd34",
+      "senseKey": "data-pipelines-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "fae7671a18562f9d5e7a5c4f71f0211845902d5241bbe6f1694593605d8fc52f",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "data pipelines",
+        "wordType": "plural noun phrase",
+        "pronunciation": "Approximate pronunciation: DAY-tuh PYPE-lynz. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தரவை நகர்த்தி தயாரிக்கும் தானியங்கி செயல்முறை தொடர்கள்",
+        "englishMeaning": "automated sequences that move and prepare data through processing stages",
+        "coreIdea": "Data moves through linked processing steps.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical phrase for linked stages that move and prepare data, using the image of material flowing through a pipeline.",
+              "connotation": "Neutral as a system description; “good” explicitly praises the pipelines in this sentence.",
+              "tone": "Explanatory and moderately positive: “can help” describes a possible benefit without making an absolute guarantee.",
+              "register": "Standard data-engineering terminology. Explain the processing stages when addressing a nontechnical audience."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe linked processing stages that collect, move or prepare data for later use.",
+              "Use the plural data pipelines when referring to more than one such sequence."
+            ],
+            "when_not_to_use": [
+              "Do not use data pipelines as a name for stored data alone; the phrase describes the processing flow."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Data pipelines may process scheduled batches or arriving streams of data. The term alone does not specify when processing happens.",
+            "Good data pipelines can support reliable processing, but their existence does not guarantee correct input data or error-free results."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture connected stations: collect data, check it, then send it onward.",
+            "memory_sentence": "The team monitors its data pipelines every morning.",
+            "recall_question": "What makes data pipelines a process rather than just a collection of files?",
+            "recognition_task": "Which describes data pipelines? A: Linked steps that collect, process and transfer data. B: Files sitting unchanged in a folder. Explain what is missing from B.",
+            "production_task": "Explain to a new colleague what your fictional team’s data pipelines do. Name an input, one processing step and a destination."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Our data pipelines collect daily sales files, check the dates and load the results into a reporting database.",
+              "example_2": "The research team monitors its data pipelines so that a failed processing step does not go unnoticed."
+            },
+            "mini_conversation": "A: Why is yesterday’s report still empty?\nB: One of our data pipelines stopped while checking the new files.\nA: Let’s inspect that step before we run it again."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Good data pipelines can help with keeping things consistent and scalable.",
+            "contextual_meaning": "automated sequences that move and prepare data through processing stages",
+            "simple_explanation": "The speaker says well-designed sequences for moving and preparing data can make processing more consistent and able to handle growth. Can help expresses a possible benefit, not a guarantee."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: These data pipelines moves the records into a database.",
+            "correction": "Say These data pipelines move the records into a database. Pipelines is plural, so use move.",
+            "important_difference": "A database stores and organizes data. Data pipelines move or process data and may read from or write to databases."
+          },
+          "patterns_collocations": {
+            "main_pattern": "build/maintain/monitor + data pipelines; data pipelines + move/prepare + data",
+            "common_collocations": [
+              "automated data pipelines",
+              "maintain data pipelines",
+              "monitor data pipelines"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Linked data processing distinguished from storage; plural agreement and cautious source claim preserved. Technical distinctions checked against Google Cloud Dataflow documentation.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      },
+      "technicalReferences": [
+        "https://docs.cloud.google.com/dataflow/docs/overview",
+        "https://docs.cloud.google.com/dataflow/docs/guides/data-pipelines"
+      ]
+    },
+    {
+      "ordinal": 114,
+      "wordId": "0dc435ad-f9ae-44b1-ba49-fd98d763ed8b",
+      "senseKey": "high-frequency-sound",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a25733f3aa311be4b79f63b5701b2fbf4c60912a8c64fd9cb1227a1a5ba4c4d8",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "high-pitched",
+        "wordType": "adjective",
+        "pronunciation": "/ˌhaɪˈpɪtʃt/",
+        "tamilMeaning": "உயர்ந்த சுருதியும் கூர்மையான ஒலியும் கொண்ட",
+        "englishMeaning": "Having a sound frequency that is high and often sharp or piercing.",
+        "coreIdea": "The sound is high on the musical scale and may feel sharp.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal sound description: the calls have a high frequency, rather than simply a high volume.",
+              "connotation": "Neutral acoustically; the passage's “eerie” makes the overall impression unsettling.",
+              "tone": "Atmospheric here: the sharp calls and continuous rhythm create a sense of unease.",
+              "register": "Common in everyday sound descriptions and technical acoustics. Do not treat “high-pitched” as an exact synonym of “loud.”"
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use high-pitched when the sound is high on the musical scale and may feel sharp."
+            ],
+            "when_not_to_use": [
+              "Do not use high-pitched to mean loud; pitch and volume are different qualities."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "High-pitched can be neutral in technical description but may imply discomfort when paired with words such as shriek or whine."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Think of a thin whistle rather than a deep drumbeat.",
+            "memory_sentence": "We heard a high-pitched call from the branches above.",
+            "recall_question": "Can a high-pitched sound also be quiet?",
+            "recognition_task": "A quiet, thin whistle and a loud, deep drumbeat sound together. Which is high-pitched? Explain why volume does not decide the answer.",
+            "production_task": "Describe a sound to someone who cannot hear it. Use high-pitched and add a separate detail about its volume or source."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "A high-pitched bird call came from the tree above us.",
+              "example_2": "The kettle gave a high-pitched whistle when the water boiled."
+            },
+            "mini_conversation": "A: Is that low rumble the bird you heard?\nB: No, its call was high-pitched, more like a thin whistle.\nA: Then we should listen for a different sound."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Rare birds emitted high-pitched calls to warn each other of predators, creating a continuous, eerie rhythm.",
+            "contextual_meaning": "Having a sound frequency that is high and often sharp or piercing.",
+            "simple_explanation": "The birds’ calls are high in pitch. Their repeated warning calls contribute to the eerie atmosphere; high-pitched itself does not say how loud they are."
+          },
+          "mistakes_differences": {
+            "correction": "Turning up the volume makes a sound louder, not necessarily higher-pitched. Say The sound became louder unless its pitch also changed.",
+            "common_mistake": "Misleading: The sound became high-pitched when I turned up the volume.",
+            "important_difference": "High-pitched describes frequency, while loud describes volume."
+          },
+          "patterns_collocations": {
+            "main_pattern": "Pattern: high-pitched + sound noun; for example, high-pitched call.",
+            "common_collocations": [
+              "high-pitched call",
+              "high-pitched voice"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Useful pitch/volume distinction, usage, collocations and nuance retained; ungrammatical examples and missing-noun conversation replaced.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 115,
+      "wordId": "0deaf084-bf49-4756-a470-6fec68cacb95",
+      "senseKey": "delay",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "80f9047e5349ae27fe490745d03900b69c65cca78bf1770fd5dcd7e656ccbb43",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "put off",
+        "wordType": "phrasal verb",
+        "pronunciation": "Approximate pronunciation: put OFF. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "செய்ய வேண்டியதைத் தள்ளிப்போடுதல்",
+        "englishMeaning": "to delay doing something",
+        "coreIdea": "Leave an action until a later time.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb for postponing an action; here, delaying replies to calls or emails.",
+              "connotation": "Often suggests avoidant delay in this context, but postponement is not always irresponsible.",
+              "tone": "Candid and self-critical here: the speaker admits that not wanting to deal with the person caused the delay.",
+              "register": "Common everyday and workplace English. “Postpone” is more formal."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Say that an action or event is delayed until later, whether for a practical reason or through avoidance."
+            ],
+            "when_not_to_use": [
+              "Do not use put off alone to claim that an event has been permanently cancelled. State cancellation explicitly if that is what happened."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Put off can suggest avoidance when someone keeps delaying an unpleasant task, but a single delay may have a sensible reason.",
+            "Put is unchanged in the past tense and past participle: yesterday I put it off; I have put it off. With a pronoun, say put it off, not put off it."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture moving a task from today’s calendar to a later day.",
+            "memory_sentence": "I put off answering the email until the afternoon.",
+            "recall_question": "Which form follows put off when you name an action: to do or doing?",
+            "recognition_task": "The meeting is moved from Tuesday to Thursday. Was it put off or cancelled altogether? Explain what the new date tells you.",
+            "production_task": "Write to a colleague asking to put off a meeting until a specific day. Give a practical reason and suggest the new time."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "I kept putting off cleaning the cupboard until I could no longer close the door.",
+              "example_2": "We put off the outdoor concert until Saturday because of the rain."
+            },
+            "mini_conversation": "A: Have you called the supplier about the missing boxes?\nB: No, I have been putting it off because I expect an argument.\nA: Please call today; we need a delivery date."
+          },
+          "meaning_in_context": {
+            "source_sentence": "I  have  put  off  returning  phone  calls  or  emails  because  I  simply didn't  want  to  deal  with  the  person  who  sent  them.",
+            "contextual_meaning": "to delay doing something",
+            "simple_explanation": "The speaker delayed replying because they wanted to avoid contact with the sender. Put off returning names the delayed action; it does not say the replies were cancelled permanently."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: I put off to answer the email.",
+            "correction": "Say I put off answering the email. Use the -ing form for the delayed action.",
+            "important_difference": "Postpone also means delay and sounds more formal. Cancel means decide that something will not happen, rather than simply move it to a later time."
+          },
+          "patterns_collocations": {
+            "main_pattern": "put off + noun/-ing; put + object pronoun + off; put something off until + time",
+            "common_collocations": [
+              "put off making a decision",
+              "put off the meeting",
+              "put it off until tomorrow"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Delay sense maintained, separable object placement and -ing complement taught; practical postponement separated from avoidance and cancellation.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
