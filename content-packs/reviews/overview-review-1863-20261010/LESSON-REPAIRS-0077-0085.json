@@ -1,0 +1,761 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0077-0085",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 9,
+  "broaderLessonRepairProcessed": 9,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 77,
+      "wordId": "09591b3f-7280-48c6-a3cb-b359aa01fe6b",
+      "senseKey": "global-explainability-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "49f31059b95406e5db58f3abbbc98dc9a82c85880139661c4562cf321b446610",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "global explainability",
+        "wordType": "noun phrase",
+        "pronunciation": "Approximate pronunciation: GLOH-buhl ik-splay-nuh-BIL-ih-tee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "அனைத்து கணிப்புகளிலும் மாதிரி எவ்வாறு செயல்படுகிறது என்பதைப் புரிதல்",
+        "englishMeaning": "understanding a model’s behavior across all predictions",
+        "coreIdea": "Explain the model's overall behaviour rather than one isolated result.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical concept: explaining how a model behaves overall, rather than why it produced one particular result.",
+              "connotation": "Neutral: it describes the scope of an explanation, not a guarantee that the model is trustworthy.",
+              "tone": "Instructional here: the speaker explicitly contrasts overall behaviour with an individual prediction.",
+              "register": "Specialist machine-learning terminology. “An overall explanation of the model's behaviour” is easier for a general audience."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "There are two main types of explainability, global explainability, understanding how the model works overall, for example, which features have the most influence across all predictions, and local explainability, understanding why the model made a specific decision for a specific case.",
+            "contextual_meaning": "understanding a model’s behavior across all predictions",
+            "simple_explanation": "The speaker contrasts explanations across predictions with explanations of one particular decision. Global describes the scope of the explanation."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss broad patterns in a model's behaviour, such as which inputs tend to influence its outputs across many cases."
+            ],
+            "when_not_to_use": [
+              "An explanation of one applicant's result alone is local explainability, not a complete account of overall behaviour."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "global explainability of + model; improve / assess + global explainability",
+            "common_collocations": [
+              "global explainability methods",
+              "global explainability of a model"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The team assessed global explainability to understand which features influenced predictions across the dataset.",
+              "example_2": "Our report separates global explainability from the explanation of one customer's result."
+            },
+            "mini_conversation": "A: Does this chart explain why this one application was rejected?\nB: No. It supports global explainability by summarising patterns across applications.\nA: Then we need a case-specific explanation as well."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Claiming global explainability from a single explanation of one prediction.",
+            "correction": "Use global explainability for overall model behaviour, and local explainability for an individual prediction.",
+            "important_difference": "Global explainability concerns broad behaviour; local explainability concerns a particular output. One does not automatically provide the other."
+          },
+          "memory_practice": {
+            "memory_trigger": "Zoom out from one prediction to the pattern across the whole set.",
+            "memory_sentence": "Global explainability helps us understand the model's overall behaviour.",
+            "recall_question": "What changes when an explanation is global rather than local?",
+            "recognition_task": "A: Summarising influential features across many cases. B: Explaining one rejected application. Which addresses global explainability?",
+            "production_task": "Explain to a nontechnical colleague why the team needs both global explainability and an explanation of individual decisions."
+          },
+          "advanced_nuance": [
+            "Global explainability usually summarises behaviour, so an overall pattern can conceal variation between groups or regions of the input space. An explanation's global scope does not by itself establish that it is faithful or complete."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 78,
+      "wordId": "097bf644-f512-48ba-b75a-dbdb548d4822",
+      "senseKey": "skewed-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "47c197ee18c3e650d2dd0b755a47eab61dc4cac44043877146fa144b26b44d8f",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "skewed",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: SKYOOD. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒருபக்கம் அளவுக்கு மீறிச் சாய்ந்த",
+        "englishMeaning": "distorted or shifted strongly toward one side",
+        "coreIdea": "Shifted out of balance toward one side.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract description of distortion or imbalance; here, the question asks whether model outputs are shifting away from a suitable distribution.",
+              "connotation": "Concern is implied in this example because skewed outputs are linked with possible bias; the term does not always mean unfairness in statistical use.",
+              "tone": "Investigative and cautious here: the question asks whether a problem is developing rather than asserting that it exists.",
+              "register": "Common in data analysis and general commentary. Explain what distribution or comparison is intended instead of assuming that every uneven result is wrong."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Are certain outputs becoming skewed or biased over time?",
+            "contextual_meaning": "distorted or shifted strongly toward one side",
+            "simple_explanation": "The question asks whether model outputs are becoming distorted or unbalanced over time. It raises a possibility rather than confirming that a problem exists."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe results, views or measurements that are disproportionately influenced by one side or group."
+            ],
+            "when_not_to_use": [
+              "Do not assume that any unequal result is wrongly skewed. Identify the comparison or expected balance before judging it."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "skewed toward / towards + group or outcome; skewed by + influence",
+            "common_collocations": [
+              "skewed results",
+              "a skewed distribution"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The survey results were skewed toward frequent users because occasional users rarely replied.",
+              "example_2": "A review based only on complaints gives a skewed picture of the whole event."
+            },
+            "mini_conversation": "A: Most responses came from one department.\nB: Then the results may be skewed toward its priorities.\nA: We should ask the other departments too."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Treating skewed as automatic proof that someone deliberately manipulated the results.",
+            "correction": "Say: The results may be skewed by the sample. Then investigate the cause instead of assuming intent.",
+            "important_difference": "Skewed describes an imbalance or distortion; deliberately manipulated makes an additional claim about intentional interference."
+          },
+          "memory_practice": {
+            "memory_trigger": "A balance tips because most of the weight is on one side.",
+            "memory_sentence": "The small sample produced a skewed picture of customer preferences.",
+            "recall_question": "Does skewed by itself prove deliberate unfairness?",
+            "recognition_task": "A: Feedback comes almost entirely from one user group. B: Every group is represented in the intended proportions. Which raises a clearer concern about skewed results?",
+            "production_task": "Explain why a survey limited to one department might produce a skewed picture of staff priorities."
+          },
+          "advanced_nuance": [
+            "Skewed can be a descriptive statistical term or a criticism of distorted representation. In the source question, the nearby word biased raises concern, but the speaker has not yet established a cause or a finding."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 79,
+      "wordId": "099c6495-ce4f-43fd-bf92-c9b179b28749",
+      "senseKey": "malignant-skin-cancer",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "65e6af50e14908ccb08ec3e092c912295c02bb98d58f77384de6eb121d19c8ea",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "melanoma",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: mel-uh-NOH-muh. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தோலின் நிறமி உற்பத்தி செய்யும் செல்களில் உருவாகும் தீவிரப் புற்றுநோய்",
+        "englishMeaning": "a serious cancer that develops in pigment-producing skin cells",
+        "coreIdea": "The name of a cancer arising in pigment-producing cells.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical medical noun naming a cancer arising in pigment-producing cells; the passage uses it as the disease studied.",
+              "connotation": "The illness is serious, but the medical term itself is descriptive rather than insulting or approving.",
+              "tone": "Clinical and explanatory here: the narrator describes participants, treatment and study groups.",
+              "register": "Standard medical terminology, also used in public health information. This field identifies the word's use; it does not provide medical advice."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "In  perhaps  the  most  revealing  of  all  the  health-related  studies,  a  group  of  subjects  who  had  contracted  malignant  melanoma  received  traditional  treatment  and  then  were  divided  into  two  grou ps.",
+            "contextual_meaning": "a serious cancer that develops in pigment-producing skin cells",
+            "simple_explanation": "Melanoma names the disease affecting the study participants. The passage then describes their treatment and division into groups."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Identify this particular disease in a medical report, study description or factual account."
+            ],
+            "when_not_to_use": [
+              "Do not use melanoma as a synonym for every skin change or every skin cancer; it names a specific disease."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "a diagnosis of melanoma; diagnosed with melanoma; melanoma research",
+            "common_collocations": [
+              "melanoma research",
+              "a diagnosis of melanoma"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The report describes a study involving patients with melanoma.",
+              "example_2": "She checked that the leaflet used the term melanoma consistently."
+            },
+            "mini_conversation": "A: Which disease does the study discuss?\nB: Melanoma. The next paragraph describes the participant groups.\nA: I will use that exact term in the summary."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Replacing every mention of skin cancer with melanoma as though the terms were identical.",
+            "correction": "Use melanoma only when that specific disease is identified; skin cancer is a broader category.",
+            "important_difference": "Melanoma names a particular disease; skin cancer is a broader term. The words are not interchangeable in a precise summary."
+          },
+          "memory_practice": {
+            "memory_trigger": "A study title uses one precise disease name instead of a broad category.",
+            "memory_sentence": "The study report identifies melanoma as the disease being investigated.",
+            "recall_question": "Why should a summary preserve melanoma when that is the disease named in the source?",
+            "recognition_task": "A: A specific disease named in a study. B: Any change in skin colour. Which fits the word melanoma as used here?",
+            "production_task": "Write a factual sentence identifying melanoma as the disease discussed in a fictional study, without making any claim about treatment effectiveness."
+          },
+          "advanced_nuance": [
+            "Melanoma functions as a disease name and commonly appears without an article in phrases such as diagnosed with melanoma. The source's clinical register should be preserved without turning the vocabulary example into a claim about outcomes."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 80,
+      "wordId": "09a77572-082e-4c14-9344-befa411819fc",
+      "senseKey": "noticeable-disruptive-effect",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b484de12aa1048a7184c2bfe251935d9ed4060867dd182e7721d095083e787b4",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "splash",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: SPLASH. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கவனத்தை ஈர்க்கும் அல்லது கலக்கத்தை உண்டாக்கும் தாக்கம்",
+        "englishMeaning": "a noticeable effect that disturbs or attracts attention",
+        "coreIdea": "An idea lands with a noticeable disturbing effect.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative image of a disturbance: adding an idea to a “pool of meaning” is compared with dropping something into water and causing a splash.",
+              "connotation": "Negative in this instance because the imagined disturbance is defensiveness; “splash” is not always negative in other contexts.",
+              "tone": "Cautionary and illustrative here: the writer uses the water image to explain why speakers anticipate defensive reactions.",
+              "register": "Creative explanatory wording. “Trigger a defensive reaction” is more direct in ordinary professional writing."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "When  we're  aware  that  something  we're  about  to  drop  into  the  pool  of  meaning  could  create  a  splash  of  def ensive ness,  we  use  Contrasting  to  bolster  safety-even  before  we  see  others  going  to  either  silence  or violence.",
+            "contextual_meaning": "a noticeable effect that disturbs or attracts attention",
+            "simple_explanation": "The author extends the image of a shared pool of meaning: adding an idea may create a splash of defensiveness, meaning a noticeable defensive reaction."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use the water image to describe a noticeable impact or disturbance, especially in vivid commentary or narrative."
+            ],
+            "when_not_to_use": [
+              "In a plain incident report, name the reaction directly rather than using splash if the metaphor would obscure what happened."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "create a splash; make a splash; a splash of + reaction in a deliberately extended metaphor",
+            "common_collocations": [
+              "create a splash",
+              "make a noticeable splash"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Her unexpected announcement created a splash of excitement in the otherwise quiet meeting.",
+              "example_2": "The small publisher hoped its unusual cover would make a splash at the book fair."
+            },
+            "mini_conversation": "A: That announcement certainly made a splash.\nB: Yes, everyone stopped to discuss it.\nA: Now we need to explain the details calmly."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Assuming a figurative splash always describes a positive reaction.",
+            "correction": "Check the reaction named: a splash of defensiveness is disruptive, while a splash of excitement may be welcome.",
+            "important_difference": "A splash suggests a noticeable immediate impact; a ripple suggests a smaller effect that spreads. Both are figurative water images here."
+          },
+          "memory_practice": {
+            "memory_trigger": "Drop an idea into a quiet pool and see the water jump.",
+            "memory_sentence": "The unexpected proposal created a splash in the discussion.",
+            "recall_question": "What reaction does the source's splash represent?",
+            "recognition_task": "A: A comment immediately triggers defensive replies. B: A comment passes unnoticed. Which fits the source's splash image?",
+            "production_task": "Describe an announcement that makes a splash in a group. Name the reaction so the reader knows whether it was welcome."
+          },
+          "advanced_nuance": [
+            "Splash of defensiveness is a creative extension of the source's pool metaphor, not a fixed everyday collocation. Make a splash is more established for attracting attention; the emotional effect still depends on context."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 81,
+      "wordId": "09c7711c-6045-495e-85db-6b8939299536",
+      "senseKey": "take-action-based-on",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0ee386e36e7bea86d282fb9a0b3e4b7a82b14912897ba20dd6a8444e74e6645c",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "act on",
+        "wordType": "phrasal verb",
+        "pronunciation": "/ækt ɒn/",
+        "tamilMeaning": "தகவல், முடிவு அல்லது ஆலோசனையின் அடிப்படையில் நடவடிக்கை எடுப்பது",
+        "englishMeaning": "to take action based on information, a decision, or advice",
+        "coreIdea": "Use a decision or information as the basis for action.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb meaning to do something in response to advice, information or a decision; here, carry out decisions made together.",
+              "connotation": "Positive here: willingness to act is presented as a benefit of shared understanding.",
+              "tone": "Explanatory and approving here: “willingly” links shared meaning with cooperation in implementing decisions.",
+              "register": "Neutral and common in everyday or professional English. Acting on a decision goes beyond merely agreeing with it."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Not   only  does  a  shared  pool  help  individuals  make  better  choices,  but  since  the  meaning  is  shar ed,  people  willingly  act  on  whatever  decisions  they  make.",
+            "contextual_meaning": "to take action based on information, a decision, or advice",
+            "simple_explanation": "Because people share the understanding behind their decisions, they are willing to carry those decisions out."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe taking steps in response to advice, information, a recommendation or a decision."
+            ],
+            "when_not_to_use": [
+              "Simply hearing or agreeing with advice does not mean you act on it; some action must follow."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "act on + advice / information / decision / recommendation",
+            "common_collocations": [
+              "act on advice",
+              "act on a recommendation"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We decided to act on the recommendation and change the training schedule.",
+              "example_2": "She did not act on the message until she had checked who sent it."
+            },
+            "mini_conversation": "A: Did the team accept the suggestion?\nB: Yes, and they will act on it by simplifying the form.\nA: Good. Let us check the result next week."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We will act the recommendation tomorrow.",
+            "correction": "Say: We will act on the recommendation tomorrow. On links the action to its basis.",
+            "important_difference": "Agree with a recommendation expresses acceptance; act on it means take steps because of it."
+          },
+          "memory_practice": {
+            "memory_trigger": "Move a decision from the meeting notes into a completed action.",
+            "memory_sentence": "We will act on the feedback by shortening the form.",
+            "recall_question": "What has to happen beyond agreement for someone to act on a decision?",
+            "recognition_task": "A: Thank a reviewer and leave everything unchanged. B: Change the instructions in response to the review. Which acts on the feedback?",
+            "production_task": "Name a useful piece of feedback and explain how you will act on it this week."
+          },
+          "advanced_nuance": [
+            "Act on identifies the basis for an action, not whether that basis is correct. You can act on mistaken information, so the phrase alone does not praise the decision."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 82,
+      "wordId": "09ca5694-0c2d-4c67-a9b4-84913f7a89fb",
+      "senseKey": "loan-approvals-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e5d2aa939ae0bb31bb4fb5dd0027f3983d18bc84b23b13b85debcc391e60194d",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "loan approvals",
+        "wordType": "plural noun phrase",
+        "pronunciation": "Approximate pronunciation: LOHN uh-PROO-vuhlz. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கடன் விண்ணப்பங்களை ஏற்கும் முடிவுகள்",
+        "englishMeaning": "decisions to accept applications for borrowed money",
+        "coreIdea": "Decisions accepting requests to borrow money.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Established financial phrase for decisions to accept requests to borrow money.",
+              "connotation": "Neutral: approval is favourable to the applicant, but the phrase does not judge whether the lending decision is wise or fair.",
+              "tone": "Illustrative here: “Take” introduces loan approvals as an example; the short sentence supplies no further attitude.",
+              "register": "Common in banking and financial explanations. For a general audience, say “decisions to approve people's loan applications.”"
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Take loan approvals.",
+            "contextual_meaning": "decisions to accept applications for borrowed money",
+            "simple_explanation": "The speaker introduces decisions about accepting loan applications as an example. The short sentence does not describe approval criteria or outcomes."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Refer to decisions accepting applications for loans, especially when discussing a lending process or its results."
+            ],
+            "when_not_to_use": [
+              "Do not use loan approvals for every application submitted or for every payment made after approval."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "loan approvals for + applicants or purpose; review / process / record + loan approvals",
+            "common_collocations": [
+              "the loan approvals process",
+              "a rise in loan approvals"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The report compares loan approvals across the two application channels.",
+              "example_2": "Staff checked whether the loan approvals had been recorded correctly."
+            },
+            "mini_conversation": "A: Does this total include rejected applications?\nB: No, this table counts loan approvals only.\nA: Then we need the application total for comparison."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Calling all submitted applications loan approvals.",
+            "correction": "Count loan approvals only when applications have been accepted; submissions belong in the application total.",
+            "important_difference": "Loan applications are requests for borrowing; loan approvals are decisions accepting those requests. They describe different stages."
+          },
+          "memory_practice": {
+            "memory_trigger": "An application moves from submitted to approved.",
+            "memory_sentence": "The table lists loan approvals separately from rejected applications.",
+            "recall_question": "What distinguishes a loan approval from a loan application?",
+            "recognition_task": "A: A request is submitted for consideration. B: The request is accepted. Which belongs among loan approvals?",
+            "production_task": "Write a sentence explaining why a report should distinguish total applications from loan approvals."
+          },
+          "advanced_nuance": [
+            "Loan approvals names acceptance decisions, but the phrase alone does not describe all their conditions or later steps. A careful report states exactly what its approval count measures."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 83,
+      "wordId": "09f7fade-12eb-434f-b7ee-b07e90b1a4bf",
+      "senseKey": "as-a-result-of-what-happened",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "5c89adeea85b0bf312bf697c7e076f7611bcbd1ddcd9481833e425707e3010a6",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "in consequence",
+        "wordType": "adverbial phrase",
+        "pronunciation": "/ɪn ˈkɒnsɪkwəns/",
+        "tamilMeaning": "அதன் விளைவாக",
+        "englishMeaning": "as a result of what happened",
+        "coreIdea": "Introduce the result of an earlier event.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Logical connector presenting a result: falling demand explains the reduction in the company's orders.",
+              "connotation": "Neutral: it marks a causal consequence without adding praise or blame.",
+              "tone": "Matter-of-fact and explanatory here: the sentence reports a decline and the company's response.",
+              "register": "Formal and less conversational than “as a result.” It is natural in careful written explanations but can sound stiff in casual speech."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Demand fell sharply; in consequence, the company reduced its orders.",
+            "contextual_meaning": "as a result of what happened",
+            "simple_explanation": "Falling demand led the company to reduce its orders. In consequence connects the reduction to that earlier cause."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Present a consequence in relatively formal written explanation."
+            ],
+            "when_not_to_use": [
+              "Do not use it merely to introduce the next event if no causal relationship is intended."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "cause; in consequence, + result clause; in consequence of + cause",
+            "common_collocations": [
+              "in consequence of the delay",
+              "in consequence, the plan changed"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Demand fell sharply; in consequence, the company reduced its orders.",
+              "example_2": "The bridge was closed; in consequence, buses used a longer route."
+            },
+            "mini_conversation": "A: Why does the report say costs increased?\nB: Deliveries were delayed; in consequence, we had to arrange extra storage.\nA: That explains the connection."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: In consequence the delay, the meeting started late.",
+            "correction": "Say: In consequence of the delay, the meeting started late. Use of before the noun phrase naming the cause.",
+            "important_difference": "In consequence introduces a result; subsequently only places an event later in time and does not itself establish causation."
+          },
+          "memory_practice": {
+            "memory_trigger": "One event leads by an arrow to its result.",
+            "memory_sentence": "The hall was unavailable; in consequence, we moved the meeting.",
+            "recall_question": "Does in consequence express only time order or a cause-and-result connection?",
+            "recognition_task": "A: Orders fell because demand dropped. B: An unrelated meeting happened later that day. Which relationship fits in consequence?",
+            "production_task": "Write two linked clauses about a delayed delivery and a resulting schedule change, using in consequence."
+          },
+          "advanced_nuance": [
+            "In consequence is more formal and less conversational than as a result. Its causal force should match the evidence; chronological order alone is not enough to justify the connector."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 84,
+      "wordId": "0a00d8aa-ff47-4460-a7a2-31e295f6e533",
+      "senseKey": "excluding-one-specified-person-thing-or-detail",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "68cc6b85258473fd45a6186c7f04d38f5b9e3b995e07cf1401491debed2f763e",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "except for",
+        "wordType": "prepositional phrase",
+        "pronunciation": "/ɪkˈsept fə/",
+        "tamilMeaning": "குறிப்பிட்ட ஒன்றைத் தவிர",
+        "englishMeaning": "excluding one specified person, thing or detail",
+        "coreIdea": "Make one exception to an otherwise true statement.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Phrase marking an exception: the cost summary is the one part excluded from the claim that the report is complete.",
+              "connotation": "Neutral: it identifies a limit to a statement rather than necessarily criticizing the exception.",
+              "tone": "Factual and qualifying here: the speaker narrows the completion claim to make it accurate.",
+              "register": "Neutral and common in everyday and professional English. Follow it with the excluded person, thing or detail."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "The report is complete except for the cost summary.",
+            "contextual_meaning": "excluding one specified person, thing or detail",
+            "simple_explanation": "All parts of the report are complete apart from the cost summary, which still needs work."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Name the person, thing or detail excluded from a general statement."
+            ],
+            "when_not_to_use": [
+              "Do not use it to add an ordinary extra item when nothing is being excluded; use also or in addition instead."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "general statement + except for + noun phrase",
+            "common_collocations": [
+              "except for one detail",
+              "except for the final page"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The report is complete except for the cost summary.",
+              "example_2": "The house was quiet except for the ticking clock."
+            },
+            "mini_conversation": "A: Is the presentation ready?\nB: Yes, except for the last slide.\nA: I will help you finish that part."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Saying everything is complete, including the summary, when you mean everything except for the summary.",
+            "correction": "Say: Everything is complete except for the summary. The summary is the excluded part.",
+            "important_difference": "Except for excludes an item; including explicitly brings an item inside the group or claim."
+          },
+          "memory_practice": {
+            "memory_trigger": "Tick every box on a checklist but leave one unfinished.",
+            "memory_sentence": "Everyone arrived on time except for one speaker.",
+            "recall_question": "In complete except for the summary, which part is unfinished?",
+            "recognition_task": "A: The summary is the only unfinished section. B: The summary is one of several completed sections. Which matches complete except for the summary?",
+            "production_task": "Give a project status update using except for to name one remaining task."
+          },
+          "advanced_nuance": [
+            "Except for often qualifies a broad description rather than a literal membership list: quiet except for a ticking clock. The exception explains the limit of the statement, not necessarily a fault."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 85,
+      "wordId": "0a32be94-25c7-40a6-b6ce-234603ecdf4a",
+      "senseKey": "observer-not-involved",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "06fc18b4ed07b087163399131cec9abc645ca0ec90ad81a6c0c03b1947636350",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "bystander",
+        "wordType": "countable noun",
+        "pronunciation": "Approximate pronunciation: BY-stan-der. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு நிகழ்வில் நேரடியாகப் பங்கேற்காமல் அருகில் இருப்பவர்",
+        "englishMeaning": "a person present at an event but not directly involved",
+        "coreIdea": "Someone is present without taking part directly.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal noun for someone present but not participating, used here as part of a figurative description of life's conflicts.",
+              "connotation": "Can suggest non-involvement, but the passage questions whether apparent non-participants are entirely innocent.",
+              "tone": "Reflective and mildly challenging here: “rarely ... completely innocent” asks readers to reconsider their own responsibility.",
+              "register": "Common general vocabulary. In this passage it is extended beyond physically witnessing a single event."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Although  it' s  true  that  there  are  times  when  we  are  merely  bystanders  in  life's  never-ending  stream  of  head-on  collisions,  rarely are  we  completely  in nocent .",
+            "contextual_meaning": "a person present at an event but not directly involved",
+            "simple_explanation": "The author compares life's conflicts to collisions and questions whether people who see themselves as uninvolved observers are always completely innocent."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a person present at an event without being one of its direct participants."
+            ],
+            "when_not_to_use": [
+              "A person organising or carrying out the action is not merely a bystander, even if they claim to be uninvolved."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "a bystander at + event; bystanders watched / intervened; an innocent bystander",
+            "common_collocations": [
+              "an innocent bystander",
+              "a nearby bystander"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "A bystander pointed the visitors toward the station entrance.",
+              "example_2": "During the argument, one bystander asked both speakers to lower their voices."
+            },
+            "mini_conversation": "A: Was she part of the disagreement?\nB: No, she was a bystander who happened to be nearby.\nA: She may still be able to describe what she saw."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Assuming a bystander cannot later intervene or help.",
+            "correction": "A bystander is initially outside the direct action, but can choose to intervene.",
+            "important_difference": "Bystander describes lack of direct participation; witness emphasises having observed something and may overlap with a participant."
+          },
+          "memory_practice": {
+            "memory_trigger": "A person beside the scene watches before deciding whether to help.",
+            "memory_sentence": "A bystander helped the confused visitor find the entrance.",
+            "recall_question": "What makes someone a bystander rather than a direct participant?",
+            "recognition_task": "A: Someone carrying out the planned activity. B: Someone nearby who was not involved in it. Which is a bystander?",
+            "production_task": "Describe a fictional scene in which a bystander chooses to help. Make clear how the person was initially uninvolved."
+          },
+          "advanced_nuance": [
+            "Bystander does not itself prove innocence or indifference. The source specifically challenges the assumption that standing outside the obvious conflict means having no responsibility."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ],
+  "lessonValidatorPassed": 9
+}

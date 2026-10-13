@@ -1,0 +1,844 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0096-0105",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 10,
+  "broaderLessonRepairProcessed": 10,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 96,
+      "wordId": "0bc8d243-d1e0-433a-9389-7c7b2bb2023d",
+      "senseKey": "terminology-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e4e939bfe88e8bc35c5654776f496c2163582991fa116d9464cac6eba771399d",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "terminology",
+        "wordType": "uncountable noun",
+        "pronunciation": "Approximate pronunciation: tur-mih-NOL-uh-jee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு துறையின் சிறப்புச் சொற்கள்",
+        "englishMeaning": "the specialized vocabulary used in a field",
+        "coreIdea": "The specialised words used in a field.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for the specialized words used in a subject or profession.",
+              "connotation": "Neutral: specialized vocabulary can be useful or confusing depending on the audience; the word does not itself criticize jargon.",
+              "tone": "Explanatory and cautionary here: changing applicants' wording is presented as a possible reason for model performance to decline.",
+              "register": "Neutral to formal; common in education and professional discussion. “The terms people use” is a plainer explanation."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "For example, if a new wave of applicants start using different resume formats or terminology, the model might start to degrade.",
+            "contextual_meaning": "the specialized vocabulary used in a field",
+            "simple_explanation": "The source says that changes in the terms applicants use could affect a model trained on earlier resume wording."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss the specialised vocabulary used in a profession, subject or activity."
+            ],
+            "when_not_to_use": [
+              "Do not use terminology for the full grammar or writing style of a document; it concerns the terms used."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "the terminology of + field; technical terminology; use / explain + terminology",
+            "common_collocations": [
+              "technical terminology",
+              "medical terminology"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The course explains the terminology used in software testing.",
+              "example_2": "She asked the instructor to explain the unfamiliar gardening terminology."
+            },
+            "mini_conversation": "A: I understand the idea, but not these words.\nB: Let us go through the terminology first.\nA: That will make the instructions easier to follow."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: This paragraph contains several difficult terminologies, when referring to individual words.",
+            "correction": "Say: This paragraph contains several difficult terms, or some difficult terminology.",
+            "important_difference": "Terminology refers collectively to specialised terms; a term is one particular word or expression within that vocabulary."
+          },
+          "memory_practice": {
+            "memory_trigger": "A short glossary collects the words used by one profession.",
+            "memory_sentence": "Please explain the terminology before demonstrating the equipment.",
+            "recall_question": "Would you normally call three specialised expressions three terms or three terminologies?",
+            "recognition_task": "A: The specialised names for parts of an engine. B: The paragraph's punctuation. Which is terminology?",
+            "production_task": "Explain one piece of terminology from your work to a newcomer, then give its plain-English meaning."
+          },
+          "advanced_nuance": [
+            "Terminology is not automatically a criticism. Jargon often suggests that specialised wording is difficult or unnecessary for the audience; terminology can describe that vocabulary neutrally."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 97,
+      "wordId": "0bd4b7f2-ae36-4dc9-9ee0-de7fd31245a2",
+      "senseKey": "occasionally-with-gaps-between-occurrences",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "98d12fcd1affba97a0e76bc55824542c333268a14f1ccb5822491aee741999fd",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "every now and then",
+        "wordType": "adverbial phrase",
+        "pronunciation": "/ˌevri naʊ ən ˈðen/",
+        "tamilMeaning": "அவ்வப்போது",
+        "englishMeaning": "occasionally, with gaps between occurrences",
+        "coreIdea": "Something happens occasionally without a fixed schedule.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Time expression meaning occasionally, with intervals between events; no fixed schedule is implied.",
+              "connotation": "Neutral: it describes how often something happens without judging whether that frequency is enough.",
+              "tone": "Relaxed and matter-of-fact here: the speaker describes occasional coffee meetings.",
+              "register": "Common conversational English. “Occasionally” is more compact and somewhat more formal."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "We meet for coffee every now and then.",
+            "contextual_meaning": "occasionally, with gaps between occurrences",
+            "simple_explanation": "The speakers meet for coffee from time to time, rather than at a stated regular interval."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe occasional visits, actions or events when the precise frequency is unimportant or irregular."
+            ],
+            "when_not_to_use": [
+              "For a fixed weekly appointment, say every week rather than using this vague occasional expression."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "every now and then + clause; clause + every now and then",
+            "common_collocations": [
+              "meet every now and then",
+              "check in every now and then"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We meet for coffee every now and then.",
+              "example_2": "Every now and then, I take the longer route home through the park."
+            },
+            "mini_conversation": "A: Do you still see your old neighbours?\nB: Every now and then. We sometimes meet at the market.\nA: It is nice to stay in touch."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Using every now and then to promise an exact weekly update.",
+            "correction": "Use every week for that commitment. Every now and then means occasionally and gives no fixed interval.",
+            "important_difference": "Every now and then means occasionally; every other day means once every two days. The latter specifies a schedule."
+          },
+          "memory_practice": {
+            "memory_trigger": "A few scattered dots on a calendar instead of a repeated appointment.",
+            "memory_sentence": "I check the old photo album every now and then.",
+            "recall_question": "Does every now and then tell the listener exactly when the next event will happen?",
+            "recognition_task": "A: An occasional unscheduled coffee. B: A meeting every Monday at ten. Which better fits every now and then?",
+            "production_task": "Describe something enjoyable you do every now and then, without inventing a fixed timetable."
+          },
+          "advanced_nuance": [
+            "Every now and then is conversational and deliberately approximate. The actual gap may be days or months; the activity and surrounding context determine what counts as occasional."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 98,
+      "wordId": "0bff6f3c-d06f-4c30-984f-30c99d8d85cc",
+      "senseKey": "speak-sharply",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e5143c08c76a289e45dde8c0b8f03b5ee0bbc8c0b7cc380d8847bee7790fdbcc",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "snap",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: SNAP. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "திடீரெனக் கோபத்துடனோ பொறுமையின்றியோ பேசுதல்",
+        "englishMeaning": "to speak to someone suddenly in an angry or impatient way",
+        "coreIdea": "Speak suddenly and sharply because you are angry or impatient.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative verb for speaking sharply and suddenly in anger or impatience, rather than describing a physical break.",
+              "connotation": "Negative here: it presents the speaker's manner as hurtful or unpleasant.",
+              "tone": "Critical and warning here: “self-defeating” and the effect on the loved one explain why repeated sharp remarks cause trouble.",
+              "register": "Common in everyday speech and narrative. “Spoke sharply” is a more explicit description for a formal account."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "\"  Unf ortunately  (and here's  where  the  problem  becomes  self­ defeati ng) ,  the  more  you  snip  and  snap,  the  less  your  loved  one  wants  to  be  around  you.",
+            "contextual_meaning": "to speak to someone suddenly in an angry or impatient way",
+            "simple_explanation": "The passage warns that repeated sharp remarks make a loved one less willing to be around the speaker."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a brief, angry or impatient spoken response."
+            ],
+            "when_not_to_use": [
+              "For a firm but calm statement, use say firmly rather than snap unless the sharpness is intended."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "snap at + person; snap + quoted words; snap back at + person",
+            "common_collocations": [
+              "snap at someone",
+              "snap an impatient reply"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Please do not snap at me; I am only asking where the keys are.",
+              "example_2": "She was tempted to snap back, but paused before answering."
+            },
+            "mini_conversation": "A: Where did you put the folder?\nB: Stop asking me!\nA: There is no need to snap at me. I just need it for the meeting."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: He snapped to me when I asked a question, when describing an angry response.",
+            "correction": "Say: He snapped at me when I asked a question. Use at for the person receiving the sharp response.",
+            "important_difference": "Snap focuses on a sudden sharp reply; shout focuses on loudness. Someone can snap in a low voice."
+          },
+          "memory_practice": {
+            "memory_trigger": "A short reply lands with a sharp edge.",
+            "memory_sentence": "I try not to snap at people when I am tired.",
+            "recall_question": "Does someone have to speak loudly to snap at another person?",
+            "recognition_task": "A: A brief impatient answer. B: A loud cheerful greeting across a field. Which better fits snap?",
+            "production_task": "Write a short exchange where someone almost snaps at a colleague, then chooses a calmer response."
+          },
+          "advanced_nuance": [
+            "Snap often suggests a moment when patience gives way, but it does not excuse the impact of the remark. The source emphasises the cumulative effect of repeated sharp responses on a relationship."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 99,
+      "wordId": "0c1400ae-d9bc-49a0-8550-344f13e6ba78",
+      "senseKey": "cause-persistent-worry",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a20a7b0b8bb476a542927aff18c3b0d359b8e08368b2a305418b2e4c4c3a761c",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "gnaw at",
+        "wordType": "phrasal verb",
+        "pronunciation": "Approximate pronunciation: NAW at. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தொடர்ந்து மனதை உறுத்துதல்",
+        "englishMeaning": "to cause persistent worry, discomfort, or distress",
+        "coreIdea": "A worry keeps troubling you instead of fading away.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative phrasal verb for persistent worry, pictured as something repeatedly biting or wearing at a person.",
+              "connotation": "Negative: it emphasizes an ongoing mental discomfort rather than a passing thought.",
+              "tone": "Reflective and probing here: the question asks readers to identify the conversations that trouble them most.",
+              "register": "Expressive vocabulary in conversation and personal writing. “Keep worrying you” is a simpler alternative."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "What  are  the  specific  conversations  that  gnaw  at  you  the  most?",
+            "contextual_meaning": "to cause persistent worry, discomfort, or distress",
+            "simple_explanation": "The question asks which conversations cause the reader the most persistent mental discomfort."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe recurring guilt, doubt or worry that continues to disturb someone."
+            ],
+            "when_not_to_use": [
+              "For a passing thought that causes no distress, use occur to or cross your mind instead."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "worry / doubt / guilt + gnaw at + person; something continues to gnaw at someone",
+            "common_collocations": [
+              "doubt began to gnaw at him",
+              "guilt continued to gnaw at her"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The unanswered question continued to gnaw at me throughout the weekend.",
+              "example_2": "Doubts about the decision began to gnaw at her after the meeting."
+            },
+            "mini_conversation": "A: Why are you still thinking about yesterday's conversation?\nB: My careless comment keeps gnawing at me.\nA: You could contact her and explain what you meant."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Missing the usual preposition: The doubt gnawed me all evening. For the expression taught here, keep at.",
+            "correction": "Say: The doubt gnawed at me all evening. Keep at in this expression.",
+            "important_difference": "Gnaw at suggests persistent, wearing discomfort; surprise describes a sudden reaction that may pass quickly."
+          },
+          "memory_practice": {
+            "memory_trigger": "One unresolved worry keeps nibbling at your attention.",
+            "memory_sentence": "The thought of the unfinished apology continued to gnaw at me.",
+            "recall_question": "What makes gnaw at stronger than simply think about?",
+            "recognition_task": "A: A worry repeatedly returns and makes someone uneasy. B: A neutral idea appears once and is forgotten. Which gnaws at the person?",
+            "production_task": "Describe an invented unresolved concern that gnaws at someone and a constructive step they could take."
+          },
+          "advanced_nuance": [
+            "Gnaw at presents worry as gradually wearing on a person. It often works well with continue, keep or begin because those words show the persistence or development of the feeling."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 100,
+      "wordId": "0c1b0219-b274-4f39-908a-c371722fd501",
+      "senseKey": "understood-or-learned-something-quickly",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ecc77adb542cdb6e0e83619f7d7853e3a221ed427f015187e6d954d1dea4fcf5",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "caught on quickly",
+        "wordType": "verb phrase (past tense)",
+        "pronunciation": "Approximate pronunciation: kawt ON KWIK-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "விரைவாகப் புரிந்துகொண்டது",
+        "englishMeaning": "understood or learned something quickly",
+        "coreIdea": "Understood what to do after little time or explanation.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb meaning to understand or learn; “quickly” describes how little time the learning took.",
+              "connotation": "Positive here: fast understanding is presented as an ability of the pig.",
+              "tone": "Approving and lightly affectionate here: “although tiny” introduces a contrast with the pig's appetite and ability to learn.",
+              "register": "Common conversational English and accessible narrative. In a formal learning report, “learned quickly” is more direct."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "pig, although tiny, had a good appetite and caught on quickly.",
+            "contextual_meaning": "understood or learned something quickly",
+            "simple_explanation": "The small pig learned or understood quickly. Caught on describes learning, and quickly describes the speed."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe someone who soon understands an explanation, procedure or way of doing something."
+            ],
+            "when_not_to_use": [
+              "Do not use caught on quickly merely to mean physically catching an object; this is the understanding sense."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "subject + caught on quickly; caught on quickly to + idea / procedure",
+            "common_collocations": [
+              "caught on quickly to the rules",
+              "caught on quickly after a demonstration"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The new volunteer caught on quickly after watching one demonstration.",
+              "example_2": "My grandfather caught on quickly to the rules of the card game."
+            },
+            "mini_conversation": "A: Did you have to explain the game many times?\nB: No, she caught on quickly.\nA: Great. She can join the next round."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: He catched on quickly.",
+            "correction": "Say: He caught on quickly. Caught is the past tense of catch.",
+            "important_difference": "Caught on quickly means understood quickly; memorised quickly means retained information quickly. Understanding and memorising are related but different."
+          },
+          "memory_practice": {
+            "memory_trigger": "One demonstration is enough for the learner to say, I see how it works.",
+            "memory_sentence": "She caught on quickly and completed the next step herself.",
+            "recall_question": "What did the learner do quickly in caught on quickly?",
+            "recognition_task": "A: Understand the rules after a short explanation. B: Repeat the words without understanding them. Which better fits caught on quickly?",
+            "production_task": "Describe someone learning a new everyday task. Use caught on quickly and explain what showed their understanding."
+          },
+          "advanced_nuance": [
+            "Caught on quickly is conversational and approving in the source. It reports quick understanding, not necessarily complete mastery or flawless performance afterward."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 101,
+      "wordId": "0c30d564-3b12-4435-b0e9-340104416a13",
+      "senseKey": "used-to-give-a-brief-summary-of-the-main-point",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "276787a62b5f23c125d0a9bf506319bacd57fcb8f81732b69213a74ec5e788b6",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "in short",
+        "wordType": "discourse marker",
+        "pronunciation": "/ɪn ˈʃɔːt/",
+        "tamilMeaning": "சுருக்கமாக",
+        "englishMeaning": "used to give a brief summary of the main point",
+        "coreIdea": "State the main point briefly.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Discourse marker introducing a brief summary: the essential point is that more evidence is needed before commitment.",
+              "connotation": "Neutral: it signals compression, not approval or rejection by itself.",
+              "tone": "Concise and cautious here: the summary postpones commitment until there is stronger evidence.",
+              "register": "Neutral; natural in conversation, presentations and written summaries. It should introduce a real summary rather than an unrelated new point."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "In short, we need more evidence before committing.",
+            "contextual_meaning": "used to give a brief summary of the main point",
+            "simple_explanation": "The speaker summarises the position: the group needs additional evidence before making a commitment."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Condense a preceding explanation into its essential message."
+            ],
+            "when_not_to_use": [
+              "Do not introduce an unrelated new topic with in short; the phrase promises a summary of what matters in the discussion."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "In short, + concise summary clause",
+            "common_collocations": [
+              "in short, we need more time",
+              "in short, the plan is workable"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "In short, we need more evidence before committing.",
+              "example_2": "In short, the flat suits us, but the rent is too high."
+            },
+            "mini_conversation": "A: There are extra fees, the train is infrequent, and the hotel is far away.\nB: So what is your recommendation?\nA: In short, we should choose another venue."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Using in short and then repeating every detail of the earlier explanation.",
+            "correction": "After in short, give the central point: In short, we cannot meet that date with the current team.",
+            "important_difference": "In short introduces a concise summary; for example introduces an illustration, which may add detail rather than compress it."
+          },
+          "memory_practice": {
+            "memory_trigger": "A long page of notes becomes one clear sentence.",
+            "memory_sentence": "In short, the repairs will cost more than we expected.",
+            "recall_question": "What should the listener expect after in short?",
+            "recognition_task": "A: The essential conclusion in one sentence. B: A new unrelated anecdote. Which belongs after in short?",
+            "production_task": "Write two sentences describing a scheduling problem, then summarise them with in short."
+          },
+          "advanced_nuance": [
+            "In short can summarise a practical conclusion as well as restate earlier facts. The conclusion should still follow from the preceding discussion rather than introduce an unsupported claim."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 102,
+      "wordId": "0c33e0f5-09cd-4fc4-9c04-8e32cfff53d9",
+      "senseKey": "human-nature-and-dignity",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c7ff592ab5b8047b7a9047cbf410ecc6bf5f303f797edcbe0d5cb5a91436b0bf",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "humanity",
+        "wordType": "uncountable noun",
+        "pronunciation": "Approximate pronunciation: hyoo-MAN-ih-tee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மனிதர்களுக்குப் பொதுவான இயல்பும் கண்ணியமும்",
+        "englishMeaning": "the qualities, nature, and dignity shared by human beings",
+        "coreIdea": "Recognise another person's shared human dignity.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for the human qualities and dignity people share; here, another person's worth as a human being.",
+              "connotation": "Positive and respectful: it encourages recognition of dignity despite disagreement.",
+              "tone": "Reconciliatory here: “honor and regard” describes a way to keep dialogue possible.",
+              "register": "Neutral to formal, common in ethical and reflective discussion. It does not mean the entire human population in this entry."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "We  can,  however,  stay  in  dialogue  by  finding  a way  to  honor  and  regard  another  person's  basic  humanity.",
+            "contextual_meaning": "the qualities, nature, and dignity shared by human beings",
+            "simple_explanation": "The source suggests respecting the other person's basic dignity as a way to keep dialogue possible despite disagreement."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss people's human qualities or dignity, especially when recognising the person behind a role or conflict."
+            ],
+            "when_not_to_use": [
+              "Do not treat respecting someone's humanity as automatic agreement with their actions or arguments."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "respect / recognise / honour + someone's humanity; shared / basic humanity",
+            "common_collocations": [
+              "our shared humanity",
+              "recognise someone's humanity"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The story asks us to recognise the humanity of people we disagree with.",
+              "example_2": "She spoke about the workers' lives to remind the audience of their shared humanity."
+            },
+            "mini_conversation": "A: I strongly disagree with his decision.\nB: You can challenge it without denying his humanity.\nA: I will focus on the action rather than insult him."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Thinking that recognising someone's humanity requires approving everything they do.",
+            "correction": "Recognise the person's humanity while still evaluating their actions and holding them responsible.",
+            "important_difference": "Humanity here means shared human dignity and qualities; agreement concerns whether you accept a particular view or decision."
+          },
+          "memory_practice": {
+            "memory_trigger": "Behind the job title or argument is a person with a human life.",
+            "memory_sentence": "We can disagree while respecting each other's humanity.",
+            "recall_question": "Can you respect someone's humanity and still challenge their behaviour?",
+            "recognition_task": "A: Criticise an action while recognising the person's dignity. B: Describe the person as worthless. Which respects their humanity?",
+            "production_task": "Write a sentence that firmly challenges a fictional unfair decision while preserving respect for the decision-maker's humanity."
+          },
+          "advanced_nuance": [
+            "Humanity in this entry refers to human qualities and dignity, not to the entire human population. The surrounding phrase another person's basic humanity makes the intended meaning clear."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 103,
+      "wordId": "0c4c4958-2d58-404f-ac2b-127ada6d7bbf",
+      "senseKey": "value-others-objectives",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "470e0e190d6576a7bdb413f39de8a149870a3a3d4db4ce31f959c92d2eeda41c",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "care about their goals",
+        "wordType": "verb phrase",
+        "pronunciation": "Approximate pronunciation: KAIR uh-BOUT thair GOHLZ. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மற்றவர்களின் இலக்குகளுக்கு முக்கியத்துவம் கொடுத்தல்",
+        "englishMeaning": "to consider other people’s objectives important",
+        "coreIdea": "Treat other people's aims as important.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrase for treating other people's objectives as important, rather than merely knowing what they want.",
+              "connotation": "Positive here: concern for their goals is presented as part of cooperation.",
+              "tone": "Reassuring and explanatory: the passage describes how people recognize a shared purpose.",
+              "register": "Natural in everyday and workplace English. It does not necessarily mean agreeing to every goal the other person has."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Mutual  Purpose  means  that  others  perceive  that  we  are  working  toward  a  common  outcome  in  the   conver sation,  that  we  care  about  their  goals,  intere sts,  and  valu es.",
+            "contextual_meaning": "to consider other people’s objectives important",
+            "simple_explanation": "The source says that a shared purpose involves other people seeing that their objectives, interests and values matter to us."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Explain genuine concern for the outcomes other people are trying to achieve."
+            ],
+            "when_not_to_use": [
+              "Do not use the phrase as an empty assurance while ignoring their stated priorities; identify which goals you are considering."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "care about their goals; change their to your / our / her / his as the people change",
+            "common_collocations": [
+              "show that you care about their goals",
+              "care about their goals and priorities"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We need to show the volunteers that we care about their goals as well as our deadline.",
+              "example_2": "When trainees explain their ambitions, good mentors show that they care about their goals."
+            },
+            "mini_conversation": "A: The volunteers think we only care about filling the rota.\nB: Let us ask what they want to learn and show that we care about their goals.\nA: We can include that in the next planning meeting."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We care their goals.",
+            "correction": "Say: We care about their goals. Keep about before the thing that matters to you.",
+            "important_difference": "Know their goals means be aware of them; care about their goals means consider them important. Awareness alone does not demonstrate concern."
+          },
+          "memory_practice": {
+            "memory_trigger": "Put the other person's desired outcome beside your own on the planning sheet.",
+            "memory_sentence": "Ask questions that show you care about their goals.",
+            "recall_question": "How is caring about their goals different from knowing what their goals are?",
+            "recognition_task": "A: Listen to their priorities and consider them in the plan. B: Record their priorities but dismiss them without thought. Which shows concern?",
+            "production_task": "Write a response to a colleague explaining how you care about their goals while also naming one constraint you must discuss together."
+          },
+          "advanced_nuance": [
+            "Care about their goals does not promise to satisfy every goal. It signals that those aims deserve serious consideration, including an honest discussion when goals conflict."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 104,
+      "wordId": "0c758366-54e9-4e10-827a-c7a182d4a1c3",
+      "senseKey": "mixed-feelings",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "656f2a933dfcd1d32e605f34ca7ac05267b1d08203c6cde978584be4b94a2e02",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "ambivalence",
+        "wordType": "uncountable noun",
+        "pronunciation": "Approximate pronunciation: am-BIV-uh-luhns. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரே விஷயத்தைப் பற்றி முரண்பட்ட உணர்வுகள் கொண்டிருத்தல்",
+        "englishMeaning": "the state of having conflicting feelings about someone or something",
+        "coreIdea": "Feel pulled in different directions about the same choice.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for having conflicting feelings about the same person, choice or situation.",
+              "connotation": "Neutral as a description of mixed feelings; it does not automatically imply dishonesty or indecision.",
+              "tone": "Humorous here: the invented word “bivaling” plays with the term while describing unexpected certainty about the move.",
+              "register": "Relatively formal, used in reflective and psychological discussion. “Mixed feelings” is the everyday equivalent."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "You  expected  your  spouse  to  have  fe elings  of  ambivalence  over  the  move,  but  he  or  she  doesn't  seem  to  be  bivaling  even  a  tiny  bit.",
+            "contextual_meaning": "the state of having conflicting feelings about someone or something",
+            "simple_explanation": "The speaker expected the spouse to have mixed feelings about moving, but describes an unexpectedly clear reaction using a playful invented word."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe simultaneous conflicting feelings about a person, decision or situation."
+            ],
+            "when_not_to_use": [
+              "Do not use ambivalence merely for not caring; a person can care strongly while experiencing opposing feelings."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "ambivalence about / towards + person or choice; feelings of ambivalence",
+            "common_collocations": [
+              "ambivalence about moving",
+              "express ambivalence"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She felt ambivalence about the promotion: the work appealed to her, but the travel did not.",
+              "example_2": "His ambivalence towards the old house came from loving its history while resenting its upkeep."
+            },
+            "mini_conversation": "A: Are you pleased about the move?\nB: I feel some ambivalence. I want the new opportunity, but I will miss my friends.\nA: Both reactions make sense."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Using ambivalence as a synonym for complete indifference.",
+            "correction": "Use ambivalence for mixed or conflicting feelings; use indifference when someone does not particularly care.",
+            "important_difference": "Ambivalence is conflict between feelings; uncertainty is lack of a definite answer or judgement. You can know the facts and still feel ambivalent."
+          },
+          "memory_practice": {
+            "memory_trigger": "One part of you leans toward the choice while another pulls back.",
+            "memory_sentence": "I felt ambivalence about leaving a familiar place for a new opportunity.",
+            "recall_question": "What two competing feelings create ambivalence in your example?",
+            "recognition_task": "A: Excited by a move but sad about leaving friends. B: Uninterested in where you live. Which shows ambivalence?",
+            "production_task": "Describe a fictional career choice that produces ambivalence. Name the appealing aspect and the concern."
+          },
+          "advanced_nuance": [
+            "Ambivalence need not produce indecision: someone can make a clear choice while retaining mixed feelings. The source's humorous bivaling is wordplay, not the standard verb to teach."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 105,
+      "wordId": "0cd0d6e4-3fe0-4a33-806c-d621533ad836",
+      "senseKey": "during-the-period-before-a-later-event-or-arrangement",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "90ce4668392d7db084a8408fa313f71b5ec27b40b521fcb1d315dd61ae3a40f8",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "in the interim",
+        "wordType": "adverbial phrase",
+        "pronunciation": "/ɪn ði ˈɪn.tər.ɪm/",
+        "tamilMeaning": "அதுவரையிலான இடைக்காலத்தில்",
+        "englishMeaning": "during the period before a later event or arrangement",
+        "coreIdea": "During the temporary gap before the next arrangement begins.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Time connector for the temporary period before a later arrangement begins; here, before the new manager starts.",
+              "connotation": "Neutral: it identifies a temporary interval without judging the arrangement.",
+              "tone": "Practical and reassuring here: the sentence explains who will coordinate the team during the gap.",
+              "register": "Relatively formal, natural in workplace updates. “In the meantime” is more conversational."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "The new manager starts next month; in the interim, Priya will coordinate the team.",
+            "contextual_meaning": "during the period before a later event or arrangement",
+            "simple_explanation": "Priya will coordinate the team during the period before the new manager starts next month."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a temporary action or arrangement lasting until an expected later event."
+            ],
+            "when_not_to_use": [
+              "For a permanent arrangement with no relevant later transition, do not imply a temporary gap by saying in the interim."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "later event; in the interim, + temporary arrangement",
+            "common_collocations": [
+              "in the interim, continue as usual",
+              "in the interim, use a temporary arrangement"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The new manager starts next month; in the interim, Priya will coordinate the team.",
+              "example_2": "The library reopens in June; in the interim, readers can use the mobile service."
+            },
+            "mini_conversation": "A: The replacement printer arrives on Friday.\nB: What should we do in the interim?\nA: Use the printer upstairs."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: In interim, use the upstairs room.",
+            "correction": "Say: In the interim, use the upstairs room. Include the in this fixed phrase.",
+            "important_difference": "In the interim refers to the intervening period; eventually refers to a later outcome, without describing what happens during the gap."
+          },
+          "memory_practice": {
+            "memory_trigger": "A temporary bridge covers the gap between two settled arrangements.",
+            "memory_sentence": "The office reopens next week; in the interim, we will work from home.",
+            "recall_question": "Which later event marks the end of the interim period in the source?",
+            "recognition_task": "A: A temporary coordinator serves until the manager starts. B: A role is created permanently with no planned transition. Which fits in the interim?",
+            "production_task": "Announce a short temporary arrangement using in the interim and specify the event that will end it."
+          },
+          "advanced_nuance": [
+            "In the interim sounds more formal than in the meantime. It does not itself specify the duration, so name the later event or expected date when that matters."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ],
+  "lessonValidatorPassed": 10
+}

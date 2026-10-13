@@ -1,0 +1,844 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0086-0095",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 10,
+  "broaderLessonRepairProcessed": 10,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 86,
+      "wordId": "0a5591e2-6ed9-417b-abad-ad7042c3e4f0",
+      "senseKey": "openly-and-at-the-beginning-before-an-agreement-or-activity",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "698424d38b5c5cfadd44ea4885ffb033f65cbf9f23ec9c26966e7305800499ea",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "up front",
+        "wordType": "adverbial phrase",
+        "pronunciation": "/ʌp frʌnt/",
+        "tamilMeaning": "தொடக்கத்திலேயே வெளிப்படையாக",
+        "englishMeaning": "openly and at the beginning, before an agreement or activity",
+        "coreIdea": "Explain something openly before others commit or start.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract time-and-openness expression: disclose information clearly at the beginning, before others commit or plan.",
+              "connotation": "Positive here: early disclosure is presented as helpful transparency.",
+              "tone": "Polite and practical here: “Please explain” asks for limitations early enough to plan around them.",
+              "register": "Common conversational and workplace English. “At the outset” is more formal; this is not the advance-payment sense."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Please explain any limitations up front so that we can plan around them.",
+            "contextual_meaning": "openly and at the beginning, before an agreement or activity",
+            "simple_explanation": "The speaker asks for limitations to be disclosed at the beginning so they can be included in planning."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Ask for early, clear disclosure of requirements, limits or expectations."
+            ],
+            "when_not_to_use": [
+              "For information revealed only after the decision, use later or afterwards; up front would falsely imply early disclosure."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "explain / state / disclose + something + up front; be clear up front about + issue",
+            "common_collocations": [
+              "explain the limitations up front",
+              "state expectations up front"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Please explain any limitations up front so that we can plan around them.",
+              "example_2": "I told the organiser up front that I could stay for only an hour."
+            },
+            "mini_conversation": "A: When should I mention the restricted opening hours?\nB: Explain them up front, before people book.\nA: I will put them in the invitation."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Using up front for a restriction disclosed only after somebody has committed.",
+            "correction": "Say: The restriction should have been explained up front, but we only heard about it later.",
+            "important_difference": "Up front combines early timing with openness in this context; eventually merely says information became available later."
+          },
+          "memory_practice": {
+            "memory_trigger": "Put the important limitation on the first page before anyone signs.",
+            "memory_sentence": "Tell me up front if the deadline is unrealistic.",
+            "recall_question": "Why does up front matter when someone is about to make a commitment?",
+            "recognition_task": "A: Explain the limit before registration. B: Reveal it after the event begins. Which discloses it up front?",
+            "production_task": "Write two sentences explaining a project limitation up front, before your colleague agrees to the plan."
+          },
+          "advanced_nuance": [
+            "Up front here concerns early disclosure, not physical position or advance payment. The surrounding verb, such as explain or tell, makes that meaning clear."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 87,
+      "wordId": "0a5efb7f-d517-40ce-984e-9c24f082fc8d",
+      "senseKey": "signal-for-action",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a55c22243ed25f9d470a780acc6f661831dd8559faf6e5e5222f8ca82a821b1f",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "cue",
+        "wordType": "countable noun",
+        "pronunciation": "Approximate pronunciation: KYOO. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கவனிக்கவோ செயல்படவோ தூண்டும் குறிப்பு அல்லது அறிகுறி",
+        "englishMeaning": "a signal, sign, or prompt indicating that something should happen or be noticed",
+        "coreIdea": "A signal tells you to notice something or respond.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for a signal that prompts an action or helps someone notice something.",
+              "connotation": "Neutral: a cue supplies a prompt without determining whether the response is good or bad.",
+              "tone": "Direct and inquisitive here: the question asks the reader to identify signals, but does not itself specify their emotional significance.",
+              "register": "Neutral and common in learning, communication and performance contexts. Name the situation when “cues” alone would be unclear."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "What  are  your  cues?",
+            "contextual_meaning": "a signal, sign, or prompt indicating that something should happen or be noticed",
+            "simple_explanation": "The question asks which signals the reader recognises. The short quotation does not identify those signals or their precise situation."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a verbal, visual or other signal that prompts a response or alerts someone to a change."
+            ],
+            "when_not_to_use": [
+              "Do not call an explicit detailed instruction merely a cue if its full content matters; a cue is often a brief signal or prompt."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "a cue to + action; take a cue from + person or signal; a cue for + response",
+            "common_collocations": [
+              "a visual cue",
+              "take your cue from someone"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Her nod was my cue to begin the presentation.",
+              "example_2": "A flashing light gives the performers a visual cue when the music is about to start."
+            },
+            "mini_conversation": "A: How will I know when to start?\nB: I will raise my hand; that is your cue.\nA: I will watch for it."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Her nod was my queue to begin.",
+            "correction": "Use cue for a signal: Her nod was my cue to begin. Queue names a waiting line or sequence.",
+            "important_difference": "A cue prompts a response; a clue helps solve a question or mystery. A detail can serve either purpose depending on how it is used."
+          },
+          "memory_practice": {
+            "memory_trigger": "A raised hand signals that it is your turn to speak.",
+            "memory_sentence": "The director's nod was my cue to start.",
+            "recall_question": "What response does the cue prompt in your example?",
+            "recognition_task": "A: A light signals a performer to enter. B: A fingerprint helps solve a mystery. Which is primarily a cue rather than a clue?",
+            "production_task": "Agree on a simple cue with a presentation partner and explain what action it will signal."
+          },
+          "advanced_nuance": [
+            "A cue need not be deliberately given: a long pause can be a cue to ask whether someone has a question. Interpretation still depends on the situation, so a cue is not always an unambiguous instruction."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 88,
+      "wordId": "0a84d43c-d901-4586-aac1-59faed578d1c",
+      "senseKey": "calm-self-control",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3c50b9963c7bd44ab5fe2e454838d20210199d028343510d05d10ca67031d0eb",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "composure",
+        "wordType": "uncountable noun",
+        "pronunciation": "/kəmˈpəʊʒə(r)/",
+        "tamilMeaning": "மனஅமைதி",
+        "englishMeaning": "calm control of emotions and behaviour under pressure",
+        "coreIdea": "Keep outward calm when a situation is difficult.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for keeping calm and controlling reactions under pressure.",
+              "connotation": "Positive: it values emotional steadiness without implying that the person feels no emotion.",
+              "tone": "Admiring and curious here: the authors ask how Greta maintained calm while “under fire.”",
+              "register": "Neutral to formal; common in descriptions of difficult interactions. “Stay calm” is the everyday verbal equivalent."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "START  WITH  HEART  33  Later  that  day  we  asked  Greta  how  she had  been  able  to  keep  her  composure  under  fi re.",
+            "contextual_meaning": "calm control of emotions and behaviour under pressure",
+            "simple_explanation": "The authors ask how Greta stayed calm and controlled her reactions while facing criticism or pressure."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe controlled, calm behaviour during criticism, embarrassment or another stressful event."
+            ],
+            "when_not_to_use": [
+              "Do not assume composure means a person feels no fear or anger; the word concerns their controlled response."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "keep / maintain / regain / lose + your composure",
+            "common_collocations": [
+              "regain her composure",
+              "maintain composure under pressure"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She paused to regain her composure before answering the accusation.",
+              "example_2": "The host kept his composure when the microphone stopped working."
+            },
+            "mini_conversation": "A: How did you answer without raising your voice?\nB: I took a breath to regain my composure first.\nA: That gave you time to think."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: She regained a composure after the interruption.",
+            "correction": "Say: She regained her composure. Composure is normally uncountable in this sense.",
+            "important_difference": "Composure is controlled calm under pressure; indifference means not caring. A person can care deeply while maintaining composure."
+          },
+          "memory_practice": {
+            "memory_trigger": "Pause, breathe and answer steadily during a tense exchange.",
+            "memory_sentence": "He kept his composure despite the repeated interruptions.",
+            "recall_question": "Can someone maintain composure while feeling angry inside?",
+            "recognition_task": "A: Calmly answering a difficult question despite feeling nervous. B: Not caring about the question. Which better demonstrates composure?",
+            "production_task": "Describe a fictional speaker who regains their composure after an interruption. Show one observable action."
+          },
+          "advanced_nuance": [
+            "Regain composure implies a temporary loss of steadiness; maintain composure means preserving it. Neither phrase proves that the person feels relaxed internally."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 89,
+      "wordId": "0a857fff-a165-4c33-a221-c22b23e330b8",
+      "senseKey": "systematically-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ae98ba55d7366fce4abf6cc02cac07341102944be9bd379f9d5960d3bca05fd9",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "systematically",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: sis-tuh-MAT-ik-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒழுங்கான அல்லது தொடர்ச்சியான முறையில்",
+        "englishMeaning": "according to a consistent method or recurring pattern",
+        "coreIdea": "Happen according to a consistent pattern rather than isolated chance.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Adverb describing a consistent pattern; here, unfair outcomes recur for particular groups rather than appearing only as isolated accidents.",
+              "connotation": "Neutral by itself; “unfair outcomes” makes the described pattern undesirable.",
+              "tone": "Analytical here: the sentence uses recurring unfairness to explain what it means for a model to be biased.",
+              "register": "Common in research and professional explanations. It does not necessarily mean someone deliberately planned the unfairness."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "A model is biased if it produces systematically unfair outcomes for certain groups.",
+            "contextual_meaning": "according to a consistent method or recurring pattern",
+            "simple_explanation": "The sentence describes unfair outcomes recurring for certain groups in a consistent pattern. It does not say that someone deliberately planned the unfairness."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a repeated, consistent pattern in outcomes rather than an isolated result."
+            ],
+            "when_not_to_use": [
+              "A single isolated error is not enough to establish that outcomes are systematically unfair."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "systematically + verb / adjective; systematically different / excluded / unfair",
+            "common_collocations": [
+              "systematically excluded",
+              "systematically unfair outcomes"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The selection rule systematically excluded people whose records lacked a postal address.",
+              "example_2": "The old timetable systematically favoured early arrivals over people using the later bus."
+            },
+            "mini_conversation": "A: Is this just one unusual result?\nB: No. The same rule systematically disadvantages this group.\nA: Then we need to examine the pattern, not only this case."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Treating systematically as proof that someone intentionally designed an unfair result.",
+            "correction": "Systematically identifies a consistent pattern; evidence of intention must be established separately.",
+            "important_difference": "Systematically describes a patterned or methodical process; accidentally describes lack of intention. A recurring pattern can still arise without deliberate intent."
+          },
+          "memory_practice": {
+            "memory_trigger": "The same filter repeatedly leaves out the same kind of record.",
+            "memory_sentence": "The rule systematically excluded applications with incomplete addresses.",
+            "recall_question": "Does systematically unfair necessarily mean deliberately unfair?",
+            "recognition_task": "A: The same rule repeatedly disadvantages one group. B: One unrelated clerical mistake. Which supports the description systematically unfair?",
+            "production_task": "Describe an invented procedure that systematically leaves out one type of application. Explain the recurring rule without assuming anyone's motive."
+          },
+          "advanced_nuance": [
+            "Systematically can describe deliberate method, as in checking files systematically, or a consistent outcome pattern, as in the source. Here the pattern is the focus; the adverb alone does not establish intention."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 90,
+      "wordId": "0a8f6b55-c86d-45f2-91d2-de4324b3b373",
+      "senseKey": "an-updated-schedule-showing-when-planned-work-will-happen",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "b563fe1b34088f6448f5535dd76f1e3613e3f49764c506abe20ffc644a7b4ed3",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "revised timeline",
+        "wordType": "noun phrase",
+        "pronunciation": "/rɪˌvaɪzd ˈtaɪmlaɪn/",
+        "tamilMeaning": "திருத்தப்பட்ட கால அட்டவணை",
+        "englishMeaning": "an updated schedule showing when planned work will happen",
+        "coreIdea": "An existing schedule has been changed.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract scheduling phrase: an existing timetable has been changed to reflect a new plan.",
+              "connotation": "Neutral: a revision may be an improvement or a response to difficulty; the phrase alone does not imply failure.",
+              "tone": "Factual here: the sentence identifies an additional week for testing without blaming anyone.",
+              "register": "Common in workplace planning. “Updated schedule” is an equally natural, slightly plainer alternative."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "The revised timeline includes an extra week for testing.",
+            "contextual_meaning": "an updated schedule showing when planned work will happen",
+            "simple_explanation": "The updated schedule now allows an additional week for testing."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Refer to a schedule changed after an earlier version was circulated or agreed."
+            ],
+            "when_not_to_use": [
+              "For the first proposed schedule, use initial or proposed timeline rather than revised timeline."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "the revised timeline for + project; issue / share / follow + a revised timeline",
+            "common_collocations": [
+              "share the revised timeline",
+              "agree on a revised timeline"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The revised timeline includes an extra week for testing.",
+              "example_2": "Please use the revised timeline when booking volunteers for the exhibition."
+            },
+            "mini_conversation": "A: Is the launch still planned for Monday?\nB: No. The revised timeline moves it to Thursday.\nA: I will update the invitation."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Calling the first-ever project schedule the revised timeline.",
+            "correction": "Use revised timeline when an earlier schedule has changed; use initial timeline for the first version.",
+            "important_difference": "A revised timeline changes the schedule; a progress report describes how work is going and may leave the schedule unchanged."
+          },
+          "memory_practice": {
+            "memory_trigger": "An old date is crossed out and a new date is added.",
+            "memory_sentence": "The revised timeline gives us another week for testing.",
+            "recall_question": "What previous document or agreement is implied by revised timeline?",
+            "recognition_task": "A: The first schedule is created. B: An existing schedule is updated after a delay. Which produces a revised timeline?",
+            "production_task": "Announce a revised timeline for a small project. State one changed date and the reason for the change."
+          },
+          "advanced_nuance": [
+            "A revised timeline need not be longer than the original; dates can move earlier or tasks can be reordered. State the actual changes rather than assuming that revised means delayed."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 91,
+      "wordId": "0aa40551-e405-4dfe-8429-be30b5be4ed8",
+      "senseKey": "heavy-responsibility",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "904d89da41e2df01c925a01116cc7e40f5c7e0f45adcc967017afe1562959a4f",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "burden",
+        "wordType": "noun",
+        "pronunciation": "/ˈbɜːdən/",
+        "tamilMeaning": "ஒருவர்மீது சுமத்தப்படும் கடினமான பொறுப்பு, கடமை அல்லது பிரச்சினை",
+        "englishMeaning": "a difficult responsibility, duty, or problem placed on someone",
+        "coreIdea": "A responsibility feels like a heavy load.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative noun for a difficult responsibility, drawing on the idea of a heavy load someone must carry.",
+              "connotation": "Negative in this sense: it emphasizes the effort or pressure a responsibility places on a person.",
+              "tone": "Reassuring or defensive here: “I'm not trying” denies an intention to place that pressure on the listener.",
+              "register": "Common in both everyday and professional English. “Responsibility” is more neutral when the hardship is not the point."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "I'm  not  trying  to  put  the  burden  on  you.",
+            "contextual_meaning": "a difficult responsibility, duty, or problem placed on someone",
+            "simple_explanation": "The speaker denies intending to place a difficult responsibility or pressure on the listener."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Emphasise the strain caused by a duty, responsibility or problem."
+            ],
+            "when_not_to_use": [
+              "For a neutral allocation of ordinary work, responsibility or task may avoid the negative weight carried by burden."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "put / place a burden on + person; bear / share / ease the burden",
+            "common_collocations": [
+              "share the burden",
+              "ease the burden"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Managing every booking alone put a heavy burden on the organiser.",
+              "example_2": "The neighbours shared the burden of maintaining the community garden."
+            },
+            "mini_conversation": "A: I cannot organise the whole event by myself.\nB: You should not have to bear that burden alone.\nA: Let us divide the jobs among the group."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The extra work put a burden to her.",
+            "correction": "Say: The extra work put a burden on her. Use on for the person carrying the responsibility.",
+            "important_difference": "Responsibility identifies a duty; burden highlights its difficulty, pressure or cost to the person carrying it."
+          },
+          "memory_practice": {
+            "memory_trigger": "A heavy backpack represents too many responsibilities.",
+            "memory_sentence": "Sharing the work eased the burden on the team leader.",
+            "recall_question": "What extra feeling does burden add compared with responsibility?",
+            "recognition_task": "A: A difficult duty overwhelming one person. B: A small optional activity they enjoy. Which is more naturally called a burden?",
+            "production_task": "Ask a team to share a difficult responsibility. Use burden without blaming the person currently doing the work."
+          },
+          "advanced_nuance": [
+            "Calling a person a burden can sound deeply hurtful because it frames the person as a load. In this lesson the burden is the responsibility or problem; name it clearly when discussing workload."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 92,
+      "wordId": "0bb0590e-56d9-4926-9cf1-60d39a6e5803",
+      "senseKey": "used-to-ask-how-an-idea-is-carried-out-in-real-situations",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6dcbe3d385b47e25fdbf4a3870756e853e429fa4a1d4d5472aa69d78ab2ef490",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "how does that work in practice",
+        "wordType": "conversational question",
+        "pronunciation": "/haʊ dʌz ðæt wɜːk ɪn ˈpræktɪs/",
+        "tamilMeaning": "நடைமுறையில் அது எப்படிச் செயல்படும்?",
+        "englishMeaning": "used to ask how an idea is carried out in real situations",
+        "coreIdea": "Ask how a proposal operates in a real situation.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational question about implementation: ask how an idea functions in a real situation rather than only in theory.",
+              "connotation": "Neutral: it can request useful detail without rejecting the idea.",
+              "tone": "Practical and probing here: the manager's absence is offered as a specific situation to explain.",
+              "register": "Natural in professional and everyday discussions. The full question is clearer than an unexplained challenge such as “Really?”"
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "How does that work in practice when the manager is away?",
+            "contextual_meaning": "used to ask how an idea is carried out in real situations",
+            "simple_explanation": "The speaker asks how the arrangement functions when the manager is absent, making the question concrete."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Request steps, responsibilities or a realistic example after hearing a general proposal."
+            ],
+            "when_not_to_use": [
+              "Do not use a dismissive tone if you simply want clarification; follow the question with the situation you need explained."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "How does that work in practice + when / if + situation?",
+            "common_collocations": [
+              "how does that work in practice when someone is absent",
+              "how does that work in practice for a small team"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "How does that work in practice when the manager is away?",
+              "example_2": "How does that work in practice for a family sharing one car?"
+            },
+            "mini_conversation": "A: Any team member can approve a booking.\nB: How does that work in practice if two people approve it at once?\nA: The first approval locks the record."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: How that works in practice when someone is absent?",
+            "correction": "Ask: How does that work in practice when someone is absent? Use does before the subject and the base verb work.",
+            "important_difference": "How does that work in practice asks about implementation; why is that necessary asks for the reason behind the proposal."
+          },
+          "memory_practice": {
+            "memory_trigger": "Turn a diagram into the steps someone follows on a busy day.",
+            "memory_sentence": "How does that work in practice when two people need help at once?",
+            "recall_question": "Are you asking for the purpose of the idea or its actual operation?",
+            "recognition_task": "A: Ask who takes each step during a real incident. B: Ask who first invented the idea. Which answers how it works in practice?",
+            "production_task": "Respond to a proposal for shared equipment with how does that work in practice and add one realistic situation involving conflicting needs."
+          },
+          "advanced_nuance": [
+            "How does that work in practice can be curious or challenging depending on tone. A specific scenario helps make it a constructive request for detail instead of a vague expression of doubt."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 93,
+      "wordId": "0bb87de2-9767-4d9b-91a6-a6554be80fc1",
+      "senseKey": "dashboards-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d6a65e83c3de1011053d77079b5780e30c9564ceb3a72ded0c4d8fd1f6033d0d",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "dashboards",
+        "wordType": "plural noun",
+        "pronunciation": "Approximate pronunciation: DASH-bordz. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "முக்கிய அளவீடுகளை சுருக்கி கண்காணிக்கும் காட்சி இடைமுகங்கள்",
+        "englishMeaning": "visual interfaces that summarize and monitor important measurements",
+        "coreIdea": "Screens bring important measurements together for monitoring.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical noun for visual displays that bring important measurements together for monitoring; the computing use extends the vehicle-instrument image.",
+              "connotation": "Neutral: a dashboard can support monitoring but does not guarantee that problems will be detected.",
+              "tone": "Explanatory here: the sentence lists dashboards and automated alerts as ways some teams monitor drift.",
+              "register": "Standard workplace and software vocabulary. “A screen showing key measurements” is a useful explanation for new users."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Some teams build dashboards or set up an automated alert to catch drift early.",
+            "contextual_meaning": "visual interfaces that summarize and monitor important measurements",
+            "simple_explanation": "The source names dashboards as one way teams monitor model drift, alongside automated alerts."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe visual interfaces that gather key measurements or status information in one place."
+            ],
+            "when_not_to_use": [
+              "A dashboard is not automatically an alerting system; somebody may need to look at it to notice a change."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "build / view / monitor + dashboards; dashboards showing + measurements",
+            "common_collocations": [
+              "monitoring dashboards",
+              "interactive dashboards"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The operations team checks its dashboards for changes in response time.",
+              "example_2": "The school uses dashboards to summarise attendance across its classes."
+            },
+            "mini_conversation": "A: Where can I see the weekly totals?\nB: They are on the reporting dashboards.\nA: Do those update every day or only at the end of the week?"
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Assuming dashboards automatically notify users whenever a number changes.",
+            "correction": "Dashboards display information; check whether separate alerts are configured if notification is needed.",
+            "important_difference": "Dashboards present measurements visually; alerts actively draw attention to a condition. One system can provide both."
+          },
+          "memory_practice": {
+            "memory_trigger": "Several important gauges appear together on one screen.",
+            "memory_sentence": "Our dashboards show response times and recent errors together.",
+            "recall_question": "What is the difference between viewing dashboards and receiving alerts?",
+            "recognition_task": "A: A screen summarising several key measures. B: A single notification that a limit was crossed. Which is a dashboard?",
+            "production_task": "Describe two measurements you would include on dashboards for a small online service, and explain who would use them."
+          },
+          "advanced_nuance": [
+            "Dashboards summarise selected measurements, so their apparent completeness depends on what was chosen and when the data was refreshed. A clear dashboard can still omit an important problem."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 94,
+      "wordId": "0bba578f-0223-4c26-b5c1-4b506318d4c0",
+      "senseKey": "return-aggressively",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9d87a397c5ae7b69a05675ed2a122e4c05e3cbc839e48a7ea0240b43cb2af73e",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "come charging back",
+        "wordType": "verb phrase",
+        "pronunciation": "Approximate pronunciation: kum CHAR-jing BAK. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு பிரச்சினையையோ மோதலையோ மீண்டும் திடீரெனக் கடுமையாக அணுகுதல்",
+        "englishMeaning": "to return suddenly and aggressively to an issue or confrontation",
+        "coreIdea": "Return to a disagreement with sudden force.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative description of returning forcefully to a confrontation, like rushing back into a physical charge.",
+              "connotation": "Negative or cautionary here: it suggests an aggressive return rather than a calm resumption.",
+              "tone": "Challenging and self-reflective here: the question asks readers to notice a pattern of withdrawal followed by forceful confrontation.",
+              "register": "Vivid conversational or narrative wording. “Return to the discussion aggressively” is more explicit in a behaviour report."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Do  you  walk  away  from  some  issues  only  to  come  charging  back  into  other s?",
+            "contextual_meaning": "to return suddenly and aggressively to an issue or confrontation",
+            "simple_explanation": "The question asks whether the reader withdraws from some issues but returns forcefully to others. Charging makes the return sound aggressive rather than calm."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe someone re-entering a dispute or discussion abruptly and forcefully."
+            ],
+            "when_not_to_use": [
+              "For a calm return to an unfinished topic, use come back to the issue or resume the discussion."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "come charging back into + discussion; come charging back with + accusation",
+            "common_collocations": [
+              "come charging back into the argument",
+              "come charging back with another accusation"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "He left the discussion, only to come charging back with another accusation.",
+              "example_2": "Please do not come charging back into the argument before everyone has calmed down."
+            },
+            "mini_conversation": "A: I need a break from this discussion.\nB: Take one, but let us return calmly rather than come charging back with more accusations.\nA: Agreed. We can talk again after lunch."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Using come charging back to describe an entirely calm, measured return without intending a contrast.",
+            "correction": "Use come charging back for a forceful return; say resume the discussion for a neutral return.",
+            "important_difference": "Come back describes returning; come charging back adds speed, force and, in this confrontation sense, aggression."
+          },
+          "memory_practice": {
+            "memory_trigger": "Someone returns to the room already launching another accusation.",
+            "memory_sentence": "He was ready to come charging back into the debate.",
+            "recall_question": "What attitude does charging add to come back here?",
+            "recognition_task": "A: Return quietly and ask to clarify one point. B: Return abruptly with angry accusations. Which better fits come charging back?",
+            "production_task": "Describe a fictional disagreement in which someone is tempted to come charging back, then chooses a calmer response."
+          },
+          "advanced_nuance": [
+            "Come charging back borrows the force of a physical charge to describe conversational behaviour. The person need not literally run; it is the abrupt, aggressive return that matters in this sense."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 95,
+      "wordId": "0bc1ce57-38f8-4dc4-a554-2aacd65f54b8",
+      "senseKey": "a-problem-that-delays-or-reverses-progress",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "70c12759dd7da82f88d6d6236e0e48e6180c57a51f0eedf504eee86b330f0f76",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "setback",
+        "wordType": "countable noun",
+        "pronunciation": "/ˈsetbæk/",
+        "tamilMeaning": "முன்னேற்றத்தை தாமதப்படுத்தும் பின்னடைவு",
+        "englishMeaning": "a problem that delays or reverses progress",
+        "coreIdea": "A difficulty pushes progress backwards or delays it.",
+        "lesson": {
+          "format_version": "simplified-v2",
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for a problem that interrupts, delays or reverses progress.",
+              "connotation": "Negative but often limited: it names a difficulty without necessarily implying total failure.",
+              "tone": "Resilient and matter-of-fact here: losing the venue is acknowledged, then balanced by finding another hall.",
+              "register": "Neutral and common in everyday and workplace English. Its severity depends on the situation; it is not automatically a minor problem."
+            }
+          },
+          "meaning_in_context": {
+            "source_sentence": "Losing the venue was a setback, but we found another hall.",
+            "contextual_meaning": "a problem that delays or reverses progress",
+            "simple_explanation": "Losing the venue disrupted the plan, but the organisers recovered by finding another hall."
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a problem that interrupts progress toward a goal."
+            ],
+            "when_not_to_use": [
+              "Do not automatically treat a setback as the final failure of the whole effort; the work may continue or recover."
+            ]
+          },
+          "patterns_collocations": {
+            "main_pattern": "suffer / face / overcome + a setback; a setback for + plan",
+            "common_collocations": [
+              "a major setback",
+              "overcome a setback"
+            ]
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Losing the venue was a setback, but we found another hall.",
+              "example_2": "A broken sewing machine caused a setback in her plans for the exhibition."
+            },
+            "mini_conversation": "A: The first venue is no longer available.\nB: That is a setback, but we still have two alternatives.\nA: I will contact them today."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Mistake: Assuming a setback means the project has permanently failed.",
+            "correction": "Say: We faced a setback and need to revise the plan. Reserve failed for an outcome that actually warrants it.",
+            "important_difference": "A setback hinders progress; a failure names an unsuccessful outcome. A setback may contribute to failure, but does not necessarily lead to it."
+          },
+          "memory_practice": {
+            "memory_trigger": "A marker moves backwards on a progress chart, then starts forward again.",
+            "memory_sentence": "The delay was a setback, but it did not end the project.",
+            "recall_question": "Can a project succeed after suffering a setback?",
+            "recognition_task": "A: A delay requires a new schedule but work continues. B: The goal is achieved on time. Which is a setback?",
+            "production_task": "Describe a setback in a fictional community event and one practical action that helps the team recover."
+          },
+          "advanced_nuance": [
+            "Setback does not mean minor. Major setback and serious setback are natural combinations; the surrounding description establishes severity and prospects of recovery."
+          ]
+        }
+      },
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "scope": "All eight sections; exact original source quotation and same-sense identity preserved. No audio or local database verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ],
+  "lessonValidatorPassed": 10
+}
