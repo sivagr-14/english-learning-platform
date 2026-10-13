@@ -1,0 +1,1463 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "scope": "Additive Tamil and pronunciation-text review; preserves immutable original Overview receipt. Not an import payload.",
+  "firstOrdinal": 151,
+  "lastOrdinal": 200,
+  "entryCount": 50,
+  "corrections": [
+    {
+      "ordinal": 151,
+      "wordId": "146335d7-abb0-4d7a-a880-817114089578",
+      "word": "tragedy",
+      "senseKey": "terrible-event",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "da1d639f21cc410f75f7140343037ebee47228bc39f8de2145af24b55d3453f6",
+      "meaning": "a very sad or disastrous event",
+      "source": "How  could  this  tragedy  happen?",
+      "pronunciation": {
+        "before": "/tragedy/",
+        "value": "Approximate pronunciation: TRAJ-uh-dee. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a very sad or disastrous event",
+        "value": "மிகுந்த துயரத்தை ஏற்படுத்தும் நிகழ்வு அல்லது பேரிழப்பு",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 152,
+      "wordId": "14724b6c-f91b-4fd6-b1ed-1a923756cc1c",
+      "word": "neatly",
+      "senseKey": "in-tidy-precise-way",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "fb1ed92754275b91c079f669644c7e019a24b405b6b1b084aa32a88237a3e852",
+      "meaning": "in a tidy, orderly, or precise way",
+      "source": "Tw o  tiny  organs  seated  neatly  atop  your  kidneys  pump  adrenaline  into your  bloodstream.",
+      "pronunciation": {
+        "before": "/neatly/",
+        "value": "Approximate pronunciation: NEET-lee. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: in a tidy, orderly, or precise way",
+        "value": "ஒழுங்காக; நேர்த்தியாக",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 153,
+      "wordId": "1476967e-bd99-4e22-ada3-b9ef7740780e",
+      "word": "gushy",
+      "senseKey": "overly-emotional",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a97e2741cff596ce0177a1c9a729565ebe6b39e19515b849a95ed09952c6157a",
+      "meaning": "excessively emotional, sentimental, or enthusiastic",
+      "source": "Surely  a  soft-and­ gushy  factor  such  as  how  you  talk  to  one  another  doesn't  have  an  impact  on  the  not  so  soft-and-gushy  bottom  line.",
+      "pronunciation": {
+        "before": "/gushy/",
+        "value": "Approximate pronunciation: GUSH-ee. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: excessively emotional, sentimental, or enthusiastic",
+        "value": "அளவுக்கு மீறி உணர்ச்சியை வெளிப்படுத்துகிற",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 154,
+      "wordId": "148fc95c-6352-4728-adcd-691c59a3fa85",
+      "word": "drift",
+      "senseKey": "drift-ml-context",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7d6be1ef3d4277a21cf3d47081398d11731091fb2bdaccf3d9cbc4a2cea848e2",
+      "meaning": "a change over time in data or in the relationship a model has learned",
+      "source": "Now that it's live, we need to monitor and maintain it, and this means we'll be tracking the performance, detecting drift, and updating the model if needed.",
+      "pronunciation": {
+        "before": "/drɪft/",
+        "value": "/drɪft/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "காலப்போக்கில் தரவு அல்லது உறவின் மாற்றம்",
+        "value": "காலப்போக்கில் தரவு அல்லது உறவின் மாற்றம்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 155,
+      "wordId": "14cc278b-9158-440b-b21a-c6d9979ba3f3",
+      "word": "a hoot",
+      "senseKey": "very-amusing-experience",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4d24af1e6c7371c651de1da7483d5e3f6c0807a6b79164bfe5134e9a07d0a666",
+      "meaning": "a very funny or entertaining person, event, or experience",
+      "source": "It  was  a  hoot.",
+      "pronunciation": {
+        "before": "/a hoot/",
+        "value": "Approximate pronunciation: uh HOOT. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a very funny or entertaining person, event, or experience",
+        "value": "மிகவும் வேடிக்கையான நபர் அல்லது அனுபவம்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 156,
+      "wordId": "1504fb92-72da-482d-8ff8-c49505381035",
+      "word": "look into",
+      "senseKey": "to-investigate-something-to-understand-or-resolve-it",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "227e522bfdc7357237bb5991a32e99b141db53af3ea84e450918b5f2b660f1ad",
+      "meaning": "to investigate something to understand or resolve it",
+      "source": "The landlord promised to look into the heating problem.",
+      "pronunciation": {
+        "before": "/lʊk ˈɪntuː/",
+        "value": "/lʊk ˈɪntuː/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "ஆராய்ந்து தெரிந்துகொள்ளுதல்",
+        "value": "ஆராய்ந்து தெரிந்துகொள்ளுதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 157,
+      "wordId": "1518cb5b-14b2-4bf0-84dd-81135713cbf5",
+      "word": "interfere",
+      "senseKey": "become-unwanted-involved",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4159e62703aeafe2adf7b474bd9562e5ddaaae3a30b68c3ce9aad3e9f59c95a7",
+      "meaning": "to become involved in a way that obstructs or disrupts",
+      "source": "Other  topics  that  could  easily  lead  to  disaster  include  •  Ending  a  relationship  •  Talking  to  a  coworker  who  behaves  offen sively  or  makes  sugges­ tive  comments  •  Asking  a  friend  to  repay  a  loan  •  Giving  the  boss  fee dback  about  her  behavior  •  Approaching  a  boss  who  is  breaking  his  own  safety  or  quality  policies  •  Critiquing  a  colleague's  work  •  Asking  a  roommate  to  move  out  •  Resolving  custody  or  visitation  issues  with  an  ex-spouse  •  Dealing  with  a  rebellious  teen  •  Ta lking  to  a  team  member  who  isn't  keeping  commitments  •  Discussi ng  problems  with  sexual  intimacy  •  Confronting  a  loved  one  about  a  subs tance  abuse  problem  •  Talking to  a  colleague  who  is  hoarding  inf onnation  or  resources  •  Giving  an  unf avorab le  performance review  •  Asking  in-laws  to  quit  interfering  •  Talking  to  a  coworker  about  a  personal  hygiene  problem  OUR  AUDACIOUS  CLAI M  Let's  say  that  either  you  avoid  tough  issues  or  when  you  do  bring  them  up,   you're  on  your  worst  behavior.",
+      "pronunciation": {
+        "before": "/interfere/",
+        "value": "Approximate pronunciation: in-ter-FEER. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to become involved in a way that obstructs or disrupts",
+        "value": "இடையூறு ஏற்படுத்தும் வகையில் தலையிடுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 158,
+      "wordId": "1534730c-65d2-4d7a-807c-b1acce88c14c",
+      "word": "observation",
+      "senseKey": "careful-noticing",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5ab8ecacbc99e0fdc6da5b8e416f14e02bd4827b4e7eea37f4dcd1c592657fd2",
+      "meaning": "the act or result of carefully noticing what happens",
+      "source": "Afterward  we  compared  our  observations,  tested  our  hy potheses,  and  honed  our  models  until  we found  the  skills  that  consistently  explain  the  success  of  brilliant  communi cators .",
+      "pronunciation": {
+        "before": "/observation/",
+        "value": "Approximate pronunciation: ob-zer-VAY-shuhn. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the act or result of carefully noticing what happens",
+        "value": "கவனித்தறிந்த விஷயம் அல்லது கவனித்தறிதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 159,
+      "wordId": "1547e652-5518-45fe-aa4f-d85f8e611b09",
+      "word": "entry condition",
+      "senseKey": "required-precondition",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c630ce4dcb92527e785f0084e97aab871643b33480839e7ba11d4000c6c3e227",
+      "meaning": "a condition that must be met before participation or progress is possible",
+      "source": "Consequ ent ly,  Mutual  Purpo se  is  the  entry  condition  of  dialogue.",
+      "pronunciation": {
+        "before": "/entry condition/",
+        "value": "Approximate pronunciation: EN-tree kuhn-DISH-uhn. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a condition that must be met before participation or progress is possible",
+        "value": "தொடங்குவதற்கு முன் நிறைவேற வேண்டிய நிபந்தனை",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 160,
+      "wordId": "159c92bd-ed23-431c-a996-026098ebd586",
+      "word": "hard-earned",
+      "senseKey": "gained-through-effort",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "1c9b527cb00d64d4910a84604ce6c749ece57815eab556fb91ca60e8a8500a22",
+      "meaning": "gained only after considerable effort or work",
+      "source": "\"  Meaning:  I  can't  jus tify  spending  our  hard-earned  savings  on  this  expensive  toy ,  but  I  really  want  it.",
+      "pronunciation": {
+        "before": "/hard-earned/",
+        "value": "Approximate pronunciation: HARD URND. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: gained only after considerable effort or work",
+        "value": "கடுமையாக உழைத்துப் பெற்ற",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 161,
+      "wordId": "15a18488-6612-4fe3-938e-98ead5ab1390",
+      "word": "peak",
+      "senseKey": "highest-level",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e0004deeb67e93ae6efc056738a5dc3c4b188045ad132bf3ef37fd63bcc9c03b",
+      "meaning": "the highest level of performance, intensity, or achievement",
+      "source": "For  examp le,  one  study  of  five  hundred  stunningly  productive  organizations  revealed  that  peak  performance  had  absolutely  nothing  to   do  with  fo rms,  pro­ cedures,  and  policies  that  drive  performance  manageme nt.",
+      "pronunciation": {
+        "before": "/peak/",
+        "value": "Approximate pronunciation: PEEK. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the highest level of performance, intensity, or achievement",
+        "value": "மிக உயர்ந்த நிலை; உச்சம்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 162,
+      "wordId": "15b73f7a-42d8-442a-971b-50ed59d71661",
+      "word": "generalize",
+      "senseKey": "generalize-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c7bf53178863784c1e7db0df4780cfcb46cecd3e852f04e262a5586e3f9acccc",
+      "meaning": "apply learned patterns successfully to new unseen data",
+      "source": "Overfitting is when your model learns the training data too well and fails to generalize the lessons learned to new data, so it only works with the training data.",
+      "pronunciation": {
+        "before": "/generalize/",
+        "value": "Approximate pronunciation: JEN-er-uh-lyz. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "கற்றதை புதிய தரவிலும் சரியாகப் பயன்படுத்துதல்",
+        "value": "கற்றதை புதிய தரவிலும் சரியாகப் பயன்படுத்துதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 163,
+      "wordId": "15e719af-7c08-478a-bc3a-cbf1fa88b406",
+      "word": "check on",
+      "senseKey": "to-find-out-whether-someone-or-something-is-all-right",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "53078be8a7d83adaa71909e0ab833e775b166bcf2ea1f62f144c0759f519d221",
+      "meaning": "to find out whether someone or something is all right",
+      "source": "I will check on our neighbour after the storm.",
+      "pronunciation": {
+        "before": "/tʃek ˈɒn/",
+        "value": "/tʃek ˈɒn/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "நலமாக அல்லது சரியாக உள்ளதா பார்ப்பது",
+        "value": "நலமாக அல்லது சரியாக உள்ளதா பார்ப்பது",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 164,
+      "wordId": "160618ac-f2bb-40e6-a4b9-f347db539f53",
+      "word": "attributes",
+      "senseKey": "attributes-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "06258c9ce5c2a12c2bf4ba0332aaebe012b7d8131aa6cdd2d67b368195bfd8af",
+      "meaning": "measurable characteristics or properties of an entity",
+      "source": "Just to name some examples, we have SHAP, which breaks down a prediction and attributes it to each input feature.",
+      "pronunciation": {
+        "before": "/attributes/",
+        "value": null,
+        "decision": "blocked",
+        "kind": "unresolved_homograph",
+        "status": "blocked_pending_sense_resolution",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "அளவிடக்கூடிய பண்புகள்",
+        "value": null,
+        "decision": "blocked",
+        "status": "blocked_pending_sense_resolution"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Blocked: noun attributes has first-syllable stress; source verb attributes has second-syllable stress. Neither a single contextual Tamil value nor pronunciation is approved until source-sense conflict is resolved.",
+      "status": "blocked_sense_conflict"
+    },
+    {
+      "ordinal": 165,
+      "wordId": "160a2a28-d33e-49a3-a2cf-cba501dee40f",
+      "word": "reprogram your mind",
+      "senseKey": "change-habitual-thinking",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4453323c1a520bed38ea415d97eb5ec3bc686c2f9e6c102b1a0e204d7268394f",
+      "meaning": "to deliberately change one’s habitual patterns of thought",
+      "source": "To  help  catch  problems  ear ly,  reprogram  your  mind  to  pay  attention  to  the  signs  that  suggest  you're  in  a  crucial  conver sa­ tion.",
+      "pronunciation": {
+        "before": "/reprogram your mind/",
+        "value": "Approximate pronunciation: ree-PROH-gram yer MYND. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to deliberately change one’s habitual patterns of thought",
+        "value": "பழக்கமான சிந்தனை முறைகளைத் திட்டமிட்டு மாற்றியமைத்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 166,
+      "wordId": "160bbf88-5f20-4c78-a856-d8f4f5e9e27b",
+      "word": "as agreed",
+      "senseKey": "referring-to-a-decision-or-commitment-previously-accepted",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "00d286d15a357b78c316449b3efa81ea8b45622255e9b3a956bbec914f87fd1a",
+      "meaning": "referring to a decision or commitment previously accepted",
+      "source": "As agreed, the first review will take place on Monday.",
+      "pronunciation": {
+        "before": "/əz əˈɡriːd/",
+        "value": "/əz əˈɡriːd/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "முன்பு ஒப்புக்கொண்டபடி",
+        "value": "முன்பு ஒப்புக்கொண்டபடி",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 167,
+      "wordId": "1645b391-fe88-4fcf-b202-bae872b3bec7",
+      "word": "stream",
+      "senseKey": "continuous-sequence",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "488412ed7f4ce21d5f628ea99b2e9d90c1a5c5de4ecbde6e2dbea309260cec23",
+      "meaning": "a continuous sequence or flow of events or things",
+      "source": "Although  it' s  true  that  there  are  times  when  we  are  merely  bystanders  in  life's  never-ending  stream  of  head-on  collisions,  rarely are  we  completely  in nocent .",
+      "pronunciation": {
+        "before": "/stream/",
+        "value": "Approximate pronunciation: STREEM. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a continuous sequence or flow of events or things",
+        "value": "தொடர்ச்சியாக நிகழும் ஓட்டம் அல்லது வரிசை",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 168,
+      "wordId": "166a8e12-dc55-4be4-885c-0e31953d41c7",
+      "word": "leeway",
+      "senseKey": "an-allowed-amount-of-freedom-or-variation-around-a-requirement",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "361effec0e7a84f63cd6174e7db327d6a9c9304889f6de9ebb29d802fa757171",
+      "meaning": "an allowed amount of freedom or variation around a requirement",
+      "source": "There is some leeway in the word limit, but keep it close to two thousand.",
+      "pronunciation": {
+        "before": "/ˈliː.weɪ/",
+        "value": "/ˈliː.weɪ/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "விதியில் அனுமதிக்கப்படும் சிறிய தளர்வு",
+        "value": "விதியில் அனுமதிக்கப்படும் சிறிய தளர்வு",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 169,
+      "wordId": "16a8318a-ec94-4c03-8e00-7fb6dc9ce9fc",
+      "word": "mitigate",
+      "senseKey": "mitigate-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3e51b1a0ca49772be48dc753912e3ffb2916e4def615b6f384bb5096f2754e81",
+      "meaning": "reduce the severity, harm, or risk of something",
+      "source": "To detect and mitigate bias, they monitor fairness metrics for every client.",
+      "pronunciation": {
+        "before": "/mitigate/",
+        "value": "Approximate pronunciation: MIT-ih-gayt. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தீவிரம் அல்லது ஆபத்தை குறைத்தல்",
+        "value": "தீவிரம் அல்லது ஆபத்தை குறைத்தல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 170,
+      "wordId": "16b4220e-07d6-4ba9-b66c-860b1b12cebf",
+      "word": "kindergarten",
+      "senseKey": "early-childhood-class",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "872834c6c562b7eead9b560bece31cd3f264e7b7b0c6fd248bbe8e4316e2e5e1",
+      "meaning": "the first stage of formal schooling for young children",
+      "source": "Ten  minutes  into  kindergarten  we  learn  that  if  we  want  to  get  the  teacher's  attention,  we  have  to  spout  the  right  answer.",
+      "pronunciation": {
+        "before": "/kindergarten/",
+        "value": "Approximate pronunciation: KIN-der-gar-tuhn. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the first stage of formal schooling for young children",
+        "value": "சிறு குழந்தைகளுக்கான தொடக்கநிலைக் கல்வி வகுப்பு",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 171,
+      "wordId": "16bb2fbc-bc97-4d03-aa32-393f5c5e219a",
+      "word": "lead time",
+      "senseKey": "the-time-needed-between-requesting-something-and-receiving-it",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2a5a2f96f41bda48cc99481f04ba951bef2ff694bf61e4911f498e0893c13b2d",
+      "meaning": "the time needed between requesting something and receiving it",
+      "source": "The supplier needs a lead time of three weeks.",
+      "pronunciation": {
+        "before": "/ˈliːd taɪm/",
+        "value": "/ˈliːd taɪm/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "கோரிக்கை முதல் கிடைக்கும் வரை தேவைப்படும் காலம்",
+        "value": "கோரிக்கை முதல் கிடைக்கும் வரை தேவைப்படும் காலம்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 172,
+      "wordId": "16d07430-1625-4fb8-b9e9-257ee0610ddf",
+      "word": "release your grip on",
+      "senseKey": "stop-controlling-tightly",
+      "senseRank": 3,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b5ccdbbe39e6a88f627051071cd2af10a1ae836c7cc3aabd51fec6cf7b804f41",
+      "meaning": "to stop holding onto or controlling an idea or strategy so tightly",
+      "source": "When  you  release  your  grip  on  your  strategy  and  fo cus  on  your  real  pur­ pose,  you open  up  the  possibility  of  fi nding  new  alternatives  that  can  serve  Mutual  Purpos e.",
+      "pronunciation": {
+        "before": "/release your grip on/",
+        "value": "Approximate pronunciation: rih-LEES yer GRIP on. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to stop holding onto or controlling an idea or strategy so tightly",
+        "value": "ஒரு யோசனை அல்லது உத்தியைப் பிடிவாதமாகப் பற்றிக்கொள்வதை விடுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 173,
+      "wordId": "17265bcf-e1b0-4060-9857-52fe5612c9bc",
+      "word": "blend",
+      "senseKey": "combine-smoothly",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4cc2176e22a458e9091561b093ae62b8a2a5375a7575eab1d3773a1ad8ab043f",
+      "meaning": "to combine different elements smoothly into a whole",
+      "source": "They show  how  to  effe ctively  blend and  use  both  intellectual  (1.",
+      "pronunciation": {
+        "before": "/blend/",
+        "value": "Approximate pronunciation: BLEND. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to combine different elements smoothly into a whole",
+        "value": "வெவ்வேறு கூறுகளைச் சீராக ஒன்றிணைத்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Source ends mid-expression after 'intellectual (1.'; translation follows the recorded combine sense.",
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 174,
+      "wordId": "176f21fe-8d58-4699-9203-8cf13038ad22",
+      "word": "blame",
+      "senseKey": "hold-responsible",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6586dfa920d9d671ffad636df918fe881029bda09afd7e0712cc54d05a591722",
+      "meaning": "to hold someone responsible for a fault or problem",
+      "source": "Afraid  to  confront  an  indi vidual,  we  blame  an  entire  team  for  a  problem-hoping  the  mess age  will  hit  the  right  target.",
+      "pronunciation": {
+        "before": "/blame/",
+        "value": "Approximate pronunciation: BLAYM. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to hold someone responsible for a fault or problem",
+        "value": "ஒரு தவறு அல்லது பிரச்சினைக்கு ஒருவரைப் பொறுப்பாக்கிக் குற்றம் சாட்டுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 175,
+      "wordId": "178ab364-5cbc-403f-99de-dc90d6fa22eb",
+      "word": "nominal",
+      "senseKey": "nominal-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c7c87b356d0644803b150b5f9c445825790945de8f5a972d3b3a7d83992d358b",
+      "meaning": "having named categories without an inherent order",
+      "source": "That's useful when your categories are nominal, like job titles or countries.",
+      "pronunciation": {
+        "before": "/nominal/",
+        "value": "Approximate pronunciation: NOM-ih-nuhl. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "உள்ளார்ந்த வரிசையற்ற பெயர்வகை",
+        "value": "இயல்பான தரவரிசை இல்லாத பெயர் வகைகளைக் கொண்ட",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 176,
+      "wordId": "1797fd26-63af-477a-a185-8e358e77497d",
+      "word": "significantly",
+      "senseKey": "significantly-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a1d2d8c485d1591d9f6dac985823af5dc034611b0996b4bc6dc869742e69ef4f",
+      "meaning": "to an important or noticeable degree",
+      "source": "Has the input data changed significantly?",
+      "pronunciation": {
+        "before": "/significantly/",
+        "value": "Approximate pronunciation: sig-NIF-ih-kuhnt-lee. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "குறிப்பிடத்தக்க அளவில்",
+        "value": "குறிப்பிடத்தக்க அளவில்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 177,
+      "wordId": "17a9a028-5c6c-43a8-b67e-453d8f39c96f",
+      "word": "underperform",
+      "senseKey": "perform-below-standard",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bfbb69cd48a46c3a608eaef8a6b9a79a7d61e838efa90e9f8f32faf95bde3693",
+      "meaning": "to perform less well than expected or required",
+      "source": "If  an  employee  underperform s,  fa ils  to  live  up  to  a  promi se,  doesn't  carry  his  or  her  fair  share,  or  simply isn't  productive  enough,  the  affe cted  parties  address  the  problem  immediat ely.",
+      "pronunciation": {
+        "before": "/underperform/",
+        "value": "Approximate pronunciation: un-der-per-FORM. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to perform less well than expected or required",
+        "value": "எதிர்பார்த்த அளவைவிடக் குறைவாகச் செயல்படுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 178,
+      "wordId": "1815ba9e-18ab-4046-8c59-8f599ca3d1b8",
+      "word": "check in",
+      "senseKey": "to-make-contact-to-see-how-someone-is-doing",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "68f0c26cc4ba19affea4b190db1df134bd7e6f09bcf6db5fe95cf7159ffaa793",
+      "meaning": "to make contact to see how someone is doing",
+      "source": "I will check in with you tomorrow to see how the first day went.",
+      "pronunciation": {
+        "before": "/tʃek ˈɪn/",
+        "value": "/tʃek ˈɪn/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "நலம் அல்லது நிலவரம் அறிய தொடர்புகொள்வது",
+        "value": "நலம் அல்லது நிலவரம் அறிய தொடர்புகொள்வது",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 179,
+      "wordId": "1879a96f-572f-46e8-9d98-3c1d314b00c0",
+      "word": "investment",
+      "senseKey": "commitment-of-resources",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "712ea5d725ea0b37e471d8f2aaf0db05539d49c09f2bd9c53dd4d2a602447c6c",
+      "meaning": "the commitment of time, money, or effort for a future benefit",
+      "source": "22   CRUCIAL  CONVE RSATI ONS  increased time  investment  is  more  than  of fset by  the  quality of  the  decision.",
+      "pronunciation": {
+        "before": "/investment/",
+        "value": "Approximate pronunciation: in-VEST-muhnt. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: the commitment of time, money, or effort for a future benefit",
+        "value": "எதிர்காலப் பயனுக்காக நேரம், பணம் அல்லது உழைப்பைச் செலவிடுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 180,
+      "wordId": "18aa92dd-77c3-45e0-9dfa-7e71aaa9adeb",
+      "word": "break out",
+      "senseKey": "begin-suddenly-fight",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bb914058e456ac60578500ea76159dc4c41fedb54e5837f5bf96ea66abec1c06",
+      "meaning": "to begin suddenly, especially when referring to a fight, war, or disorder",
+      "source": "Since  the  bathroom  is  a  one-hole r,  it  isn't  long  until  a  fight  breaks  out.",
+      "pronunciation": {
+        "before": "/breɪk aʊt/",
+        "value": "/breɪk aʊt/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "சண்டை, போர் அல்லது குழப்பம் போன்றது திடீரெனத் தொடங்கு",
+        "value": "சண்டை, போர் அல்லது குழப்பம் திடீரெனத் தொடங்குதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 181,
+      "wordId": "18b768d4-3df4-4345-b9bb-ba746c41ddf9",
+      "word": "engage in",
+      "senseKey": "participate-in-an-activity",
+      "senseRank": 3,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4cf3a96737c082a3e5a0ff2fb5ea43d77ab9393def17b2953a7c28051beba0dc",
+      "meaning": "to take part in or become involved in an activity",
+      "source": "Instead  of  engaging  in  healthy  dia­ logue,  we  play  silly  and  costly  games.",
+      "pronunciation": {
+        "before": "/ɪnˈɡeɪdʒ ɪn/",
+        "value": "/ɪnˈɡeɪdʒ ɪn/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "ஒரு செயலில் பங்கேற்பது அல்லது ஈடுபடுவது",
+        "value": "ஒரு செயலில் பங்கேற்பது அல்லது ஈடுபடுவது",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 182,
+      "wordId": "18c432b5-403f-4e0d-a44e-c00a4b2e5480",
+      "word": "influential",
+      "senseKey": "able-to-affect-others",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "771db1b756e728a44732d4b87991d3140dc5038c17bc6771748770fd12bbc239",
+      "meaning": "having enough power or importance to affect decisions or behaviour",
+      "source": "We  wanted  to  find  those  who  were  not  just  influent ial,  but  who  were  far more  influential  than  the  rest.",
+      "pronunciation": {
+        "before": "/ˌɪnfluˈenʃəl/",
+        "value": "/ˌɪnfluˈenʃəl/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "செல்வாக்குள்ள",
+        "value": "செல்வாக்குள்ள",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 183,
+      "wordId": "18f9510f-def6-46ec-873a-0e66ffd8e897",
+      "word": "as far as",
+      "senseKey": "used-with-a-stated-limit-to-restrict-a-claim",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "db330989cd6cc1021aa6d73c8113bf304e6a9dd957022720500ebc1fabdc60a0",
+      "meaning": "used with a stated limit to restrict a claim",
+      "source": "As far as I know, the booking has been confirmed.",
+      "pronunciation": {
+        "before": "/əz ˈfɑːr əz/",
+        "value": "/əz ˈfɑːr əz/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "அறிவு அல்லது வரம்பிற்கு உட்பட்டு",
+        "value": "அறிவு அல்லது வரம்பிற்கு உட்பட்டு",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 184,
+      "wordId": "192dfb66-bcda-4069-bcc2-9053ac9fb388",
+      "word": "plunge on ahead",
+      "senseKey": "continue-impulsively",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ac2075e326c2ef9096e692f3e7fdcd1dc4eae98e00cfc8355f43153fadc158f1",
+      "meaning": "to continue forward quickly without pausing to consider difficulties",
+      "source": "The  manager  plunges  on  ahead.",
+      "pronunciation": {
+        "before": "/plunge on ahead/",
+        "value": "Approximate pronunciation: plunj on uh-HED. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to continue forward quickly without pausing to consider difficulties",
+        "value": "சிரமங்களைச் சிந்திக்காமல் வேகமாகத் தொடர்ந்து முன்னேறுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 185,
+      "wordId": "19541268-1090-49d6-9135-6484a45b3579",
+      "word": "strictly speaking",
+      "senseKey": "according-to-the-exact-meaning-definition-or-rule",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "161055a2d4dff1e170cfd83142c31b76ef50e226d7cbebeb5bdf90c50d68d9f0",
+      "meaning": "according to the exact meaning, definition or rule",
+      "source": "Strictly speaking, the deadline is noon rather than the end of the day.",
+      "pronunciation": {
+        "before": "/ˌstrɪkt.li ˈspiː.kɪŋ/",
+        "value": "/ˌstrɪkt.li ˈspiː.kɪŋ/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "துல்லியமான விதிப்படி சொன்னால்",
+        "value": "துல்லியமான விதிப்படி சொன்னால்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 186,
+      "wordId": "195a7d30-6612-482a-a1fe-c83610e91f30",
+      "word": "that is a relief",
+      "senseKey": "used-to-express-reduced-worry-after-reassuring-news",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a651a528fe48976e23b3416cdb2f30dc1a2d092603fbad441df51503bb3fe146",
+      "meaning": "used to express reduced worry after reassuring news",
+      "source": "That is a relief; I thought I had lost the booking.",
+      "pronunciation": {
+        "before": "/ðæt ɪz ə rɪˈliːf/",
+        "value": "/ðæt ɪz ə rɪˈliːf/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "அது கவலையை குறைக்கிறது",
+        "value": "அது நிம்மதியளிக்கிறது",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 187,
+      "wordId": "19808b8d-bfe1-450a-8165-2978d7ab5fa9",
+      "word": "push someone’s buttons",
+      "senseKey": "provoke-emotional-reaction",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "23ccaac94c9c1656fbbe0faa3349ca2c1a239f74d52ca601b485d0e3de952728",
+      "meaning": "to deliberately provoke a strong emotional reaction",
+      "source": "\"  \"Does  she  push  your  buttons?",
+      "pronunciation": {
+        "before": "/push someone’s buttons/",
+        "value": "Approximate pronunciation: push SUM-wunz BUT-uhnz. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to deliberately provoke a strong emotional reaction",
+        "value": "வேண்டுமென்றே ஒருவருக்குக் கோபம் போன்ற வலுவான உணர்வைத் தூண்டுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 188,
+      "wordId": "19b1e8df-dba1-41f6-b890-a3c5e06c6551",
+      "word": "point out flaws",
+      "senseKey": "identify-weaknesses",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2b40d2caf74df0bf141116b9136e6522e914ba90e01b0a42ca6577c1e702d646",
+      "meaning": "to draw attention to faults or weaknesses",
+      "source": "We  quibble  over  details  and  point  out  flaws  in  the  other  person's  argume nts.",
+      "pronunciation": {
+        "before": "/point out flaws/",
+        "value": "Approximate pronunciation: poynt OUT FLAWZ. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to draw attention to faults or weaknesses",
+        "value": "குறைகள் அல்லது பலவீனங்களைச் சுட்டிக்காட்டுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 189,
+      "wordId": "19eec1ca-f294-4e35-a6fc-fdf6591d3d2d",
+      "word": "occasional",
+      "senseKey": "happening-sometimes",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "42b99687e97c022c127148a01d8bca789147e47c242419b529c50cf2a427e7a7",
+      "meaning": "happening sometimes but not regularly or often",
+      "source": "Of  course,  since  you're  not  all  that  happy with the  arrangement,  your  dis­ pleasure  now  comes  out  through  an  occasional  sarcastic  remark.",
+      "pronunciation": {
+        "before": "/occasional/",
+        "value": "Approximate pronunciation: uh-KAY-zhuh-nuhl. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: happening sometimes but not regularly or often",
+        "value": "அவ்வப்போது நிகழும்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 190,
+      "wordId": "19f329be-1bba-482b-88dd-8b90fbbae7b1",
+      "word": "hence",
+      "senseKey": "at-a-future-time",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "604a98fc4331d127588f3f492d384564ddd1e2f29261b5f83421751b25d6f352",
+      "meaning": "from now or from the stated time in the future",
+      "source": "I  shall  be  telling  this with a  sigh  Somewhere  ages  and  ages  hence:  Tw o  roads  diver ged  in  a  wood,  and  I­ I  took  the  one less traveled by,  And  that  has  made  all  the  diff erence.",
+      "pronunciation": {
+        "before": "/hens/",
+        "value": "/hens/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "இப்போதிலிருந்து அல்லது குறிப்பிடப்பட்ட காலத்திலிருந்து எதிர்காலத்தில்",
+        "value": "இப்போதிலிருந்து அல்லது குறிப்பிடப்பட்ட காலத்திலிருந்து எதிர்காலத்தில்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 191,
+      "wordId": "1a0abfff-87ea-4fd4-8040-c065752b1666",
+      "word": "moderately",
+      "senseKey": "to-medium-degree",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2ac0528c74e370d6fc9922b8eb3e9245aeea197970911a49bfde05e17e57ba64",
+      "meaning": "to a medium degree, neither slightly nor extremely",
+      "source": "The  skills  required  to  master  hig h-stakes  interactions  are  quite  easy  to  spot  and  moderately  easy  to  learn.",
+      "pronunciation": {
+        "before": "/moderately/",
+        "value": "Approximate pronunciation: MOD-er-uht-lee. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to a medium degree, neither slightly nor extremely",
+        "value": "மிதமான அளவில்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 192,
+      "wordId": "1a3ea7c4-1cae-477a-a3f7-82d9b489425d",
+      "word": "implication",
+      "senseKey": "possible-consequence",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b1e4f1fd0b690528fc0dedbffb45b163cfc50daa8d712c9c7e3ae21a22ff6b0b",
+      "meaning": "a possible consequence or meaning suggested by something",
+      "source": "5  Think  about  the  implications  of  thi s  study .",
+      "pronunciation": {
+        "before": "/implication/",
+        "value": "Approximate pronunciation: im-plih-KAY-shuhn. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a possible consequence or meaning suggested by something",
+        "value": "ஒரு விஷயத்தால் ஏற்படக்கூடிய விளைவு அல்லது அது உணர்த்தும் பொருள்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 193,
+      "wordId": "1a6c8335-b53d-4ebf-9902-34a01d791d9c",
+      "word": "make a hero out of",
+      "senseKey": "portray-as-hero",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c06603ee9284641da0ee240d370ab36b046f577822b50247d8d6e8cc8ec6bda1",
+      "meaning": "to portray or treat someone as a hero",
+      "source": "Half  of  the  lV  programs  we  watch  make  heroes  out  of  people  who  win  at  sports  or  game  shows.",
+      "pronunciation": {
+        "before": "/make a hero out of/",
+        "value": "Approximate pronunciation: mayk uh HEER-oh OUT uhv. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to portray or treat someone as a hero",
+        "value": "ஒருவரை வீரராகச் சித்தரித்தல் அல்லது போற்றுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 194,
+      "wordId": "1aade39e-9e9e-4f47-864f-818e970b6382",
+      "word": "accuse",
+      "senseKey": "claim-someone-did-wrong",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "be9ec620475d976adf3a9d60a57259fa2ce745d4609bc00ff8f202023b004f90",
+      "meaning": "to claim that someone did something wrong or illegal",
+      "source": "START  WITH  HEART  31  the  fe llow  emphasizes  the  word  very  makes  it  sound  as  if  he's  about  to  accuse  Greta  of  kidnapping  the  Lin dbergh  bab y.",
+      "pronunciation": {
+        "before": "/əˈkjuːz/",
+        "value": "/əˈkjuːz/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "ஒருவர் தவறு அல்லது சட்டவிரோத செயல் செய்ததாகக் கூறுதல்",
+        "value": "ஒருவர் தவறு அல்லது சட்டவிரோத செயல் செய்ததாகக் கூறுதல்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 195,
+      "wordId": "1ac9a529-af02-4e8d-95ea-6dd5c573154d",
+      "word": "set us up",
+      "senseKey": "create-conditions-for-result",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "adf56aac7064e64716e92a8d0a871196aad5a4ef7463ae54b6eb4551d3883963",
+      "meaning": "to create conditions that make a later result likely",
+      "source": "\"  Open  Yo ur self  to  Ch ange  Not  only  do  Sucker's  Choices  set  us  up  to  take  ineff ective  actions,  but  they  close  us  down  to  change.",
+      "pronunciation": {
+        "before": "/set us up/",
+        "value": "Approximate pronunciation: set us UP. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to create conditions that make a later result likely",
+        "value": "நாம் பின்னர் ஒரு குறிப்பிட்ட செயலைச் செய்யும்படியான சூழலை உருவாக்குதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 196,
+      "wordId": "1ade61f4-77e3-40ef-b494-6a1c1f1e1e9f",
+      "word": "short-term gain",
+      "senseKey": "an-immediate-benefit-that-may-not-last",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c20dccbe278b6faccf348273e14be57d1a712c6c09683bb38b90c8ed2cf3656f",
+      "meaning": "an immediate benefit that may not last",
+      "source": "Reducing training offers a short-term gain but could increase later mistakes.",
+      "pronunciation": {
+        "before": "/ˌʃɔːt tɜːm ˈɡeɪn/",
+        "value": "/ˌʃɔːt tɜːm ˈɡeɪn/",
+        "decision": "retained",
+        "kind": "retained_ipa_editorially_reviewed",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "உடனடியாகக் கிடைக்கும் பயன்",
+        "value": "உடனடியாகக் கிடைக்கும் பயன்",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 197,
+      "wordId": "1b22dcbd-4d3a-4166-a264-c11dd167809e",
+      "word": "like to talk about",
+      "senseKey": "polite-topic-introduction",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9a8d8de67c3f1544acda0e082ae1c07d8f6e00fbcb39db4277a457f146b92807",
+      "meaning": "a polite way to introduce a subject for discussion",
+      "source": "I'd like  to  talk  about  what  happens  when we're  not  romantically  in  sy nc.",
+      "pronunciation": {
+        "before": "/like to talk about/",
+        "value": "Approximate pronunciation: lyk tuh TAWK uh-BOUT. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: a polite way to introduce a subject for discussion",
+        "value": "ஒரு விஷயத்தைப் பற்றிப் பேச விரும்புவதாக மரியாதையுடன் கூறுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": "Politeness is supplied by the source's 'I'd'; preserve expression-binding caveat for lesson repair.",
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 198,
+      "wordId": "1b338f71-29af-4106-ac5e-43d2588aa7a5",
+      "word": "sit back",
+      "senseKey": "remain-passively-uninvolved",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "881a9f5c86fd981e964a0ba34d184ff3d8cadef610418b0aee382cce2875982c",
+      "meaning": "to remain passive instead of becoming actively involved",
+      "source": "Conver se ly,  when  people  aren't  involved,  when  they  sit  back  quietly during touchy  conve rsations,  the y're  rarely  committed  to  the  final  decision.",
+      "pronunciation": {
+        "before": "/sit back/",
+        "value": "Approximate pronunciation: sit BAK. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to remain passive instead of becoming actively involved",
+        "value": "செயலில் ஈடுபடாமல் அமைதியாக ஒதுங்கியிருத்தல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 199,
+      "wordId": "1b34f1f8-5852-4395-b8ea-28c256fb8727",
+      "word": "come across as",
+      "senseKey": "give-an-impression",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a876c22455576ddaf77ee1294ae51825f2e5bda265f9071f2cc947e57c50d163",
+      "meaning": "to appear or give other people a particular impression",
+      "source": "Is  there  a  way  to  talk  to  your  neighbors  about  their  annoying  behavior  and  not  come  across  as  self-rig hteous  or  demanding?",
+      "pronunciation": {
+        "before": "/come across as/",
+        "value": "Approximate pronunciation: kum uh-KROSS az. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "தமிழ் விளக்கம்: to appear or give other people a particular impression",
+        "value": "மற்றவர்களுக்கு ஒரு குறிப்பிட்ட விதமாகத் தோன்றுதல்",
+        "decision": "corrected",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    },
+    {
+      "ordinal": 200,
+      "wordId": "1b36416c-b166-418a-9703-821df3dfe798",
+      "word": "tolerated",
+      "senseKey": "tolerated-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8c33d2e8f5b566ffb5fedece24ed73213f81fa7212d2dd5757c90035e298376c",
+      "meaning": "accepted despite being undesirable",
+      "source": "For example, maintenance on airplanes, we probably want to have a very high recall, as making errors is very serious, and in that case, lower precision can be tolerated.",
+      "pronunciation": {
+        "before": "/tolerated/",
+        "value": "Approximate pronunciation: TOL-uh-ray-tid. Capitals show stress; this is text guidance, not audio.",
+        "decision": "corrected",
+        "kind": "labelled_approximate_phonetic_guidance",
+        "status": "editorially_reviewed_not_audio_verified",
+        "verification": "editorial_review_not_dictionary_or_audio_verification"
+      },
+      "tamilMeaning": {
+        "before": "விரும்பத்தகாதிருந்தும் ஏற்றுக்கொள்ளப்பட்ட",
+        "value": "விரும்பத்தகாதிருந்தும் ஏற்றுக்கொள்ளப்பட்ட",
+        "decision": "retained",
+        "status": "reviewed_exact_contextual_sense"
+      },
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "broaderLessonRepairStatus": "pending",
+      "editorialNotes": null,
+      "status": "header_review_draft_not_import_payload"
+    }
+  ],
+  "reviewedTamilCount": 49,
+  "reviewedPronunciationCount": 49,
+  "blockedCount": 1
+}
