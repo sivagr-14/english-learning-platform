@@ -1,26 +1,21 @@
 # Vocabulary correction review: 1,863 entries
 
-Source: mastery-skills-lessons-review.json; SHA256 `5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207`. Raw private export is not published here.
+Source export SHA-256: `5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207`. The raw private export is not published.
 
-## Reconciled state
+## Current state
 
-| Track | Accepted/reviewed | Held or pending |
-|---|---:|---|
-| Overview | 1,841 profiles | 22 held; no unexamined entries |
-| Tamil | 1,841 | 22 held; no unexamined entries |
-| Pronunciation text | 1,861 | 2 held; no unexamined entries |
-| Complete lesson review/repair | 74 | Ordinal6 separately held; other entries pending |
-| Production validated updates | 0 | Full preflight/batch validation pending |
-| Delivered replacement updates | 0 | No import-ready batches |
-| Local database updates verified | 0 | PostgreSQL read-back required |
-| Audio implementation | pending | Implementation and testing required |
+- Overview: 1,841 accepted drafts; 22 held; all 1,863 examined.
+- Tamil meanings: 1,841 accepted; 22 held; none unexamined.
+- Pronunciation text: 1,861 accepted; 2 held; none unexamined. Editorial review is not dictionary or audio verification.
+- Complete lesson review/repair: 113 entries (1–5, 7–75, 77–105, and ten earlier repairs at 1450–1474).
+- Remaining without completed full lesson review: 1,750, including separately held ordinals 6 and 76.
+- Import-ready replacement batches: 0. Production pack validation and PostgreSQL read-back remain pending.
+- Word pronunciation controls: draft PR #118, both GitHub CI workflows passed. Not merged, installed or audibly verified on the user's Mac.
 
-Overview holds comprise7 confirmed sense conflicts,12 unresolved source/sense mismatches and3 source extraction errors. Header receipts are additive; original PROFILE-DRAFT-001/002 receipts are unchanged. Pronunciation text is editorial guidance or retained IPA; no dictionary verification or recorded/per-entry audio playback is claimed.
+## Continue
 
-## Resume
+Read STATUS.json and the immutable receipts before proceeding. Resume consecutive full-lesson repair at ordinal 106. Preserve existing entry identities, original source quotations, sense ranks, taxonomy, expected versions and source lesson hashes. Do not regenerate already delivered receipts. LESSON-HOLD-0006.json records an expression/evidence mismatch; LESSON-HOLD-0076.json records the unresolved relationship between a named dialogue technique and the stored generic comparison sense.
 
-Read STATUS.json, REVIEW-LEDGER.json and immutable receipts. All19 Overview groups are complete. All200 originally omitted header reviews are in HEADER-REVIEW-001-001-050,001-051-100,002-101-150,002-151-200. Ordinal164 remains blocked for both headers because noun/verb senses also differ in stress.
+The 39 newly delivered repairs at 66–75 and 77–105 passed `generatedVocabularyEntryQualityIssues` at production commit `cbb02c4d1519b3dd28a061f4845d71f6e01e2a26`. This is lesson-level validation, not complete content-pack preflight or database verification. Passing the structural validator alone does not certify semantic quality of other entries.
 
-Full-lesson receipts now cover ordinals1–5,7–65 and ten earlier entries at1450–1474. Continue consecutive repair work at ordinal66. Read LESSON-HOLD-0006.json and reconcile/report that expression discrepancy alongside existing quarantines. Preserve useful unrelated lesson content, exact source quotations, word IDs, permanent senses/ranks, taxonomy, expected versions and source hashes. No raw export upload.
-
-DELIVERY-BLOCKER-20261011.md is a historical audit, not a current scope restriction: the user authorized the necessary wider lesson repairs. All draft receipts remain outside the active inbox. Full production preflight, batch validation and separate semantic acceptance are required before delivering replacements. Audio implementation/test status is independent. No ready-to-sync claim until reconciliation, valid delivery and software dependencies are accounted for. Do not merge application PRs or claim local app changes without PostgreSQL read-back.
+All draft receipts stay outside the active import inbox. Complete production preflight, batch validation and semantic acceptance before publishing replacements. No ready-to-sync claim until valid payload delivery and application dependencies are accounted for. The user has authorised wider lesson repairs; the older DELIVERY-BLOCKER-20261011.md is historical, not a current scope restriction.
