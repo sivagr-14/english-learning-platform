@@ -1,0 +1,555 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0051-0055",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 51,
+      "wordId": "063907b3-223a-4ec6-9558-74f68ef38a10",
+      "senseKey": "formal-opening-event",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "1b08579f3f922133927387a8c3e7fb5ba392527f89f9168980fa497ea53441da",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "ribbon-cutting ceremony",
+        "wordType": "noun phrase",
+        "pronunciation": "/ˈrɪbən ˌkʌtɪŋ ˈserəməni/",
+        "tamilMeaning": "ரிப்பன் வெட்டி கட்டிடம் அல்லது திட்டம் திறக்கப்படுவதை குறிக்கும் அதிகாரப்பூர்வ நிகழ்வு",
+        "englishMeaning": "a formal event marking the opening of a building or project by cutting a ribbon",
+        "coreIdea": "Cut a ribbon to mark an official opening.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal event name: an opening ceremony in which cutting a ribbon marks the start of a building's or project's public use.",
+              "connotation": "Usually celebratory because it marks an opening or achievement; the phrase does not say how important the project is.",
+              "tone": "Matter-of-fact here: the sentence simply states that someone will attend.",
+              "register": "Standard wording in event announcements and local news; a general audience usually understands it without explanation."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe an opening event where a ribbon is ceremonially cut, such as the opening of a library or health centre."
+            ],
+            "when_not_to_use": [
+              "Do not call every opening party a ribbon-cutting ceremony; use opening ceremony if you do not know whether a ribbon will be cut."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "A ribbon-cutting ceremony symbolically marks an opening; an inauguration can include broader formal proceedings and speeches.",
+            "A ribbon-cutting ceremony marks an opening symbolically; its date does not necessarily prove when construction finished or ordinary service first began."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture scissors cutting a ribbon across the entrance to a new library.",
+            "memory_sentence": "A ribbon-cutting ceremony marked the opening of the health centre.",
+            "recall_question": "What action gives a ribbon-cutting ceremony its name?",
+            "recognition_task": "Which event fits? A: Guests cut a ribbon to mark a new library opening. B: Staff meet to discuss next year’s budget. Explain your choice.",
+            "production_task": "Write a short invitation to the opening of a fictional community centre. Mention the ribbon-cutting ceremony and its starting time."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The mayor attended the ribbon-cutting ceremony for the new library.",
+              "example_2": "A ribbon-cutting ceremony marked the opening of the health centre."
+            },
+            "mini_conversation": "A: When does the new library open?\nB: There is a ribbon-cutting ceremony at ten, followed by a public tour.\nA: I will arrive a little early."
+          },
+          "meaning_in_context": {
+            "source_sentence": "He'll  be here  for  the  ribbon- cutting  cerem ony.",
+            "contextual_meaning": "a formal event marking the opening of a building or project by cutting a ribbon",
+            "simple_explanation": "The speaker says he will attend the event marking an opening. The short quotation does not identify the building or project."
+          },
+          "mistakes_differences": {
+            "correction": "Say: The mayor attended the ribbon-cutting ceremony, or a ribbon-cutting ceremony if it has not been identified.",
+            "common_mistake": "Incorrect: The mayor attended ribbon-cutting ceremony. A singular ceremony needs a determiner.",
+            "important_difference": "A ribbon-cutting ceremony symbolically marks an opening; an inauguration can include broader formal proceedings and speeches."
+          },
+          "patterns_collocations": {
+            "main_pattern": "hold / attend + a ribbon-cutting ceremony + for + opening",
+            "common_collocations": [
+              "official ribbon-cutting ceremony",
+              "attend the ribbon-cutting ceremony"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "natural_examples.mini_conversation",
+        "mistakes_differences.common_mistake",
+        "mistakes_differences.correction",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Useful opening examples, collocations and inauguration contrast retained; generic dialogue, practice and filler nuance corrected. Exact OCR quotation preserved.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 52,
+      "wordId": "069f4cc5-c90e-4e48-83ba-cc7e2b8010aa",
+      "senseKey": "with-self-satisfaction",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "860e1f925b86cefcee82d3ba44457a7c3dfe54c14bb41b8bad7c442a38b1316f",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "smugly",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: SMUG-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தன்னைப் பற்றிய அளவுக்கு மீறிய திருப்தியுடனும் தற்பெருமையுடனும்",
+        "englishMeaning": "in an overly self-satisfied manner",
+        "coreIdea": "A satisfied smile that suggests I am better than you.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adverb for behaving with excessive self-satisfaction or a sense of superiority.",
+              "connotation": "Negative: it suggests that the person's satisfaction is irritating or undeserved.",
+              "tone": "Accusatory here: “always,” “skulking” and the claim that she thinks you are a slob create a strongly critical portrayal.",
+              "register": "Common in descriptive writing and personal criticism. It makes a judgement about attitude, so use observable behaviour in diplomatic feedback."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a smile, remark or manner that seems excessively pleased with itself, often at another person’s expense."
+            ],
+            "when_not_to_use": [
+              "Do not use smugly for all happiness or pride; it adds criticism of the person’s attitude.",
+              "For neutral reporting, describe the words or behaviour instead of assuming that you know the person’s private thoughts."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Smugly expresses the narrator’s interpretation of a manner; it does not let the narrator know another person’s thoughts with certainty.",
+            "Someone can behave smugly while being right about the facts. The criticism concerns the self-satisfied attitude, not necessarily the answer."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture an irritating I told you so smile.",
+            "memory_sentence": "He grinned smugly after predicting the result correctly.",
+            "recall_question": "Why does smugly sound more critical than happily?",
+            "recognition_task": "Which best fits smugly? A: Quietly thanking a team for their help. B: Smiling while saying I was right and the rest of you were clueless. Explain the attitude.",
+            "production_task": "Write a two-line exchange in which a fictional character speaks smugly after a correct prediction. Make the self-satisfaction clear."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "He smiled smugly when the answer proved him right and everyone else wrong.",
+              "example_2": "I knew you would need my help, she said smugly as she opened the instruction manual."
+            },
+            "mini_conversation": "A: Why did his answer annoy you?\nB: He said smugly that he was the only one who understood the problem.\nA: He could have explained it without putting everyone else down."
+          },
+          "meaning_in_context": {
+            "source_sentence": "She's  always  smugly  skulking  around  the  house,  thinking  you're  a  slob.",
+            "contextual_meaning": "in an overly self-satisfied manner",
+            "simple_explanation": "The speaker portrays her as excessively pleased with herself and looking down on someone else. This is the speaker’s judgement, not independent proof of what she thinks."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: He smiled smug. An adverb is needed to describe how he smiled.",
+            "correction": "Say He smiled smugly. Use the adjective in He looked smug.",
+            "important_difference": "Proudly can show understandable pleasure in an achievement. Smugly usually criticizes excessive self-satisfaction or superiority."
+          },
+          "patterns_collocations": {
+            "main_pattern": "smile/grin smugly; say something smugly; smugly + adjective",
+            "common_collocations": [
+              "smile smugly",
+              "grin smugly",
+              "smugly confident"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Negative evaluative force distinguished from happiness and factual correctness; source mind-reading treated as speaker judgement.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 53,
+      "wordId": "06a5b50a-fade-4b57-9547-973a10ebefb3",
+      "senseKey": "with-only-a-small-amount-of-money-available-to-spend",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6b52bb4b86e3601989ab08231fe336401cf338601692745894983dcefeaa18b9",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "on a tight budget",
+        "wordType": "adverbial phrase",
+        "pronunciation": "/ɒn ə ˌtaɪt ˈbʌdʒ.ɪt/",
+        "tamilMeaning": "குறைந்த செலவுத்திட்டத்தில்",
+        "englishMeaning": "with only a small amount of money available to spend",
+        "coreIdea": "Picture a small purse that must cover a whole list of costs.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative expression for having little money available: “tight” presents the spending limit as restrictive.",
+              "connotation": "Neutral about the people involved; it indicates financial constraint rather than automatically implying poverty or poor planning.",
+              "tone": "Practical here: the sentence gives a limitation affecting how the celebration is organized.",
+              "register": "Common conversational and workplace English. “With limited funds” is a more formal alternative."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Suggest an affordable alternative to an expensive outing.",
+              "A natural model: I am on a tight budget this month, so could we have lunch at home?"
+            ],
+            "when_not_to_use": [
+              "Do not use on a tight budget to describe a short time limit; use a tight deadline for that.",
+              "Do not assume this means someone is poor: the available money may be limited for just this event or period."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "on a tight budget: It is a natural way to set a spending boundary without revealing exact income."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a small purse that must cover a whole list of costs.",
+            "memory_sentence": "I am on a tight budget this month, so could we have lunch at home?",
+            "production_task": "Suggest an affordable alternative to an expensive outing. Use the target expression in one or two sentences. Check its pattern and register only after speaking.",
+            "recall_question": "Without looking, retrieve the expression meaning with only a small amount of money available to spend. Then say it in a new situation.",
+            "recognition_task": "Choose the natural sentence. A: We are on a tight budget. B: We are in a tight budget. Explain why, then check the correction after answering."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "We are organising the celebration on a tight budget.",
+              "another_setting": "I am on a tight budget this month, so could we have lunch at home?"
+            },
+            "mini_conversation": "A: I am on a tight budget this month, so could we have lunch at home?\nB: Of course; I can bring something to share."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We are organising the celebration on a tight budget.",
+            "contextual_meaning": "with only a small amount of money available to spend",
+            "simple_explanation": "The organisers have only limited money for the celebration, so their choices must keep costs low."
+          },
+          "mistakes_differences": {
+            "correction": "We are on a tight budget.",
+            "common_mistake": "We are in a tight budget.",
+            "important_difference": "A tight budget limits spending; a tight deadline limits time."
+          },
+          "patterns_collocations": {
+            "main_pattern": "on a tight budget: be/live/travel + on a tight budget",
+            "common_collocations": [
+              "travel on a tight budget",
+              "plan a wedding on a tight budget"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "usage_guide.when_not_to_use",
+        "meaning_in_context.simple_explanation"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Natural cost-boundary examples, coherent dialogue, on/in correction and practice retained; when-not-to-use field now gives actual restrictions.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 54,
+      "wordId": "06a8323b-6c22-4135-950a-be87fb15126f",
+      "senseKey": "decision-tree-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8790dfacdc8576360d000ee302ac9a7a594c00defce05eb17cd6d38601d1714d",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "decision tree",
+        "wordType": "countable noun phrase",
+        "pronunciation": "Approximate pronunciation: dih-SIZH-uhn TREE. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கிளை விதிகளின் மூலம் முடிவு செய்யும் கணிப்பு மாதிரி",
+        "englishMeaning": "a predictive model that makes decisions through branching rules",
+        "coreIdea": "Follow a sequence of branching questions to reach a prediction.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical model name: a predictive system follows branching rules, resembling the branching structure of a tree.",
+              "connotation": "Neutral: the name describes a model structure, not its accuracy or fairness.",
+              "tone": "Instructional here: the speaker uses maximum depth to explain a decision tree's adjustable settings.",
+              "register": "Standard machine-learning terminology. A general audience benefits from “a model that follows a sequence of branching questions.”"
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Name a predictive model that follows branching rules learned from examples.",
+              "Use it when discussing how a model splits data or how limiting its depth changes its complexity."
+            ],
+            "when_not_to_use": [
+              "Do not use decision tree as a general name for all machine-learning models.",
+              "Keep this lesson’s predictive-model sense separate from a hand-drawn planning diagram used to weigh personal choices."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "A decision tree can predict a category or a numerical value. The word decision does not restrict it to yes/no output.",
+            "A deeper decision tree can fit more detail, including noise. Greater depth does not automatically improve predictions on new data."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a branching path ending in a predicted answer.",
+            "memory_sentence": "The decision tree asks successive questions before predicting a category.",
+            "recall_question": "What does maximum depth limit in a decision tree?",
+            "recognition_task": "Which describes a decision tree? A: A predictive model that follows branching rules. B: A list of unrelated project deadlines. Explain your choice.",
+            "production_task": "Explain to a colleague how a decision tree could classify support messages. Use train a decision tree and name the categories it would predict."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We trained a decision tree to classify incoming support messages by topic.",
+              "example_2": "The researcher used a decision tree to predict a building’s energy consumption from its size and insulation."
+            },
+            "mini_conversation": "A: Why did you limit the decision tree’s depth?\nB: The deeper version fitted the training data closely but performed worse on new examples.\nA: Let’s compare both versions on the validation set."
+          },
+          "meaning_in_context": {
+            "source_sentence": "For example, if you are using a decision tree, one important hyperparameter is the maximum depth of the tree, meaning how many levels is the tree allowed to split.",
+            "contextual_meaning": "a predictive model that makes decisions through branching rules",
+            "simple_explanation": "The source describes limiting how many levels a decision tree may have. Its branches apply rules that lead to a prediction."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We trained decision tree to classify the messages. The singular countable noun phrase needs a determiner.",
+            "correction": "Say We trained a decision tree to classify the messages.",
+            "important_difference": "A decision tree is one predictive model with branching rules. A random forest combines many trees; the names are not interchangeable."
+          },
+          "patterns_collocations": {
+            "main_pattern": "train a decision tree on + data; use a decision tree to + predict/classify",
+            "common_collocations": [
+              "train a decision tree",
+              "a shallow decision tree",
+              "limit the depth of a decision tree"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Branching predictive-model sense, countable noun grammar and coherent validation dialogue checked; classification/regression and overfitting checked against scikit-learn documentation.",
+        "scope": "All eight sections and changed headers; no audio or local import verification.",
+        "references": [
+          "https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html",
+          "https://scikit-learn.org/1.5/modules/tree.html"
+        ]
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 55,
+      "wordId": "06c1a8e3-ce4b-4ef8-95a2-347818afdd2a",
+      "senseKey": "to-present-an-idea-to-someone-for-their-opinion-or-approval",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2b5eb94e0582a5f673fffbb09e1030ff24a2c36115eb0ce298fb4190198dd12e",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "run by",
+        "wordType": "verb",
+        "pronunciation": "/rʌn ˈbaɪ/",
+        "tamilMeaning": "ஒரு யோசனையை கருத்து அல்லது ஒப்புதலுக்காக ஒருவரிடம் முன்வைத்தல்",
+        "englishMeaning": "to present an idea to someone for their opinion or approval",
+        "coreIdea": "Slide the idea past another pair of eyes.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb for asking someone to consider an idea; here, obtain feedback before sending a proposal.",
+              "connotation": "Collaborative: it invites another person's judgement without necessarily making a formal approval request.",
+              "tone": "Polite and consultative here: “Can I” asks permission to seek the listener's opinion.",
+              "register": "Conversational, especially in workplace exchanges. “Ask for your feedback on” is clearer in formal correspondence."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Ask for another person’s reaction or informal review before acting on an idea. Say whether you need comments or a definite approval."
+            ],
+            "when_not_to_use": [
+              "Run an idea by someone asks for a reaction or approval; inform someone simply gives them information."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "run by: It is conversational; seek review or request approval makes the required authority clearer in formal communication."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Slide the idea past another pair of eyes.",
+            "memory_sentence": "I ran the holiday dates by my family before making the booking.",
+            "production_task": "Use “run by” in your own response: Ask a specialist to check a proposal before you send it, stating the feedback needed.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “to present an idea to someone for their opinion or approval”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “I want to run by you an idea.” B: “I want to run an idea by you.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "Can I run this proposal by you before I send it?",
+              "another_context": "I ran the holiday dates by my family before making the booking."
+            },
+            "mini_conversation": "A: Can I run this proposal by you before I send it?\nB: Of course. Do you want me to check the figures or the wording?\nA: The figures, please, especially the delivery costs."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Can I run this proposal by you before I send it?",
+            "contextual_meaning": "to present an idea to someone for their opinion or approval",
+            "simple_explanation": "The speaker wants the listener to consider the proposal and give feedback before it is sent."
+          },
+          "mistakes_differences": {
+            "correction": "I want to run an idea by you.",
+            "common_mistake": "I want to run by you an idea.",
+            "important_difference": "Run an idea by someone asks for a reaction or approval; inform someone simply gives them information."
+          },
+          "patterns_collocations": {
+            "main_pattern": "run by: run + idea + by + person; run it by + person",
+            "common_collocations": [
+              "run a proposal by someone",
+              "run this by legal"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "meaning_in_context.simple_explanation",
+        "usage_guide.when_to_use",
+        "natural_examples.mini_conversation"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Replaced mismatched reply with a direct response and clarification; valid separable pattern, examples, Tamil and review-versus-information contrast retained.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
