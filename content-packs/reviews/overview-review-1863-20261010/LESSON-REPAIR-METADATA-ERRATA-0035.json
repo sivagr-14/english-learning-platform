@@ -1,0 +1,10 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receipt": "LESSON-REPAIRS-0031-0035.json",
+  "ordinal": 35,
+  "erratum": "preservedFields lists exact contextual_meaning by inherited receipt convention, but repairedFields correctly records that contextual_meaning changed to match the unchanged English header. The actual draft is authoritative. Source_sentence, word identity, original lesson hash and entry version guards remain unchanged.",
+  "preservedContextualMeaning": false,
+  "reason": "Original contextual explanation was same-sense prose rather than the exact assessed English meaning required by production contract.",
+  "importReady": false
+}
