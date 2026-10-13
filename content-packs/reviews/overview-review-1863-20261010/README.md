@@ -1,13 +1,26 @@
-# Vocabulary correction review
+# Vocabulary correction review: 1,863 entries
 
-All1863 entries now have an Overview disposition:1841 drafted profiles and22 quarantined entries. Immutable PROFILE-DRAFT-001 through019 cover the entire original order. STATUS.json and REVIEW-LEDGER.json are authoritative for current counts; no editorial receipt is an import payload.
+Source: mastery-skills-lessons-review.json; SHA256 `5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207`. Raw private export is not published here.
 
-Tamil:1642 reviewed,21 blocked,200 unexamined. Pronunciation text:1662 reviewed,1 blocked,200 unexamined. Next task is header backfill for original groups001–002, starting ordinal1. Preserve those immutable Overview records and save additive header receipts.
+## Reconciled state
 
-Ten complete-lesson repair records passed individual lesson validation; production replacement-pack validation and delivered updates remain0. Audio implementation and testing are pending. PostgreSQL updates verified0. No ready-to-sync claim is justified.
+| Track | Accepted/reviewed | Held or pending |
+|---|---:|---|
+| Overview | 1,841 profiles | 22 held; no unexamined entries |
+| Tamil | 1,841 | 22 held; no unexamined entries |
+| Pronunciation text | 1,861 | 2 held; no unexamined entries |
+| Complete lesson review/repair | 19 | Ordinal6 separately held; other entries pending |
+| Production validated updates | 0 | Full preflight/batch validation pending |
+| Delivered replacement updates | 0 | No import-ready batches |
+| Local database updates verified | 0 | PostgreSQL read-back required |
+| Audio implementation | pending | Implementation and testing required |
 
-Original export mastery-skills-lessons-review.json remains available and hash-verified:5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207. Do not upload it. Canonical instructions/validators are on main, checked at cbb02c4d1519b3dd28a061f4845d71f6e01e2a26.
+Overview holds comprise7 confirmed sense conflicts,12 unresolved source/sense mismatches and3 source extraction errors. Header receipts are additive; original PROFILE-DRAFT-001/002 receipts are unchanged. Pronunciation text is editorial guidance or retained IPA; no dictionary verification or recorded/per-entry audio playback is claimed.
 
-Necessary whole-lesson repairs are authorized; DELIVERY-BLOCKER-20261011.md is historical. Quarantine individual unresolved senses while continuing other work. Preserve exact identities, sense ranks, source hashes, versions, taxonomy, valid wording and learner progress. Complete same-sense packs need full preflight/batch validation and separate semantic review. Do not merge app PRs; only local PostgreSQL read-back verifies app changes.
+## Resume
 
-See RECEIPT-SCOPE-ERRATA-20261011.json and PROFILE-DRAFT-003.json for earlier metadata and IPA-claim corrections. Text review is not dictionary-source verification or audio playback verification.
+Read STATUS.json, REVIEW-LEDGER.json and immutable receipts. All19 Overview groups are complete. All200 originally omitted header reviews are in HEADER-REVIEW-001-001-050,001-051-100,002-101-150,002-151-200. Ordinal164 remains blocked for both headers because noun/verb senses also differ in stress.
+
+Full-lesson receipts now cover ordinals1–5,7–10 and ten earlier entries at1450–1474. Continue consecutive repair work at ordinal11. Read LESSON-HOLD-0006.json and reconcile/report that expression discrepancy alongside existing quarantines. Preserve useful unrelated lesson content, exact source quotations, word IDs, permanent senses/ranks, taxonomy, expected versions and source hashes. No raw export upload.
+
+DELIVERY-BLOCKER-20261011.md is a historical audit, not a current scope restriction: the user authorized the necessary wider lesson repairs. All draft receipts remain outside the active inbox. Full production preflight, batch validation and separate semantic acceptance are required before delivering replacements. Audio implementation/test status is independent. No ready-to-sync claim until reconciliation, valid delivery and software dependencies are accounted for. Do not merge application PRs or claim local app changes without PostgreSQL read-back.

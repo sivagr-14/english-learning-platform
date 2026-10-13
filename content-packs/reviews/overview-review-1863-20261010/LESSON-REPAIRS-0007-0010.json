@@ -1,0 +1,459 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0007-0010",
+  "scope": "Complete lesson repair/review drafts; not production content packs and not import-ready.",
+  "entryCount": 4,
+  "broaderLessonRepairProcessed": 4,
+  "lessonValidatorPassed": 4,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "sourceHashSerialization": "SHA256 of Python json.dumps(lesson_data,sort_keys=True,ensure_ascii=False), default separators",
+  "sourceExportHashVerified": true,
+  "records": [
+    {
+      "ordinal": 7,
+      "wordId": "00ca1c88-0268-496b-bbba-ef1b49c4e0ab",
+      "senseKey": null,
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "99c1700cecf96dfdd014fc950e02e406f38ac96ea460ab83e8bb298018419531",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "curiosity",
+        "wordType": "noun",
+        "pronunciation": "/ˌkjʊə.riˈɒs.ə.ti/",
+        "tamilMeaning": "ஆர்வம்; அறிந்து கொள்ள அல்லது ஆராய விரும்பும் மனநிலை.",
+        "englishMeaning": "A strong desire to know, learn, investigate, or experience something.",
+        "coreIdea": "Curiosity is the mental pull toward missing knowledge or a new experience.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun naming the desire to discover or learn; here, that desire motivates an expedition.",
+              "connotation": "Positive here: curiosity is presented as a reason to investigate, although curiosity can also lead to intrusive behaviour.",
+              "tone": "Adventurous and enthusiastic here: “overwhelming” and the decision to organize an expedition emphasize strong interest.",
+              "register": "Neutral and widely usable in everyday, educational and professional English. “Nosiness” would instead criticize unwanted interest in others' affairs."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe the desire to ask questions, explore, learn, or examine something unfamiliar.",
+              "Explain a motive for research, creativity, investigation, or harmless personal interest."
+            ],
+            "when_not_to_use": [
+              "Do not use curiosity to excuse invading another person's privacy.",
+              "If someone deliberately seeks private details that are none of their business, nosiness expresses criticism more directly."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Curiosity is praised in learning and science, but it can be criticized as nosiness when it crosses personal boundaries.",
+            "Curiosity can motivate a brief question or years of investigation; it does not by itself say how long the interest lasts."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine a closed door with light underneath it and a strong wish to see beyond it.",
+            "memory_sentence": "Curiosity encouraged me to ask one more question and discover the real cause.",
+            "production_task": "Write a message to a friend about a subject that arouses your curiosity. Ask one question you would like to explore; you may use a fictional interest.",
+            "recall_question": "Which noun describes the desire to know or investigate?",
+            "recognition_task": "Which shows curiosity? A: Asking how the old clock works because you want to understand it. B: Repeating an answer without wanting to learn more. Explain your choice."
+          },
+          "natural_examples": {
+            "examples": {
+              "context_one": "Her curiosity about languages led her to study how children become bilingual.",
+              "context_two": "Out of curiosity, I checked how much water the garden uses each week."
+            },
+            "mini_conversation": "A: Why did you open the old manual? B: Pure curiosity—I wanted to see how the machine worked."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Driven by an overwhelming curiosity, she decided to organize an expedition.",
+            "contextual_meaning": "A strong desire to know, learn, investigate, or experience something.",
+            "simple_explanation": "Her strong desire to discover more motivates her to arrange an expedition. The sentence itself does not name what she wants to investigate."
+          },
+          "mistakes_differences": {
+            "correction": "Correct: I have curiosity about astronomy, or I am curious about astronomy.",
+            "common_mistake": "Incorrect: I have curiosity to astronomy.",
+            "important_difference": "Curiosity is a desire to know; interest can also mean longer-term attention, involvement, or personal benefit."
+          },
+          "patterns_collocations": {
+            "main_pattern": "curiosity about + subject, or out of curiosity",
+            "common_collocations": [
+              "intellectual curiosity",
+              "arouse curiosity",
+              "out of curiosity"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "English header meaning",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "meaning_in_context.contextual_meaning",
+        "meaning_in_context.simple_explanation",
+        "usage_guide.when_not_to_use",
+        "advanced_nuance[1]",
+        "memory_practice.recognition_task",
+        "memory_practice.production_task"
+      ],
+      "reason": "Remove extra sense and unsupported contextual detail; strengthen practice while retaining valid teaching content.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Preserved natural examples, patterns, mistake/correction, memory cue and useful curiosity-versus-nosiness distinction. Removed unrelated object sense and unsupported diary/map details, aligned contextual meaning with unchanged header, and made practice choices concrete. Curiosity is not necessarily short-lived.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 8,
+      "wordId": "00de7fb0-42c7-42c6-8de2-b9b75f2489b7",
+      "senseKey": "to-examine-or-explore-something-that-may-be-interesting-or-useful",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "771d4e1531a79656aad18526fad181b655b86112c5fcb7cd9e01a2fd61f0f07e",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "check out",
+        "wordType": "phrasal verb",
+        "pronunciation": "/tʃek ˈaʊt/",
+        "tamilMeaning": "சுவாரஸ்யமானதை பார்வையிட்டு ஆராய்தல்",
+        "englishMeaning": "to examine or explore something that may be interesting or useful",
+        "coreIdea": "Go and see what it is like.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb meaning to visit or examine something to see what it is like; here, explore a new library.",
+              "connotation": "Mildly positive here: the suggestion treats the library as potentially interesting.",
+              "tone": "Casual and inviting: “we should” proposes a shared weekend activity.",
+              "register": "Informal and common in conversation. “Visit” is a neutral alternative for this library example."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Suggest exploring a new library with a friend. A model in this sense: Let us check out the free exhibition after lunch."
+            ],
+            "when_not_to_use": [
+              "Check out explores something; check on verifies its state or welfare.",
+              "It is informal; examine or visit may suit a more formal recommendation."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "check out: It is informal; examine or visit may suit a more formal recommendation."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Go and see what it is like.",
+            "memory_sentence": "Let us check out the free exhibition after lunch.",
+            "production_task": "Suggest exploring a new library with a friend. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: to examine or explore something that may be interesting or useful. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: Let us check out it. B: Let us check it out. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "We should check out the new library this weekend.",
+              "another_setting": "Let us check out the free exhibition after lunch."
+            },
+            "mini_conversation": "A: Let us check out the free exhibition after lunch.\nB: Good idea; I will find its opening hours."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We should check out the new library this weekend.",
+            "contextual_meaning": "to examine or explore something that may be interesting or useful",
+            "simple_explanation": "Go and see what it is like. Check out explores something; check on verifies its state or welfare."
+          },
+          "mistakes_differences": {
+            "correction": "Let us check it out.",
+            "common_mistake": "Let us check out it.",
+            "important_difference": "Check out explores something; check on verifies its state or welfare."
+          },
+          "patterns_collocations": {
+            "main_pattern": "check out: check out + place/item; check it out",
+            "common_collocations": [
+              "check out a new cafe",
+              "worth checking out"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "English header meaning",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile"
+      ],
+      "reason": "Complete lesson review confirms valid unrelated content can be retained.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "All seven non-Overview lesson sections are specific and usable: explore-library sense, separable check it out, contrast with check on, two natural examples and a purposeful invitation exchange. Retained all unrelated content; only approved Overview replaced.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 9,
+      "wordId": "00ece789-8451-4bee-9592-aeee1376c327",
+      "senseKey": "consistently-dependable",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9c65b223fd655ba3b2f67c9b52ffb532a1fa411fb0aa4db7aebbfe8a64bd8708",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "reliable",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: rih-LY-uh-buhl. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தொடர்ந்து நம்பிக்கையுடன் சார்ந்திருக்கக்கூடிய",
+        "englishMeaning": "consistently able to be trusted or depended on",
+        "coreIdea": "You can count on it to work or on someone to do what they promise.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract description of dependability: the husband should consistently do what can reasonably be expected of him.",
+              "connotation": "Positive: reliability is a valued quality; “more reliable” suggests that the present situation falls short.",
+              "tone": "Dissatisfied but focused on a desired improvement: the speaker states what they want from their husband.",
+              "register": "Neutral and common across personal and workplace situations. Criticizing someone's reliability can still feel personal even though the word is not slang."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use reliable to describe people who consistently meet reasonable expectations or keep commitments.",
+              "Use it for a service, device or source of information that you can normally depend on."
+            ],
+            "when_not_to_use": [
+              "Do not use reliable merely to mean friendly: a pleasant person can still fail to keep promises.",
+              "One successful attempt does not necessarily show that something is reliable over time."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Reliable is a judgement about consistency, not perfection: even a reliable service may occasionally fail.",
+            "More reliable can express criticism indirectly, as in the source, because it suggests that current performance is not dependable enough."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a promised task completed on time, again and again.",
+            "memory_sentence": "Our reliable neighbour waters the plants whenever we are away.",
+            "recall_question": "What does calling someone reliable tell you about their commitments?",
+            "recognition_task": "Who is more reliable? A: A friendly driver who often fails to arrive. B: A quiet driver who arrives at the agreed time every day. Explain which evidence matters.",
+            "production_task": "Recommend a fictional colleague for a time-sensitive task. Use reliable and give one concrete reason."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Mina is reliable: she always sends the figures by the agreed time.",
+              "example_2": "We need a reliable bus service so that staff can arrive before the shop opens."
+            },
+            "mini_conversation": "A: Who can collect the keys on Friday?\nB: Ask Arun. He's reliable and has never missed a pickup.\nA: I'll check whether he's free."
+          },
+          "meaning_in_context": {
+            "source_sentence": "\"What  I  want  is  for  my  husband  to  be  more  reliable.",
+            "contextual_meaning": "consistently able to be trusted or depended on",
+            "simple_explanation": "The speaker wants her husband to be someone she can depend on more consistently. The excerpt does not identify a particular broken promise."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “She is a reliably colleague.” An adjective, not an adverb, describes the noun colleague.",
+            "correction": "Say: “She is a reliable colleague.” Use reliably with a verb: “She reliably meets deadlines.”",
+            "important_difference": "Reliable means dependable. Trustworthy often emphasizes honesty; a person may be honest but poorly organized and unreliable about time."
+          },
+          "patterns_collocations": {
+            "main_pattern": "a reliable + person/service/source; subject + be/become + reliable",
+            "common_collocations": [
+              "a reliable source",
+              "reliable transport",
+              "a reliable colleague"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Replace generic teaching prose with specific same-sense material.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Dependability examples vary between person and service without adding a new sense. Trustworthiness distinguished from reliability, and no absent event is invented for the source.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 10,
+      "wordId": "01100007-d29c-4aad-bb72-262e5ea31458",
+      "senseKey": "exclusive-control",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "51006d21acd0ecd59b1e7cbccda9fc9ccb58aa87d02e9a474cc87d08ff4f4271",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "monopoly",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: muh-NOP-uh-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒன்றின் மீது ஒருவருக்கோ ஒரு அமைப்பிற்கோ மட்டுமே இருக்கும் தனியுரிமை அல்லது கட்டுப்பாடு",
+        "englishMeaning": "exclusive control over a service, activity, or resource",
+        "coreIdea": "One person or group has something exclusively.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract idea of exclusive possession or control, extended here to fear: hospitals are not the only places where people are afraid.",
+              "connotation": "Neutral as a concept of exclusivity; the negative subject here is fear.",
+              "tone": "Emphatic and explanatory: “of course” presents the point as obvious and broadens the discussion beyond hospitals.",
+              "register": "“Have a monopoly on” is natural in general commentary as well as business writing; this example is not an economic market definition."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use have a monopoly on to say that a person or group has exclusive control of something.",
+              "Use no monopoly on or not have a monopoly on to reject a claim that a quality or experience belongs only to one group."
+            ],
+            "when_not_to_use": [
+              "Do not use monopoly merely to mean being good at something; it adds the idea of exclusivity.",
+              "When speaking about experiences such as fear, make clear that the expression is figurative rather than a claim of legal ownership."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "In the source, monopoly extends the idea of exclusive control to an emotion. It does not claim that fear is bought or sold.",
+            "No monopoly on often challenges an exclusive claim without denying that the named group possesses the quality at all."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a sign saying 'Only us', then remove it when others share the quality.",
+            "memory_sentence": "Our team has no monopoly on useful ideas.",
+            "recall_question": "If hospitals have no monopoly on fear, can people feel afraid elsewhere?",
+            "recognition_task": "Which matches 'no monopoly on wisdom'? A: Only this group can be wise. B: Other groups can be wise too. Explain what no changes.",
+            "production_task": "Write a respectful reply to a fictional manager who thinks only senior staff can solve problems. Use no monopoly on to invite wider participation."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Senior managers do not have a monopoly on good ideas; junior staff can offer solutions too.",
+              "example_2": "No generation has a monopoly on courage."
+            },
+            "mini_conversation": "A: Only our design team can suggest changes to the product.\nB: We don't have a monopoly on good ideas. Let's ask the support team too.\nA: Fair point. I'll invite them."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Of  course,  hospitals  don't  have  a  monopoly  on  fear.",
+            "contextual_meaning": "exclusive control over a service, activity, or resource",
+            "simple_explanation": "The writer says fear is not limited to hospitals. Other places and situations can also make people afraid; hospitals do not have exclusive possession of fear."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Saying “She has a monopoly on good ideas” simply because she has many ideas suggests that nobody else has them.",
+            "correction": "Use monopoly for exclusivity: “She has excellent ideas, but she has no monopoly on them.”",
+            "important_difference": "Having an advantage means being in a better position. Having a monopoly on something suggests exclusive possession or control, a stronger claim."
+          },
+          "patterns_collocations": {
+            "main_pattern": "have a monopoly on + noun; have no monopoly on + noun",
+            "common_collocations": [
+              "a monopoly on wisdom",
+              "no monopoly on good ideas",
+              "a monopoly on power"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Replace generic teaching prose with specific same-sense material.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "All examples keep source-relevant figurative exclusivity. No economic-market lesson added, no monopoly/legal-status facts asserted. Negation and advantage distinction checked.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}

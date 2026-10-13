@@ -1,0 +1,16 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "ordinal": 6,
+  "wordId": "00a07d01-831b-4599-bffa-6ed2bbe212da",
+  "senseKey": "receive-intense-attention",
+  "senseRank": 2,
+  "expectedEntryVersion": 1,
+  "expectedLessonSha256": "b9c02a73c2ac0e21673ecf3f0bd3884f16f96409b2b0e809ccf233d5e173d172",
+  "term": "have all eyes pinned on you",
+  "sourceSentence": "\"Des pite  the  fact  that  I  had  four  hundred  eyeballs  pinned  to  me,  a  rather  important  ques­ tion hit  me  like  a  ton  of  bricks :  'What  do  I  really  want  her e?",
+  "status": "held_source_expression_reconciliation",
+  "reason": "The stored term 'have all eyes pinned on you' is not the expression in the immutable quote ('had four hundred eyeballs pinned to me'). Same general meaning is apparent, but lexical eyes/eyeballs and on/to substitutions are not ordinary inflections or pronoun slots. Prior Overview receipt already calls for wording review. Do not silently rewrite the source, rename the stored term, or treat trusted lesson validation as production manifest provenance approval.",
+  "remainingAction": "Inspect the complete update preflight and original evidence for a valid same-sense source binding. If none is supported, explicitly report this held update and continue other entries.",
+  "notCountedAsCompletedFullLesson": true
+}
