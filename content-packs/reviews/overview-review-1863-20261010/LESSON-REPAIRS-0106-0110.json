@@ -1,0 +1,563 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0106-0110",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 106,
+      "wordId": "0d19fea2-72d3-4350-ba7f-f028b575c521",
+      "senseKey": "used-to-express-disappointment-about-an-unfortunate-situation",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a90fa7eb93ab1f5ec58064460f1c3f7ee2e270ad243afbb0f783814691ce5984",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "what a shame",
+        "wordType": "expression",
+        "pronunciation": "/wɒt ə ˈʃeɪm/",
+        "tamilMeaning": "எவ்வளவு வருத்தமான விஷயம்",
+        "englishMeaning": "used to express disappointment about an unfortunate situation",
+        "coreIdea": "A disappointed sigh at an unfortunate event.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational exclamation of regret about an unfortunate event; here, a cancelled concert.",
+              "connotation": "Negative toward the situation, but not an accusation that someone behaved shamefully.",
+              "tone": "Disappointed and sympathetic here: the exclamation expresses regret about the cancellation.",
+              "register": "Common conversational English. “That is disappointing” is more restrained in professional writing."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Respond sympathetically to a cancelled concert. A model in this sense: What a shame that the garden is closed today."
+            ],
+            "when_not_to_use": [
+              "Do not use what a shame to condemn someone’s behaviour; shame on you expresses that different judgement.",
+              "For a serious personal loss, a brief what a shame may sound too casual. Respond with sympathy that fits the situation."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "what a shame: This use does not accuse anyone of wrongdoing; tone can convey sympathy for another person's loss."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A disappointed sigh at an unfortunate event.",
+            "memory_sentence": "What a shame that the garden is closed today.",
+            "production_task": "Respond sympathetically to a cancelled concert. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: used to express disappointment about an unfortunate situation. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: What shame the concert was cancelled. B: What a shame that the concert was cancelled. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "What a shame that the concert has been cancelled.",
+              "another_setting": "What a shame that the garden is closed today."
+            },
+            "mini_conversation": "A: What a shame that the garden is closed today.\nB: We could visit the park instead."
+          },
+          "meaning_in_context": {
+            "source_sentence": "What a shame that the concert has been cancelled.",
+            "contextual_meaning": "used to express disappointment about an unfortunate situation",
+            "simple_explanation": "The speaker regrets the concert cancellation. This use of shame expresses disappointment, not blame for bad behaviour."
+          },
+          "mistakes_differences": {
+            "correction": "What a shame that the concert was cancelled.",
+            "common_mistake": "What shame the concert was cancelled.",
+            "important_difference": "What a shame expresses disappointment; shame on you condemns someone's behaviour."
+          },
+          "patterns_collocations": {
+            "main_pattern": "what a shame: what a shame that + clause",
+            "common_collocations": [
+              "what a shame",
+              "such a shame"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "meaning_in_context.simple_explanation",
+        "usage_guide.when_not_to_use"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid regret examples, coherent alternative suggestion, article correction, collocations and practice retained; field restrictions made concrete.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 107,
+      "wordId": "0d1a8b7f-178a-4b11-b57b-7ce49fb5a234",
+      "senseKey": "before-event",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e53fbd8ba9376550b21a603a6407960de8a356c9ebf8a1bd35a37309bdf8e9f0",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "in advance",
+        "wordType": "adverbial phrase",
+        "pronunciation": "Approximate pronunciation: in ud-VANS. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "முன்கூட்டியே",
+        "englishMeaning": "before a particular event or time",
+        "coreIdea": "Do it before the event arrives.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Time phrase meaning before the relevant event; here, prepare before the difficult situation arrives.",
+              "connotation": "Neutral: it expresses timing, though preparation is presented as useful.",
+              "tone": "Brief and instructive here: the imperative offers preparation as an alternative.",
+              "register": "Neutral and common in everyday and professional English. State the event when the reference time is unclear."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe booking, paying, notifying or preparing before the relevant event.",
+              "Add a time period when someone needs to know how early to act."
+            ],
+            "when_not_to_use": [
+              "Do not use in advance to mean after the event has already happened.",
+              "If a precise deadline matters, give it; in advance alone does not specify the amount of notice."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "In advance is relative to a reference event, not necessarily to the present. We had paid in advance describes a payment before another past event.",
+            "Well in advance suggests a comfortably early time, but it remains imprecise unless a date or interval is supplied."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a preparation tick on the calendar before the event date.",
+            "memory_sentence": "We booked the room two weeks in advance.",
+            "recall_question": "Does in advance tell you exactly how early something happens?",
+            "recognition_task": "Which fits? A: Reserving a seat before the journey. B: Requesting a seat after the journey has ended. Explain the time relationship.",
+            "production_task": "Ask a colleague to send a document in advance of a meeting. State exactly how many days before the meeting you need it."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Please book your place at least a week in advance.",
+              "example_2": "We prepared the vegetables in advance so that dinner would be easier to finish after work."
+            },
+            "mini_conversation": "A: Can I buy a ticket at the entrance?\nB: Yes, but booking in advance guarantees a place.\nA: I will reserve one today."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Or  prepare  in  adva nce.",
+            "contextual_meaning": "before a particular event or time",
+            "simple_explanation": "The speaker proposes preparing beforehand. The short extract does not identify the event or say how early preparation should begin."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Please tell me in advanced.",
+            "correction": "Say Please tell me in advance. This phrase uses advance, without a final d.",
+            "important_difference": "Early can mean before the usual or expected time. In advance specifically relates the action to an event that comes later."
+          },
+          "patterns_collocations": {
+            "main_pattern": "book/pay/prepare + in advance; a day/two weeks + in advance; in advance of + event",
+            "common_collocations": [
+              "book in advance",
+              "pay in advance",
+              "well in advance"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Reference-event timing distinguished from generic earliness; fragment limitation and advance/advanced form reviewed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 108,
+      "wordId": "0d2c8c71-9372-4219-bfac-a89e40c151fd",
+      "senseKey": "tremble-rapidly",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "61ed703f0d6da43c2d3d74b986a1aaa074f7d58653ad3c7c0cc5681e0402b44a",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "quiver",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: KWIV-er. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "சிறு அசைவுகளுடன் நடுங்குதல்",
+        "englishMeaning": "to tremble with small rapid movements",
+        "coreIdea": "Shake in small, quick movements.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal movement verb for trembling rapidly; the passage uses an exaggerated description of people shaking with tension.",
+              "connotation": "Suggests unease in this example, but trembling can have different causes in other situations.",
+              "tone": "Dramatic and hyperbolic here: the description greatly exaggerates the group's physical tension.",
+              "register": "Expressive narrative vocabulary. “Tremble” is plainer; the passage's dramatic comparison should not be taken as a medical assessment."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe small, quick trembling movements of a person, a body part or an object.",
+              "Name the cause, such as cold or emotion, when the surrounding scene establishes it."
+            ],
+            "when_not_to_use": [
+              "Do not use quiver for every kind of movement; a steady swing or a single large jump is different.",
+              "Do not infer a particular emotion or illness from the verb alone."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Quiver describes movement; its cause may be fear, excitement, cold or something else established by the scene.",
+            "Quivering is the -ing form of quiver. The source uses it before a noun to describe the group’s trembling appearance."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture the quick, tiny movements of a leaf in a light breeze.",
+            "memory_sentence": "His hands began to quiver as he opened the envelope.",
+            "recall_question": "What kind of movement does quiver suggest?",
+            "recognition_task": "Which is closer to quivering? A: Small rapid trembling. B: One slow, wide swing. Explain the contrast.",
+            "production_task": "Describe a fictional scene using quiver or quivering. Name what moves and give enough context to suggest the cause without making a diagnosis."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Her lower lip began to quiver as she tried not to cry.",
+              "example_2": "The leaves quivered in the light breeze while the branches stayed almost still."
+            },
+            "mini_conversation": "A: What detail shows that the character is upset?\nB: Her lip begins to quiver even though she says she is fine.\nA: That gives the scene a visible sign of emotion."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Or  maybe  an  issue  becomes  so  hot  that  as  your  peers  twitch  and  fidget  them ­ selves  into  a  quivering  mass  of  potential  stroke  victi ms,  you  decide  to  say  something.",
+            "contextual_meaning": "to tremble with small rapid movements",
+            "simple_explanation": "The writer exaggerates the group’s physical tension by describing them as trembling. The dramatic comparison is part of the narrative, not evidence of a medical condition."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Her hands were quiver.",
+            "correction": "Say Her hands were quivering, or Her hands quivered.",
+            "important_difference": "Shake is broad. Quiver usually suggests relatively small, rapid trembling movements."
+          },
+          "patterns_collocations": {
+            "main_pattern": "hands/lips + quiver; quiver with + emotion/cold; begin to quiver",
+            "common_collocations": [
+              "quiver with excitement",
+              "a quivering lip",
+              "hands began to quiver"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Small rapid movement taught without attributing a medical cause; source hyperbole explicitly bounded.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 109,
+      "wordId": "0d3a6cdc-815b-4b1e-9c99-fb74f3a40fa1",
+      "senseKey": "distinct-part",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ea3ac88fdce081b04efef60208a82230e537878042d07766e33f285fc7568e29",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "element",
+        "wordType": "countable noun",
+        "pronunciation": "Approximate pronunciation: EL-uh-muhnt. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு பெரிய முழுமையின் தனிப்பட்ட பகுதி அல்லது அம்சம்",
+        "englishMeaning": "a distinct part or feature of a larger whole",
+        "coreIdea": "One identifiable part of a bigger whole.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for one component of a larger whole; here, one part of a daily routine.",
+              "connotation": "Neutral: it identifies a part without judging its value.",
+              "tone": "Cautionary here: “forever altered” stresses that an everyday component might change permanently.",
+              "register": "Neutral to formal; common in explanations. “Part” is simpler in this routine example."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Identify a component or feature when explaining a plan, routine, design or other whole."
+            ],
+            "when_not_to_use": [
+              "Do not use element to refer to the whole plan when you mean just one of its parts.",
+              "If the listener needs to act, name the element rather than leaving the part unspecified."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Element does not itself mean important. Key element and minor element add different judgements about importance.",
+            "In this sense element is countable: one element, several elements. The source’s some element leaves the exact part unidentified."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture one highlighted section inside a larger plan.",
+            "memory_sentence": "Practice is an essential element of my study routine.",
+            "recall_question": "When you identify an element, what larger whole does it belong to?",
+            "recognition_task": "Which names an element of a training course? A: Its weekly practice session. B: The entire course treated as one complete programme. Explain the part–whole relationship.",
+            "production_task": "Describe a useful element of a daily routine and explain how it contributes to the routine as a whole."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Regular practice is a key element of the course.",
+              "example_2": "The designer changed one element of the layout while keeping the rest the same."
+            },
+            "mini_conversation": "A: Do we need to change the whole routine?\nB: No. The evening meeting is the only element that clashes with the bus timetable.\nA: Let’s move that meeting and keep the other arrangements."
+          },
+          "meaning_in_context": {
+            "source_sentence": "In  each  case,  some  element  of  your  daily routine  could  be  forever  altered  for  better  or  wo rse.",
+            "contextual_meaning": "a distinct part or feature of a larger whole",
+            "simple_explanation": "The writer says that one part of a daily routine might change permanently. Could expresses possibility, and the change might be helpful or harmful."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Every elements of the plan needs checking.",
+            "correction": "Say Every element of the plan needs checking. Every takes a singular noun here.",
+            "important_difference": "An element is a part of a whole. A factor is something that influences a result; the words overlap in some situations but emphasize different relationships."
+          },
+          "patterns_collocations": {
+            "main_pattern": "an element of + whole; a key/essential element in + activity",
+            "common_collocations": [
+              "a key element",
+              "an essential element",
+              "different elements of a plan"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Part–whole relation and countability taught; possibility preserved.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 110,
+      "wordId": "0d7563f3-21c8-47dd-a6f8-7593f7cbbc79",
+      "senseKey": "switch-repeatedly-between-states",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b85bab596cb5702dc6be95ff4197cabc279f7df349f8cd04be279bb3e3bf02fa",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "toggle",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: TOG-uhl. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "இரண்டு நிலைகள் அல்லது செயல்களுக்கு இடையே மாறிமாறிச் செல்லுதல்",
+        "englishMeaning": "to switch repeatedly between two states, behaviours, or options",
+        "coreIdea": "Switch back and forth between two alternatives.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract extension of switching between settings: people alternate between silence and attacks.",
+              "connotation": "Neutral as a switching action; the two behaviours described here make the pattern troubling.",
+              "tone": "Critical and questioning here: “constantly,” “seething” and “costly” highlight an unhealthy pattern.",
+              "register": "Common in technology; its use for emotional behaviour is a vivid extension. “Switch back and forth” is clearer for a general audience."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe repeated alternation between two modes, choices or behaviours.",
+              "Make both alternatives clear, especially when using toggle figuratively for behaviour."
+            ],
+            "when_not_to_use": [
+              "Do not use toggle simply to mean make progress through many unrelated stages.",
+              "For a general audience, switch back and forth may be clearer than the technological image."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Toggle is vivid when applied to behaviour, but it may make a complex reaction sound like a simple two-position switch. Use it only when that contrast is useful.",
+            "The source asks a question about the pattern. It does not, by itself, establish that the people definitely behave this way."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a switch moving repeatedly between two labelled positions.",
+            "memory_sentence": "They kept toggling between two plans instead of making a decision.",
+            "recall_question": "What does toggle between suggest beyond a single change?",
+            "recognition_task": "Which fits? A: Switching repeatedly between two approaches. B: Completing the first stage and moving steadily to the next. Explain your choice.",
+            "production_task": "Describe a fictional team that toggles between two responses to a problem. Name both responses and explain why a clear choice would help."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "During the discussion, he toggled between saying nothing and criticizing every suggestion.",
+              "example_2": "As the deadline approached, she toggled between two possible plans without choosing either."
+            },
+            "mini_conversation": "A: Have they settled on a response?\nB: No. They keep toggling between complete silence and sharp criticism.\nA: We need a discussion where they can state their concerns clearly."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Are  they  constantly  toggling  from  seething  silence  to  subtle  but  costly  attacks?",
+            "contextual_meaning": "to switch repeatedly between two states, behaviours, or options",
+            "simple_explanation": "The writer asks whether people repeatedly switch between angry silence and indirect attacks. This describes a pattern of behaviour through the image of switching settings."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: He toggles between silence to criticism.",
+            "correction": "Say He toggles between silence and criticism, or He toggles from silence to criticism.",
+            "important_difference": "Change can describe a single move to a new state. Toggle between emphasizes switching back and forth between alternatives."
+          },
+          "patterns_collocations": {
+            "main_pattern": "toggle between A and B; toggle from A to B",
+            "common_collocations": [
+              "toggle between two options",
+              "toggle back and forth",
+              "toggle between silence and criticism"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Behavioural alternation sense maintained, between/and pairing corrected, interrogative evidence preserved.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
