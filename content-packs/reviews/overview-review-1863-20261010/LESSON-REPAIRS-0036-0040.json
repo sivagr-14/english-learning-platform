@@ -1,0 +1,577 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0036-0040",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 36,
+      "wordId": "03fbcc4b-708e-4322-a7e6-0baa6e679c8a",
+      "senseKey": "volatile-demonstrated-course-sense",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f5df8009121a648d3d737ac6488709e595dfb6d8f9d3eb87a5c8a3f3cadbc45d",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "volatile",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: VOL-uh-tyl. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "திடீரென மாறக்கூடிய நிலையற்ற",
+        "englishMeaning": "likely to change suddenly and unpredictably",
+        "coreIdea": "Conditions can change sharply with little warning.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract description of instability: market conditions can change quickly and unpredictably.",
+              "connotation": "Often cautionary in this market sense because sudden changes create financial uncertainty.",
+              "tone": "Warning and conversational here: the example contrasts a hoped-for profit with a sudden drop and a disappointed reaction.",
+              "register": "Standard financial vocabulary, also familiar in general news. This lesson teaches market instability, not the physical evaporation sense."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use volatile for a market, situation or set of conditions that can change suddenly and unpredictably.",
+              "It emphasizes instability rather than a steady trend in one direction."
+            ],
+            "when_not_to_use": [
+              "Do not use volatile merely to mean expensive; prices can be high and stable.",
+              "A predictable gradual change is not necessarily volatile."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Volatile does not predict the direction of the next change. A volatile market can rise as well as fall.",
+            "Calling a situation volatile signals uncertainty; it does not give an exact measure of the risk."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a line that jumps sharply up and down.",
+            "memory_sentence": "Volatile prices made the weekly budget difficult to predict.",
+            "recall_question": "Can prices be expensive without being volatile?",
+            "recognition_task": "Which is volatile? A: A price fixed at a high level for a year. B: A price that repeatedly jumps and drops without warning. Explain the difference.",
+            "production_task": "Write a fictional planning update using volatile to explain why an estimate needs checking again."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The market remained volatile, with prices rising and falling sharply throughout the day.",
+              "example_2": "The situation was too volatile for the organizers to rely on last week's plan."
+            },
+            "mini_conversation": "A: Can we use yesterday's price estimate?\nB: Prices are volatile this week. I'll check them again before we confirm.\nA: Please note when you checked."
+          },
+          "meaning_in_context": {
+            "source_sentence": "If it delays by a few seconds, the drop can already have happened in a volatile market, and you might go from nice profit to, oh no, not again.",
+            "contextual_meaning": "likely to change suddenly and unpredictably",
+            "simple_explanation": "Prices in the market may change so quickly that even a short delay can affect the result."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Calling prices volatile just because they are high confuses their level with how unpredictably they change.",
+            "correction": "Use volatile for sharp or unpredictable changes: “Prices were volatile, moving up and down several times.”",
+            "important_difference": "Expensive describes a high cost. Volatile describes instability, regardless of whether the current price is high or low."
+          },
+          "patterns_collocations": {
+            "main_pattern": "a volatile + market/situation; subject + become/remain + volatile",
+            "common_collocations": [
+              "a volatile market",
+              "highly volatile prices",
+              "a volatile situation"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Unpredictable-change sense maintained; no investment advice, chemical sense or direction prediction added.",
+        "scope": "All eight lesson sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 37,
+      "wordId": "043d7825-c7c9-421c-96d4-2d57bcde8714",
+      "senseKey": "without-restraint",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b196f445b1afbdc4bb98205f7c93b6787e0dc09aa7ef4209ad541639acbdf1da",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "freely",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: FREE-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "அச்சமோ கட்டுப்பாடோ இன்றி வெளிப்படையாக",
+        "englishMeaning": "openly and without restriction, fear, or pressure",
+        "coreIdea": "Express thoughts without feeling held back.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adverb for acting without restraint or pressure; here, people share ideas openly.",
+              "connotation": "Positive here: freedom to contribute is presented as desirable rather than careless or uncontrolled.",
+              "tone": "The fragment emphasizes openness, but does not provide enough of the sentence to establish a stronger speaker attitude.",
+              "register": "Neutral and common in discussions of communication. It does not mean “without payment” in this sense."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use freely when someone can speak or share ideas without being held back by fear or pressure.",
+              "It suits discussions where people feel able to say what they think."
+            ],
+            "when_not_to_use": [
+              "Do not assume freely means rudely or without regard for others.",
+              "In this lesson, freely describes openness, not whether something costs money."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Freely does not mean that every thought is true or wise; it describes how openly it is expressed.",
+            "The source combines openly and freely for emphasis. Its unfinished ending does not establish what happened next."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a discussion where people do not hold back their real questions.",
+            "memory_sentence": "We shared our ideas freely without worrying about being mocked.",
+            "recall_question": "Can someone speak freely while disagreeing with the group?",
+            "recognition_task": "Which fits freely? A: Sharing your real view without fear. B: Repeating an opinion because you are pressured to agree. Explain your choice.",
+            "production_task": "Invite a fictional teammate to express concerns. Use freely and give a reason they can feel comfortable speaking."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "In the small group, everyone could speak freely about what needed to change.",
+              "example_2": "She shared her doubts freely because she knew her friend would listen."
+            },
+            "mini_conversation": "A: Is it all right to question the plan?\nB: Yes. Please speak freely; we want to hear your concerns.\nA: Then I'd like to discuss the deadline."
+          },
+          "meaning_in_context": {
+            "source_sentence": "wh en  people  openly  and  freely  share  ideas,  the",
+            "contextual_meaning": "openly and without restriction, fear, or pressure",
+            "simple_explanation": "People share ideas openly without fear or pressure. The saved sentence stops after 'the', so the result of sharing is not included."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Using freely to suggest that someone must agree misses its meaning of expression without pressure.",
+            "correction": "Say: “They spoke freely, including when they disagreed.” Freely allows different views.",
+            "important_difference": "Freely concerns the absence of restraint. Politely concerns respectful manner; someone can speak both freely and politely."
+          },
+          "patterns_collocations": {
+            "main_pattern": "speak/share/discuss + freely; freely + express + ideas/opinions",
+            "common_collocations": [
+              "speak freely",
+              "share ideas freely",
+              "express opinions freely"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Openness sense, noncoercion and truncated evidence handled explicitly; no cost-free sense introduced.",
+        "scope": "All eight lesson sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 38,
+      "wordId": "0443a2f1-fbd5-4292-94bb-d5cad8e6557a",
+      "senseKey": "to-make-a-quick-informal-visit",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b97d17dacf70154b9ec08b7081c4f6af29a3cdef2589164bc01ea79e9e9b16cd",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "pop in",
+        "wordType": "phrasal verb",
+        "pronunciation": "/pɒp ˈɪn/",
+        "tamilMeaning": "விரைவாக வந்து செல்லுதல்",
+        "englishMeaning": "to make a quick informal visit",
+        "coreIdea": "A quick hello through the doorway.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational phrasal verb for making a short, informal visit; here, briefly visiting to collect keys.",
+              "connotation": "Often friendly and low-pressure: it presents the visit as brief rather than a major appointment.",
+              "tone": "Casual and considerate here: the speaker asks whether tomorrow would be acceptable.",
+              "register": "Informal, especially common in British English. “Visit briefly” is more formal; “stop by” is another conversational choice."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Ask to collect keys during a short visit tomorrow. A model in this sense: I will pop in for a cup of tea before the train."
+            ],
+            "when_not_to_use": [
+              "Pop in emphasises a quick informal visit; stay over includes an overnight stay.",
+              "Especially common in British speech; use visit briefly for a more formal audience."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "pop in: Especially common in British speech; use visit briefly for a more formal audience."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A quick hello through the doorway.",
+            "memory_sentence": "I will pop in for a cup of tea before the train.",
+            "production_task": "Ask to collect keys during a short visit tomorrow. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: to make a quick informal visit. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: Can I pop in into the office? B: Can I pop into the office? Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "Can I pop in tomorrow to collect the keys?",
+              "another_setting": "I will pop in for a cup of tea before the train."
+            },
+            "mini_conversation": "A: I will pop in for a cup of tea before the train.\nB: Lovely; I will be home after four."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Can I pop in tomorrow to collect the keys?",
+            "contextual_meaning": "to make a quick informal visit",
+            "simple_explanation": "A quick hello through the doorway. Pop in emphasises a quick informal visit; stay over includes an overnight stay."
+          },
+          "mistakes_differences": {
+            "correction": "Can I pop into the office?",
+            "common_mistake": "Can I pop in into the office?",
+            "important_difference": "Pop in emphasises a quick informal visit; stay over includes an overnight stay."
+          },
+          "patterns_collocations": {
+            "main_pattern": "pop in: pop in to + verb; pop into + place",
+            "common_collocations": [
+              "pop in briefly",
+              "pop in for a chat"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Pop in: short informal visit, pop into + place versus pop in to + verb, natural invitation exchange and brief-visit/overnight contrast checked. Retained valid non-Overview content.",
+        "scope": "All eight lesson sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 39,
+      "wordId": "04595394-19fe-4ae0-9239-5be3d0f3d783",
+      "senseKey": "unfriendly-and-aggressive",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "04c7bb549521f57c15759b74ac313585dfd3cb0396734197973016681082ea81",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "hostile",
+        "wordType": "adjective",
+        "pronunciation": "/ˈhɒstaɪl/",
+        "tamilMeaning": "பகைமையான",
+        "englishMeaning": "unfriendly and likely to oppose or attack",
+        "coreIdea": "Show strong unfriendliness or opposition.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract description of an unfriendly or opposing attitude; here, a crowd may react against the speaker.",
+              "connotation": "Negative: it suggests antagonism rather than simple disagreement or lack of enthusiasm.",
+              "tone": "Cautionary here: “potentially” identifies a risk that could make the speaker defensive about their image.",
+              "register": "Neutral vocabulary for describing conflict, but a strong judgement of people. Explain the observed behaviour when a diplomatic description is needed."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use hostile for an unfriendly reaction, attitude or group that shows strong opposition.",
+              "It can describe aggressive words without implying a physical attack."
+            ],
+            "when_not_to_use": [
+              "Do not call every respectful disagreement hostile.",
+              "If someone is merely quiet or reserved, describe that behaviour rather than assuming hostility."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Hostile can describe verbal or emotional aggression; it does not necessarily mean physical violence.",
+            "The source's potentially hostile crowd is an anticipated possibility. Do not turn that into a confirmed attack."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a welcome replaced by angry objections.",
+            "memory_sentence": "The hostile response made further discussion difficult.",
+            "recall_question": "Must a critical response also be hostile?",
+            "recognition_task": "Which is hostile? A: Calmly explaining two flaws in a proposal. B: Shouting insults at its speaker. Explain the attitude.",
+            "production_task": "Describe a fictional meeting to a colleague using hostile. Include an observable action supporting the description."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The proposal received a hostile reaction, with several people shouting objections.",
+              "example_2": "He became openly hostile towards anyone who questioned his decision."
+            },
+            "mini_conversation": "A: How did the audience respond?\nB: A few people were hostile and shouted over the speaker.\nA: Did the chair ask them to let her finish?"
+          },
+          "meaning_in_context": {
+            "source_sentence": "If  you  are  standing  in  fr ont  of  a  potentially  hostile  crowd ,  it's  a  good  bet  you  will  change  your  original  goal  to  the  new  goal  of protecting  your  public  image.",
+            "contextual_meaning": "unfriendly and likely to oppose or attack",
+            "simple_explanation": "The speaker imagines an audience that might respond with strong unfriendliness or opposition. Potentially means this reaction is possible, not confirmed."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “The crowd was hostility.” Hostility is a noun, not the adjective needed after was here.",
+            "correction": "Say: “The crowd was hostile” or “The crowd showed hostility.”",
+            "important_difference": "Critical can mean carefully identifying weaknesses. Hostile adds strong unfriendliness or opposition, so criticism is not automatically hostility."
+          },
+          "patterns_collocations": {
+            "main_pattern": "a hostile + reaction/crowd; be hostile to/towards + person/idea",
+            "common_collocations": [
+              "a hostile reception",
+              "a hostile crowd",
+              "openly hostile"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Opposition distinguished from ordinary criticism; adjective/noun and possibility-versus-fact checked.",
+        "scope": "All eight lesson sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 40,
+      "wordId": "04b08d78-fefe-4d1b-8e45-bc1f9b76fd8e",
+      "senseKey": "personal-identifiers-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d4ded3ffd1a6d9edaff85f7482abeaf73eb9707899a89a360b5b678141a9e54f",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "personal identifiers",
+        "wordType": "plural noun phrase",
+        "pronunciation": "Approximate pronunciation: PUR-suh-nuhl eye-DEN-tih-fy-erz. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "குறிப்பிட்ட நபரை அடையாளம் காணக்கூடிய தரவுகள்",
+        "englishMeaning": "data elements that can identify a particular person",
+        "coreIdea": "Pieces of information that can point to a particular person.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical noun phrase for pieces of information that can identify a person.",
+              "connotation": "Neutral as a data category; the mention of privacy and legal reasons explains why careful handling matters.",
+              "tone": "Explanatory and procedural here: the speaker describes removing or anonymizing identifying information.",
+              "register": "Standard privacy and data-management wording. Give examples such as a name or account identifier when speaking to a general audience."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use personal identifiers when discussing data that can identify a person, such as a name paired with contact details.",
+              "It is useful when explaining which identifying fields a dataset contains."
+            ],
+            "when_not_to_use": [
+              "Do not use the phrase as a name for every kind of data; the identifying connection matters.",
+              "Do not assume that removing one field automatically makes a whole dataset anonymous."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Some details identify a person directly; others may identify someone when combined. A field's role can depend on the surrounding information.",
+            "Personal identifiers describes an identifying function. This vocabulary lesson does not establish whether a particular dataset meets any legal standard."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a data row with an arrow pointing from its details to one person.",
+            "memory_sentence": "We checked the table for personal identifiers before sharing the example.",
+            "recall_question": "What makes a data element a personal identifier in this sense?",
+            "recognition_task": "Which more clearly contains personal identifiers? A: A named person's contact record. B: A total count of all attendees with no individual records. Explain your choice.",
+            "production_task": "Write a fictional review comment using personal identifiers. Name two identifying fields that should be checked before an example is shared."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The sample table still contained personal identifiers, including names and email addresses.",
+              "example_2": "The reviewer checked which personal identifiers appeared in the interview notes."
+            },
+            "mini_conversation": "A: Is this sample ready for the presentation?\nB: It still contains personal identifiers in the name and email columns.\nA: I'll replace those examples with fictional details."
+          },
+          "meaning_in_context": {
+            "source_sentence": "This means we'll be removing or anonymizing personal identifiers when necessary for privacy or legal reasons.",
+            "contextual_meaning": "data elements that can identify a particular person",
+            "simple_explanation": "The source describes removing or changing information that could identify people before using the data."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “Personal identifiers is included in the file.” The phrase is plural.",
+            "correction": "Say: “Personal identifiers are included in the file.” For one item, use “a personal identifier.”",
+            "important_difference": "An identifier links information to a person. A general statistic, such as the total number of responses, does not necessarily identify any individual."
+          },
+          "patterns_collocations": {
+            "main_pattern": "remove/protect + personal identifiers; personal identifiers in + dataset",
+            "common_collocations": [
+              "remove personal identifiers",
+              "direct personal identifiers",
+              "protect personal identifiers"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Identification concept and plural agreement checked; no legal compliance guarantee or claim that field removal ensures anonymity.",
+        "scope": "All eight lesson sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
