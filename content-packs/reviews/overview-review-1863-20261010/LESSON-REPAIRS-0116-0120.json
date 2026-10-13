@@ -1,0 +1,575 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0116-0120",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 116,
+      "wordId": "0e1444ed-bd25-4e6e-8b87-3684f7448870",
+      "senseKey": "alerting-mechanisms-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "937697c4869259484191ec9a501f3e223ee28362ab28705abe16b7c1407605f3",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "alerting mechanisms",
+        "wordType": "plural noun phrase",
+        "pronunciation": "Approximate pronunciation: uh-LUR-ting MEK-uh-niz-umz. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கண்காணிக்கப்பட்ட நிலை கண்டறியப்படும் போது குழுவுக்கு அறிவிக்கும் தானியங்கி முறைகள்",
+        "englishMeaning": "automated methods that notify teams when monitored conditions are detected",
+        "coreIdea": "Automatic notices draw attention to monitored conditions.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical phrase for systems or methods that send notifications when monitored conditions occur.",
+              "connotation": "Neutral: the existence of alerts does not show that every alert is useful or accurate.",
+              "tone": "Factual here: the sentence reports that the team has such mechanisms in place.",
+              "register": "Professional technical wording. “Automatic alerts” is simpler when no distinction between components is needed."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe the rules and notification methods that bring monitored conditions to a team’s attention."
+            ],
+            "when_not_to_use": [
+              "Do not call a dashboard alone an alerting mechanism if someone must inspect it manually to notice a problem."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Alerting mechanisms depend on chosen conditions and notification routes. An alert may reach the wrong person or create noise if those choices are poor.",
+            "Having alerting mechanisms in place does not prove that the team detects every problem or responds to every notification."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a monitored reading crossing a limit and a message reaching the team.",
+            "memory_sentence": "We tested the alerting mechanisms before launching the service.",
+            "recall_question": "What do alerting mechanisms add beyond silently collecting measurements?",
+            "recognition_task": "A system stores every error but never notifies anyone. Does it yet have the alerting mechanisms described here? Explain the missing step.",
+            "production_task": "Write two sentences for a support team describing proposed alerting mechanisms. Name a condition that should trigger a warning and who should receive it."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The team tested its alerting mechanisms by deliberately triggering a warning in the test system.",
+              "example_2": "Our alerting mechanisms notify the support team when the website stops responding."
+            },
+            "mini_conversation": "A: Would anyone know if the data stopped arriving?\nB: Our alerting mechanisms send a message when no new file arrives by noon.\nA: Let’s test that notification before Friday."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The TalentFlow team has alerting mechanisms in place to detect these signals.",
+            "contextual_meaning": "automated methods that notify teams when monitored conditions are detected",
+            "simple_explanation": "The team has automatic ways to notice specified signals and alert people. The extract does not identify the signals or the notification channels."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: These alerting mechanisms notifies the team.",
+            "correction": "Say These alerting mechanisms notify the team. The plural noun mechanisms takes notify.",
+            "important_difference": "Monitoring observes conditions. Alerting mechanisms add a way to draw attention to selected conditions; they do not necessarily repair the cause."
+          },
+          "patterns_collocations": {
+            "main_pattern": "set up/test + alerting mechanisms; alerting mechanisms + notify/warn + people",
+            "common_collocations": [
+              "automated alerting mechanisms",
+              "test alerting mechanisms",
+              "alerting mechanisms in place"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Automatic notification distinguished from passive monitoring and automatic repair; unspecified source signals not invented.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      },
+      "technicalReferences": [
+        "https://prometheus.io/docs/alerting/latest/overview/"
+      ]
+    },
+    {
+      "ordinal": 117,
+      "wordId": "0e2032e0-aafa-47df-83af-5f35eec1d063",
+      "senseKey": "real-time-inference-ml-context",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4c58b41784a721bf2670e15e7c3e9b91b94a277c15287f02a9802576d2b03546",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "real-time inference",
+        "wordType": "noun phrase",
+        "pronunciation": "/ˌrɪəl taɪm ˈɪnfərəns/",
+        "tamilMeaning": "உள்ளீடு வந்தவுடன் உடனடி கணிப்பு",
+        "englishMeaning": "generating a prediction immediately when an input arrives",
+        "coreIdea": "Make a prediction in response to a new request.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical phrase for making predictions promptly in response to incoming input, rather than waiting for a later batch.",
+              "connotation": "Neutral: it describes deployment timing, not prediction quality.",
+              "tone": "Instructional here: “we call” introduces the name of a deployment mode.",
+              "register": "Specialist machine-learning wording. “Predictions as requests arrive” is a useful general explanation; real-time does not mean literally zero delay."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss model predictions needed while a user or another system is waiting for a response."
+            ],
+            "when_not_to_use": [
+              "Do not call overnight processing of a collected set of requests real-time inference.",
+              "Do not use the phrase to imply that the model learns new rules from each request."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Real-time inference does not establish one universal response-time limit. The useful delay depends on what the application needs.",
+            "Real-time inference describes using a model to produce outputs; it does not by itself mean the model is being retrained continuously."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a user sending an input and waiting for its prediction on the same screen.",
+            "memory_sentence": "The photo app uses real-time inference to return a prediction while I wait.",
+            "recall_question": "Does real-time inference name model training, prediction timing or prediction accuracy?",
+            "recognition_task": "Which calls for real-time inference? A: Returning a prediction while a user waits. B: Producing tomorrow’s report from a night-time batch. Explain the timing difference.",
+            "production_task": "Write a short explanation to a product manager of why a fictional interactive app needs real-time inference. Mention the user’s waiting time without promising instant or perfect results."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The app uses real-time inference to classify a photo while the user waits.",
+              "example_2": "For real-time inference, the team measures how long each prediction request takes to return a result."
+            },
+            "mini_conversation": "A: Can we wait until tonight to process these requests?\nB: No. Users need a prediction before they leave the page, so we need real-time inference.\nA: Then let’s test the response time under load."
+          },
+          "meaning_in_context": {
+            "source_sentence": "This enables a deployment mode that we call real‑time inference.",
+            "contextual_meaning": "generating a prediction immediately when an input arrives",
+            "simple_explanation": "The writer names a mode that produces predictions promptly as input arrives. The short sentence does not specify what enables it or give a response-time target; immediately is not literally zero delay."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Misleading: Real-time inference means every prediction takes no time at all.",
+            "correction": "Say Real-time inference returns predictions with a short response time suitable for the application. It still involves processing and communication time.",
+            "important_difference": "Real-time inference responds to arriving requests. Batch inference processes a collected set; neither term tells you whether the predictions are accurate."
+          },
+          "patterns_collocations": {
+            "main_pattern": "use/support + real-time inference; deploy a model for + real-time inference",
+            "common_collocations": [
+              "support real-time inference",
+              "real-time inference endpoint",
+              "real-time inference latency"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Prediction timing distinguished from training and accuracy; real time explicitly does not mean zero delay; deployment fragment limits disclosed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      },
+      "technicalReferences": [
+        "https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints.html"
+      ]
+    },
+    {
+      "ordinal": 118,
+      "wordId": "0e3657c6-89df-4019-9b34-e50da90091a4",
+      "senseKey": "despite-what-was-just-mentioned",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "883c9ce9a70c00207a83e885906ad5ead01110977b189ef9bab947fe751a5420",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "nevertheless",
+        "wordType": "linking adverb",
+        "pronunciation": "Approximate pronunciation: nev-er-thuh-LESS. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "இருப்பினும்",
+        "englishMeaning": "despite what was just mentioned",
+        "coreIdea": "The second point remains true despite the first.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Logical connector expressing concession: being small does not change the fact that the animal is a pig.",
+              "connotation": "Neutral: it maintains a claim despite a qualification rather than adding an emotional judgement.",
+              "tone": "Lightly emphatic here: the speaker acknowledges small size and then reasserts the animal's identity.",
+              "register": "Relatively formal, but also natural in deliberate or playful narration. “Still” is more conversational in this sentence."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Introduce a point that remains true despite a difficulty or qualification just mentioned."
+            ],
+            "when_not_to_use": [
+              "Do not use nevertheless when the second point is simply an expected result of the first; a result connector such as therefore expresses that relationship."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Nevertheless emphasizes that a qualification does not defeat the main claim. In the source, but and nevertheless work together for emphasis; their combination is not automatically an error.",
+            "Nevertheless often sounds more deliberate or formal than even so. Choose it when that emphasis suits the message."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine an obstacle followed by a result that still holds.",
+            "memory_sentence": "The climb was difficult. Nevertheless, we reached the top.",
+            "recall_question": "What relationship does nevertheless express between two points?",
+            "recognition_task": "Choose the better connector: The room was small. Nevertheless/Therefore, it held everyone comfortably. Explain why the second point is surprising.",
+            "production_task": "Write two sentences to a colleague acknowledging a limitation of a proposal and explaining why it is still worth trying. Use nevertheless to connect the points."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The path was steep. Nevertheless, we reached the village before sunset.",
+              "example_2": "The study has a small sample; nevertheless, its findings raise useful questions."
+            },
+            "mini_conversation": "A: The hall is smaller than we hoped.\nB: Nevertheless, it can hold everyone who has booked.\nA: Good. Let’s keep the reservation."
+          },
+          "meaning_in_context": {
+            "source_sentence": "A small one, to be sure, but nevertheless a pig.",
+            "contextual_meaning": "despite what was just mentioned",
+            "simple_explanation": "The narrator admits that the animal is small, then insists that it is still a pig. Nevertheless keeps the main description true despite the qualification."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect in standard formal punctuation: The route was long, nevertheless we finished before dark.",
+            "correction": "Write The route was long; nevertheless, we finished before dark. A full stop before Nevertheless is also possible.",
+            "important_difference": "But is a coordinating conjunction and can join two clauses with a comma. Nevertheless is a linking adverb; it cannot replace but in that punctuation pattern unchanged."
+          },
+          "patterns_collocations": {
+            "main_pattern": "Sentence. Nevertheless, + clause; clause; nevertheless, + clause; subject + nevertheless + verb",
+            "common_collocations": [
+              "nevertheless remains true",
+              "nevertheless decided to continue",
+              "but nevertheless important"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Concession and linking-adverb punctuation taught; but nevertheless in the source retained as valid emphasis.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 119,
+      "wordId": "0e571f97-ac96-4cda-bd9e-e60718e63225",
+      "senseKey": "have-difficulty-with",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f0f01b8d7a0f17a4957d57eda63d782158707bc007c03292809cb3c58febd636",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "struggle with",
+        "wordType": "verb phrase",
+        "pronunciation": "Approximate pronunciation: STRUG-uhl with. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒன்றைப் புரிந்துகொள்ளவோ கையாளவோ ஏற்றுக்கொள்ளவோ சிரமப்படுதல்",
+        "englishMeaning": "to have difficulty understanding, handling, or accepting something",
+        "coreIdea": "Find something difficult despite trying to deal with it.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb for experiencing difficulty with something; here, difficulty with a particular point in the discussion.",
+              "connotation": "Sympathetic or neutral: difficulty does not by itself imply lack of intelligence or effort.",
+              "tone": "Explanatory here: the sentence identifies Yvonne's difficulty without explicitly blaming her.",
+              "register": "Common in everyday, educational and professional English. Specify the difficulty when “struggling” could sound too broad."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe difficulty with a task, idea or situation while someone is trying to deal with it.",
+              "Name the difficult part when asking for or offering useful help."
+            ],
+            "when_not_to_use": [
+              "Do not infer laziness or low ability merely because someone struggles with one point.",
+              "Do not use struggle with to describe an easy task completed without difficulty."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Struggle with can describe an ongoing difficulty, while be struggling with often focuses on what is difficult now. Neither form proves that the difficulty is permanent.",
+            "Struggle with can sound sympathetic, but a broad judgement such as She struggles with everything is much more personal than naming one difficult task."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a learner returning to one difficult step and asking for help.",
+            "memory_sentence": "I struggle with the final step of the calculation.",
+            "recall_question": "Does struggle with a decision always mean disagree with it?",
+            "recognition_task": "One learner rejects an argument easily; another tries repeatedly but cannot follow it. Who clearly struggles with the argument? Explain the role of difficulty.",
+            "production_task": "Write to a tutor about a fictional learning problem. Use struggle with, name the exact difficulty and ask for one useful kind of help."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "I struggle with the final step of this calculation, even after reading the example.",
+              "example_2": "She struggled with accepting the committee’s decision because her concerns had not been answered."
+            },
+            "mini_conversation": "A: Which part of the instructions is causing trouble?\nB: I’m struggling with the section about exceptions.\nA: Let’s work through one example together."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Yv onne  is  struggling  with  this  exact  point.",
+            "contextual_meaning": "to have difficulty understanding, handling, or accepting something",
+            "simple_explanation": "Yvonne is having difficulty with a specific point. The fragment does not tell us whether she cannot understand it, handle it or accept it; the lesson keeps that uncertainty."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: I struggle with to understand this point.",
+            "correction": "Say I struggle with understanding this point, or I struggle to understand this point. After with, use a noun or an -ing form.",
+            "important_difference": "Disagree with states a different opinion. Struggle with describes difficulty and does not, by itself, say whether the person agrees."
+          },
+          "patterns_collocations": {
+            "main_pattern": "struggle with + noun/-ing; be struggling with + particular difficulty",
+            "common_collocations": [
+              "struggle with a concept",
+              "struggle with the workload",
+              "struggle with accepting a decision"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Difficulty distinguished from disagreement or personal inability; uncertain nature of the source difficulty preserved.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 120,
+      "wordId": "0e5bb265-5d6b-4f90-979c-271009affa1b",
+      "senseKey": "become-visible-or-evident",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0e694baf71b8a62e27ce4a5a433b94693e21c9171b5ac6ab372f86d78afb0794",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "manifest itself",
+        "wordType": "verb phrase",
+        "pronunciation": "/ˈmænɪfest ɪtˈself/",
+        "tamilMeaning": "ஒரு விளைவின் மூலம் தெளிவாக அல்லது கண்கூடாக வெளிப்படுதல்",
+        "englishMeaning": "to become visible, clear, or evident through a particular result",
+        "coreIdea": "Use manifest itself to express to become visible, clear, or evident through a particular result.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract expression for becoming evident through observable results; here, synergy shows itself in improved decisions or relationships.",
+              "connotation": "Neutral by itself; the listed improvements make the result positive here.",
+              "tone": "Explanatory and qualified: “may” introduces possible forms the benefit could take.",
+              "register": "Formal, common in analytical writing. “Show itself” or “be seen” is more conversational."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe how an underlying quality, problem or benefit becomes evident through observable results."
+            ],
+            "when_not_to_use": [
+              "For a casual description, show itself may be clearer than manifest itself.",
+              "Do not claim that an observed result proves one particular cause unless you have evidence for that connection."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Manifest itself in points to the area or behaviour where something becomes evident; manifest itself as names the form it takes. A problem may manifest itself in repeated delays or as a sudden failure.",
+            "Manifest itself sounds analytical and relatively formal. It describes an observable expression of something; it does not alone prove why that expression occurred."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture an unseen quality becoming clear through what people do.",
+            "memory_sentence": "Strong trust manifests itself in honest cooperation.",
+            "production_task": "Write two sentences for a team report explaining how improved cooperation might manifest itself in a concrete result. Keep the result a possibility rather than a proven fact.",
+            "recall_question": "What does manifest itself mean in the source context?",
+            "recognition_task": "A team says it trusts its leader but never shares concerns. Has trust clearly manifested itself in open communication? Explain what observable behaviour would support that claim."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The problem may manifest itself as repeated delays.",
+              "example_2": "Strong trust manifests itself in honest cooperation."
+            },
+            "mini_conversation": "A: How would we know that trust was improving?\nB: It might manifest itself in more honest cooperation.\nA: Then let’s look at whether people are sharing concerns openly."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Such  synergy  may  manifest  itself  in  a  bet­ ter  decision,  a  better  relationship ,   a  better  decis ion-making  process,  increased  commitment  to  implement  decisions  made,  or  a  combination  of  two  or  more  of  these.",
+            "contextual_meaning": "to become visible, clear, or evident through a particular result",
+            "simple_explanation": "The writer says the benefit of working together may become evident in better decisions, relationships or commitment. May presents possible results, not a guarantee. The original OCR wording is preserved."
+          },
+          "mistakes_differences": {
+            "correction": "Say Their frustration manifested itself in repeated complaints. Itself refers to the singular noun frustration, not to the people who feel it.",
+            "common_mistake": "Incorrect: Their frustration manifested themselves in repeated complaints.",
+            "important_difference": "Manifest itself is formal and means become perceptibly evident; appear can indicate visibility without showing an underlying quality through effects."
+          },
+          "patterns_collocations": {
+            "main_pattern": "singular thing + manifests itself in/as + result; plural things + manifest themselves in/as + result",
+            "common_collocations": [
+              "manifest itself in behaviour",
+              "manifest itself as tension"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples, collocations and memory sentence retained; reflexive agreement corrected and causal overclaim avoided.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
