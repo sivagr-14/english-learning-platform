@@ -1,0 +1,563 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0046-0050",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 46,
+      "wordId": "057163a7-4267-40ec-8c07-838d1916440a",
+      "senseKey": "lively-and-interesting",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "09176bc5ba038140cecb074f71efb871c484717271dffd829b93636de41f901c",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "colorful",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: KUL-er-fuhl. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தனித்துவமும் சுவாரசியமும் நிறைந்த",
+        "englishMeaning": "lively, unusual, and interesting in character or expression",
+        "coreIdea": "A personality as vivid and memorable as a bright picture.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative adjective for a lively or distinctive personality, extending the idea of vivid colour to character.",
+              "connotation": "Often appreciative or amused, but it can also politely suggest eccentricity; here it sits beside the less flattering “crotchety.”",
+              "tone": "Wry and mildly amused here: the narrator gives an entertaining description of the neighbour and the unusual conversation.",
+              "register": "Natural descriptive vocabulary in conversation and narrative. It does not describe the neighbour's physical colours in this sense."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a distinctive personality or a lively account that holds attention.",
+              "It fits stories about memorable characters and their unusual behaviour."
+            ],
+            "when_not_to_use": [
+              "Do not assume colorful is an entirely positive judgement; it can gently hint at eccentric behaviour.",
+              "In precise feedback, describe the behaviour rather than leave the judgement at colorful."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Colorful can be affectionate, amused or mildly critical. The surrounding description tells you which reading is intended.",
+            "Colorful is the American spelling; colourful is the British spelling. Both can describe the same lively personality."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine a grey outline of a person filling with vivid stories.",
+            "memory_sentence": "Our quiet-looking guide turned out to be a colorful character.",
+            "recall_question": "What does colorful add when you call someone an interesting character?",
+            "recognition_task": "Which demonstrates this personality sense? A: A guide with unusual experiences and lively stories. B: A jacket with red and yellow stripes. Explain your choice.",
+            "production_task": "Describe a fictional neighbour with an unusual hobby and lively stories. Use colorful and give one concrete detail."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Our guide was a colorful character who had worked as a chef, sailor and circus musician.",
+              "example_2": "Her colorful account of the train journey kept everyone at the table entertained."
+            },
+            "mini_conversation": "A: What was the guide like?\nB: A colorful character. He had a surprising story about every village.\nA: That must have made the trip interesting."
+          },
+          "meaning_in_context": {
+            "source_sentence": "And  speak ing  of  the  block  par ty,  at  one  point  you're  making  small   talk  with  your  somewhat   crotchety  and  always  colorful  neighbor  about  his  shrinking  kidneys  when  he  says,  \"Spe aking  of  the  new  fence  you're  building  ...",
+            "contextual_meaning": "lively, unusual, and interesting in character or expression",
+            "simple_explanation": "The narrator describes the neighbour as an unusual, interesting character. The description does not refer to his appearance. The quotation ends before his comment is complete."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Assuming a colorful personality means someone wears brightly coloured clothes.",
+            "correction": "A colorful personality is lively and distinctive; someone can be colorful while wearing a plain grey suit.",
+            "important_difference": "Interesting is broad; colorful often adds a sense of vivid detail, unusual behaviour or a memorable personality."
+          },
+          "patterns_collocations": {
+            "main_pattern": "a colorful character/personality; a colorful account of + event",
+            "common_collocations": [
+              "a colorful character",
+              "a colorful personality",
+              "a colorful account"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Personality sense distinguished from literal colour; mixed association and spelling variant explained.",
+        "scope": "All eight sections and changed headers; no corpus-frequency, dictionary IPA or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 47,
+      "wordId": "05a5da9c-cdb4-4d5d-856d-07795ef285c2",
+      "senseKey": "showing-sexual-affection",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3f202af235de85623583d86fcf72f5cd73651c8419f7772ab3ebc149f6fe9ff5",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "amorous",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: AM-er-us. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "காதல் அல்லது பாலியல் ஈர்ப்பை வெளிப்படுத்துகிற",
+        "englishMeaning": "showing romantic or sexual affection",
+        "coreIdea": "Affection directed toward romance or intimacy.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adjective for romantic or sexual affection; here, Jotham wants an affectionate or intimate encounter.",
+              "connotation": "Not inherently approving or disapproving; any implication of welcome or unwelcome attention depends on the situation.",
+              "tone": "The sentence stops after “and,” so it does not establish whether the wish is welcomed, mocked or criticized.",
+              "register": "Somewhat literary or formal, and sometimes playfully indirect. “Romantic” or “sexually affectionate” may be clearer depending on the intended context."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe romantic or sexually affectionate feelings or behaviour in a story or account.",
+              "It can give narration a literary or gently humorous flavour."
+            ],
+            "when_not_to_use": [
+              "Do not use amorous for ordinary kindness toward a friend, colleague or family member.",
+              "Do not infer that amorous attention is welcome; describe the other person’s response separately."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Amorous describes the romantic or sexual character of attention, not whether it is welcome or appropriate.",
+            "Amorous may sound playfully formal in everyday conversation. Romantic is often a more ordinary choice, though it does not always carry the same suggestion of physical desire."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a love letter rather than a thank-you note.",
+            "memory_sentence": "The novel includes an amorous letter between the two lovers.",
+            "recall_question": "Why is amorous unsuitable for describing a colleague who is merely helpful?",
+            "recognition_task": "Which fits amorous? A: A polite welcome to a new teammate. B: A letter expressing romantic desire. Explain the difference.",
+            "production_task": "Write two sentences about a fictional adult character expressing romantic feelings. Use amorous without assuming that the feelings are returned."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "In the novel, he writes an amorous letter to the woman he hopes to marry.",
+              "example_2": "The comedy follows a usually reserved couple during an unexpectedly amorous weekend."
+            },
+            "mini_conversation": "A: Is the letter simply thanking her for dinner?\nB: No, it is rather amorous. He says he cannot stop thinking about her.\nA: So he is expressing romantic feelings."
+          },
+          "meaning_in_context": {
+            "source_sentence": "When  Jotham  wants  to  be  amorous  and",
+            "contextual_meaning": "showing romantic or sexual affection",
+            "simple_explanation": "Jotham wants to express romantic or sexual affection. The source stops after and, so it does not tell us what happens next or how another person responds."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Using amorous to mean friendly in a professional introduction: Our new manager is very amorous.",
+            "correction": "Say Our new manager is very friendly for an approachable manner. Amorous suggests romantic or sexual affection.",
+            "important_difference": "Affectionate can describe warm feelings in many relationships; amorous specifically points toward romance or sexual attraction."
+          },
+          "patterns_collocations": {
+            "main_pattern": "feel/become amorous; amorous feelings; amorous advances",
+            "common_collocations": [
+              "amorous feelings",
+              "amorous advances",
+              "an amorous embrace"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Truncated source limitation preserved; romantic affection distinguished from ordinary kindness and reciprocity.",
+        "scope": "All eight sections and changed headers; no corpus-frequency, dictionary IPA or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 48,
+      "wordId": "05d8abd2-de80-4e04-9d8c-9515863ea285",
+      "senseKey": "harshly-and-rudely",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "97e6bce69f98f6429d8c1bda0fbede1b619a3105fef738d0c7c7a298b44ae3d5",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "abrasively",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: uh-BRAY-siv-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "எரிச்சலூட்டும் வகையில் கடுமையாக",
+        "englishMeaning": "in a harsh manner that causes irritation",
+        "coreIdea": "Words delivered with a rough edge that irritates the listener.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adverb for a harsh, irritating manner, extending the idea of an abrasive surface rubbing roughly.",
+              "connotation": "Negative: it suggests that the way of speaking needlessly irritates or offends others.",
+              "tone": "Self-reflective here: the speaker asks how to persuade while avoiding a harsh manner.",
+              "register": "Descriptive vocabulary used in feedback and commentary. “Harshly” is simpler; “directly” is not an equivalent criticism."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe how someone speaks, replies or deals with people when the manner causes irritation.",
+              "It is useful when distinguishing a valid point from an unnecessarily harsh delivery."
+            ],
+            "when_not_to_use": [
+              "Do not use abrasively merely because someone disagrees; respectful disagreement is possible.",
+              "For diplomatic feedback, name the specific behaviour, such as interrupting or making cutting remarks."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Abrasively evaluates the manner of communication; it does not establish whether the speaker’s factual claim is right or wrong.",
+            "Someone can speak abrasively without shouting. Cutting wording or a dismissive delivery may be enough."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Think of sandpaper as an image for words that rub people the wrong way.",
+            "memory_sentence": "She disagreed firmly without speaking abrasively.",
+            "recall_question": "Can someone speak directly without speaking abrasively? Explain why.",
+            "recognition_task": "Which is abrasive? A: Calmly explaining a mistake. B: Snapping that only an idiot would ask the question. Explain what makes the manner harsh.",
+            "production_task": "Describe an imaginary disagreement in which a useful suggestion is delivered abrasively. Then rewrite the speaker’s message politely."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "He responded abrasively to a simple question, making the new volunteer reluctant to ask another.",
+              "example_2": "The receptionist dealt abrasively with callers until the supervisor intervened."
+            },
+            "mini_conversation": "A: Her suggestion made sense, but the team reacted badly.\nB: She delivered it abrasively and dismissed their questions.\nA: We should discuss both the idea and the way she presented it."
+          },
+          "meaning_in_context": {
+            "source_sentence": "How do  I  speak  persuas ively ,  not  abrasively?",
+            "contextual_meaning": "in a harsh manner that causes irritation",
+            "simple_explanation": "The speaker wants to make a convincing argument without using a harsh, irritating manner."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: He spoke abrasive to the customer.",
+            "correction": "Say He spoke abrasively to the customer. The adverb describes how he spoke.",
+            "important_difference": "Directly can mean clearly and without delay. Abrasively adds a negative judgement about a harsh, irritating manner."
+          },
+          "patterns_collocations": {
+            "main_pattern": "speak/reply/respond abrasively; deal abrasively with + person",
+            "common_collocations": [
+              "speak abrasively",
+              "respond abrasively",
+              "deal abrasively with customers"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Negative manner distinguished from correctness or directness; adjective/adverb contrast reviewed.",
+        "scope": "All eight sections and changed headers; no corpus-frequency, dictionary IPA or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 49,
+      "wordId": "05eb869f-851b-4d3f-b005-68acc526b289",
+      "senseKey": "able-to-work-together",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "24567334fcb8ad512ec35d02801789e57d3698a301684e41f2d6c77c6319abb4",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "compatible",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: kuhm-PAT-uh-buhl. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "முரண்பாடின்றி ஒன்றாகச் செயல்படக்கூடிய",
+        "englishMeaning": "able to exist, work, or be used together without conflict",
+        "coreIdea": "Different things can fit together without getting in each other’s way.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adjective for things that can coexist or work together without conflict; here, goals can be pursued together.",
+              "connotation": "Positive in this setting: compatibility makes cooperation possible despite different strategies.",
+              "tone": "Encouraging and explanatory here: discovering compatible goals offers a route toward a shared purpose.",
+              "register": "Neutral and common in both personal and professional contexts. It means able to fit together, not necessarily identical."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe goals, plans or requirements that can be met together without contradiction.",
+              "State what each plan must fit with when discussing a joint decision."
+            ],
+            "when_not_to_use": [
+              "Do not use compatible to mean identical; different goals can still fit together.",
+              "Do not treat apparent compatibility as proof that all practical details have been checked."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Compatible describes a relationship: explain what a goal is compatible with instead of leaving the comparison unclear.",
+            "Compatible goals can still require compromise over methods. Agreement on outcomes does not guarantee agreement on every step."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture two different puzzle pieces that fit.",
+            "memory_sentence": "A shorter meeting is compatible with a thorough discussion if we prepare first.",
+            "recall_question": "Must two compatible goals be identical?",
+            "recognition_task": "Which pair is compatible? A: Finish by six and leave at seven. B: Leave at five and stay at the same place until seven. Explain the conflict or lack of conflict.",
+            "production_task": "Give two different goals for a team project and explain how they are compatible. Use compatible with in one sentence."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Reducing waste is compatible with our goal of lowering costs.",
+              "example_2": "Their travel plans are compatible: both want to visit the coast and return by Sunday."
+            },
+            "mini_conversation": "A: I want a quieter office, but you want more team discussion.\nB: Those goals are compatible if we create a separate meeting area.\nA: Let’s work out where it could go."
+          },
+          "meaning_in_context": {
+            "source_sentence": "\"  Invent  a  Mu tual  Purpose  Sometimes  when  we  recognize  the  purpo ses  behind  our  strategies,  we  discover  that  we  actually  have  compatible  goa ls.",
+            "contextual_meaning": "able to exist, work, or be used together without conflict",
+            "simple_explanation": "People may use different strategies while still wanting outcomes that can be achieved together. Their goals do not have to conflict."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: My plan is compatible to yours.",
+            "correction": "Say My plan is compatible with yours. Use with to introduce the other plan.",
+            "important_difference": "Identical goals are the same goals. Compatible goals may differ, but pursuing one does not prevent pursuing the other."
+          },
+          "patterns_collocations": {
+            "main_pattern": "A is compatible with B; compatible goals/plans/requirements",
+            "common_collocations": [
+              "compatible goals",
+              "mutually compatible",
+              "compatible with our plans"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Compatibility distinguished from identity; goal-based sense and with construction reviewed.",
+        "scope": "All eight sections and changed headers; no corpus-frequency, dictionary IPA or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 50,
+      "wordId": "06311f5c-9025-4ab0-a101-6607d20109fc",
+      "senseKey": "a-prepared-alternative-for-dealing-with-a-possible-future-problem",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "959f93cd204989db3be3a3fe8c2870b75ce03cd74568533d6906253e1a7ff135",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "contingency plan",
+        "wordType": "noun",
+        "pronunciation": "/kənˈtɪndʒənsi plæn/",
+        "tamilMeaning": "சாத்தியமான பிரச்சினைக்கான மாற்றுத் திட்டம்",
+        "englishMeaning": "a prepared alternative for dealing with a possible future problem",
+        "coreIdea": "Plan B waiting beside Plan A.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract planning phrase: a prepared fallback for a problem that might occur in the future.",
+              "connotation": "Prudent and constructive here: preparation reduces disruption without implying that the problem will definitely happen.",
+              "tone": "Practical and conditional here: going online is tied specifically to the possibility of the hall closing.",
+              "register": "Neutral professional wording, also natural in event planning. “Backup plan” is more conversational."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a fallback prepared before a possible disruption, such as a supplier cancellation or a venue closing."
+            ],
+            "when_not_to_use": [
+              "A contingency plan prepares for a possible disruption; a recovery plan restores progress after disruption has occurred."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "contingency plan: A useful contingency plan includes a trigger, owner and feasible alternative—not merely a vague hope."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Plan B waiting beside Plan A.",
+            "memory_sentence": "Our contingency plan for rain is to move the picnic into the school hall.",
+            "production_task": "Use “contingency plan” in your own response: Create a backup plan for an outdoor event, including the condition that activates it.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “a prepared alternative for dealing with a possible future problem”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “Our contingency plan is if the supplier fails.” B: “Our contingency plan is to use a second supplier if the first one fails.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "Our contingency plan is to hold the event online if the hall closes.",
+              "another_context": "Our contingency plan for rain is to move the picnic into the school hall."
+            },
+            "mini_conversation": "A: Our contingency plan is to hold the event online if the hall closes.\nB: That gives us a workable alternative without changing the main plan yet."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Our contingency plan is to hold the event online if the hall closes.",
+            "contextual_meaning": "a prepared alternative for dealing with a possible future problem",
+            "simple_explanation": "The organisers plan to move the event online only if the hall closes. The online option is prepared in advance, not necessarily the option they will use."
+          },
+          "mistakes_differences": {
+            "correction": "Our contingency plan is to use a second supplier if the first one fails.",
+            "common_mistake": "Our contingency plan is if the supplier fails.",
+            "important_difference": "A contingency plan prepares for a possible disruption; a recovery plan restores progress after disruption has occurred."
+          },
+          "patterns_collocations": {
+            "main_pattern": "contingency plan: a contingency plan for + risk; contingency plan is to + verb",
+            "common_collocations": [
+              "a robust contingency plan",
+              "activate the contingency plan"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "meaning_in_context.simple_explanation",
+        "usage_guide.when_to_use"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples, conditional fallback, collocations and recovery-plan contrast retained.",
+        "scope": "All eight sections and changed headers; no corpus-frequency, dictionary IPA or audio certification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
