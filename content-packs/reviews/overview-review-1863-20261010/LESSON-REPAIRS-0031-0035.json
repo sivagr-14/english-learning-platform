@@ -1,0 +1,561 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0031-0035",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 31,
+      "wordId": "039ef67b-a168-468e-b612-b03fc9f7aa49",
+      "senseKey": "to-be-treated-as-more-important-than-something-else",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "992efb21509f3296c8c20c5197763e9345680d6fa9257e044bb86a6a2df980de",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "take precedence",
+        "wordType": "verb phrase",
+        "pronunciation": "/teɪk ˈpresɪdəns/",
+        "tamilMeaning": "முன்னுரிமை பெறுதல்",
+        "englishMeaning": "to be treated as more important than something else",
+        "coreIdea": "Which item goes to the front when priorities collide?",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract expression of priority: urgent customer issues should be handled before routine paperwork.",
+              "connotation": "Neutral: it ranks importance without claiming that lower-priority tasks have no value.",
+              "tone": "Firm and procedural here: the sentence states the expected order of attention.",
+              "register": "Neutral to formal, common in workplace policies and explanations. “Come first” is more conversational."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use “take precedence” for this meaning: to be treated as more important than something else. For a concrete situation: Urgent customer issues take precedence over routine paperwork."
+            ],
+            "when_not_to_use": [
+              "Take precedence establishes priority; happen first describes time order without necessarily implying importance."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "take precedence: Precedence is about which consideration wins when demands compete; it need not mean that the other task is unimportant."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Which item goes to the front when priorities collide?",
+            "memory_sentence": "A medical appointment will take precedence over my usual shopping trip.",
+            "production_task": "Use “take precedence” in your own response: Explain which task should come first when an urgent request interrupts routine work.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “to be treated as more important than something else”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “Safety takes precedence than convenience.” B: “Safety takes precedence over convenience.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "Urgent customer issues take precedence over routine paperwork.",
+              "another_context": "A medical appointment will take precedence over my usual shopping trip."
+            },
+            "mini_conversation": "A: Urgent customer issues take precedence over routine paperwork.\nB: Understood; we will reschedule the routine checks."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Urgent customer issues take precedence over routine paperwork.",
+            "contextual_meaning": "to be treated as more important than something else",
+            "simple_explanation": "Which item goes to the front when priorities collide? Here, to be treated as more important than something else."
+          },
+          "mistakes_differences": {
+            "correction": "Safety takes precedence over convenience.",
+            "common_mistake": "Safety takes precedence than convenience.",
+            "important_difference": "Take precedence establishes priority; happen first describes time order without necessarily implying importance."
+          },
+          "patterns_collocations": {
+            "main_pattern": "take precedence: take precedence over + noun",
+            "common_collocations": [
+              "safety takes precedence",
+              "take precedence over convenience"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Take precedence: priority over construction, importance-versus-time distinction and realistic task scheduling examples checked. Retained useful non-Overview sections.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 32,
+      "wordId": "03a4dc34-bbae-4840-8113-77f4d6133708",
+      "senseKey": "used-to-ask-for-precise-details-rather-than-a-general-statement",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4a448bd33a1cfa7bb59ca6f892fb03cf8a33924f75228d601b3d9f083850af45",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "could you be more specific",
+        "wordType": "expression",
+        "pronunciation": "/kʊd ju bi mɔː spəˈsɪfɪk/",
+        "tamilMeaning": "இன்னும் துல்லியமாகக் கூற முடியுமா?",
+        "englishMeaning": "used to ask for precise details rather than a general statement",
+        "coreIdea": "Zoom the camera onto the exact detail.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational request for clarification: ask the other person to name the precise changes required.",
+              "connotation": "Usually neutral: it requests detail rather than necessarily rejecting the original statement.",
+              "tone": "Polite but direct here: “Could you” softens the request for a more exact explanation.",
+              "register": "Natural in everyday and professional conversation. The same words can sound impatient with a sharp delivery, but that delivery is not shown here."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use “could you be more specific” for this meaning: used to ask for precise details rather than a general statement. For a concrete situation: Could you be more specific about what needs to change?"
+            ],
+            "when_not_to_use": [
+              "Could you be more specific requests precision; could you elaborate may invite a longer, wider explanation."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "could you be more specific: The phrase can sound challenging if no reason is given, so identify the decision or action the detail will support."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Zoom the camera onto the exact detail.",
+            "memory_sentence": "Could you be more specific about which documents I need to bring?",
+            "production_task": "Use “could you be more specific” in your own response: Replace a vague request for improvement with a question about the page, issue and desired result.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “used to ask for precise details rather than a general statement”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “Could you be more specific about the change?” B: “Could you be more specifically about the change?” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "Could you be more specific about what needs to change?",
+              "another_context": "Could you be more specific about which documents I need to bring?"
+            },
+            "mini_conversation": "A: This page needs improvement.\nB: Could you be more specific about what needs to change?\nA: Please shorten the introduction and add the missing date.\nB: Thanks, I'll make those changes."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Could you be more specific about what needs to change?",
+            "contextual_meaning": "used to ask for precise details rather than a general statement",
+            "simple_explanation": "Zoom the camera onto the exact detail. Here, used to ask for precise details rather than a general statement."
+          },
+          "mistakes_differences": {
+            "correction": "Could you be more specific about the change?",
+            "common_mistake": "Could you be more specifically about the change?",
+            "important_difference": "Could you be more specific requests precision; could you elaborate may invite a longer, wider explanation."
+          },
+          "patterns_collocations": {
+            "main_pattern": "could you be more specific: could you be more specific about + point",
+            "common_collocations": [
+              "be more specific",
+              "ask for specifics"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "natural_examples.mini_conversation"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Replaced a definition-like non-answer with a precise reply and next action. Retained valid adjective construction, examples and precision-versus-elaboration contrast.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 33,
+      "wordId": "03a870a0-e07a-4e01-a443-77b194cd0885",
+      "senseKey": "view-of-oneself",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8159b4246a01aec06d15c160e2ecaee93f289600c562e6b56d20fcee43695b6a",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "self-image",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: SELF IM-ij. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தனது குணம் மற்றும் திறன்களைப் பற்றி ஒருவர் கொண்டிருக்கும் எண்ணம்",
+        "englishMeaning": "the idea or opinion a person has of their own character and abilities",
+        "coreIdea": "The picture of who you are that you carry in your mind.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for a person's view of their own character or abilities; here, that view is said to be damaged.",
+              "connotation": "Neutral as a psychological concept; “destroy” makes the action toward it strongly negative.",
+              "tone": "Defensive and self-justifying in the quoted speech: “had to” presents harming the other person as necessary to preserve integrity.",
+              "register": "Neutral in personal reflection and psychology discussions. “How someone sees themselves” is a simpler explanation."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use self-image for someone's beliefs about their own character or abilities.",
+              "It helps describe a difference between how people see themselves and how others see them."
+            ],
+            "when_not_to_use": [
+              "Do not use self-image to mean a photograph of yourself in this lesson.",
+              "For the opinion other people hold of someone, use reputation or public image."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "A self-image can be flattering, harsh or realistic. The noun does not guarantee that the person's view is accurate.",
+            "The source uses destroy dramatically to describe damage to self-image; it does not provide evidence of the other person's actual response."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine a mental portrait labelled 'How I see myself'.",
+            "memory_sentence": "Her self-image includes being a thoughtful and capable friend.",
+            "recall_question": "Whose opinion is expressed by a person's self-image?",
+            "recognition_task": "Which describes self-image? A: How I understand my own qualities. B: Only what strangers say about me. Explain the viewpoint.",
+            "production_task": "Describe a fictional character's self-image using the word. Show one difference between their own view and a friend's view."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Her self-image as a careful planner was shaken when she forgot an important booking.",
+              "example_2": "He has a positive self-image and sees himself as a patient, dependable friend."
+            },
+            "mini_conversation": "A: Why was one mistake so upsetting for the character?\nB: It challenged her self-image as someone who never lets people down.\nA: So the mistake affected how she saw herself."
+          },
+          "meaning_in_context": {
+            "source_sentence": "\"I'm  so rry,  but  I  just  had  to  des troy  the  guy's  self-image  if  I  was going  to  keep  my  integrit y.",
+            "contextual_meaning": "the idea or opinion a person has of their own character and abilities",
+            "simple_explanation": "The speaker claims that protecting their own integrity required damaging the other man's view of himself. This reports the speaker's justification, not an endorsement of it."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Using self-image to describe only what colleagues think of a person confuses the person's own view with other people's opinions.",
+            "correction": "Say: “His self-image is positive, although his colleagues see him differently.” Self-image belongs to the person's own understanding.",
+            "important_difference": "Self-image is how you picture yourself. Self-esteem concerns how much value or respect you give yourself; the ideas are related but not identical."
+          },
+          "patterns_collocations": {
+            "main_pattern": "someone's self-image; a positive/negative self-image; self-image as + role",
+            "common_collocations": [
+              "a positive self-image",
+              "damage someone's self-image",
+              "a confident self-image"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Internal self-view distinguished from reputation and self-esteem; no psychological outcome or advice inferred.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 34,
+      "wordId": "03b91ecd-1bae-43c6-a2b1-afcb827001d6",
+      "senseKey": "in-the-usual-case",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8045313649c9e119b28f22e97ffdc7b76001b8a669aa330e8ca5afd81ad4fbac",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "typically",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: TIP-ik-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "வழக்கமாக; பொதுவாக",
+        "englishMeaning": "in the usual or expected way",
+        "coreIdea": "Describe what usually happens, allowing for exceptions.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Adverb describing what usually happens, rather than what happens in every case.",
+              "connotation": "Neutral: it signals a usual pattern without judging it.",
+              "tone": "No distinctive attitude can be established from the incomplete fragment “What typically set”; the surrounding sentence is needed.",
+              "register": "Neutral and useful in general explanations, reports and conversation. “Usually” is a simpler alternative."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use typically for a usual pattern or expected behaviour.",
+              "It is useful when describing a routine without claiming that every occasion is identical."
+            ],
+            "when_not_to_use": [
+              "Do not use typically when you mean without exception; always makes that stronger claim.",
+              "Avoid presenting an unsupported assumption about a group as its typical behaviour."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Typically can describe an expected characteristic as well as a repeated routine; it still points to what is usual.",
+            "The fragment supplied for this entry is insufficient to identify a specific event. The complete examples here are separate teaching scenarios."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a recurring pattern with one or two exceptions.",
+            "memory_sentence": "The shop typically opens at nine, but holidays may be different.",
+            "recall_question": "Can something happen typically without happening every single time?",
+            "recognition_task": "A meeting usually lasts thirty minutes but sometimes lasts longer. Which fits? A: It typically lasts thirty minutes. B: It always lasts exactly thirty minutes. Explain the exception.",
+            "production_task": "Tell a new colleague about a fictional team routine. Use typically and mention a possible exception."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The library is typically quieter in the morning.",
+              "example_2": "We typically send the agenda a day before the meeting."
+            },
+            "mini_conversation": "A: How long does the repair take?\nB: It typically takes an hour, but this model may need longer.\nA: I'll allow some extra time."
+          },
+          "meaning_in_context": {
+            "source_sentence": "What  typically  set",
+            "contextual_meaning": "in the usual or expected way",
+            "simple_explanation": "Typically signals the usual case. The saved quotation ends after 'set', so it does not reveal the complete situation or result."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “We typical meet on Fridays.” A verb needs the adverb typically here.",
+            "correction": "Say: “We typically meet on Fridays.” Typical is an adjective, as in “a typical Friday.”",
+            "important_difference": "Typically describes the usual pattern. Always rules out exceptions and is therefore a stronger claim."
+          },
+          "patterns_collocations": {
+            "main_pattern": "subject + typically + main verb; subject + be + typically + description",
+            "common_collocations": [
+              "typically takes an hour",
+              "typically happens",
+              "is typically quieter"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Usual-case meaning preserved, source truncation explicit, adverb/adjective and usually/always strength checked.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 35,
+      "wordId": "03e7db1c-afbc-49c9-8120-8bc61930f84b",
+      "senseKey": null,
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0c6461d69745605b77d1515041ddd081b768764ecc154591342c498383e3d779",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "manageable",
+        "wordType": "Adjective",
+        "pronunciation": "/ˈmænɪdʒəbəl/",
+        "tamilMeaning": "சமாளிக்கக்கூடிய / நிர்வகிக்கக்கூடிய",
+        "englishMeaning": "Possible to control, organize or complete without excessive difficulty.",
+        "coreIdea": "The challenge is within your ability to handle.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adjective: small or organized enough to control or complete without excessive difficulty.",
+              "connotation": "Positive or reassuring: it suggests that a task is within someone's capacity.",
+              "tone": "Practical and reassuring here: breaking the task into steps is presented as making it possible to handle.",
+              "register": "Neutral and natural in everyday, educational and workplace English. It means feasible to handle, not necessarily easy."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use manageable for workloads, costs, pain, risks or problems that can be handled.",
+              "Use manageable to reassure someone that a challenge is under control."
+            ],
+            "when_not_to_use": [
+              "Do not use manageable for something beyond your ability or resources to control.",
+              "Manageable does not necessarily mean effortless; use easy if you specifically want to emphasize little effort."
+            ]
+          },
+          "sample_notice": "Built-in starter sample. Refreshing the starter set updates this lesson without changing your progress.",
+          "format_version": "simplified-v2",
+          "sample_version": 4,
+          "advanced_nuance": [
+            "Manageable often deliberately acknowledges some difficulty, so it can sound more realistic than easy."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a large box divided into smaller boxes you can carry.",
+            "memory_sentence": "Small steps make a difficult goal manageable.",
+            "production_task": "Explain how you could make one difficult task manageable.",
+            "recall_question": "Which adjective means difficult but possible to handle?",
+            "recognition_task": "Decide whether a demanding but controllable workload can be called manageable."
+          },
+          "natural_examples": {
+            "examples": {
+              "health": "The exercises helped keep the discomfort manageable.",
+              "everyday": "The monthly payment is manageable for us.",
+              "professional": "We divided the project into manageable stages."
+            },
+            "mini_conversation": "A: Is the workload too heavy?\nB: It is busy, but still manageable."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Breaking the task into steps made it manageable.",
+            "contextual_meaning": "Possible to control, organize or complete without excessive difficulty.",
+            "simple_explanation": "Manageable does not mean effortless; it means the difficulty remains within reasonable limits."
+          },
+          "mistakes_differences": {
+            "correction": "Say “The task is difficult but manageable” when it requires effort yet can still be completed.",
+            "common_mistake": "Treating manageable as a synonym for completely easy.",
+            "important_difference": "Easy requires little effort; manageable may be difficult but remains possible to handle."
+          },
+          "patterns_collocations": {
+            "main_pattern": "something becomes/remains manageable; make + something + manageable",
+            "common_collocations": [
+              "manageable workload",
+              "manageable size",
+              "manageable level",
+              "make the problem manageable"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "patterns_collocations.main_pattern",
+        "meaning_in_context.contextual_meaning",
+        "usage_guide.when_not_to_use"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Separated intransitive become/remain from transitive make; aligned contextual meaning with unchanged English header. Removed overly absolute ban on effortless situations. Retained useful examples, nuance, practice and sample metadata.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
