@@ -6,6 +6,7 @@ import { useParams, useRouter, useSearchParams } from "next/navigation";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
 import QuickLesson from "@/components/QuickLesson";
+import PracticeAudio from "@/components/PracticeAudio";
 import WordCategoryPicker from "@/components/WordCategoryPicker";
 import { getApiClient } from "@/lib/api/client";
 
@@ -502,6 +503,13 @@ function VocabularyWordContent() {
                     {word.pronunciation} · {word.word_type || "Word"} ·{" "}
                     {word.cefr_level || "CEFR pending"}
                   </p>
+                  <div
+                    className="mt-3"
+                    role="group"
+                    aria-label="Word pronunciation"
+                  >
+                    <PracticeAudio key={word.id} text={word.word} />
+                  </div>
                   {word.is_starter_sample && (
                     <p className="mt-2 inline-flex rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-800">
                       Starter sample
@@ -621,3 +629,4 @@ export default function VocabularyWordPage() {
     </AuthenticatedPage>
   );
 }
+
