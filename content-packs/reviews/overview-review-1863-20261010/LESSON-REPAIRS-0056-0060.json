@@ -1,0 +1,554 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0056-0060",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 56,
+      "wordId": "06c6b1f7-a14c-4c26-b2cb-88203d0c8ca4",
+      "senseKey": "used-to-state-polite-but-firm-disagreement",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f3d0ba11590253a2c6eb2aab19b874e8c1e146035cc4a9f1d2242d3af9cc05c0",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "I beg to differ",
+        "wordType": "expression",
+        "pronunciation": "/aɪ beɡ tə ˈdɪfə/",
+        "tamilMeaning": "மரியாதையுடன் மறுக்கிறேன்",
+        "englishMeaning": "used to state polite but firm disagreement",
+        "coreIdea": "Raise a polite hand with an opposing conclusion.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational formula for stating disagreement while keeping a conventionally polite form.",
+              "connotation": "Signals firm opposition to the claim; the polite wording does not make the disagreement weak.",
+              "tone": "Firm and corrective here: the speaker immediately cites the survey as a reason to reject the conclusion.",
+              "register": "Formal or deliberately emphatic in conversation; it can sound stiff or ironic. “I see it differently” is often softer."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "State a clear opposing view in a formal or deliberately emphatic exchange, then explain your reason."
+            ],
+            "when_not_to_use": [
+              "Avoid it when you only feel uncertain: I am not quite convinced expresses doubt without committing to an opposing view.",
+              "It can sound stiff or sarcastic in casual conversation; I see it differently is often warmer."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "I beg to differ: The phrase can sound formal, old-fashioned or ironic; in many workplaces, I see it differently is warmer."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Raise a polite hand with an opposing conclusion.",
+            "memory_sentence": "I beg to differ; the map shows that the northern route is shorter.",
+            "production_task": "Use “I beg to differ” in your own response: Disagree with an unsupported claim and immediately give one relevant piece of evidence.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “used to state polite but firm disagreement”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “I beg to different.” B: “I beg to differ.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "I beg to differ; the survey does not support that conclusion.",
+              "another_context": "I beg to differ; the map shows that the northern route is shorter."
+            },
+            "mini_conversation": "A: The survey proves that everyone wants a longer meeting.\nB: I beg to differ; only four of the twenty respondents chose that option.\nA: You are right. I misread the totals."
+          },
+          "meaning_in_context": {
+            "source_sentence": "I beg to differ; the survey does not support that conclusion.",
+            "contextual_meaning": "used to state polite but firm disagreement",
+            "simple_explanation": "The speaker clearly disagrees with the conclusion and gives the survey as evidence. The wording is conventionally polite, but the disagreement is firm."
+          },
+          "mistakes_differences": {
+            "correction": "I beg to differ.",
+            "common_mistake": "I beg to different.",
+            "important_difference": "I beg to differ signals firm disagreement; I am not quite convinced expresses doubt rather than a contrary conclusion."
+          },
+          "patterns_collocations": {
+            "main_pattern": "I beg to differ. + reason; I beg to differ with + person; I beg to differ on + point",
+            "common_collocations": [
+              "I beg to differ on that point",
+              "I beg to differ with you"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples.mini_conversation"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Replaced self-explanatory reply with an evidence-based disagreement; clarified with-person/on-point construction, firmness and possible irony. Valid examples and practice retained.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 57,
+      "wordId": "06cda910-722c-4375-9cc3-6c3f90558293",
+      "senseKey": "assume-control-or-duty",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bf445e279d7e789c2ebc6bbd80613581ba9ac464688c04ad90657f3b8e403101",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "take over",
+        "wordType": "phrasal verb",
+        "pronunciation": "Approximate pronunciation: tayk OH-ver. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மற்றொருவரிடமிருந்து பணியையோ பொறுப்பையோ ஏற்றுக்கொள்ளுதல்",
+        "englishMeaning": "to assume control of a task, role, or responsibility from someone else",
+        "coreIdea": "Receive the responsibility when another person hands it over.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb for assuming another person's responsibility; here, continue the task after the other person's turn.",
+              "connotation": "Neutral: taking responsibility can be cooperative or unwanted depending on context.",
+              "tone": "Collaborative and practical here: the question appears to arrange a handover after the game.",
+              "register": "Common in everyday and workplace English. State the task when the surrounding conversation does not make it clear."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Arrange a handover when one person stops doing a task and another becomes responsible.",
+              "Use take over from someone to identify whose responsibility you are assuming."
+            ],
+            "when_not_to_use": [
+              "Do not use take over merely for offering help while the original person remains fully in charge.",
+              "Specify the task or role if taking over could sound like removing someone’s authority without agreement."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Take over can describe a friendly agreed handover or an unwelcome change of control. The phrase alone does not establish consent.",
+            "Take over does not specify how long the new responsibility lasts; add for an hour or permanently when duration matters."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture one person passing a relay baton to the next.",
+            "memory_sentence": "I will take over the desk when your shift ends.",
+            "recall_question": "What changes when someone takes over rather than simply helps?",
+            "recognition_task": "Which shows a handover? A: Giving a colleague advice while they remain responsible. B: Replacing a colleague at the desk for the next shift. Explain your choice.",
+            "production_task": "Ask a colleague to take over a task at a stated time. Include one detail they will need before starting."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Maya will take over the reception desk when I leave for lunch.",
+              "example_2": "Can you take over from me and finish reading the story to the children?"
+            },
+            "mini_conversation": "A: I need to leave at three. Can you take over the desk?\nB: Yes. Please show me which calls still need a reply.\nA: I will leave you a short list."
+          },
+          "meaning_in_context": {
+            "source_sentence": "88  CRUCIAL  CONVERS ATI ONS  early  af ternoon,  and  then  you  come  in  af ter  the  ga me  and  take  over  fr om  there ?",
+            "contextual_meaning": "to assume control of a task, role, or responsibility from someone else",
+            "simple_explanation": "The question proposes that the listener continue the responsibility after the game. The extract begins mid-sentence and does not identify the exact task."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: She took over me at the desk, when you mean she replaced you on duty.",
+            "correction": "Say She took over from me at the desk. From introduces the person handing over responsibility.",
+            "important_difference": "Help with a task means assist; take over means assume responsibility for doing or managing it."
+          },
+          "patterns_collocations": {
+            "main_pattern": "take over + task; take over from + person; take over as + role",
+            "common_collocations": [
+              "take over responsibility",
+              "take over the morning shift",
+              "take over from a colleague"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Handover sense and from/as patterns reviewed; incomplete source limitation disclosed; coherent task handover replaces generic examples.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 58,
+      "wordId": "06f6de97-553e-423d-8f8b-64b2f3cc8c67",
+      "senseKey": "to-include-something-when-calculating-or-deciding",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2a44c5f9f6034037dd38844ded48e6824de8a6205b88c4a91eab26d8b5619ce6",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "factor in",
+        "wordType": "phrasal verb",
+        "pronunciation": "/ˈfæktər ɪn/",
+        "tamilMeaning": "கணக்கில் சேர்த்துக்கொள்ளுதல்",
+        "englishMeaning": "to include something when calculating or deciding",
+        "coreIdea": "Add the overlooked piece to the calculation.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb meaning to include a consideration in planning or calculation; here, allow time for training.",
+              "connotation": "Neutral: it asks for a factor to be considered without claiming that it is the only important one.",
+              "tone": "Practical and cautionary here: “Remember” prompts the listener not to overlook training time.",
+              "register": "Common in professional planning and ordinary conversation. “Include” is a simpler alternative where the object is clear."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Include a cost, delay, risk or other relevant consideration when making a calculation or decision."
+            ],
+            "when_not_to_use": [
+              "Merely noticing a possible cost is not the same as factoring it in; the estimate or decision must take it into account."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "factor in: Factor in is separable: factor the cost in and factor in the cost work, but a pronoun goes between the verb and particle."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Add the overlooked piece to the calculation.",
+            "memory_sentence": "We must factor in parking costs when comparing the two venues.",
+            "production_task": "Use “factor in” in your own response: Name two costs that someone might forget when planning an in-person event.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “to include something when calculating or deciding”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “We forgot to factor it in.” B: “We forgot to factor in it.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "Remember to factor in the time needed for training.",
+              "another_context": "We must factor in parking costs when comparing the two venues."
+            },
+            "mini_conversation": "A: Remember to factor in the time needed for training.\nB: Good point; the work is not finished when the software is installed."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Remember to factor in the time needed for training.",
+            "contextual_meaning": "to include something when calculating or deciding",
+            "simple_explanation": "The speaker reminds the listener to include training time in the plan, rather than counting only the installation or other work."
+          },
+          "mistakes_differences": {
+            "correction": "We forgot to factor it in.",
+            "common_mistake": "We forgot to factor in it.",
+            "important_difference": "Factor in actively includes something in a calculation; notice only means becoming aware of it."
+          },
+          "patterns_collocations": {
+            "main_pattern": "factor in: factor in + cost/time/risk",
+            "common_collocations": [
+              "factor in travel time",
+              "factor in extra costs"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "meaning_in_context.simple_explanation",
+        "usage_guide"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Preserved accurate separable-verb nuance, pronoun-position correction, examples and coherent reply; clarified actual planning use.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 59,
+      "wordId": "06fb358d-51c7-4a44-9c9e-7ae93069d0de",
+      "senseKey": "extremely-angry",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b5aa909d727aea603d3b47cc84b40dd0dd062ba452a95daffe26f26dcd97d2a3",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "fuming",
+        "wordType": "adjective / present participle",
+        "pronunciation": "Approximate pronunciation: FYOO-ming. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கடுங்கோபத்தில் கொதித்துக்கொண்டிருக்கிற",
+        "englishMeaning": "feeling or showing extreme anger",
+        "coreIdea": "So angry that you seem to have steam inside.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative description of intense anger, as though someone were giving off fumes or steam.",
+              "connotation": "Strongly negative as an emotional state; it suggests more anger than being merely annoyed.",
+              "tone": "Dramatic here: tiredness and disappointment build toward all six people becoming very angry.",
+              "register": "Common expressive vocabulary in conversation and narrative. “Very angry” is plainer for formal reporting."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe intense anger in a conversation or story, especially anger that continues after an upsetting event."
+            ],
+            "when_not_to_use": [
+              "Do not use fuming for mild irritation unless you deliberately want to exaggerate.",
+              "Do not assume that someone who is fuming is shouting or violent; they may remain quiet."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Fuming describes intense anger but does not tell us whether it is justified. Explain the cause separately.",
+            "Still fuming suggests that the anger has continued. Fuming silently is possible: visible shouting is not required."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine steam as a picture of anger building up, without literal smoke.",
+            "memory_sentence": "I was still fuming when I got home.",
+            "recall_question": "Must a person be shouting to be fuming?",
+            "recognition_task": "Which better fits fuming? A: Briefly irritated by a small delay. B: Extremely angry after discovering deliberate unfairness. Explain the difference in intensity.",
+            "production_task": "Write a short fictional scene about someone who is fuming over an unfair decision. Show the cause and one reaction without assuming violence."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She was fuming when she discovered that someone had used her work without permission.",
+              "example_2": "The passengers were still fuming over the cancelled train hours later."
+            },
+            "mini_conversation": "A: Why is Leena so quiet?\nB: She is fuming because her work was presented under someone else’s name.\nA: We should make sure the manager knows who did it."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Bleary- eyed  and  disap­ pointed,  all  six  of  them  were now  fumi ng.",
+            "contextual_meaning": "feeling or showing extreme anger",
+            "simple_explanation": "All six people are extremely angry after feeling tired and disappointed. The quotation alone does not explain exactly what caused the situation."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: I am fume about the decision.",
+            "correction": "Say I am fuming about the decision. After am, use the -ing form in this construction.",
+            "important_difference": "Annoyed may describe mild irritation. Fuming presents the anger as much stronger."
+          },
+          "patterns_collocations": {
+            "main_pattern": "be/still be fuming; be fuming about/over + problem; be fuming at + action",
+            "common_collocations": [
+              "still fuming",
+              "fuming with anger",
+              "fuming over the decision"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Extreme-anger sense maintained, emotional intensity distinguished from conduct, exact OCR evidence preserved.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 60,
+      "wordId": "0710b584-7b34-43fb-9983-49fed1e0f82c",
+      "senseKey": "standardized-job-titles-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f244e8bc04e74494efb8ee0ab2b6c3895cf7ce765942a883a6f0e3834e18434e",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "standardized job titles",
+        "wordType": "plural noun phrase",
+        "pronunciation": "Approximate pronunciation: STAN-der-dyzd JOB TY-tuhlz. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரே சீரான வடிவத்துக்கு மாற்றப்பட்ட வேலைப் பதவிப் பெயர்கள்",
+        "englishMeaning": "job-role names converted into a consistent format",
+        "coreIdea": "Different versions of a role name are mapped to consistent labels.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical workplace phrase: job-role names made consistent so that different wording can be processed or compared.",
+              "connotation": "Neutral: standardization concerns consistency, not whether a job is prestigious or an applicant is qualified.",
+              "tone": "Explanatory here: the sentence describes a possible use of natural language processing on a résumé.",
+              "register": "Natural in recruitment-data and HR-system discussions. Explain “consistent names for equivalent job roles” to a nontechnical audience."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe consistent role labels used to organise, search or compare employment records.",
+              "Use it when distinguishing cleaned role names from the original wording supplied on a résumé."
+            ],
+            "when_not_to_use": [
+              "Do not assume matching titles prove that two people have the same duties or seniority.",
+              "Do not call a list standardized if its naming rules have not actually been applied consistently."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Standardized job titles reflect a particular naming scheme; standardized does not by itself mean that every employer uses the same scheme.",
+            "Standardized job titles can hide meaningful distinctions if different roles are grouped too broadly. Consistent labels do not establish identical responsibilities."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture several differently written role names feeding into one labelled column.",
+            "memory_sentence": "We kept the original names beside the standardized job titles.",
+            "recall_question": "Why might a reviewer need both original and standardized job titles?",
+            "recognition_task": "Which demonstrates standardization? A: Keeping every spelling variant as an unrelated label. B: Applying consistent naming rules while retaining originals for checking. Explain your choice.",
+            "production_task": "Tell a colleague how standardized job titles could help organise recruitment records, and name one detail that still needs human checking."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The recruitment team uses standardized job titles to group spelling variants in its database.",
+              "example_2": "The report lists standardized job titles beside the original role names so reviewers can check each match."
+            },
+            "mini_conversation": "A: Why do these two records have the same label?\nB: We mapped the original wording to standardized job titles.\nA: Please keep the original names too, so we can check whether the roles really match."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The resume might be processed using natural language processing techniques to extract standardized job titles and relevant skills.",
+            "contextual_meaning": "job-role names converted into a consistent format",
+            "simple_explanation": "The source describes processing a résumé to identify job-role names in a consistent form, alongside relevant skills. It describes a possible process rather than a guaranteed accurate result."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The standardized job titles is ready for review.",
+            "correction": "Say The standardized job titles are ready for review. Titles is plural.",
+            "important_difference": "An original job title preserves the wording supplied by an employer or applicant; a standardized job title follows the chosen consistent naming system."
+          },
+          "patterns_collocations": {
+            "main_pattern": "map original titles to standardized job titles; use standardized job titles in + system",
+            "common_collocations": [
+              "a list of standardized job titles",
+              "map to standardized job titles",
+              "search by standardized job titles"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic ML filler replaced with consistent-label examples; plural agreement, original-versus-normalized data and limits of equivalence reviewed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}

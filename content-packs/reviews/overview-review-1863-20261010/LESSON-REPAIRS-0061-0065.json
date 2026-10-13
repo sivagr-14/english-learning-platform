@@ -1,0 +1,551 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0061-0065",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 61,
+      "wordId": "07488c20-2a2f-4818-ae6e-f8c4ec8b2f9c",
+      "senseKey": "delay-reluctantly",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4e1601c5801a05d09152a2d43444bef3a92b7cc487b09971a9252482e5a46c1e",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "drag your feet",
+        "wordType": "idiom / verb phrase",
+        "pronunciation": "Approximate pronunciation: drag yer FEET. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "விருப்பமின்மையால் செயலில் இறங்கத் தாமதித்தல்",
+        "englishMeaning": "to delay taking action because you are unwilling or reluctant",
+        "coreIdea": "Delay by moving reluctantly instead of getting on with the action.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative idiom for delaying action through reluctance, as though moving one's feet slowly instead of proceeding willingly.",
+              "connotation": "Usually negative: it implies avoidable hesitation rather than a delay outside someone's control.",
+              "tone": "Critical of the reluctant group here: their delay is contrasted with people who would have agreed to move.",
+              "register": "Common conversational English, including workplace criticism. Describe the actual delay when you do not know the person's motive."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Criticize a delay that appears to result from reluctance to act."
+            ],
+            "when_not_to_use": [
+              "Do not assume every delay is deliberate; check whether missing information or other obstacles explain it.",
+              "Use a neutral description of the missed action if you do not know the person’s attitude."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Drag your feet can sound accusatory because it attributes a motive. A missed deadline alone is not enough to establish that motive.",
+            "In the source, would have dragged their feet describes an imagined response. Preserve that uncertainty when retelling the example."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture feet moving slowly toward a task the person does not want to do.",
+            "memory_sentence": "I dragged my feet over making the uncomfortable phone call.",
+            "recall_question": "What motive does drag your feet suggest that delay alone does not?",
+            "recognition_task": "Which fits? A: Waiting because a required document has not arrived. B: Avoiding an available task because you dislike it. Explain which shows reluctance.",
+            "production_task": "Describe a fictional person who drags their feet over a necessary decision. Name the action and the reason for the reluctance."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The committee members dragged their feet on approving the repairs because they opposed the cost.",
+              "example_2": "I knew I needed to apologise, but I dragged my feet because the conversation would be awkward."
+            },
+            "mini_conversation": "A: Have you sent the apology yet?\nB: No. I have been dragging my feet because I dread the conversation.\nA: Write a short, honest message and start there."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Some  people  would  have  agreed  to  move;  others  would  have  dragged  their  fe et.",
+            "contextual_meaning": "to delay taking action because you are unwilling or reluctant",
+            "simple_explanation": "The writer imagines that some people would have delayed the move because they did not want it. Would have describes a hypothetical response, not a confirmed event."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: She dragged your feet over the decision, when she is the person delaying.",
+            "correction": "Say She dragged her feet over the decision. The possessive matches the person who is reluctant.",
+            "important_difference": "Delay describes a late action without necessarily giving a reason. Drag your feet suggests unwillingness or reluctance."
+          },
+          "patterns_collocations": {
+            "main_pattern": "drag your feet over/about + decision; drag your feet on + action; change your to match the subject",
+            "common_collocations": [
+              "drag your feet over a decision",
+              "drag their feet on approving the plan"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Reluctance distinguished from external delay; possessive agreement and hypothetical source carefully preserved.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 62,
+      "wordId": "078ac38a-f9c8-4df8-b682-8ba4608384a5",
+      "senseKey": "as-a-general-idea-before-practical-details-are-settled",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "60b4281050a182c8c77859bfffd1588ad0fa82f59199099f19e6bfbb8f3f6b78",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "in principle",
+        "wordType": "adverbial phrase",
+        "pronunciation": "/ɪn ˈprɪnsəpəl/",
+        "tamilMeaning": "அடிப்படையில்; விவரங்கள் முடிவாகுமுன்",
+        "englishMeaning": "as a general idea, before practical details are settled",
+        "coreIdea": "YES to the idea; details still open.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract qualifying phrase: agreement with the general idea, while practical details remain unsettled.",
+              "connotation": "Usually supportive but limited: it leaves room for conditions and changes before final agreement.",
+              "tone": "Cautiously supportive here: the speaker approves the proposal's idea while explicitly questioning its cost.",
+              "register": "Neutral to formal; common in negotiations and planning. It must not be treated as unconditional approval."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Express support for a general idea while leaving costs, timing or other practical details open."
+            ],
+            "when_not_to_use": [
+              "Do not use agreement in principle as evidence that someone has approved all spending or final arrangements."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "in principle: Approval in principle is not unconditional final approval: cost, timing or other details may still prevent agreement."
+          ],
+          "memory_practice": {
+            "memory_trigger": "YES to the idea; details still open.",
+            "memory_sentence": "I agree in principle to sharing the car, but we need a schedule.",
+            "production_task": "Use “in principle” in your own response: Support a proposed change while naming one condition that still needs discussion.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “as a general idea, before practical details are settled”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “We agree in principal.” B: “We agree in principle.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "We support the proposal in principle, but the cost needs work.",
+              "another_context": "I agree in principle to sharing the car, but we need a schedule."
+            },
+            "mini_conversation": "A: We support the proposal in principle, but the cost needs work.\nB: Let us settle the practical details before confirming the commitment."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We support the proposal in principle, but the cost needs work.",
+            "contextual_meaning": "as a general idea, before practical details are settled",
+            "simple_explanation": "The speakers support the general proposal but have not accepted its cost. More discussion is needed before a final commitment."
+          },
+          "mistakes_differences": {
+            "correction": "We agree in principle.",
+            "common_mistake": "We agree in principal.",
+            "important_difference": "In principle accepts the general idea; in practice concerns how it actually works."
+          },
+          "patterns_collocations": {
+            "main_pattern": "in principle: agree/support + in principle",
+            "common_collocations": [
+              "agree in principle",
+              "acceptable in principle"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "meaning_in_context.simple_explanation",
+        "usage_guide"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid conditional-support examples, coherent reply, principle/principal correction and limits of approval retained.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 63,
+      "wordId": "07b3f868-0168-43a1-8ad9-4922d8501e41",
+      "senseKey": "to-continue-giving-someone-the-latest-information",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a89195a72a4d29c964cdaf0add618c574b2ca664eb59156bd2b0c994a1a1af20",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "keep someone posted",
+        "wordType": "idiom",
+        "pronunciation": "/kiːp ˌsʌmwʌn ˈpəʊstɪd/",
+        "tamilMeaning": "ஒருவருக்கு தொடர்ந்து புதிய தகவலை தெரிவித்து வைத்திருத்தல்",
+        "englishMeaning": "to continue giving someone the latest information",
+        "coreIdea": "Pin each new update to the noticeboard.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational expression requesting continuing updates as new information becomes available.",
+              "connotation": "Cooperative: it asks to remain informed rather than automatically implying mistrust.",
+              "tone": "Polite and practical here: “Please” introduces a request for delivery-date updates.",
+              "register": "Common in everyday and workplace communication. “Keep me informed” is slightly more formal."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Ask for or promise continuing updates on an event or changing situation."
+            ],
+            "when_not_to_use": [
+              "If you need one fixed report by a deadline, state that requirement; keep me posted alone does not specify timing."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "keep someone posted: It is natural and moderately informal; specify the topic and when the next update is likely."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Pin each new update to the noticeboard.",
+            "memory_sentence": "Please keep me posted on any changes to the train service.",
+            "production_task": "Use “keep someone posted” in your own response: Ask a supplier for ongoing updates about an uncertain delivery date.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “to continue giving someone the latest information”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “Please keep posted me about the date.” B: “Please keep me posted on the date.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "Please keep me posted on the delivery date.",
+              "another_context": "Please keep me posted on any changes to the train service."
+            },
+            "mini_conversation": "A: Please keep me posted on the delivery date.\nB: I will. The supplier expects to confirm it tomorrow, and I will send you the update.\nA: Thanks; that will help me arrange the installation."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Please keep me posted on the delivery date.",
+            "contextual_meaning": "to continue giving someone the latest information",
+            "simple_explanation": "The speaker asks to receive fresh information as the delivery date becomes clearer or changes."
+          },
+          "mistakes_differences": {
+            "correction": "Please keep me posted on the date.",
+            "common_mistake": "Please keep posted me about the date.",
+            "important_difference": "Keep someone posted promises continuing updates; let someone know may refer to one single notification."
+          },
+          "patterns_collocations": {
+            "main_pattern": "keep someone posted: keep + person + posted on/about + noun",
+            "common_collocations": [
+              "keep me posted",
+              "keep everyone posted"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "natural_examples.mini_conversation"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Mismatched reply replaced with a promise and expected update time; valid object-slot grammar and examples retained.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 64,
+      "wordId": "07c4b6d3-04b0-467d-914b-06b9d08c651d",
+      "senseKey": "deep-understanding",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "01170a46077c2d32a81c0e20343a14ff4e47df9e921d3997142ef1c59d72d38f",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "insight",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: IN-syt. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஆழமான தெளிவான புரிதல்",
+        "englishMeaning": "a clear and deep understanding",
+        "coreIdea": "Understand the reason or pattern behind what you can see.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for a deep or clarifying understanding, rather than simply possession of information.",
+              "connotation": "Positive here: insight is treated as valuable understanding gained through experience.",
+              "tone": "Appreciative and reflective here: the writer describes coming to understand the title after engaging more deeply with the material.",
+              "register": "Neutral vocabulary used in reflection, education and professional discussion. A genuine insight should identify what became clearer."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe an understanding that makes a situation or underlying reason clearer.",
+              "Name what became clearer when you say that a conversation or experience gave you insight."
+            ],
+            "when_not_to_use": [
+              "Do not call a list of facts an insight unless it also helps explain something.",
+              "Avoid claiming deep understanding when you have only a guess; explain what supports your interpretation."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Insight can refer to understanding generally, as in gain insight, or a particular useful understanding, as in an insight into a problem.",
+            "Calling something insight presents it as revealing, but the explanation still needs support. The label does not make a weak interpretation correct."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine seeing the mechanism behind a clock face.",
+            "memory_sentence": "The conversation gave me insight into her concerns.",
+            "recall_question": "How does insight go beyond receiving more information?",
+            "recognition_task": "Which shows insight? A: Counting missed meetings only. B: Understanding from interviews that the meeting time clashes with a bus schedule. Explain what became clearer.",
+            "production_task": "Describe a fictional conversation that gave you insight into someone’s behaviour. State the understanding you gained, not just the topic."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Listening to the volunteers gave us insight into why so many people had stopped attending.",
+              "example_2": "The diary offers insight into the writer’s working habits."
+            },
+            "mini_conversation": "A: What did the interviews add to the attendance figures?\nB: They gave us insight into the reasons people stayed away.\nA: So we can address the travel problem, not just advertise again."
+          },
+          "meaning_in_context": {
+            "source_sentence": "\"  But  as  I  read  deep er,  listened  to  the  tapes,  and  exp erienced  the  insight  borne  of  years  of  experience  with  this  material,  I  came  to  under­ stand  why  it  is  titled  Cr ucial  Co nver sations.",
+            "contextual_meaning": "a clear and deep understanding",
+            "simple_explanation": "The writer describes gaining a deeper understanding through engaging with the material and the experience behind it. That understanding helps explain the book’s title."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The interviews gave us insight of the problem.",
+            "correction": "Say The interviews gave us insight into the problem. Into introduces what is better understood.",
+            "important_difference": "Information supplies facts. Insight helps explain what those facts reveal or why something happens."
+          },
+          "patterns_collocations": {
+            "main_pattern": "gain insight into + subject; give/provide insight into + situation",
+            "common_collocations": [
+              "gain insight",
+              "valuable insight",
+              "insight into human behaviour"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Understanding distinguished from raw information; into pattern and countability reviewed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 65,
+      "wordId": "07caaf68-0506-46e5-9c8e-5500db4ded21",
+      "senseKey": "unverified-information",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "08e030a168bb4bf2642c022e4c2e9f8d650bd98fe8f95c01b8b25cf3155eb961",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-051-100.json",
+      "entry": {
+        "word": "rumor",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: ROO-mer. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "உறுதிப்படுத்தப்படாமல் பரவும் தகவல்; வதந்தி",
+        "englishMeaning": "information passed among people without reliable confirmation",
+        "coreIdea": "A claim travels from person to person before it is confirmed.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for a circulating report whose truth has not been reliably confirmed.",
+              "connotation": "Cautionary: calling information a rumor warns that the speaker is not presenting it as verified fact.",
+              "tone": "Reporting unconfirmed information here: “The rumor is” distances the speaker from certainty about the furniture cost.",
+              "register": "Common in everyday talk and news discussion. Formal reports should distinguish an unverified claim from established evidence."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Identify information that is circulating without reliable confirmation.",
+              "Distinguish what people are saying from what has been verified."
+            ],
+            "when_not_to_use": [
+              "Do not treat a rumor as proof that an event happened.",
+              "Do not use rumor to mean definitely false; an unconfirmed report may later turn out to be true or false."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Rumor is the American spelling; rumour is the British spelling. The difference does not change the meaning.",
+            "Calling something a rumor limits the claim of certainty, but repeating it can still influence listeners. Say clearly what is and is not confirmed."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a message passed around with a question mark still attached.",
+            "memory_sentence": "We checked the rumor before changing our plans.",
+            "recall_question": "Can a rumor later turn out to be true?",
+            "recognition_task": "Which is a rumor? A: An unconfirmed story passed between neighbours. B: A verified opening date announced by the organiser. Explain the difference in evidence.",
+            "production_task": "Write a fictional exchange about an unconfirmed event change. Use rumor and show how the speakers decide to verify it."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "A rumor that the shop was closing spread through the neighbourhood, but the owner had made no announcement.",
+              "example_2": "Before changing our travel plans, we checked whether the rumor about the cancelled festival was true."
+            },
+            "mini_conversation": "A: I heard the festival has been cancelled.\nB: Is that confirmed, or is it just a rumor?\nA: I am not sure. I will check the organiser’s announcement."
+          },
+          "meaning_in_context": {
+            "source_sentence": "\"The  rumor  is  that  the  fu rniture  alone  will  cost  $1 50,000.",
+            "contextual_meaning": "information passed among people without reliable confirmation",
+            "simple_explanation": "The speaker reports a circulating claim about the furniture cost without presenting it as confirmed. The statement does not establish that the quoted amount is accurate."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Assuming that calling a report a rumor proves it is a lie.",
+            "correction": "A rumor is unconfirmed information; check reliable evidence before calling it true or false.",
+            "important_difference": "A lie involves deliberate falsehood. A rumor describes information circulating without reliable confirmation, whether or not the people repeating it know it is false."
+          },
+          "patterns_collocations": {
+            "main_pattern": "a rumor that + clause; a rumor about + person/event; hear/spread a rumor",
+            "common_collocations": [
+              "spread a rumor",
+              "an unfounded rumor",
+              "confirm or deny a rumor"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Unconfirmed distinguished from false and deliberately deceptive; American/British spelling and evidence status explained.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
