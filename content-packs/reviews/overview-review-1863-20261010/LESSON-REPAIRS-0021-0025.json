@@ -1,0 +1,565 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0021-0025",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 21,
+      "wordId": "022aeba7-5027-4c1a-8ee4-8240099bacea",
+      "senseKey": "display-self-satisfaction",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "dadb191dc9ff945fe034f2b52ee21be7ae61601e9b1da235258714d6ff5b7a24",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "preen",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: preen. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "பிறரைக் கவரத் தன்னைப் பெருமையாகக் காட்டிக்கொள்ளுதல்",
+        "englishMeaning": "to display pride or self-satisfaction, especially to impress others",
+        "coreIdea": "Show off how pleased you are with yourself.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative verb for displaying self-satisfaction, drawing on the image of a bird grooming its feathers.",
+              "connotation": "Usually negative in this human sense: it suggests vanity or excessive pride.",
+              "tone": "Self-questioning and critical here: the speaker rejects showing off as a worthwhile aim.",
+              "register": "Expressive vocabulary in commentary and description. “Show off” is more common in casual speech."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use preen critically or playfully when someone openly enjoys admiration and shows excessive pride.",
+              "It suits descriptions of a person reacting smugly to praise or success."
+            ],
+            "when_not_to_use": [
+              "Do not use preen as neutral praise for someone's confidence; it often suggests vanity.",
+              "Quiet satisfaction after hard work need not be described as preening."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Preen can be humorous rather than harsh, but it still draws attention to self-admiration.",
+            "In the source, preen describes a rejected motive. The sentence does not establish that someone actually behaved this way."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture someone lingering in the spotlight, delighted by the applause.",
+            "memory_sentence": "He preened in front of the audience instead of thanking his team.",
+            "recall_question": "Why might calling someone preening sound critical?",
+            "recognition_task": "Who is preening? A: Someone quietly thanks the team. B: Someone keeps drawing attention to their own brilliance. Explain the attitude suggested.",
+            "production_task": "Describe a fictional character reacting to praise. Use preen and include one detail that shows visible self-satisfaction."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "He preened in front of the cameras after accepting the award.",
+              "example_2": "She preened herself on her clever answer while the rest of the team waited to speak."
+            },
+            "mini_conversation": "A: He has mentioned that award five times today.\nB: Yes, he's still preening after yesterday's ceremony.\nA: I hope we can get back to the project now."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Oh  yeah,  I  guess  it's  not  to  make  the  other  person  squirm  or  to  preen  in  fr ont  of  a  crowd .",
+            "contextual_meaning": "to display pride or self-satisfaction, especially to impress others",
+            "simple_explanation": "The speaker rejects showing off in front of an audience as a reason for having the conversation."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Calling a modest person who simply accepts thanks someone who preens can sound unfairly critical.",
+            "correction": "Use preen when visible self-satisfaction is the point: “He preened as everyone praised his speech.”",
+            "important_difference": "Be proud can express healthy satisfaction. Preen usually adds the idea of displaying that satisfaction in a vain or smug way."
+          },
+          "patterns_collocations": {
+            "main_pattern": "preen in front of + audience; preen oneself on + achievement",
+            "common_collocations": [
+              "preen in front of a crowd",
+              "preen oneself on one's success"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Human self-display sense only; critical connotation and rejected source motive distinguished from actual behaviour.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 22,
+      "wordId": "0251ad3c-c016-41bd-b48e-f19a251ec725",
+      "senseKey": "to-move-an-event-to-an-earlier-time-or-date",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ca7a8cfd964cbb9adc22b223fc2b27b70daa198db941ea06ea1f27d7fb598c9a",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "bring forward",
+        "wordType": "phrasal verb",
+        "pronunciation": "/brɪŋ ˈfɔːwəd/",
+        "tamilMeaning": "முன்னதாக உள்ள நேரத்திற்கு மாற்றுதல்",
+        "englishMeaning": "to move an event to an earlier time or date",
+        "coreIdea": "Pull the event toward today.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Time-related phrasal verb: reschedule an event for an earlier date or time.",
+              "connotation": "Neutral: the new time may help or inconvenience people depending on the situation.",
+              "tone": "Polite and practical here: “Could we” asks for a scheduling change and gives the holiday as the reason.",
+              "register": "Common in British and international workplace English. “Move the review to an earlier date” is clearer across audiences."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use “bring forward” for this meaning: to move an event to an earlier time or date. For a concrete situation: Could we bring forward the review so that it happens before the holiday?"
+            ],
+            "when_not_to_use": [
+              "Bring forward means earlier, whereas push back usually means later in scheduling."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "bring forward: Because date-moving language can be misunderstood across speakers, include the new calendar date explicitly."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Pull the event toward today.",
+            "memory_sentence": "Could we bring forward the appointment to Wednesday?",
+            "production_task": "Use “bring forward” in your own response: Tell a colleague that a meeting has moved earlier and give both the old and new dates.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “to move an event to an earlier time or date”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “We brought the meeting forward from Tuesday to Friday of the same week.” B: “We brought the meeting forward from Friday to Tuesday of the same week.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "Could we bring forward the review so that it happens before the holiday?",
+              "another_context": "Could we bring forward the appointment to Wednesday?"
+            },
+            "mini_conversation": "A: Could we bring forward the review so that it happens before the holiday?\nB: Yes, provided everyone has the material in time to prepare."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Could we bring forward the review so that it happens before the holiday?",
+            "contextual_meaning": "to move an event to an earlier time or date",
+            "simple_explanation": "Pull the event toward today. Here, to move an event to an earlier time or date."
+          },
+          "mistakes_differences": {
+            "correction": "We brought the meeting forward from Friday to Tuesday of the same week.",
+            "common_mistake": "We brought the meeting forward from Tuesday to Friday of the same week.",
+            "important_difference": "Bring forward means earlier, whereas push back usually means later in scheduling."
+          },
+          "patterns_collocations": {
+            "main_pattern": "bring forward: bring forward + event + to a date",
+            "common_collocations": [
+              "bring forward a meeting",
+              "bring a deadline forward"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Bring forward: earlier-date meaning, separated noun form, concrete scheduling examples and date-direction exercise checked; valid non-Overview content retained.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 23,
+      "wordId": "02b74885-5b75-4ced-84ad-70cf33d6729c",
+      "senseKey": "establish-or-arrange",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6e13acc1370cd3121ad85c4ba8abd0c993530b52afe72d7443470e1e586c100e",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "set up",
+        "wordType": "phrasal verb",
+        "pronunciation": "Approximate pronunciation: set UP. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒன்றை உருவாக்குதல் அல்லது ஏற்பாடு செய்தல்",
+        "englishMeaning": "to establish or arrange something",
+        "coreIdea": "Create an arrangement so that something can happen.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb for establishing or arranging something; here, create additional choices for a discussion.",
+              "connotation": "Neutral: it describes creating options, without guaranteeing they are good ones.",
+              "tone": "Approving and instructional here: the writer presents making new choices as a skill of effective dialogue.",
+              "register": "Common across everyday and workplace English. “Create” is a straightforward alternative for choices."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use set up when creating an arrangement, organization or opportunity.",
+              "It can describe organizing a meeting or establishing a group or system."
+            ],
+            "when_not_to_use": [
+              "If an arrangement already exists and you only use it, set up would wrongly suggest creating it.",
+              "This lesson does not teach the separate sense of tricking someone into trouble."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Set up does not guarantee success: a group can be set up and later fail to attract members.",
+            "The past form is set up, not setted up. In the source, setting up describes the process of creating additional choices."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture putting the people and arrangements in place for a new activity.",
+            "memory_sentence": "We set up a group to share practical advice.",
+            "recall_question": "Does setting up a group mean creating it or necessarily managing it forever?",
+            "recognition_task": "Which has the natural pronoun order? A: She set it up. B: She set up it. Explain your choice.",
+            "production_task": "Write a message to a colleague offering to set up a fictional meeting. Give its purpose and suggest who should attend."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We set up a meeting so that both teams could discuss the problem.",
+              "example_2": "The residents set up a support group for new arrivals."
+            },
+            "mini_conversation": "A: We need a chance to compare the two proposals.\nB: I'll set up a meeting for tomorrow.\nA: Thanks. Please invite both team leaders."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Search  for the  El usive  And  The  best  at  dialogue  ref use  Sucker's  Choices  by  setting  up  new  choice s.",
+            "contextual_meaning": "to establish or arrange something",
+            "simple_explanation": "Skilled speakers create new choices instead of accepting only the limited options already offered."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “I will set up it tomorrow.” A short object pronoun belongs between set and up.",
+            "correction": "Say: “I will set it up tomorrow.” With a noun, “set up the meeting” and “set the meeting up” are both possible.",
+            "important_difference": "Set up focuses on creating or arranging something. Run focuses on managing it after it has been established."
+          },
+          "patterns_collocations": {
+            "main_pattern": "set up + arrangement/group; set + noun + up; set it up",
+            "common_collocations": [
+              "set up a meeting",
+              "set up a support group",
+              "set up a system"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Creation/arrangement sense maintained; separability, irregular past and distinction from ongoing management checked.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 24,
+      "wordId": "02ca06f6-2b53-428c-9163-7b1812a8a32b",
+      "senseKey": "a-set-of-actions-intended-to-restore-progress-after-a-problem",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0a1864bcec59735136d2ff0a7bd6dec03f9be67194b1409ce645477ed3dca29a",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "recovery plan",
+        "wordType": "noun",
+        "pronunciation": "/rɪˈkʌvəri plæn/",
+        "tamilMeaning": "பின்னடைவுக்குப் பின் முன்னேற்றத்தை மீட்கும் திட்டம்",
+        "englishMeaning": "a set of actions intended to restore progress after a problem",
+        "coreIdea": "A mapped route back after a detour.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract planning phrase: actions designed to get work progressing again after a disruption has occurred.",
+              "connotation": "Constructive: it focuses on restoring progress, while acknowledging that something has gone wrong.",
+              "tone": "Practical and factual here: new owners and dates explain how the plan responds to the delay.",
+              "register": "Neutral professional wording, natural in project updates. Explain the actual recovery actions rather than relying on the phrase alone."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use “recovery plan” for this meaning: a set of actions intended to restore progress after a problem. For a concrete situation: The recovery plan gives the delayed tasks new owners and dates."
+            ],
+            "when_not_to_use": [
+              "A recovery plan focuses on restoring progress after disruption. A contingency plan prepares for a possible disruption; it can include recovery actions."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "recovery plan: Credibility depends on owners, dates and trade-offs; simply moving the original dates is not a complete recovery plan."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A mapped route back after a detour.",
+            "memory_sentence": "The organisers created a recovery plan to reschedule the cancelled sessions.",
+            "production_task": "Use “recovery plan” in your own response: Outline three actions for recovering a project that is one week late.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “a set of actions intended to restore progress after a problem”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “Our recovery plan is designed to avoid further delay.” B: “Our recovery plan is for avoid more delay.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "The recovery plan gives the delayed tasks new owners and dates.",
+              "another_context": "The organisers created a recovery plan to reschedule the cancelled sessions."
+            },
+            "mini_conversation": "A: The supplier delay has put us a week behind.\nB: Our recovery plan moves two tasks to another team and sets new dates.\nA: Who will confirm the revised handover?\nB: Mina will check it with both teams today."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The recovery plan gives the delayed tasks new owners and dates.",
+            "contextual_meaning": "a set of actions intended to restore progress after a problem",
+            "simple_explanation": "A mapped route back after a detour. Here, a set of actions intended to restore progress after a problem."
+          },
+          "mistakes_differences": {
+            "correction": "Our recovery plan is designed to avoid further delay.",
+            "common_mistake": "Our recovery plan is for avoid more delay.",
+            "important_difference": "A recovery plan focuses on restoring progress after disruption. A contingency plan prepares for a possible disruption; it can include recovery actions."
+          },
+          "patterns_collocations": {
+            "main_pattern": "recovery plan: a recovery plan for + problem; recovery plan to + verb",
+            "common_collocations": [
+              "a credible recovery plan",
+              "implement the recovery plan"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "natural_examples.mini_conversation",
+        "mistakes_differences.important_difference",
+        "usage_guide.when_not_to_use"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Retained useful patterns, examples and practice. Replaced repetitive definition exchange with a concrete delay response and next action; qualified contingency comparison because recovery actions can be planned in advance.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 25,
+      "wordId": "02cdb638-a236-4ee1-ad9f-dcb513fa0661",
+      "senseKey": "depend-on-essential-factor",
+      "senseRank": 3,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "38259958003102b0057c63d7d6197c09d80e5b72aa3bbaab895ed42cf7e2020f",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "come down to",
+        "wordType": "phrasal verb",
+        "pronunciation": "Approximate pronunciation: kum DOWN too. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "முக்கியமாக ஒரு அடிப்படைக் காரணியைச் சார்ந்திருத்தல்",
+        "englishMeaning": "to depend mainly on one essential fact or factor",
+        "coreIdea": "Identify the main factor that decides the result.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb for identifying the essential deciding factor; here, the important factor is handling crucial conversations.",
+              "connotation": "Neutral: it reduces a complex issue to its central point without automatically judging that point.",
+              "tone": "Emphatic and summarizing here: “all” gives conversation handling decisive importance.",
+              "register": "Common in speech and accessible explanatory writing. “Depends mainly on” states the relationship more explicitly."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use come down to when reducing a complicated decision or situation to its main deciding factor.",
+              "It helps summarize what ultimately matters after other details have been considered."
+            ],
+            "when_not_to_use": [
+              "Avoid it if several equally important factors must remain separate; naming just one may oversimplify the decision.",
+              "This sense does not describe moving physically to a lower place."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Come down to expresses the speaker's analysis of what matters most; it is not proof that other factors have no effect.",
+            "A question clause uses statement word order: “comes down to how people respond”, not “comes down to how do people respond”."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture several options narrowing to one deciding factor.",
+            "memory_sentence": "Our choice will come down to cost.",
+            "recall_question": "What does a speaker emphasize when saying a decision comes down to one factor?",
+            "recognition_task": "Which fits a decision mainly determined by price? A: It comes down to cost. B: Cost is unrelated to it. Explain the relationship.",
+            "production_task": "Tell a friend how you would choose between two fictional courses. Use come down to and state the main factor."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The choice of venue comes down to how many guests we expect.",
+              "example_2": "Both laptops meet my needs, so the decision will come down to price."
+            },
+            "mini_conversation": "A: Which flat will you choose?\nB: It comes down to the journey to work. The smaller one is much closer.\nA: Then let's check that bus route."
+          },
+          "meaning_in_context": {
+            "source_sentence": "It  all  comes  down  to  how  people  handle  crucial  conve rsations.",
+            "contextual_meaning": "to depend mainly on one essential fact or factor",
+            "simple_explanation": "The writer presents people's handling of important conversations as the central factor behind the result."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “It comes down to choose the right time.” Here to is a preposition, not the start of an infinitive.",
+            "correction": "Say: “It comes down to choosing the right time.” Come down to can also take a noun: “It comes down to timing.”",
+            "important_difference": "Depend on can state any relevant condition. Come down to presents a factor as the central issue after the situation has been simplified."
+          },
+          "patterns_collocations": {
+            "main_pattern": "subject + come down to + noun/-ing phrase/question clause: it comes down to cost",
+            "common_collocations": [
+              "come down to a choice",
+              "come down to cost",
+              "come down to whether"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview",
+        "reviewed Tamil",
+        "reviewed pronunciation",
+        "taxonomy",
+        "unlisted valid teaching fields"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile",
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Central-factor meaning maintained; prepositional to and embedded-clause order checked; oversimplification caveat specific.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
