@@ -1,0 +1,559 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0126-0130",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 126,
+      "wordId": "105f6de6-2b86-4124-8780-5e86cc9a584c",
+      "senseKey": "to-be-enthusiastic-about-an-activity-or-idea",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2bac8fd2e08e8e6a8c69ba9ae52ad2d6756c54000b13723a6f98aa1e0b3a5a91",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "be keen on",
+        "wordType": "expression",
+        "pronunciation": "/bi ˈkiːn ɒn/",
+        "tamilMeaning": "ஒன்றில் மிகுந்த ஆர்வமுடன் இருப்பது",
+        "englishMeaning": "to be enthusiastic about an activity or idea",
+        "coreIdea": "Interest turns your attention toward the activity.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational expression of liking or enthusiasm; here, a preference for plans involving some adventure.",
+              "connotation": "Positive toward the activity or idea being discussed.",
+              "tone": "Warm and enthusiastic here, while “tend to” presents the preference as usual rather than absolute.",
+              "register": "Common conversational English, especially British English. “Be enthusiastic about” is more explicit and slightly more formal."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Express enthusiasm for a plan that includes some adventure. A model in this sense: You do not need to be keen on history to enjoy the museum."
+            ],
+            "when_not_to_use": [
+              "Do not use be keen on to imply that a person has agreed to participate; enthusiasm alone is not a commitment."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Be keen on expresses liking; its negative form can soften a negative opinion, especially in British English. I’m not keen on that plan may be a polite way to reject it rather than a precise measure of interest."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Interest turns your attention toward the activity.",
+            "memory_sentence": "You do not need to be keen on history to enjoy the museum.",
+            "production_task": "Express enthusiasm for a plan that includes some adventure. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: to be enthusiastic about an activity or idea. Explain its function in one sentence.",
+            "recognition_task": "Someone says I’m not keen on that idea in a hesitant voice. Are they likely expressing enthusiasm or a softened negative opinion? Explain why the word not matters."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "I tend to be keen on plans that leave room for a little adventure.",
+              "another_setting": "You do not need to be keen on history to enjoy the museum."
+            },
+            "mini_conversation": "A: You do not need to be keen on history to enjoy the museum.\nB: Good; I mainly want to see the architecture."
+          },
+          "meaning_in_context": {
+            "source_sentence": "I tend to be keen on plans that leave room for a little adventure.",
+            "contextual_meaning": "to be enthusiastic about an activity or idea",
+            "simple_explanation": "The speaker usually likes plans that include some adventure. Tend to makes this a general preference rather than a claim about every plan."
+          },
+          "mistakes_differences": {
+            "correction": "I am keen on learning.",
+            "common_mistake": "I am keen on to learn.",
+            "important_difference": "Keen on takes a noun or -ing form; keen to takes an infinitive."
+          },
+          "patterns_collocations": {
+            "main_pattern": "be keen on: be keen on + noun/-ing",
+            "common_collocations": [
+              "be keen on gardening",
+              "not be keen on the idea"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid enthusiasm examples and keen-on/keen-to grammar retained; preference separated from commitment.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 127,
+      "wordId": "10668aa6-ecec-4e1d-9e2d-465da52ab8ed",
+      "senseKey": "purpose-behind-action",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "519181cb6b4ff715f7d0cdc19103ea29bd4f7b0d1a4343723762f65fc095b233",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "intent",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: in-TENT. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு செயல் அல்லது கூற்றின் பின்னுள்ள நோக்கம்",
+        "englishMeaning": "the purpose or aim behind an action or statement",
+        "coreIdea": "The purpose someone means to achieve.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for a purpose behind an action; in the quoted phrase, the purpose is described as malicious.",
+              "connotation": "Neutral by itself: intent can be good or harmful; “malicious” supplies the negative judgement.",
+              "tone": "The excerpt links pointed content with an assumption of harmful purpose, but its missing lead-in prevents certainty about whose view this is.",
+              "register": "Neutral to formal; common in explanations of motives. Do not infer someone's actual intent solely from how their words feel."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss the aim behind an action or clarify what you meant to achieve with a statement."
+            ],
+            "when_not_to_use": [
+              "Do not treat a harmful effect as automatic proof of harmful intent. Distinguish the result from the purpose."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Intent is neutral until the purpose is described: good intent and malicious intent evaluate it differently.",
+            "Stating your intent can clarify a misunderstanding, but it does not erase the effect your words had on the listener."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture the aim written before an action and the result recorded afterward.",
+            "memory_sentence": "My intent was to explain the change clearly.",
+            "recall_question": "How can an action’s intent differ from its impact?",
+            "recognition_task": "A person tries to help but gives confusing instructions. Does the confusion alone prove malicious intent? Explain the distinction between purpose and result.",
+            "production_task": "Write a brief clarification to a fictional colleague who misunderstood a comment. State your intent and acknowledge how the comment may have sounded."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "My intent was to clarify the deadline, not to criticize your work.",
+              "example_2": "The volunteers explained that their intent was to make the event easier for everyone to attend."
+            },
+            "mini_conversation": "A: Your comment sounded like a criticism of the team.\nB: That wasn’t my intent. I wanted to explain why the deadline had changed.\nA: Could you make that purpose clearer in the message?"
+          },
+          "meaning_in_context": {
+            "source_sentence": "MAKE  IT  SAFE  69  painful  and  pointed  content  means  that  you  have  a  malicious  intent.",
+            "contextual_meaning": "the purpose or aim behind an action or statement",
+            "simple_explanation": "In the phrase malicious intent, intent is a harmful purpose attributed to someone. The extract contains a page heading and lacks its lead-in, so it does not establish whose judgement this is or whether the writer endorses it."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: My intent is help the team.",
+            "correction": "Say My intent is to help the team. Use to before the verb describing the purpose.",
+            "important_difference": "Intent is the aim behind an action. Impact is its effect; good intent can still lead to an unhelpful result."
+          },
+          "patterns_collocations": {
+            "main_pattern": "the intent behind + action; someone’s intent is/was to + verb; with the intent of + -ing",
+            "common_collocations": [
+              "good intent",
+              "malicious intent",
+              "clarify your intent"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Purpose/impact distinction and intent grammar repaired; missing lead-in and page-header contamination explicitly disclosed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 128,
+      "wordId": "1068f2e9-37fd-46f5-b792-2c7375af827e",
+      "senseKey": "authentic-and-sincere",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0dbff3dce7284d92f70c4f4167ff7cc516d3ae2dbf8361595501fc76b71a4b3a",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "genuine",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: JEN-yoo-in. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "உண்மையான; நேர்மையான",
+        "englishMeaning": "real, authentic, and sincerely held",
+        "coreIdea": "Sincere and real, rather than merely performed.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract description of something authentic or sincere; here, dialogue that truly involves meaningful exchange.",
+              "connotation": "Positive: it contrasts real engagement with something merely performed or claimed.",
+              "tone": "Approving here: the passage connects genuine dialogue with creating something new and forming a bond.",
+              "register": "Neutral and common in personal and professional English. Explain what makes the dialogue genuine rather than using it as empty praise."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe sincere interest, concern, dialogue or feelings rather than an outward display made only for effect."
+            ],
+            "when_not_to_use": [
+              "Do not use genuine as empty praise without showing what was sincere or real.",
+              "Do not assume that a sincerely held view must be factually correct."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Calling interest or dialogue genuine is a judgement about sincerity. Support that judgement with behaviour, while recognizing that another person’s feelings are not directly visible.",
+            "Genuine dialogue need not end in agreement. People can sincerely listen and still hold different views."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a listener who responds to the answer rather than waiting to deliver a prepared line.",
+            "memory_sentence": "Her questions showed genuine interest in the project.",
+            "recall_question": "Can someone be polite without showing genuine interest?",
+            "recognition_task": "One person listens and responds to what was said; another only pretends to listen. Which behaviour supports a description of genuine dialogue? Explain your evidence.",
+            "production_task": "Describe a fictional conversation to a friend using genuine. Include one observable detail that supports your description of sincere engagement."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She showed genuine interest in my answer and asked thoughtful follow-up questions.",
+              "example_2": "The two groups began a genuine dialogue, listening to each other instead of repeating prepared speeches."
+            },
+            "mini_conversation": "A: Did he ask about your project just to be polite?\nB: I think his interest was genuine. He stayed to hear the details and offered useful questions.\nA: That sounds like a conversation worth continuing."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Because  two  or  more  people  have  created   something  new  from  genuine  dialogue,  bonding  takes  place-just  like  the  bonding  that  takes  place  in  family  or  marriage when a  new  child  is  created.",
+            "contextual_meaning": "real, authentic, and sincerely held",
+            "simple_explanation": "The writer presents the dialogue as real, sincere exchange that allows people to create something together. The comparison with family bonding is the writer’s analogy, not proof that every such discussion creates a bond."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: She listened with genuinely interest.",
+            "correction": "Say She listened with genuine interest. The adjective genuine describes the noun interest; genuinely is an adverb.",
+            "important_difference": "Genuine means sincere or real here. Polite describes considerate manners; politeness can accompany genuine interest but does not prove it."
+          },
+          "patterns_collocations": {
+            "main_pattern": "genuine + feeling/interaction noun; show/express + genuine + interest/concern",
+            "common_collocations": [
+              "genuine dialogue",
+              "genuine interest",
+              "genuine concern"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Sincere dialogue sense maintained without drifting to authenticity of objects; behavioural evidence qualified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 129,
+      "wordId": "108885d2-f877-4a54-a98b-7ccc9a49f1dd",
+      "senseKey": "remain-until-end",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "cfa80a3298ec0725c6be2735b96591e7089108e97d6edd4ca87dfb5b6e0daca2",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "sit through",
+        "wordType": "phrasal verb",
+        "pronunciation": "Approximate pronunciation: sit THROO. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு நிகழ்வின் முடிவுவரை இருந்து பங்கேற்றல்",
+        "englishMeaning": "to stay through an event or experience, especially an unpleasant or lengthy one",
+        "coreIdea": "Remain for an event from beginning to end.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Expression for remaining until an event is over. It often suggests endurance, but this passage emphasizes participation in an open discussion.",
+              "connotation": "Potentially negative in many uses, yet the local context presents the discussion positively; boredom should not be assumed here.",
+              "tone": "Explanatory and approving toward participation: sharing ideas is described as a flow of meaning.",
+              "register": "Common conversational English. “Attend” or “take part in” avoids an unintended suggestion that the discussion was tedious."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe remaining for the duration of a talk, performance or other event, often despite discomfort or boredom."
+            ],
+            "when_not_to_use": [
+              "If you left before the end, do not claim that you sat through the whole event.",
+              "Use attend when you want a neutral description without the possible suggestion of endurance."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Sit through often signals endurance, but surrounding context can make the description less negative. The source presents a constructive discussion, so boredom should not be added to its meaning.",
+            "The past tense is sat through. Through belongs before the event or pronoun: sat through the meeting; sat through it."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture staying in your seat until the final slide disappears.",
+            "memory_sentence": "We need to sit through the whole presentation to hear the announcement.",
+            "recall_question": "What does sit through add to the more neutral verb attend?",
+            "recognition_task": "A visitor leaves a lecture after ten minutes. Another stays until the end despite finding it dull. Who sat through the lecture? Explain why duration matters.",
+            "production_task": "Tell a friend about a fictional lengthy event you sat through. Explain why you stayed until the end without attacking the people involved."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We had to sit through a three-hour meeting before anyone discussed the budget.",
+              "example_2": "She chose to sit through the entire film, even though the broken speaker made the dialogue hard to hear."
+            },
+            "mini_conversation": "A: Did you leave when the presentation ran past six?\nB: No, I sat through the whole thing because I needed to hear the final announcement.\nA: Was there finally a date for the launch?"
+          },
+          "meaning_in_context": {
+            "source_sentence": "As  people  sit  through  an  open  discussion  where  ideas  are  shared,  they  take  part  in  the  free  flow  of mean ing.",
+            "contextual_meaning": "to stay through an event or experience, especially an unpleasant or lengthy one",
+            "simple_explanation": "People remain through an open discussion and share ideas. Although sit through often suggests enduring something tedious, this source emphasizes participation and does not say the discussion was unpleasant."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: I had to sit the lecture through.",
+            "correction": "Say I had to sit through the lecture. Keep through before the event; with a pronoun, say I had to sit through it.",
+            "important_difference": "Attend says that you were present. Sit through emphasizes remaining for the event and can suggest that doing so required patience."
+          },
+          "patterns_collocations": {
+            "main_pattern": "sit through + event; sat through + past event; sit through it",
+            "common_collocations": [
+              "sit through a long meeting",
+              "sit through a lecture",
+              "sit through the entire performance"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Event duration and inseparable through pattern taught; positive source discussion not mislabelled tedious.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 130,
+      "wordId": "10918504-edf6-4350-8580-c03ba82d44f1",
+      "senseKey": "with-different-understandings-of-what-is-being-discussed",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "281eff9a7992dc8ba1fc43e8e981edef9f28daa13e967f781c2ff798c8594254",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "at cross purposes",
+        "wordType": "idiom",
+        "pronunciation": "/ət ˌkrɒs ˈpɜː.pə.sɪz/",
+        "tamilMeaning": "வெவ்வேறு அர்த்தங்களில் புரிந்துகொண்டு பேசுதல்",
+        "englishMeaning": "with different understandings of what is being discussed",
+        "coreIdea": "Picture two arrows pointing towards different questions.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Idiomatic phrase for misunderstanding each other's intended subject or aim; here, each speaker means a different Friday.",
+              "connotation": "Usually negative about the communication problem, without necessarily blaming either person.",
+              "tone": "Clarifying and corrective here: the explanation identifies the precise misunderstanding.",
+              "register": "Common conversational and professional English. It is more specific than simply disagreeing about a shared fact."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Repair a misunderstanding about which deadline two people mean.",
+              "A natural model: I think we are at cross purposes; I am asking about the room, not the whole building."
+            ],
+            "when_not_to_use": [
+              "Do not use at cross purposes merely because two people disagree after correctly understanding the same proposal."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "We may be at cross purposes can help repair a conversation by presenting the misunderstanding as shared. Naming the exact difference, such as which Friday each person meant, is more useful than stopping at the label."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture two arrows pointing towards different questions.",
+            "memory_sentence": "I think we are at cross purposes; I am asking about the room, not the whole building.",
+            "production_task": "Repair a misunderstanding about which deadline two people mean. Use the target expression in one or two sentences. Check its pattern and register only after speaking.",
+            "recall_question": "Without looking, retrieve the expression meaning with different understandings of what is being discussed. Then say it in a new situation.",
+            "recognition_task": "Two people both understand that the proposal is for Friday, but one prefers Monday. Are they necessarily talking at cross purposes? Explain how disagreement differs from misunderstanding the reference."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "We were talking at cross purposes: I meant this Friday, and you meant next Friday.",
+              "another_setting": "I think we are at cross purposes; I am asking about the room, not the whole building."
+            },
+            "mini_conversation": "A: I think we are at cross purposes; I am asking about the room, not the whole building.\nB: Sorry, I misunderstood which space you meant."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We were talking at cross purposes: I meant this Friday, and you meant next Friday.",
+            "contextual_meaning": "with different understandings of what is being discussed",
+            "simple_explanation": "The speakers used Friday but meant different dates. They misunderstood each other’s reference rather than simply holding different opinions about the same date."
+          },
+          "mistakes_differences": {
+            "correction": "We are talking at cross purposes.",
+            "common_mistake": "We are talking in cross purposes.",
+            "important_difference": "Disagreement concerns different views of the same issue; cross purposes can arise because people are discussing different things."
+          },
+          "patterns_collocations": {
+            "main_pattern": "be/talk + at cross purposes; be at cross purposes about + topic",
+            "common_collocations": [
+              "talking at cross purposes",
+              "seem to be at cross purposes",
+              "at cross purposes about the deadline"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid misunderstanding examples retained; working at cross purposes removed to avoid broadening to conflicting goals.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
