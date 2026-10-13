@@ -1,0 +1,557 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0121-0125",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 121,
+      "wordId": "0eb84cd8-daf7-41d3-a081-14425f251fcd",
+      "senseKey": "predefined-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3b98c7b4514d6a5071c9985cee9d1f16d174e368b33e3f38e7c94080aa45b3e9",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "predefined",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: pree-dih-FYND. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "முன்கூட்டியே வரையறுக்கப்பட்ட",
+        "englishMeaning": "decided or established before an activity begins",
+        "coreIdea": "Defined before the activity starts.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Adjective indicating that something was established beforehand; here, the labels would have been specified before learning.",
+              "connotation": "Neutral: defining something in advance can be useful or restrictive depending on the task.",
+              "tone": "Explanatory here: the sentence identifies what is absent in this way of finding patterns.",
+              "register": "Common in technical and professional writing. “Defined in advance” is a clearer everyday paraphrase."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe rules, options, labels or limits specified before they are used."
+            ],
+            "when_not_to_use": [
+              "Do not use predefined simply to mean correct or suitable; it tells us when something was defined, not how good it is."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Predefined does not mean permanently unchangeable. A predefined rule can be revised before a later activity begins.",
+            "Predefined highlights advance specification. In the source, the absence of predefined labels is relevant; the word does not name the learning method by itself."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a list already written before anyone starts the task.",
+            "memory_sentence": "We assessed the entries using predefined criteria.",
+            "recall_question": "Does predefined tell you that something is correct, or that it was specified beforehand?",
+            "recognition_task": "A team invents the scoring rules only after seeing all the results. Were those rules predefined for that assessment? Explain the timing.",
+            "production_task": "Write a short instruction for a fictional form that uses predefined options. Tell the user what to choose and what to do if no option fits."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The form asks applicants to choose from a predefined list of categories.",
+              "example_2": "The judges scored each performance using predefined criteria so that everyone faced the same requirements."
+            },
+            "mini_conversation": "A: Can I type my own category into this form?\nB: No, you must choose one of the predefined options.\nA: Then I’ll check the list before I submit it."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We can also use machine learning to find patterns in data without predefined labels.",
+            "contextual_meaning": "decided or established before an activity begins",
+            "simple_explanation": "The speaker describes finding patterns without labels that were specified beforehand. Without tells us that these predefined labels are absent in the method being described."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incomplete: Please choose a predefined.",
+            "correction": "Say Please choose a predefined option. Predefined is an adjective here and needs the thing being described.",
+            "important_difference": "Predefined means defined beforehand. Predicted means expected to happen; deciding a rule in advance is different from predicting a result."
+          },
+          "patterns_collocations": {
+            "main_pattern": "predefined + noun; follow/use + predefined + rules/options",
+            "common_collocations": [
+              "predefined labels",
+              "predefined rules",
+              "a predefined list of options"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Advance specification distinguished from prediction and correctness; adjective grammar repaired without inventing a source method.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 122,
+      "wordId": "0ed3125a-7c0d-4eba-9663-b4ddbed87242",
+      "senseKey": "used-to-say-that-an-uncertain-action-has-enough-possible-benefit-to-attempt",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8d85f1357bd142534e1b2b6cd5bdd50bfab9860aefd0185727b576cef9ca3e93",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "it is worth a try",
+        "wordType": "expression",
+        "pronunciation": "/ɪt ɪz wɜːθ ə ˈtraɪ/",
+        "tamilMeaning": "முயற்சி செய்து பார்க்கத் தகுந்தது",
+        "englishMeaning": "used to say that an uncertain action has enough possible benefit to attempt",
+        "coreIdea": "A small effort with a possible payoff.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational evaluation that an attempt has enough potential benefit to justify trying, despite uncertainty.",
+              "connotation": "Encouraging: it favours attempting the action without promising success.",
+              "tone": "Tentatively optimistic here: “may still have” identifies a possibility worth checking.",
+              "register": "Common everyday and workplace English. It is suitable for modest suggestions, not a guarantee about the outcome."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Suggest asking a shop about a spare part without promising availability. A model in this sense: It is worth a try; soaking the jar may loosen the label."
+            ],
+            "when_not_to_use": [
+              "Do not use it is worth a try as a promise that the attempt will succeed.",
+              "If an attempt carries serious cost or risk, explain why you think its possible benefit justifies trying it."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "It is worth a try weighs the possible benefit against the effort or cost of attempting something. It can recommend an attempt even when success is unlikely."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A small effort with a possible payoff.",
+            "memory_sentence": "It is worth a try; soaking the jar may loosen the label.",
+            "production_task": "Suggest asking a shop about a spare part without promising availability. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: used to say that an uncertain action has enough possible benefit to attempt. Explain its function in one sentence.",
+            "recognition_task": "A shop might have the part you need, and checking takes a short phone call. Which is better supported: It is worth a try, or It is certain to work? Explain the uncertainty."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "It is worth a try; the shop may still have a spare part.",
+              "another_setting": "It is worth a try; soaking the jar may loosen the label."
+            },
+            "mini_conversation": "A: It is worth a try; soaking the jar may loosen the label.\nB: I will leave it in warm water for a few minutes."
+          },
+          "meaning_in_context": {
+            "source_sentence": "It is worth a try; the shop may still have a spare part.",
+            "contextual_meaning": "used to say that an uncertain action has enough possible benefit to attempt",
+            "simple_explanation": "The speaker suggests contacting the shop because a spare part might still be available. The attempt seems worthwhile even though success is uncertain."
+          },
+          "mistakes_differences": {
+            "correction": "It is worth a try, or it is worth trying.",
+            "common_mistake": "It is worth to try.",
+            "important_difference": "Worth a try judges the attempt worthwhile; likely to work predicts success."
+          },
+          "patterns_collocations": {
+            "main_pattern": "It is worth a try; it is worth + -ing (It is worth asking)",
+            "common_collocations": [
+              "certainly worth a try",
+              "at least worth a try"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid natural examples, conversation, correction and production retained; uncertainty and cost-benefit judgement clarified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 123,
+      "wordId": "0f70367c-1d25-4358-965e-ad5c26ca5165",
+      "senseKey": "validation-set-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "20fc855b62ec052263bb4372701c029453596db2b3ba1d6d77b6a979da6eff44",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "validation set",
+        "wordType": "countable noun phrase",
+        "pronunciation": "Approximate pronunciation: val-ih-DAY-shuhn SET. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மாதிரி அமைப்பைச் சீரமைக்க ஒதுக்கப்பட்ட தரவு",
+        "englishMeaning": "data reserved for tuning and comparing a model during development",
+        "coreIdea": "Hold data aside to guide model choices during development.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical noun phrase for data held aside during development to tune or compare models.",
+              "connotation": "Neutral: “validation” names a development role, not proof that the model is correct in every situation.",
+              "tone": "Instructional here: the speaker distinguishes training, tuning and final testing roles.",
+              "register": "Standard machine-learning terminology. Preserve its distinction from the separate test set described in the same sentence."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Name data held aside to compare model choices or guide tuning during development."
+            ],
+            "when_not_to_use": [
+              "Do not describe a final test set as a validation set while also claiming it remained untouched during model selection. Keep the roles clear."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Repeatedly choosing changes that improve one validation set can make the model too closely suited to that set. A good validation score is not a guarantee of future performance.",
+            "Validation set describes the role of the data. Its useful size and composition depend on the task; the term does not prescribe one fixed percentage."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture three labelled groups: learn, choose, then check.",
+            "memory_sentence": "We compared the two models on the validation set.",
+            "recall_question": "Which development decision can results from a validation set help you make?",
+            "recognition_task": "A team uses reserved data to choose between two model settings. Is that data serving as a validation set or an untouched final test set? Explain its role.",
+            "production_task": "Write a short note to a new team member explaining what the validation set will be used for and why the final test set should stay separate."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We compared two model settings on the validation set before choosing which one to keep.",
+              "example_2": "The image team reserved a validation set to check whether changes improved recognition during development."
+            },
+            "mini_conversation": "A: Which of these settings should we use?\nB: Let’s compare their results on the validation set.\nA: Good. We’ll keep the test set for the final evaluation."
+          },
+          "meaning_in_context": {
+            "source_sentence": "And once the data is cleaned and structured, it's split into a training set to build a model, a validation set to tune it, and the test set to evaluate final performance.",
+            "contextual_meaning": "data reserved for tuning and comparing a model during development",
+            "simple_explanation": "The speaker separates three roles: training builds the model, validation guides tuning, and testing checks final performance. The validation set helps the team choose settings during development."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Misleading: We repeatedly chose settings using the validation set, so its score is an independent final test.",
+            "correction": "Say The validation set guided our choices; a separate test set is reserved for the final check. Data used to choose settings is not an untouched final evaluation.",
+            "important_difference": "The training set is used to fit the model. The validation set guides choices during development, while the separate test set estimates final performance in the workflow described here."
+          },
+          "patterns_collocations": {
+            "main_pattern": "evaluate a model on + a validation set; reserve data for + the validation set",
+            "common_collocations": [
+              "a held-out validation set",
+              "performance on the validation set",
+              "a separate validation set"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Training, tuning and final-testing roles separated; validation reuse limits explained without prescribing a split percentage.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      },
+      "technicalReferences": [
+        "https://scikit-learn.org/stable/modules/cross_validation.html"
+      ]
+    },
+    {
+      "ordinal": 124,
+      "wordId": "0fa06891-896b-4343-b68a-c474bab4354d",
+      "senseKey": "used-to-express-the-same-idea-in-a-clearer-or-different-way",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "101589fd434f72886ceb39440aba56b3d6377c0aec53fc582a54e18eb85eebd5",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "in other words",
+        "wordType": "linking expression",
+        "pronunciation": "/ɪn ˈʌðə wɜːdz/",
+        "tamilMeaning": "வேறு வார்த்தைகளில் தெளிவாக",
+        "englishMeaning": "used to express the same idea in a clearer or different way",
+        "coreIdea": "Same idea in a clearer box.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Discourse marker introducing a restatement: the second sentence explains what conditional funding means in practical terms.",
+              "connotation": "Neutral: it signals clarification rather than necessarily disagreement.",
+              "tone": "Clarifying and direct here: the speaker translates the condition into a requirement to meet targets.",
+              "register": "Neutral and widely usable in conversation and writing. The restatement should preserve the original meaning."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Restate a point using clearer wording or explain its practical meaning without changing the claim."
+            ],
+            "when_not_to_use": [
+              "Do not introduce an unrelated extra fact with in other words.",
+              "Do not turn may into will or some into all while claiming merely to restate the original idea."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "In other words signals that the speaker sees two formulations as equivalent. A listener can still challenge the restatement if it makes the original claim stronger or narrower."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Same idea in a clearer box.",
+            "memory_sentence": "The ticket is non-transferable. In other words, only you can use it.",
+            "production_task": "Tell a colleague that funding will be released only after agreed targets are met. Then use in other words to restate that condition in simpler language.",
+            "recall_question": "Recall the expression for this meaning without looking: used to express the same idea in a clearer or different way. Explain its function in one sentence.",
+            "recognition_task": "The service may be delayed. Which restatement preserves the claim? A: In other words, a delay is possible. B: In other words, it will definitely arrive late. Explain the difference."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "The funding is conditional. In other words, we must meet the agreed targets.",
+              "another_setting": "The ticket is non-transferable. In other words, only you can use it."
+            },
+            "mini_conversation": "A: The ticket is non-transferable. In other words, only you can use it.\nB: Understood; I will not give it to my friend."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The funding is conditional. In other words, we must meet the agreed targets.",
+            "contextual_meaning": "used to express the same idea in a clearer or different way",
+            "simple_explanation": "The speaker explains the funding condition as a requirement to meet agreed targets. In other words introduces a clearer restatement of what the condition means here."
+          },
+          "mistakes_differences": {
+            "correction": "In other words, only you can use it.",
+            "common_mistake": "In another words, only you can use it.",
+            "important_difference": "In other words restates meaning; moreover adds a new supporting point."
+          },
+          "patterns_collocations": {
+            "main_pattern": "Statement. In other words, + restatement",
+            "common_collocations": [
+              "in other words, we need",
+              "put it in other words"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples and grammar contrast retained; concrete restatement task rejects unwarranted strengthening of a claim.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 125,
+      "wordId": "105c4565-ae64-4f29-ab7f-710bc2b0d6b8",
+      "senseKey": "a-recurring-problem-that-causes-difficulty-or-frustration-for-users-or-customers",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "cb938f664a9639d50bcbad54bc147a6719b3552c99961be9a5b9bc32168a611d",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "pain point",
+        "wordType": "noun phrase",
+        "pronunciation": "/ˈpeɪn ˌpɔɪnt/",
+        "tamilMeaning": "பயனர்களுக்குத் தொடர்ந்து சிரமம் தரும் பிரச்சினை",
+        "englishMeaning": "a recurring problem that causes difficulty or frustration for users or customers",
+        "coreIdea": "Picture the repeated snag in a customer's journey.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative business phrase for a recurring source of difficulty or frustration, rather than physical pain.",
+              "connotation": "Negative toward the problem: it highlights something users want improved.",
+              "tone": "Problem-focused here: “major” emphasizes how much delayed updates inconvenience customers.",
+              "register": "Common business and product vocabulary, but jargon to some audiences. “Recurring customer problem” is plainer."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a communication pain point and suggest one way to reduce it.",
+              "A natural model: Finding the right form is the main pain point for new members."
+            ],
+            "when_not_to_use": [
+              "Do not call a requested feature a pain point without identifying the user problem it would solve.",
+              "Use a plainer phrase such as recurring problem if the audience is unfamiliar with product or service terminology."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "A pain point describes the user’s difficulty, not a particular solution. Several different changes may address the same pain point, so describing the problem clearly helps a team compare options."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture the repeated snag in a customer's journey.",
+            "memory_sentence": "Finding the right form is the main pain point for new members.",
+            "production_task": "Describe a communication pain point and suggest one way to reduce it. Use the target expression in one or two sentences. Check its pattern and register only after speaking.",
+            "recall_question": "Without looking, retrieve the expression meaning a recurring problem that causes difficulty or frustration for users or customers. Then say it in a new situation.",
+            "recognition_task": "Users repeatedly fail to find the correct form. Is the pain point their difficulty finding it, or the proposed new search button? Explain the difference between a problem and one possible solution."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "Long waits for updates are a major customer pain point.",
+              "another_setting": "Finding the right form is the main pain point for new members."
+            },
+            "mini_conversation": "A: Finding the right form is the main pain point for new members.\nB: Could we put all the forms on one page?"
+          },
+          "meaning_in_context": {
+            "source_sentence": "Long waits for updates are a major customer pain point.",
+            "contextual_meaning": "a recurring problem that causes difficulty or frustration for users or customers",
+            "simple_explanation": "Customers repeatedly have to wait too long for updates. The speaker identifies that frustrating part of the service as a problem to improve."
+          },
+          "mistakes_differences": {
+            "correction": "We need to address this pain point.",
+            "common_mistake": "We need to address to this pain point.",
+            "important_difference": "A pain point is experienced friction; a proposed feature is only one possible response."
+          },
+          "patterns_collocations": {
+            "main_pattern": "pain point: identify/address + a pain point",
+            "common_collocations": [
+              "a customer pain point",
+              "a recurring pain point"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples, conversation and address grammar retained; user difficulty distinguished from a proposed feature.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
