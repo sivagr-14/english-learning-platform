@@ -1,0 +1,563 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0131-0135",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 131,
+      "wordId": "10a35f7e-e9d4-4048-ad25-ec532a7aa482",
+      "senseKey": "become-uncontrolled",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f49cd624a1cc4d49ffd897dbd6940e926583e3adb3f82151223a9ef222807a12",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "get out of hand",
+        "wordType": "phrasal verb",
+        "pronunciation": "Approximate pronunciation: get OUT uhv HAND. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கட்டுப்படுத்த முடியாத நிலைக்குச் செல்லுதல்",
+        "englishMeaning": "to become difficult or impossible to control",
+        "coreIdea": "A situation grows beyond easy control.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative idiom for becoming difficult to control; here, problems grow beyond easy management.",
+              "connotation": "Negative: it implies a loss of control or escalation.",
+              "tone": "Preventive and encouraging here: catching problems early is presented as benefiting everyone.",
+              "register": "Common in everyday and workplace discussion. “Escalate beyond control” is more formal and stronger."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a situation, expense or disagreement becoming hard to manage."
+            ],
+            "when_not_to_use": [
+              "Do not use get out of hand for every minor inconvenience that remains easy to manage."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Get out of hand describes a change into a less controlled state; be out of hand describes the resulting state.",
+            "Get out of hand can sound dramatic. Before things get out of hand can warn about a possibility without claiming that control has already been lost."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine a small problem becoming too large to manage easily.",
+            "memory_sentence": "We set a spending limit before costs could get out of hand.",
+            "recall_question": "What extra idea does get out of hand add beyond get worse?",
+            "recognition_task": "A meeting has one brief disagreement that the chair resolves easily. Has it necessarily got out of hand? Explain what evidence of lost control is missing.",
+            "production_task": "Write a calm message to a fictional team warning that a problem could get out of hand. Suggest one concrete preventive action."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "If we keep adding activities, the costs could get out of hand.",
+              "example_2": "The chair stopped the shouting before the argument could get out of hand."
+            },
+            "mini_conversation": "A: People are starting to shout over each other.\nB: Let’s take a break before this gets out of hand.\nA: I’ll ask everyone to return in ten minutes."
+          },
+          "meaning_in_context": {
+            "source_sentence": "As  we  work  on  oursel ves,  watch  for  proble ms,  examine  our  own  thought  pro cesses,  discover  our  own  sty les,  and  then  catch  problems  before  they  get  out  of  hand,  everyone  benef its.",
+            "contextual_meaning": "to become difficult or impossible to control",
+            "simple_explanation": "The writer recommends noticing problems early so that they do not become difficult to control. This presents prevention as useful; it does not say all problems have already escalated."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The costs could get out of hands.",
+            "correction": "Say The costs could get out of hand. This fixed expression uses singular hand without an article.",
+            "important_difference": "Get out of hand emphasizes loss of control. Get worse describes deterioration more generally, even when the situation is still manageable."
+          },
+          "patterns_collocations": {
+            "main_pattern": "situation/problem + get out of hand; let something + get out of hand",
+            "common_collocations": [
+              "costs get out of hand",
+              "an argument gets out of hand",
+              "before things get out of hand"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Loss of control distinguished from ordinary deterioration; preventive source stance retained.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 132,
+      "wordId": "10cbd03f-18ad-474d-9147-5d7c7b85d138",
+      "senseKey": "final-result",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "63f195e9cd4f2006719a05ad04fc97869e5e08df4fec0c888d9a8decc820ce58",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "outcome",
+        "wordType": "countable noun",
+        "pronunciation": "Approximate pronunciation: OUT-kum. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு செயல் அல்லது சூழலின் இறுதி விளைவு",
+        "englishMeaning": "the final result or effect of an action, process, or situation",
+        "coreIdea": "What finally results from a process or situation.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for a result reached after a process; here, what ultimately happened to the relationships.",
+              "connotation": "Neutral: an outcome may be desirable or undesirable.",
+              "tone": "Research-focused here: predicting results and following participants over ten years gives a factual study description.",
+              "register": "Neutral to formal; common in research, planning and everyday explanations. “Result” is often simpler."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Name the result of a discussion, decision, event or longer process.",
+              "Distinguish an expected outcome from one that has actually been observed."
+            ],
+            "when_not_to_use": [
+              "Do not present a desired outcome as an achieved result unless it has happened."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Outcome is neutral until it is evaluated: a successful outcome and a disappointing outcome name different judgements about results.",
+            "A predicted outcome is still a forecast. The word outcome alone does not turn a prediction into an observed fact."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a process ending with a result written underneath it.",
+            "memory_sentence": "The outcome of the meeting was a clear agreement.",
+            "recall_question": "How is an intended outcome different from an observed outcome?",
+            "recognition_task": "A club hopes to attract fifty visitors, but thirty attend. Which describes the actual outcome: the target of fifty or the attendance of thirty? Explain your choice.",
+            "production_task": "Write a short update to a colleague about the outcome of a fictional meeting. State what was decided and what happens next."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The outcome of the meeting was an agreement to share the hall.",
+              "example_2": "We will not know the outcome of her application until next week."
+            },
+            "mini_conversation": "A: What was the outcome of the discussion with the neighbours?\nB: We agreed to move the event indoors.\nA: Then I’ll update the invitation."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Mter  watching  dozens  of  couples,  the   two  scholars  predicted  relationship  outcomes  and  tracked  their  research  subjects'  rela­ tionships for  the  next  ten  years.",
+            "contextual_meaning": "the final result or effect of an action, process, or situation",
+            "simple_explanation": "The scholars predicted what would happen to the couples’ relationships and then followed them over ten years. The sentence reports prediction and follow-up, not how accurate the predictions were. Original OCR is retained."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We are waiting for outcome of the interview.",
+            "correction": "Say We are waiting for the outcome of the interview. Use the for this particular result.",
+            "important_difference": "An aim is what someone hopes to achieve. An outcome is the result that follows, which may differ from the aim."
+          },
+          "patterns_collocations": {
+            "main_pattern": "the outcome of + process/event; predict/influence + an outcome",
+            "common_collocations": [
+              "a positive outcome",
+              "the final outcome",
+              "an unexpected outcome"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Observed result distinguished from desired or predicted outcome; source does not prove prediction accuracy.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 133,
+      "wordId": "10fb8d2d-daf2-44a9-acee-9a80abcbdc38",
+      "senseKey": "relating-to-chemistry",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ead469127c4d502273e3a1f2ef2af66269170e9a2fb3cf453b28c2db5490cbdc",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "chemical",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: KEM-ih-kuhl. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "வேதிப்பொருட்கள் அல்லது அவற்றின் வினைகள் சார்ந்த",
+        "englishMeaning": "relating to substances, their properties, or reactions",
+        "coreIdea": "Connected with substances and how they behave or react.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal adjective concerning bodily substances, used inside the metaphor “chemical tide” for changing physiological influences.",
+              "connotation": "Neutral as a scientific description; the surrounding image suggests reduced control over motives.",
+              "tone": "Cautionary and vivid here: adrenaline is personified as doing the thinking while motives move with a tide.",
+              "register": "The adjective is standard scientific vocabulary; “chemical tide” is creative explanatory language rather than a precise technical term."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe substances, their composition or reactions using chemical before a relevant noun."
+            ],
+            "when_not_to_use": [
+              "Do not use chemical as an automatic synonym for harmful or artificial; those claims need separate evidence."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Chemical can modify a literal scientific noun such as composition or appear inside an image such as chemical tide. The creative noun phrase in the source is not a precise technical label.",
+            "Chemical describes the type of property or process under discussion; it does not by itself say whether a substance occurs naturally or was manufactured."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a substance’s name linked to a description of its properties.",
+            "memory_sentence": "The report describes the chemical composition of the samples.",
+            "recall_question": "Does chemical by itself tell you that something is dangerous?",
+            "recognition_task": "A text says that two samples have different chemical compositions. Does that statement alone tell you which is harmful? Explain what it does and does not claim.",
+            "production_task": "Write a sentence for a general reader using chemical to describe what a fictional laboratory report examines. Avoid making unsupported claims about safety."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The students drew a diagram of the chemical reaction described in their textbook.",
+              "example_2": "The report compares the chemical composition of two water samples."
+            },
+            "mini_conversation": "A: Does this report compare the colour of the samples?\nB: It focuses on their chemical composition: which substances they contain.\nA: Then I’ll check the separate section on appearance."
+          },
+          "meaning_in_context": {
+            "source_sentence": "When  adrenaline  does  our  thinking  for  us,  our motives  flow  with  the  chemical  tide.",
+            "contextual_meaning": "relating to substances, their properties, or reactions",
+            "simple_explanation": "Chemical describes the substances involved in the writer’s image of a tide influencing motives. Adrenaline doing our thinking is personification, not a literal account of how thought works."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We studied a chemically reaction.",
+            "correction": "Say We studied a chemical reaction. Chemical is the adjective that describes reaction; chemically is an adverb.",
+            "important_difference": "Chemical describes a connection with substances and their reactions. Harmful describes a negative effect; the adjective chemical alone does not make that judgement."
+          },
+          "patterns_collocations": {
+            "main_pattern": "chemical + reaction/process/composition; the chemical properties of + substance",
+            "common_collocations": [
+              "a chemical reaction",
+              "chemical composition",
+              "chemical properties"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Adjective and metaphor distinguished; chemical not equated with harmful or artificial; no literal physiology claim.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 134,
+      "wordId": "111ff11c-39b0-4e75-98b7-41d8ea0855b0",
+      "senseKey": "large-amount",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8dcc920919d2f7ebb859d2fea052ab29cb1122bd37c9bda9beaff91c54ad96c8",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "a great deal",
+        "wordType": "degree expression",
+        "pronunciation": "Approximate pronunciation: uh GRAYT DEEL. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மிகவும்; பெருமளவில்",
+        "englishMeaning": "a large amount or to a considerable degree",
+        "coreIdea": "Very much; to a large degree.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Degree expression meaning very much; here, the topic is highly important to the listener.",
+              "connotation": "Neutral as an intensifier: it increases degree without deciding whether the thing intensified is good or bad.",
+              "tone": "Empathetic and tension-building here: strong personal importance helps explain the physical reaction to disagreement.",
+              "register": "Neutral and common in speech and writing. In this example it modifies “matters,” rather than naming a quantity of objects."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Emphasize how much something matters, helps, changes or affects someone."
+            ],
+            "when_not_to_use": [
+              "Do not place a great deal directly before an ordinary adjective: say very important or matters a great deal, not a great deal important."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "A great deal emphasizes a large degree without giving a measurement. It can sound more deliberate than a lot, especially in a personal statement such as It means a great deal to me.",
+            "In the source, a great deal modifies matters. It describes importance, not a count of topics or objects."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a small degree of importance turning into a much larger one.",
+            "memory_sentence": "Your support matters a great deal to me.",
+            "recall_question": "In matters a great deal, what is being increased?",
+            "recognition_task": "Which expresses strong importance naturally? A: It matters a great deal. B: It is a great deal important. Explain where the degree phrase belongs.",
+            "production_task": "Write a short thank-you message to a fictional colleague explaining that their help mattered a great deal. Include one specific benefit."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Your encouragement matters a great deal to me.",
+              "example_2": "The revised instructions helped a great deal when we assembled the shelves."
+            },
+            "mini_conversation": "A: Was the extra practice useful?\nB: Yes, it helped a great deal. I can follow the steps much more easily now.\nA: Let’s keep a short practice session each week."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Someone  says  something  you  disagree  with  about  a  topic  that  matters  a  great  deal  to  you and  the  hairs  on  the  back  of  your  neck  stand  up.",
+            "contextual_meaning": "a large amount or to a considerable degree",
+            "simple_explanation": "The topic matters very much to the listener. A great deal increases the degree of importance and helps explain why disagreement feels personal in this scene."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: This issue is a great deal important to me.",
+            "correction": "Say This issue matters a great deal to me, or This issue is very important to me.",
+            "important_difference": "A great deal can modify degree after a verb or before a comparative, as in helped a great deal or a great deal easier. Very normally modifies an ordinary adjective, as in very helpful."
+          },
+          "patterns_collocations": {
+            "main_pattern": "matter/help/change + a great deal; a great deal + comparative adjective",
+            "common_collocations": [
+              "matter a great deal",
+              "help a great deal",
+              "a great deal better"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Degree use tied to matters in the source; examples remain degree-focused and adjective placement is corrected.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 135,
+      "wordId": "112bd3a3-d5cf-4723-aec9-8866cc6ad9e6",
+      "senseKey": "when-considering-a-particular-subject-or-activity",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "51db069acbbab5f1be3d904ce7228acd49a48846e16ffd4c5979e59ca71436d3",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-101-150.json",
+      "entry": {
+        "word": "when it comes to",
+        "wordType": "expression",
+        "pronunciation": "/wen ɪt ˈkʌmz tə/",
+        "tamilMeaning": "ஒரு குறிப்பிட்ட விஷயத்தை கருத்தில் கொள்ளும்போது",
+        "englishMeaning": "when considering a particular subject or activity",
+        "coreIdea": "Open the folder labelled with this subject.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Topic-setting expression meaning “when considering this subject”; here, the subject is urgent requests.",
+              "connotation": "Neutral: it directs attention to one area without itself judging that area.",
+              "tone": "Practical and advisory here: the speaker offers a usual way to obtain a faster response.",
+              "register": "Common conversational and accessible written English. Use it to introduce a relevant topic, not as unnecessary padding."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Explain the best communication channel for urgent requests. A model in this sense: When it comes to choosing shoes, comfort matters most to me."
+            ],
+            "when_not_to_use": [
+              "Do not use when it comes to as a complete statement without adding what you want to say about the topic.",
+              "If the topic is already obvious, consider stating the advice directly rather than repeating the topic-setting phrase."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "When it comes to sets a topic or aspect apart for comment. In this use, when does not identify a particular time, and to is followed by a noun or an -ing form."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Open the folder labelled with this subject.",
+            "memory_sentence": "When it comes to choosing shoes, comfort matters most to me.",
+            "production_task": "Explain the best communication channel for urgent requests. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: when considering a particular subject or activity. Explain its function in one sentence.",
+            "recognition_task": "In When it comes to urgent requests, a phone call is usually faster, does the opening phrase name the subject being considered or the time a request arrives? Explain your choice."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "When it comes to urgent requests, a phone call is usually faster.",
+              "another_setting": "When it comes to choosing shoes, comfort matters most to me."
+            },
+            "mini_conversation": "A: When it comes to choosing shoes, comfort matters most to me.\nB: Then let us try the lighter pair."
+          },
+          "meaning_in_context": {
+            "source_sentence": "When it comes to urgent requests, a phone call is usually faster.",
+            "contextual_meaning": "when considering a particular subject or activity",
+            "simple_explanation": "The speaker focuses on urgent requests, then gives advice about handling them quickly. Usually makes this a general preference, not a promise that calls are always faster."
+          },
+          "mistakes_differences": {
+            "correction": "When it comes to choosing, I hesitate.",
+            "common_mistake": "When it comes to choose, I hesitate.",
+            "important_difference": "To is a preposition here; it takes a noun or -ing form."
+          },
+          "patterns_collocations": {
+            "main_pattern": "when it comes to: when it comes to + noun/-ing",
+            "common_collocations": [
+              "when it comes to planning",
+              "when it comes to cost"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples, pattern and grammar retained; topic framing distinguished from time and usually preserved.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
