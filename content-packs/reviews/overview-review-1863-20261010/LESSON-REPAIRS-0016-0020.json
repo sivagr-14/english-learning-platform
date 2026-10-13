@@ -1,0 +1,573 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0016-0020",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 16,
+      "wordId": "019da80b-2c90-40e2-92e7-396f4efb50c6",
+      "senseKey": "to-make-a-tentative-arrangement-that-may-change",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3ca4dd21affe4d2acfa98fcfda8da21c640b78bb101472af81ce1ce30eeefb41",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "pencil in",
+        "wordType": "phrasal verb",
+        "pronunciation": "/ˈpensəl ɪn/",
+        "tamilMeaning": "மாறக்கூடிய தற்காலிக ஏற்பாடாகக் குறித்தல்",
+        "englishMeaning": "to make a tentative arrangement that may change",
+        "coreIdea": "Pencil can be erased.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative phrasal verb for making a provisional arrangement: a pencil entry can be changed more easily than a permanent commitment.",
+              "connotation": "Neutral: it signals flexibility rather than unreliability.",
+              "tone": "Tentative and collaborative here: “Can we” proposes Thursday without treating it as confirmed.",
+              "register": "Common conversational workplace English. “Provisionally schedule” is more formal."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use “pencil in” for this meaning: to make a tentative arrangement that may change. For a concrete situation: Can we pencil in a review for Thursday afternoon?"
+            ],
+            "when_not_to_use": [
+              "Pencil in makes a tentative booking; confirm makes the arrangement definite."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "pencil in: Do not treat a pencilled-in date as a firm commitment when other people need to book travel or spend money."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Pencil can be erased.",
+            "memory_sentence": "Can you pencil me in for a haircut on Friday?",
+            "production_task": "Use “pencil in” in your own response: Suggest a possible meeting time while clearly leaving it open to confirmation.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “to make a tentative arrangement that may change”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “We pencilled in it for Tuesday.” B: “We pencilled it in for Tuesday.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "Can we pencil in a review for Thursday afternoon?",
+              "another_context": "Can you pencil me in for a haircut on Friday?"
+            },
+            "mini_conversation": "A: Can we pencil in a review for Thursday afternoon?\nB: Thursday should work, but I need to check one other commitment."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Can we pencil in a review for Thursday afternoon?",
+            "contextual_meaning": "to make a tentative arrangement that may change",
+            "simple_explanation": "Pencil can be erased. Here, to make a tentative arrangement that may change."
+          },
+          "mistakes_differences": {
+            "correction": "We pencilled it in for Tuesday.",
+            "common_mistake": "We pencilled in it for Tuesday.",
+            "important_difference": "Pencil in makes a tentative booking; confirm makes the arrangement definite."
+          },
+          "patterns_collocations": {
+            "main_pattern": "pencil in: pencil in + event + for a date",
+            "common_collocations": [
+              "pencil in a meeting",
+              "pencil someone in"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy",
+        "all seven non-Overview sections"
+      ],
+      "repairedFields": [
+        "overview.meaning_usage_profile"
+      ],
+      "reason": "Valid term-specific teaching retained after complete review.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Pencil in: tentative booking sense, pronoun placement, contrast with confirmation and realistic scheduling exchange all valid. Retained unrelated sections.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 17,
+      "wordId": "01b03707-86ad-4c66-af8b-ecfc3fe0a659",
+      "senseKey": "deal-directly-with-concern",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bc3156cb974895356160539d8e80437b1a6b81a724040fb6c66cf8761c959c11",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "address",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: uh-DRES. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு கவலை அல்லது பிரச்சினையை நேரடியாகக் கையாளுதல்",
+        "englishMeaning": "to deal directly with a concern, problem, or issue",
+        "coreIdea": "Give a problem or concern direct attention.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract verb meaning to respond directly to a concern; here, respond to worries about disrespect or harmful intentions.",
+              "connotation": "Neutral: addressing a concern does not by itself prove that the concern has been resolved.",
+              "tone": "Instructional here: the passage explains what a contrasting statement is intended to do.",
+              "register": "Neutral to formal; very common in professional explanations. “Deal with” is often more conversational."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use address when discussing a problem directly or taking steps to deal with it.",
+              "It is natural in workplace updates, reports and careful discussions of someone's concerns."
+            ],
+            "when_not_to_use": [
+              "Do not claim you have solved a problem merely because you have addressed it; further work may remain.",
+              "In casual conversation, deal with or talk about may sound simpler, depending on the action."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Address is useful for acknowledging work on a problem without claiming a final solution. Be specific about the action if readers need evidence of progress.",
+            "The verb address has stress on its second syllable in this sense. Its direct object is the issue, not a street location."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Move a concern from the ignored list onto the meeting agenda.",
+            "memory_sentence": "We must address the missing safety checks before work continues.",
+            "recall_question": "If a team has addressed a problem, is it necessarily fully resolved?",
+            "recognition_task": "Which is the natural construction for dealing with a concern? A: Address the concern. B: Address to the concern. Explain your choice.",
+            "production_task": "Write a short update to a colleague using address. Name a fictional customer concern and one step you will take to deal with it."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The manager addressed our concerns about the new shift times.",
+              "example_2": "The school held a meeting to address the problem of overcrowded classrooms."
+            },
+            "mini_conversation": "A: Parents are worried about the longer journey.\nB: We should address their concerns at Thursday's meeting.\nA: I'll add transport to the agenda."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Contrasting  is  a  don'tldo  st atement  that:  •  Addresses  others'  concerns  that  you  don't  respect  them  or  that  you  have  a malicious purpose  (th e  don 't  part) .",
+            "contextual_meaning": "to deal directly with a concern, problem, or issue",
+            "simple_explanation": "The statement deals with people's worry that they are not respected or that the speaker has harmful intentions. The quotation contains OCR noise, but the verb's concern-handling sense is clear."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect in this sense: “We need to address to the problem.” Address takes the problem directly.",
+            "correction": "Say: “We need to address the problem.” Do not add to before the concern being handled.",
+            "important_difference": "Address means give attention to and deal with an issue. Resolve means bring the problem to a solution or settlement."
+          },
+          "patterns_collocations": {
+            "main_pattern": "address + problem/issue/concern; address someone's concerns",
+            "common_collocations": [
+              "address a concern",
+              "address the issue",
+              "address a problem"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Replace generic teaching material with specific same-sense instruction.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Transitive concern-handling verb and second-syllable stress checked; address/resolve distinction avoids overstating completion.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 18,
+      "wordId": "01b7183e-d725-4d54-b44d-dcae5fc2ac3a",
+      "senseKey": "highly-complex",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5080d494c535ea939b3c662e57c9053839918516b9cb2e5671e2501497b28dbc",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "intricate",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: IN-trih-kuht. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "பல ஒன்றோடொன்று இணைந்த நுணுக்கங்களால் சிக்கலான",
+        "englishMeaning": "having many connected details or parts and therefore difficult to understand",
+        "coreIdea": "Many connected details make something hard to understand.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract description of complexity: the social issues have many connected details that are difficult to untangle.",
+              "connotation": "Not necessarily negative: intricate things can be impressive, though here the word highlights difficulty.",
+              "tone": "Analytical here: the writer contrasts complex social problems with physical threats.",
+              "register": "Neutral descriptive vocabulary used in careful speech and writing. “Complicated” is a simpler option here."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use intricate for a plan, system or problem whose many connected details require close attention.",
+              "It emphasizes how the parts fit together, not just how long a task takes."
+            ],
+            "when_not_to_use": [
+              "Do not use intricate merely to mean large: a large plan can be simple.",
+              "If a task is difficult only because it needs physical strength, hard or demanding is more precise."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Intricate can suggest admiration for careful arrangement or concern about complexity. The adjective alone does not settle the speaker's attitude.",
+            "Intricate focuses on detailed connections; replacing it with big would lose that information."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a diagram with many small parts and connecting lines.",
+            "memory_sentence": "The intricate plan linked every team's work to the others.",
+            "recall_question": "What feature makes a plan intricate rather than merely long?",
+            "recognition_task": "Which is intricate? A: Carrying one very heavy box. B: Coordinating many deliveries that depend on one another. Explain the role of connected details.",
+            "production_task": "Explain a fictional planning problem to a colleague. Use intricate and name two details that depend on each other."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The detective explained the intricate network of relationships between the suspects.",
+              "example_2": "Moving three offices on the same day required an intricate plan."
+            },
+            "mini_conversation": "A: Why can't we move everyone on Friday?\nB: The plan is intricate. Each team must wait for another to free up its equipment.\nA: Let's map those connections first."
+          },
+          "meaning_in_context": {
+            "source_sentence": "As  we  introduce  complex  and  abst ract  questions  to  our  mind ,  the  problem-solv­ ing  part  of  our  brain  recognizes  that  we  are  now  dealing  with  intricate  social  issues  and  not  ph ysical  thr eats.",
+            "contextual_meaning": "having many connected details or parts and therefore difficult to understand",
+            "simple_explanation": "The writer describes social issues with many connected parts that need careful thought. The lesson explains that description without treating the passage's wider brain claim as independently verified science."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “It is an intricately plan.” A noun such as plan needs the adjective intricate.",
+            "correction": "Say: “It is an intricate plan.” Use intricately to describe a verb or participle, as in “intricately connected.”",
+            "important_difference": "Difficult describes how hard something is. Intricate explains a particular source of difficulty: many connected details."
+          },
+          "patterns_collocations": {
+            "main_pattern": "an intricate + plan/system/problem; subject + be + intricate",
+            "common_collocations": [
+              "an intricate network",
+              "an intricate plan",
+              "intricate details"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Replace generic teaching material with specific same-sense instruction.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Abstract complexity sense kept; no unrelated decorative lesson or unsupported scientific claim added. Adjective/adverb pattern checked.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 19,
+      "wordId": "01f1cc3c-e858-4c5d-ba79-ff81bc480a10",
+      "senseKey": "extremely-long-periods",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "72e43d44d7a12c08c53416ee10d0deb6a06bfad88a27bdbac84ddb472d2c109b",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "eons",
+        "wordType": "plural noun",
+        "pronunciation": "Approximate pronunciation: EE-onz. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "அளவிட முடியாத அளவுக்கு மிக நீண்ட காலங்கள்",
+        "englishMeaning": "extremely long periods of time",
+        "coreIdea": "A span of time so long that ordinary years feel small.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "A time expression for extremely long periods; here, it emphasizes the long history behind inherited reactions.",
+              "connotation": "Adds a sense of vast duration rather than approval or criticism.",
+              "tone": "Emphatic here: “maybe even eons” expands the timescale beyond years of personal practice.",
+              "register": "Vivid general writing and sometimes humorous conversation. Avoid treating it as a precise scientific duration in this example."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use eons to emphasize extremely long stretches of time in descriptions of distant history or slow change.",
+              "It can also exaggerate how long a wait feels, if the context makes the exaggeration clear."
+            ],
+            "when_not_to_use": [
+              "Use a measured duration in a timetable or report when the exact number of years matters.",
+              "Do not assume eons supplies a precise number of years in this general-language sense."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Eons is the plural of eon; aeons is an alternative spelling. This lesson uses the broad time expression, not a named geological division.",
+            "In casual complaints, eons can be deliberate exaggeration. The source instead evokes a very long inherited history, without giving a measured date."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine an ordinary calendar stretching far beyond the horizon.",
+            "memory_sentence": "The empty plain seemed unchanged for eons.",
+            "recall_question": "Does eons give an exact duration in this general description?",
+            "recognition_task": "Which better suits eons without exaggeration? A: A change over an immense stretch of Earth's history. B: A scheduled ten-minute break. Explain why.",
+            "production_task": "Write one sentence for a fictional story about an ancient place. Use eons to show that an extremely long time has passed."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The landscape changed over eons, leaving layers of rock beneath the plain.",
+              "example_2": "In the story, the stone city had stood empty for eons before explorers found it."
+            },
+            "mini_conversation": "A: Did this valley form in a few years?\nB: No, its shape developed over eons.\nA: That helps me understand why the rock has so many layers."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We 're  asking  you  to  undo  years  of  practice,  maybe even  eons  of  genetic shaping  that  prod  you  to take flight  or  pick  a  fight  (when  under  attack) ,  and  recode  the  stimulu s.",
+            "contextual_meaning": "extremely long periods of time",
+            "simple_explanation": "The writer uses eons to emphasize the very long history of inherited reactions, contrasting that history with years of practice. No exact duration is given."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “It lasted for an eons.” The article an cannot introduce the plural eons.",
+            "correction": "Say: “It lasted for eons.” The singular form is an eon.",
+            "important_difference": "Years can state a precise count. Eons emphasizes a vast duration here without specifying an exact count."
+          },
+          "patterns_collocations": {
+            "main_pattern": "for eons; over eons; eons of + process or change",
+            "common_collocations": [
+              "over eons",
+              "eons of change",
+              "for countless eons"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Replace generic teaching material with specific same-sense instruction.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Very-long-time sense preserved; technical unit not asserted. Literal long-duration examples and clearly labelled exaggeration distinguished.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 20,
+      "wordId": "01f8927d-0a36-4601-993c-1a6f65625e4e",
+      "senseKey": "eat-or-drink",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6babd030f2b3bd1361a5cb418c30a7a29d997ab3a5de19319aee489be90f142b",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "consume",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: kuhn-SOOM. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "உணவை உண்ணுதல் அல்லது பானத்தை அருந்துதல்",
+        "englishMeaning": "to eat or drink something",
+        "coreIdea": "Take food or drink into your body.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal verb for eating or drinking; here, the girls have drunk a large quantity of soda.",
+              "connotation": "Neutral: the amount, rather than the verb, creates the sense of excess.",
+              "tone": "Playfully exaggerated here: “enough ... to fill a small barrel” emphasizes how much they drank.",
+              "register": "More formal than “eat” or “drink”; common in reports and descriptive writing. “Drunk” is more ordinary in this soda example."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use consume for eating or drinking, especially in formal descriptions, surveys and instructions.",
+              "It is useful when one verb must cover both food and drinks."
+            ],
+            "when_not_to_use": [
+              "At an ordinary meal, eat or drink usually sounds more natural than consume.",
+              "This lesson concerns food and drink; using fuel or electricity is a different application and is not the source sense here."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Consume can draw attention to quantity, as the source does with the soda. It does not itself mean eating too much.",
+            "Passive forms such as 'food may be consumed outside' suit notices; an invitation such as 'let's eat outside' sounds warmer in conversation."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a food-and-drink survey asking what you took in.",
+            "memory_sentence": "The guests consumed all the food before the event ended.",
+            "recall_question": "Can consume describe both a meal and a drink?",
+            "recognition_task": "A formal notice prohibits eating in a room. Which fits? A: Do not consume food here. B: Do not consume of food here. Explain the construction.",
+            "production_task": "Write a formal notice for a fictional exhibition using consume. Tell visitors where they may eat or drink."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The survey asked how much coffee each participant consumed in a week.",
+              "example_2": "Visitors may not consume food inside the exhibition rooms."
+            },
+            "mini_conversation": "A: Can we eat these sandwiches in the gallery?\nB: The sign says food must be consumed outside.\nA: Let's use the courtyard."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Given  the  repre ssive  heat ,  the  girls  have  consumed  enough  soda  pop  to  fill  a  small  barrel .",
+            "contextual_meaning": "to eat or drink something",
+            "simple_explanation": "The girls have drunk a very large amount of soda in the heat. The barrel image emphasizes quantity rather than giving a measured amount."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: “They consumed of the food before leaving.” Consume normally takes its food or drink object directly.",
+            "correction": "Say: “They consumed the food before leaving.” With a quantity, say “consumed a large amount of food.”",
+            "important_difference": "Consume can cover both eating and drinking, but it sounds more formal. Drink identifies a liquid; eat normally identifies food."
+          },
+          "patterns_collocations": {
+            "main_pattern": "consume + food/drink; consume an amount of + food/drink",
+            "common_collocations": [
+              "consume food",
+              "consume alcohol",
+              "consume a meal"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Replace generic teaching material with specific same-sense instruction.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Food/drink ingestion sense only; no medical advice or nutrition claim. Direct object, passive notice and formality checked.",
+        "scope": "All eight sections and changed headers; no corpus frequency, app import or audio certification."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
