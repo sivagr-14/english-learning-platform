@@ -1,0 +1,586 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0001-0005",
+  "scope": "Complete lesson repair drafts; not production content packs and not import-ready.",
+  "entryCount": 5,
+  "broaderLessonRepairProcessed": 5,
+  "lessonValidatorPassed": 5,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "sourceHashSerialization": "SHA256 of Python json.dumps(lesson_data,sort_keys=True,ensure_ascii=False), default separators",
+  "sourceExportHashVerified": true,
+  "records": [
+    {
+      "ordinal": 1,
+      "wordId": "000a02ed-b5eb-44f3-ad6e-923c8be86592",
+      "senseKey": "therefore",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ffe8dffb5586fd925c8856b12182208cc30bea605fe3ac651bc204fc10845d55",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "thus",
+        "wordType": "adverb (result connector)",
+        "pronunciation": "Approximate pronunciation: thus (th as in this). Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "அதன் விளைவாக; ஆகவே",
+        "englishMeaning": "as a result; therefore",
+        "coreIdea": "A stated reason leads to the next conclusion.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Logical connector showing a result or conclusion: the old response fails at a higher level, leading to the observation about success.",
+              "connotation": "Neutral: it links a conclusion to the preceding reasoning without adding approval or blame.",
+              "tone": "Reflective and explanatory here: the writer draws a surprising conclusion from the failed response.",
+              "register": "Relatively formal; natural in essays and reasoned explanations. “So” is more usual in casual conversation."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use thus to introduce the result of an action or a conclusion supported by earlier information.",
+              "It fits reports and reasoned explanations: give the reason first, then state what follows."
+            ],
+            "when_not_to_use": [
+              "Do not use thus to introduce a reason for an earlier claim; because introduces a reason.",
+              "In a casual message, so often sounds more natural than thus."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Thus can connect complete statements or introduce an -ing result phrase: 'The doors opened early, thus reducing the queue.' Keep the result linked to the action described.",
+            "Thus presents a connection as logical; the word itself does not prove that the conclusion is correct."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Read the reason first, then draw an arrow to its result.",
+            "memory_sentence": "The road was flooded; thus, the bus could not pass.",
+            "recall_question": "Does thus introduce a result or the reason for a result?",
+            "recognition_task": "The shop had no stock. Which continuation fits? A: Thus, we ordered online. B: Thus, it had received no deliveries. Explain which sentence gives a result.",
+            "production_task": "Write two sentences for a team report. State that fewer people registered than expected, then use thus to explain a sensible change to the plan."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The bridge was closed; thus, all traffic had to use the longer route.",
+              "example_2": "The new lights use less electricity, thus reducing our monthly costs."
+            },
+            "mini_conversation": "A: Why does the report recommend a smaller room?\nB: Only twelve people registered. Thus, the large hall would be an unnecessary expense.\nA: Agreed. I'll change the booking."
+          },
+          "meaning_in_context": {
+            "source_sentence": "But  when  the  challenge  moves  to  a  higher  level,  the  old,   once  successful  response  no  longer  works-it  fa ils;  thus,  nothing  fails  like  success.",
+            "contextual_meaning": "as a result; therefore",
+            "simple_explanation": "The writer says that a response which worked before can fail when the challenge changes. Thus introduces the conclusion drawn from that failure."
+          },
+          "mistakes_differences": {
+            "common_mistake": "In formal writing, 'The bridge was closed, thus we took another route' joins two complete clauses with only a comma.",
+            "correction": "Use a semicolon or a full stop: 'The bridge was closed; thus, we took another route.'",
+            "important_difference": "Thus and therefore can introduce a conclusion. Because introduces the reason: 'We took another route because the bridge was closed.'"
+          },
+          "patterns_collocations": {
+            "main_pattern": "Reason. Thus, + result clause. Or: reason; thus, + result clause.",
+            "common_collocations": [
+              "thus allowing",
+              "thus reducing",
+              "thus making it possible"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Original teaching sections repeated the gloss or generic advice instead of demonstrating the term.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Result clauses and -ing result construction checked separately. Comma-splice guidance limited to formal writing; no fabricated contrast with therefore.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 2,
+      "wordId": "000d94ee-1c9c-45ec-adfa-c4bb03d6881c",
+      "senseKey": "labeled-data-ml-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b942927603e975907c99bd2439ab64e7a00848bad3c8a4f62bd3772c472207cc",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "labeled data",
+        "wordType": "noun phrase",
+        "pronunciation": "Approximate pronunciation: LAY-buhld DAY-tuh. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "எதிர்பார்க்கப்படும் வகை அல்லது முடிவுடன் இணைக்கப்பட்ட தரவு",
+        "englishMeaning": "examples paired with the expected category or output",
+        "coreIdea": "Each example comes with the answer the model should learn.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical noun phrase: training examples paired with the category or answer a supervised model should learn to predict.",
+              "connotation": "Neutral: the labels describe the data's role, not whether its quality is good.",
+              "tone": "Instructional here: “you'll need” identifies a requirement for supervised learning.",
+              "register": "Specialist terminology used in machine learning courses and discussions; explain “examples with known answers” to a general audience."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use labeled data when examples have target answers, such as a category or a numerical value, for supervised learning.",
+              "Use it when planning how to collect, check or prepare examples for training."
+            ],
+            "when_not_to_use": [
+              "Do not call a file labeled data merely because the file has a name; each example needs a relevant target answer.",
+              "Do not assume labeled data is accurate: people or automated processes can assign wrong labels."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Labeled data describes the presence of target answers, not their quality. Incorrect labels can mislead training.",
+            "Labeled data is used for classification and for predicting numbers; 'label' does not mean that the answer must be a named category."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture an example card with its expected answer attached.",
+            "memory_sentence": "Our labeled data pairs each message with a spam or not-spam label.",
+            "recall_question": "What extra information must accompany each example in labeled data?",
+            "recognition_task": "Which collection is labeled data for recognizing cats? A: Photos paired with cat/not-cat answers. B: Photos carrying only camera file numbers. Explain your choice.",
+            "production_task": "Tell a project colleague what labeled data you would need to train a model that predicts house prices. Name the examples and the target answer."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We trained the email filter on labeled data: each message was marked spam or not spam.",
+              "example_2": "The team needs more labeled data showing the actual sale price of each house."
+            },
+            "mini_conversation": "A: Can we train the email filter with these messages?\nB: We need labeled data first. Someone must mark which messages are spam.\nA: I'll ask the reviewers to start today."
+          },
+          "meaning_in_context": {
+            "source_sentence": "For supervised learning, where your model learns from examples, you'll need labeled data.",
+            "contextual_meaning": "examples paired with the expected category or output",
+            "simple_explanation": "The source says supervised learning needs examples paired with known answers, such as messages marked as spam or not spam."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Calling a folder of unclassified photos 'labeled data' just because every file has a name confuses file names with target labels.",
+            "correction": "Use labeled data once each photo is paired with the target answer, such as the animal it shows.",
+            "important_difference": "Labeled data includes target answers; unlabeled data lacks them. A target answer can be a number as well as a category."
+          },
+          "patterns_collocations": {
+            "main_pattern": "train a model on labeled data; collect or prepare labeled data for + task",
+            "common_collocations": [
+              "collect labeled data",
+              "accurately labeled data",
+              "a set of labeled data"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Original teaching sections repeated the gloss or generic advice instead of demonstrating the term.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Examples cover category and numeric targets without broadening the data-labeling sense. File names distinguished from training targets; data quality not inferred from labels.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 3,
+      "wordId": "00350c91-7923-4bdc-9aef-50773d5eb379",
+      "senseKey": "suddenly-realized",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bed37bfced70580e7574c2be0f3a7be67878bb3460c22bb9223b1a00d0e61603",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "it struck me",
+        "wordType": "fixed phrase",
+        "pronunciation": "Approximate pronunciation: it STRUK mee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "அது எனக்குத் திடீரெனப் புரிந்தது",
+        "englishMeaning": "used to say that one suddenly realized or understood something",
+        "coreIdea": "An idea suddenly becomes clear to me.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative expression for a sudden realization; an idea arrives with the suddenness of a strike, without a physical blow.",
+              "connotation": "Usually neutral: the realization itself may be welcome or unwelcome.",
+              "tone": "Reflective and sudden here: “and then” marks the moment of realization, but the excerpt does not reveal the emotion attached to it.",
+              "register": "Natural in everyday storytelling and professional reflection. “I suddenly realized” is a plainer alternative."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use it struck me to introduce a sudden realization while telling a story or reflecting on an experience.",
+              "Follow it with that and the idea, or use it alone when the realization has already been explained."
+            ],
+            "when_not_to_use": [
+              "Do not use it struck me for a belief you have held for years unless you are describing when it first came to you.",
+              "For a physical blow, name what hit you; this expression is taught here as a realization."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "It struck me can introduce a pleasant or unpleasant realization; the phrase does not by itself tell us how the speaker feels.",
+            "The source's 'and then' highlights the moment of realization. Keep any explanation of what was realized separate unless the surrounding text supplies it."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a light switching on when a missing idea becomes clear.",
+            "memory_sentence": "It struck me that I had left my keys in the office.",
+            "recall_question": "When you say it struck me, did the understanding arrive suddenly or gradually?",
+            "recognition_task": "Which situation best fits it struck me? A: A connection becomes clear in a moment. B: You repeat an opinion you have held unchanged for years. Explain why.",
+            "production_task": "Tell a friend about a fictional travel mistake you suddenly noticed. Use it struck me to introduce your realization."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "It struck me that we had been waiting at the wrong entrance.",
+              "example_2": "As I read her message, it struck me that she had never received the invitation."
+            },
+            "mini_conversation": "A: Why did you call the hotel again?\nB: It struck me that I'd booked the wrong date.\nA: Good catch. Were they able to change it?"
+          },
+          "meaning_in_context": {
+            "source_sentence": "\"  \"And  then  it  struck  me,\"  she  conti nued.",
+            "contextual_meaning": "used to say that one suddenly realized or understood something",
+            "simple_explanation": "The speaker marks a moment when she suddenly understood something. This short excerpt does not tell us what she realized."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: 'It struck to me that the door was unlocked.' The person is the direct object of struck.",
+            "correction": "Say: “It struck me that the door was unlocked.” Do not add to before me.",
+            "important_difference": "It struck me emphasizes a sudden thought. I realized can describe either a sudden discovery or a slower process of understanding."
+          },
+          "patterns_collocations": {
+            "main_pattern": "It struck me that + clause; then it struck me: + the realization.",
+            "common_collocations": [
+              "it suddenly struck me",
+              "it struck me that",
+              "then it struck me"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Original teaching sections repeated the gloss or generic advice instead of demonstrating the term.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Sudden realization preserved, with direct-object grammar and explicit source-fragment limitation. No invented realization or emotional response attributed to source speaker.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 4,
+      "wordId": "004a9b8d-8a93-4f17-83b4-94cad59ba7d4",
+      "senseKey": "understand-or-solve",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "61e2a72746c15523d2662e8f0fc679667d43762323bc37ce057bfeba722b364b",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "figure out",
+        "wordType": "phrasal verb",
+        "pronunciation": "Approximate pronunciation: FIG-yer OUT. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "சிந்தித்துப் புரிந்துகொள்ளுதல் அல்லது தீர்வு கண்டுபிடித்தல்",
+        "englishMeaning": "to understand or solve something",
+        "coreIdea": "Think about the clues until the answer becomes clear.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb: work something out or reach an understanding; here, understand what the person just did.",
+              "connotation": "Neutral: it emphasizes arriving at an answer rather than judging the answer.",
+              "tone": "Practical and instructive here: the imperative tells the reader how to understand someone's results.",
+              "register": "Common conversational English, also natural in workplace discussion. “Determine” may suit a more formal report."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use figure out when understanding requires thought, checking clues or solving a problem.",
+              "It can introduce a question you need to solve, such as how a machine works or why a payment failed."
+            ],
+            "when_not_to_use": [
+              "If you only receive information without working it out, find out may be more precise.",
+              "For a formal report, determine or work out may fit better, depending on the sentence."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Figure out focuses on reaching an understanding; it does not say whether the problem was easy or difficult.",
+            "A question clause keeps statement order after figure out: 'figure out why it failed', not 'figure out why did it fail'."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Put the clues together until the question has an answer.",
+            "memory_sentence": "I checked the numbers and figured out the mistake.",
+            "recall_question": "Where does it go in the expression figure it out?",
+            "recognition_task": "Which sentence has the natural pronoun order? A: We figured it out. B: We figured out it. Explain your choice.",
+            "production_task": "Write a message to a colleague about a fictional problem you solved. Use figure out to say what you understood and mention one clue."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "I finally figured out why the kitchen light kept switching off.",
+              "example_2": "Can you figure out how to divide the bill fairly?"
+            },
+            "mini_conversation": "A: The total seems too high.\nB: I'll figure out where the extra charge came from.\nA: Thanks. Check the delivery fee first."
+          },
+          "meaning_in_context": {
+            "source_sentence": "If  you  want  to  know how  he  gets  things  done,  figure  out  what  he  just  did .",
+            "contextual_meaning": "to understand or solve something",
+            "simple_explanation": "The reader is told to work out what the man did so that they can understand how he achieves results."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: 'I can't figure out it.' A short object pronoun goes between figure and out.",
+            "correction": "Say: 'I can't figure it out.' With a noun, both 'figure out the answer' and 'figure the answer out' are possible.",
+            "important_difference": "Figure out suggests mental work leading to understanding. Find out can mean learning a fact simply by being told it."
+          },
+          "patterns_collocations": {
+            "main_pattern": "figure out + noun/question clause; figure + noun + out; figure it out",
+            "common_collocations": [
+              "figure out how",
+              "figure out why",
+              "figure out the answer"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Original teaching sections repeated the gloss or generic advice instead of demonstrating the term.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Separable particle and embedded question order checked. Examples solve actual problems; find out distinction qualified rather than absolute.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 5,
+      "wordId": "00623bbf-e0e1-4d4a-99b6-29fae7a71d5f",
+      "senseKey": "certain-or-very-likely",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8dd3a99fd9b0b95d665de8eb9f3ae05808dc2f3aeb88b4b854004211ab92537a",
+      "profileReceipt": "PROFILE-DRAFT-001.json",
+      "headerReviewReceipt": "HEADER-REVIEW-001-001-050.json",
+      "entry": {
+        "word": "bound to",
+        "wordType": "adjective phrase",
+        "pronunciation": "Approximate pronunciation: BOUND too. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "நிச்சயமாக அல்லது மிகவும் சாத்தியமாக நிகழக்கூடிய",
+        "englishMeaning": "certain or very likely to happen",
+        "coreIdea": "The speaker sees the result as almost certain.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Expression of strong likelihood: the speaker expects harsh feedback to cause problems.",
+              "connotation": "Neutral by itself; the negative expectation comes from “cause real problems,” not from the expression alone.",
+              "tone": "Wary and confident in the prediction here: “I know” strengthens the expectation of trouble.",
+              "register": "Common in speech and ordinary writing. Use “very likely to” when you want the probability claim to be explicit."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use be bound to when you feel very sure an event will happen.",
+              "It can reassure someone about a likely success or warn about an expected problem."
+            ],
+            "when_not_to_use": [
+              "If an event is only a small possibility, use might or could instead.",
+              "Do not use this prediction sense to tell someone they have a duty; must or have to is clearer for an obligation."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Bound to expresses the speaker's confidence, not a guarantee that the event will happen.",
+            "In this prediction pattern, the subject can be a person or a thing: 'she is bound to notice' and 'it is bound to fail'."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine a prediction you feel almost sure about.",
+            "memory_sentence": "If we leave this late, we are bound to miss the start.",
+            "recall_question": "Does bound to express a weak possibility or a strong expectation?",
+            "recognition_task": "A speaker is nearly certain the wet floor will cause an accident. Which fits that confidence? A: It is bound to cause a problem. B: It might possibly cause a problem. Explain the difference.",
+            "production_task": "Reassure a friend preparing for a fictional presentation. Use bound to to predict one positive result and give a reason for your confidence."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "With the only bridge closed, the journey is bound to take longer.",
+              "example_2": "You've practiced that song every day; you're bound to remember the words."
+            },
+            "mini_conversation": "A: What if nobody notices the new sign?\nB: It's right above the entrance. Someone is bound to see it.\nA: Let's leave it there, then."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Sometimes  I decide that it's  better  not  to  give  harsh  fe edback  because  I  know  that  it's  bound  to  cause  real  problems.",
+            "contextual_meaning": "certain or very likely to happen",
+            "simple_explanation": "The speaker expects harsh feedback to cause serious problems and uses that expectation as a reason to avoid giving it."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: 'The change bound to cause delays.' This construction needs a form of be.",
+            "correction": "Say: 'The change is bound to cause delays.' Follow to with the base verb cause.",
+            "important_difference": "Bound to expresses strong expectation. Likely to usually leaves more room for doubt, and might expresses possibility without the same certainty."
+          },
+          "patterns_collocations": {
+            "main_pattern": "subject + be bound to + base verb: it is bound to happen",
+            "common_collocations": [
+              "bound to happen",
+              "bound to cause problems",
+              "bound to be noticed"
+            ]
+          }
+        }
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion guard",
+        "sourceLessonSha256 guard",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "wordType",
+        "coreIdea",
+        "meaning_in_context.simple_explanation",
+        "usage_guide",
+        "patterns_collocations",
+        "natural_examples",
+        "mistakes_differences",
+        "memory_practice",
+        "advanced_nuance"
+      ],
+      "reason": "Original teaching sections repeated the gloss or generic advice instead of demonstrating the term.",
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Prediction sense kept separate from obligation. Be-plus-infinitive pattern verified; confident expectation explicitly distinguished from guaranteed outcome.",
+        "scope": "All eight lesson sections and changed headers; does not certify frequency, app import or audio."
+      },
+      "lessonValidation": {
+        "validatorCommit": "cbb02c4d1519b3dd28a061f4845d71f6e01e2a26",
+        "validatorPath": "packages/backend/src/data/vocabulary-lesson-template.ts",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
