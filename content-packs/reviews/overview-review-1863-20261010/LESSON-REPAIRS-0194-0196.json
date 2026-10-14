@@ -1,0 +1,339 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0194-0196",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 194,
+      "wordId": "1aade39e-9e9e-4f47-864f-818e970b6382",
+      "senseKey": "claim-someone-did-wrong",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "be9ec620475d976adf3a9d60a57259fa2ce745d4609bc00ff8f202023b004f90",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "accuse",
+        "wordType": "verb",
+        "pronunciation": "/əˈkjuːz/",
+        "tamilMeaning": "ஒருவர் தவறு அல்லது சட்டவிரோத செயல் செய்ததாகக் கூறுதல்",
+        "englishMeaning": "to claim that someone did something wrong or illegal",
+        "coreIdea": "Claim that a person has done something wrong.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract verb for asserting that someone did something wrong; here, an extreme accusation is imagined for comparison.",
+              "connotation": "Negative toward the person accused, but an accusation is not proof of wrongdoing.",
+              "tone": "Dramatic and critical here: the narrator uses an exaggerated accusation to convey how the stressed word sounds.",
+              "register": "Common in everyday, news and legal discussion. Distinguish making an allegation from establishing a fact."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Report a claim that someone has done something wrong, while keeping that claim separate from proof."
+            ],
+            "when_not_to_use": [
+              "Do not use accuse as if it means prove guilty.",
+              "For general disapproval without an allegation of wrongdoing, criticize may fit better."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Accuse identifies someone as allegedly responsible for wrongdoing; criticize expresses disapproval without necessarily alleging an offence.",
+            "Accuse can refer to everyday wrongdoing such as lying, not only a legal charge. It reports an allegation and does not establish that the allegation is true."
+          ],
+          "memory_practice": {
+            "memory_trigger": "An accusation is a claim pointing at someone, not a verdict proving it.",
+            "memory_sentence": "Do not accuse anyone before checking the evidence.",
+            "production_task": "Write one sentence using accuse with the pattern “accuse + person + of + action or offence.”",
+            "recall_question": "What does accuse mean in the source context?",
+            "recognition_task": "A person is accused of hiding a document. Does the word accused tell you that the claim has been proved? Explain."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "They accused the contractor of ignoring the safety rules.",
+              "example_2": "Do not accuse anyone before checking the evidence."
+            },
+            "mini_conversation": "A: Did you accuse me of deleting the file?\nB: No. I asked who had access to it.\nA: Thanks for clarifying that."
+          },
+          "meaning_in_context": {
+            "source_sentence": "START  WITH  HEART  31  the  fe llow  emphasizes  the  word  very  makes  it  sound  as  if  he's  about  to  accuse  Greta  of  kidnapping  the  Lin dbergh  bab y.",
+            "contextual_meaning": "to claim that someone did something wrong or illegal",
+            "simple_explanation": "The writer exaggerates how serious the man’s tone sounds, as if he were about to make a grave accusation against Greta. This is a comparison about tone, not a report that Greta committed the crime. The saved text includes a heading and spacing artifacts."
+          },
+          "mistakes_differences": {
+            "correction": "Say They accused him of ignoring the rules. Use of followed by a noun or an -ing form.",
+            "common_mistake": "Incorrect: They accused him for ignoring the rules.",
+            "important_difference": "Accuse identifies someone as responsible for wrongdoing; criticize expresses disapproval without necessarily alleging an offence."
+          },
+          "patterns_collocations": {
+            "main_pattern": "accuse + person + of + action or offence",
+            "common_collocations": [
+              "accuse someone of lying",
+              "falsely accuse"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Allegation distinguished from proof; source exaggeration and extraction artifacts disclosed; valid examples preserved.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 195,
+      "wordId": "1ac9a529-af02-4e8d-95ea-6dd5c573154d",
+      "senseKey": "create-conditions-for-result",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "adf56aac7064e64716e92a8d0a871196aad5a4ef7463ae54b6eb4551d3883963",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "set us up",
+        "wordType": "phrasal verb phrase",
+        "pronunciation": "Approximate pronunciation: set us UP. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "நாம் பின்னர் ஒரு குறிப்பிட்ட செயலைச் செய்யும்படியான சூழலை உருவாக்குதல்",
+        "englishMeaning": "to create conditions that make a later result likely",
+        "coreIdea": "Put us in a position where a later result becomes likely.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal expression for creating conditions that make a later outcome more likely; here, false choices prepare the way for ineffective action.",
+              "connotation": "Negative in this context because the resulting actions are ineffective; the construction can also introduce helpful outcomes elsewhere.",
+              "tone": "Cautionary and explanatory here: the passage describes two harmful effects of the false choices.",
+              "register": "Common conversational and professional English. The object “us” is a variable slot, not a separate dictionary meaning."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe conditions that prepare your group for a later action or result, whether helpful or harmful."
+            ],
+            "when_not_to_use": [
+              "Do not assume set us up always describes a trap; the words after it identify the intended sense.",
+              "If the result is certain or already completed, state that directly rather than implying only preparation or likelihood."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Set us up depends on its complement: for success is positive, while to take ineffective actions is negative. The phrase alone does not determine the outcome’s value.",
+            "Set us up without a clear complement can suggest trapping or framing us in another sense. Name the action or result to make this lesson’s meaning clear."
+          ],
+          "memory_practice": {
+            "memory_trigger": "The starting conditions point the group towards a likely outcome.",
+            "memory_sentence": "Clear instructions will set us up for success.",
+            "recall_question": "Can set us up describe both favourable and unfavourable conditions?",
+            "recognition_task": "Compare Training can set us up for success with Training guarantees success. Which leaves room for other factors to affect the result?",
+            "production_task": "Write two sentences about a fictional team: one condition that could set us up for success and one that could set us up to make mistakes."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Clear instructions will set us up to complete the task without confusion.",
+              "example_2": "Unrealistic deadlines could set us up for failure even if everyone works hard."
+            },
+            "mini_conversation": "A: Can we finish this project without any preparation?\nB: That could set us up to make avoidable mistakes.\nA: Let us agree on a plan first."
+          },
+          "meaning_in_context": {
+            "source_sentence": "\"  Open  Yo ur self  to  Ch ange  Not  only  do  Sucker's  Choices  set  us  up  to  take  ineff ective  actions,  but  they  close  us  down  to  change.",
+            "contextual_meaning": "to create conditions that make a later result likely",
+            "simple_explanation": "The writer says these choices make us more likely to act ineffectively. Set us up describes conditions leading towards that outcome; it does not say that another person is deliberately framing or tricking us."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Clear instructions will set up us for success.",
+            "correction": "Say Clear instructions will set us up for success. Put the pronoun us between set and up.",
+            "important_difference": "Set us up for a result describes preparation or conditions leading towards it. Guarantee a result makes a much stronger claim that the result will happen."
+          },
+          "patterns_collocations": {
+            "main_pattern": "set us up + to + verb; set us up + for + result",
+            "common_collocations": [
+              "set us up for success",
+              "set us up for failure",
+              "set us up to make mistakes"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Conditions and likelihood distinguished from guarantee or framing; pronoun placement and complements taught.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 196,
+      "wordId": "1ade61f4-77e3-40ef-b494-6a1c1f1e1e9f",
+      "senseKey": "an-immediate-benefit-that-may-not-last",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c20dccbe278b6faccf348273e14be57d1a712c6c09683bb38b90c8ed2cf3656f",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "short-term gain",
+        "wordType": "noun phrase",
+        "pronunciation": "/ˌʃɔːt tɜːm ˈɡeɪn/",
+        "tamilMeaning": "உடனடியாகக் கிடைக்கும் பயன்",
+        "englishMeaning": "an immediate benefit that may not last",
+        "coreIdea": "A benefit now; check what follows.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrase for a benefit obtained soon, which may be outweighed by later disadvantages.",
+              "connotation": "Positive about the immediate benefit but cautionary overall when contrasted with future harm.",
+              "tone": "Balanced and warning here: the speaker acknowledges savings from less training, then points to possible later mistakes.",
+              "register": "Neutral professional wording, also understandable in everyday choices. It does not mean that every immediate gain must be harmful later."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss an immediate benefit and compare it with possible effects over a longer period."
+            ],
+            "when_not_to_use": [
+              "Short-term gain describes when the benefit appears; false economy specifically criticises a saving that produces greater costs."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "A short-term gain can be sensible, especially in an urgent situation, if later consequences are understood.",
+            "Short-term gain does not specify a fixed number of days or months. The relevant time scale depends on the decision being discussed."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A benefit now; check what follows.",
+            "memory_sentence": "Skipping a repair gives a short-term gain but may leave a bigger bill later.",
+            "production_task": "Use “short-term gain” in your own response: Compare an immediate saving with a possible longer-term disadvantage.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “an immediate benefit that may not last”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “A short-term gain is always a bad decision.” B: “A short-term gain needs to be weighed against its longer-term effects.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "Reducing training offers a short-term gain but could increase later mistakes.",
+              "another_context": "Skipping a repair gives a short-term gain but may leave a bigger bill later."
+            },
+            "mini_conversation": "A: Reducing training offers a short-term gain but could increase later mistakes.\nB: We should compare that saving with the likely cost of errors."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Reducing training offers a short-term gain but could increase later mistakes.",
+            "contextual_meaning": "an immediate benefit that may not last",
+            "simple_explanation": "Reducing training saves resources now, but the writer warns that more mistakes could follow. The immediate benefit is the short-term gain; a later disadvantage is possible, not stated as certain."
+          },
+          "mistakes_differences": {
+            "correction": "A short-term gain needs to be weighed against its longer-term effects.",
+            "common_mistake": "A short-term gain is always a bad decision.",
+            "important_difference": "Short-term gain describes when the benefit appears; false economy specifically criticises a saving that produces greater costs."
+          },
+          "patterns_collocations": {
+            "main_pattern": "short-term gain: a short-term gain from + noun/-ing",
+            "common_collocations": [
+              "a small short-term gain",
+              "pursue short-term gains"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples, practice and distinctions retained; immediate benefit and uncertain later cost clarified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
