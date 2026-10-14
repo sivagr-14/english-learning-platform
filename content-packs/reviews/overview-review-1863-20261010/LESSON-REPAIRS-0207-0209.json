@@ -1,0 +1,343 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0207-0209",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 207,
+      "wordId": "1c087af6-7f69-4c22-90dd-4395682c54b1",
+      "senseKey": "sense-of-connection",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c5c18fa417fa49e5ff2957b05d70f571686b0e39bd37d2c1c50c04e19ddcc245",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "kinship",
+        "wordType": "noun",
+        "pronunciation": "Phonetic guide (approximate): KIN-ship",
+        "tamilMeaning": "பகிரப்பட்ட பண்புகள் அல்லது அனுபவங்களால் உருவாகும் நெருக்கமான தொடர்புணர்வு",
+        "englishMeaning": "a feeling of close connection or shared qualities",
+        "coreIdea": "A feeling that you share something important with another person.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract extension of family relationship: a felt connection based on shared qualities or experience.",
+              "connotation": "Positive here: even difficult people are presented as capable of mutual connection.",
+              "tone": "Reflective and hopeful here: the passage emphasizes shared humanity despite difficulty.",
+              "register": "Neutral to literary; natural in reflective writing and thoughtful conversation. It need not imply a biological family relationship."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a close sense of connection based on shared experiences, values or qualities."
+            ],
+            "when_not_to_use": [
+              "Do not assume this feeling proves that two people are relatives.",
+              "For a simple factual similarity without any feeling of connection, similarity may be more precise."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Kinship can literally refer to family relationships, but this lesson teaches the broader feeling of shared qualities or connection.",
+            "Feeling kinship with someone does not mean agreeing with everything they do. The source includes difficult people, so connection and disagreement can coexist."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Two strangers recognize an important experience they share.",
+            "memory_sentence": "I felt a kinship with the other new students.",
+            "recall_question": "Does kinship in this source require a family relationship?",
+            "recognition_task": "Two strangers feel connected because they have faced the same difficulty. Does kinship fit even though they are not relatives? Explain.",
+            "production_task": "Write a fictional sentence about feeling a kinship with someone. Name the shared experience or quality behind the feeling."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She felt a kinship with the other new students because they were all far from home.",
+              "example_2": "Their shared love of music created a sense of kinship, even though they had only just met."
+            },
+            "mini_conversation": "A: Why did you feel so comfortable with that group?\nB: I felt a kinship with them. We had faced similar challenges.\nA: It helps to meet people who understand your experience."
+          },
+          "meaning_in_context": {
+            "source_sentence": "When  we do  this,  we feel  a  kinship,  a  sense  of  mutuality  between  ourselves  and  even  the  thorniest  of  people.",
+            "contextual_meaning": "a feeling of close connection or shared qualities",
+            "simple_explanation": "The writer describes feeling connected even to people who are difficult to deal with. Kinship here means shared humanity or mutual understanding, not necessarily a family relationship. The excerpt does not show what this refers to."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: I feel a kinship the other volunteers.",
+            "correction": "Say I feel a kinship with the other volunteers. With introduces the people you feel connected to in this pattern.",
+            "important_difference": "Friendship usually involves a personal relationship developed between people. Kinship in this sense can be a feeling of shared qualities even between people who barely know each other."
+          },
+          "patterns_collocations": {
+            "main_pattern": "feel a kinship with + person/group; a sense of kinship; kinship between + people",
+            "common_collocations": [
+              "a sense of kinship",
+              "feel a kinship with others",
+              "a deep kinship"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Shared connection distinguished from literal family ties; missing antecedent of this disclosed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 208,
+      "wordId": "1c0966f3-7bb8-4fea-bf46-fb493d999284",
+      "senseKey": "to-stop-using-or-providing-something-gradually",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "be4452a56b02cc6d40f9a74c5224044454afb19ce17dfe0b3b03ade466d6cc2c",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "phase out",
+        "wordType": "phrasal verb",
+        "pronunciation": "/feɪz aʊt/",
+        "tamilMeaning": "படிப்படியாக நீக்குதல்",
+        "englishMeaning": "to stop using or providing something gradually",
+        "coreIdea": "Turn the old process off in stages.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Phrasal verb for ending use or provision gradually rather than all at once.",
+              "connotation": "Neutral here: the phrase describes the transition method, not whether ending paper forms is good or bad.",
+              "tone": "Planned and practical here: the sentence states a gradual change with a deadline.",
+              "register": "Neutral to professional; common in policy, technology and product planning. Name the replacement when readers need operational clarity."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe gradually stopping use or provision of an existing product, service or process."
+            ],
+            "when_not_to_use": [
+              "Phase out removes gradually; cancel can stop something immediately."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Phase out describes gradual removal. A transition may need an alternative for people who still depend on the old arrangement, but the phrase itself does not specify that alternative.",
+            "With a noun, both phase out the forms and phase the forms out are possible. With a pronoun, use phase them out, not phase out them."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Turn the old process off in stages.",
+            "memory_sentence": "The shop plans to phase out single-use bags.",
+            "production_task": "Use “phase out” in your own response: Explain how to discontinue an old booking method without leaving users unable to book.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “to stop using or providing something gradually”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “We will phase it away by December.” B: “We will phase it out by December.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "We plan to phase out paper forms by the end of the year.",
+              "another_context": "The shop plans to phase out single-use bags."
+            },
+            "mini_conversation": "A: We plan to phase out paper forms by the end of the year.\nB: Will customers have an alternative before the forms disappear?"
+          },
+          "meaning_in_context": {
+            "source_sentence": "We plan to phase out paper forms by the end of the year.",
+            "contextual_meaning": "to stop using or providing something gradually",
+            "simple_explanation": "The plan is to stop using paper forms in stages, completing the change by the end of the year. The sentence does not specify the individual stages or the replacement method."
+          },
+          "mistakes_differences": {
+            "correction": "We will phase it out by December.",
+            "common_mistake": "We will phase it away by December.",
+            "important_difference": "Phase out removes gradually; cancel can stop something immediately."
+          },
+          "patterns_collocations": {
+            "main_pattern": "phase out + product/process; phase + product/process + out; phase it/them out",
+            "common_collocations": [
+              "phase out old equipment",
+              "gradually phase out"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples/practice retained; staged removal and separable pronoun grammar clarified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 209,
+      "wordId": "1c0d83ff-5a2e-4f76-bbd6-884a90ea7c04",
+      "senseKey": "on-given-signal",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "790e3f37185af81aba8859d95ebaeec9efab3658e38c456588af831f42d65706",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "at someone’s cue",
+        "wordType": "prepositional phrase",
+        "pronunciation": "Phonetic guide (approximate): at SUM-wunz kyoo",
+        "tamilMeaning": "ஒருவர் கொடுக்கும் சைகையின்போது தொடங்குவது",
+        "englishMeaning": "when another person gives the signal to begin",
+        "coreIdea": "Start when a particular person gives the signal.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Set phrase meaning when another person gives the signal to begin; the cue can be spoken, visual or contextual.",
+              "connotation": "Neutral by itself: it shows coordinated timing, while the negative judgement comes from “yammer” and “incoherently.”",
+              "tone": "Mocking and critical here: the narration presents Royce's speech as long and confused.",
+              "register": "Neutral in staged, coordinated or narrative contexts. The damaged OCR limits confidence in punctuation but not in this sense."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe an action beginning in response to a signal given by a named person."
+            ],
+            "when_not_to_use": [
+              "If someone acts independently without a signal, do not describe the action as being at someone’s cue.",
+              "Do not confuse cue, a signal, with queue, a line of people waiting."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "At someone’s cue can refer to a spoken or nonverbal signal. State the signal when people need to coordinate reliably.",
+            "The source uses at the principal’s cue to mark when Royce starts. It does not explain whether his later speech follows the principal’s wishes or is effective."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A nod from the leader starts the next action.",
+            "memory_sentence": "At my cue, please start the recording.",
+            "recall_question": "What does the possessive identify in at the principal’s cue?",
+            "recognition_task": "A teacher nods and the students begin. Does at the teacher’s cue describe the timing, and must the cue have been spoken? Explain.",
+            "production_task": "Write an instruction using at my cue. Specify a clear signal and the action that should follow it."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "At the director’s cue, the actors stepped onto the stage.",
+              "example_2": "At my cue, please start the recording so that it includes the introduction."
+            },
+            "mini_conversation": "A: When should I begin the presentation?\nB: At my cue. I will nod when everyone is ready.\nA: All right, I will watch for your signal."
+          },
+          "meaning_in_context": {
+            "source_sentence": "At  the  principal's  cue,  Royce  clears  his  throat and  begins  to  yammer  on  incoherently  about  the  similarities  between  curricu­ lum  development  and  battle  preparatio ns.",
+            "contextual_meaning": "when another person gives the signal to begin",
+            "simple_explanation": "Royce begins speaking after the principal gives a signal. The quotation does not specify whether that signal is a word, look or gesture. The negative description of his speech comes from the surrounding words, not from cue."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect spelling: At the teacher’s queue, we began reading.",
+            "correction": "Write At the teacher’s cue, we began reading. Cue means a signal; queue means a waiting line.",
+            "important_difference": "At someone’s cue identifies whose signal starts the action. At a fixed time identifies a clock time and does not necessarily involve anyone giving a signal."
+          },
+          "patterns_collocations": {
+            "main_pattern": "at someone’s cue: at + possessive/name’s + cue, + action",
+            "common_collocations": [
+              "at my cue",
+              "at the director’s cue",
+              "at the teacher’s cue"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Signal timing distinguished from judgement of the speech; source does not identify signal form; cue/queue contrast taught.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
