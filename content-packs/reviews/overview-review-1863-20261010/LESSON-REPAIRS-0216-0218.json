@@ -1,0 +1,343 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0216-0218",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 216,
+      "wordId": "1cc10037-6064-4b22-8e21-e40a6dac0051",
+      "senseKey": "shared-by-both-sides",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "328eb77d8eaca5e0983af11205945bbb1e56651daa81f58f351ffc38acb0f423",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "mutually",
+        "wordType": "adverb",
+        "pronunciation": "/ˈmjuːtʃuəli/",
+        "tamilMeaning": "பரஸ்பரமாக",
+        "englishMeaning": "in a way that is shared, given, or experienced by both sides",
+        "coreIdea": "For both sides, rather than just one.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adverb showing that something applies to, is shared by or benefits both sides; here, a solution would satisfy both.",
+              "connotation": "Positive in “mutually satisfactory” because both parties would benefit, though the passage says such a result seems impossible to him.",
+              "tone": "Pessimistic here: “no possibility” rejects hope of a solution acceptable to both sides.",
+              "register": "Neutral to formal; common in negotiation, relationships and professional writing. The OCR is damaged but the grammatical role is clear."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a benefit, agreement or feeling that applies to both sides."
+            ],
+            "when_not_to_use": [
+              "Do not call a result mutually satisfactory if only one side is satisfied.",
+              "Do not assume mutually means both sides receive exactly the same amount."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Mutually points to both sides; the rest of the phrase determines the quality, as in mutually beneficial or mutually harmful. The word itself does not always express approval.",
+            "The source phrase in his mind marks a belief about the possibility of agreement. Keep that personal judgement separate from an established fact."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Two sides both receive something, even if what they receive differs.",
+            "memory_sentence": "We need a mutually acceptable meeting time.",
+            "recall_question": "Must a mutually beneficial arrangement give both sides identical benefits?",
+            "recognition_task": "A plan suits one team, but the other team has not been consulted. Can you already call it mutually satisfactory? Explain what is missing.",
+            "production_task": "Write a sentence about a fictional mutually beneficial arrangement. State a different benefit for each side."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We need a mutually acceptable meeting time, so please tell me when you are available.",
+              "example_2": "The exchange is mutually beneficial: one group gains a rehearsal space, and the other receives help with events."
+            },
+            "mini_conversation": "A: Is this solution mutually satisfactory?\nB: It works for us, but we have not asked the other team yet.\nA: Then let us check before calling it agreed."
+          },
+          "meaning_in_context": {
+            "source_sentence": "In  his  mind,  there  is  no pos­ sib ility  of  a  mutually  sati sfactory  solution.",
+            "contextual_meaning": "in a way that is shared, given, or experienced by both sides",
+            "simple_explanation": "A mutually satisfactory solution would satisfy both sides. The sentence reports that he believes such a solution is impossible; it does not prove that no solution exists."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We found a mutual acceptable solution.",
+            "correction": "Say We found a mutually acceptable solution. The adverb mutually modifies acceptable; mutual can modify a noun, as in mutual respect.",
+            "important_difference": "Mutually beneficial means both sides benefit. Equally beneficial would additionally claim that the benefits are equal; mutually alone does not make that claim."
+          },
+          "patterns_collocations": {
+            "main_pattern": "mutually + adjective/participle; mutually + agreed + noun",
+            "common_collocations": [
+              "mutually satisfactory",
+              "mutually beneficial",
+              "mutually acceptable",
+              "mutually agreed"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Both-sided effect distinguished from equal benefit; source belief not asserted as fact.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 217,
+      "wordId": "1d06eabb-0d18-4203-b549-8bde00333172",
+      "senseKey": "an-agreed-set-of-practical-rules-for-how-people-work-together",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "cd98cd6456f6c6e14b8f13b172165b055d612da7cc6b75d0806e4d62f676e442",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "working agreement",
+        "wordType": "noun phrase",
+        "pronunciation": "/ˈwɜː.kɪŋ əˌɡriː.mənt/",
+        "tamilMeaning": "ஒன்றாகப் பணிபுரிவதற்கான நடைமுறை ஒப்பந்தம்",
+        "englishMeaning": "an agreed set of practical rules for how people work together",
+        "coreIdea": "Picture a team's everyday habits written on one shared card.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Professional noun phrase for practical rules a group agrees to follow while working together.",
+              "connotation": "Collaborative and constructive here: the group has made expectations explicit.",
+              "tone": "Matter-of-fact and procedural here: the sentence states the agreed rule for urgent requests.",
+              "register": "Professional but not necessarily legal. Do not confuse it with an employment contract or another binding legal agreement."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe practices that a group has explicitly agreed to follow when working together."
+            ],
+            "when_not_to_use": [
+              "A working agreement sets collaboration habits; a work contract may set formal employment obligations.",
+              "Use this phrase for explicit shared practices, and avoid implying every such agreement has contractual status."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "A working agreement in this lesson concerns shared practical habits. The phrase alone does not establish any particular legal status.",
+            "A working agreement can be reviewed as the team’s needs change. Proposed changes still need agreement; one person’s preference is not automatically the group’s rule."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a team's everyday habits written on one shared card.",
+            "memory_sentence": "The study group's working agreement limits meetings to forty minutes.",
+            "production_task": "Propose a working agreement for response times on non-urgent messages. Use the target expression in one or two sentences. Check its pattern and register only after speaking.",
+            "recall_question": "Without looking, retrieve the expression meaning an agreed set of practical rules for how people work together. Then say it in a new situation.",
+            "recognition_task": "Choose the natural sentence. A: We made working agreement for the team. B: We made a working agreement for the team. Explain why, then check the correction after answering."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "Our working agreement says that urgent requests need a named contact.",
+              "another_setting": "The study group's working agreement limits meetings to forty minutes."
+            },
+            "mini_conversation": "A: The study group's working agreement limits meetings to forty minutes.\nB: Can we add a rule about sharing notes afterwards?"
+          },
+          "meaning_in_context": {
+            "source_sentence": "Our working agreement says that urgent requests need a named contact.",
+            "contextual_meaning": "an agreed set of practical rules for how people work together",
+            "simple_explanation": "The team has agreed on a practical way to handle urgent requests: each needs a named contact. The phrase refers to shared working rules rather than merely a private preference."
+          },
+          "mistakes_differences": {
+            "correction": "We made a working agreement for the team.",
+            "common_mistake": "We made working agreement for the team.",
+            "important_difference": "A working agreement sets collaboration habits; a work contract may set formal employment obligations."
+          },
+          "patterns_collocations": {
+            "main_pattern": "working agreement: agree/review + a working agreement",
+            "common_collocations": [
+              "a team working agreement",
+              "review the working agreement"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Useful examples and practice retained; shared rules distinguished from unilateral preference and unsupported legal status.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 218,
+      "wordId": "1d0adbf1-86d1-4b47-9eff-7a8c29a4f74d",
+      "senseKey": "reduce-bad-impact",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "f17c21774b1c60518a707f590e79f997c7db4f09135b058cbe75db89f3e616ff",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "soften the blow",
+        "wordType": "idiom",
+        "pronunciation": "Phonetic guide (approximate): SOF-un thuh bloh",
+        "tamilMeaning": "விரும்பத்தகாத செய்தி அல்லது மாற்றத்தின் தாக்கத்தை ஏற்றுக்கொள்ள எளிதாகக் குறைப்பது",
+        "englishMeaning": "to make unpleasant news or change easier to accept",
+        "coreIdea": "Reduce how difficult or upsetting a bad experience feels.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative idiom: reducing emotional harm is compared with making a physical blow less severe.",
+              "connotation": "Mixed here: the promotion and higher pay reduce distress but do not remove the disruption of displacement.",
+              "tone": "Pragmatic and cautiously reassuring here: benefits are presented as compensation for an unwelcome move.",
+              "register": "Neutral conversational and professional English. Avoid it if the wording would minimize serious harm."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe support, compensation or considerate delivery that reduces the impact of unpleasant news or change."
+            ],
+            "when_not_to_use": [
+              "Do not use soften the blow to mean that the underlying problem has disappeared.",
+              "Hiding important facts is not necessary to soften the blow; practical help can reduce the impact while the facts remain clear."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Soften the blow uses the image of a physical impact for emotional or practical difficulty. Here the blow is displacement, not an actual strike.",
+            "What softens the blow for one person may not help another equally. The source says the pay helps; it does not claim money removes every difficulty."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A cushion reduces an impact without making the impact disappear.",
+            "memory_sentence": "The refund helped soften the blow of the cancellation.",
+            "recall_question": "Does soften the blow mean that no disappointment remains?",
+            "recognition_task": "An event is cancelled, but attendees receive a refund and help changing their plans. Does this soften the blow or undo the cancellation? Explain.",
+            "production_task": "Write two sentences about a fictional disappointing change. Use soften the blow to propose practical help while stating the change honestly."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "A full refund helped soften the blow when the concert was cancelled.",
+              "example_2": "Offering another chance to apply may soften the blow of being turned down this time."
+            },
+            "mini_conversation": "A: The workshop has been cancelled, and people will be disappointed.\nB: Could we offer a free place on the next one to soften the blow?\nA: Yes, while clearly explaining what happened."
+          },
+          "meaning_in_context": {
+            "source_sentence": "For  instance,  you've  just  been  offered  a  promotion  that  will  help  propel  your  career  along  a  faster  track  and  bring  you  a  great  deal  more  authority ,  and  it  pays  enough  to  help  soften  the  blow  of  displacement.",
+            "contextual_meaning": "to make unpleasant news or change easier to accept",
+            "simple_explanation": "The higher pay is presented as helping to make displacement easier to bear. It reduces a drawback of the promotion rather than removing the change or guaranteeing that it will feel easy."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The refund helped to soft the blow.",
+            "correction": "Say The refund helped to soften the blow. Soften is the verb; soft is the adjective.",
+            "important_difference": "Soften the blow means reduce the unpleasant impact. Prevent the problem means stop it from happening; the first does not imply the second."
+          },
+          "patterns_collocations": {
+            "main_pattern": "soften the blow + of + event/change; help to + soften the blow",
+            "common_collocations": [
+              "soften the blow of disappointment",
+              "help soften the blow",
+              "soften the blow of cancellation"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Reduced impact distinguished from removal or prevention; specific compensation examples and verb form replace generic content.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
