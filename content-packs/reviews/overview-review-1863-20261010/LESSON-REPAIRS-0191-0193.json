@@ -1,0 +1,352 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0191-0193",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 191,
+      "wordId": "1a0abfff-87ea-4fd4-8040-c065752b1666",
+      "senseKey": "to-medium-degree",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2ac0528c74e370d6fc9922b8eb3e9245aeea197970911a49bfde05e17e57ba64",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "moderately",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: MOD-er-uht-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மிதமான அளவில்",
+        "englishMeaning": "to a medium degree, neither slightly nor extremely",
+        "coreIdea": "To a middle degree rather than a very small or extreme degree.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Degree adverb meaning to a middle or limited extent; here, the skills are fairly easy, but not extremely easy, to learn.",
+              "connotation": "Neutral: it limits the strength of the evaluation.",
+              "tone": "Measured and encouraging here: learning is presented as achievable without claiming that it is effortless.",
+              "register": "Neutral to formal; common in assessments and reports. “Fairly” is more conversational in this example."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a middle level of difficulty, success, warmth or another quality that can vary in degree."
+            ],
+            "when_not_to_use": [
+              "For frequency, use sometimes or occasionally rather than moderately.",
+              "Avoid moderately with an absolute description when you mean a clear yes-or-no state, such as whether a door is locked."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Moderately does not specify an exact percentage. The surrounding context determines what counts as a middle degree.",
+            "Moderately successful can sound like restrained praise because it limits success. In the source, moderately easy similarly avoids promising that learning takes no effort."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A level indicator near the middle rather than at an extreme.",
+            "memory_sentence": "The first exercise is moderately difficult.",
+            "recall_question": "Does moderately easy mean effortless, or easy to a limited degree?",
+            "recognition_task": "Which describes degree: moderately difficult or occasionally difficult? Explain how the meanings differ.",
+            "production_task": "Describe a fictional lesson or event with moderately plus an adjective. Add a detail that shows why you chose a middle degree."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The first exercise is moderately difficult, but the worked example should help.",
+              "example_2": "The event was moderately successful: most guests enjoyed it, although attendance was lower than hoped."
+            },
+            "mini_conversation": "A: Is the new method easy to learn?\nB: Moderately easy. The basic steps are clear, but they still need practice.\nA: Then I will allow time to practise."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The  skills  required  to  master  hig h-stakes  interactions  are  quite  easy  to  spot  and  moderately  easy  to  learn.",
+            "contextual_meaning": "to a medium degree, neither slightly nor extremely",
+            "simple_explanation": "The writer says the skills are fairly easy to learn, not effortless or extremely easy. Moderately limits the strength of easy; it does not describe how frequently someone learns."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The exercise is moderate difficult.",
+            "correction": "Say The exercise is moderately difficult. The adverb modifies difficult; moderate is an adjective, as in moderate difficulty.",
+            "important_difference": "Moderately describes degree. Occasionally describes frequency: a task may be moderately difficult every time you do it."
+          },
+          "patterns_collocations": {
+            "main_pattern": "moderately + adjective; verb + moderately",
+            "common_collocations": [
+              "moderately easy",
+              "moderately successful",
+              "moderately difficult",
+              "moderately priced"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Degree distinguished from frequency and adjective form; no fixed percentage invented.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 192,
+      "wordId": "1a3ea7c4-1cae-477a-a3f7-82d9b489425d",
+      "senseKey": "possible-consequence",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b1e4f1fd0b690528fc0dedbffb45b163cfc50daa8d712c9c7e3ae21a22ff6b0b",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "implication",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: im-plih-KAY-shuhn. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு விஷயத்தால் ஏற்படக்கூடிய விளைவு அல்லது அது உணர்த்தும் பொருள்",
+        "englishMeaning": "a possible consequence or meaning suggested by something",
+        "coreIdea": "What a fact or finding may mean beyond what it directly states.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for consequences or significance suggested by a finding; here, the reader is asked to consider what follows from a study.",
+              "connotation": "Neutral: implications can be beneficial, harmful or simply informative.",
+              "tone": "Reflective and instructive here: “Think about” invites the reader to go beyond the reported result.",
+              "register": "Neutral to formal; common in analytical discussion. The short sentence alone does not specify which consequences are intended."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss a possible consequence or wider meaning of a finding, decision or statement."
+            ],
+            "when_not_to_use": [
+              "Do not present a possible implication as an observed result unless there is evidence for that result.",
+              "If you mean only the directly recorded data, say findings or results."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Implication often appears in the plural when several consequences may follow. It does not by itself say whether those consequences are good or bad.",
+            "An implication may be a suggested meaning rather than a direct statement. Explain the reasoning that connects the evidence to the interpretation instead of treating every inference as certain."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A finding with an arrow leading to what it could mean next.",
+            "memory_sentence": "The study may have implications for training.",
+            "recall_question": "Why does the source excerpt not allow us to name a specific implication of the study?",
+            "recognition_task": "A report finds longer waiting times; a team suggests that extra staff may be needed. Which is the finding and which is a possible implication?",
+            "production_task": "Invent a simple finding about a school or workplace. Write one sentence with implication or implications explaining a possible consequence, and mark it as uncertain if needed."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "One implication of the longer opening hours is that we may need another staff shift.",
+              "example_2": "The study may have implications for training, but we need to understand its limits before changing the course."
+            },
+            "mini_conversation": "A: What is the main implication of moving the meeting earlier?\nB: Colleagues in another time zone may struggle to attend.\nA: Then let us ask them before confirming it."
+          },
+          "meaning_in_context": {
+            "source_sentence": "5  Think  about  the  implications  of  thi s  study .",
+            "contextual_meaning": "a possible consequence or meaning suggested by something",
+            "simple_explanation": "The writer asks readers to consider what follows from the study or what its findings may mean. The short quotation does not include the study’s results, so no particular implication can be identified from it alone."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: This finding has an implication to our training plan.",
+            "correction": "Say This finding has implications for our training plan. Use for to identify the people or activity affected.",
+            "important_difference": "A result is what a study or action produces or finds. An implication is a consequence or wider meaning drawn from it, and that interpretation may still need checking."
+          },
+          "patterns_collocations": {
+            "main_pattern": "the implication(s) of + finding/decision; implications for + people/activity; an implication is that + clause",
+            "common_collocations": [
+              "consider the implications",
+              "practical implications",
+              "the implications of a study",
+              "implications for training"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Possible implications distinguished from observed findings; missing study results explicitly disclosed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 193,
+      "wordId": "1a6c8335-b53d-4ebf-9902-34a01d791d9c",
+      "senseKey": "portray-as-hero",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c06603ee9284641da0ee240d370ab36b046f577822b50247d8d6e8cc8ec6bda1",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "make a hero out of",
+        "wordType": "verb phrase",
+        "pronunciation": "Approximate pronunciation: mayk uh HEER-oh OUT uhv. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒருவரை வீரராகச் சித்தரித்தல் அல்லது போற்றுதல்",
+        "englishMeaning": "to portray or treat someone as a hero",
+        "coreIdea": "Present someone as a person who deserves special admiration.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative expression for portraying someone as especially admirable or worthy of celebration, rather than changing who they literally are.",
+              "connotation": "Positive toward the celebrated person, but it can be used critically about excessive admiration.",
+              "tone": "Critical or questioning here: the broad claim about television invites reflection on whom programmes celebrate as heroes.",
+              "register": "Common general commentary. It does not necessarily claim that the person performed a courageous rescue or other heroic act."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a story, audience or organisation treating a person as especially admirable or heroic."
+            ],
+            "when_not_to_use": [
+              "Do not assume making a hero out of someone proves that every action of theirs deserves admiration.",
+              "For ordinary thanks without special heroic status, praise or thank may be more precise."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Make a hero out of can express admiration or criticism of exaggerated admiration. The surrounding wording shows the speaker’s attitude.",
+            "For several people, the phrase becomes make heroes out of them, as in the source. It describes a change in public image or treatment, not a physical transformation."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A story puts one person under a bright spotlight of admiration.",
+            "memory_sentence": "A single victory can make a hero out of a player.",
+            "recall_question": "Does making a hero out of someone establish that they are morally admirable in every way?",
+            "recognition_task": "A programme portrays a winner as a role model whom everyone should admire. Does make a hero out of fit this portrayal? Explain the difference from a brief thank-you.",
+            "production_task": "Write a sentence about a fictional article that tries to make a hero out of someone. Add a second sentence noting another person’s contribution or a limit to the portrayal."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The documentary tries to make a hero out of the volunteer who organised the rescue.",
+              "example_2": "A single victory can make a hero out of a player in the eyes of the fans."
+            },
+            "mini_conversation": "A: The article seems to make a hero out of one person.\nB: Yes, but several people helped with the rescue.\nA: Their contribution deserves attention too."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Half  of  the  lV  programs  we  watch  make  heroes  out  of  people  who  win  at  sports  or  game  shows.",
+            "contextual_meaning": "to portray or treat someone as a hero",
+            "simple_explanation": "The writer says television programmes give sports or game-show winners the status of heroes. The wording describes how people are portrayed, not proof that they are morally heroic. The saved quotation has an OCR-looking lV and provides no evidence for its numerical claim about half the programmes."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The story makes a hero out of he.",
+            "correction": "Say The story makes a hero out of him. Use an object pronoun after out of.",
+            "important_difference": "Make a hero out of someone emphasizes the heroic image or treatment they receive. Praise someone can simply acknowledge one good action without giving them that larger status."
+          },
+          "patterns_collocations": {
+            "main_pattern": "make a hero out of + person; make heroes out of + people",
+            "common_collocations": [
+              "make a hero out of a winner",
+              "make a hero out of him",
+              "make heroes out of ordinary people"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Heroic portrayal distinguished from moral proof and simple praise; plural grammar and OCR/unsupported numerical claim disclosed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
