@@ -1,0 +1,341 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0170-0172",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 170,
+      "wordId": "16b4220e-07d6-4ba9-b66c-860b1b12cebf",
+      "senseKey": "early-childhood-class",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "872834c6c562b7eead9b560bece31cd3f264e7b7b0c6fd248bbe8e4316e2e5e1",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "kindergarten",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: KIN-der-gar-tuhn. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "சிறு குழந்தைகளுக்கான தொடக்கநிலைக் கல்வி வகுப்பு",
+        "englishMeaning": "the first stage of formal schooling for young children",
+        "coreIdea": "An early stage of school for young children.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal noun for an early educational stage for young children; the exact age and institutional role vary by country.",
+              "connotation": "Neutral: the term names an educational setting rather than judging the children or teaching.",
+              "tone": "Wry and exaggerated here: “Ten minutes” compresses how quickly children supposedly learn to seek attention with correct answers.",
+              "register": "Standard educational vocabulary, especially in North American English. Check the local school system before treating it as the same stage everywhere."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Refer to the early-school stage called kindergarten in the education system being discussed."
+            ],
+            "when_not_to_use": [
+              "Do not assume kindergarten identifies exactly the same age group or programme in every country."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Kindergarten can be used without an article for the educational stage: start kindergarten or be in kindergarten. A particular institution can be called a kindergarten.",
+            "Kindergarten is literal in the source, while ten minutes adds rhetorical emphasis. The sentence is not evidence that every child has the same experience."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture young children joining an early school class.",
+            "memory_sentence": "Her daughter starts kindergarten this autumn.",
+            "recall_question": "Why should you check the local education system before assigning an exact age to kindergarten?",
+            "recognition_task": "A passage mentions a kindergarten teacher. Does this suggest an early-school classroom or a university lecture? Explain without assuming a fixed age.",
+            "production_task": "Write a friendly fictional message about a child starting kindergarten. Mention one ordinary classroom activity without assuming a universal curriculum."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Her daughter starts kindergarten this autumn.",
+              "example_2": "The kindergarten teacher welcomed the children with a story and a drawing activity."
+            },
+            "mini_conversation": "A: Is this your son’s first week in kindergarten?\nB: Yes. He is excited to meet the other children.\nA: I hope he enjoys his new class."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Ten  minutes  into  kindergarten  we  learn  that  if  we  want  to  get  the  teacher's  attention,  we  have  to  spout  the  right  answer.",
+            "contextual_meaning": "the first stage of formal schooling for young children",
+            "simple_explanation": "The writer uses early schooling to illustrate learning to give a teacher the expected answer. Ten minutes is emphatic wording, not a verified timetable for every child."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect spelling: She starts kindergarden next week.",
+            "correction": "Write She starts kindergarten next week. The final part is garten, with a t.",
+            "important_difference": "Kindergarten names an early stage or programme. School is broader and can refer to many stages; local education systems determine the precise use of kindergarten."
+          },
+          "patterns_collocations": {
+            "main_pattern": "start/attend + kindergarten; be in + kindergarten; a kindergarten + teacher/class",
+            "common_collocations": [
+              "start kindergarten",
+              "a kindergarten teacher",
+              "a kindergarten classroom"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "School-stage sense retained without universal age claims; rhetorical timing bounded.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 171,
+      "wordId": "16bb2fbc-bc97-4d03-aa32-393f5c5e219a",
+      "senseKey": "the-time-needed-between-requesting-something-and-receiving-it",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2a5a2f96f41bda48cc99481f04ba951bef2ff694bf61e4911f498e0893c13b2d",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "lead time",
+        "wordType": "noun",
+        "pronunciation": "/ˈliːd taɪm/",
+        "tamilMeaning": "கோரிக்கை முதல் கிடைக்கும் வரை தேவைப்படும் காலம்",
+        "englishMeaning": "the time needed between requesting something and receiving it",
+        "coreIdea": "Order now; receive later.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract scheduling term for the interval required between a request and its fulfilment; here, the supplier needs three weeks.",
+              "connotation": "Neutral: the interval is a planning constraint, not automatically a delay or failure.",
+              "tone": "Factual and practical here: the sentence states the time that must be allowed.",
+              "register": "Common in supply, manufacturing and project planning. “Time from ordering to delivery” is clearer for unfamiliar audiences."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use “lead time” for this meaning: the time needed between requesting something and receiving it. For a concrete situation: The supplier needs a lead time of three weeks."
+            ],
+            "when_not_to_use": [
+              "Do not assume lead time counts only active production work; waiting and other stages may also be included."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Lead time must have clear start and end points, such as order acceptance and delivery. Different teams may measure different intervals, so confirm the definition before comparing figures."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Order now; receive later.",
+            "memory_sentence": "Custom-made curtains usually have a longer lead time than ready-made ones.",
+            "production_task": "Use “lead time” in your own response: Explain when an order must be placed if delivery takes several weeks.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “the time needed between requesting something and receiving it”. Then explain it in your own words.",
+            "recognition_task": "An item takes two days to make, but it arrives three weeks after ordering. If lead time is measured from order to receipt, is it two days or three weeks? Explain which interval matters."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "The supplier needs a lead time of three weeks.",
+              "another_context": "Custom-made curtains usually have a longer lead time than ready-made ones."
+            },
+            "mini_conversation": "A: The supplier needs a lead time of three weeks.\nB: Then we need to place the order well before the event."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The supplier needs a lead time of three weeks.",
+            "contextual_meaning": "the time needed between requesting something and receiving it",
+            "simple_explanation": "The supplier needs three weeks between the request and the item being available or received. The precise start and end points should be agreed when planning the order."
+          },
+          "mistakes_differences": {
+            "correction": "The lead time is three weeks.",
+            "common_mistake": "The lead time is in three weeks long.",
+            "important_difference": "Lead time covers the wait from a defined request to availability; working time may count only active work."
+          },
+          "patterns_collocations": {
+            "main_pattern": "lead time: a lead time of + duration",
+            "common_collocations": [
+              "short lead time",
+              "reduce lead time"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples and grammar retained; elapsed interval distinguished from active work.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 172,
+      "wordId": "16d07430-1625-4fb8-b9e9-257ee0610ddf",
+      "senseKey": "stop-controlling-tightly",
+      "senseRank": 3,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "b5ccdbbe39e6a88f627051071cd2af10a1ae836c7cc3aabd51fec6cf7b804f41",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "release your grip on",
+        "wordType": "figurative verb phrase",
+        "pronunciation": "Approximate pronunciation: rih-LEES yer GRIP on. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு யோசனை அல்லது உத்தியைப் பிடிவாதமாகப் பற்றிக்கொள்வதை விடுதல்",
+        "englishMeaning": "to stop holding onto or controlling an idea or strategy so tightly",
+        "coreIdea": "Stop clinging to one approach so that you can consider alternatives.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative expression for becoming less rigidly attached to a strategy, as though loosening a physical hold.",
+              "connotation": "Positive here: flexibility is presented as making new alternatives possible.",
+              "tone": "Encouraging and explanatory here: the passage links loosening attachment with finding a shared purpose.",
+              "register": "Natural in reflective and coaching language. “Be less attached to your preferred strategy” is more literal."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Encourage someone to stop insisting on one idea or strategy and consider another route to the same aim."
+            ],
+            "when_not_to_use": [
+              "Do not assume releasing your grip on a strategy means abandoning the underlying goal.",
+              "In a delicate discussion, consider the gentler wording Could we consider another approach?"
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Release your grip on makes attachment sound like a tight physical hold. It can imply that the listener is being rigid, so the surrounding wording affects how respectful it sounds.",
+            "The source links release your grip on your strategy with keeping your purpose. The expression opens room for alternatives without guaranteeing that a better one will be found."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture an open hand allowing several possible plans to be considered.",
+            "memory_sentence": "Release your grip on the original plan and compare the alternatives.",
+            "recall_question": "Can you release your grip on a strategy while keeping the same purpose?",
+            "recognition_task": "A team keeps its goal but agrees to compare different methods. Does this fit release your grip on one strategy, or does it necessarily mean abandoning the goal? Explain.",
+            "production_task": "Write a respectful suggestion to a fictional teammate who insists on one plan. Use release your grip on and name the shared goal you still want to preserve."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "You may need to release your grip on the original plan if a simpler route will achieve the same goal.",
+              "example_2": "Try to release your grip on the idea that there is only one right way to organize the event."
+            },
+            "mini_conversation": "A: I still want us to use my original plan.\nB: Could you release your grip on that plan long enough to compare the alternatives?\nA: All right, as long as we keep the same goal."
+          },
+          "meaning_in_context": {
+            "source_sentence": "When  you  release  your  grip  on  your  strategy  and  fo cus  on  your  real  pur­ pose,  you open  up  the  possibility  of  fi nding  new  alternatives  that  can  serve  Mutual  Purpos e.",
+            "contextual_meaning": "to stop holding onto or controlling an idea or strategy so tightly",
+            "simple_explanation": "The writer advises becoming less attached to one strategy while keeping the real purpose in view. The hand-grip image describes mental attachment, not physically holding an object."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Release your grip to that strategy.",
+            "correction": "Say Release your grip on that strategy. Use on to introduce what you are mentally holding onto.",
+            "important_difference": "Release your grip on a strategy means reduce your attachment to that method. Give up the goal means stop pursuing the result itself."
+          },
+          "patterns_collocations": {
+            "main_pattern": "release + possessive + grip on + idea/strategy; release your grip on + a fixed plan",
+            "common_collocations": [
+              "release your grip on a strategy",
+              "release your grip on a fixed idea",
+              "release your grip on the original plan"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Mental attachment metaphor taught; strategy distinguished from purpose, interpersonal force disclosed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
