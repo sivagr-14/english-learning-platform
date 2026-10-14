@@ -1,0 +1,329 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0201-0203",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 201,
+      "wordId": "1b4757b8-aff2-41b4-a9c6-2119c64593f5",
+      "senseKey": "progressing-as-planned-toward-a-goal",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5d71cdc16ce92800cf9c55c8d5950d4d6660a0df603d3d69400a97682c1290e7",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "on track",
+        "wordType": "expression",
+        "pronunciation": "/ɒn ˈtræk/",
+        "tamilMeaning": "திட்டமிட்டபடி இலக்கை நோக்கி முன்னேறும் நிலையில்",
+        "englishMeaning": "progressing as planned toward a goal",
+        "coreIdea": "A train following the route to its destination.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative planning expression: progress is compared with staying on the correct route toward a destination.",
+              "connotation": "Positive and reassuring here: the review is progressing as planned.",
+              "tone": "Confident and matter-of-fact here: the speaker expects the Thursday target to be met.",
+              "register": "Neutral and common in everyday and professional planning. It can describe schedules, budgets or goals."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Report that current progress supports reaching a goal, using completed work or other evidence."
+            ],
+            "when_not_to_use": [
+              "On track predicts progress toward a goal; on schedule specifically compares progress with planned dates."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "On track is a judgement based on current progress, not a guarantee. State the evidence and update the assessment if conditions change.",
+            "On track can refer to quality, spending or another goal as well as timing. On schedule specifically concerns planned dates."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A train following the route to its destination.",
+            "memory_sentence": "My savings are on track to cover the course fee by June.",
+            "production_task": "Use “on track” in your own response: Give an evidence-based update showing that a monthly target is likely to be met.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “progressing as planned toward a goal”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “We are on the track to finish.” B: “We are on track to finish.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "We are on track to finish the review by Thursday.",
+              "another_context": "My savings are on track to cover the course fee by June."
+            },
+            "mini_conversation": "A: Are we still on track to finish by Thursday?\nB: Yes. Only the final two sections remain, and both reviewers are available tomorrow.\nA: Good. Let me know if anything changes."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We are on track to finish the review by Thursday.",
+            "contextual_meaning": "progressing as planned toward a goal",
+            "simple_explanation": "The review is progressing well enough that finishing by Thursday currently looks achievable. The phrase reports the present outlook, not a promise that nothing can go wrong."
+          },
+          "mistakes_differences": {
+            "correction": "We are on track to finish.",
+            "common_mistake": "We are on the track to finish.",
+            "important_difference": "On track predicts progress toward a goal; on schedule specifically compares progress with planned dates."
+          },
+          "patterns_collocations": {
+            "main_pattern": "on track: be on track to + verb; keep + noun on track",
+            "common_collocations": [
+              "firmly on track",
+              "remain on track"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "natural_examples",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples and exercises preserved; evidence-based dialogue and no-guarantee distinction sharpened.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 202,
+      "wordId": "1b47e804-f6b9-4296-a222-bce5c2cd7483",
+      "senseKey": "started-but-not-yet-completed",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "60267fbaee667637e9ecc6b00ed785f2ffcfe3fe11127860729db581c07029c0",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "in progress",
+        "wordType": "expression",
+        "pronunciation": "/ɪn ˈprəʊɡres/",
+        "tamilMeaning": "தொடங்கி இன்னும் முடிவடையாத நிலையில்",
+        "englishMeaning": "started but not yet completed",
+        "coreIdea": "A progress bar that has not reached 100%.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "State expression meaning that an activity has started but is not yet complete.",
+              "connotation": "Neutral: it reports the current stage without implying success, delay or failure.",
+              "tone": "Factual and status-focused here: “still” emphasizes that the final check continues.",
+              "register": "Neutral; natural in everyday updates, workplace reports and system-status messages."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Report that an activity has started and is continuing but is not yet finished."
+            ],
+            "when_not_to_use": [
+              "In progress states unfinished status; under way often draws attention to the fact that something has started."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "In progress gives no percentage or reliable finish time by itself. Provide those details separately if you know them.",
+            "Still in progress emphasizes continuation. It can suggest a longer wait than expected in some contexts, but does not by itself prove a delay."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A progress bar that has not reached 100%.",
+            "memory_sentence": "Dinner was still in progress when the guests arrived.",
+            "production_task": "Use “in progress” in your own response: Write a status message for a review that has started but has no reliable completion time.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “started but not yet completed”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “The check is on progress.” B: “The check is in progress.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "The final check is still in progress.",
+              "another_context": "Dinner was still in progress when the guests arrived."
+            },
+            "mini_conversation": "A: Is the final check complete?\nB: Not yet. It is still in progress.\nA: Please let me know when the results are ready."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The final check is still in progress.",
+            "contextual_meaning": "started but not yet completed",
+            "simple_explanation": "The final check has begun and is continuing. Still emphasizes that it has not finished; it does not tell us how much is done or prove that the check is late."
+          },
+          "mistakes_differences": {
+            "correction": "The check is in progress.",
+            "common_mistake": "The check is on progress.",
+            "important_difference": "In progress states unfinished status; under way often draws attention to the fact that something has started."
+          },
+          "patterns_collocations": {
+            "main_pattern": "in progress: be in progress; work in progress",
+            "common_collocations": [
+              "currently in progress",
+              "review in progress"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "natural_examples",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid grammar and examples retained; ongoing status distinguished from percentage, completion and proven delay.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 203,
+      "wordId": "1b610a52-00dc-4534-9016-3d5b3de3f924",
+      "senseKey": "to-be-willing-or-interested-in-doing-something",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a535a0622c172e4b9c08d61fb592f1adbc894b09d8c612e5371757d2114adc6f",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "be up for",
+        "wordType": "expression",
+        "pronunciation": "/bi ˈʌp fə/",
+        "tamilMeaning": "ஆர்வமுடன் செய்ய தயாராக இருப்பது",
+        "englishMeaning": "to be willing or interested in doing something",
+        "coreIdea": "A raised hand saying count me in.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Informal idiomatic phrase asking whether someone is willing or interested in an activity.",
+              "connotation": "Positive and inviting here: the walk is offered as an optional shared activity.",
+              "tone": "Friendly and low-pressure here: the question leaves the listener free to accept or decline.",
+              "register": "Informal conversation. “Would you be interested in…” is more suitable for a formal invitation."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Make or answer a friendly, informal invitation to an activity."
+            ],
+            "when_not_to_use": [
+              "Be up for expresses willingness; feel up to emphasises sufficient energy.",
+              "Informal and friendly; would you be interested in is a more formal invitation."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Be up for is informal and friendly; would you be interested in is a more formal way to invite someone.",
+            "After be up for, use a noun or an -ing form: up for a walk or up for walking. A willing response does not necessarily confirm the final time or arrangements."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A raised hand saying count me in.",
+            "memory_sentence": "I would be up for a picnic if the weather stays dry.",
+            "production_task": "Invite a friend to a short walk after lunch. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: to be willing or interested in doing something. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: Would you be up for to walk? B: Would you be up for a walk? Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "Would you be up for a walk after lunch?",
+              "another_setting": "I would be up for a picnic if the weather stays dry."
+            },
+            "mini_conversation": "A: I would be up for a picnic if the weather stays dry.\nB: Great; I will check the forecast tomorrow."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Would you be up for a walk after lunch?",
+            "contextual_meaning": "to be willing or interested in doing something",
+            "simple_explanation": "The speaker asks whether the listener would like to join a walk after lunch. Be up for expresses willingness or interest in this invitation."
+          },
+          "mistakes_differences": {
+            "correction": "Would you be up for a walk?",
+            "common_mistake": "Would you be up for to walk?",
+            "important_difference": "Be up for expresses willingness; feel up to emphasises sufficient energy."
+          },
+          "patterns_collocations": {
+            "main_pattern": "be up for: be up for + noun/-ing",
+            "common_collocations": [
+              "be up for a walk",
+              "be up for trying something"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid invitation lesson retained; noun/gerund construction and willingness versus confirmed arrangements clarified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
