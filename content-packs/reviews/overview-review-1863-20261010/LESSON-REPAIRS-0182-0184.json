@@ -1,0 +1,342 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0182-0184",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 182,
+      "wordId": "18c432b5-403f-4e0d-a44e-c00a4b2e5480",
+      "senseKey": "able-to-affect-others",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "771db1b756e728a44732d4b87991d3140dc5038c17bc6771748770fd12bbc239",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "influential",
+        "wordType": "adjective",
+        "pronunciation": "/ˌɪnfluˈenʃəl/",
+        "tamilMeaning": "செல்வாக்குள்ள",
+        "englishMeaning": "having enough power or importance to affect decisions or behaviour",
+        "coreIdea": "Able to shape what other people decide or do.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adjective for having the capacity to affect other people's decisions or behaviour.",
+              "connotation": "Neutral by itself: influence can be beneficial or harmful; this passage treats unusually strong influence as worth studying.",
+              "tone": "Investigative and emphatic here: the researchers sought people far more influential than others.",
+              "register": "Neutral and common in social, professional and political discussion. It does not automatically mean famous or morally admirable."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a person, group or idea that has a strong effect on decisions or behaviour."
+            ],
+            "when_not_to_use": [
+              "Do not assume a famous person is influential in every field; being known is different from shaping decisions.",
+              "Do not use influential to mean easily influenced by others."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Influential does not automatically mean helpful or ethical. The effect may be positive or negative, depending on what is encouraged.",
+            "Influence can be limited to a field or group. Naming that scope makes a claim such as highly influential more precise."
+          ],
+          "memory_practice": {
+            "memory_trigger": "One person’s advice changes several people’s plans.",
+            "memory_sentence": "She is an influential member of the team.",
+            "recall_question": "Can someone be influential without being widely famous? Explain.",
+            "recognition_task": "One colleague is well known but nobody follows his advice; another quietly shapes the team’s decisions. Who is more influential in those decisions, and why?",
+            "production_task": "Describe a fictional influential person or idea in two sentences. Give one concrete example of a decision or behaviour it affects."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Her research became influential in changing how the school taught reading.",
+              "example_2": "He is an influential member of the team because colleagues often act on his advice."
+            },
+            "mini_conversation": "A: Is Lena influential in the group?\nB: Yes. People often change their plans after hearing her ideas.\nA: Then we should include her in the discussion."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We  wanted  to  find  those  who  were  not  just  influent ial,  but  who  were  far more  influential  than  the  rest.",
+            "contextual_meaning": "having enough power or importance to affect decisions or behaviour",
+            "simple_explanation": "The researchers wanted people whose effect on others was much greater than usual. Far more influential compares degrees of influence; the excerpt does not say how that influence was measured."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: She is very influence in the team.",
+            "correction": "Say She is very influential in the team. Influential is the adjective; influence can be a noun or a verb.",
+            "important_difference": "Famous means widely known. Influential means able to affect what others think or do; someone can be influential within a small group without being famous."
+          },
+          "patterns_collocations": {
+            "main_pattern": "an influential + person/figure/idea; influential in + field/-ing; more influential than + comparison",
+            "common_collocations": [
+              "an influential figure",
+              "highly influential",
+              "influential in shaping policy",
+              "more influential than others"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Influence distinguished from fame and susceptibility; source does not establish a measurement method.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 183,
+      "wordId": "18f9510f-def6-46ec-873a-0e66ffd8e897",
+      "senseKey": "used-with-a-stated-limit-to-restrict-a-claim",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "db330989cd6cc1021aa6d73c8113bf304e6a9dd957022720500ebc1fabdc60a0",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "as far as",
+        "wordType": "expression",
+        "pronunciation": "/əz ˈfɑːr əz/",
+        "tamilMeaning": "அறிவு அல்லது வரம்பிற்கு உட்பட்டு",
+        "englishMeaning": "used with a stated limit to restrict a claim",
+        "coreIdea": "A claim inside the edge of your knowledge.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Claim-limiting phrase: in “as far as I know,” the statement is restricted to the speaker's current knowledge.",
+              "connotation": "Neutral: it limits certainty rather than indicating disapproval or doubt about every part of the statement.",
+              "tone": "Cautious here: the speaker believes the booking is confirmed but leaves room for information they may not have.",
+              "register": "Common in everyday and professional English. Teach the complete construction; “as far as” alone does not express the same limit."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Limit a statement to what you currently know or can establish, rather than presenting it as fully verified."
+            ],
+            "when_not_to_use": [
+              "As far as I know limits certainty; I can confirm asserts verification.",
+              "It signals an information boundary and should not substitute for checking a crucial fact."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "As far as I know marks a boundary to the speaker’s information. It does not replace checking a fact when the result matters.",
+            "As far as needs wording that identifies the limit in this construction, such as I know or we can tell. The saved example limits certainty about the booking."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A claim inside the edge of your knowledge.",
+            "memory_sentence": "As far as I know, the shop is open on Sundays.",
+            "production_task": "Report a booking's apparent status while making uncertainty clear. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: used with a stated limit to restrict a claim. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: As far as my knowing, it is open. B: As far as I know, it is open. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "As far as I know, the booking has been confirmed.",
+              "another_setting": "As far as I know, the shop is open on Sundays."
+            },
+            "mini_conversation": "A: As far as I know, the shop is open on Sundays.\nB: I will call before making the journey."
+          },
+          "meaning_in_context": {
+            "source_sentence": "As far as I know, the booking has been confirmed.",
+            "contextual_meaning": "used with a stated limit to restrict a claim",
+            "simple_explanation": "A claim inside the edge of your knowledge. As far as I know limits certainty; I can confirm asserts verification."
+          },
+          "mistakes_differences": {
+            "correction": "As far as I know, it is open.",
+            "common_mistake": "As far as my knowing, it is open.",
+            "important_difference": "As far as I know limits certainty; I can confirm asserts verification."
+          },
+          "patterns_collocations": {
+            "main_pattern": "as far as: as far as I know/can tell, + claim",
+            "common_collocations": [
+              "as far as I know",
+              "as far as we can establish"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid lesson examples, dialogue, grammar and practice retained; usage instruction and scope nuance clarified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 184,
+      "wordId": "192dfb66-bcda-4069-bcc2-9053ac9fb388",
+      "senseKey": "continue-impulsively",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ac2075e326c2ef9096e692f3e7fdcd1dc4eae98e00cfc8355f43153fadc158f1",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "plunge on ahead",
+        "wordType": "figurative verb phrase",
+        "pronunciation": "Approximate pronunciation: plunj on uh-HED. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "சிரமங்களைச் சிந்திக்காமல் வேகமாகத் தொடர்ந்து முன்னேறுதல்",
+        "englishMeaning": "to continue forward quickly without pausing to consider difficulties",
+        "coreIdea": "Keep going quickly without stopping to consider possible problems.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative expression for continuing rapidly or forcefully despite possible difficulty, as though plunging forward.",
+              "connotation": "Can suggest determination or insufficient caution; the brief sentence does not decide between them.",
+              "tone": "Brisk and vivid here: the wording emphasizes continued forward action, but no motive is stated.",
+              "register": "Expressive conversational or narrative language. “Continues without pausing” is more neutral."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe someone pressing forward with an activity without pausing to consider a concern."
+            ],
+            "when_not_to_use": [
+              "For steady, carefully considered progress, continue or proceed is less suggestive of haste.",
+              "Do not use this expression to imply that ignoring every warning is sensible."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Plunge on ahead can make forward movement sound energetic, but in this lesson it highlights a failure to pause. Context determines whether the speaker admires the energy or criticizes the haste.",
+            "The short source supports the manager’s continued action but gives no details of what was overlooked. The new practice situations illustrate the stored meaning rather than reconstruct the missing context."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Someone rushes past a pause button and keeps going.",
+            "memory_sentence": "Let us not plunge on ahead before we check the costs.",
+            "recall_question": "What impression does plunge on ahead add that continue does not necessarily carry?",
+            "recognition_task": "A team stops to examine a problem; another rushes forward without discussing it. Which team is more naturally described as choosing to plunge on ahead, and why?",
+            "production_task": "Write a caution to a fictional colleague using plunge on ahead. Name one uncertainty that should be checked before continuing."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We should discuss the missing information before we plunge on ahead with the plan.",
+              "example_2": "They decided to plunge on ahead despite the concerns raised in the meeting."
+            },
+            "mini_conversation": "A: Shall we start the next stage now?\nB: Let us not plunge on ahead before we check the costs.\nA: Agreed. We need those figures first."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The  manager  plunges  on  ahead.",
+            "contextual_meaning": "to continue forward quickly without pausing to consider difficulties",
+            "simple_explanation": "The manager carries on quickly, with a suggestion of not stopping to consider difficulties. The short saved sentence does not identify the activity or the particular difficulties."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: They plunge on ahead the project without checking the costs.",
+            "correction": "Say They plunge on ahead with the project without checking the costs. Use with to introduce the activity.",
+            "important_difference": "Continue simply says an activity carries on. Plunge on ahead adds a vivid sense of speed or force and can suggest insufficient thought."
+          },
+          "patterns_collocations": {
+            "main_pattern": "person/team + plunge(s) on ahead; plunge on ahead + with + plan/activity; plunge on ahead + despite + concern",
+            "common_collocations": [
+              "plunge on ahead with the plan",
+              "plunge on ahead without checking",
+              "plunge on ahead despite warnings"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Vivid hasty-continuation sense taught without inventing context for the short quotation; with-complement grammar repaired.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
