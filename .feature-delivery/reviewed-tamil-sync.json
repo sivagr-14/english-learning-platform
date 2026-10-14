@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "featureId": "reviewed-tamil-sync",
+  "title": "Apply saved Tamil review without replacing lessons",
+  "implementationPaths": ["scripts/sync-reviewed-tamil.cjs"],
+  "validationPaths": ["scripts/sync-reviewed-tamil.test.cjs"],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This is an explicit one-time local maintenance command for the saved Tamil review. It does not change the content-pack contract or automatic inbox workflow."
+  }
+}
