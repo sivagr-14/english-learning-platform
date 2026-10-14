@@ -1,0 +1,344 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0179-0181",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 179,
+      "wordId": "1879a96f-572f-46e8-9d98-3c1d314b00c0",
+      "senseKey": "commitment-of-resources",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "712ea5d725ea0b37e471d8f2aaf0db05539d49c09f2bd9c53dd4d2a602447c6c",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "investment",
+        "wordType": "noun",
+        "pronunciation": "Approximate pronunciation: in-VEST-muhnt. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "எதிர்காலப் பயனுக்காக நேரம், பணம் அல்லது உழைப்பைச் செலவிடுதல்",
+        "englishMeaning": "the commitment of time, money, or effort for a future benefit",
+        "coreIdea": "Time, money or effort committed now in the hope of a later benefit.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract extension of financial investment to time: spending time now is expected to produce a later benefit.",
+              "connotation": "Constructive here: the increased time is presented as worthwhile because decision quality improves.",
+              "tone": "Evaluative and reassuring here: “more than offset” argues that the benefit exceeds the added cost.",
+              "register": "Common in professional and personal-development discussion. It does not guarantee a benefit merely because effort was spent."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe time or effort spent now to gain a benefit later, such as better decisions or stronger skills."
+            ],
+            "when_not_to_use": [
+              "If there is no idea of a later benefit, time spent may be more precise than investment.",
+              "Do not assume calling something an investment guarantees a good result."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Calling time an investment frames it as worthwhile because of a future benefit. It does not remove the immediate cost or guarantee a return.",
+            "Investment can be uncountable in investment in training, or countable in a worthwhile investment when describing a particular commitment. The source concerns time, not a specific financial product."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Put time into a skill today and hope to benefit from it later.",
+            "memory_sentence": "Learning the new system requires an investment of time.",
+            "recall_question": "What later benefit makes the extra time an investment in the source?",
+            "recognition_task": "Someone spends an hour planning to avoid mistakes next week. Why can that hour be called an investment rather than merely time passing?",
+            "production_task": "Write one sentence about an investment of time in learning or planning. Name the hoped-for benefit without promising that it is certain."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Learning the new system requires an investment of time, but it may make later tasks easier.",
+              "example_2": "The extra discussion was a worthwhile investment because it helped us avoid a rushed decision."
+            },
+            "mini_conversation": "A: Do we really need another hour to discuss the plan?\nB: That time investment could help us spot problems before we start.\nA: All right. Let us focus on the two biggest risks."
+          },
+          "meaning_in_context": {
+            "source_sentence": "22   CRUCIAL  CONVE RSATI ONS  increased time  investment  is  more  than  of fset by  the  quality of  the  decision.",
+            "contextual_meaning": "the commitment of time, money, or effort for a future benefit",
+            "simple_explanation": "The writer says that spending more time on the discussion is worthwhile because the decision is better. The saved quotation includes a page number and broken heading; these are extraction artifacts, not part of the idea being taught."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The course requires an investment from time.",
+            "correction": "Say The course requires an investment of time. Use of for the resource committed and in for its destination: investment in training.",
+            "important_difference": "An expense or cost names what is used or paid. Investment highlights the hoped-for future benefit of that commitment, which may involve time or effort as well as money."
+          },
+          "patterns_collocations": {
+            "main_pattern": "an investment of + time/effort; investment in + activity/skill; a time investment",
+            "common_collocations": [
+              "an investment of time",
+              "investment in training",
+              "a worthwhile investment",
+              "a substantial time investment"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Time investment sense developed without financial advice or guaranteed-return claims; page header artifacts disclosed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 180,
+      "wordId": "18aa92dd-77c3-45e0-9dfa-7e71aaa9adeb",
+      "senseKey": "begin-suddenly-fight",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bb914058e456ac60578500ea76159dc4c41fedb54e5837f5bf96ea66abec1c06",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "break out",
+        "wordType": "phrasal verb",
+        "pronunciation": "/breɪk aʊt/",
+        "tamilMeaning": "சண்டை, போர் அல்லது குழப்பம் திடீரெனத் தொடங்குதல்",
+        "englishMeaning": "to begin suddenly, especially when referring to a fight, war, or disorder",
+        "coreIdea": "An event such as a fight starts suddenly.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb for an event beginning suddenly; here, a fight starts.",
+              "connotation": "Negative in this fight context, although the phrasal verb's effect depends on the event named.",
+              "tone": "Tension-building here: “it isn't long until” presents the conflict as arising quickly from the situation.",
+              "register": "Common everyday and news English. Use it for a sudden outbreak, not as a general substitute for every use of “begin.”"
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a fight or other unwanted event starting suddenly."
+            ],
+            "when_not_to_use": [
+              "Do not use break out transitively to say that a person starts a fight; say start a fight.",
+              "For a scheduled activity such as a meeting, usually say start or begin."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "In this sense, the event is the subject and there is no direct object: a fight broke out. Use start a fight to identify a person causing it.",
+            "The past form is broke out; the past participle is broken out, as in A fight has broken out. Keep out after the verb in this meaning."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine conflict breaking through a barrier and suddenly appearing.",
+            "memory_sentence": "If violence breaks out, staff should move visitors to safety.",
+            "production_task": "Write one natural sentence using break out with the pattern “fight / war / fire + breaks out.”",
+            "recall_question": "What does break out mean in the source context?",
+            "recognition_task": "Which sentence correctly reports a fight starting: A fight broke out, or They broke out a fight? Explain what the subject should be."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "A fight broke out near the entrance after the match.",
+              "example_2": "If violence breaks out, staff should move visitors to safety."
+            },
+            "mini_conversation": "A: Why did everyone leave the entrance?\nB: A fight broke out nearby.\nA: I hope they found a safe place to wait."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Since  the  bathroom  is  a  one-hole r,  it  isn't  long  until  a  fight  breaks  out.",
+            "contextual_meaning": "to begin suddenly, especially when referring to a fight, war, or disorder",
+            "simple_explanation": "A fight starts after people have to share a single bathroom. The expression describes the beginning of the fight; it does not identify who started it."
+          },
+          "mistakes_differences": {
+            "correction": "A fight broke out in the corridor.",
+            "common_mistake": "They broke out a fight in the corridor.",
+            "important_difference": "Break out is intransitive for an event beginning suddenly; break up can mean stop or disperse a fight."
+          },
+          "patterns_collocations": {
+            "main_pattern": "fight / war / fire + breaks out",
+            "common_collocations": [
+              "a fight breaks out",
+              "war breaks out"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples, memory image and intransitive distinction preserved; generic dialogue and misleading inserted-object boilerplate replaced.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 181,
+      "wordId": "18b768d4-3df4-4345-b9bb-ba746c41ddf9",
+      "senseKey": "participate-in-an-activity",
+      "senseRank": 3,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4cf3a96737c082a3e5a0ff2fb5ea43d77ab9393def17b2953a7c28051beba0dc",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "engage in",
+        "wordType": "phrasal verb",
+        "pronunciation": "/ɪnˈɡeɪdʒ ɪn/",
+        "tamilMeaning": "ஒரு செயலில் பங்கேற்பது அல்லது ஈடுபடுவது",
+        "englishMeaning": "to take part in or become involved in an activity",
+        "coreIdea": "Take part in an activity.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrase meaning to participate in an activity; here, take part in constructive dialogue.",
+              "connotation": "Neutral by itself; “healthy” supplies the favourable judgement of the activity.",
+              "tone": "Critical here: useful dialogue is contrasted with the “silly and costly games” people play instead.",
+              "register": "Neutral to formal. “Take part in” is more conversational and often equally precise."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe participation in discussion, research or another activity in a relatively formal way."
+            ],
+            "when_not_to_use": [
+              "In a casual invitation, take part in or join may sound simpler.",
+              "Do not put a person directly after engage in when you mean interact with them; use engage with that person."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Engage in is more formal than take part in and normally introduces an activity, whereas engage with usually introduces a person, idea, or material.",
+            "Engage in does not make an activity good or helpful by itself. The source adds healthy to describe the kind of dialogue it recommends."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Move from watching an activity to taking part in it.",
+            "memory_sentence": "Students engage in practical research during the course.",
+            "production_task": "Write one sentence using engage in with the pattern “engage in + activity or discussion.”",
+            "recall_question": "What does engage in mean in the source context?",
+            "recognition_task": "Which shows participation: The students engage in research, or The students only watch others conduct research? Explain the role of engage in."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The teams agreed to engage in constructive dialogue.",
+              "example_2": "Students engage in practical research during the course."
+            },
+            "mini_conversation": "A: Will the two teams engage in dialogue about the disagreement?\nB: Yes. They have agreed to discuss their concerns together.\nA: That sounds like a useful first step."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Instead  of  engaging  in  healthy  dia­ logue,  we  play  silly  and  costly  games.",
+            "contextual_meaning": "to take part in or become involved in an activity",
+            "simple_explanation": "The writer contrasts taking part in healthy dialogue with playing unhelpful games. Engaging is the -ing form of engage; in introduces the activity, healthy dialogue."
+          },
+          "mistakes_differences": {
+            "correction": "Say The teams agreed to engage in constructive dialogue. Keep in before the activity.",
+            "common_mistake": "Incorrect: The teams agreed to engage constructive dialogue.",
+            "important_difference": "Engage in is more formal than take part in and normally introduces an activity, whereas engage with usually introduces a person, idea, or material."
+          },
+          "patterns_collocations": {
+            "main_pattern": "engage in + activity or discussion",
+            "common_collocations": [
+              "engage in dialogue",
+              "engage in research"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Useful examples, collocations and register contrast preserved; source explanation, real dialogue, grammar mistake and recognition exercise repaired.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
