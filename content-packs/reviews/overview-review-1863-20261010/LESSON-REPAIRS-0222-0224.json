@@ -1,0 +1,341 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0222-0224",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 222,
+      "wordId": "1d8b22f7-cd74-40f2-9f09-02d3ccaf49a1",
+      "senseKey": "general-group-agreement",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e33a265756011792a6123a2c42525e98d8b040ae06640f758bc37cacee2a7c42",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "consensus",
+        "wordType": "noun",
+        "pronunciation": "/kənˈsensəs/",
+        "tamilMeaning": "ஒரு குழுவின் உறுப்பினர்களிடையே உள்ள பொது ஒப்புதல்",
+        "englishMeaning": "general agreement among the members of a group",
+        "coreIdea": "General agreement reached by a group.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for broad agreement within a group, rather than a decision imposed by one person.",
+              "connotation": "Usually constructive because agreement supports shared action; it does not prove the decision is correct.",
+              "tone": "Clarifying and balanced here: the writers reject the idea that every decision needs group consensus.",
+              "register": "Neutral to formal; common in meetings, research and policy. “General agreement” is a simpler explanation."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe agreement reached through group discussion, especially about a plan or decision."
+            ],
+            "when_not_to_use": [
+              "Do not call a narrow majority vote consensus if substantial disagreement remains."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Consensus is general group agreement, not necessarily complete unanimity; a majority decision may still leave substantial disagreement.",
+            "Reach a consensus describes arriving at agreement; build consensus describes helping that agreement develop."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A discussion ends with the group supporting one plan.",
+            "memory_sentence": "The decision was made by consensus rather than by a vote.",
+            "production_task": "Write two sentences about a fictional team reaching a consensus on a schedule. Include the concern they discussed.",
+            "recall_question": "What does consensus mean in the source context?",
+            "recognition_task": "A team discusses several plans and agrees on one. Another team wins a close vote while many object. Which situation better shows consensus, and why?"
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The committee reached a consensus after discussing every concern.",
+              "example_2": "The decision was made by consensus rather than by a vote."
+            },
+            "mini_conversation": "A: Did the committee reach a consensus on the new hours?\nB: Yes, after we addressed the concerns about early shifts."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We 're  not  suggesting  that  every  decision  be  made  by  consensus  or  that  the  boss  shouldn't  take  part  in  or  even  make  the  fi nal  choice.",
+            "contextual_meaning": "general agreement among the members of a group",
+            "simple_explanation": "The writers say that group agreement is not required for every decision. A boss may still participate or make the final choice."
+          },
+          "mistakes_differences": {
+            "correction": "Say We reached a consensus about the schedule. Reach takes the agreement directly, without to.",
+            "common_mistake": "Incorrect: We reached to a consensus about the schedule.",
+            "important_difference": "Consensus is general group agreement, not necessarily complete unanimity; a majority decision may still leave substantial disagreement."
+          },
+          "patterns_collocations": {
+            "main_pattern": "reach a consensus on/about + issue; build consensus; decide by consensus",
+            "common_collocations": [
+              "broad consensus",
+              "reach a consensus"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Useful examples retained; consensus versus majority and reach grammar made concrete.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 223,
+      "wordId": "1d8b92b4-1577-4f06-a998-035e9fe9d805",
+      "senseKey": "uncomfortably-small",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6ad1a9de4055cc1cf6a5c96f9fb73e5dda8c3af50beab7e4f0d9dc20f9fc1e47",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "cramped",
+        "wordType": "adjective",
+        "pronunciation": "Phonetic guide (approximate): krampt — one syllable",
+        "tamilMeaning": "வசதியாக இருக்கவோ நகரவோ போதிய இடமின்றி நெருக்கடியான.",
+        "englishMeaning": "uncomfortably small or lacking enough space",
+        "coreIdea": "Too little space to feel comfortable or move easily.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal description of a space that is too small for comfortable movement; here, a bathroom.",
+              "connotation": "Negative: it emphasizes discomfort and lack of room rather than simply small size.",
+              "tone": "Tense and illustrative here: the cramped setting adds pressure to the girls staring each other down.",
+              "register": "Common everyday and descriptive English. “Compact” can praise efficient smallness, whereas “cramped” stresses discomfort."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a room, vehicle or other space that feels too small for comfortable use."
+            ],
+            "when_not_to_use": [
+              "Do not use cramped merely to mean small if the space still feels comfortable."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Cramped adds a negative judgment to small: there is not enough room for the people or activities involved.",
+            "A room can feel cramped because of furniture or the number of people, even if its size has not changed."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture trying to pull out a chair when there is hardly any room behind it.",
+            "memory_sentence": "The tiny office felt cramped with two desks inside.",
+            "recall_question": "Does cramped describe a comfortable small room or one with too little room?",
+            "recognition_task": "One small room has plenty of space to move; another has furniture blocking every step. Which is cramped, and what makes it so?",
+            "production_task": "Describe a fictional cramped room in two sentences. Say what could be moved to make it more comfortable."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The kitchen felt cramped with four people cooking at once.",
+              "example_2": "We moved the large desk because it made the office cramped."
+            },
+            "mini_conversation": "A: Can we hold the meeting in this room?\nB: It will be cramped with twelve people. Let us use the larger one."
+          },
+          "meaning_in_context": {
+            "source_sentence": "If  you  doubt  this  simple  allegation,  think  of  the  two  antsy  young  girls  as  they  stared  each  other  down in  the  cramped  bath­ room.",
+            "contextual_meaning": "uncomfortably small or lacking enough space",
+            "simple_explanation": "The bathroom has too little space for comfort. This adds to the tense picture of the two girls facing each other; it does not itself describe their emotions."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The room is very cramp.",
+            "correction": "Say The room is very cramped. Use the adjective cramped to describe a space that is too small for comfort.",
+            "important_difference": "Small describes size; cramped says that the limited space is uncomfortable. Crowded emphasizes many people or things being present."
+          },
+          "patterns_collocations": {
+            "main_pattern": "a cramped + room/space; feel/look/become cramped",
+            "common_collocations": [
+              "a cramped bathroom",
+              "cramped conditions",
+              "feel cramped"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic material replaced with spatial discomfort, specific examples and adjective grammar.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 224,
+      "wordId": "1d976732-2e59-4ef1-8d1f-297ad44980f9",
+      "senseKey": null,
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0683d08c7cbb27b453f10a15138ff0e18ab7dbaf48408538c6a62e239d7e6a6f",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "legendary",
+        "wordType": "adjective",
+        "pronunciation": "/ˈledʒ.ən.dri/",
+        "tamilMeaning": "மிகவும் புகழ்பெற்று, பலரால் போற்றப்படும்.",
+        "englishMeaning": "Very famous and admired, often with stories that make the person or thing seem larger than ordinary life.",
+        "coreIdea": "Legendary presents fame as so great that memorable stories surround it.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative and evaluative: the botanist is so famous that stories about the person seem larger than ordinary life.",
+              "connotation": "Admiring here: the botanist is presented as exceptionally well known, not as an imaginary person.",
+              "tone": "Dramatic and mysterious here: a celebrated botanist disappeared while searching for a hidden valley.",
+              "register": "Neutral in biographies and journalism; informal when used as enthusiastic exaggeration."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a person, achievement, place, or performance with extraordinary lasting fame.",
+              "Use informally for an exceptionally memorable act, meal, or event."
+            ],
+            "when_not_to_use": [
+              "For ordinary fame, famous is usually enough; legendary makes a stronger claim about an exceptional reputation.",
+              "This lesson uses legendary for great fame, not for a being whose existence belongs to a traditional story."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Legendary can be sincere praise or deliberate exaggeration in informal speech, as in a legendary party.",
+            "A legend may be unverified, but calling a real person legendary usually praises the scale of that person's reputation rather than questioning existence."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture one remarkable story being repeated from one generation to the next.",
+            "memory_sentence": "The legendary explorer was remembered as much for the stories as for the journey.",
+            "production_task": "Describe a legendary figure from sport, science, or culture and justify the adjective.",
+            "recall_question": "Which adjective means extraordinarily famous and surrounded by memorable stories?",
+            "recognition_task": "A musician has been admired for remarkable performances for decades; a new singer is known by a few neighbours. Which reputation better supports legendary, and why?"
+          },
+          "natural_examples": {
+            "examples": {
+              "context_one": "Her legendary performance in the final is still discussed by younger players.",
+              "context_two": "The café became legendary for feeding artists who could not afford a meal."
+            },
+            "mini_conversation": "A: Was the concert really that good? B: Yes, the final song was legendary."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The diary belonged to a legendary botanist who disappeared while searching for a hidden valley.",
+            "contextual_meaning": "Very famous and admired, often with stories that make the person or thing seem larger than ordinary life.",
+            "simple_explanation": "The botanist was extremely famous, and stories about the scientist had become part of the field's history."
+          },
+          "mistakes_differences": {
+            "correction": "For a literal description, say His new account has a few followers. Legendary would be playful exaggeration here, not a grammatical error.",
+            "common_mistake": "Overstated without a joking context: He is legendary because ten people follow his new account.",
+            "important_difference": "Legendary emphasizes exceptional fame and memorable stories; famous simply means widely known."
+          },
+          "patterns_collocations": {
+            "main_pattern": "legendary + person/place/performance",
+            "common_collocations": [
+              "a legendary scientist",
+              "legendary status",
+              "a legendary performance"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "memory_practice",
+        "meaning_in_context",
+        "mistakes_differences"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Same-sense contextual meaning aligned exactly to assessed header for production contract, original contextual wording retained as explanation; valid rich lesson preserved; misleading error label changed to contextual overstatement and recognition task made answerable.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
