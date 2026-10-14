@@ -1,0 +1,16 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "ordinal": 164,
+  "wordId": "160618ac-f2bb-40e6-a4b9-f347db539f53",
+  "senseKey": "attributes-demonstrated-course-sense",
+  "senseRank": 1,
+  "expectedEntryVersion": 1,
+  "expectedLessonSha256": "06258c9ce5c2a12c2bf4ba0332aaebe012b7d8131aa6cdd2d67b368195bfd8af",
+  "status": "blocked_sense_conflict",
+  "reason": "Stored noun means measurable characteristics; exact source uses the verb attributes it to. A same-sense noun replacement cannot be supported by that verb evidence. Preserve existing identity; do not silently convert it to a verb. Existing Tamil and pronunciation holds remain.",
+  "profileReceipt": "PROFILE-DRAFT-002.json",
+  "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+  "resolutionNeeded": "Matching original noun-sense evidence or a separately authorized source/sense repair; no invented quotation.",
+  "deliveryStatus": "not_import_payload"
+}

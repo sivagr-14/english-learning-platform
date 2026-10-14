@@ -1,0 +1,457 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0161-0165",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 4,
+  "broaderLessonRepairProcessed": 4,
+  "lessonValidatorPassed": 4,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 161,
+      "wordId": "15a18488-6612-4fe3-938e-98ead5ab1390",
+      "senseKey": "highest-level",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e0004deeb67e93ae6efc056738a5dc3c4b188045ad132bf3ef37fd63bcc9c03b",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "peak",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: PEEK. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மிக உயர்ந்த நிலை; உச்சம்",
+        "englishMeaning": "the highest level of performance, intensity, or achievement",
+        "coreIdea": "At the highest level.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative adjective for the highest level, drawing on the image of a summit; here, an organization's best performance.",
+              "connotation": "Positive in this performance setting: it refers to very high achievement.",
+              "tone": "Emphatic here: “absolutely nothing” makes a strong claim about what did not explain peak performance in the study.",
+              "register": "Common in business, sport and general writing. A claim of peak performance still needs a defined measure."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe the highest level of performance, activity or intensity within a relevant period or comparison."
+            ],
+            "when_not_to_use": [
+              "Do not use peak to mean merely improved; an improvement may still be below the highest level."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Peak performance needs a reference point, such as a season, a career or tested conditions. It does not necessarily mean the best performance possible for anyone.",
+            "Peak can describe the highest intensity of something unwelcome too. Its positive effect in peak performance comes from what is being evaluated."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture the top of a performance graph.",
+            "memory_sentence": "The team reached peak performance during the final.",
+            "recall_question": "What does peak add beyond saying performance was high?",
+            "recognition_task": "A team improves but remains below its best result. Does improvement alone establish peak performance? Explain the comparison needed.",
+            "production_task": "Write a short report about a fictional team reaching peak performance. State the period or measure you are comparing."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The coach planned the training so that the team would reach peak performance during the final tournament.",
+              "example_2": "The machine runs at peak efficiency only within the recommended operating range."
+            },
+            "mini_conversation": "A: Was that the team’s best performance this season?\nB: Yes, they were at peak performance in the final.\nA: Let’s review what helped them prepare."
+          },
+          "meaning_in_context": {
+            "source_sentence": "For  examp le,  one  study  of  five  hundred  stunningly  productive  organizations  revealed  that  peak  performance  had  absolutely  nothing  to   do  with  fo rms,  pro­ cedures,  and  policies  that  drive  performance  manageme nt.",
+            "contextual_meaning": "the highest level of performance, intensity, or achievement",
+            "simple_explanation": "Peak describes performance at its highest level. The passage makes a strong claim about what explained organizational performance; the excerpt alone does not let us verify that study or its conclusion."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The team reached peek performance.",
+            "correction": "Write peak performance. Peek means a quick look; peak describes the highest level here.",
+            "important_difference": "High describes a large level. Peak identifies the highest level in the relevant comparison, not just any strong performance."
+          },
+          "patterns_collocations": {
+            "main_pattern": "peak + performance/level; at + peak + performance",
+            "common_collocations": [
+              "peak performance",
+              "peak efficiency",
+              "peak intensity"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Highest-level adjective taught; source study claim attributed rather than verified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 162,
+      "wordId": "15b73f7a-42d8-442a-971b-50ed59d71661",
+      "senseKey": "generalize-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c7bf53178863784c1e7db0df4780cfcb46cecd3e852f04e262a5586e3f9acccc",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "generalize",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: JEN-er-uh-lyz. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "கற்றதை புதிய தரவிலும் சரியாகப் பயன்படுத்துதல்",
+        "englishMeaning": "apply learned patterns successfully to new unseen data",
+        "coreIdea": "Use learned patterns successfully on new examples.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical verb for applying learned patterns successfully to new examples beyond the training data.",
+              "connotation": "Positive as a model capability; the sentence describes its absence as a problem.",
+              "tone": "Instructional and cautionary here: failure to generalize is used to explain overfitting.",
+              "register": "Standard machine-learning terminology. “Work well on new data” is a simpler explanation in this sense."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss whether a trained model performs usefully on new examples that were not used to fit it."
+            ],
+            "when_not_to_use": [
+              "Do not claim a model can generalize solely because it scores highly on its training data."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Generalize well does not mean perform perfectly or handle every possible future situation. The new data and the task still matter.",
+            "A model may generalize well to data similar to its training examples but poorly when the type of input changes substantially."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a model answering new questions after learning from earlier examples.",
+            "memory_sentence": "We tested whether the model could generalize to unseen data.",
+            "recall_question": "Which evidence helps assess whether a model can generalize beyond training examples?",
+            "recognition_task": "A model is accurate on training data but inaccurate on a separate set of relevant new examples. Does it generalize well in this test? Explain the evidence.",
+            "production_task": "Write a brief update to a project colleague explaining why a strong training score is insufficient to conclude that a model can generalize well."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The model fits the training images closely but does not generalize well to new images.",
+              "example_2": "We kept a separate set of examples to check whether the model could generalize beyond the data used to train it."
+            },
+            "mini_conversation": "A: The model gets nearly every training example right. Is it ready?\nB: We still need to check whether it can generalize to new examples.\nA: Let’s evaluate it on the reserved test data."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Overfitting is when your model learns the training data too well and fails to generalize the lessons learned to new data, so it only works with the training data.",
+            "contextual_meaning": "apply learned patterns successfully to new unseen data",
+            "simple_explanation": "The writer warns that a model can fit its training examples too closely and perform poorly on new data. Generalize names the ability to work beyond the examples used for training; the source’s only works wording is a simplified warning."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Unsupported claim: The training score is high, so the model must generalize well.",
+            "correction": "Say The training score is high; we still need results on unseen examples to assess how well the model can generalize.",
+            "important_difference": "Fitting describes learning from training data. Generalizing concerns performance on new examples; fitting the training data very closely does not guarantee it."
+          },
+          "patterns_collocations": {
+            "main_pattern": "a model + generalizes to + new data; generalize well/poorly; fail to generalize",
+            "common_collocations": [
+              "generalize to unseen data",
+              "generalize well",
+              "fail to generalize"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Unseen-data performance separated from training fit; source simplification bounded.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      },
+      "technicalReferences": [
+        "https://scikit-learn.org/stable/modules/cross_validation.html"
+      ]
+    },
+    {
+      "ordinal": 163,
+      "wordId": "15e719af-7c08-478a-bc3a-cbf1fa88b406",
+      "senseKey": "to-find-out-whether-someone-or-something-is-all-right",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "53078be8a7d83adaa71909e0ab833e775b166bcf2ea1f62f144c0759f519d221",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "check on",
+        "wordType": "phrasal verb",
+        "pronunciation": "/tʃek ˈɒn/",
+        "tamilMeaning": "நலமாக அல்லது சரியாக உள்ளதா பார்ப்பது",
+        "englishMeaning": "to find out whether someone or something is all right",
+        "coreIdea": "A quick visit to confirm all is well.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal verb for finding out whether someone or something is all right; here, contact or visit a neighbour after a storm.",
+              "connotation": "Caring in this context: the check is concerned with the neighbour's welfare.",
+              "tone": "Supportive and practical here: the speaker states an intention to make sure the neighbour is safe.",
+              "register": "Common in everyday and workplace English. Specify the person or situation so it does not sound like unexplained surveillance."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Ask someone to check whether a neighbour needs help after a storm. A model in this sense: Could you check on the dog while I am away?"
+            ],
+            "when_not_to_use": [
+              "Do not use check on to claim that someone is safe before you have actually found out how they are."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Check on may involve a call, a visit or another suitable way to find out how someone is doing. The phrase does not require a physical visit.",
+            "Check on can convey care or supervision. Explaining what you are checking helps the other person understand your purpose."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A quick visit to confirm all is well.",
+            "memory_sentence": "Could you check on the dog while I am away?",
+            "production_task": "Ask someone to check whether a neighbour needs help after a storm. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: to find out whether someone or something is all right. Explain its function in one sentence.",
+            "recognition_task": "Someone says I will check on our neighbour. Have they already confirmed the neighbour is well, or are they planning to find out? Explain the difference."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "I will check on our neighbour after the storm.",
+              "another_setting": "Could you check on the dog while I am away?"
+            },
+            "mini_conversation": "A: Could you check on the dog while I am away?\nB: Yes, I will visit at lunchtime and refill the water."
+          },
+          "meaning_in_context": {
+            "source_sentence": "I will check on our neighbour after the storm.",
+            "contextual_meaning": "to find out whether someone or something is all right",
+            "simple_explanation": "The speaker plans to contact or visit the neighbour to find out whether they are all right after the storm. The sentence does not yet tell us the result of that check."
+          },
+          "mistakes_differences": {
+            "correction": "Check on the neighbour later.",
+            "common_mistake": "Check the neighbour on later.",
+            "important_difference": "Check on monitors welfare or status; check out explores or examines something of interest."
+          },
+          "patterns_collocations": {
+            "main_pattern": "check on + person/animal/situation; check on + object pronoun",
+            "common_collocations": [
+              "check on a neighbour",
+              "check on progress"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid welfare examples and grammar retained; planned check distinguished from verified welfare.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 165,
+      "wordId": "160a2a28-d33e-49a3-a2cf-cba501dee40f",
+      "senseKey": "change-habitual-thinking",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4453323c1a520bed38ea415d97eb5ec3bc686c2f9e6c102b1a0e204d7268394f",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "reprogram your mind",
+        "wordType": "figurative verb phrase",
+        "pronunciation": "Approximate pronunciation: ree-PROH-gram yer MYND. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "பழக்கமான சிந்தனை முறைகளைத் திட்டமிட்டு மாற்றியமைத்தல்",
+        "englishMeaning": "to deliberately change one’s habitual patterns of thought",
+        "coreIdea": "Deliberately practise a different way of thinking.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative expression for deliberately changing habitual thought patterns, comparing the mind with a programmable system.",
+              "connotation": "Constructive here: changing attention habits is presented as a way to notice problems sooner.",
+              "tone": "Instructional and encouraging here: the imperative directs readers to pay attention to warning signs.",
+              "register": "Common in self-help and motivational explanation. It is a metaphor, not a literal claim that thoughts can be rewritten like software."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use the metaphor when discussing a deliberate change in habitual attention or thinking."
+            ],
+            "when_not_to_use": [
+              "Do not present reprogram your mind as a medical treatment or a guarantee of quick psychological change.",
+              "Use change your thinking habits when a literal, plainer description would be clearer."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Reprogram your mind may sound empowering to some readers and mechanical to others. Naming the specific habit makes the intended meaning clearer.",
+            "Reprogram your mind does not establish how quickly a habit changes or prove that a suggested exercise is effective. It is an expression to interpret, not a scientific guarantee."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture replacing an automatic response with a deliberate pause; the image is a cue, not a biological explanation.",
+            "memory_sentence": "Try to reprogram your mind to notice what you can learn from a mistake.",
+            "recall_question": "Why is reprogram your mind a metaphor rather than a literal software instruction?",
+            "recognition_task": "A writer asks readers to notice when they start making assumptions. Is reprogram your mind describing a thinking habit or promising literal computer-like control of the brain? Explain the intended image.",
+            "production_task": "Explain this expression to a fictional study partner. Name one ordinary attention habit it could describe and make clear that it is a metaphor."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The workshop leader asked, “Could you reprogram your mind to pause before jumping to conclusions?”",
+              "example_2": "If you want to reprogram your mind to notice progress, you could start by reflecting on what you learned after each practice session."
+            },
+            "mini_conversation": "A: The book says to reprogram your mind. Does it mean a literal change to software?\nB: No, it means changing a familiar thinking habit. Here, the habit is reacting before checking the facts.\nA: Then I’ll describe the specific habit when I explain it."
+          },
+          "meaning_in_context": {
+            "source_sentence": "To  help  catch  problems  ear ly,  reprogram  your  mind  to  pay  attention  to  the  signs  that  suggest  you're  in  a  crucial  conver sa­ tion.",
+            "contextual_meaning": "to deliberately change one’s habitual patterns of thought",
+            "simple_explanation": "The writer asks readers to develop a habit of noticing signs of a difficult conversation. Reprogram compares changing a thought habit with changing a computer program; it is motivational imagery, not literal brain programming."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Try to reprogram your mind for notice the warning signs.",
+            "correction": "Say Try to reprogram your mind to notice the warning signs. Use to plus the verb for the intended new habit.",
+            "important_difference": "Reprogram your mind is a forceful metaphor for changing thought habits. Change your mind can mean simply decide on a different opinion or choice."
+          },
+          "patterns_collocations": {
+            "main_pattern": "reprogram your mind to + verb; reprogram someone’s mind is a different claim about who acts",
+            "common_collocations": [
+              "reprogram your mind to notice",
+              "reprogram your mind to focus",
+              "reprogram your mind to question assumptions"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Metaphor explained without therapeutic claims; literal mind-programming interpretation rejected.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
