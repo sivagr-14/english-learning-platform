@@ -1,0 +1,345 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0176-0178",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 176,
+      "wordId": "1797fd26-63af-477a-a185-8e358e77497d",
+      "senseKey": "significantly-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a1d2d8c485d1591d9f6dac985823af5dc034611b0996b4bc6dc869742e69ef4f",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "significantly",
+        "wordType": "adverb",
+        "pronunciation": "Approximate pronunciation: sig-NIF-ih-kuhnt-lee. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "குறிப்பிடத்தக்க அளவில்",
+        "englishMeaning": "to an important or noticeable degree",
+        "coreIdea": "Enough to make a noticeable or important difference.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Degree adverb meaning by an important or noticeable amount; here, a meaningful change in input data.",
+              "connotation": "Neutral: the change could be helpful or harmful depending on what changed.",
+              "tone": "Investigative here: the question asks whether the amount of change matters.",
+              "register": "Neutral to formal, common in reports and technical discussion. The sentence does not establish a formal statistical-significance test."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a change or difference that is important or clearly noticeable.",
+              "Compare amounts using significantly higher, lower, larger or smaller when the difference deserves attention."
+            ],
+            "when_not_to_use": [
+              "For a tiny change that does not matter in context, slightly may be more accurate.",
+              "Do not treat the word alone as proof that a formal statistical test was performed."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "What counts as an important difference depends on the situation; significantly gives no fixed percentage. Add figures when precision matters.",
+            "In a statistical discussion, significantly may refer to a test result. The saved question alone does not establish that technical use; this lesson follows the stored meaning of an important or noticeable degree."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A change big enough to notice or take into account.",
+            "memory_sentence": "The revised estimate is significantly higher than the original.",
+            "recall_question": "What is the difference in grammar between a significant change and changed significantly?",
+            "recognition_task": "Which sentence correctly describes degree: The cost increased significantly, or The cost increased significant? Explain the word form.",
+            "production_task": "Write a sentence comparing two waiting times or costs using significantly. Add enough context to show why the difference matters."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The waiting time fell significantly after the team added another service desk.",
+              "example_2": "The revised estimate is significantly higher than the amount we first planned to spend."
+            },
+            "mini_conversation": "A: Has the input data changed significantly?\nB: Yes. Many more records now come from new customers.\nA: Then we should examine how that affects our results."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Has the input data changed significantly?",
+            "contextual_meaning": "to an important or noticeable degree",
+            "simple_explanation": "The speaker asks whether the input data has changed enough to matter. The sentence does not state a numerical threshold or report a statistical test."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The waiting time changed significant.",
+            "correction": "Say The waiting time changed significantly. Use the adverb to describe the degree of change.",
+            "important_difference": "Significant is an adjective: a significant change. Significantly is an adverb: changed significantly or significantly different."
+          },
+          "patterns_collocations": {
+            "main_pattern": "verb + significantly; significantly + comparative adjective",
+            "common_collocations": [
+              "change significantly",
+              "improve significantly",
+              "significantly higher",
+              "significantly different"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Ordinary degree meaning retained; adverb grammar repaired and unsupported statistical-test inference avoided.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 177,
+      "wordId": "17a9a028-5c6c-43a8-b67e-453d8f39c96f",
+      "senseKey": "perform-below-standard",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "bfbb69cd48a46c3a608eaef8a6b9a79a7d61e838efa90e9f8f32faf95bde3693",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "underperform",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: un-der-per-FORM. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "எதிர்பார்த்த அளவைவிடக் குறைவாகச் செயல்படுதல்",
+        "englishMeaning": "to perform less well than expected or required",
+        "coreIdea": "Achieve less than the expected standard.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract verb for achieving less than an expected standard.",
+              "connotation": "Negative evaluation of performance, without necessarily judging someone's character or effort.",
+              "tone": "Direct and problem-focused here: underperformance is listed among situations to address promptly.",
+              "register": "Common workplace and performance-review wording. State the expected standard and evidence to avoid a vague personal judgement."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe work or results that fall below a stated expectation or requirement.",
+              "Discuss a team, employee or project in relation to an agreed standard."
+            ],
+            "when_not_to_use": [
+              "Do not use underperform to mean someone refuses to work; poor results do not by themselves show unwillingness.",
+              "Avoid using it as a label for a person’s overall worth. Identify the work and standard being discussed."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Underperform is a relative judgement: the same result may exceed one target and fall below another. Make the comparison clear.",
+            "When discussing people, the word can sound critical. Specific evidence and attention to resources make the feedback more useful than a general personal label."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Results below the line marking the expected standard.",
+            "memory_sentence": "A team may underperform when it lacks the tools it needs.",
+            "recall_question": "Why should you name the expected standard when saying that a team underperforms?",
+            "recognition_task": "A team produces useful work but falls short of its agreed target. Can it underperform even though it completes some work? Explain.",
+            "production_task": "Write two respectful sentences about a fictional team that may underperform. State the expectation and one possible reason without assuming laziness."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "A team may underperform when its targets are unclear or it lacks the tools it needs.",
+              "example_2": "If I underperform in this role, I want specific feedback about what needs to improve."
+            },
+            "mini_conversation": "A: Why does the team underperform against its delivery targets?\nB: We need to check whether the deadlines and staffing are realistic.\nA: Let us compare the actual results with the agreed targets."
+          },
+          "meaning_in_context": {
+            "source_sentence": "If  an  employee  underperform s,  fa ils  to  live  up  to  a  promi se,  doesn't  carry  his  or  her  fair  share,  or  simply isn't  productive  enough,  the  affe cted  parties  address  the  problem  immediat ely.",
+            "contextual_meaning": "to perform less well than expected or required",
+            "simple_explanation": "The writer discusses an employee whose work falls below expectations and says the affected people address the problem promptly. The extracted text has spacing errors, including underperform s; these are not standard spelling."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The team is underperform this month.",
+            "correction": "Say The team is underperforming this month for an ongoing situation, or The team underperforms for a general pattern.",
+            "important_difference": "Underperform means fall below an expectation. Fail can mean not achieve a particular goal at all; underperforming does not necessarily mean producing no useful results."
+          },
+          "patterns_collocations": {
+            "main_pattern": "person/team/project + underperform(s); underperform + in + area; underperform + against + target",
+            "common_collocations": [
+              "consistently underperform",
+              "underperform in a role",
+              "underperform against targets"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Performance judged against an explicit standard, without implying laziness or total failure; source OCR spacing disclosed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 178,
+      "wordId": "1815ba9e-18ab-4046-8c59-8f599ca3d1b8",
+      "senseKey": "to-make-contact-to-see-how-someone-is-doing",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "68f0c26cc4ba19affea4b190db1df134bd7e6f09bcf6db5fe95cf7159ffaa793",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "check in",
+        "wordType": "phrasal verb",
+        "pronunciation": "/tʃek ˈɪn/",
+        "tamilMeaning": "நலம் அல்லது நிலவரம் அறிய தொடர்புகொள்வது",
+        "englishMeaning": "to make contact to see how someone is doing",
+        "coreIdea": "A small contact signal saying how are things?",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational phrasal verb for making contact to ask how someone is doing; here, follow up after a first day.",
+              "connotation": "Supportive here: the contact is presented as interest in the person's experience.",
+              "tone": "Friendly and reassuring: the speaker commits to checking how the first day went.",
+              "register": "Common in everyday and workplace conversation. This entry does not teach hotel registration or airport check-in."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Make brief contact to ask how someone is doing, especially after a new experience or a difficult day."
+            ],
+            "when_not_to_use": [
+              "Check in with someone makes contact; check someone in registers their arrival.",
+              "A friendly check-in should give room for an honest answer rather than demand a positive report."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "A friendly check-in should give room for an honest answer rather than demand a positive report.",
+            "Check in with someone does not specify whether you call, send a message or speak in person; the situation determines the method."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A small contact signal saying how are things?",
+            "memory_sentence": "I will check in with my cousin after her first day at college.",
+            "production_task": "Arrange a supportive follow-up with a new colleague. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: to make contact to see how someone is doing. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: I will check in with you tomorrow. B: I will check you in tomorrow, meaning contact you. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "I will check in with you tomorrow to see how the first day went.",
+              "another_setting": "I will check in with my cousin after her first day at college."
+            },
+            "mini_conversation": "A: I will check in with my cousin after her first day at college.\nB: Ask whether she found the right classroom."
+          },
+          "meaning_in_context": {
+            "source_sentence": "I will check in with you tomorrow to see how the first day went.",
+            "contextual_meaning": "to make contact to see how someone is doing",
+            "simple_explanation": "A small contact signal saying how are things? Check in with someone makes contact; check someone in registers their arrival."
+          },
+          "mistakes_differences": {
+            "correction": "I will check in with you tomorrow.",
+            "common_mistake": "I will check you in tomorrow, meaning contact you.",
+            "important_difference": "Check in with someone makes contact; check someone in registers their arrival."
+          },
+          "patterns_collocations": {
+            "main_pattern": "check in: check in with + person",
+            "common_collocations": [
+              "check in tomorrow",
+              "check in regularly"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples, dialogue and practice preserved; usage instruction clarified and contact channel nuance added.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
