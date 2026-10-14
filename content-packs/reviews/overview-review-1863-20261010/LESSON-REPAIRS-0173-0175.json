@@ -1,0 +1,359 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0173-0175",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "technicalReferences": [
+    {
+      "ordinal": 175,
+      "url": "https://www.nist.gov/itl/ai/ai-standards-and-guidelines-group/metrics-and-measures",
+      "use": "Nominal classification and ordinal natural order distinction.",
+      "checkedOn": "2026-10-14"
+    }
+  ],
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 173,
+      "wordId": "17265bcf-e1b0-4060-9857-52fe5612c9bc",
+      "senseKey": "combine-smoothly",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "4cc2176e22a458e9091561b093ae62b8a2a5375a7575eab1d3773a1ad8ab043f",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "blend",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: BLEND. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "வெவ்வேறு கூறுகளைச் சீராக ஒன்றிணைத்தல்",
+        "englishMeaning": "to combine different elements smoothly into a whole",
+        "coreIdea": "Bring different elements together so they work smoothly as a whole.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract extension of mixing: combine different abilities or elements so they work together.",
+              "connotation": "Usually constructive here because the combination is described as effective.",
+              "tone": "Explanatory, but the sentence is cut off, so the complete contrast between the abilities cannot be established.",
+              "register": "Neutral and natural in creative, educational and professional discussion. Name the elements rather than leave the combination vague."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe combining ideas, styles or methods so that they work well together."
+            ],
+            "when_not_to_use": [
+              "If you only put separate items in the same place, without combining them, use collect or group rather than blend."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Blend can describe ideas or styles without any physical mixing. It often presents their combination as smooth or harmonious, but does not prove the result is effective.",
+            "The saved source quotation is incomplete. It supports the combining sense but does not identify all the elements or the full argument."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Two useful ideas flowing into one plan.",
+            "memory_sentence": "We blend short explanations with practical activities.",
+            "recall_question": "What does blend suggest about how the different elements fit together?",
+            "recognition_task": "A teacher connects discussion and demonstrations in one lesson. Another teacher merely stores two unrelated handouts in a folder. Which situation better illustrates blend in this sense, and why?",
+            "production_task": "Write one sentence about a course or event that will blend two approaches. Name both approaches using blend A with B."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The course will blend short explanations with practical activities.",
+              "example_2": "These two proposals blend different ideas into one workable plan."
+            },
+            "mini_conversation": "A: Should the workshop use discussion or demonstrations?\nB: We can blend the two approaches.\nA: Good. Let us plan a short discussion after each demonstration."
+          },
+          "meaning_in_context": {
+            "source_sentence": "They show  how  to  effe ctively  blend and  use  both  intellectual  (1.",
+            "contextual_meaning": "to combine different elements smoothly into a whole",
+            "simple_explanation": "Here blend means combine elements smoothly. The quotation stops after intellectual (1., so it does not show the complete list of elements being combined."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We blend theory to practice in this course.",
+            "correction": "Say We blend theory with practice in this course. Use with to connect the two elements.",
+            "important_difference": "Combine is a broad word for bringing things together. Blend often suggests that the parts fit smoothly into the resulting whole."
+          },
+          "patterns_collocations": {
+            "main_pattern": "blend + A + with + B; blend + A and B; blend together",
+            "common_collocations": [
+              "blend ideas",
+              "blend different styles",
+              "blend theory with practice"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Abstract combining sense retained; truncated source disclosed without inventing its missing list.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 174,
+      "wordId": "176f21fe-8d58-4699-9203-8cf13038ad22",
+      "senseKey": "hold-responsible",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "6586dfa920d9d671ffad636df918fe881029bda09afd7e0712cc54d05a591722",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "blame",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: BLAYM. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு தவறு அல்லது பிரச்சினைக்கு ஒருவரைப் பொறுப்பாக்கிக் குற்றம் சாட்டுதல்",
+        "englishMeaning": "to hold someone responsible for a fault or problem",
+        "coreIdea": "Say that someone is responsible for a problem or fault.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract verb for assigning responsibility for a fault; here, an entire team is held responsible to avoid confronting one individual.",
+              "connotation": "Usually negative toward the person blamed; it may also imply an unfair accusation depending on the evidence.",
+              "tone": "Self-critical here: the writer presents indirect blame as a way people avoid a difficult individual conversation.",
+              "register": "Common everyday and professional vocabulary. “Identify responsibility” is more neutral when the aim is analysis rather than accusation."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe saying who is responsible for a mistake or an unwanted result.",
+              "Use do not blame someone when you reject an accusation or understand their reaction."
+            ],
+            "when_not_to_use": [
+              "For positive results, use credit rather than blame: credit the team for its success.",
+              "When responsibility is uncertain, explain the evidence or say may have contributed instead of making an unsupported accusation."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Someone can blame a person unfairly: the verb reports an assignment of responsibility, not proof of guilt.",
+            "I do not blame you can express sympathy with a reaction, as in I do not blame you for feeling disappointed. The wording may reassure rather than accuse."
+          ],
+          "memory_practice": {
+            "memory_trigger": "An accusation points from a problem to someone held responsible.",
+            "memory_sentence": "Do not blame the whole team for one person’s mistake.",
+            "recall_question": "Which preposition follows the person in blame someone ___ a mistake?",
+            "recognition_task": "Compare They blame Mina for the error with They blame the error on Mina. Do they assign responsibility to the same person? Explain.",
+            "production_task": "Write a fair response to someone who wants to blame an entire team before checking the facts. Use blame and name the problem."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Do not blame the whole team for a mistake made by one person.",
+              "example_2": "They blame the delay on a missing part, but we still need to check what happened."
+            },
+            "mini_conversation": "A: Do you blame Ravi for the missing file?\nB: No. We do not yet know who moved it.\nA: Then let us check the records first."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Afraid  to  confront  an  indi vidual,  we  blame  an  entire  team  for  a  problem-hoping  the  mess age  will  hit  the  right  target.",
+            "contextual_meaning": "to hold someone responsible for a fault or problem",
+            "simple_explanation": "The writer describes holding a whole team responsible because someone is afraid to speak directly to one individual. Blaming the team does not prove that every member caused the problem."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: They blame the driver of the delay.",
+            "correction": "Say They blame the driver for the delay, or They blame the delay on the driver.",
+            "important_difference": "Blame assigns responsibility for something bad. Criticize can express disapproval of someone’s work or behaviour without saying that they caused a particular problem."
+          },
+          "patterns_collocations": {
+            "main_pattern": "blame + person + for + problem/-ing; blame + problem + on + person/thing",
+            "common_collocations": [
+              "blame the team",
+              "blame someone for a mistake",
+              "blame the delay on bad weather"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Responsibility assignment distinguished from proven fault; both argument structures taught.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 175,
+      "wordId": "178ab364-5cbc-403f-99de-dc90d6fa22eb",
+      "senseKey": "nominal-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c7c87b356d0644803b150b5f9c445825790945de8f5a972d3b3a7d83992d358b",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "nominal",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: NOM-ih-nuhl. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "இயல்பான தரவரிசை இல்லாத பெயர் வகைகளைக் கொண்ட",
+        "englishMeaning": "having named categories without an inherent order",
+        "coreIdea": "Label categories without ranking them from lower to higher.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical adjective for categories with names but no inherent ranking; job titles and countries illustrate labels rather than an ordered scale.",
+              "connotation": "Neutral: it describes a kind of variable, not the importance or quality of the categories.",
+              "tone": "Instructional here: the speaker gives examples to clarify the statistical sense.",
+              "register": "Standard statistical and data-analysis terminology. This is not the everyday sense meaning very small or in name only."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe data categories such as blood groups or country names when the labels have no built-in ranking."
+            ],
+            "when_not_to_use": [
+              "For ordered categories such as low, medium and high, use ordinal.",
+              "Do not use this statistical sense to explain a nominal fee, where nominal instead means very small."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "The meaning of the recorded variable determines its scale. Displaying nominal labels alphabetically or assigning number codes does not create an inherent ranking.",
+            "Job titles are treated as labels in the source. If a study instead records ordered seniority levels, that is a different variable with an ordinal interpretation."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Name tags identify groups; they do not put the groups on a ladder.",
+            "memory_sentence": "Country names are nominal categories in this survey.",
+            "recall_question": "Why does numbering nominal categories not turn them into measured quantities?",
+            "recognition_task": "Which is nominal: blood groups A/B/AB/O, or satisfaction levels low/medium/high? Explain whether the categories have an inherent order.",
+            "production_task": "Write a sentence identifying one nominal variable in a survey and explain why its categories are not ranked."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Blood group is a nominal variable because its categories do not form a ranking.",
+              "example_2": "The country labels in this survey are nominal categories, even if we display them alphabetically."
+            },
+            "mini_conversation": "A: Are the country names ordinal or nominal data?\nB: Nominal. One country label is not a higher rank than another.\nA: So putting the names in alphabetical order does not create a ranking."
+          },
+          "meaning_in_context": {
+            "source_sentence": "That's useful when your categories are nominal, like job titles or countries.",
+            "contextual_meaning": "having named categories without an inherent order",
+            "simple_explanation": "The speaker describes categories treated as names or labels, without a built-in ranking. Countries are an example. Job titles can be treated as nominal labels here, although a particular organisation might also group roles by seniority."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Assigning codes 1, 2 and 3 to nominal categories makes category 3 three times category 1.",
+            "correction": "The codes are labels. They do not create numerical size, distance or rank between nominal categories.",
+            "important_difference": "Nominal categories distinguish types without a built-in order. Ordinal categories, such as low, medium and high, have an order, though their gaps need not be equal."
+          },
+          "patterns_collocations": {
+            "main_pattern": "nominal + data/variable/category/scale; the categories are + nominal",
+            "common_collocations": [
+              "nominal data",
+              "a nominal variable",
+              "a nominal scale",
+              "nominal categories"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Nominal versus ordinal distinction checked against NIST; number labels and job-title caveat treated accurately.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
