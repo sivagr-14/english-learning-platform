@@ -1,0 +1,232 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0168-0169",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 2,
+  "broaderLessonRepairProcessed": 2,
+  "lessonValidatorPassed": 2,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 168,
+      "wordId": "166a8e12-dc55-4be4-885c-0e31953d41c7",
+      "senseKey": "an-allowed-amount-of-freedom-or-variation-around-a-requirement",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "361effec0e7a84f63cd6174e7db327d6a9c9304889f6de9ebb29d802fa757171",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "leeway",
+        "wordType": "noun",
+        "pronunciation": "/ˈliː.weɪ/",
+        "tamilMeaning": "விதியில் அனுமதிக்கப்படும் சிறிய தளர்வு",
+        "englishMeaning": "an allowed amount of freedom or variation around a requirement",
+        "coreIdea": "Picture a mark on a ruler with a small allowed margin on either side.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun for permitted flexibility around a rule or requirement.",
+              "connotation": "Usually positive for the person receiving flexibility, though the allowable range remains limited.",
+              "tone": "Accommodating but bounded here: “some” allows variation while “keep it close” preserves the target.",
+              "register": "Neutral and common in workplace and educational English. It does not mean that the requirement can be ignored."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Ask whether a submission deadline has any leeway without assuming an extension.",
+              "A natural model: The appointment time has ten minutes of leeway."
+            ],
+            "when_not_to_use": [
+              "Do not treat leeway as unlimited permission to ignore a requirement.",
+              "Ask whether leeway is allowed before assuming a deadline or limit is flexible."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Leeway is uncountable: some leeway, a little leeway or more leeway. It describes permitted flexibility, not a count of separate permissions.",
+            "The amount of leeway may need clarification. A little leeway does not specify an exact number of words or minutes."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a mark on a ruler with a small allowed margin on either side.",
+            "memory_sentence": "The appointment time has ten minutes of leeway.",
+            "production_task": "Ask whether a submission deadline has any leeway without assuming an extension. Use the target expression in one or two sentences. Check its pattern and register only after speaking.",
+            "recall_question": "Without looking, retrieve the expression meaning an allowed amount of freedom or variation around a requirement. Then say it in a new situation.",
+            "recognition_task": "A teacher allows a small variation around two thousand words. Does this leeway justify submitting five thousand words? Explain the difference between limited flexibility and no limit."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "There is some leeway in the word limit, but keep it close to two thousand.",
+              "another_setting": "The appointment time has ten minutes of leeway."
+            },
+            "mini_conversation": "A: The appointment time has ten minutes of leeway.\nB: Good; the bus may arrive slightly late."
+          },
+          "meaning_in_context": {
+            "source_sentence": "There is some leeway in the word limit, but keep it close to two thousand.",
+            "contextual_meaning": "an allowed amount of freedom or variation around a requirement",
+            "simple_explanation": "The writer permits a small variation from two thousand words but still expects a length near that target. Some leeway does not remove the limit altogether."
+          },
+          "mistakes_differences": {
+            "correction": "There is a little leeway in the schedule.",
+            "common_mistake": "There are a few leeway in the schedule.",
+            "important_difference": "Leeway is permitted tolerance; lateness is simply failure to arrive on time."
+          },
+          "patterns_collocations": {
+            "main_pattern": "leeway: leeway in + requirement; leeway to + verb",
+            "common_collocations": [
+              "a little leeway",
+              "leeway on timing"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid flexibility examples and uncountable grammar retained; tolerance distinguished from unlimited permission.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 169,
+      "wordId": "16a8318a-ec94-4c03-8e00-7fb6dc9ce9fc",
+      "senseKey": "mitigate-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3e51b1a0ca49772be48dc753912e3ffb2916e4def615b6f384bb5096f2754e81",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "mitigate",
+        "wordType": "verb",
+        "pronunciation": "Approximate pronunciation: MIT-ih-gayt. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தீவிரம் அல்லது ஆபத்தை குறைத்தல்",
+        "englishMeaning": "reduce the severity, harm, or risk of something",
+        "coreIdea": "Make a harmful problem less severe.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract verb for reducing harm, severity or risk; here, reduce the harmful effects of bias.",
+              "connotation": "Constructive in this use: it describes reducing a problem, without claiming complete removal.",
+              "tone": "Procedural here: the sentence links monitoring with the aim of detecting and reducing bias.",
+              "register": "Formal, common in risk management and technical reports. “Reduce” is usually clearer in everyday discussion."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe action intended to reduce harm, severity or risk."
+            ],
+            "when_not_to_use": [
+              "Do not use mitigate to promise that a problem has been eliminated completely."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Mitigate is relatively formal. Reduce the harm or make the problem less severe may be clearer for a general audience.",
+            "A plan to mitigate a problem is not evidence that mitigation has succeeded. Distinguish the intended action from its measured result."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a harmful effect becoming smaller, rather than disappearing.",
+            "memory_sentence": "The extra buses should mitigate the disruption.",
+            "recall_question": "Does mitigating a problem necessarily eliminate it?",
+            "recognition_task": "A change reduces delays but does not remove them. Can it mitigate the disruption? Explain why some remaining difficulty is compatible with the word.",
+            "production_task": "Write a short workplace update naming a fictional problem, one action to mitigate it and a limitation that may remain."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The organizers added extra buses to mitigate the disruption caused by the station closure.",
+              "example_2": "The team introduced clearer checks to mitigate the risk of sending orders to the wrong address."
+            },
+            "mini_conversation": "A: Will the extra buses remove every delay?\nB: No, but they should mitigate the disruption.\nA: Then we should still tell passengers to allow extra time."
+          },
+          "meaning_in_context": {
+            "source_sentence": "To detect and mitigate bias, they monitor fairness metrics for every client.",
+            "contextual_meaning": "reduce the severity, harm, or risk of something",
+            "simple_explanation": "The team aims to identify bias and reduce it. The sentence names monitoring as part of that work; it does not establish that measuring the problem alone removes it."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: These changes should mitigate from the disruption.",
+            "correction": "Say These changes should mitigate the disruption. Mitigate takes the problem directly as its object.",
+            "important_difference": "Mitigate means reduce the seriousness or harm. Eliminate means remove completely; mitigation can leave some difficulty or risk."
+          },
+          "patterns_collocations": {
+            "main_pattern": "mitigate + risk/harm/problem; take steps to mitigate + problem",
+            "common_collocations": [
+              "mitigate the impact",
+              "mitigate a risk",
+              "mitigate bias"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Harm reduction distinguished from elimination and monitoring; direct-object grammar repaired.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
