@@ -1,0 +1,231 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0166-0167",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 2,
+  "broaderLessonRepairProcessed": 2,
+  "lessonValidatorPassed": 2,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 166,
+      "wordId": "160bbf88-5f20-4c78-a856-d8f4f5e9e27b",
+      "senseKey": "referring-to-a-decision-or-commitment-previously-accepted",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "00d286d15a357b78c316449b3efa81ea8b45622255e9b3a956bbec914f87fd1a",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "as agreed",
+        "wordType": "expression",
+        "pronunciation": "/əz əˈɡriːd/",
+        "tamilMeaning": "முன்பு ஒப்புக்கொண்டபடி",
+        "englishMeaning": "referring to a decision or commitment previously accepted",
+        "coreIdea": "A handshake followed by action.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Discourse phrase referring back to a previous agreement; here, the agreed timing of the first review.",
+              "connotation": "Neutral, but it can emphasize that a commitment already exists.",
+              "tone": "Confirming and matter-of-fact here: it restates the Monday review arrangement.",
+              "register": "Common in workplace messages and ordinary planning. Use it only when an agreement was actually reached."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Confirm a delivery date that both parties accepted yesterday. A model in this sense: As agreed, we will each pay half the repair cost."
+            ],
+            "when_not_to_use": [
+              "Do not write as agreed when the other person has not accepted the proposal. Use as proposed or ask for confirmation instead."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "As agreed can confirm a shared plan or remind someone of a commitment. Its tone depends on the surrounding message; in a dispute, it may sound firm rather than friendly.",
+            "As agreed assumes prior acceptance. It should not be used to turn silence or an unaccepted suggestion into an agreement."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A handshake followed by action.",
+            "memory_sentence": "As agreed, we will each pay half the repair cost.",
+            "production_task": "Confirm a delivery date that both parties accepted yesterday. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: referring to a decision or commitment previously accepted. Explain its function in one sentence.",
+            "recognition_task": "You suggested Monday, but the other person has not replied. Can you accurately write As agreed, we will meet on Monday? Explain what evidence is missing."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "As agreed, the first review will take place on Monday.",
+              "another_setting": "As agreed, we will each pay half the repair cost."
+            },
+            "mini_conversation": "A: As agreed, we will each pay half the repair cost.\nB: Yes; send me the invoice and I will transfer my share."
+          },
+          "meaning_in_context": {
+            "source_sentence": "As agreed, the first review will take place on Monday.",
+            "contextual_meaning": "referring to a decision or commitment previously accepted",
+            "simple_explanation": "The speaker confirms Monday as the date already accepted for the first review. As agreed refers back to that shared decision rather than presenting a new proposal."
+          },
+          "mistakes_differences": {
+            "correction": "As agreed, the price is fixed.",
+            "common_mistake": "As agree, the price is fixed.",
+            "important_difference": "Agreed implies acceptance; proposed only indicates a suggestion."
+          },
+          "patterns_collocations": {
+            "main_pattern": "as agreed: as agreed, + action; as agreed with + person",
+            "common_collocations": [
+              "as agreed in writing",
+              "as previously agreed"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples, dialogue and agreement grammar retained; prior acceptance distinguished from unanswered proposal.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 167,
+      "wordId": "1645b391-fe88-4fcf-b202-bae872b3bec7",
+      "senseKey": "continuous-sequence",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "488412ed7f4ce21d5f628ea99b2e9d90c1a5c5de4ecbde6e2dbea309260cec23",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "stream",
+        "wordType": "countable noun",
+        "pronunciation": "Approximate pronunciation: STREEM. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "தொடர்ச்சியாக நிகழும் ஓட்டம் அல்லது வரிசை",
+        "englishMeaning": "a continuous sequence or flow of events or things",
+        "coreIdea": "Things follow one another like a continuing flow.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative noun for a continuing sequence, comparing life's recurring difficulties with flowing water.",
+              "connotation": "Neutral as a sequence word; “never-ending” and “collisions” make this particular stream sound troublesome.",
+              "tone": "Reflective and dramatic here: the writer uses a continuous series of collisions to discuss personal responsibility.",
+              "register": "Common in general writing and conversation. In this entry it does not name a physical watercourse."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe things or events arriving or happening one after another in a continuing flow."
+            ],
+            "when_not_to_use": [
+              "Do not use a stream of to describe just one isolated event.",
+              "If the exact number or timing matters, give those details; stream alone does not measure them."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Stream suggests continuity but does not require a perfectly regular rate. A steady stream adds the idea of sustained or fairly consistent flow.",
+            "The noun after of establishes what is flowing. In the source, stream of head-on collisions is a dramatic image for repeated clashes, not a literal water description."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture messages arriving one after another along a flowing line.",
+            "memory_sentence": "A steady stream of visitors arrived throughout the afternoon.",
+            "recall_question": "What does a stream of visitors emphasize beyond a group of visitors?",
+            "recognition_task": "Ten visitors arrive together once; other visitors keep arriving throughout the day. Which situation is better described as a steady stream? Explain the continuing-flow idea.",
+            "production_task": "Write a short update to a fictional event organizer describing a stream of visitors or questions. Add one practical response to the continuing arrivals."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "A steady stream of visitors arrived throughout the afternoon.",
+              "example_2": "She could not finish the report because a stream of messages kept interrupting her."
+            },
+            "mini_conversation": "A: Have the questions stopped coming in?\nB: No, there is still a steady stream of messages.\nA: Let’s collect the repeated questions into one reply."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Although  it' s  true  that  there  are  times  when  we  are  merely  bystanders  in  life's  never-ending  stream  of  head-on  collisions,  rarely are  we  completely  in nocent .",
+            "contextual_meaning": "a continuous sequence or flow of events or things",
+            "simple_explanation": "The writer pictures life’s recurring conflicts as a never-ending flow of collisions. Stream describes the continuing sequence; the dramatic image does not mean that literal water or road crashes are involved."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: A steady stream visitors entered the hall.",
+            "correction": "Say A steady stream of visitors entered the hall. Use of to introduce what makes up the flow.",
+            "important_difference": "A group describes items considered together. A stream emphasizes their continuing arrival or movement, one after another."
+          },
+          "patterns_collocations": {
+            "main_pattern": "a stream of + plural noun/uncountable noun; a steady/constant stream of + things",
+            "common_collocations": [
+              "a stream of messages",
+              "a steady stream of visitors",
+              "a constant stream of information"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Continuous-sequence noun sense taught with concrete arrival examples; source collision metaphor not literalized.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
