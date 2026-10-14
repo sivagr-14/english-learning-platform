@@ -1,0 +1,342 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0213-0215",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 213,
+      "wordId": "1c705e8c-6167-488a-997d-408907ad1430",
+      "senseKey": "deviate-from-course",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0c9deecf98ee4ed08b3ee22b18abc856be4216196eb929e7a5d7e16f30243a00",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "stray off track",
+        "wordType": "figurative verb phrase",
+        "pronunciation": "Phonetic guide (approximate): stray off trak",
+        "tamilMeaning": "நோக்கமிட்ட பாதை, பொருள் அல்லது இலக்கிலிருந்து விலகுவது",
+        "englishMeaning": "to move away from the intended subject, course, or objective",
+        "coreIdea": "Move away from the topic or goal you intended to follow.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative expression comparing departure from a topic or goal with leaving the correct physical route.",
+              "connotation": "Negative and cautionary here: greater deviation makes recovery more difficult.",
+              "tone": "Warning and explanatory here: the sentence stresses the increasing cost of moving farther away from the intended course.",
+              "register": "Neutral and common in coaching, meetings and planning. The OCR is damaged, but the conditional warning remains clear."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a discussion or activity drifting away from its intended subject or objective."
+            ],
+            "when_not_to_use": [
+              "For an agreed change of goal, explain the new direction rather than automatically calling it straying off track."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Stray off track often suggests gradual drift rather than a planned change. The metaphor treats a topic or goal as a route to follow.",
+            "Calling a discussion off track is a judgement about relevance. Explain the shared goal when redirecting people so they understand why you are doing it."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A route to a goal bends away into an unrelated side road.",
+            "memory_sentence": "If we stray off track, remind us of the main question.",
+            "recall_question": "What does track represent in the figurative expression?",
+            "recognition_task": "A group forgets its main question and discusses an unrelated issue. Does stray off track fit, and how could they return to the task?",
+            "production_task": "Write a polite meeting comment using stray off track. Name the question you want the group to return to."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We sometimes stray off track when a planning meeting turns into a discussion of unrelated problems.",
+              "example_2": "If we stray off track, please remind us of the question we are trying to answer."
+            },
+            "mini_conversation": "A: We are beginning to stray off track.\nB: You are right. We need to decide the date, not redesign the whole event.\nA: Let us return to the available dates."
+          },
+          "meaning_in_context": {
+            "source_sentence": "And  as  we  suggested  earlier ,  the  fu rther  you  stray  off  track,  the  harder  it  can  be  to  return.",
+            "contextual_meaning": "to move away from the intended subject, course, or objective",
+            "simple_explanation": "The writer warns that moving farther away from the intended direction can make returning harder. The excerpt does not identify the earlier topic or goal, so this lesson explains the general figurative meaning."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We stray off track the topic.",
+            "correction": "Say We stray off track, or We stray from the topic. Do not put the topic directly after off track.",
+            "important_difference": "Stray off track suggests losing the intended direction. Change the subject can be a deliberate switch and need not imply losing focus."
+          },
+          "patterns_collocations": {
+            "main_pattern": "person/discussion + stray off track; stray off track + during + activity",
+            "common_collocations": [
+              "stray off track during a discussion",
+              "begin to stray off track",
+              "stray too far off track"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Topic drift distinguished from deliberate goal change; missing earlier context disclosed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 214,
+      "wordId": "1c93a63d-6111-441a-bdb6-bf96b97727f3",
+      "senseKey": "saliva",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "54e3f69ed7c7c3f22445b292c8e8e6c716188e83ee5b6fd01df5185d5365d379",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "spit",
+        "wordType": "noun",
+        "pronunciation": "Phonetic guide (approximate): spit — short i as in sit",
+        "tamilMeaning": "வாயிலிருந்து வெளியேறும் உமிழ்நீர்",
+        "englishMeaning": "saliva expelled from the mouth",
+        "coreIdea": "Saliva that comes out of the mouth.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal informal noun for saliva expelled from the mouth; here, droplets are sprayed while shouting.",
+              "connotation": "Unpleasant here because it emphasizes loss of control and an uncomfortable physical detail.",
+              "tone": "Vivid and mocking here: exaggerated bodily details portray the angry denial as extreme.",
+              "register": "Informal everyday vocabulary. “Saliva” is the neutral clinical term; the OCR-damaged quotation should not be reused as polished example text."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use the noun spit in everyday description of saliva outside someone’s mouth."
+            ],
+            "when_not_to_use": [
+              "For a more formal or scientific name for the fluid, saliva is usually more suitable.",
+              "Do not assume spit in this sentence means an intentional insult; saliva can spray out unintentionally during speech."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Spit is blunt everyday wording and may make a description sound unpleasant. Saliva is a more formal alternative, but the source chooses the vivid everyday noun.",
+            "The source links spit with shouting; it does not establish deliberate spitting at another person. Keep the substance separate from assumptions about intent."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Tiny drops of saliva land on a nearby surface.",
+            "memory_sentence": "Drops of spit landed on the microphone.",
+            "recall_question": "Is spit the action or the substance in spraying spit?",
+            "recognition_task": "In There is spit on the glass, does spit name a fluid or the action of expelling it? Explain why drops of spit can be counted.",
+            "production_task": "Write a neutral fictional description using drops of spit. Do not assume the person meant to spray it."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Small drops of spit landed on the microphone as he shouted.",
+              "example_2": "She noticed spit on the window after the child blew a raspberry against the glass."
+            },
+            "mini_conversation": "A: Why are you wiping the microphone?\nB: There are drops of spit on it.\nA: I will bring a clean cloth."
+          },
+          "meaning_in_context": {
+            "source_sentence": "\"  Of  course,  you'r e  spraying  spit  as  you  shout  out  your  denial,  and  the  vein  on  your  fo rehead  has  swelled  to  the  size  of  a  teenage  pyt h o n .",
+            "contextual_meaning": "saliva expelled from the mouth",
+            "simple_explanation": "The writer describes saliva spraying out while someone shouts a denial. The dramatic comparison about the forehead vein adds exaggeration; spit itself names the saliva, not the shouting or a deliberate act of spitting."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect for the substance: There were three spits on the glass.",
+            "correction": "Say There were three drops of spit on the glass. In this substance sense, spit is normally uncountable.",
+            "important_difference": "Spit is an everyday noun for saliva, especially when it leaves the mouth. The verb spit names an action; in spraying spit, spit is the substance being sprayed."
+          },
+          "patterns_collocations": {
+            "main_pattern": "spit + on + surface; drops of + spit; spray/wipe away + spit",
+            "common_collocations": [
+              "drops of spit",
+              "spray spit",
+              "wipe away spit"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Uncountable substance noun distinguished from action and deliberate insult; source exaggeration bounded.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 215,
+      "wordId": "1cb697a2-a1e4-4051-8455-b2a98ea815e4",
+      "senseKey": "to-have-too-little-time-or-capacity-for-all-ones-responsibilities",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "111357f6354c3724676e6ea8bf23fa61151736a76782ba2b65f977b2d41eac72",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "be stretched thin",
+        "wordType": "idiom",
+        "pronunciation": "/bi stretʃt ˈθɪn/",
+        "tamilMeaning": "பல பொறுப்புகளுக்கு போதுமான நேரம் அல்லது வளமின்றி இருப்பது",
+        "englishMeaning": "to have too little time or capacity for all one's responsibilities",
+        "coreIdea": "Too little butter spread over too much bread.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative idiom comparing limited time or capacity with material stretched so far that it becomes thin.",
+              "connotation": "Negative and concerned here: staff absence is expected to leave insufficient capacity.",
+              "tone": "Cautious and practical here: “likely” predicts pressure without claiming certainty.",
+              "register": "Conversational to neutral professional English. Specify whether the shortage concerns staff, time, money or attention when needed."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Explain that available people, time or attention are insufficient for all the demands being made."
+            ],
+            "when_not_to_use": [
+              "Stretched thin divides limited capacity among many demands; tied up describes temporary unavailability.",
+              "It can describe staffing, money or attention, so specify which resource needs relief."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Be stretched thin can describe staffing, money or attention. Specify which resource is limited and which demands compete for it.",
+            "Be stretched thin concerns capacity, not necessarily willingness or competence. Reducing demands or adding support may be more useful than asking people simply to try harder."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Too little butter spread over too much bread.",
+            "memory_sentence": "Our volunteers may be stretched thin during the festival weekend.",
+            "production_task": "Explain why two absences require reprioritising work. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: to have too little time or capacity for all one's responsibilities. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: We are stretched thin across too many tasks. B: We are stretched thinly with tasks. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "With two colleagues away, we are likely to be stretched thin.",
+              "another_setting": "Our volunteers may be stretched thin during the festival weekend."
+            },
+            "mini_conversation": "A: Our volunteers may be stretched thin during the festival weekend.\nB: Let us reduce the number of activities or recruit more help."
+          },
+          "meaning_in_context": {
+            "source_sentence": "With two colleagues away, we are likely to be stretched thin.",
+            "contextual_meaning": "to have too little time or capacity for all one's responsibilities",
+            "simple_explanation": "With two colleagues absent, the remaining people will probably have too much work for their available time and energy. Likely to marks an expectation, not a claim that the overload has already happened."
+          },
+          "mistakes_differences": {
+            "correction": "We are stretched thin across too many tasks.",
+            "common_mistake": "We are stretched thinly with tasks.",
+            "important_difference": "Stretched thin divides limited capacity among many demands; tied up describes temporary unavailability."
+          },
+          "patterns_collocations": {
+            "main_pattern": "be stretched thin: be stretched thin by/across + demands",
+            "common_collocations": [
+              "be stretched too thin",
+              "resources stretched thin"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples and practice retained; expected overload distinguished from current fact and capacity from willingness.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
