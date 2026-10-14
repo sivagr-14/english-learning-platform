@@ -1,0 +1,336 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0219-0221",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 219,
+      "wordId": "1d171de2-5ff5-4f1e-adf3-4a9e023143b9",
+      "senseKey": "the-responsibility-to-provide-evidence-supporting-a-claim",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "358857dafeea8149dc353950ab6bfe952e4d0b975e48f87f9c7486dfebc83e81",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "burden of proof",
+        "wordType": "noun phrase",
+        "pronunciation": "/ˌbɜːdən əv ˈpruːf/",
+        "tamilMeaning": "கூற்றை ஆதாரத்தால் நிரூபிக்கும் பொறுப்பு",
+        "englishMeaning": "the responsibility to provide evidence supporting a claim",
+        "coreIdea": "Who must bring the evidence?",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract legal and reasoning term for the responsibility to support a claim with sufficient evidence.",
+              "connotation": "Neutral, but it assigns responsibility to the claimant rather than to people who question the claim.",
+              "tone": "Firm and analytical here: the sentence states who must demonstrate that the change saves money.",
+              "register": "Formal to professional; common in law, debate and evidence-based decision-making. The required standard of proof depends on the setting."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss who should supply evidence for a claim in an argument or review."
+            ],
+            "when_not_to_use": [
+              "Burden of proof concerns who must support a claim; strength of evidence concerns how convincing that support is."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Burden of proof identifies responsibility for supporting a claim. It does not itself state how much evidence is enough or whether the evidence is convincing.",
+            "This lesson uses burden of proof in ordinary discussion. The example is not a statement about the rules of a particular legal system."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Who must bring the evidence?",
+            "memory_sentence": "The burden of proof is on the advertiser making the savings claim.",
+            "production_task": "Use “burden of proof” in your own response: Explain why the person proposing a savings claim should supply supporting figures.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “the responsibility to provide evidence supporting a claim”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “The burden of proof rests to the claimant.” B: “The burden of proof rests with the claimant.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "The burden of proof rests with the person claiming that the change saves money.",
+              "another_context": "The burden of proof is on the advertiser making the savings claim."
+            },
+            "mini_conversation": "A: The burden of proof rests with the person claiming that the change saves money.\nB: They should show the comparison, not ask us to disprove it."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The burden of proof rests with the person claiming that the change saves money.",
+            "contextual_meaning": "the responsibility to provide evidence supporting a claim",
+            "simple_explanation": "The speaker says that the person making the savings claim should supply supporting evidence, such as a comparison of costs. The phrase concerns responsibility for supporting the claim, not whether it has already been proved."
+          },
+          "mistakes_differences": {
+            "correction": "The burden of proof rests with the claimant.",
+            "common_mistake": "The burden of proof rests to the claimant.",
+            "important_difference": "Burden of proof concerns who must support a claim; strength of evidence concerns how convincing that support is."
+          },
+          "patterns_collocations": {
+            "main_pattern": "burden of proof: the burden of proof rests with + person",
+            "common_collocations": [
+              "the burden of proof",
+              "meet the burden of proof"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid evidence-responsibility lesson retained; responsibility distinguished from sufficiency and legal rules.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 220,
+      "wordId": "1d534b96-4aad-457c-b13c-677667b8b462",
+      "senseKey": "used-to-add-another-reason-for-what-has-been-said",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "ffe747a2b7e32c434f7b6f497225fbd1aadd962f5d2c2051ee748736bf96428d",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "besides",
+        "wordType": "linking adverb",
+        "pronunciation": "/bɪˈsaɪdz/",
+        "tamilMeaning": "மேலும் ஒரு காரணமாக",
+        "englishMeaning": "used to add another reason for what has been said",
+        "coreIdea": "One more reason to settle the choice.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Logical connector adding another reason to support the preceding preference.",
+              "connotation": "Neutral by itself; here it strengthens the case for an earlier meeting with a practical reason.",
+              "tone": "Mildly persuasive and conversational here: the second sentence adds supporting evidence.",
+              "register": "Common in conversation and informal writing. “In addition” is more formal; “beside” without -s has a different meaning."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Add another reason that supports a preference, conclusion or decision already mentioned."
+            ],
+            "when_not_to_use": [
+              "Besides adds a reason; beside means next to.",
+              "In conversation it can present a reason as decisive and sometimes sound dismissive of further debate."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Besides can make an added reason sound decisive, so it may sometimes suggest that the speaker wants to end the debate. Tone and context matter.",
+            "At the start of a sentence in this use, besides is normally followed by a comma. Do not confuse it with beside, meaning next to."
+          ],
+          "memory_practice": {
+            "memory_trigger": "One more reason to settle the choice.",
+            "memory_sentence": "I do not want to drive tonight. Besides, the last bus stops near home.",
+            "production_task": "Give an additional reason for preferring an earlier meeting. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: used to add another reason for what has been said. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: Beside, the room is free. B: Besides, the room is free. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "I would prefer an earlier meeting. Besides, the room is free before lunch.",
+              "another_setting": "I do not want to drive tonight. Besides, the last bus stops near home."
+            },
+            "mini_conversation": "A: I do not want to drive tonight. Besides, the last bus stops near home.\nB: Then let us check the timetable."
+          },
+          "meaning_in_context": {
+            "source_sentence": "I would prefer an earlier meeting. Besides, the room is free before lunch.",
+            "contextual_meaning": "used to add another reason for what has been said",
+            "simple_explanation": "The speaker adds the room’s availability as another reason for choosing an earlier meeting. Besides connects this supporting reason with the preference already stated."
+          },
+          "mistakes_differences": {
+            "correction": "Besides, the room is free.",
+            "common_mistake": "Beside, the room is free.",
+            "important_difference": "Besides adds a reason; beside means next to."
+          },
+          "patterns_collocations": {
+            "main_pattern": "besides: statement. Besides, additional reason",
+            "common_collocations": [
+              "besides, it is cheaper",
+              "besides, we have time"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid linking-word examples and exercises retained; source reason and conversational force clarified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 221,
+      "wordId": "1d6214fb-2c9a-473b-8d19-f85ba5c70564",
+      "senseKey": "complete-and-absolute",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "5dcbc5b632c6b561fd3e2bb51bb701d3a47fcfef5242cbcc2d8081d5cb304cc7",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "utter",
+        "wordType": "adjective",
+        "pronunciation": "Phonetic guide (approximate): UT-uh",
+        "tamilMeaning": "முற்றிலும் அல்லது முழுமையாக; இங்கு நம்பிக்கையின்மையை வலியுறுத்துகிறது.",
+        "englishMeaning": "complete or absolute, often emphasizing something negative",
+        "coreIdea": "Complete, with strong emphasis.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract intensifier meaning complete or absolute; here it strengthens “hopelessness.”",
+              "connotation": "Strongly negative in this pairing because it removes any remaining possibility of hope.",
+              "tone": "Bleak and dramatically exaggerated here: both paths lead to catastrophic outcomes.",
+              "register": "Neutral to literary as an adjective before a noun, especially in phrases such as “utter despair.” This is not the verb meaning speak."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Put utter before a noun to emphasize a complete or extreme state, often a negative one."
+            ],
+            "when_not_to_use": [
+              "For a mild problem, avoid the exaggeration of utter disaster or utter failure.",
+              "Do not use this adjective pattern to explain the separate verb utter, meaning say or produce a sound."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Utter often appears with negative nouns, but not exclusively: utter silence describes completeness without automatically judging it as bad.",
+            "Utter can express a speaker’s dramatic assessment rather than an objectively measured total. In the source, it intensifies hopelessness without establishing the author’s attitude outside the excerpt."
+          ],
+          "memory_practice": {
+            "memory_trigger": "The emphasis dial is turned all the way up.",
+            "memory_sentence": "The conflicting instructions caused utter confusion.",
+            "recall_question": "Why do we say utter confusion but utterly confused?",
+            "recognition_task": "Choose the correct phrase: utter silence or utter silent. Explain which word is the noun and how you could use the adjective silent instead.",
+            "production_task": "Write a fictional sentence using utter before confusion, silence or nonsense. Add context that makes the strong emphasis understandable."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The conflicting instructions left the volunteers in utter confusion.",
+              "example_2": "After the announcement, there was utter silence in the room."
+            },
+            "mini_conversation": "A: How did the first rehearsal go?\nB: It was utter chaos; nobody knew when to enter.\nA: Let us write down the order before the next one."
+          },
+          "meaning_in_context": {
+            "source_sentence": "One  pa th  leads to  despair  and  utter  ho pelessn ess ,  the  other  to  total  extincti on.",
+            "contextual_meaning": "complete or absolute, often emphasizing something negative",
+            "simple_explanation": "Utter strengthens hopelessness, presenting it as complete. The sentence uses extreme language about two paths; the excerpt alone does not show whether the larger passage is humorous, ironic or serious."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: I was utter confused.",
+            "correction": "Say I was utterly confused, or I was in utter confusion. Utter modifies a noun; utterly can modify an adjective.",
+            "important_difference": "Utter adds strong emphasis to a noun such as confusion. Utterly is the related adverb, as in utterly confused; they cannot simply replace each other."
+          },
+          "patterns_collocations": {
+            "main_pattern": "utter + noun; an utter + singular count noun",
+            "common_collocations": [
+              "utter confusion",
+              "utter nonsense",
+              "utter silence",
+              "an utter failure"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic teaching replaced with adjective/adverb contrast and degree examples; rhetorical context not invented.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
