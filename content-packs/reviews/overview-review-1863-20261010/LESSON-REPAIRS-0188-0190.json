@@ -1,0 +1,348 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0188-0190",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 188,
+      "wordId": "19b1e8df-dba1-41f6-b890-a3c5e06c6551",
+      "senseKey": "identify-weaknesses",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2b40d2caf74df0bf141116b9136e6522e914ba90e01b0a42ca6577c1e702d646",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "point out flaws",
+        "wordType": "verb phrase",
+        "pronunciation": "Approximate pronunciation: poynt OUT FLAWZ. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "குறைகள் அல்லது பலவீனங்களைச் சுட்டிக்காட்டுதல்",
+        "englishMeaning": "to draw attention to faults or weaknesses",
+        "coreIdea": "Make someone notice weaknesses in an idea or piece of work.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrase for drawing attention to weaknesses; here, weaknesses in another person's reasoning.",
+              "connotation": "Can be constructive, but the surrounding “quibble” presents it here as part of unhelpful fault-finding.",
+              "tone": "Self-critical here: “we” includes the writer in a pattern of argumentative behaviour.",
+              "register": "Common general and workplace English. For constructive feedback, identify the specific flaw and its effect."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe bringing faults or weak reasoning to someone’s attention, for example during a review."
+            ],
+            "when_not_to_use": [
+              "Do not use point out flaws to mean repair the problems; noticing and fixing them are separate actions.",
+              "When giving feedback, identify the particular weakness rather than treating a person as generally flawed."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Point out flaws can describe useful analysis or fault-finding. Evidence, timing and the purpose of the feedback affect how it is received.",
+            "The source pairs point out flaws with quibbling, creating a critical picture of the speakers. The phrase alone does not mean that the flaws are trivial or imaginary."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A reviewer circles a weak step so everyone can see it.",
+            "memory_sentence": "Please point out flaws in the plan before we use it.",
+            "recall_question": "Does pointing out a flaw necessarily fix it?",
+            "recognition_task": "A colleague identifies a missing step but makes no changes. Has she pointed out a flaw, corrected it, or necessarily done both? Explain.",
+            "production_task": "Write a respectful request asking a colleague to point out flaws in a fictional plan. Then give one specific example of useful feedback."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Please point out flaws in the plan before we agree to use it.",
+              "example_2": "A helpful reviewer can point out flaws in an argument without insulting its author."
+            },
+            "mini_conversation": "A: Could you point out flaws in my proposal?\nB: Yes. The schedule leaves no time for testing.\nA: Thanks. I will add a testing stage."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We  quibble  over  details  and  point  out  flaws  in  the  other  person's  argume nts.",
+            "contextual_meaning": "to draw attention to faults or weaknesses",
+            "simple_explanation": "The writer describes drawing attention to weaknesses in another person’s arguments. Together with quibble over details, the wording presents this as part of an unhelpful way of arguing, though identifying flaws can also be constructive."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: I found two flaws and pointed out them.",
+            "correction": "Say I found two flaws and pointed them out. With a pronoun object, put it between point and out.",
+            "important_difference": "Point out flaws means bring weaknesses to attention. Correct flaws means fix them; criticism alone does not make the correction."
+          },
+          "patterns_collocations": {
+            "main_pattern": "point out flaws + in + argument/plan/design; point + the flaws + out",
+            "common_collocations": [
+              "point out flaws in an argument",
+              "point out flaws in a design",
+              "point out serious flaws"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Fault identification distinguished from correction; source critical framing separated from neutral phrase meaning.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 189,
+      "wordId": "19eec1ca-f294-4e35-a6fc-fdf6591d3d2d",
+      "senseKey": "happening-sometimes",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "42b99687e97c022c127148a01d8bca789147e47c242419b529c50cf2a427e7a7",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "occasional",
+        "wordType": "adjective",
+        "pronunciation": "Approximate pronunciation: uh-KAY-zhuh-nuhl. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "அவ்வப்போது நிகழும்",
+        "englishMeaning": "happening sometimes but not regularly or often",
+        "coreIdea": "Happening now and then, rather than often.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Frequency adjective meaning happening sometimes rather than regularly or often.",
+              "connotation": "Neutral as a frequency word; the negative effect here comes from the sarcastic remarks.",
+              "tone": "Explanatory and critical here: occasional sarcasm is presented as an indirect outlet for dissatisfaction.",
+              "register": "Common everyday and professional English. It does not specify an exact rate."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe something that happens from time to time, such as a visit, delay or remark."
+            ],
+            "when_not_to_use": [
+              "For an action that happens frequently or on every occasion, use frequent or regular as appropriate.",
+              "Do not use occasional alone to say that a problem is harmless; it describes frequency, not seriousness."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Occasional gives no exact interval or count. What feels infrequent depends on the activity and the period being discussed.",
+            "An occasional remark refers to remarks made now and then, not necessarily just one remark ever. In the source, sarcasm supplies the negative quality; occasional only limits the frequency."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A few scattered marks on a calendar, rather than a mark every day.",
+            "memory_sentence": "There are occasional delays, but the service is usually reliable.",
+            "recall_question": "Does an occasional sarcastic remark have to be mild or harmless?",
+            "recognition_task": "Which uses the adjective correctly: an occasional visit, or we occasional visit? Explain how the second sentence should change.",
+            "production_task": "Describe an activity you do now and then using occasional before a noun. Then rewrite the idea with occasionally and a verb."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We still receive an occasional letter from our former neighbour.",
+              "example_2": "The train service is usually reliable, although there are occasional delays."
+            },
+            "mini_conversation": "A: Do you see your old classmates often?\nB: No, just for an occasional meal together.\nA: It is nice that you keep in touch."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Of  course,  since  you're  not  all  that  happy with the  arrangement,  your  dis­ pleasure  now  comes  out  through  an  occasional  sarcastic  remark.",
+            "contextual_meaning": "happening sometimes but not regularly or often",
+            "simple_explanation": "The person’s unhappiness appears now and then as a sarcastic comment. Occasional describes how often the remarks happen, not how hurtful they are."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We occasional meet for lunch.",
+            "correction": "Say We occasionally meet for lunch, or We have an occasional lunch together. Occasional describes a noun; occasionally describes the action.",
+            "important_difference": "Occasional means happening now and then. Rare suggests a stronger degree of infrequency, while frequent means happening often."
+          },
+          "patterns_collocations": {
+            "main_pattern": "occasional + noun; an occasional + singular count noun; the occasional + singular count noun",
+            "common_collocations": [
+              "an occasional remark",
+              "occasional delays",
+              "an occasional visit",
+              "the occasional mistake"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Frequency adjective distinguished from adverb and severity; specific examples replace generic teaching.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 190,
+      "wordId": "19f329be-1bba-482b-88dd-8b90fbbae7b1",
+      "senseKey": "at-a-future-time",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "604a98fc4331d127588f3f492d384564ddd1e2f29261b5f83421751b25d6f352",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "hence",
+        "wordType": "adverb",
+        "pronunciation": "/hens/",
+        "tamilMeaning": "இப்போதிலிருந்து அல்லது குறிப்பிடப்பட்ட காலத்திலிருந்து எதிர்காலத்தில்",
+        "englishMeaning": "from now or from the stated time in the future",
+        "coreIdea": "That amount of time into the future.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Time adverb meaning later than the present or stated time; “ages ... hence” places the telling far in the future.",
+              "connotation": "Neutral about time; any regret or satisfaction comes from the surrounding poem rather than this word alone.",
+              "tone": "Reflective here: the future telling is imagined “with a sigh,” whose exact emotion is not settled by the word “hence.”",
+              "register": "Literary or formal in this time sense. “Years from now” is more conversational; the “therefore” sense belongs in a different entry."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use hence after a time expression to locate an event that many days, years, or ages into the future.",
+              "Use hence only when this assessed contextual sense is intended."
+            ],
+            "when_not_to_use": [
+              "Do not confuse this temporal sense with hence meaning therefore.",
+              "In everyday arrangements, in two weeks usually sounds more natural than two weeks hence."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "In temporal use, hence usually follows the time expression without in or after: two weeks hence, not in two weeks hence.",
+            "Temporal hence is formal or literary. The phrase ages and ages hence gives a distant, reflective feeling; it is not a precise timetable."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Draw an arrow from NOW to a point marked years hence.",
+            "memory_sentence": "Years hence, she would remember that conversation with gratitude.",
+            "production_task": "Write one natural sentence using hence with the pattern “time period + hence.”",
+            "recall_question": "What does hence mean in the source context?",
+            "recognition_task": "Compare A decade hence, the town may look different with The road is closed, hence the delay. Which uses hence to locate something in future time rather than explain a result?"
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "A decade hence, the town may look completely different.",
+              "example_2": "Years hence, she would remember that conversation with gratitude."
+            },
+            "mini_conversation": "A: Do you think this town will look the same a decade hence?\nB: Probably not. Ten years can bring many changes.\nA: I wonder which buildings will still be here."
+          },
+          "meaning_in_context": {
+            "source_sentence": "I  shall  be  telling  this with a  sigh  Somewhere  ages  and  ages  hence:  Tw o  roads  diver ged  in  a  wood,  and  I­ I  took  the  one less traveled by,  And  that  has  made  all  the  diff erence.",
+            "contextual_meaning": "from now or from the stated time in the future",
+            "simple_explanation": "The speaker imagines telling the story far in the future. Ages and ages emphasizes a very long time rather than an exact number of years. The saved quotation contains extraction spacing and broken-word artifacts."
+          },
+          "mistakes_differences": {
+            "correction": "We may meet three years hence.",
+            "common_mistake": "We will meet after three years hence.",
+            "important_difference": "Temporal hence means from now or then; therefore expresses a logical result, although hence can also carry that separate logical sense."
+          },
+          "patterns_collocations": {
+            "main_pattern": "time period + hence",
+            "common_collocations": [
+              "years hence",
+              "a decade hence"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid literary-time examples and grammar retained; generic dialogue and nuance replaced, temporal/result senses contrasted.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
