@@ -1,0 +1,338 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0204-0206",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 204,
+      "wordId": "1bae70e7-4978-48c6-9d0a-25b4229a82a2",
+      "senseKey": "as-soon-as-is-reasonably-convenient-for-the-other-person",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "b4cd25256c8a3c4189adf08b94778a4a2e6d91ea39df581bede40182a02fd594",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "at your earliest convenience",
+        "wordType": "expression",
+        "pronunciation": "/ət jɔː ˌɜːliəst kənˈviːniəns/",
+        "tamilMeaning": "உங்களுக்கு இயன்ற விரைவான வசதியான நேரத்தில்",
+        "englishMeaning": "as soon as is reasonably convenient for the other person",
+        "coreIdea": "The first convenient opening in their diary.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Polite time phrase requesting action as soon as the other person's circumstances reasonably allow.",
+              "connotation": "Polite on the surface, but it can carry mild pressure because a prompt response is expected.",
+              "tone": "Formal and courteous here: “please” softens the request for the signed form.",
+              "register": "Formal workplace and administrative English. Use a clear deadline when the timing is genuinely important."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Make a formal request for reasonably prompt action when the exact timing can remain flexible."
+            ],
+            "when_not_to_use": [
+              "This phrase leaves timing flexible; by Friday gives an explicit deadline.",
+              "It can sound pressuring despite its polite form; use a specific date when timing is important."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "At your earliest convenience has a polite form but may still sound pressuring. If a real deadline exists, give the date instead of relying on this phrase.",
+            "Your refers to the recipient’s convenience. Changing it to my shifts whose availability matters and changes the effect of the request."
+          ],
+          "memory_practice": {
+            "memory_trigger": "The first convenient opening in their diary.",
+            "memory_sentence": "Please collect your certificate at your earliest convenience.",
+            "production_task": "Request a non-urgent signed form politely without inventing a hard deadline. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: as soon as is reasonably convenient for the other person. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: At your earliest convenience requests a prompt response but sets no exact deadline. B: At your earliest convenience means before five today. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "Please send the signed form at your earliest convenience.",
+              "another_setting": "Please collect your certificate at your earliest convenience."
+            },
+            "mini_conversation": "A: Please collect your certificate at your earliest convenience.\nB: I can come on Wednesday afternoon."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Please send the signed form at your earliest convenience.",
+            "contextual_meaning": "as soon as is reasonably convenient for the other person",
+            "simple_explanation": "The sender asks for the signed form promptly, while allowing the recipient to choose a reasonably convenient time. No exact deadline is stated."
+          },
+          "mistakes_differences": {
+            "correction": "At your earliest convenience requests a prompt response but sets no exact deadline.",
+            "common_mistake": "At your earliest convenience means before five today.",
+            "important_difference": "This phrase leaves timing flexible; by Friday gives an explicit deadline."
+          },
+          "patterns_collocations": {
+            "main_pattern": "at your earliest convenience: please + action + at your earliest convenience",
+            "common_collocations": [
+              "reply at your earliest convenience",
+              "call at your earliest convenience"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid formal request content retained; promptness versus exact deadline and recipient convenience clarified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 205,
+      "wordId": "1bcd3a03-2312-4546-aa1d-fba0f275fe96",
+      "senseKey": "pause-from-uncertainty",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "706e7516fd0f95456e64b5c5edfdd49da16fb28c1590c2f9aaea8a9c4052ebe4",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "hesitate",
+        "wordType": "verb",
+        "pronunciation": "Phonetic guide (approximate): HEZ-ih-tayt",
+        "tamilMeaning": "நிச்சயமின்மை காரணமாகச் செயல்படுவதற்கு முன் தயங்குவது",
+        "englishMeaning": "to pause before acting because of uncertainty",
+        "coreIdea": "Pause or hold back because you are unsure about acting.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract verb for pausing or holding back because of uncertainty; here, uncertainty about sharing views.",
+              "connotation": "Slightly negative here because hesitation prevents open participation, though hesitation can also show care.",
+              "tone": "Encouraging and inclusive here: the speaker invites hesitant people to speak honestly.",
+              "register": "Neutral and common in everyday and professional English. The OCR-spaced source remains understandable but should not be treated as clean quotation text."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a pause or reluctance caused by uncertainty before speaking or acting."
+            ],
+            "when_not_to_use": [
+              "For a delay caused only by a broken machine or a fixed timetable, use wait or be delayed rather than assuming hesitation.",
+              "Do not use hesitate as if it means a final refusal; the person may still act."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Hesitate can suggest uncertainty, reluctance or caution; the sentence may not identify which feeling causes it. Avoid assuming cowardice or unwillingness from a pause alone.",
+            "Do not hesitate to contact us is a conventional invitation meaning you are welcome to get in touch. It reassures the reader rather than reporting an observed pause."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A hand pauses above the send button while its owner decides.",
+            "memory_sentence": "I sometimes hesitate to ask questions when I feel unsure.",
+            "recall_question": "Can someone hesitate and then decide to act?",
+            "recognition_task": "One person pauses because she is unsure; another waits because a door is locked. Which situation more clearly shows hesitate, and why?",
+            "production_task": "Write two sentences about a fictional person who may hesitate to share an idea. Offer a supportive invitation without claiming to know their exact thoughts."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "I sometimes hesitate to ask questions because I worry that everyone else understands.",
+              "example_2": "It is reasonable to hesitate before agreeing to a plan you do not fully understand."
+            },
+            "mini_conversation": "A: You seem to hesitate before sharing your opinion.\nB: I am not sure whether my idea would help.\nA: I would like to hear it, even if it is not finished."
+          },
+          "meaning_in_context": {
+            "source_sentence": "If  others  hesitate  to  share  their  vie ws,  I  sincerely  invite  them  to  say  what's  on  their  mind,  no  matter  what  it  is.",
+            "contextual_meaning": "to pause before acting because of uncertainty",
+            "simple_explanation": "Some people are uncertain about sharing their views and hold back. The speaker responds by inviting them to speak; the sentence does not say exactly why they are uncertain."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: She hesitates to sharing her views.",
+            "correction": "Say She hesitates to share her views. Use the base verb after to in hesitate to do something.",
+            "important_difference": "Hesitate means pause or hold back, often through uncertainty. Refuse means say or show that you will not do something; hesitation is not necessarily refusal."
+          },
+          "patterns_collocations": {
+            "main_pattern": "hesitate + to + verb; hesitate + before + -ing",
+            "common_collocations": [
+              "hesitate to speak",
+              "hesitate to ask",
+              "hesitate before answering",
+              "do not hesitate to contact us"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic sections repaired; uncertainty distinguished from external delay and refusal, without attributing unobserved motives.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 206,
+      "wordId": "1bd87742-d1d3-4913-a85d-9850a1fb6b20",
+      "senseKey": "from-now-on-or-in-future-activity",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "914389dd4cb6f34f32683b29f8f33ef5c9ea082b6b5b50d4e3e0df2724f9aadb",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "going forward",
+        "wordType": "adverbial phrase",
+        "pronunciation": "/ˌɡəʊ.ɪŋ ˈfɔː.wəd/",
+        "tamilMeaning": "இனிமேல்",
+        "englishMeaning": "from now on or in future activity",
+        "coreIdea": "Picture an arrow starting at today and pointing ahead.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Discourse phrase that shifts attention to a policy or practice from the present point onward.",
+              "connotation": "Neutral to constructive here: it introduces a simpler future reporting practice.",
+              "tone": "Decisive and forward-looking here: the speaker announces what will change.",
+              "register": "Common in workplace speech and writing. “From now on” is usually clearer in ordinary conversation."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Introduce a plan, policy or practice that applies from now into the future."
+            ],
+            "when_not_to_use": [
+              "For a completed event in the past, use a past-time expression such as last week.",
+              "If the change begins on a particular future date, state that date rather than leaving the start time unclear."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Going forward is common in workplace speech; from now on is often a simpler alternative.",
+            "Going forward identifies a future time frame but does not specify how long a policy will last. Add an end date or review point if one has been agreed."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture an arrow starting at today and pointing ahead.",
+            "memory_sentence": "Going forward, the club will publish fixtures a month in advance.",
+            "production_task": "Announce one clear change to future meeting follow-ups. Use the target expression in one or two sentences. Check its pattern and register only after speaking.",
+            "recall_question": "Without looking, retrieve the expression meaning from now on or in future activity. Then say it in a new situation.",
+            "recognition_task": "Which announces future practice: Going forward, we will send one update each Friday, or Last week, we sent one update? Explain what going forward adds."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "Going forward, we will send one combined weekly update.",
+              "another_setting": "Going forward, the club will publish fixtures a month in advance."
+            },
+            "mini_conversation": "A: Going forward, the club will publish fixtures a month in advance.\nB: That will make childcare easier to arrange."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Going forward, we will send one combined weekly update.",
+            "contextual_meaning": "from now on or in future activity",
+            "simple_explanation": "The speaker says that future updates will be combined into one weekly message. Going forward sets the time frame for the new practice, rather than describing physical movement."
+          },
+          "mistakes_differences": {
+            "correction": "Going forward, we will send it every Friday.",
+            "common_mistake": "Going forward, we have sent it last week.",
+            "important_difference": "Going forward concerns future practice; looking back reviews the past."
+          },
+          "patterns_collocations": {
+            "main_pattern": "going forward: going forward, + future practice",
+            "common_collocations": [
+              "our approach going forward",
+              "priorities going forward"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples and conversation retained; future practice and start-date limits clarified, recognition exercise made meaning-focused.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
