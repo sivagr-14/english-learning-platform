@@ -1,0 +1,345 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0210-0212",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 210,
+      "wordId": "1c15014f-9045-4f0e-8701-22024b3843f6",
+      "senseKey": "crucial-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "c9dec114001dad0509b2842c62fff943bbf658f139a755246751ec4f1dabe624",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "crucial",
+        "wordType": "adjective",
+        "pronunciation": "Phonetic guide (approximate): KROO-shul",
+        "tamilMeaning": "மிகவும் முக்கியமான",
+        "englishMeaning": "extremely important to the result",
+        "coreIdea": "So important that it can strongly affect the outcome.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract adjective meaning extremely important to the result; here, data preparation strongly affects later work.",
+              "connotation": "Emphatic and importance-marking, but not positive or negative by itself.",
+              "tone": "Instructional and emphatic here: the course highlights a step learners must not overlook.",
+              "register": "Neutral to formal; common in professional, academic and everyday explanation. “Very crucial” is redundant in careful edited English."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Emphasize a factor, step or decision that strongly affects an outcome."
+            ],
+            "when_not_to_use": [
+              "For a minor preference with little effect on the result, use useful or helpful rather than overstating it as crucial."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Crucial already expresses strong importance. The source adds very for emphasis, but crucial alone is usually enough in concise writing.",
+            "A crucial step can be necessary for success without being sufficient by itself; other conditions may still matter."
+          ],
+          "memory_practice": {
+            "memory_trigger": "One key step can change whether the whole task works.",
+            "memory_sentence": "Checking the address is a crucial step before sending the parcel.",
+            "recall_question": "Does calling a step crucial guarantee success once it is done?",
+            "recognition_task": "Which is more naturally crucial when sending a parcel: the correct address or the colour of the wrapping? Explain how each affects the result.",
+            "production_task": "Write a sentence naming a crucial step in an everyday task. Explain what could go wrong if it is missed."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Clear instructions are crucial to completing the task correctly.",
+              "example_2": "Checking the address is a crucial step before sending the parcel."
+            },
+            "mini_conversation": "A: Can we skip checking the measurements?\nB: No. That is a crucial step before we cut the wood.\nA: All right, let us check them again."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Data collection and preparation is a very crucial step.",
+            "contextual_meaning": "extremely important to the result",
+            "simple_explanation": "The speaker stresses that collecting and preparing data is extremely important for the later result. Crucial describes its importance; the sentence does not claim that doing this step guarantees success."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: It is crucial check the address.",
+            "correction": "Say It is crucial to check the address. Use to before the verb in this pattern.",
+            "important_difference": "Important covers many levels of significance. Crucial emphasizes that a factor has a particularly strong effect on the outcome."
+          },
+          "patterns_collocations": {
+            "main_pattern": "a crucial + step/factor/decision; crucial to + result; it is crucial to + verb",
+            "common_collocations": [
+              "a crucial step",
+              "a crucial role",
+              "crucial to success",
+              "a crucial decision"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Strong importance distinguished from guaranteed success; generic teaching replaced without new technical claims.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 211,
+      "wordId": "1c469111-919d-479a-8d87-bc8a86a31674",
+      "senseKey": "used-to-ask-what-result-or-standard-a-group-wants-to-achieve",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "08f58d79a981e5a62b1dd42065752f49b1ce8dc0ab78c64d8e91a9a62bb375b7",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "what are we aiming for",
+        "wordType": "expression",
+        "pronunciation": "/wɒt ə wi ˈeɪmɪŋ fɔː/",
+        "tamilMeaning": "ஒரு குழு அடைய விரும்பும் முடிவு அல்லது தரத்தை கேட்கும் தொடர்",
+        "englishMeaning": "used to ask what result or standard a group wants to achieve",
+        "coreIdea": "Paint the target before choosing the arrow.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational planning question used to identify the desired result or standard.",
+              "connotation": "Constructive and goal-focused here: it invites shared clarity before work proceeds.",
+              "tone": "Collaborative and practical here: “we” frames the first-month target as a group concern.",
+              "register": "Neutral; natural in meetings and everyday planning. A formal document may use “What is the objective?”"
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Ask a group to clarify its shared goal or intended standard before choosing how to work."
+            ],
+            "when_not_to_use": [
+              "What are we aiming for asks for the desired result; what are we doing asks about current activity."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "What are we aiming for invites a shared definition of success. A concrete answer can help the group judge progress.",
+            "For what are we aiming? is grammatically valid but relatively formal. Ending this conversational question with for is natural standard English."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Paint the target before choosing the arrow.",
+            "memory_sentence": "Before choosing exercises, what are we aiming for by the end of the course?",
+            "production_task": "Use “what are we aiming for” in your own response: Ask a project group to define the first-month outcome and how it will be measured.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “used to ask what result or standard a group wants to achieve”. Then explain it in your own words.",
+            "recognition_task": "Compare What are we aiming for? with What are we doing today? Which asks for the intended result rather than today’s activity? Explain."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "What are we aiming for in the first month?",
+              "another_context": "Before choosing exercises, what are we aiming for by the end of the course?"
+            },
+            "mini_conversation": "A: What are we aiming for in the first month?\nB: A working trial that five users can complete without help.\nA: Good. That gives us a clear result to test."
+          },
+          "meaning_in_context": {
+            "source_sentence": "What are we aiming for in the first month?",
+            "contextual_meaning": "used to ask what result or standard a group wants to achieve",
+            "simple_explanation": "The speaker asks the group to identify the result or standard it wants to reach during the first month. The question asks about the goal, not just the activities being done."
+          },
+          "mistakes_differences": {
+            "correction": "Ask What are we aiming for? Put are before we in this direct question. For what are we aiming? is also grammatical, but sounds more formal.",
+            "common_mistake": "Incorrect in a direct question: What we are aiming for?",
+            "important_difference": "What are we aiming for asks for the desired result; what are we doing asks about current activity."
+          },
+          "patterns_collocations": {
+            "main_pattern": "what are we aiming for: what are we aiming for in/by + period",
+            "common_collocations": [
+              "aim for a result",
+              "clarify the aim"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Corrected false error label on grammatical formal preposition-fronted question; useful examples retained and dialogue made concrete.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 212,
+      "wordId": "1c6b36f8-97b3-4249-b60c-7cf3ed48fc23",
+      "senseKey": "walked-through-shallow-water",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "612ed6740fd733beae38483391169d71a8a1682ecdec1e478f7c1455c19b627a",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "waded",
+        "wordType": "past-tense verb",
+        "pronunciation": "Phonetic guide (approximate): WAY-did",
+        "tamilMeaning": "ஆழமில்லா நீரில் நடந்து சென்றது",
+        "englishMeaning": "walked through shallow water",
+        "coreIdea": "Walked with feet in water rather than swimming.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal past-tense verb for walking through shallow water, which makes movement slower or more effortful than ordinary walking.",
+              "connotation": "Neutral here: it describes physical movement without praising or criticizing it.",
+              "tone": "Simple and descriptive here: the repeated action shows Wilbur following her into the brook.",
+              "register": "Neutral narrative vocabulary. The base form is “wade”; this entry records the past form used in the sentence."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe someone walking through water shallow enough for them to remain on their feet."
+            ],
+            "when_not_to_use": [
+              "For moving through water supported by swimming strokes, use swam rather than waded.",
+              "Do not use the literal water meaning to explain figurative phrases such as waded through paperwork."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Waded is the past tense and past participle of wade. The literal meaning depends on walking through the water, not on one fixed depth in centimetres.",
+            "Waded in can leave the body of water unstated when it is already clear, as with the brook in the source."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Feet step along the bottom while water surrounds the legs.",
+            "memory_sentence": "They waded across the small stream.",
+            "recall_question": "What distinguishes waded from swam in the source scene?",
+            "recognition_task": "Someone crosses a shallow brook with their feet stepping on the bottom. Is waded or swam the more precise verb? Explain.",
+            "production_task": "Write a fictional past-tense sentence with waded into or waded across. Describe the water without inventing a universal safe depth."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "She waded into the shallow water to retrieve the floating toy.",
+              "example_2": "They waded across the small stream, keeping their shoes above the water."
+            },
+            "mini_conversation": "A: Did you swim across the stream?\nB: No. It was shallow enough that we waded across.\nA: So you stayed on your feet."
+          },
+          "meaning_in_context": {
+            "source_sentence": "she waded into the brook, Wilbur waded in with her.",
+            "contextual_meaning": "walked through shallow water",
+            "simple_explanation": "She entered the brook on foot, and Wilbur entered the water with her. Waded describes walking through water; the short excerpt does not give an exact depth."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect past tense: Yesterday we wade across the stream.",
+            "correction": "Say Yesterday we waded across the stream. Add -d to wade to form the past tense.",
+            "important_difference": "Waded means moved on foot through water. Swam means moved through water using swimming movements; the feet do not need to stay on the bottom."
+          },
+          "patterns_collocations": {
+            "main_pattern": "person + waded + into/through/across + water; waded in",
+            "common_collocations": [
+              "waded into the stream",
+              "waded through shallow water",
+              "waded across the brook"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Literal walking-through-water sense taught with past tense, natural examples and swimming contrast; no exact source depth invented.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
