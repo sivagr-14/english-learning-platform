@@ -1,0 +1,462 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0197-0200",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 4,
+  "broaderLessonRepairProcessed": 4,
+  "lessonValidatorPassed": 4,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 197,
+      "wordId": "1b22dcbd-4d3a-4166-a264-c11dd167809e",
+      "senseKey": "polite-topic-introduction",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "9a8d8de67c3f1544acda0e082ae1c07d8f6e00fbcb39db4277a457f146b92807",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "like to talk about",
+        "wordType": "conversational phrase",
+        "pronunciation": "Approximate pronunciation: lyk tuh TAWK uh-BOUT. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "ஒரு விஷயத்தைப் பற்றிப் பேச விரும்புவதாக மரியாதையுடன் கூறுதல்",
+        "englishMeaning": "a polite way to introduce a subject for discussion",
+        "coreIdea": "Politely say which topic you want to discuss.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational introduction of a desired discussion: “I'd like to talk about” politely states the speaker's intention to raise a topic.",
+              "connotation": "Neutral and considerate: it introduces the subject without itself blaming the listener.",
+              "tone": "Careful and personal here: the speaker opens a discussion about a sensitive mismatch in intimacy.",
+              "register": "Natural in everyday and professional conversation. The polite construction needs “would like”; bare “like to talk about” can instead describe a habitual preference."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Introduce a topic politely using I would like to talk about or I’d like to talk about."
+            ],
+            "when_not_to_use": [
+              "Do not drop would if you mean a polite wish: I like to talk about usually describes what you enjoy discussing.",
+              "For a sensitive issue, consider asking whether it is a good time to talk rather than assuming the listener is ready."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "The heading like to talk about is only part of the construction. In the source, I’d supplies would, which is essential to the polite-wish interpretation taught here.",
+            "I’d like to talk about can introduce a serious concern as well as a pleasant topic. Polite wording alone does not show that the listener has agreed to discuss it immediately."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A polite doorway into a topic: I would like to talk about it.",
+            "memory_sentence": "I’d like to talk about how we share the work.",
+            "recall_question": "What does I’d stand for in I’d like to talk about?",
+            "recognition_task": "Which introduces a polite wish to discuss a topic now: I like to talk about travel, or I’d like to talk about our travel plans? Explain the role of would.",
+            "production_task": "Write a polite two-sentence opening for a conversation about a fictional shared plan. Use I’d like to talk about and check whether the time is suitable."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "I’d like to talk about how we share the work. Is now a good time?",
+              "example_2": "We would like to talk about the new schedule before it is confirmed."
+            },
+            "mini_conversation": "A: I’d like to talk about what happened at the meeting.\nB: Of course. Could we talk after lunch?\nA: Yes, that works for me."
+          },
+          "meaning_in_context": {
+            "source_sentence": "I'd like  to  talk  about  what  happens  when we're  not  romantically  in  sy nc.",
+            "contextual_meaning": "a polite way to introduce a subject for discussion",
+            "simple_explanation": "The speaker introduces a sensitive relationship topic with I’d like to talk about. I’d means I would; that complete construction expresses a polite wish to discuss something, rather than enjoyment of talking about it."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Meaning mismatch: I like to talk about our schedule, when you intend to request a discussion now.",
+            "correction": "Say I’d like to talk about our schedule. I would like expresses the wish; I like usually expresses enjoyment or preference.",
+            "important_difference": "I’d like to talk about introduces a desired discussion. I like talking about describes a topic you enjoy; it is not the same request."
+          },
+          "patterns_collocations": {
+            "main_pattern": "I would/I’d like to talk about + topic; we would like to talk about + topic",
+            "common_collocations": [
+              "I’d like to talk about our plans",
+              "we would like to talk about the schedule",
+              "I’d like to talk about what happened"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Partial heading preserved; would explicitly required for polite-wish sense rather than enjoyment.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 198,
+      "wordId": "1b338f71-29af-4106-ac5e-43d2588aa7a5",
+      "senseKey": "remain-passively-uninvolved",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "881a9f5c86fd981e964a0ba34d184ff3d8cadef610418b0aee382cce2875982c",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "sit back",
+        "wordType": "phrasal verb",
+        "pronunciation": "Approximate pronunciation: sit BAK. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "செயலில் ஈடுபடாமல் அமைதியாக ஒதுங்கியிருத்தல்",
+        "englishMeaning": "to remain passive instead of becoming actively involved",
+        "coreIdea": "Stay uninvolved while other people act or decide.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative phrasal verb for remaining uninvolved, rather than merely adopting a seated position.",
+              "connotation": "Negative in this example because passive participation is linked with weak commitment to the final decision.",
+              "tone": "Critical and explanatory here: the passage contrasts sitting back with being involved in difficult conversations.",
+              "register": "Common everyday and workplace English. In other contexts it can invite relaxation, which is a different use."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe choosing not to become actively involved while an event or discussion continues."
+            ],
+            "when_not_to_use": [
+              "Do not assume every quiet listener is uninvolved; listening carefully can also be active participation.",
+              "For simply leaning against a chair or relaxing, the context uses a different sense of sit back."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Sit back often sounds critical when action is expected, particularly in cannot just sit back. It can also describe a deliberate choice not to intervene.",
+            "The source makes a general claim linking non-participation and commitment. It does not establish that every quiet person lacks commitment."
+          ],
+          "memory_practice": {
+            "memory_trigger": "The group acts while one person stays outside the action.",
+            "memory_sentence": "I do not want to sit back and let others decide everything.",
+            "recall_question": "Does sit back in this source describe a chair position or a lack of involvement?",
+            "recognition_task": "Someone quietly listens and then makes a useful suggestion. Must they have chosen to sit back in the passive sense? Explain why silence alone is insufficient evidence.",
+            "production_task": "Write a sentence using sit back about a fictional group decision. Add what the person will do instead of remaining uninvolved."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "I do not want to sit back and let others make every decision for the group.",
+              "example_2": "We cannot just sit back while the same problem keeps delaying the project."
+            },
+            "mini_conversation": "A: Are you going to contribute to the plan?\nB: Yes. I do not want to sit back and leave all the work to you.\nA: Great. Could you suggest a timetable?"
+          },
+          "meaning_in_context": {
+            "source_sentence": "Conver se ly,  when  people  aren't  involved,  when  they  sit  back  quietly during touchy  conve rsations,  the y're  rarely  committed  to  the  final  decision.",
+            "contextual_meaning": "to remain passive instead of becoming actively involved",
+            "simple_explanation": "The writer describes people remaining quiet and uninvolved during sensitive conversations, and links this with weaker commitment to the decision. The focus is participation, not their physical sitting position."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect for this meaning: I will sit back the decision.",
+            "correction": "Say I will sit back and let others make the decision. Sit back does not take the decision as a direct object in this sense.",
+            "important_difference": "Sit back emphasizes not intervening or taking part. Listen describes receiving what others say and does not necessarily imply passivity."
+          },
+          "patterns_collocations": {
+            "main_pattern": "sit back + and + watch/let others act; sit back + while + clause",
+            "common_collocations": [
+              "sit back and watch",
+              "sit back and let others decide",
+              "sit back while others do the work"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Passive involvement distinguished from chair position and attentive quiet listening.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 199,
+      "wordId": "1b34f1f8-5852-4395-b8ea-28c256fb8727",
+      "senseKey": "give-an-impression",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a876c22455576ddaf77ee1294ae51825f2e5bda265f9071f2cc947e57c50d163",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "come across as",
+        "wordType": "phrasal verb phrase",
+        "pronunciation": "Approximate pronunciation: kum uh-KROSS az. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "மற்றவர்களுக்கு ஒரு குறிப்பிட்ட விதமாகத் தோன்றுதல்",
+        "englishMeaning": "to appear or give other people a particular impression",
+        "coreIdea": "Give someone an impression of what you are like.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract phrasal expression for the impression a person gives others, whether or not that impression matches their intention.",
+              "connotation": "Neutral by itself; “self-righteous or demanding” supplies the unwanted impression in this question.",
+              "tone": "Concerned and diplomatic here: the speaker wants to raise a complaint without appearing superior or forceful.",
+              "register": "Common in everyday and workplace feedback. It describes perceived presentation rather than proving a person's character."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss the impression a person, message or manner gives to other people."
+            ],
+            "when_not_to_use": [
+              "Do not treat an impression as proof of someone’s true motive or character.",
+              "Without as, come across can mean find by chance, which is a different construction."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Come across as allows a gap between intention and reception. Different listeners can form different impressions from the same words.",
+            "Feedback such as You come across as dismissive still evaluates someone’s manner. Referring to a specific message or behaviour can make the feedback easier to understand."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Your words reach someone, and an impression forms.",
+            "memory_sentence": "A short reply can come across as unfriendly.",
+            "recall_question": "Can a person come across as confident while feeling nervous?",
+            "recognition_task": "A busy person sends a brief message that a colleague finds cold. Does come across as cold describe the colleague’s impression or prove the writer intended to be unkind?",
+            "production_task": "Write a sentence about how a fictional email might come across as. Then suggest one wording change that could improve the impression."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "A very short reply can come across as unfriendly even when the writer is simply busy.",
+              "example_2": "She wants to come across as a helpful colleague, not someone who gives orders."
+            },
+            "mini_conversation": "A: Does my message come across as demanding?\nB: A little. You could explain why you need a reply today.\nA: Good idea. I will add the reason."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Is  there  a  way  to  talk  to  your  neighbors  about  their  annoying  behavior  and  not  come  across  as  self-rig hteous  or  demanding?",
+            "contextual_meaning": "to appear or give other people a particular impression",
+            "simple_explanation": "The speaker wants to discuss the neighbours’ behaviour without giving the impression of being morally superior or demanding. Come across as describes how the listener may perceive the speaker, not necessarily the speaker’s intention or character."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: His reply comes across as rudely.",
+            "correction": "Say His reply comes across as rude. Use an adjective to describe the impression, or a noun phrase such as a rude response.",
+            "important_difference": "Come across as concerns the impression received. Be states the quality more directly; someone can come across as confident while feeling nervous."
+          },
+          "patterns_collocations": {
+            "main_pattern": "come across as + adjective; come across as + noun phrase",
+            "common_collocations": [
+              "come across as friendly",
+              "come across as demanding",
+              "come across as a confident speaker"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Received impression distinguished from intention or proven character; adjective complement taught.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 200,
+      "wordId": "1b36416c-b166-418a-9703-821df3dfe798",
+      "senseKey": "tolerated-demonstrated-course-sense",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8c33d2e8f5b566ffb5fedece24ed73213f81fa7212d2dd5757c90035e298376c",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "tolerated",
+        "wordType": "past participle",
+        "pronunciation": "Approximate pronunciation: TOL-uh-ray-tid. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "விரும்பத்தகாதிருந்தும் ஏற்றுக்கொள்ளப்பட்ட",
+        "englishMeaning": "accepted despite being undesirable",
+        "coreIdea": "Allowed or accepted even though it is not ideal.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract verb describing acceptance of a disadvantage within limits; here, lower precision is accepted to prioritize finding important cases.",
+              "connotation": "Reluctantly accepting rather than approving: the lower precision remains a trade-off.",
+              "tone": "Analytical and cautionary here: the speaker explains why serious consequences can justify a different balance of errors.",
+              "register": "Neutral to formal; common in technical and risk discussions. “Accepted as a trade-off” is clearer than suggesting the disadvantage is harmless."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe an unwanted condition that is accepted within limits or for a particular reason."
+            ],
+            "when_not_to_use": [
+              "Do not use tolerated as a synonym for welcomed or encouraged.",
+              "Do not assume an example of what can be tolerated sets a safety rule for a real system."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Tolerated often implies a boundary: a condition may be accepted temporarily or below a certain level. State that limit where it matters.",
+            "In the source, can be tolerated is part of the author’s example of accepting a trade-off. It is not a universal rule about acceptable errors in real aircraft maintenance."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A small unwanted inconvenience is allowed, but only within a boundary.",
+            "memory_sentence": "A short delay can be tolerated if the deadline is still met.",
+            "recall_question": "Does tolerated mean that the condition is desirable?",
+            "recognition_task": "A team allows a temporary inconvenience because removing it immediately would cause a bigger problem. Is the inconvenience tolerated or necessarily welcomed? Explain.",
+            "production_task": "Write a sentence with can be tolerated about a fictional everyday inconvenience. State a clear limit or reason for accepting it."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Some background noise can be tolerated during the workshop, but loud interruptions make discussion difficult.",
+              "example_2": "A small delay was tolerated because the team had warned everyone in advance."
+            },
+            "mini_conversation": "A: Can a short delay be tolerated?\nB: Yes, if we still finish before the agreed deadline.\nA: I will confirm the new time with everyone."
+          },
+          "meaning_in_context": {
+            "source_sentence": "For example, maintenance on airplanes, we probably want to have a very high recall, as making errors is very serious, and in that case, lower precision can be tolerated.",
+            "contextual_meaning": "accepted despite being undesirable",
+            "simple_explanation": "The author says lower precision may be accepted as a disadvantage in the example because another priority matters more. Can be tolerated expresses possible acceptance, not praise or a claim that every error is harmless."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: A short delay can tolerated.",
+            "correction": "Say A short delay can be tolerated. The passive pattern is can be plus the past participle.",
+            "important_difference": "Tolerated means accepted despite a drawback. Welcomed means received positively; a tolerated condition need not be liked."
+          },
+          "patterns_collocations": {
+            "main_pattern": "condition + is/can be + tolerated; condition + will not be + tolerated",
+            "common_collocations": [
+              "can be tolerated",
+              "will not be tolerated",
+              "temporarily tolerated",
+              "tolerated within limits"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Acceptance despite drawback distinguished from approval; passive grammar repaired; source illustration not certified as operational safety policy.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
