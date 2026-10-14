@@ -1,0 +1,335 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0185-0187",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 185,
+      "wordId": "19541268-1090-49d6-9135-6484a45b3579",
+      "senseKey": "according-to-the-exact-meaning-definition-or-rule",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "161055a2d4dff1e170cfd83142c31b76ef50e226d7cbebeb5bdf90c50d68d9f0",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "strictly speaking",
+        "wordType": "discourse phrase",
+        "pronunciation": "/ˌstrɪkt.li ˈspiː.kɪŋ/",
+        "tamilMeaning": "துல்லியமான விதிப்படி சொன்னால்",
+        "englishMeaning": "according to the exact meaning, definition or rule",
+        "coreIdea": "Picture a magnifying glass over the exact wording of a rule.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Discourse qualifier introducing an exact definition or rule; here, the precise deadline is noon.",
+              "connotation": "Neutral in meaning, though it can sound pedantic if the distinction is unimportant to the listener.",
+              "tone": "Precise and corrective here: it corrects the broader assumption that the deadline is the day's end.",
+              "register": "Neutral to formal, natural when exactness matters. Explain the practical importance if the correction may otherwise seem fussy."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Introduce a precise correction based on an exact definition or rule."
+            ],
+            "when_not_to_use": [
+              "Avoid interrupting with strictly speaking when the small distinction does not matter to the discussion."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Strictly speaking signals attention to an exact definition or rule. Explain the practical importance of a correction so it does not sound unnecessarily fussy.",
+            "Strictly speaking can qualify a statement without rejecting its everyday usefulness: something may be roughly true but not technically exact."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a magnifying glass over the exact wording of a rule.",
+            "memory_sentence": "Strictly speaking, that room is a study, not a bedroom.",
+            "production_task": "Clarify the exact deadline and explain why the distinction matters. Use the target expression in one or two sentences. Check its pattern and register only after speaking.",
+            "recall_question": "Without looking, retrieve the expression meaning according to the exact meaning, definition or rule. Then say it in a new situation.",
+            "recognition_task": "Choose the natural sentence. A: Strict speaking, the form is incomplete. B: Strictly speaking, the form is incomplete. Explain why, then check the correction after answering."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "Strictly speaking, the deadline is noon rather than the end of the day.",
+              "another_setting": "Strictly speaking, that room is a study, not a bedroom."
+            },
+            "mini_conversation": "A: Strictly speaking, that room is a study, not a bedroom.\nB: Then we should check whether it can accommodate a guest."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Strictly speaking, the deadline is noon rather than the end of the day.",
+            "contextual_meaning": "according to the exact meaning, definition or rule",
+            "simple_explanation": "The speaker gives the exact deadline, noon, and corrects the looser idea that there is time until the end of the day."
+          },
+          "mistakes_differences": {
+            "correction": "Strictly speaking, the form is incomplete.",
+            "common_mistake": "Strict speaking, the form is incomplete.",
+            "important_difference": "Strictly speaking highlights technical accuracy; broadly speaking gives a general overview."
+          },
+          "patterns_collocations": {
+            "main_pattern": "Strictly speaking, + precise statement; not, strictly speaking, + description",
+            "common_collocations": [
+              "strictly speaking, the deadline is",
+              "not, strictly speaking, correct"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples and practice retained; exact-deadline explanation and collocations improved.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 186,
+      "wordId": "195a7d30-6612-482a-a1fe-c83610e91f30",
+      "senseKey": "used-to-express-reduced-worry-after-reassuring-news",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a651a528fe48976e23b3416cdb2f30dc1a2d092603fbad441df51503bb3fe146",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "that is a relief",
+        "wordType": "expression",
+        "pronunciation": "/ðæt ɪz ə rɪˈliːf/",
+        "tamilMeaning": "அது நிம்மதியளிக்கிறது",
+        "englishMeaning": "used to express reduced worry after reassuring news",
+        "coreIdea": "A weight lifts from your shoulders.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational response expressing that a previous worry has eased.",
+              "connotation": "Positive about the reassuring news, while implying that the speaker had been concerned.",
+              "tone": "Relieved here: the speaker explicitly says they had thought the booking was lost.",
+              "register": "Common everyday and workplace English. It expresses a reaction, not a formal evaluation of the event."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Respond to news that removes or reduces an earlier worry, such as finding a missing passport."
+            ],
+            "when_not_to_use": [
+              "For good news unrelated to a worry, That is wonderful may fit better."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "That is a relief refers to reduced worry, not simply pleasure. The earlier concern may be stated or understood from the conversation.",
+            "That’s a relief is the common contracted form in speech. Both forms express the same reaction."
+          ],
+          "memory_practice": {
+            "memory_trigger": "A weight lifts from your shoulders.",
+            "memory_sentence": "That is a relief; the passport was in my other bag.",
+            "production_task": "Respond after learning that a missing booking has been found. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: used to express reduced worry after reassuring news. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: That is a relief. B: That is a relieve. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "That is a relief; I thought I had lost the booking.",
+              "another_setting": "That is a relief; the passport was in my other bag."
+            },
+            "mini_conversation": "A: That is a relief; the passport was in my other bag.\nB: Let us put it with the tickets now."
+          },
+          "meaning_in_context": {
+            "source_sentence": "That is a relief; I thought I had lost the booking.",
+            "contextual_meaning": "used to express reduced worry after reassuring news",
+            "simple_explanation": "The speaker had been worried about the booking and now feels less worried after reassuring news. That refers back to the news or discovery."
+          },
+          "mistakes_differences": {
+            "correction": "That is a relief.",
+            "common_mistake": "That is a relieve.",
+            "important_difference": "Relief is the noun; relieve is the verb describing removal of worry or discomfort."
+          },
+          "patterns_collocations": {
+            "main_pattern": "that is a relief: that is a relief; what a relief",
+            "common_collocations": [
+              "such a relief",
+              "a great relief"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid grammar and examples retained; relief distinguished from general happiness and contraction clarified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 187,
+      "wordId": "19808b8d-bfe1-450a-8165-2978d7ab5fa9",
+      "senseKey": "provoke-emotional-reaction",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "23ccaac94c9c1656fbbe0faa3349ca2c1a239f74d52ca601b485d0e3de952728",
+      "profileReceipt": "PROFILE-DRAFT-002.json",
+      "headerReviewReceipt": "HEADER-REVIEW-002-151-200.json",
+      "entry": {
+        "word": "push someone’s buttons",
+        "wordType": "idiom",
+        "pronunciation": "Approximate pronunciation: push SUM-wunz BUT-uhnz. Capitals show stress; this is text guidance, not audio.",
+        "tamilMeaning": "வேண்டுமென்றே ஒருவருக்குக் கோபம் போன்ற வலுவான உணர்வைத் தூண்டுதல்",
+        "englishMeaning": "to deliberately provoke a strong emotional reaction",
+        "coreIdea": "Provoke someone by touching a topic or feeling they react strongly to.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative idiom for triggering an emotional reaction, comparing reactions with responses activated by buttons.",
+              "connotation": "Often negative because the reaction is irritating or upsetting; deliberate provocation should not be assumed without evidence.",
+              "tone": "Probing and conversational here: the question asks whether she triggers the listener's reactions.",
+              "register": "Informal and common in discussions of relationships. “Provoke you” is more direct, but can imply a clearer intention than the question establishes."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe deliberately provoking someone by mentioning a sensitive topic or using behaviour they find upsetting."
+            ],
+            "when_not_to_use": [
+              "For an accidental disagreement without evidence of deliberate provocation, describe what happened rather than assuming someone meant to push your buttons.",
+              "In a formal report, provoke an emotional reaction may be clearer than this informal idiom."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Push someone’s buttons uses an image of a person responding like a machine when a control is pressed. In this lesson it describes deliberate emotional provocation, not physical buttons.",
+            "The idiom can suggest intention, but the source question alone does not prove it. Distinguish an observed reaction from your interpretation of another person’s motive."
+          ],
+          "memory_practice": {
+            "memory_trigger": "An imaginary emotional button triggers a strong reaction.",
+            "memory_sentence": "He knows how to push my buttons by mentioning that old argument.",
+            "recall_question": "Why does the expression use my or your rather than me or you before buttons?",
+            "recognition_task": "Someone repeats a disliked joke specifically to get an angry reaction. Does push someone’s buttons fit this situation? Explain what makes it more specific than annoy.",
+            "production_task": "Write a fictional two-line exchange about deliberate provocation using push my buttons or push your buttons. Include a calm response or boundary."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "He knows that mentioning the old argument will push my buttons, so I asked him to stop.",
+              "example_2": "Do not push her buttons by repeating a joke she has already said she dislikes."
+            },
+            "mini_conversation": "A: Why does he keep bringing up that embarrassing mistake?\nB: I think he is trying to push your buttons.\nA: I will tell him I do not want to discuss it."
+          },
+          "meaning_in_context": {
+            "source_sentence": "\"  \"Does  she  push  your  buttons?",
+            "contextual_meaning": "to deliberately provoke a strong emotional reaction",
+            "simple_explanation": "The question asks whether she provokes a strong emotional reaction in the listener. The quotation has extra opening quotation marks and gives no details of what she says or whether her intention is known; this lesson follows the stored deliberate-provocation sense."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: He knows how to push me buttons.",
+            "correction": "Say He knows how to push my buttons. Use the possessive form to identify whose feelings are being provoked.",
+            "important_difference": "Annoy someone can describe many kinds of irritation. Push someone’s buttons suggests touching particular emotional sensitivities, often deliberately."
+          },
+          "patterns_collocations": {
+            "main_pattern": "push someone’s buttons: push + possessive + buttons, as in push my buttons",
+            "common_collocations": [
+              "push my buttons",
+              "know how to push your buttons",
+              "try to push someone’s buttons"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Deliberate provocation sense preserved while source limits on motive disclosed; possessive pattern and realistic examples repaired.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "f0538a58c05ebd154d193a0a40545e4f1f5a616a",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
