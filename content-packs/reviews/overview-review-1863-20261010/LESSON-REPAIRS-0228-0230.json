@@ -1,0 +1,338 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0228-0230",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 228,
+      "wordId": "1de052b1-ffa9-481c-abb5-9c007bdd5c2a",
+      "senseKey": "be-disappointed-by",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2eaab4accc339dd55177f86b81ffdf2b6f5617263494640aee70617f16c83950",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "be let down by",
+        "wordType": "phrasal verb",
+        "pronunciation": "Phonetic guide (approximate): bee let DOWN by",
+        "tamilMeaning": "எதிர்பார்த்ததை ஒருவர் செய்யாததால் ஏமாற்றமடைவது.",
+        "englishMeaning": "to be disappointed because someone failed to do what was expected",
+        "coreIdea": "Feel disappointed because someone did not meet an expectation or promise.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Idiomatic passive phrase for feeling disappointed because someone has not met an expectation or commitment.",
+              "connotation": "Negative: it highlights disappointed trust, especially when the commitment mattered.",
+              "tone": "Frustrated and weary here: “I'm tired” and reliance on his commitments suggest repeated disappointment.",
+              "register": "Common everyday and workplace English. Name the unmet commitment when a direct accusation could sound vague."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe disappointment when someone fails to provide promised or expected help."
+            ],
+            "when_not_to_use": [
+              "For disappointment unrelated to anyone failing an expectation, disappointed may be clearer. This expression is not about being physically lowered."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "To be let down by someone often involves trust or reliance, so it can feel more personal than a generally disappointing result.",
+            "The phrase reports a failure to meet expectations; it does not by itself prove that the person intended to cause harm."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture waiting for promised help that never comes.",
+            "memory_sentence": "It hurts to be let down by a friend who promised to help.",
+            "recall_question": "What expectation has failed when someone is let down?",
+            "recognition_task": "Ana promised to help but did not arrive. Ben arrived as agreed. Which friend might someone feel let down by, and why?",
+            "production_task": "Write two sentences about a fictional broken promise. Use was let down by and describe the expectation clearly."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "You may be let down by a colleague who promises help but never arrives.",
+              "example_2": "I was let down by my friend when she forgot our agreed meeting."
+            },
+            "mini_conversation": "A: I felt let down when you did not come to help.\nB: I am sorry. I should have told you I could not make it."
+          },
+          "meaning_in_context": {
+            "source_sentence": "I'm  tired  of  being  let  down  by  him  when  he  makes  commit­ ments  that  I  depend  on.",
+            "contextual_meaning": "to be disappointed because someone failed to do what was expected",
+            "simple_explanation": "The speaker depends on his commitments and feels repeatedly disappointed when he fails to keep them. The source expresses frustration but does not establish his intentions."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: I was letted down by my friend.",
+            "correction": "Say I was let down by my friend. In be let down by, let stays let in the past participle.",
+            "important_difference": "Be let down by someone means experience disappointment caused by their failure. Let someone down names the action from the other side: My friend let me down."
+          },
+          "patterns_collocations": {
+            "main_pattern": "be let down by + person; am/is/was let down by; being let down by",
+            "common_collocations": [
+              "be let down by a friend",
+              "feel let down",
+              "being let down again"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic teaching replaced with broken-promise examples, passive grammar and no unsupported intent inference.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 229,
+      "wordId": "1defb050-eab4-432f-8d20-c69553140f6a",
+      "senseKey": "the-sequence-of-dependent-tasks-that-determines-the-shortest-possible-project-duration",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "998335d12824682254bbc0102c445e177aa338a96588be9ec0a33b9a7eb460ba",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "critical path",
+        "wordType": "noun phrase",
+        "pronunciation": "/ˌkrɪtɪkəl ˈpɑːθ/",
+        "tamilMeaning": "முடியும் தேதியை நிர்ணயிக்கும் சார்ந்த பணிகளின் தொடர்",
+        "englishMeaning": "the sequence of dependent tasks that determines the shortest possible project duration",
+        "coreIdea": "The chain with no time to spare.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Technical project-planning term for the chain of dependent tasks that controls the earliest possible completion date.",
+              "connotation": "Neutral: “critical” marks scheduling importance, not a judgement that the tasks are dangerous or poorly done.",
+              "tone": "Analytical and cautionary here: a venue-booking delay would move the event date.",
+              "register": "Specialist project-management language. Explain the dependency chain to audiences unfamiliar with scheduling methods."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Discuss the chain of dependent tasks that sets the earliest project finish in the current schedule."
+            ],
+            "when_not_to_use": [
+              "Critical path concerns scheduling dependencies; high priority concerns importance and may include unrelated work."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "The critical path can change when task durations or dependencies change. A schedule can also have more than one critical path.",
+            "It is the longest chain by total duration, not necessarily the chain with the most tasks. Its duration determines the earliest possible finish under the schedule assumptions."
+          ],
+          "memory_practice": {
+            "memory_trigger": "The chain with no time to spare.",
+            "memory_sentence": "Building the stage is on the critical path: finishing late would delay rehearsals and the opening night.",
+            "production_task": "Use “critical path” in your own response: Explain why a delayed prerequisite can move the whole completion date even when other work finishes early.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “the sequence of dependent tasks that determines the shortest possible project duration”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “Every important task is on the critical path.” B: “A task is on the critical path when its timing determines the project's completion date.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "The venue booking is on the critical path, so a delay would move the event date.",
+              "another_context": "Building the stage is on the critical path: finishing late would delay rehearsals and the opening night."
+            },
+            "mini_conversation": "A: The venue booking is on the critical path, so a delay would move the event date.\nB: Then we should prioritise that booking rather than unrelated details."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The venue booking is on the critical path, so a delay would move the event date.",
+            "contextual_meaning": "the sequence of dependent tasks that determines the shortest possible project duration",
+            "simple_explanation": "The schedule depends on booking the venue in time. In this plan, a booking delay would push the event later unless the plan were changed to recover the lost time."
+          },
+          "mistakes_differences": {
+            "correction": "A task is on the critical path when its timing determines the project's completion date.",
+            "common_mistake": "Every important task is on the critical path.",
+            "important_difference": "Critical path concerns scheduling dependencies; high priority concerns importance and may include unrelated work."
+          },
+          "patterns_collocations": {
+            "main_pattern": "on the critical path; identify/review + the critical path",
+            "common_collocations": [
+              "identify the critical path",
+              "a critical-path task"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid scheduling lesson preserved; dependency duration and recoverable schedule assumptions clarified using PMI sources.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 230,
+      "wordId": "1e138b1a-cfb5-429d-aada-bba13fb1cc4b",
+      "senseKey": "bar-used-for-force",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e1721e8171a56a4168da669ad8b4840795fd84986b44f22df5d56ca1aa541797",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "lever",
+        "wordType": "noun",
+        "pronunciation": "/ˈliːvə/",
+        "tamilMeaning": "ஒரு நிலையான ஆதாரப் புள்ளியைப் பயன்படுத்தி கனமான பொருளை நகர்த்த அல்லது தூக்க உதவும் உறுதியான தண்டு",
+        "englishMeaning": "a rigid bar used with a fixed point to move or lift a heavy load",
+        "coreIdea": "A rigid bar that turns around a support point to move a load.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal mechanical noun for a rigid bar used around a fixed point to move a load; the quotation exaggerates what it could move.",
+              "connotation": "Neutral as a tool name; the grand claim gives it an association with remarkable power here.",
+              "tone": "Bold and exaggerated here: the speaker claims that a long enough lever could move the world.",
+              "register": "Common in mechanics and general descriptions of tools. This entry teaches the physical device, not an abstract source of influence."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Name a rigid bar that turns around a support point to move or lift a load."
+            ],
+            "when_not_to_use": [
+              "This lesson concerns the physical bar, not a figurative way of influencing a decision."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "The support point is called the fulcrum. How much force is needed depends on the distances from it to the load and to where the effort is applied.",
+            "In a suitable arrangement, applying effort farther from the fulcrum reduces the force needed to move the load. A lever does not create energy."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a long bar resting on a small point and lifting a huge rock.",
+            "memory_sentence": "A longer lever allowed the mechanic to move the load with less force.",
+            "production_task": "Describe a simple diagram of a lever in two sentences. Name the bar, the support point and the load.",
+            "recall_question": "What does lever mean in the source context?",
+            "recognition_task": "A rigid bar turns around a support to lift a stone. A rope simply pulls the stone along. Which tool is a lever, and where is its fulcrum?"
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We used a lever to lift the heavy stone slightly.",
+              "example_2": "A longer lever allowed the mechanic to move the load with less force."
+            },
+            "mini_conversation": "A: What is the bar resting on?\nB: A support point called the fulcrum. The bar acts as a lever."
+          },
+          "meaning_in_context": {
+            "source_sentence": "2  Give  me  a  lever  lon g  en ough  and  I  shall  move  the  wor ld.",
+            "contextual_meaning": "a rigid bar used with a fixed point to move or lift a heavy load",
+            "simple_explanation": "The speaker imagines using an extremely long bar to move an enormous load. The claim about moving the world is dramatic exaggeration, while lever still names a physical tool."
+          },
+          "mistakes_differences": {
+            "correction": "He lifted the box with a lever.",
+            "common_mistake": "He lifted the box by a leverage.",
+            "important_difference": "A lever is the rigid bar; the fulcrum is the fixed point around which that bar pivots."
+          },
+          "patterns_collocations": {
+            "main_pattern": "use + a lever + to lift / move + load",
+            "common_collocations": [
+              "long lever",
+              "lever and fulcrum"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid physical-tool examples retained; generic tasks/dialogue replaced and force/fulcrum explanation checked using NASA sources.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
