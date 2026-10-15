@@ -1,0 +1,344 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0243-0245",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 243,
+      "wordId": "20a4f792-061a-4fc2-819d-b42da8aaacc7",
+      "senseKey": "to-great-depth",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a6cde7af601a3279e092b25a85da07c4dd99831e071f016db91993af76848c2b",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "profoundly",
+        "wordType": "adverb",
+        "pronunciation": "Phonetic guide (approximate): pruh-FOUND-lee",
+        "tamilMeaning": "மிக ஆழமான அல்லது மிகப் பெரிய அளவில்.",
+        "englishMeaning": "to a very great or deep degree",
+        "coreIdea": "To a very deep or great degree.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract degree adverb emphasizing how deeply or extensively something is true; here, interdependence.",
+              "connotation": "Neutral as an intensifier; the mixed description of technology supplies both promise and danger.",
+              "tone": "Serious and concerned here: “frightening,” “dangerous” and growing pressure frame change as difficult.",
+              "register": "Neutral to formal; common in reflective or analytical writing. “Very deeply” is a simpler explanation."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Emphasize the depth of an effect, feeling, change or relationship."
+            ],
+            "when_not_to_use": [
+              "For ordinary physical size or speed, use a more suitable modifier such as very big or very fast."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Profoundly often suggests a deep effect or a fundamental quality, rather than a small surface change.",
+            "It can strengthen positive or negative descriptions: profoundly grateful and profoundly troubling are both natural."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine a change reaching deep into the way someone thinks.",
+            "memory_sentence": "The conversation profoundly changed my understanding of the problem.",
+            "recall_question": "Does profoundly suggest a slight effect or a deep one?",
+            "recognition_task": "One event changes a person’s whole outlook; another makes them briefly smile. Which effect is more naturally described as profound, and how would you use profoundly?",
+            "production_task": "Write two sentences about a fictional experience that profoundly affects a person. Explain the lasting change."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The experience profoundly changed her view of friendship.",
+              "example_2": "We are profoundly grateful for the help we received."
+            },
+            "mini_conversation": "A: Did the journey change your plans?\nB: Yes, it profoundly affected what I wanted to do next."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Just  as  the  world  is  changing  at  fr ightening  speed  and  has  become  increasingly  and  profoundly  interdependent  with  mar velous  and  dangerous  technolog ies,  so,  too,  have  the  stresses  and pressures  we  all  experience  exponen­ tially  incr eased.",
+            "contextual_meaning": "to a very great or deep degree",
+            "simple_explanation": "The writer describes the world as deeply interconnected through technology. Profoundly strengthens interdependent; it does not describe physical depth."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The experience profound changed her views.",
+            "correction": "Say The experience profoundly changed her views. Use the adverb profoundly to modify changed.",
+            "important_difference": "Profound is an adjective: a profound change. Profoundly is an adverb: profoundly changed. It emphasizes depth or great degree."
+          },
+          "patterns_collocations": {
+            "main_pattern": "profoundly + adjective/participle; profoundly + affect/change",
+            "common_collocations": [
+              "profoundly affected",
+              "profoundly grateful",
+              "profoundly different"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic teaching replaced with deep-degree meaning, adverb grammar and concrete effects.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 244,
+      "wordId": "20ed5df1-8ddb-4433-8dbb-187440607a36",
+      "senseKey": "legal-end-of-marriage",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8e2a15622470c4594ac7bce33b144f670bf1cc38633c879414ed1f4348ba15bb",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "divorce",
+        "wordType": "noun",
+        "pronunciation": "/dɪˈvɔːs/",
+        "tamilMeaning": "திருமணத்தை சட்டபூர்வமாக முடிவுக்கு கொண்டுவருதல்",
+        "englishMeaning": "the legal ending of a marriage",
+        "coreIdea": "The legal ending of a marriage.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract noun naming the legal ending of a marriage.",
+              "connotation": "Neutral as a legal relationship term; it does not itself praise or condemn the separation.",
+              "tone": "Confirming and statistical here: “sure enough” introduces a reported prediction result.",
+              "register": "Standard everyday and legal vocabulary. This sentence reports a proportion, not the reasons for individual divorces."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Name the ending of a marriage through a legal process, including discussion of divorce as a general topic."
+            ],
+            "when_not_to_use": [
+              "For an unmarried couple ending a relationship, use breakup rather than divorce."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Divorce can be a general topic or a countable event: discuss divorce; seek a divorce; several divorces.",
+            "The word names a legal change in marital status. It does not by itself explain why the relationship ended or how either person feels."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Connect divorce with a marriage ending legally, rather than merely living at different addresses.",
+            "memory_sentence": "The lawyer explained each stage of the divorce proceedings.",
+            "production_task": "Write one sentence using divorce with the pattern “get, seek, or file for + divorce.”",
+            "recall_question": "What does divorce mean in the source context?",
+            "recognition_task": "One married couple lives apart but remains married. Another marriage has legally ended. Which situation is clearly a divorce?"
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "They decided to seek a divorce after years of separation.",
+              "example_2": "The lawyer explained each stage of the divorce proceedings."
+            },
+            "mini_conversation": "A: Are they still married?\nB: No, their divorce became final last year."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Sure  enough,  they  had predicted  nearly  90  percent  of  the  divorces  that  occurr ed.",
+            "contextual_meaning": "the legal ending of a marriage",
+            "simple_explanation": "The passage says that nearly 90 percent of the marriages that later ended in divorce had been predicted to do so. This explains the sentence’s claim; the excerpt does not establish the study’s methods or accuracy."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: They decided to seek for a divorce.",
+            "correction": "Say They decided to seek a divorce. Seek takes a direct object. The different expression file for divorce uses for.",
+            "important_difference": "Divorce is the legal ending of a marriage. Living apart does not by itself tell us that a marriage has legally ended."
+          },
+          "patterns_collocations": {
+            "main_pattern": "get, seek, or file for + divorce",
+            "common_collocations": [
+              "divorce proceedings",
+              "divorce rate"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Useful examples retained; seek grammar and count usage clarified; source statistic explained without certifying its evidence.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 245,
+      "wordId": "20fb000e-dd71-4434-9ae5-40ca5afde7ed",
+      "senseKey": "without-delay-or-exactly-on-time",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "7f97c8690e54b1fb8fc475cf071271022cb97889b223939219d834d9fb44101a",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "promptly",
+        "wordType": "adverb",
+        "pronunciation": "Phonetic guide (approximate): PROMPT-lee",
+        "tamilMeaning": "தாமதமின்றி",
+        "englishMeaning": "without delay or exactly on time",
+        "coreIdea": "Without unnecessary delay, or exactly at the stated time.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Time adverb meaning without delay here: the person gets out of bed rather than waiting.",
+              "connotation": "Neutral as a timing description, though prompt action is often valued.",
+              "tone": "The excerpt is incomplete, so its overall attitude cannot be established; it only links getting up without delay to an unstated result.",
+              "register": "Neutral to formal. “Straight away” is more conversational for this use."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe responding or acting without delay, or arriving at a stated time."
+            ],
+            "when_not_to_use": [
+              "For how fast a person moves while doing an action, quickly may be clearer. Promptly focuses on delay or timing."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Promptly does not always mean instantly. What counts as an acceptable delay depends on the action and situation.",
+            "With an exact time, promptly at eight emphasizes punctuality. Without a stated time, responded promptly emphasizes not keeping someone waiting."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture answering a message soon after it arrives rather than leaving it waiting.",
+            "memory_sentence": "He responded promptly when the team asked for a decision.",
+            "recall_question": "Does promptly focus mainly on avoiding delay or moving at high speed?",
+            "recognition_task": "One person begins a task immediately and works carefully; another waits all day and then rushes. Who acts more promptly?",
+            "production_task": "Write one sentence using replied promptly and another using promptly at with a time."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Please reply promptly so we can confirm the booking.",
+              "example_2": "The meeting began promptly at nine."
+            },
+            "mini_conversation": "A: Did the office answer your question?\nB: Yes, they replied promptly, and I could finish the form that morning."
+          },
+          "meaning_in_context": {
+            "source_sentence": "happen if a person gets out of bed promptly.",
+            "contextual_meaning": "without delay or exactly on time",
+            "simple_explanation": "In this fragment, the person gets out of bed without delaying. The beginning of the sentence is missing, so the excerpt does not tell us what will happen as a result."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: She replied prompt to the email.",
+            "correction": "Say She replied promptly to the email. Promptly is the adverb describing replied; prompt is an adjective, as in a prompt reply.",
+            "important_difference": "Quickly often describes speed. Promptly emphasizes that an action starts or happens without unnecessary delay."
+          },
+          "patterns_collocations": {
+            "main_pattern": "verb + promptly; promptly at + time",
+            "common_collocations": [
+              "reply promptly",
+              "arrive promptly",
+              "act promptly"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic teaching replaced with delay versus speed, punctuality and adverb grammar; truncated source explicitly disclosed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
