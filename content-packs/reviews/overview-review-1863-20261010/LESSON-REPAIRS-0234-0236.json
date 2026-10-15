@@ -1,0 +1,334 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0234-0236",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 234,
+      "wordId": "1f9701f2-4f8f-4427-932a-0631fab115eb",
+      "senseKey": "used-to-introduce-a-clearer-or-more-accurate-version-of-what-one-said",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a62337b30a16c55c60344bd3eed4d4e0d71644a14cf95cb70340bd2296279cd2",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "let me rephrase that",
+        "wordType": "expression",
+        "pronunciation": "/let mi rɪˈfreɪz ðæt/",
+        "tamilMeaning": "தான் சொன்னதை தெளிவாக அல்லது துல்லியமாக மீண்டும் அமைக்கும் தொடர்",
+        "englishMeaning": "used to introduce a clearer or more accurate version of what one said",
+        "coreIdea": "Erase the sentence, keep the idea, write it better.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational repair phrase introducing a clearer or more accurate version of an earlier statement.",
+              "connotation": "Constructive: it signals an effort to correct a possible misunderstanding.",
+              "tone": "Clarifying and reassuring here: the speaker distinguishes a delay from abandoning the work.",
+              "register": "Neutral and natural in everyday or professional conversation. It can also introduce a correction in an email."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Introduce a clearer, more precise or less harsh version of your own previous words."
+            ],
+            "when_not_to_use": [
+              "If you are changing a fact or commitment, explain the change openly instead of presenting it as merely new wording."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "let me rephrase that: A rephrase may change tone or precision but must not quietly change an agreed fact."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Erase the sentence, keep the idea, write it better.",
+            "memory_sentence": "I said the room was unsuitable; let me rephrase that—it is too small for this event.",
+            "production_task": "Use “let me rephrase that” in your own response: Replace an overly harsh criticism with wording that is accurate, specific and respectful.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “used to introduce a clearer or more accurate version of what one said”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “Let me rephrase that: the plan has one unresolved risk.” B: “Let me rephrase it that the plan is risky.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "Let me rephrase that: the work is delayed, not abandoned.",
+              "another_context": "I said the room was unsuitable; let me rephrase that—it is too small for this event."
+            },
+            "mini_conversation": "A: The plan is impossible—let me rephrase that: we cannot finish it by Friday.\nB: Would Monday give us enough time?"
+          },
+          "meaning_in_context": {
+            "source_sentence": "Let me rephrase that: the work is delayed, not abandoned.",
+            "contextual_meaning": "used to introduce a clearer or more accurate version of what one said",
+            "simple_explanation": "The speaker corrects a possible impression that the work has stopped permanently. The intended message is that it will happen later."
+          },
+          "mistakes_differences": {
+            "correction": "Say Let me rephrase that: the plan has one unresolved risk. That is the object of rephrase; start the revised statement after a pause.",
+            "common_mistake": "Let me rephrase it that the plan is risky.",
+            "important_difference": "Let me rephrase that replaces your wording; what I mean is focuses on explaining the intended meaning."
+          },
+          "patterns_collocations": {
+            "main_pattern": "let me rephrase that + pause/colon + revised statement",
+            "common_collocations": [
+              "let me rephrase that more clearly",
+              "let me rephrase that as a question"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Useful lesson retained; duplicated pattern and non-collocation list repaired, natural dialogue supplied.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 235,
+      "wordId": "1f9e2698-59b6-4c55-9fec-ac5732e9ef2c",
+      "senseKey": "shared-aim-is-threatened",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "2d5b1df1c0a145a05a1a30751c51f4c1849283c50c242de5c0b3b228dc7f893d",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "purpose is at risk",
+        "wordType": "collocation",
+        "pronunciation": "Phonetic guide (approximate): PUR-pus iz at RISK",
+        "tamilMeaning": "உரையாடலின் பொதுவான நோக்கம் இழக்கப்படும் ஆபத்தில் இருப்பது.",
+        "englishMeaning": "the shared aim or reason for a discussion is in danger of being lost",
+        "coreIdea": "The shared aim of the conversation may be lost.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract warning that a discussion's shared aim may be lost, rather than that a physical object is endangered.",
+              "connotation": "Negative and cautionary: it identifies a threat to productive cooperation.",
+              "tone": "Diagnostic here: the writer lists defensiveness, accusations and repeated topics as warning signs.",
+              "register": "Neutral to professional in coaching or meeting discussions. Name the shared aim if “purpose” is not already clear."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a discussion that may lose its shared aim as people become defensive or pursue different agendas."
+            ],
+            "when_not_to_use": [
+              "Do not use this expression just because people disagree; disagreement can still help them reach a shared goal."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Purpose is at risk describes a danger, not proof that the shared aim has already disappeared.",
+            "This is a context-dependent phrase rather than a fixed idiom. Explain which shared purpose is at risk so listeners know what needs protecting."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a meeting drifting away from the goal written at the top of its agenda.",
+            "memory_sentence": "Our shared purpose is at risk when scoring points matters more than finding a solution.",
+            "recall_question": "Does at risk mean threatened or already completely lost?",
+            "recognition_task": "Two people disagree while seeking the same solution. Two others abandon the shared problem and try only to embarrass each other. Which better illustrates that purpose is at risk?",
+            "production_task": "Write two sentences about a fictional meeting whose shared purpose is at risk. Suggest a question that could bring attention back to the aim."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Our shared purpose is at risk when we focus on blaming one another instead of solving the problem.",
+              "example_2": "The discussion’s purpose is at risk because each team is defending its own budget rather than planning a shared service."
+            },
+            "mini_conversation": "A: Our shared purpose is at risk; we keep returning to who caused the delay.\nB: Let us agree again on what we need to achieve today."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Other signs  that  purpose  is  at  risk include  defensivene ss,  hidden  agendas  (the  silence  form  of  fouled-up  pur pose ),  accusa­ tions,  and  circling  back  to  the  same  topic.",
+            "contextual_meaning": "the shared aim or reason for a discussion is in danger of being lost",
+            "simple_explanation": "The writer lists behaviours that may signal people are losing sight of the shared aim of their conversation. These are warning signs in the passage, not proof that every disagreement lacks a common purpose."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Our shared purpose is in risk.",
+            "correction": "Say Our shared purpose is at risk. The standard phrase is at risk, not in risk.",
+            "important_difference": "Purpose is at risk means the shared aim is threatened. The purpose is unclear means people do not understand the aim; that is a different problem."
+          },
+          "patterns_collocations": {
+            "main_pattern": "our/shared + purpose is at risk; purpose is at risk when + clause",
+            "common_collocations": [
+              "our shared purpose is at risk",
+              "purpose is at risk when accusations begin",
+              "recognize that the purpose is at risk"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic lesson replaced with shared-aim examples and at-risk grammar; warning distinguished from certainty and mere disagreement.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 236,
+      "wordId": "1fa960fd-bfb6-4d4a-a240-b490773d1499",
+      "senseKey": "considering-the-information-just-mentioned-when-deciding-what-follows",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "1eb070b99783c0c113218326d3aa3d275bf3fc8709715e6b0440026f0b639ea8",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "with this in mind",
+        "wordType": "linking expression",
+        "pronunciation": "/wɪð ðɪs ɪn ˈmaɪnd/",
+        "tamilMeaning": "முன்பு கூறியதை கருத்தில் கொண்டு",
+        "englishMeaning": "considering the information just mentioned when deciding what follows",
+        "coreIdea": "Carry the fact into the next decision.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Discourse link: use the information just mentioned as a basis for the next suggestion or decision.",
+              "connotation": "Neutral and reason-focused: it connects a recommendation with a relevant fact.",
+              "tone": "Considerate and practical here: the team's existing workload supports a smaller trial.",
+              "register": "Neutral; natural in workplace messages and reasoned explanations. Make clear which preceding fact “this” refers to."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Link a recommendation or decision to relevant information you have just mentioned."
+            ],
+            "when_not_to_use": [
+              "Avoid this when the reader cannot tell which earlier fact this refers to. Name the relevant fact instead."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "With this in mind points back to information already given. Several competing facts can make this unclear, so place the expression close to the relevant fact.",
+            "It presents information as a reason for a decision, but does not mean that this is the only possible decision."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Carry the fact into the next decision.",
+            "memory_sentence": "Rain is forecast. With this in mind, I booked an indoor table.",
+            "production_task": "Recommend a smaller trial because the team is already busy. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: considering the information just mentioned when deciding what follows. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: With this in mind, I suggest a trial. B: With this on mind, I suggest a trial. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "The team is already busy. With this in mind, I suggest a smaller trial.",
+              "another_setting": "Rain is forecast. With this in mind, I booked an indoor table."
+            },
+            "mini_conversation": "A: Rain is forecast. With this in mind, I booked an indoor table.\nB: Good; we will not need to change plans later."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The team is already busy. With this in mind, I suggest a smaller trial.",
+            "contextual_meaning": "considering the information just mentioned when deciding what follows",
+            "simple_explanation": "The team already has a lot of work. The speaker takes that fact into account and therefore recommends a smaller trial."
+          },
+          "mistakes_differences": {
+            "correction": "With this in mind, I suggest a trial.",
+            "common_mistake": "With this on mind, I suggest a trial.",
+            "important_difference": "This refers to prior information; bear in mind asks someone to remember a point."
+          },
+          "patterns_collocations": {
+            "main_pattern": "relevant fact. With this in mind, + decision/recommendation",
+            "common_collocations": [
+              "with this in mind, consider",
+              "with this in mind, we suggest"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Useful examples and practice retained; antecedent and recommendation link clarified without claiming a unique logical outcome.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
