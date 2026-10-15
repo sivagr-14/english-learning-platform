@@ -1,0 +1,346 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0225-0227",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 225,
+      "wordId": "1dc79d67-003e-456a-9b1b-f09918e948d2",
+      "senseKey": "include-or-hold",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0e67dadabd8b3d22daa2442cdc49bfa9886c0d59f3fd984bf7289aa3a6df465b",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "contain",
+        "wordType": "verb",
+        "pronunciation": "Phonetic guide (approximate): kun-TAYN",
+        "tamilMeaning": "தன்னுள் ஏதாவது ஒன்றை உள்ளடக்கியிருப்பது.",
+        "englishMeaning": "to include or hold something within itself",
+        "coreIdea": "Have something inside or as part of a whole.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract inclusion: each subject area includes two or three questions, rather than physically holding them in a container.",
+              "connotation": "Neutral: it states what belongs within each domain without evaluating the questions.",
+              "tone": "Factual and organizational here: the sentence explains how the questions are grouped.",
+              "register": "Common in everyday, educational and technical English. “Include” is natural in this example."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe what a document, group, package or other whole includes."
+            ],
+            "when_not_to_use": [
+              "Use fit or hold to discuss capacity; contain normally tells us what is actually inside or included."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Contain can describe physical contents or information. In the source, questions belong to a subject area rather than a physical box.",
+            "Contain often describes a state, so use This file contains three pages rather than This file is containing three pages."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Open a folder and see what is inside it.",
+            "memory_sentence": "The guide contains three useful maps.",
+            "recall_question": "In the source, does contains mean includes or asks?",
+            "recognition_task": "A folder has five forms inside it. Another folder is empty but can hold five forms. Which one contains five forms now?",
+            "production_task": "Describe the contents of two imaginary documents using contain and contains."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "These folders contain the notes from our last meeting.",
+              "example_2": "Each chapter contains a short quiz."
+            },
+            "mini_conversation": "A: Do these files contain the full report?\nB: No, they contain only the summary."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Each  domain  contains  two  to  three  questions.",
+            "contextual_meaning": "to include or hold something within itself",
+            "simple_explanation": "Each subject area has two or three questions in it. Contains describes the arrangement of the questions."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The guide contains of ten chapters.",
+            "correction": "Say The guide contains ten chapters. Contain takes its object directly, without of.",
+            "important_difference": "Contain names what is inside or included. Consist of describes the parts making up the whole: The guide consists of ten chapters."
+          },
+          "patterns_collocations": {
+            "main_pattern": "subject + contain/contains + contents",
+            "common_collocations": [
+              "contain information",
+              "contain several questions",
+              "contain useful examples"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic lesson replaced with contents versus capacity, direct-object grammar and abstract source inclusion.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 226,
+      "wordId": "1dc9a98f-4b30-4689-8162-0f20e53135c2",
+      "senseKey": "introduce-hypothetical",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "360561ea4ccd6a4859c16c4e46d86633af42375627d8cfbf4fc3a833a411202c",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "let's say",
+        "wordType": "collocation",
+        "pronunciation": "Phonetic guide (approximate): lets SAY",
+        "tamilMeaning": "ஒரு கற்பனையான உதாரணம் அல்லது நிலையை எடுத்துக்கொள்வோம் என்று கூறுவது.",
+        "englishMeaning": "used to introduce a hypothetical example or assumption",
+        "coreIdea": "Imagine this situation for the purpose of discussion.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Conversational function: invite the listener to imagine a possible situation for discussion.",
+              "connotation": "Neutral and illustrative: the proposed situation is an example, not a claim that it really happened.",
+              "tone": "Engaging and explanatory here: the writer asks readers to imagine preparing for a difficult conversation.",
+              "register": "Conversational; natural in teaching and informal reasoning. “Suppose that” is a slightly more formal alternative."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Introduce an imagined situation, example or assumed number while explaining an idea."
+            ],
+            "when_not_to_use": [
+              "Do not present an established fact as only an assumption when the listener needs a clear factual report."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Let's say invites shared imagination; it does not establish that the example is true.",
+            "That is optional: Let's say that the train is late and Let's say the train is late both introduce a possible situation."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture an imaginary situation on a whiteboard for everyone to discuss.",
+            "memory_sentence": "Let's say we miss the bus; we can take the next one.",
+            "recall_question": "Does let's say prove that the situation happened?",
+            "recognition_task": "A speaker says Let's say the shop is closed. Are they confirming the opening hours or asking you to imagine a possibility?",
+            "production_task": "Start with Let's say and describe an imaginary travel problem. Add one sentence explaining a possible solution."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Let's say the train is late. How could we still get there on time?",
+              "example_2": "Let's say we have twenty guests; we would need five tables."
+            },
+            "mini_conversation": "A: Let's say you finish early. What would you do?\nB: I would check the work before sending it."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Let's  say  that  you  actually  planned  for  a  tough  conversation-maybe  you've  even  mentally  rehear sed.",
+            "contextual_meaning": "used to introduce a hypothetical example or assumption",
+            "simple_explanation": "The writer asks readers to imagine that they prepared for a difficult conversation. The sentence does not say that every reader actually did this."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: Lets say we need another hour.",
+            "correction": "Write Let's say we need another hour. Let's is the short form of let us, so it needs an apostrophe.",
+            "important_difference": "Let's say introduces an assumption. For example introduces an example, which may be real or imagined; it does not itself ask the listener to assume a whole situation."
+          },
+          "patterns_collocations": {
+            "main_pattern": "let's say + (that) + clause",
+            "common_collocations": [
+              "let's say that happens",
+              "let's say we agree",
+              "let's say you have an hour"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic lesson replaced with hypothetical reasoning, apostrophe grammar and explicit imagined situations.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 227,
+      "wordId": "1dd0cfaf-fbf8-4677-94dd-4879dde12b6f",
+      "senseKey": "continue-supporting-or-doing",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "d9153102731c2c6aa2d8e1a832c582d7c7ff90b527acf4cb1fb8da1962265bc8",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "stick with",
+        "wordType": "phrasal verb",
+        "pronunciation": "Phonetic guide (approximate): stik with",
+        "tamilMeaning": "சிரமங்கள் இருந்தாலும் ஒன்றைத் தொடர்ந்து பின்பற்றுவது அல்லது ஆதரிப்பது.",
+        "englishMeaning": "to continue doing, using, or supporting something despite difficulty",
+        "coreIdea": "Continue with a choice or commitment instead of giving it up.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative phrasal verb for continuing to follow or support something despite pressure to stop; here, personal goals.",
+              "connotation": "Positive here: continuing with the goals is presented as determined rather than easily distracted.",
+              "tone": "Approving here: persistence is contrasted with repeated invitations to abandon the goals.",
+              "register": "Common conversational and workplace English. It can describe unhelpful persistence too, so the object matters."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe continuing a plan, activity or support for someone when stopping or changing is possible."
+            ],
+            "when_not_to_use": [
+              "For physically attaching something to a surface, use stick to, not this meaning of stick with."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Stick with can express determination, but keeping a poor plan is not automatically wise. The context determines whether persistence deserves praise.",
+            "The past form is stuck with: She stuck with the course. This can describe a deliberate choice; be stuck with something often suggests an unwanted situation."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Keep following your chosen path when an easier turn appears.",
+            "memory_sentence": "I will stick with my practice routine through the difficult first week.",
+            "recall_question": "Does stick with a goal mean keep pursuing it or abandon it?",
+            "recognition_task": "Maya continues her course after a hard week. Ravi leaves his course immediately. Who decides to stick with it?",
+            "production_task": "Write two sentences about a fictional person who decides to stick with a useful plan. Explain the difficulty they face."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "I will stick with this course even though the first lessons are difficult.",
+              "example_2": "We decided to stick with our supplier after they fixed the delivery problem."
+            },
+            "mini_conversation": "A: The first week of training was hard.\nB: Will you stick with it?\nA: Yes, I want to give it more time."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Despite  con­ stant  invitations  to  slip  away  from  their  goa ls,  they  stick  with  them.",
+            "contextual_meaning": "to continue doing, using, or supporting something despite difficulty",
+            "simple_explanation": "They keep following their goals even though they repeatedly face reasons or temptations to abandon them. Them refers to the goals."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: I stuck it with when the course became difficult.",
+            "correction": "Say I stuck with it when the course became difficult. In stick with, keep with before the object, even when the object is it.",
+            "important_difference": "Stick with a plan means keep following it by choice. Be stuck with a plan can mean having no satisfactory alternative."
+          },
+          "patterns_collocations": {
+            "main_pattern": "stick with + plan/person/activity; stick with it; past: stuck with",
+            "common_collocations": [
+              "stick with the plan",
+              "stick with a course",
+              "stick with your goals"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic lesson replaced with persistence versus unwanted obligation, inseparable object placement and specific practice.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
