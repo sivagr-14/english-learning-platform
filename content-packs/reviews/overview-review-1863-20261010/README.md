@@ -7,14 +7,14 @@ Source export SHA-256: `5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7
 - Overview: 1,841 accepted drafts; 22 held; all 1,863 examined.
 - Tamil meanings: 1,841 accepted; 22 held; none unexamined.
 - Pronunciation text: 1,861 accepted; 2 held; none unexamined. Editorial review is not dictionary or audio verification.
-- Complete lesson review/repair: 252 entries (1–5, 7–75, 77–163, 165–245, and ten earlier repairs at 1450–1474).
-- Remaining without completed full lesson review: 1,611, including separately held ordinals 6, 76 and 164.
+- Complete lesson review/repair: 255 entries (1–5, 7–75, 77–163, 165–248, and ten earlier repairs at 1450–1474).
+- Remaining without completed full lesson review: 1,608, including separately held ordinals 6, 76 and 164.
 - Import-ready replacement batches: 0. Production pack validation and PostgreSQL read-back remain pending.
 - Word pronunciation controls: draft PR #118, both GitHub CI workflows passed. Not merged, installed or audibly verified on the user's Mac.
 
 ## Continue
 
-Read STATUS.json and the immutable receipts before proceeding. Resume consecutive full-lesson repair at ordinal 246. Preserve existing entry identities, original source quotations, sense ranks, taxonomy, expected versions and source lesson hashes. Do not regenerate already delivered receipts. LESSON-HOLD-0006.json records an expression/evidence mismatch; LESSON-HOLD-0076.json records the unresolved relationship between a named dialogue technique and the stored generic comparison sense.
+Read STATUS.json and the immutable receipts before proceeding. Resume consecutive full-lesson repair at ordinal 249. Preserve existing entry identities, original source quotations, sense ranks, taxonomy, expected versions and source lesson hashes. Do not regenerate already delivered receipts. LESSON-HOLD-0006.json records an expression/evidence mismatch; LESSON-HOLD-0076.json records the unresolved relationship between a named dialogue technique and the stored generic comparison sense.
 
 Each immutable receipt records its production validator commit. Passing the lesson-level structural validator does not constitute complete content-pack validation or certify semantic quality of other entries.
 

@@ -1,0 +1,332 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0246-0248",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 246,
+      "wordId": "2118d833-9c0a-4020-9561-96c3a5be77f4",
+      "senseKey": "to-remember-a-relevant-fact-while-thinking-or-deciding",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e4e0d4b128123688cb6ec7c6fa941187cc6e587db39f936ee7cac5c634ac40b2",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "bear in mind",
+        "wordType": "verb phrase",
+        "pronunciation": "/beər ɪn maɪnd/",
+        "tamilMeaning": "மனதில் நினைவில் வைத்துக்கொள்ளுதல்",
+        "englishMeaning": "to remember a relevant fact while thinking or deciding",
+        "coreIdea": "Keep the important fact in your mental margin.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Idiomatic reminder to keep a relevant fact in one's thoughts while judging or deciding.",
+              "connotation": "Neutral and helpful here: it draws attention to a limit on the evidence.",
+              "tone": "Cautionary here: the figures cover only one month, so the listener should avoid an overly broad conclusion.",
+              "register": "Neutral; common in everyday advice and professional discussion. The imperative may sound firm if used without explanation."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Remind someone to consider a relevant fact or limitation while making a judgment or plan."
+            ],
+            "when_not_to_use": [
+              "For learning information word for word, use memorize rather than bear in mind."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "bear in mind: Bear in mind can gently qualify a claim, but repeated use may sound instructional or patronising in a sensitive discussion."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Keep the important fact in your mental margin.",
+            "memory_sentence": "Bear in mind that the museum closes earlier on Sundays.",
+            "production_task": "Use “bear in mind” in your own response: Add a tactful reminder about a limitation in a colleague's estimate.",
+            "recall_question": "Without looking at the heading, recall the expression meaning “to remember a relevant fact while thinking or deciding”. Then explain it in your own words.",
+            "recognition_task": "Compare these two statements and choose the accurate form or interpretation. A: “Bear in mind the deadline.” B: “Bare in mind the deadline.” Explain the difference before checking Mistakes & Differences."
+          },
+          "natural_examples": {
+            "examples": {
+              "workplace": "Bear in mind that the figures cover only one month.",
+              "another_context": "Bear in mind that the museum closes earlier on Sundays."
+            },
+            "mini_conversation": "A: Bear in mind that the figures cover only one month.\nB: Then we should not describe them as a full-year trend."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Bear in mind that the figures cover only one month.",
+            "contextual_meaning": "to remember a relevant fact while thinking or deciding",
+            "simple_explanation": "The speaker asks the listener to remember the limited time period when interpreting the figures. One month of figures does not represent a whole year."
+          },
+          "mistakes_differences": {
+            "correction": "Write Bear in mind the deadline. The verb in this expression is bear, not bare.",
+            "common_mistake": "Bare in mind the deadline.",
+            "important_difference": "Bear in mind asks someone to remember a relevant factor; memorise asks them to learn information by heart."
+          },
+          "patterns_collocations": {
+            "main_pattern": "bear in mind + that-clause/noun; bear + this/it + in mind",
+            "common_collocations": [
+              "bear this in mind",
+              "bear in mind the cost"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Useful lesson preserved; source limitation and bear/bare spelling explained directly.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 247,
+      "wordId": "212252a9-214e-4671-9093-2757a1a46214",
+      "senseKey": "extremely-unpleasant-or-immoral",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "e7e8d13be2e29d8ab8bf4a3d2a416a8006199e7bd38e44c38b10c63033f316b3",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "vile",
+        "wordType": "adjective",
+        "pronunciation": "/vaɪl/",
+        "tamilMeaning": "மிகவும் அருவருப்பான, புண்படுத்தும் அல்லது ஒழுக்க ரீதியாக மோசமான",
+        "englishMeaning": "extremely unpleasant, offensive, or morally bad",
+        "coreIdea": "So unpleasant or offensive that it causes strong disgust or condemnation.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Evaluative adjective judging behaviour as extremely offensive or morally bad.",
+              "connotation": "Strongly negative: it expresses disgust, not a neutral description of conduct.",
+              "tone": "Angry and condemning here: “vile and filthy” presents the other person's behaviour with intense disapproval.",
+              "register": "Standard but forceful language. In professional feedback, describe the behaviour instead of using a sweeping insult."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Express strong disgust at offensive behaviour, words or very unpleasant things."
+            ],
+            "when_not_to_use": [
+              "For a minor annoyance, vile is usually much stronger than needed. Calling a person vile is a harsh personal judgment."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Vile expresses intense disgust or moral condemnation; unpleasant is much milder and need not imply moral judgment.",
+            "In the source, vile reports a hostile view of the other person’s behaviour. It reveals the speaker’s judgment rather than independently proving that judgment correct."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine a remark so cruel that everyone stops the conversation.",
+            "memory_sentence": "They condemned the vile treatment of vulnerable people.",
+            "production_task": "Write one sentence using vile with the pattern “vile + behaviour, remark, smell, or treatment.”",
+            "recall_question": "What does vile mean in the source context?",
+            "recognition_task": "One remark is slightly awkward; another is deliberately cruel and deeply offensive. Which is more naturally described as vile, and why?"
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The moderator stopped the discussion after a vile personal attack.",
+              "example_2": "They condemned the vile treatment of vulnerable people."
+            },
+            "mini_conversation": "A: Why did the moderator stop the discussion?\nB: Someone made a vile personal attack instead of discussing the issue."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Every  time  he  calls  you  an  \"anal-retentive  nann y, \"  you  vow  not  to  give  in  to  his  vile  and  filthy  ways .",
+            "contextual_meaning": "extremely unpleasant, offensive, or morally bad",
+            "simple_explanation": "The person being insulted sees the other person’s behaviour as extremely offensive and disgusting. Vile strengthens that condemnation."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: It was a vilely remark.",
+            "correction": "Say It was a vile remark. Use the adjective vile before the noun remark.",
+            "important_difference": "Vile is much stronger than unpleasant. It can condemn offensive conduct, while unpleasant may describe a mild discomfort."
+          },
+          "patterns_collocations": {
+            "main_pattern": "vile + behaviour, remark, smell, or treatment",
+            "common_collocations": [
+              "vile language",
+              "vile behaviour"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Useful examples retained; generic grammar/practice repaired and hostile source judgment attributed rather than endorsed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 248,
+      "wordId": "2128bd85-19ff-4765-a06c-af1015671516",
+      "senseKey": "for-that-reason-or-as-a-logical-result",
+      "senseRank": 1,
+      "expectedEntryVersion": 2,
+      "expectedLessonSha256": "587264d9a32dd9c84796a70233b917cff57b6ce00f079154cdeeac86c883e066",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "therefore",
+        "wordType": "linking adverb",
+        "pronunciation": "/ˈðeəfɔː/",
+        "tamilMeaning": "ஆகவே",
+        "englishMeaning": "for that reason or as a logical result",
+        "coreIdea": "Draw a logical arrow to the conclusion.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Logical connector introducing a consequence or conclusion: incomplete evidence prevents a final decision.",
+              "connotation": "Neutral: it links reasons and conclusions without adding approval or blame.",
+              "tone": "Measured and analytical here: the speaker explains why a final decision cannot yet be made.",
+              "register": "Relatively formal; natural in reports and careful explanations. “So” is more conversational."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Connect a stated reason or piece of evidence to the conclusion drawn from it."
+            ],
+            "when_not_to_use": [
+              "For a contrast rather than a result, use however. Do not use therefore to imply that an unsupported conclusion has been proved."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Therefore presents what follows as a result or conclusion, but the word itself does not prove that the reasoning is sound.",
+            "It is a linking adverb, not a coordinating conjunction like so. In formal writing, separate independent clauses with a full stop or semicolon when therefore links them."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Draw a logical arrow to the conclusion.",
+            "memory_sentence": "The shop is closed; therefore, we will need another place to buy milk.",
+            "production_task": "Conclude that more evidence is needed before a final decision. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: for that reason or as a logical result. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: It is closed, therefore we must wait. B: It is closed; therefore, we must wait. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "The evidence is incomplete; therefore, we cannot make a final decision.",
+              "another_setting": "The shop is closed; therefore, we will need another place to buy milk."
+            },
+            "mini_conversation": "A: The shop is closed; therefore, we will need another place to buy milk.\nB: There is a small shop near the station."
+          },
+          "meaning_in_context": {
+            "source_sentence": "The evidence is incomplete; therefore, we cannot make a final decision.",
+            "contextual_meaning": "for that reason or as a logical result",
+            "simple_explanation": "The speaker treats the missing evidence as the reason a final decision cannot yet be made."
+          },
+          "mistakes_differences": {
+            "correction": "Write It is closed; therefore, we must wait. A full stop before Therefore is another option. In formal writing, a comma alone does not join these two complete clauses.",
+            "common_mistake": "It is closed, therefore we must wait.",
+            "important_difference": "Therefore marks an inference or result; however marks contrast."
+          },
+          "patterns_collocations": {
+            "main_pattern": "reason; therefore, conclusion. Also: reason. Therefore, conclusion.",
+            "common_collocations": [
+              "therefore necessary",
+              "therefore unable to proceed"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid lesson preserved; source inference and linking-adverb punctuation clarified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
