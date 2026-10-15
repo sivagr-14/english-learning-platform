@@ -1,0 +1,343 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0231-0233",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 231,
+      "wordId": "1f1fe190-d789-4f24-a0b0-7d91761eb8d4",
+      "senseKey": "sincerely-or-truly",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "0d346a33d88892d7d84f806b56b6e9f6552c03262581d27e6f3dca4ecbe33921",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "genuinely",
+        "wordType": "adverb",
+        "pronunciation": "Phonetic guide (approximate): JEN-yoo-in-lee",
+        "tamilMeaning": "வெளிப்படையாக மட்டும் அல்லாமல் உண்மையாகவும் நேர்மையாகவும்.",
+        "englishMeaning": "sincerely, honestly, or truly rather than merely appearing so",
+        "coreIdea": "Really and sincerely, rather than only seeming so.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract manner adverb meaning sincerely or truly, not merely appearing to make an effort.",
+              "connotation": "Positive here because honest cooperation is contrasted with trying to win people over.",
+              "tone": "Self-reflective and cooperative here: the speaker wants a vacation everyone can enjoy.",
+              "register": "Neutral; natural in personal discussion and professional explanation. It emphasizes sincerity but cannot by itself prove it."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Emphasize that an emotion, interest or effort is real and sincere."
+            ],
+            "when_not_to_use": [
+              "Do not treat genuinely as proof of sincerity; actions and context still matter."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Genuinely contrasts something real with something merely performed or claimed. Genuinely interested means the interest is real, not just polite behaviour.",
+            "Genuinely does not always mean very. Someone can be genuinely concerned without feeling extremely worried."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture someone listening with real interest after the formal meeting has ended.",
+            "memory_sentence": "I am genuinely sorry that I forgot your message.",
+            "recall_question": "Does genuinely emphasize sincerity or merely a high degree?",
+            "recognition_task": "One person asks questions because they want to learn; another pretends to listen to appear polite. Who is genuinely interested?",
+            "production_task": "Write two sentences about a fictional person who genuinely cares about a project. Give one action that supports the description."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "I genuinely want to understand why you disagree.",
+              "example_2": "She seemed genuinely pleased that her colleague had won."
+            },
+            "mini_conversation": "A: Are you only joining because I asked?\nB: No, I am genuinely interested in learning to paint."
+          },
+          "meaning_in_context": {
+            "source_sentence": "\"What  I  really  want  is  to  genuinely  try  to  select  a  vacation  spot  we   can  all  enjoy-rather  than  try  to  win people  over  to  my  ideas .",
+            "contextual_meaning": "sincerely, honestly, or truly rather than merely appearing so",
+            "simple_explanation": "The speaker wants to make an honest effort to find a holiday place everyone enjoys, instead of pretending to cooperate while pushing a personal choice."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: I am genuine interested in the project.",
+            "correction": "Say I am genuinely interested in the project. Use the adverb genuinely before the adjective interested.",
+            "important_difference": "Genuine is an adjective: genuine interest. Genuinely is an adverb: genuinely interested. Very measures degree; genuinely emphasizes that something is real."
+          },
+          "patterns_collocations": {
+            "main_pattern": "genuinely + verb/adjective",
+            "common_collocations": [
+              "genuinely care",
+              "genuinely interested",
+              "genuinely sorry"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic lesson replaced with sincerity versus intensity, adjective/adverb grammar and observable supporting actions.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 232,
+      "wordId": "1f3dd3f5-b638-4621-8a65-b3b3c457033b",
+      "senseKey": "be-fixed-within",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "612231890cb2a22e05fd3cafcfc58b994e124426ee0775e2a2737fac34989ee8",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "embed",
+        "wordType": "verb",
+        "pronunciation": "Phonetic guide (approximate): im-BED",
+        "tamilMeaning": "ஒரு பெரிய முழுமையின் உள்ளே உறுதியாகப் பதிந்திருப்பது அல்லது வைக்கப்படுவது.",
+        "englishMeaning": "to fix or place something firmly within a larger whole",
+        "coreIdea": "Place something firmly inside a larger whole, physically or as part of its meaning.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative verb: a quality is present within something as if firmly placed inside it; here, irony is part of the fact.",
+              "connotation": "Neutral: the embedded feature can be helpful or troubling; “irony” supplies the particular effect here.",
+              "tone": "Reflective here: the sentence draws attention to an irony, but does not explain it in the available excerpt.",
+              "register": "Neutral to formal; common in analytical writing. “Present within” is a simpler explanation for this abstract use."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe something fixed inside a material or made part of a larger text, routine or idea."
+            ],
+            "when_not_to_use": [
+              "For something merely placed nearby or briefly mentioned, embed can suggest more integration than you intend."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Embed can be physical, as with a stone in a wall, or figurative, as with an assumption in an argument. The source uses the figurative meaning.",
+            "Something embedded in a larger whole may not be immediately obvious, but embed does not always mean deliberately hide."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine a small stone firmly set inside a wall.",
+            "memory_sentence": "You can embed a useful lesson in an entertaining story.",
+            "recall_question": "In the source, is irony physically buried or present as part of an idea?",
+            "recognition_task": "A writer builds a warning into the events of a story. Another writes an unrelated note beside it. Which writer embeds the warning in the story?",
+            "production_task": "Write two sentences describing a message you could embed in a fictional story. Explain how the events would carry that message."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Writers can embed a warning in a humorous story.",
+              "example_2": "The team embedded short feedback sessions in its weekly routine."
+            },
+            "mini_conversation": "A: Is the warning stated directly?\nB: No, it is embedded in the story about the failed journey."
+          },
+          "meaning_in_context": {
+            "source_sentence": "There's  a  certain  irony  embedded  in  thi s  fa ct.",
+            "contextual_meaning": "to fix or place something firmly within a larger whole",
+            "simple_explanation": "The irony is presented as part of the fact itself. The available sentence does not identify the fact or explain the irony, so those details cannot be supplied from this excerpt."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The message is embed in the story.",
+            "correction": "Say The message is embedded in the story. After is in this passive form, use embedded, not embed.",
+            "important_difference": "Include says something is part of a whole. Embed emphasizes placing or fixing it within that whole, often so it forms part of the structure or meaning."
+          },
+          "patterns_collocations": {
+            "main_pattern": "embed + something + in + larger whole; be embedded in",
+            "common_collocations": [
+              "embed a message in a story",
+              "deeply embedded",
+              "embedded in daily routines"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic lesson replaced with integration examples and embedded grammar; missing source context explicitly disclosed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 233,
+      "wordId": "1f7dfa32-65ab-44d5-914b-8efa01618996",
+      "senseKey": "display-impressively",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "fe902ca798488621ab62f6fadb1d239ecb1ece8eba239b631ab49d4ec9115798",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "showcase",
+        "wordType": "verb",
+        "pronunciation": "/ˈʃəʊkeɪs/",
+        "tamilMeaning": "ஒரு சாதனை அல்லது சிறப்பை கவனமும் பாராட்டும் பெறும் வகையில் வெளிப்படுத்துதல்",
+        "englishMeaning": "to display an achievement or quality in a way designed to attract attention and admiration",
+        "coreIdea": "Draw attention to the strengths or achievements you display.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative action: presenting strengths prominently, like putting an object in a display case.",
+              "connotation": "Positive, though it can imply deliberate self-presentation.",
+              "tone": "Regretful and appreciative here: the speaker acknowledges the hard work and the lost chance to show improvements.",
+              "register": "Neutral to professional; common in exhibitions, portfolios and workplace presentations."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Use showcase when an event, document, or presentation deliberately highlights an achievement or strength.",
+              "Use showcase when the display is intended to attract notice or appreciation."
+            ],
+            "when_not_to_use": [
+              "Do not use showcase for merely storing or listing something without highlighting its value.",
+              "Avoid showcase when the context requires a modest, private mention rather than prominent presentation."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "As a verb, showcase is transitive: a presentation showcases an achievement, without about before the object.",
+            "Showcase can sound promotional, so demonstrate or present may be more restrained in formal evidence-based writing."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a brightly lit display case that makes one achievement impossible to miss.",
+            "memory_sentence": "The demonstration showcased the team’s rapid improvement.",
+            "production_task": "Write a sentence about a portfolio that showcases a specific skill.",
+            "recall_question": "What does showcase mean in the source sentence?",
+            "recognition_task": "A designer presents three strong projects to impress a client. Another stores unfinished files privately. Who is showcasing their work, and what is the intended effect?"
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The portfolio showcases her strongest design work.",
+              "example_2": "The conference gave the team a chance to showcase its improvements."
+            },
+            "mini_conversation": "A: Why include the prototype? B: It showcases what the new system can do."
+          },
+          "meaning_in_context": {
+            "source_sentence": "You worked  all  night,  it  would  have  been  a  wonderful  chance  to  showcase  your  improvement s,  and  I  didn't  even  explain  what happened .",
+            "contextual_meaning": "to display an achievement or quality in a way designed to attract attention and admiration",
+            "simple_explanation": "The speaker recognizes that the other person worked hard and missed a valuable chance to present the improvements prominently. The regret comes from the surrounding sentence, not from showcase alone."
+          },
+          "mistakes_differences": {
+            "correction": "Correct: The event showcased our new product.",
+            "common_mistake": "Incorrect: The event showcased about our new product; showcase takes a direct object.",
+            "important_difference": "Showcase means display something to emphasize its best qualities; show is broader and does not necessarily imply promotion or admiration."
+          },
+          "patterns_collocations": {
+            "main_pattern": "showcase + achievement, skill, product, or improvement",
+            "common_collocations": [
+              "showcase talent",
+              "showcase achievements",
+              "showcase improvements"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "memory_practice",
+        "meaning_in_context",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid teaching retained; source regret explained and recognition task made answerable.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
