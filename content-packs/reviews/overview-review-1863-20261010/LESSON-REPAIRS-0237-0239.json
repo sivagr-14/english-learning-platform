@@ -1,0 +1,340 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0237-0239",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 237,
+      "wordId": "1fc25325-a2cb-43de-98c5-db00aa21d19b",
+      "senseKey": "widely-known-negatively",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "ec1057ebb5db7c9b2beb3a1923fb7d4aad215300cff7782090eb627e8b285bff",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "notoriously",
+        "wordType": "adverb",
+        "pronunciation": "/nəʊˈtɔːriəsli/",
+        "tamilMeaning": "மோசமான காரணத்தால் பரவலாக அறியப்பட்ட வகையில்",
+        "englishMeaning": "in a way that is widely known for a bad quality",
+        "coreIdea": "a bad reputation that many people already know",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Evaluative adverb indicating that a bad quality is widely known; here, the jungle has a reputation for danger.",
+              "connotation": "Negative or cautionary connotation in this passage.",
+              "tone": "Warning here: the colleagues use the jungle's known hazards to discourage the journey.",
+              "register": "Neutral to formal; natural in educated speech and writing."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a difficulty or bad quality that many people already know about."
+            ],
+            "when_not_to_use": [
+              "For straightforward praise, use famously or well known rather than notoriously."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Notoriously adds the idea of an established reputation; very difficult describes degree without saying that many people know about it.",
+            "The word can introduce a warning based on reputation, but it does not provide evidence that every experience will be bad."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine several people giving the same warning about an unreliable printer.",
+            "memory_sentence": "The old printer is notoriously unreliable.",
+            "recall_question": "What does notoriously add beyond saying that something is very difficult?",
+            "recognition_task": "A road is widely known for dangerous bends; a new road has no reputation yet. Which can be described as notoriously hazardous based on this information?",
+            "production_task": "Describe an imaginary service that is notoriously slow. Add a sentence explaining how people plan around that reputation."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "This mountain route is notoriously difficult in winter.",
+              "example_2": "The old printer is notoriously unreliable."
+            },
+            "mini_conversation": "A: Why allow extra time? B: Traffic there is notoriously slow."
+          },
+          "meaning_in_context": {
+            "source_sentence": "Her colleagues tried to discourage her, warning that the dense jungle was notoriously hazardous.",
+            "contextual_meaning": "in a way that is widely known for a bad quality",
+            "simple_explanation": "The jungle is widely known for being dangerous, and that reputation is negative."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Misleading praise: The restaurant is notoriously excellent.",
+            "correction": "For straightforward praise, say The restaurant is famously excellent. Notoriously normally introduces a bad quality or difficulty.",
+            "important_difference": "Famously emphasizes being widely known and can be positive; notoriously usually points to an unwelcome quality."
+          },
+          "patterns_collocations": {
+            "main_pattern": "notoriously + adjective, such as difficult, slow or unreliable",
+            "common_collocations": [
+              "notoriously difficult",
+              "notoriously unreliable"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "mistakes_differences",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Useful examples retained; reputation versus degree and negative versus positive fame clarified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 238,
+      "wordId": "1fceb3ea-1e63-4c3c-b538-8be5855fed00",
+      "senseKey": "spoke-or-cried-while-taking-broken-tearful-breaths",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "553e3760d1d153aaef28d3efaa6cc8b23cd91374c53f6d5b3077764248a30c4f",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "sobbed",
+        "wordType": "verb",
+        "pronunciation": "Phonetic guide (approximate): sobd — one syllable; final sound d",
+        "tamilMeaning": "விக்கி விக்கி அழுதாள்",
+        "englishMeaning": "spoke or cried while taking broken, tearful breaths",
+        "coreIdea": "Crying so strongly that breathing and speech become broken.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Literal past-tense action: crying or speaking through broken, tearful breaths.",
+              "connotation": "Associated with distress here; it describes the crying rather than condemning the person.",
+              "tone": "Desperate and pleading here: the request not to kill the animal is spoken through tears.",
+              "register": "Neutral and natural in narrative or everyday English."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe crying with broken breaths, or words spoken while crying that way."
+            ],
+            "when_not_to_use": [
+              "For silent tears without broken breathing, cried or wept may describe the scene more accurately."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Sobbed can stand alone or introduce speech. In the source, it tells us how she speaks the plea.",
+            "Sobbing often expresses distress, but people can also sob with relief or joy. The words and situation determine the emotion."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Imagine someone trying to say a sentence between broken, tearful breaths.",
+            "memory_sentence": "She sobbed with relief when the missing dog came home.",
+            "recall_question": "What detail about crying does sobbed add?",
+            "recognition_task": "One character cries with broken breaths; another has a single silent tear. Which description more clearly supports sobbed?",
+            "production_task": "Write a short fictional scene with one line of dialogue followed by she sobbed or he sobbed. Make the emotion clear from the situation."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "The child sobbed when he could not find his dog.",
+              "example_2": "“I thought you were lost,” she sobbed when her sister returned."
+            },
+            "mini_conversation": "A: What happened when she heard the good news?\nB: She sobbed with relief and hugged her brother."
+          },
+          "meaning_in_context": {
+            "source_sentence": "“Please don’t kill it!” she sobbed.",
+            "contextual_meaning": "spoke or cried while taking broken, tearful breaths",
+            "simple_explanation": "She pleads for it not to be killed while crying with broken breaths. The sentence presents strong distress; it does not identify what it is within this short excerpt."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: She sobed after hearing the news.",
+            "correction": "Write She sobbed after hearing the news. Double the final b before adding -ed to sob.",
+            "important_difference": "Cried is broad. Sobbed specifically suggests crying with repeated, broken breaths and can describe tearful speech."
+          },
+          "patterns_collocations": {
+            "main_pattern": "someone sobbed; sobbed + quoted words; sobbed with + emotion",
+            "common_collocations": [
+              "sobbed uncontrollably",
+              "sobbed with relief",
+              "sobbed into a pillow"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic lesson replaced with broken-breath crying, past spelling and emotional context; source referent limit disclosed.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 239,
+      "wordId": "1ff07b61-5e45-40a4-8621-bcfe875c6f7c",
+      "senseKey": "extremely-happy-and-peaceful",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "a20c2ee62541251d27af26aa9ca0f8ad14a659bce8a5cf15d04d91f9128cb735",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "blissful",
+        "wordType": "adjective",
+        "pronunciation": "Phonetic guide (approximate): BLISS-ful",
+        "tamilMeaning": "பேரானந்தமான",
+        "englishMeaning": "extremely happy and peaceful",
+        "coreIdea": "Feeling deeply happy, peaceful and free from worry.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Abstract description of intense happiness and peace; the world feels joyful to the character.",
+              "connotation": "Strongly positive: it suggests deep contentment rather than ordinary satisfaction.",
+              "tone": "Delighted and absorbed here: she feels lucky and enjoys thinking about caring for the pig.",
+              "register": "Expressive but standard English, common in descriptions of happiness, rest and peaceful experiences."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a person, moment or experience filled with deep happiness and peace."
+            ],
+            "when_not_to_use": [
+              "For a slightly pleasant experience, nice or pleasant is less intense than blissful."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Blissful is stronger than happy and often suggests peaceful enjoyment without worries.",
+            "A blissful world in this source reflects how the girl feels about her life at that moment. It does not establish that everyone in the world is happy."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a quiet afternoon when you feel completely content.",
+            "memory_sentence": "We enjoyed a blissful hour beside the lake.",
+            "recall_question": "Is blissful mildly pleasant or deeply happy and peaceful?",
+            "recognition_task": "One person feels deeply content while resting in a quiet garden; another is excited but worried before an exam. Which scene better fits blissful?",
+            "production_task": "Describe a fictional blissful moment in two sentences. Include details that explain both the happiness and the peace."
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "We spent a blissful afternoon reading beside the quiet lake.",
+              "example_2": "She closed her eyes with a blissful smile as the warm sun reached her face."
+            },
+            "mini_conversation": "A: How was your day away from work?\nB: Blissful. I walked by the sea and forgot about my worries."
+          },
+          "meaning_in_context": {
+            "source_sentence": "She just sat and stared out of the window, thinking what a blissful world it was and how lucky she was to have entire charge of a pig.",
+            "contextual_meaning": "extremely happy and peaceful",
+            "simple_explanation": "She feels extremely happy and fortunate because she has responsibility for the pig. The world seems wonderful and peaceful to her as she looks out of the window."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: We had a blissfully afternoon.",
+            "correction": "Say We had a blissful afternoon. Blissful is the adjective before the noun; blissfully is an adverb.",
+            "important_difference": "Pleasant means enjoyable. Blissful suggests much deeper happiness, often with peace and freedom from worry."
+          },
+          "patterns_collocations": {
+            "main_pattern": "a blissful + moment/day/smile; feel/look blissful",
+            "common_collocations": [
+              "a blissful afternoon",
+              "a blissful smile",
+              "blissful happiness"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations",
+        "coreIdea",
+        "wordType"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Generic lesson replaced with deep peaceful happiness, adjective/adverb grammar and subjective source viewpoint.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
