@@ -1,0 +1,335 @@
+{
+  "reviewId": "overview-review-1863-20261010",
+  "sourceSha256": "5e698a384da15a9c8f0a19f43acd7f5a34e5eee0f958bb50e7ba4ce7f431d207",
+  "receiptId": "LESSON-REPAIRS-0240-0242",
+  "scope": "Complete same-sense lesson review/repair drafts; not import payloads.",
+  "entryCount": 3,
+  "broaderLessonRepairProcessed": 3,
+  "lessonValidatorPassed": 3,
+  "validatedReplacementUpdates": 0,
+  "deliveredReplacementUpdates": 0,
+  "databaseUpdatesVerified": 0,
+  "records": [
+    {
+      "ordinal": 240,
+      "wordId": "20256fe7-9652-4369-91de-05573758e7ff",
+      "senseKey": "give-energy-and-strength",
+      "senseRank": 2,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "8e677d909dcfc1b5eb125884e5e0297513d0e4d53e9a165dd0383e0ddb6c6251",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "vitalize",
+        "wordType": "verb",
+        "pronunciation": "/ˈvaɪtəlaɪz/",
+        "tamilMeaning": "புதிய ஆற்றல், வலிமை அல்லது செயல்திறனை அளித்தல்",
+        "englishMeaning": "to give renewed energy, strength, or effectiveness to something",
+        "coreIdea": "Give something fresh energy or strength.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Figurative verb for giving an organization renewed energy or effectiveness, as if making it more alive.",
+              "connotation": "Positive: the organization and community are expected to become stronger.",
+              "tone": "Motivational and confident here: mastering difficult discussions is promised to improve the wider community.",
+              "register": "Formal and relatively uncommon. “Energize” is more familiar; do not label this word ordinary everyday speech."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe giving an organization, community or activity new energy and effectiveness."
+            ],
+            "when_not_to_use": [
+              "In ordinary conversation, give new energy to is often clearer than vitalize. Do not use it simply to mean keep something unchanged."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Vitalize presents change as giving life or energy to something. Applied to an organization, it is figurative rather than a claim about a living body.",
+            "The source predicts a benefit from better discussions. Using vitalize does not itself prove that the benefit will occur."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture new volunteers bringing activity to a quiet community centre.",
+            "memory_sentence": "New volunteers helped vitalize the community project.",
+            "production_task": "Write one sentence using vitalize with the pattern “vitalize + organization, community, or activity.”",
+            "recall_question": "What does vitalize mean in the source context?",
+            "recognition_task": "One project gains new volunteers and useful ideas; another keeps its routine unchanged. Which change is more likely to vitalize the project?"
+          },
+          "natural_examples": {
+            "examples": {
+              "example_1": "Open dialogue can vitalize an organization.",
+              "example_2": "New volunteers helped vitalize the community project."
+            },
+            "mini_conversation": "A: What could vitalize the community project?\nB: New volunteers with time and ideas could help."
+          },
+          "meaning_in_context": {
+            "source_sentence": "As  you  and  others  master  high­ stakes  discussions,  you'll  also  vitalize  your  organization  and  your  community .",
+            "contextual_meaning": "to give renewed energy, strength, or effectiveness to something",
+            "simple_explanation": "The writer says that improving difficult discussions will give the organization and community more energy and effectiveness."
+          },
+          "mistakes_differences": {
+            "common_mistake": "Incorrect: The new ideas could vitalize to the organization.",
+            "correction": "Say The new ideas could vitalize the organization. Vitalize takes its object directly, without to.",
+            "important_difference": "Vitalize means give energy or strength. Maintain means keep something going; maintenance does not necessarily bring fresh energy."
+          },
+          "patterns_collocations": {
+            "main_pattern": "vitalize + organization, community, or activity",
+            "common_collocations": [
+              "vitalize an organization",
+              "vitalize the local economy"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "natural_examples",
+        "meaning_in_context",
+        "mistakes_differences",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples retained; generic grammar and practice repaired, predicted benefit qualified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 241,
+      "wordId": "206fb54b-0388-4a16-bafd-da80c613b024",
+      "senseKey": "to-improve-a-skill-or-knowledge-you-learned-before-but-have-not-used-recently",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "daaec70251065243d0104bd7ca95085ebc87a8ce2b680ac839ae00798848806a",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "brush up on",
+        "wordType": "phrasal verb",
+        "pronunciation": "/ˌbrʌʃ ˈʌp ɒn/",
+        "tamilMeaning": "முன்பு கற்றதை மீண்டும் பயின்று புதுப்பித்தல்",
+        "englishMeaning": "to improve a skill or knowledge you learned before but have not used recently",
+        "coreIdea": "Picture brushing dust off a skill you already own.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Idiomatic phrasal verb for refreshing knowledge or a skill learned previously; here, French before a trip.",
+              "connotation": "Constructive: it presents improvement as renewing an existing foundation.",
+              "tone": "Practical and purposeful here: the speaker links language revision to an upcoming trip.",
+              "register": "Conversational, also natural among colleagues. It suggests prior learning, not starting from zero."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Describe a skill you want to refresh and a small practice plan.",
+              "A natural model: I need to brush up on my spreadsheet skills before the course."
+            ],
+            "when_not_to_use": [
+              "For a subject you have never learned, say learn or start learning. Brush up on suggests some previous knowledge."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "Brush up on suggests refreshing an existing foundation. It does not promise complete mastery or require that all earlier knowledge has been forgotten."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture brushing dust off a skill you already own.",
+            "memory_sentence": "I need to brush up on my spreadsheet skills before the course.",
+            "production_task": "Describe a skill you want to refresh and a small practice plan. Use the target expression in one or two sentences. Check its pattern and register only after speaking.",
+            "recall_question": "Without looking, retrieve the expression meaning to improve a skill or knowledge you learned before but have not used recently. Then say it in a new situation.",
+            "recognition_task": "Choose the natural sentence. A: I need to brush up on to write reports. B: I need to brush up on writing reports. Explain why, then check the correction after answering."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "I want to brush up on my French before the trip.",
+              "another_setting": "I need to brush up on my spreadsheet skills before the course."
+            },
+            "mini_conversation": "A: I need to brush up on my spreadsheet skills before the course.\nB: There is a short practice session next week."
+          },
+          "meaning_in_context": {
+            "source_sentence": "I want to brush up on my French before the trip.",
+            "contextual_meaning": "to improve a skill or knowledge you learned before but have not used recently",
+            "simple_explanation": "The speaker has learned some French before and wants to practise it again so it will be easier to use on the trip."
+          },
+          "mistakes_differences": {
+            "correction": "Say I need to brush up on writing reports. After on, use a noun or an -ing form, not to + verb.",
+            "common_mistake": "I need to brush up on to write reports.",
+            "important_difference": "Brushing up refreshes prior learning; starting from scratch introduces something entirely new."
+          },
+          "patterns_collocations": {
+            "main_pattern": "brush up on + subject/skill/noun or -ing form",
+            "common_collocations": [
+              "brush up on grammar",
+              "brush up on interview skills"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "meaning_in_context",
+        "mistakes_differences",
+        "patterns_collocations"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid lesson retained; previous-learning requirement and on plus ing grammar clarified.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    },
+    {
+      "ordinal": 242,
+      "wordId": "209082cf-55a9-4fb2-8069-951d410207bc",
+      "senseKey": "approximately-or-almost-completely",
+      "senseRank": 1,
+      "expectedEntryVersion": 1,
+      "expectedLessonSha256": "3029a2353a99bd14cd194dc77191c090e9a932fe8c297d57232632825514ad51",
+      "profileReceipt": "PROFILE-DRAFT-003.json",
+      "headerReviewReceipt": "PROFILE-DRAFT-003.json",
+      "entry": {
+        "word": "more or less",
+        "wordType": "adverbial phrase",
+        "pronunciation": "/mɔːr ɔː ˈles/",
+        "tamilMeaning": "ஏறக்குறைய",
+        "englishMeaning": "approximately or almost completely",
+        "coreIdea": "Close to a quantity, state or completion, without claiming exactness.",
+        "lesson": {
+          "overview": {
+            "meaning_usage_profile": {
+              "meaning_type": "Approximation phrase meaning almost completely in this sentence: most packing is done, but some may remain.",
+              "connotation": "Neutral: it deliberately avoids claiming full completion.",
+              "tone": "Informal and qualified here: the speaker gives a broadly positive update while leaving room for unfinished details.",
+              "register": "Common in conversation and informal updates. Specify the remaining work if the listener needs an exact status."
+            }
+          },
+          "usage_guide": {
+            "when_to_use": [
+              "Give an approximate comparison or say something is nearly complete when exact precision is not needed."
+            ],
+            "when_not_to_use": [
+              "When a precise amount or completion status matters, state it directly instead of relying on more or less."
+            ]
+          },
+          "format_version": "simplified-v2",
+          "advanced_nuance": [
+            "More or less can describe approximate sameness or near completion. In the source, it means the packing is nearly finished.",
+            "The phrase does not tell the listener the size of the remaining gap. Add what is left when that detail affects a decision."
+          ],
+          "memory_practice": {
+            "memory_trigger": "Picture a nearly packed suitcase with a few small items still beside it.",
+            "memory_sentence": "The two routes take more or less the same time.",
+            "production_task": "Give an honest near-completion update without claiming everything is finished. Respond in one or two natural sentences using the expression, then compare with the pattern after answering.",
+            "recall_question": "Recall the expression for this meaning without looking: approximately or almost completely. Explain its function in one sentence.",
+            "recognition_task": "Which option fits the taught meaning and standard construction? A: The routes take more or less the same time. B: The routes take more and less the same time. Explain your choice, then check the correction and distinction."
+          },
+          "natural_examples": {
+            "examples": {
+              "scenario": "We have more or less finished packing.",
+              "another_setting": "The two routes take more or less the same time."
+            },
+            "mini_conversation": "A: The two routes take more or less the same time.\nB: Then let us choose the one with fewer changes."
+          },
+          "meaning_in_context": {
+            "source_sentence": "We have more or less finished packing.",
+            "contextual_meaning": "approximately or almost completely",
+            "simple_explanation": "Most of the packing is finished, but a few things may still need to be packed. The speaker does not claim that every item is ready."
+          },
+          "mistakes_differences": {
+            "correction": "The routes take more or less the same time.",
+            "common_mistake": "The routes take more and less the same time.",
+            "important_difference": "More or less gives approximation; exactly claims precision."
+          },
+          "patterns_collocations": {
+            "main_pattern": "more or less + adjective/participle; more or less the same",
+            "common_collocations": [
+              "more or less complete",
+              "more or less the same"
+            ]
+          }
+        }
+      },
+      "preservedFields": [
+        "wordId",
+        "senseKey",
+        "senseRank",
+        "entryVersion reference",
+        "sourceLessonSha256 reference",
+        "exact source_sentence",
+        "exact contextual_meaning",
+        "reviewed Overview profile",
+        "reviewed Tamil meaning",
+        "reviewed pronunciation",
+        "taxonomy"
+      ],
+      "repairedFields": [
+        "overview",
+        "usage_guide",
+        "advanced_nuance",
+        "memory_practice",
+        "meaning_in_context",
+        "patterns_collocations",
+        "coreIdea"
+      ],
+      "deliveryStatus": "not_import_payload",
+      "semanticReview": {
+        "status": "reviewed",
+        "finding": "Valid examples/practice retained; numerical-only core image corrected to include near completion in the source.",
+        "scope": "All eight sections and changed headers; no audio or local import verification."
+      },
+      "repairStatus": "semantically_reviewed_lesson_validator_passed_pack_validation_pending",
+      "lessonValidation": {
+        "validatorCommit": "33154b6415d0937d53332250974c7f2985cfda0b",
+        "function": "generatedVocabularyEntryQualityIssues",
+        "issues": [],
+        "completeContentPackValidation": "pending"
+      }
+    }
+  ]
+}
