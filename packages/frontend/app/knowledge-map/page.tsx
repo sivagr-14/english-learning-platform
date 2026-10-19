@@ -38,6 +38,21 @@ export default function KnowledgeMapPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [retry, setRetry] = useState(0);
+  const [startingId, setStartingId] = useState<string | null>(null);
+  const [startError, setStartError] = useState("");
+
+  const startLearning = async (wordId: string) => {
+    setStartingId(wordId);
+    setStartError("");
+    try {
+      await getApiClient().post(`/api/vocabulary/knowledge-map/${wordId}/start`);
+      setRetry((value) => value + 1);
+    } catch {
+      setStartError("Could not add this entry to review. Try again.");
+    } finally {
+      setStartingId(null);
+    }
+  };
 
   useEffect(() => {
     let active = true;
@@ -100,6 +115,7 @@ export default function KnowledgeMapPage() {
           <Link href="/search" className="text-sm font-semibold text-blue-700 hover:underline">Search all vocabulary →</Link>
         </div>
 
+        {startError && <p role="alert" className="mt-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">{startError}</p>}
         {error ? (
           <div role="alert" className="mt-5 rounded-xl border border-red-200 bg-red-50 p-5 text-red-800">
             The Knowledge Map could not load. <button className="font-semibold underline" onClick={() => setRetry((value) => value + 1)}>Try again</button>
@@ -115,15 +131,20 @@ export default function KnowledgeMapPage() {
           <>
             <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
               {data.words.map((word) => (
-                <Link key={word.id} href={`/vocabulary/words/${word.id}`} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-blue-400 hover:shadow-md">
+                <article key={word.id} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
                   <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-lg font-semibold text-slate-950">{word.display_label || word.word}</h3>
+                    <h3 className="text-lg font-semibold text-slate-950"><Link href={`/vocabulary/words/${word.id}`} className="hover:text-blue-700 hover:underline">{word.display_label || word.word}</Link></h3>
                     <span className={`rounded-full px-2 py-1 text-xs font-semibold ${word.knowledge_status === "mastered" ? "bg-emerald-100 text-emerald-800" : word.knowledge_status === "learning" ? "bg-blue-100 text-blue-800" : "bg-slate-100 text-slate-600"}`}>{word.knowledge_status}</span>
                   </div>
                   <p className="mt-1 text-xs text-slate-500">{word.word_type || "Expression"} · {word.frequency}</p>
                   <p className="mt-3 line-clamp-2 text-sm text-slate-700">{word.english_meaning}</p>
                   <p className="mt-2 line-clamp-2 text-sm text-blue-700" lang="ta">{word.tamil_meaning}</p>
-                </Link>
+                  <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-slate-100 pt-4">
+                    <Link href={`/vocabulary/words/${word.id}`} className="text-sm font-semibold text-blue-700 hover:underline">Open lesson →</Link>
+                    {word.knowledge_status === "new" && <button type="button" disabled={startingId !== null} onClick={() => startLearning(word.id)} className="rounded-lg bg-blue-700 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-800 disabled:opacity-50">{startingId === word.id ? "Adding…" : "Start learning"}</button>}
+                    {word.knowledge_status === "learning" && <Link href="/flashcards" className="text-sm font-semibold text-emerald-700 hover:underline">Review now →</Link>}
+                  </div>
+                </article>
               ))}
             </div>
             <div className="mt-6">

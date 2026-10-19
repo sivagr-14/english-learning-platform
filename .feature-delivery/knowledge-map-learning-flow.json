@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "featureId": "knowledge-map-learning-flow",
+  "title": "B1–C1 discovery to spaced review",
+  "implementationPaths": [
+    "packages/backend/src/routes/vocabulary.ts",
+    "packages/frontend/app/knowledge-map/page.tsx"
+  ],
+  "validationPaths": [
+    "tests/playwright/knowledge-map.spec.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This change filters and schedules already validated app entries for review; it does not alter ChatGPT source assessment, lesson generation, taxonomy or content-pack import contracts."
+  }
+}

@@ -870,7 +870,8 @@ router.get(
             database.raw("?", [req.userId as string]),
           );
         })
-        .where("vw.cefr_level", level);
+        .where("vw.cefr_level", level)
+        .whereRaw("LOWER(vw.frequency) IN (?, ?, ?)", ["heavy", "high", "medium"]);
       applyOwnership(base, req.userId as string);
 
       const [counts, totalRow, rows] = await Promise.all([
@@ -883,6 +884,7 @@ router.get(
             );
           })
           .whereIn("vw.cefr_level", ["B1", "B2", "C1"])
+          .whereRaw("LOWER(vw.frequency) IN (?, ?, ?)", ["heavy", "high", "medium"])
           .where((builder: any) =>
             builder
               .where("vw.owner_user_id", req.userId)
@@ -936,6 +938,77 @@ router.get(
         })),
         pagination: { page, limit, total, total_pages: Math.max(1, Math.ceil(total / limit)) },
       });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
+
+router.post(
+  "/knowledge-map/:id/start",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const wordId = z.string().uuid().parse(req.params.id);
+      const userId = req.userId as string;
+      const result = await database.transaction(async (trx) => {
+        await trx.raw("SELECT pg_advisory_xact_lock(hashtext(?))", [
+          `flashcards:${userId}`,
+        ]);
+        const word = await trx("vocabulary_words")
+          .where({ id: wordId })
+          .whereIn("cefr_level", ["B1", "B2", "C1"])
+          .whereRaw("LOWER(frequency) IN (?, ?, ?)", ["heavy", "high", "medium"])
+          .where((query: any) =>
+            query.where("owner_user_id", userId).orWhereNull("owner_user_id"),
+          )
+          .first();
+        if (!word) return null;
+        const now = new Date();
+        await trx("user_progress")
+          .insert({
+            user_id: userId,
+            word_id: wordId,
+            category_id: word.category_id,
+            status: "in_progress",
+            proficiency_level: 0,
+            introduced_at: now,
+            next_review_at: now,
+          })
+          .onConflict(["user_id", "word_id"])
+          .ignore();
+        const progress = await trx("user_progress")
+          .where({ user_id: userId, word_id: wordId })
+          .first();
+        // A mastered or previously reviewed entry retains its established schedule.
+        if (Number(progress.proficiency_level || 0) >= 4 ||
+            Number(progress.times_reviewed || 0) > 0) {
+          return { status: "existing", progress };
+        }
+        await trx("user_progress")
+          .where({ id: progress.id })
+          .update({
+            status: "in_progress",
+            introduced_at: progress.introduced_at || now,
+            next_review_at: now,
+            updated_at: now,
+          });
+        await trx("flashcard_queue")
+          .insert({
+            user_id: userId,
+            word_id: wordId,
+            progress_id: progress.id,
+            queue_position: 0,
+            due_at: now,
+            card_type: "vocabulary",
+          })
+          .onConflict(["user_id", "word_id"])
+          .merge({ due_at: now, updated_at: now });
+        return { status: "learning" };
+      });
+      if (!result) return res.status(404).json({ message: "Entry not found" });
+      res.json(result);
     } catch (error) {
       next(error);
     }
