@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "featureId": "b1-c1-knowledge-map-v1",
+  "title": "B1–C1 Knowledge Map over validated vocabulary",
+  "implementationPaths": [
+    "packages/backend/src/routes/vocabulary.ts",
+    "packages/frontend/app/knowledge-map/page.tsx",
+    "packages/frontend/components/AppShell.tsx"
+  ],
+  "validationPaths": [
+    "tests/playwright/knowledge-map.spec.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "This read-only exploration screen consumes already validated entries and does not alter ChatGPT source assessment, lesson generation, or content-pack import contracts."
+  }
+}

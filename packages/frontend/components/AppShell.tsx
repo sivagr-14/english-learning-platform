@@ -21,6 +21,7 @@ const navigation = [
     group: "Explore",
     items: [
       { href: "/vocabulary", label: "Vocabulary", icon: "book" },
+      { href: "/knowledge-map", label: "Knowledge Map", icon: "chart" },
       { href: "/categories", label: "Categories", icon: "grid" },
       { href: "/search", label: "Search", icon: "search" },
     ],
