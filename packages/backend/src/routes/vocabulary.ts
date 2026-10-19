@@ -867,7 +867,7 @@ router.get(
           this.on("up.word_id", "=", "vw.id").andOn(
             "up.user_id",
             "=",
-            database.raw("?", [req.userId]),
+            database.raw("?", [req.userId as string]),
           );
         })
         .where("vw.cefr_level", level);
@@ -879,7 +879,7 @@ router.get(
             this.on("up.word_id", "=", "vw.id").andOn(
               "up.user_id",
               "=",
-              database.raw("?", [req.userId]),
+              database.raw("?", [req.userId as string]),
             );
           })
           .whereIn("vw.cefr_level", ["B1", "B2", "C1"])
