@@ -852,4 +852,94 @@ router.get(
   },
 );
 
+
+// B1-C1 discovery reads validated app entries only. The WordUp source inventory
+// stays outside the lesson tables until semantic assessment and pack validation.
+router.get(
+  "/knowledge-map",
+  authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const level = z.enum(["B1", "B2", "C1"]).parse(req.query.level || "B1");
+      const { page = 1, limit = 24 } = paginationSchema.parse(req.query);
+      const base = database("vocabulary_words as vw")
+        .leftJoin("user_progress as up", function () {
+          this.on("up.word_id", "=", "vw.id").andOn(
+            "up.user_id",
+            "=",
+            database.raw("?", [req.userId]),
+          );
+        })
+        .where("vw.cefr_level", level);
+      applyOwnership(base, req.userId as string);
+
+      const [counts, totalRow, rows] = await Promise.all([
+        database("vocabulary_words as vw")
+          .leftJoin("user_progress as up", function () {
+            this.on("up.word_id", "=", "vw.id").andOn(
+              "up.user_id",
+              "=",
+              database.raw("?", [req.userId]),
+            );
+          })
+          .whereIn("vw.cefr_level", ["B1", "B2", "C1"])
+          .where((builder: any) =>
+            builder
+              .where("vw.owner_user_id", req.userId)
+              .orWhereNull("vw.owner_user_id"),
+          )
+          .groupBy("vw.cefr_level")
+          .select("vw.cefr_level")
+          .count({ total: "vw.id" })
+          .select(
+            database.raw(
+              "COUNT(*) FILTER (WHERE up.proficiency_level >= 4) AS mastered",
+            ),
+            database.raw(
+              "COUNT(*) FILTER (WHERE up.status = 'in_progress' AND COALESCE(up.proficiency_level, 0) < 4) AS learning",
+            ),
+          ),
+        base.clone().count({ total: "vw.id" }).first(),
+        base.clone()
+          .select(
+            "vw.id", "vw.word", "vw.sense_rank", "vw.word_type",
+            "vw.cefr_level", "vw.frequency", "vw.english_meaning",
+            "vw.tamil_meaning", "vw.is_starter_sample",
+            "up.status as progress_status", "up.proficiency_level",
+          )
+          .orderByRaw("LOWER(vw.word)")
+          .orderBy("vw.sense_rank")
+          .orderBy("vw.id")
+          .limit(limit)
+          .offset((page - 1) * limit),
+      ]);
+
+      const total = Number(totalRow?.total || 0);
+      res.json({
+        levels: ["B1", "B2", "C1"].map((key) => {
+          const row: any = counts.find((item: any) => item.cefr_level === key);
+          return {
+            level: key,
+            total: Number(row?.total || 0),
+            learning: Number(row?.learning || 0),
+            mastered: Number(row?.mastered || 0),
+          };
+        }),
+        words: rows.map((word: any) => ({
+          ...withDisplayLabel(word),
+          knowledge_status:
+            Number(word.proficiency_level || 0) >= 4
+              ? "mastered"
+              : word.progress_status === "in_progress"
+                ? "learning"
+                : "new",
+        })),
+        pagination: { page, limit, total, total_pages: Math.max(1, Math.ceil(total / limit)) },
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
 export default router;
