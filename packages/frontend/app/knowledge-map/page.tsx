@@ -150,7 +150,7 @@ export default function KnowledgeMapPage() {
                   </div>
                   <p className="mt-1 text-xs text-slate-500">{word.word_type || "Expression"} · {word.frequency}</p>
                   <p className="mt-3 line-clamp-2 text-sm text-slate-700">{word.english_meaning}</p>
-                  <p className="mt-2 line-clamp-2 text-sm text-blue-700" lang="ta">{word.tamil_meaning}</p>
+                  <p data-tamil lang="ta" className="mt-2 line-clamp-2 text-sm text-blue-700">{word.tamil_meaning}</p>
                   <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-slate-100 pt-4">
                     <Link href={`/vocabulary/words/${word.id}`} className="text-sm font-semibold text-blue-700 hover:underline">Open lesson →</Link>
                     {word.knowledge_status === "new" && <button type="button" disabled={startingId !== null} onClick={() => startLearning(word.id)} className="rounded-lg bg-blue-700 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-800 disabled:opacity-50">{startingId === word.id ? "Adding…" : "Start learning"}</button>}

@@ -47,7 +47,7 @@ function Discovery() {
         <h2>{word.display_label || word.word}</h2>
         <p className="discovery-phonetic">{word.pronunciation}</p>
         <p className="discovery-meaning">{word.english_meaning}</p>
-        <p lang="ta" className="discovery-tamil">{word.tamil_meaning}</p>
+        <p data-tamil lang="ta" className="discovery-tamil">{word.tamil_meaning}</p>
         <PracticeAudio text={word.word} />
         <Link className="discovery-lesson" href={`/vocabulary/words/${word.id}`}>Explore all eight lesson sections →</Link>
         <div className="discovery-choices">

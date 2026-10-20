@@ -43,3 +43,20 @@ Hourly automation Complete WordUp app continues substantive work, checkpoints to
 - Frontend TypeScript check passed after all UI edits. Production build passed for the discovery/personal-control changes; map search controls were added during that build, then separately typechecked. Rebuild final combined head before release.
 - Added tests/playwright/discovery.spec.ts for failed-save recovery and persisted advancement. Browser test NOT RUN: Chromium download repeatedly returned an empty/corrupt archive; no system browser executable available. This is a recoverable validation gap, not task completion.
 - Backend integration, delivery evidence, consolidated draft PR, settings/home redesign and other remaining checklist items are still pending. No merge or local user database update performed.
+
+## Continuation — learning preferences and verification gates
+- Reconciled main 0895c87186fb88ae4328ade4397e56b350f55017 and feature head 7218c469d7285d427b7ea5a75202f5d9a1e6b44d. Main is an ancestor; merged #120/#121 are not redone. Local backend changes matched remote apart from whitespace; remote flashcards route restored.
+- Added /settings with persisted British/American accent, Tamil visibility and light/dark appearance. Account-scoped preference state ignores stale account responses. Failed loads disable writes; failed saves preserve edits and active settings for retry.
+- Applied preferences to browser speech, Discover, map, word-detail Tamil blocks and spaced-review Tamil. Kept all source Tamil and exactly eight custom lesson sections. Updated home links to discovery and map.
+- Extended existing smoke-fluency-postgres.ts CI gate with real HTTP/DB checks for account isolation, invalid input, notes-only familiarity preservation, known-before-queue, learning-after-known, unreviewed deferral, reviewed schedule preservation, map scope/status and preference persistence/validation.
+- Added Playwright settings tests for failed load/save recovery, persistence after reload, selected speech voice/rate, Tamil visibility and mobile overflow. Added vocabulary-ui job to run discovery/map/settings tests and preserve artifacts.
+- Frontend typecheck/build passed for settings/controller/audio before the final home/flashcard adjustments; final combined build rerun pending receipt below. Local Chromium and headless-shell installs both returned corrupt/empty archives, so local browser tests remain unrun; CI is the next verification source.
+- Backend tests/integration have not been run locally (partial checkout, no local PostgreSQL service). CI results must be inspected; this is not a pass claim.
+- Delivery record added. See docs/WORDUP_FEATURE_PARITY.md for remaining scope. Consolidated draft PR creation pending this checkpoint commit. Do not merge.
+
+## Next continuation
+1. Inspect CI for consolidated PR and repair genuine failures without weakening gates; record final head results.
+2. Complete dense visual knowledge grid and focused word details, favorites/lists navigation and guided practice query parameters, with meaningful interaction tests.
+3. Verify dark-theme contrast and all eight-section/custom-content flows in browser, not just compile.
+4. Continue semantic WordUp catalogue assessment, per-sense original pictures/media and explicit parity dependencies. Data assessment remains zero final semantic decisions. Full completion must not be claimed.
+

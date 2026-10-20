@@ -902,3 +902,24 @@ progress {
 .personal-learning [role="alert"] { color:#9c2727; }
 .personal-learning [role="status"] { color:#156e67; margin-top:12px; }
 button:disabled { cursor:not-allowed; }
+
+/* Preferences change presentation only; lesson text remains intact. */
+html[data-show-tamil="false"] [data-tamil],
+html[data-show-tamil="false"] [lang="ta"] { display: none !important; }
+.settings-panel { max-width: 760px; padding: 24px; margin-bottom: 20px; background: white; border: 1px solid var(--line); border-radius: 20px; }
+.settings-panel fieldset { display: grid; gap: 12px; margin-bottom: 24px; }
+.settings-panel legend, .settings-panel h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; }
+.settings-panel label { font-weight: 600; }
+.settings-panel select { width: 100%; max-width: 360px; padding: 10px; }
+.settings-panel p { line-height: 1.7; color: var(--muted); margin: 8px 0 16px; }
+.settings-panel .settings-check { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+.settings-panel [role="alert"] { color: #9c2727; }
+.settings-panel [role="status"] { color: var(--brand); }
+html[data-theme="dark"] { color-scheme: dark; --ink: #e0ede9; --muted: #afc4bd; --brand: #83d8bf; --line: #3a5350; --canvas: #142422; }
+html[data-theme="dark"] :where(.workspace-bar, .account-panel, .stat-card, .path-card, .settings-panel, .discovery-card, .personal-learning, .discovery-toolbar, .bg-white, .bg-gray-50, .bg-slate-50, input:not([type="checkbox"]):not([type="radio"]), textarea, select) { background-color: #1e3531; color: var(--ink); border-color: var(--line); }
+html[data-theme="dark"] .workspace-main :where(.text-gray-900, .text-slate-900, .text-slate-950, .text-gray-700, .text-slate-700, .text-slate-800) { color: var(--ink); }
+html[data-theme="dark"] .workspace-main :where(.text-gray-500, .text-gray-600, .text-slate-500, .text-slate-600) { color: var(--muted); }
+html[data-theme="dark"] .workspace-main :where(.text-blue-700, .text-emerald-700, .path-action) { color: #9ce5cc; }
+html[data-theme="dark"] .workspace-main :where(.bg-blue-50, .bg-blue-100, .bg-sky-50, .learning-hero, .learning-route, .path-icon) { background: #284a3c; color: var(--ink); }
+html[data-theme="dark"] :where(.btn-secondary, .discovery-actions button) { background: #284a3c; color: var(--ink); border-color: var(--line); }
+html[data-theme="dark"] :where(.settings-panel [role="alert"], .discovery-error, .personal-learning [role="alert"]) { color: #ffb6af; }

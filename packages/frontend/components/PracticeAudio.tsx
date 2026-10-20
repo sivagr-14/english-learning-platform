@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { useActivePreferences } from "@/lib/store/learning-preferences";
 
 export default function PracticeAudio({
   text,
@@ -8,6 +9,7 @@ export default function PracticeAudio({
   text: string;
   record?: boolean;
 }) {
+  const { accent } = useActivePreferences();
   const recorder = useRef<MediaRecorder | null>(null);
   const stream = useRef<MediaStream | null>(null);
   const audioUrl = useRef("");
@@ -34,7 +36,9 @@ export default function PracticeAudio({
       return;
     }
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "en-GB";
+    utterance.lang = accent;
+    const voice = window.speechSynthesis.getVoices().find(voice => voice.lang.toLowerCase().replace("_", "-") === accent.toLowerCase());
+    if (voice) utterance.voice = voice;
     utterance.rate = rate;
     utterance.onerror = () => {
       if (mounted.current)
@@ -136,3 +140,4 @@ export default function PracticeAudio({
     </div>
   );
 }
+

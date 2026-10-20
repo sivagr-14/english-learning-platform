@@ -261,7 +261,7 @@ function SimplifiedLessonTemplate({
                 {word.english_meaning}
               </p>
             </div>
-            <div className="rounded-lg bg-gray-50 p-4">
+            <div data-tamil className="rounded-lg bg-gray-50 p-4">
               <h4 className="text-sm font-semibold text-gray-900">
                 Tamil Meaning
               </h4>
@@ -532,7 +532,7 @@ function VocabularyWordContent() {
                       {word.english_meaning}
                     </p>
                   </div>
-                  <div className="rounded-lg bg-gray-50 p-4">
+                  <div data-tamil className="rounded-lg bg-gray-50 p-4">
                     <h3 className="text-sm font-semibold text-gray-900">
                       Tamil Meaning
                     </h3>

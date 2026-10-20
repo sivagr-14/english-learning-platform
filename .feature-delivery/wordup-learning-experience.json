@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "featureId": "wordup-learning-experience",
+  "title": "Integrated vocabulary discovery, personal learning and preferences (in development)",
+  "implementationPaths": [
+    "packages/backend/src/database/migrations/10004_vocabulary_experience.ts",
+    "packages/backend/src/routes/flashcards.ts",
+    "packages/backend/src/routes/vocabulary.ts",
+    "packages/backend/src/services/vocabulary-experience.ts",
+    "packages/frontend/app/discover/page.tsx",
+    "packages/frontend/app/globals.css",
+    "packages/frontend/app/knowledge-map/page.tsx",
+    "packages/frontend/app/vocabulary/words/[id]/page.tsx",
+    "packages/frontend/components/AppShell.tsx",
+    "packages/frontend/components/PersonalLearning.tsx",
+    "packages/frontend/app/ClientLayout.tsx",
+    "packages/frontend/app/settings/page.tsx",
+    "packages/frontend/lib/store/learning-preferences.ts",
+    "packages/frontend/components/LearningPreferencesController.tsx",
+    "packages/frontend/components/PracticeAudio.tsx",
+    "packages/frontend/app/dashboard/page.tsx",
+    "packages/frontend/app/flashcards/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/scripts/smoke-fluency-postgres.ts",
+    "tests/playwright/discovery.spec.ts",
+    "tests/playwright/learning-settings.spec.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "UI, account preferences and review scheduling consume existing validated lessons. Source assessment, all eight simplified-v2 sections, Tamil content, taxonomy and immutable content-pack import contracts are unchanged."
+  }
+}
