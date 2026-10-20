@@ -20,6 +20,7 @@ const navigation = [
   {
     group: "Explore",
     items: [
+      { href: "/discover", label: "Discover", icon: "book" },
       { href: "/vocabulary", label: "Vocabulary", icon: "book" },
       { href: "/knowledge-map", label: "Knowledge Map", icon: "chart" },
       { href: "/categories", label: "Categories", icon: "grid" },
@@ -268,3 +269,4 @@ export default function AppShell({
     </div>
   );
 }
+
