@@ -275,7 +275,7 @@ export default function FlashcardsPage() {
                       Your prompt
                     </p>
                     {card.tamil_meaning && (
-                      <p className="mt-3 text-lg font-medium text-blue-800">
+                      <p lang="ta" className="mt-3 text-lg font-medium text-blue-800">
                         {card.tamil_meaning}
                       </p>
                     )}
@@ -298,7 +298,7 @@ export default function FlashcardsPage() {
                       Meaning
                     </h3>
                     <p className="mt-2 text-gray-800">{card.english_meaning}</p>
-                    <p className="mt-1 text-blue-700">{card.tamil_meaning}</p>
+                    <p lang="ta" className="mt-1 text-blue-700">{card.tamil_meaning}</p>
                     <p className="mt-2 text-sm text-gray-600">
                       {card.core_idea}
                     </p>
@@ -355,3 +355,4 @@ export default function FlashcardsPage() {
     </AppShell>
   );
 }
+

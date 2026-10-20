@@ -57,6 +57,11 @@ export async function ensureFlashcards(userId: string) {
       .join("vocabulary_words as w", "w.id", "p.word_id")
       .where("p.user_id", userId)
       .whereNull("p.introduced_at")
+      .whereNotExists(function () {
+        this.select(trx.raw("1")).from("vocabulary_learner_state as ls")
+          .whereRaw("ls.word_id = p.word_id AND ls.user_id = p.user_id")
+          .where("ls.familiarity", "known");
+      })
       .where((q: any) =>
         q.where("w.owner_user_id", userId).orWhereNull("w.owner_user_id"),
       )
@@ -374,3 +379,4 @@ router.post(
 );
 
 export default router;
+

@@ -20,6 +20,7 @@ const navigation = [
   {
     group: "Explore",
     items: [
+      { href: "/discover", label: "Discover", icon: "book" },
       { href: "/vocabulary", label: "Vocabulary", icon: "book" },
       { href: "/knowledge-map", label: "Knowledge Map", icon: "chart" },
       { href: "/categories", label: "Categories", icon: "grid" },
@@ -30,6 +31,7 @@ const navigation = [
     group: "Your collection",
     items: [
       { href: "/coverage", label: "Coverage & Collection", icon: "chart" },
+      { href: "/settings", label: "Learning settings", icon: "grid" },
       { href: "/generate", label: "ChatGPT Imports", icon: "upload" },
     ],
   },
@@ -218,6 +220,7 @@ export default function AppShell({
                 <span>Account</span>
               </summary>
               <div className="account-panel">
+                <Link href="/settings" className="nav-item">Learning settings</Link>
                 <p className="mb-4 break-words text-sm font-semibold">
                   {user?.first_name || user?.email || "Your account"}
                 </p>
@@ -268,3 +271,4 @@ export default function AppShell({
     </div>
   );
 }
+

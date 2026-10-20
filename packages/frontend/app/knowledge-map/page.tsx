@@ -11,6 +11,7 @@ type Level = "B1" | "B2" | "C1";
 interface LevelStats {
   level: Level;
   total: number;
+  known?: number;
   learning: number;
   mastered: number;
 }
@@ -22,7 +23,7 @@ interface MapWord {
   english_meaning: string;
   tamil_meaning: string;
   frequency: string;
-  knowledge_status: "new" | "learning" | "mastered";
+  knowledge_status: "new" | "learning" | "known" | "mastered";
 }
 interface MapData {
   levels: LevelStats[];
@@ -33,6 +34,8 @@ const levels: Level[] = ["B1", "B2", "C1"];
 
 export default function KnowledgeMapPage() {
   const [level, setLevel] = useState<Level>("B1");
+  const [query, setQuery] = useState("");
+  const [status, setStatus] = useState("all");
   const [page, setPage] = useState(1);
   const [data, setData] = useState<MapData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -59,7 +62,7 @@ export default function KnowledgeMapPage() {
     setLoading(true);
     setError(false);
     getApiClient()
-      .get("/api/vocabulary/knowledge-map", { params: { level, page, limit: 24 } })
+      .get("/api/vocabulary/knowledge-map", { params: { level, page, limit: 24, q: query, status } })
       .then((response) => {
         if (active) setData(response.data);
       })
@@ -70,7 +73,7 @@ export default function KnowledgeMapPage() {
         if (active) setLoading(false);
       });
     return () => { active = false; };
-  }, [level, page, retry]);
+  }, [level, page, retry, query, status]);
 
   return (
     <AuthenticatedPage>
@@ -115,6 +118,15 @@ export default function KnowledgeMapPage() {
           <Link href="/search" className="text-sm font-semibold text-blue-700 hover:underline">Search all vocabulary →</Link>
         </div>
 
+        <form className="discovery-toolbar mt-5" onSubmit={event => event.preventDefault()}>
+          <label htmlFor="map-query">Find a word</label>
+          <input id="map-query" className="rounded-xl border p-3" type="search" maxLength={100} value={query} onChange={e => { setQuery(e.target.value); setPage(1); }} placeholder="Word, meaning or Tamil…" />
+          <label htmlFor="map-status">Show</label>
+          <select id="map-status" value={status} onChange={e => { setStatus(e.target.value); setPage(1); }}>
+            <option value="all">All entries</option><option value="new">Not explored</option><option value="learning">Learning</option><option value="known">Already known</option><option value="mastered">Review proficiency</option>
+          </select>
+          <Link href="/discover" className="btn-primary">Discover words</Link>
+        </form>
         {startError && <p role="alert" className="mt-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">{startError}</p>}
         {error ? (
           <div role="alert" className="mt-5 rounded-xl border border-red-200 bg-red-50 p-5 text-red-800">
@@ -124,8 +136,8 @@ export default function KnowledgeMapPage() {
           <p className="mt-5 rounded-xl border bg-white p-6 text-slate-600">Loading your map…</p>
         ) : !data?.words.length ? (
           <div className="mt-5 rounded-xl border bg-white p-8 text-center">
-            <p className="font-semibold text-slate-950">No assessed {level} entries yet</p>
-            <p className="mt-2 text-sm text-slate-600">Validated lessons will appear here after import.</p>
+            <p className="font-semibold text-slate-950">{query || status !== "all" ? "No entries match your filters" : `No assessed ${level} entries yet`}</p>
+            <p className="mt-2 text-sm text-slate-600">{query || status !== "all" ? "Try another search or choose All entries." : "Validated lessons will appear here after import."}</p>
           </div>
         ) : (
           <>
@@ -138,7 +150,7 @@ export default function KnowledgeMapPage() {
                   </div>
                   <p className="mt-1 text-xs text-slate-500">{word.word_type || "Expression"} · {word.frequency}</p>
                   <p className="mt-3 line-clamp-2 text-sm text-slate-700">{word.english_meaning}</p>
-                  <p className="mt-2 line-clamp-2 text-sm text-blue-700" lang="ta">{word.tamil_meaning}</p>
+                  <p data-tamil lang="ta" className="mt-2 line-clamp-2 text-sm text-blue-700">{word.tamil_meaning}</p>
                   <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-slate-100 pt-4">
                     <Link href={`/vocabulary/words/${word.id}`} className="text-sm font-semibold text-blue-700 hover:underline">Open lesson →</Link>
                     {word.knowledge_status === "new" && <button type="button" disabled={startingId !== null} onClick={() => startLearning(word.id)} className="rounded-lg bg-blue-700 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-800 disabled:opacity-50">{startingId === word.id ? "Adding…" : "Start learning"}</button>}
@@ -156,3 +168,4 @@ export default function KnowledgeMapPage() {
     </AuthenticatedPage>
   );
 }
+

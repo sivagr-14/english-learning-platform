@@ -1,0 +1,62 @@
+# WordUp learning experience checkpoint
+
+Updated 2026-10-20. Status: IN DEVELOPMENT, not complete or release-ready.
+
+## Scope and baseline
+PRs #120 and #121 merged. Continue feature/wordup-learning-experience, checking current main first. Deliver one cohesive review PR, not small increments described as a complete app. Follow AGENTS.md and delivery evidence gate. Never weaken checks.
+
+Preserve eight simplified-v2 sections: Overview; Meaning in Context; Usage Guide; Patterns & Collocations; Natural Examples; Mistakes & Differences; Memory & Practice; Advanced Nuance.
+WordUp scope: B1/B2/C1 high/medium usage by contextual sense. Rank is not CEFR evidence. Existing global content policy must not be silently changed. Preserve Tamil and original data. No active in-app AI provider; guided practice and ChatGPT handoff are custom alternatives.
+
+## Implemented foundation, verification pending
+- Migration 10004: account-scoped vocabulary_learner_state and vocabulary_preferences.
+- Personal familiarity, general note, accent/Tamil/theme preferences endpoints.
+- Knowledge Map search, status filters, separate known and reviewed proficiency counts.
+- Starting learning creates a due card while preserving reviewed schedules.
+- Known familiarity does not invent correct reviews; unreviewed known items are excluded from automatic introduction.
+
+## Next work (all pending)
+1. Inspect/typecheck backend changes; add integration checks for account isolation, notes-only update preservation, known-before-queue, learning-after-known, reviewed schedule preservation, map filters and preference validation.
+2. Build cohesive responsive learning home, focused Discover flow, dense knowledge grid and searchable filtered map.
+3. Integrate personal controls and notes into word detail, with all eight custom sections discoverable and readable.
+4. Add settings UI, apply pronunciation accent/Tamil/theme; reuse existing goals, favorites/categories and progress.
+5. Connect guided reading/writing/speaking practice and query parameters; explicitly explain synthetic audio and no automated pronunciation scoring.
+6. Run frontend type/build, meaningful Playwright flows and backend PostgreSQL smoke/CI checks. Record actual outcomes; unrun is not pass.
+7. Add delivery evidence with changed validation paths, a feature parity/customization/gap matrix and consolidated draft PR.
+8. Complete remaining agreed features and data work before claiming full delivery. Do not silently defer missing features merely to close the checklist.
+
+## Data status
+Original SQLite 42,200 rows: 34,004 words and 8,196 expressions. No CEFR or verified usage frequency, full lessons or media assets. 277 records need identity review; 226 template/numeric expressions flagged. Assessment copy has source-preserving tables but ZERO final semantic decisions; it is not the first app version.
+Original Library ID: libfile_9bfe041b74c8819188c546daa0cb6b73.
+Assessment copy: libfile_fb0dacc499688191a0b139358e2f7764.
+Do not upload raw private databases to the repo. Use canonical immutable content-pack workflow; local backend owns PostgreSQL writes.
+Resolve remaining parity items explicitly: per-sense pictures/media, source semantic catalogue, reminders/push, native sync and AI conversation alternatives.
+
+## Resume
+Local partial source: /workspace/scratch/b87cf1243614/app-work. Frontend dependencies installed locally; no full backend checkout. Local route flashcards.ts may predate remote change: read branch version before editing. Local source database: /workspace/scratch/b87cf1243614/upload/wordup_database.sqlite.
+Hourly automation Complete WordUp app continues substantive work, checkpoints to this branch and stops on verified completion or reported unrecoverable blocker. Capacity exhaustion is resumable. Reconcile remote receipts; do not overwrite concurrent work.
+
+## Continuation 2026-10-20 — UI implementation
+- Added /discover with one contextual entry, B1/B2/C1 selector, pronunciation playback, lesson link and saved known/learning choices. Successful saves advance; failures retain the entry and expose Retry.
+- Added PersonalLearning on word detail: persisted familiarity and notes, preserving unsaved text on failures and separating notes-only writes from familiarity changes.
+- Added Discover navigation, responsive focused-card styling and Knowledge Map search/status controls.
+- Frontend TypeScript check passed after all UI edits. Production build passed for the discovery/personal-control changes; map search controls were added during that build, then separately typechecked. Rebuild final combined head before release.
+- Added tests/playwright/discovery.spec.ts for failed-save recovery and persisted advancement. Browser test NOT RUN: Chromium download repeatedly returned an empty/corrupt archive; no system browser executable available. This is a recoverable validation gap, not task completion.
+- Backend integration, delivery evidence, consolidated draft PR, settings/home redesign and other remaining checklist items are still pending. No merge or local user database update performed.
+
+## Continuation — learning preferences and verification gates
+- Reconciled main 0895c87186fb88ae4328ade4397e56b350f55017 and feature head 7218c469d7285d427b7ea5a75202f5d9a1e6b44d. Main is an ancestor; merged #120/#121 are not redone. Local backend changes matched remote apart from whitespace; remote flashcards route restored.
+- Added /settings with persisted British/American accent, Tamil visibility and light/dark appearance. Account-scoped preference state ignores stale account responses. Failed loads disable writes; failed saves preserve edits and active settings for retry.
+- Applied preferences to browser speech, Discover, map, word-detail Tamil blocks and spaced-review Tamil. Kept all source Tamil and exactly eight custom lesson sections. Updated home links to discovery and map.
+- Extended existing smoke-fluency-postgres.ts CI gate with real HTTP/DB checks for account isolation, invalid input, notes-only familiarity preservation, known-before-queue, learning-after-known, unreviewed deferral, reviewed schedule preservation, map scope/status and preference persistence/validation.
+- Added Playwright settings tests for failed load/save recovery, persistence after reload, selected speech voice/rate, Tamil visibility and mobile overflow. Added vocabulary-ui job to run discovery/map/settings tests and preserve artifacts.
+- Frontend typecheck/build passed for settings/controller/audio before the final home/flashcard adjustments; final combined build rerun pending receipt below. Local Chromium and headless-shell installs both returned corrupt/empty archives, so local browser tests remain unrun; CI is the next verification source.
+- Backend tests/integration have not been run locally (partial checkout, no local PostgreSQL service). CI results must be inspected; this is not a pass claim.
+- Delivery record added. See docs/WORDUP_FEATURE_PARITY.md for remaining scope. Consolidated draft PR creation pending this checkpoint commit. Do not merge.
+
+## Next continuation
+1. Inspect CI for consolidated PR and repair genuine failures without weakening gates; record final head results.
+2. Complete dense visual knowledge grid and focused word details, favorites/lists navigation and guided practice query parameters, with meaningful interaction tests.
+3. Verify dark-theme contrast and all eight-section/custom-content flows in browser, not just compile.
+4. Continue semantic WordUp catalogue assessment, per-sense original pictures/media and explicit parity dependencies. Data assessment remains zero final semantic decisions. Full completion must not be claimed.
+

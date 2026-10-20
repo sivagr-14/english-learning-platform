@@ -129,3 +129,43 @@ jobs:
       - name: Smoke-test user categories
         run: yarn smoke:user-categories
 
+
+  vocabulary-ui:
+    name: Vocabulary learning UI
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Activate Yarn 1
+        run: |
+          corepack enable
+          corepack prepare yarn@1.22.22 --activate
+      - name: Install locked dependencies
+        run: yarn install --frozen-lockfile
+      - name: Install Chromium
+        run: yarn playwright install --with-deps chromium
+      - name: Build frontend
+        run: yarn workspace english-learning-frontend build
+      - name: Test discovery, map and learning preferences
+        run: |
+          NODE_ENV=production yarn workspace english-learning-frontend start > /tmp/vocabulary-ui.log 2>&1 &
+          frontend_pid=$!
+          trap 'kill "$frontend_pid" || true' EXIT
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:3000/login > /dev/null; then break; fi
+            sleep 1
+          done
+          yarn playwright test tests/playwright/discovery.spec.ts tests/playwright/knowledge-map.spec.ts tests/playwright/learning-settings.spec.ts
+      - name: Preserve UI failure evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vocabulary-ui-results
+          path: test-results/
+          retention-days: 7
+

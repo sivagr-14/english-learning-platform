@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { initializeApiClient } from '@/lib/api/client';
 import useAuthStore from '@/lib/store/auth';
+import LearningPreferencesController from '@/components/LearningPreferencesController';
 
 export default function ClientLayout({
   children,
@@ -14,5 +15,6 @@ export default function ClientLayout({
     useAuthStore.getState().loadFromLocalStorage();
   }, []);
 
-  return <>{children}</>;
+  return <><LearningPreferencesController />{children}</>;
 }
+

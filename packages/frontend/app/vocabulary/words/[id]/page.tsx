@@ -5,6 +5,7 @@ import { ReactNode, Suspense, useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
+import PersonalLearning from "@/components/PersonalLearning";
 import QuickLesson from "@/components/QuickLesson";
 import PracticeAudio from "@/components/PracticeAudio";
 import WordCategoryPicker from "@/components/WordCategoryPicker";
@@ -260,7 +261,7 @@ function SimplifiedLessonTemplate({
                 {word.english_meaning}
               </p>
             </div>
-            <div className="rounded-lg bg-gray-50 p-4">
+            <div data-tamil className="rounded-lg bg-gray-50 p-4">
               <h4 className="text-sm font-semibold text-gray-900">
                 Tamil Meaning
               </h4>
@@ -531,7 +532,7 @@ function VocabularyWordContent() {
                       {word.english_meaning}
                     </p>
                   </div>
-                  <div className="rounded-lg bg-gray-50 p-4">
+                  <div data-tamil className="rounded-lg bg-gray-50 p-4">
                     <h3 className="text-sm font-semibold text-gray-900">
                       Tamil Meaning
                     </h3>
@@ -551,6 +552,7 @@ function VocabularyWordContent() {
               )}
             </section>
 
+            <PersonalLearning key={`personal-${word.id}`} wordId={word.id} />
             <QuickLesson key={word.id} word={word} />
             {otherMeanings.length > 0 && (
               <section className="rounded border bg-white p-4">
@@ -629,4 +631,5 @@ export default function VocabularyWordPage() {
     </AuthenticatedPage>
   );
 }
+
 

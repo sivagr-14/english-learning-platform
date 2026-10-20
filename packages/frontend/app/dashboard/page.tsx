@@ -24,20 +24,20 @@ const paths = [
     action: "Practise with purpose",
   },
   {
-    href: "/vocabulary",
+    href: "/discover",
     icon: "book",
     title: "Find your next expression",
     description:
-      "Explore meanings, natural conversations and practical examples in your vocabulary library.",
-    action: "Explore your vocabulary",
+      "Explore useful B1–C1 meanings. Choose what you know and what you want to learn, one word at a time.",
+    action: "Discover your next word",
   },
   {
-    href: "/progress",
+    href: "/knowledge-map",
     icon: "chart",
-    title: "See your progress",
+    title: "Explore your Knowledge Map",
     description:
-      "Follow your review history and recall. Build confidence through regular, meaningful practice.",
-    action: "View learning progress",
+      "See your B1–C1 collection by level. Search meanings and filter words you know, are learning or have mastered through review.",
+    action: "Open your map",
   },
 ];
 export default function DashboardPage() {
@@ -117,8 +117,8 @@ export default function DashboardPage() {
                   : "Start fluency practice"}
                 <Icon name="arrow" />
               </Link>
-              <Link className="btn-secondary" href="/vocabulary">
-                Explore lessons
+              <Link className="btn-secondary" href="/discover">
+                Discover words
               </Link>
             </div>
           </div>
@@ -196,3 +196,4 @@ export default function DashboardPage() {
     </AuthenticatedPage>
   );
 }
+

@@ -875,3 +875,51 @@ progress {
   color: white;
   background-color: #126b60;
 }
+
+
+/* Focused vocabulary discovery and personal learning controls. */
+.discovery-layout { max-width: 760px; margin: 0 auto; }
+.discovery-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:20px; }
+.discovery-toolbar select { padding:8px 16px; border:1px solid #ddd6ee; border-radius:12px; background:white; }
+.discovery-toolbar span { margin-left:auto; color:#665c79; font-size:14px; }
+.discovery-card { background:linear-gradient(160deg,#faf7ff,#fff 55%); border:1px solid #e7def4; border-radius:28px; padding:clamp(24px,5vw,48px); box-shadow:0 14px 45px #4933680c; }
+.discovery-card h2 { font-size:clamp(28px,5vw,44px); line-height:1.2; margin:14px 0; font-weight:750; overflow-wrap:anywhere; color:#392250; }
+.discovery-orbit { width:72px; height:72px; background:#eee5fc; color:#7545a1; border-radius:24px; display:grid; place-items:center; font-size:32px; margin-bottom:24px; }
+.discovery-phonetic,.discovery-hint { color:#665c79; font-size:13px; }
+.discovery-meaning { font-size:22px; line-height:1.5; margin:22px 0 12px; }
+.discovery-tamil { color:#156e67; margin-bottom:24px; line-height:1.8; }
+.discovery-lesson { display:block; color:#704099; font-weight:650; margin:24px 0; }
+.discovery-choices { display:flex; flex-wrap:wrap; gap:12px; margin:18px 0; }
+.discovery-choices button { flex:1; min-width:160px; }
+.discovery-choices button[aria-pressed="true"] { outline:3px solid #b9a3d7; outline-offset:3px; }
+.discovery-hint { margin:14px 0; line-height:1.6; }
+.discovery-error { padding:16px; margin:16px 0; background:#fff0f0; color:#8b2424; border-radius:12px; }
+.discovery-error button,.personal-learning [role="alert"] button { text-decoration:underline; }
+.personal-learning { background:#faf7ff; border:1px solid #e7def4; border-radius:20px; padding:24px; margin:24px 0; }
+.personal-learning h2 { font-size:22px; font-weight:700; }
+.personal-learning label { display:block; font-weight:600; margin:16px 0 8px; }
+.personal-learning textarea { display:block; width:100%; border:1px solid #cec2df; border-radius:12px; padding:12px; margin-bottom:12px; background:white; }
+.personal-learning [role="alert"] { color:#9c2727; }
+.personal-learning [role="status"] { color:#156e67; margin-top:12px; }
+button:disabled { cursor:not-allowed; }
+
+/* Preferences change presentation only; lesson text remains intact. */
+html[data-show-tamil="false"] [data-tamil],
+html[data-show-tamil="false"] [lang="ta"] { display: none !important; }
+.settings-panel { max-width: 760px; padding: 24px; margin-bottom: 20px; background: white; border: 1px solid var(--line); border-radius: 20px; }
+.settings-panel fieldset { display: grid; gap: 12px; margin-bottom: 24px; }
+.settings-panel legend, .settings-panel h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; }
+.settings-panel label { font-weight: 600; }
+.settings-panel select { width: 100%; max-width: 360px; padding: 10px; }
+.settings-panel p { line-height: 1.7; color: var(--muted); margin: 8px 0 16px; }
+.settings-panel .settings-check { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+.settings-panel [role="alert"] { color: #9c2727; }
+.settings-panel [role="status"] { color: var(--brand); }
+html[data-theme="dark"] { color-scheme: dark; --ink: #e0ede9; --muted: #afc4bd; --brand: #83d8bf; --line: #3a5350; --canvas: #142422; }
+html[data-theme="dark"] :where(.workspace-bar, .account-panel, .stat-card, .path-card, .settings-panel, .discovery-card, .personal-learning, .discovery-toolbar, .bg-white, .bg-gray-50, .bg-slate-50, input:not([type="checkbox"]):not([type="radio"]), textarea, select) { background-color: #1e3531; color: var(--ink); border-color: var(--line); }
+html[data-theme="dark"] .workspace-main :where(.text-gray-900, .text-slate-900, .text-slate-950, .text-gray-700, .text-slate-700, .text-slate-800) { color: var(--ink); }
+html[data-theme="dark"] .workspace-main :where(.text-gray-500, .text-gray-600, .text-slate-500, .text-slate-600) { color: var(--muted); }
+html[data-theme="dark"] .workspace-main :where(.text-blue-700, .text-emerald-700, .path-action) { color: #9ce5cc; }
+html[data-theme="dark"] .workspace-main :where(.bg-blue-50, .bg-blue-100, .bg-sky-50, .learning-hero, .learning-route, .path-icon) { background: #284a3c; color: var(--ink); }
+html[data-theme="dark"] :where(.btn-secondary, .discovery-actions button) { background: #284a3c; color: var(--ink); border-color: var(--line); }
+html[data-theme="dark"] :where(.settings-panel [role="alert"], .discovery-error, .personal-learning [role="alert"]) { color: #ffb6af; }

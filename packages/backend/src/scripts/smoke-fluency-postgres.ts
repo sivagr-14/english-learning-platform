@@ -13,6 +13,77 @@ import vocabulary from "../routes/vocabulary";
 import { errorHandler } from "../middleware/error.middleware";
 import { STARTER_SAMPLES } from "../data/starter-samples";
 
+// Exercise the real HTTP routes and PostgreSQL constraints, including account
+// isolation and schedule preservation. Called by the existing CI smoke gate.
+async function smokeVocabularyExperience(app: express.Express, userId: string, outsider: string, wordId: string, privateId: string) {
+  const token = jwt.sign({ userId }, process.env.JWT_SECRET!);
+  const otherToken = jwt.sign({ userId: outsider }, process.env.JWT_SECRET!);
+  const get = (url: string, auth = token) => request(app).get(url).set("Authorization", `Bearer ${auth}`);
+  const put = (url: string, body: any, auth = token) => request(app).put(url).set("Authorization", `Bearer ${auth}`).send(body);
+  const stateUrl = `/vocabulary/words/${wordId}/learner-state`;
+  const preferencesUrl = "/vocabulary/learning-preferences";
+  const original = await database("vocabulary_words").where({ id: wordId }).first();
+  try {
+    await database("vocabulary_words").where({ id: wordId }).update({ frequency: "medium" });
+    assert.equal((await request(app).get(preferencesUrl)).status, 401);
+    assert.equal((await get(`/vocabulary/words/${privateId}/learner-state`)).status, 404);
+    assert.equal((await put(`/vocabulary/words/${privateId}/learner-state`, { note: "forbidden" })).status, 404);
+    assert.equal((await get(stateUrl, otherToken)).status, 404);
+    assert.equal((await put(stateUrl, { familiarity: "mastered" })).status, 400);
+    assert.equal((await put(stateUrl, { note: "x".repeat(6001) })).status, 400);
+    assert.equal((await put(stateUrl, {})).status, 400);
+    assert.equal((await put(stateUrl, { familiarity: "known", note: "Personal Tamil cue" })).status, 200);
+    assert.equal(await database("user_progress").where({ user_id: userId, word_id: wordId }).count().first().then((r: any) => Number(r.count)), 0);
+    assert.equal((await put(stateUrl, { note: "Updated note only" })).body.state.familiarity, "known");
+    assert.equal((await get(stateUrl)).body.state.note, "Updated note only");
+    const map = await get("/vocabulary/knowledge-map?level=B2&status=known&limit=100");
+    assert.equal(map.status, 200);
+    assert(map.body.words.some((word: any) => word.id === wordId));
+    assert(!map.body.words.some((word: any) => word.id === privateId));
+    assert(!(await get("/vocabulary/knowledge-map?level=B2&status=new&limit=100")).body.words.some((word: any) => word.id === wordId));
+    assert.equal((await get("/vocabulary/knowledge-map?level=A1")).status, 400);
+    assert.equal((await put(stateUrl, { familiarity: "learning" })).status, 200);
+    const progress = await database("user_progress").where({ user_id: userId, word_id: wordId }).first();
+    const queue = await database("flashcard_queue").where({ user_id: userId, word_id: wordId }).first();
+    assert(progress && queue, "learning after known must create a due review card");
+    assert.equal(Number(progress.times_reviewed), 0);
+    assert.equal(Number(progress.proficiency_level), 0);
+    assert(new Date(queue.due_at).getTime() <= Date.now());
+    await put(stateUrl, { familiarity: "known" });
+    const deferred = await database("flashcard_queue").where({ user_id: userId, word_id: wordId }).first();
+    assert(new Date(deferred.due_at).getFullYear() >= 9999);
+    await put(stateUrl, { familiarity: "learning" });
+    const future = new Date("2035-06-01T12:00:00.000Z");
+    await database("user_progress").where({ id: progress.id }).update({ times_reviewed: 5, proficiency_level: 3, next_review_at: future });
+    await database("flashcard_queue").where({ id: queue.id }).update({ due_at: future });
+    for (const familiarity of ["known", "learning"]) {
+      assert.equal((await put(stateUrl, { familiarity })).status, 200);
+      const preserved = await database("user_progress").where({ id: progress.id }).first();
+      const preservedQueue = await database("flashcard_queue").where({ id: queue.id }).first();
+      assert.equal(Number(preserved.times_reviewed), 5);
+      assert.equal(Number(preserved.proficiency_level), 3);
+      assert.equal(new Date(preserved.next_review_at).toISOString(), future.toISOString());
+      assert.equal(new Date(preservedQueue.due_at).toISOString(), future.toISOString());
+    }
+    const preferences = { accent: "en-US", show_tamil: false, theme: "dark" };
+    assert.equal((await put(preferencesUrl, preferences)).status, 200);
+    const saved = (await get(preferencesUrl)).body.preferences;
+    for (const [key, value] of Object.entries(preferences)) assert.equal(saved[key], value);
+    const otherPreferences = (await get(preferencesUrl, otherToken)).body.preferences;
+    assert.equal(otherPreferences.accent, "en-GB");
+    assert.equal(otherPreferences.show_tamil, true);
+    for (const invalid of [{ ...preferences, accent: "ta-IN" }, { ...preferences, theme: "auto" }, { ...preferences, show_tamil: "false" }, { ...preferences, extra: true }])
+      assert.equal((await put(preferencesUrl, invalid)).status, 400);
+    console.log("Vocabulary experience: account isolation, notes, map filters, familiarity transitions, review preservation and preferences passed");
+  } finally {
+    await database("flashcard_queue").where({ user_id: userId, word_id: wordId }).delete();
+    await database("user_progress").where({ user_id: userId, word_id: wordId }).delete();
+    await database("vocabulary_learner_state").where({ user_id: userId, word_id: wordId }).delete();
+    await database("vocabulary_preferences").where({ user_id: userId }).delete();
+    await database("vocabulary_words").where({ id: wordId }).update({ frequency: original.frequency });
+  }
+}
+
 export async function smokeFluency() {
   const userId = randomUUID();
   const outsider = randomUUID();
@@ -88,6 +159,7 @@ export async function smokeFluency() {
       word_id: wordId,
       lesson_data: sample.lesson,
     });
+    await smokeVocabularyExperience(app, userId, outsider, wordId, privateId);
     assert.equal((await request(app).get("/fluency/coverage")).status, 401);
     const coverage = await get("/fluency/coverage");
     assert.equal(coverage.status, 200);
@@ -394,3 +466,4 @@ if (require.main === module)
       await database.destroy();
       process.exitCode = 1;
     });
+
