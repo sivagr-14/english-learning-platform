@@ -35,3 +35,11 @@ Resolve remaining parity items explicitly: per-sense pictures/media, source sema
 ## Resume
 Local partial source: /workspace/scratch/b87cf1243614/app-work. Frontend dependencies installed locally; no full backend checkout. Local route flashcards.ts may predate remote change: read branch version before editing. Local source database: /workspace/scratch/b87cf1243614/upload/wordup_database.sqlite.
 Hourly automation Complete WordUp app continues substantive work, checkpoints to this branch and stops on verified completion or reported unrecoverable blocker. Capacity exhaustion is resumable. Reconcile remote receipts; do not overwrite concurrent work.
+
+## Continuation 2026-10-20 — UI implementation
+- Added /discover with one contextual entry, B1/B2/C1 selector, pronunciation playback, lesson link and saved known/learning choices. Successful saves advance; failures retain the entry and expose Retry.
+- Added PersonalLearning on word detail: persisted familiarity and notes, preserving unsaved text on failures and separating notes-only writes from familiarity changes.
+- Added Discover navigation, responsive focused-card styling and Knowledge Map search/status controls.
+- Frontend TypeScript check passed after all UI edits. Production build passed for the discovery/personal-control changes; map search controls were added during that build, then separately typechecked. Rebuild final combined head before release.
+- Added tests/playwright/discovery.spec.ts for failed-save recovery and persisted advancement. Browser test NOT RUN: Chromium download repeatedly returned an empty/corrupt archive; no system browser executable available. This is a recoverable validation gap, not task completion.
+- Backend integration, delivery evidence, consolidated draft PR, settings/home redesign and other remaining checklist items are still pending. No merge or local user database update performed.
