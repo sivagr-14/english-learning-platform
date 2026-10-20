@@ -875,3 +875,30 @@ progress {
   color: white;
   background-color: #126b60;
 }
+
+
+/* Focused vocabulary discovery and personal learning controls. */
+.discovery-layout { max-width: 760px; margin: 0 auto; }
+.discovery-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:20px; }
+.discovery-toolbar select { padding:8px 16px; border:1px solid #ddd6ee; border-radius:12px; background:white; }
+.discovery-toolbar span { margin-left:auto; color:#665c79; font-size:14px; }
+.discovery-card { background:linear-gradient(160deg,#faf7ff,#fff 55%); border:1px solid #e7def4; border-radius:28px; padding:clamp(24px,5vw,48px); box-shadow:0 14px 45px #4933680c; }
+.discovery-card h2 { font-size:clamp(28px,5vw,44px); line-height:1.2; margin:14px 0; font-weight:750; overflow-wrap:anywhere; color:#392250; }
+.discovery-orbit { width:72px; height:72px; background:#eee5fc; color:#7545a1; border-radius:24px; display:grid; place-items:center; font-size:32px; margin-bottom:24px; }
+.discovery-phonetic,.discovery-hint { color:#665c79; font-size:13px; }
+.discovery-meaning { font-size:22px; line-height:1.5; margin:22px 0 12px; }
+.discovery-tamil { color:#156e67; margin-bottom:24px; line-height:1.8; }
+.discovery-lesson { display:block; color:#704099; font-weight:650; margin:24px 0; }
+.discovery-choices { display:flex; flex-wrap:wrap; gap:12px; margin:18px 0; }
+.discovery-choices button { flex:1; min-width:160px; }
+.discovery-choices button[aria-pressed="true"] { outline:3px solid #b9a3d7; outline-offset:3px; }
+.discovery-hint { margin:14px 0; line-height:1.6; }
+.discovery-error { padding:16px; margin:16px 0; background:#fff0f0; color:#8b2424; border-radius:12px; }
+.discovery-error button,.personal-learning [role="alert"] button { text-decoration:underline; }
+.personal-learning { background:#faf7ff; border:1px solid #e7def4; border-radius:20px; padding:24px; margin:24px 0; }
+.personal-learning h2 { font-size:22px; font-weight:700; }
+.personal-learning label { display:block; font-weight:600; margin:16px 0 8px; }
+.personal-learning textarea { display:block; width:100%; border:1px solid #cec2df; border-radius:12px; padding:12px; margin-bottom:12px; background:white; }
+.personal-learning [role="alert"] { color:#9c2727; }
+.personal-learning [role="status"] { color:#156e67; margin-top:12px; }
+button:disabled { cursor:not-allowed; }
