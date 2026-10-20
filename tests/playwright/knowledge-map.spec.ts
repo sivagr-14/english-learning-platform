@@ -93,6 +93,9 @@ for (const width of [390, 1280]) {
     expect(shell!.width).toBeLessThanOrEqual(700);
     expect(Math.abs(shell!.x - (width - shell!.width) / 2)).toBeLessThan(2);
     await expect(page.locator(".workspace-bar")).toHaveCSS("background-color", "rgb(96, 35, 139)");
+    const brand = await page.locator(".workspace-label").boundingBox();
+    expect(brand!.height).toBeLessThan(32);
+    await page.screenshot({ path: `test-results/home-${width}.png`, fullPage: true });
     const menu = page.getByRole("button", { name: "Open navigation" });
     await menu.click();
     await expect(page.getByRole("dialog", { name: "Navigation menu" })).toBeVisible();
@@ -110,6 +113,8 @@ for (const width of [390, 1280]) {
     await page.getByRole("button", { name: "Next", exact: true }).click();
     await expect(page.getByRole("article", { name: "Selected meaning" }).getByRole("heading")).toHaveText("word3");
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
     await page.screenshot({ path: `test-results/map-${width}.png`, fullPage: true });
   });
 }
@@ -147,5 +152,32 @@ test("collections, progress and guided practice retain their contracts in the co
   await page.getByText("Preview or select the prompt", { exact: true }).click();
   await expect(page.getByRole("textbox", { name: "ChatGPT practice prompt" })).toHaveValue(/Help me practise English/);
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
   await page.screenshot({ path: "test-results/practice-mobile-dark.png", fullPage: true });
+});
+
+test("review preserves a failed rating for retry and obeys Tamil visibility", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("authStore", JSON.stringify({ token: "fixture-token", refreshToken: "fixture-refresh", user: { id: "fixture-user", email: "fixture@example.invalid" } })));
+  await page.route("**/health", route => route.fulfill({ json: { revision: "test" } }));
+  await page.route("**/api/vocabulary/learning-preferences", route => route.fulfill({ json: { preferences: { accent: "en-GB", show_tamil: false, theme: "light" } } }));
+  await page.route("**/api/flashcards/categories", route => route.fulfill({ json: { categories: [{ id: "daily", category_name: "Daily life", track_name: "Conversation", difficulty_level: "B1", due_count: 1 }] } }));
+  await page.route("**/api/flashcards/due?**", route => route.fulfill({ json: { cards: [{ id: "word-1", word: "adjust", display_label: "adjust", english_meaning: "Change a little", tamil_meaning: "சரிசெய்", category_name: "Daily life", cefr_level: "B1", frequency: "medium" }] } }));
+  let fail = true;
+  const attempts: { rating: string; requestId: string }[] = [];
+  await page.route("**/api/flashcards/word-1/review", route => { attempts.push(route.request().postDataJSON()); return route.fulfill({ status: fail ? 500 : 200, json: {} }); });
+  await page.goto("/flashcards");
+  await page.getByRole("button", { name: /Daily life/ }).click();
+  await expect(page.getByText("சரிசெய்")).toBeHidden();
+  await page.getByRole("button", { name: "Reveal answer" }).click();
+  await expect(page.getByRole("heading", { name: "adjust", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Listen", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Good", exact: true }).click();
+  await expect(page.getByRole("main").getByRole("alert")).toContainText("Could not save this review");
+  await expect(page.getByRole("heading", { name: "adjust", exact: true })).toBeVisible();
+  fail = false;
+  await page.getByRole("button", { name: "Good", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "No cards due in this category" })).toBeVisible();
+  expect(attempts).toHaveLength(2);
+  expect(attempts[1]).toEqual(attempts[0]);
 });

@@ -1122,3 +1122,7 @@ html[data-theme="dark"] .wordup-shell :where(.text-gray-500, .text-slate-500) { 
   .collection-grid { grid-template-columns: 1fr; }
   .practice-skills button { font-size: 12px; padding-inline: 4px; }
 }
+
+/* Override the former mobile sidebar toolbar's full-width account group. */
+.wordup-shell .workspace-bar > div { width: auto; flex-shrink: 0; justify-content: flex-end; }
+.wordup-shell .workspace-label { white-space: nowrap; }
