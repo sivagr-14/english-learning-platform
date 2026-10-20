@@ -35,6 +35,8 @@ import {
   wordSearchPatterns,
 } from "../services/vocabulary-search";
 
+import { LearnerStateSchema, VocabularyPreferencesSchema, saveLearnerState } from "../services/vocabulary-experience";
+
 const router: Router = express.Router();
 const DEFAULT_PAGE_SIZE = 50;
 
@@ -853,165 +855,113 @@ router.get(
 );
 
 
-// B1-C1 discovery reads validated app entries only. The WordUp source inventory
-// stays outside the lesson tables until semantic assessment and pack validation.
-router.get(
-  "/knowledge-map",
-  authMiddleware,
+// All discovery queries are bounded and use the same scope and account filter.
+const knowledgeQuerySchema = paginationSchema.extend({
+  level: z.enum(["B1", "B2", "C1"]).default("B1"),
+  q: z.string().trim().max(100).default(""),
+  status: z.enum(["all", "new", "learning", "known", "mastered"]).default("all"),
+});
+const knowledgeStatusSql = `CASE
+  WHEN COALESCE(up.proficiency_level, 0) >= 4 THEN 'mastered'
+  WHEN ls.familiarity = 'known' THEN 'known'
+  WHEN ls.familiarity = 'learning' OR up.status = 'in_progress' THEN 'learning'
+  ELSE 'new' END`;
+function knowledgeBase(userId: string) {
+  const base = database("vocabulary_words as vw")
+    .leftJoin("user_progress as up", function () {
+      this.on("up.word_id", "=", "vw.id").andOn("up.user_id", "=", database.raw("?", [userId]));
+    })
+    .leftJoin("vocabulary_learner_state as ls", function () {
+      this.on("ls.word_id", "=", "vw.id").andOn("ls.user_id", "=", database.raw("?", [userId]));
+    })
+    .whereIn("vw.cefr_level", ["B1", "B2", "C1"])
+    .whereRaw("LOWER(vw.frequency) IN (?, ?, ?)", ["heavy", "high", "medium"]);
+  return applyOwnership(base, userId);
+}
+router.get("/knowledge-map", authMiddleware,
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-      const level = z.enum(["B1", "B2", "C1"]).parse(req.query.level || "B1");
-      const { page = 1, limit = 24 } = paginationSchema.parse(req.query);
-      const base = database("vocabulary_words as vw")
-        .leftJoin("user_progress as up", function () {
-          this.on("up.word_id", "=", "vw.id").andOn(
-            "up.user_id",
-            "=",
-            database.raw("?", [req.userId as string]),
-          );
-        })
-        .where("vw.cefr_level", level)
-        .whereRaw("LOWER(vw.frequency) IN (?, ?, ?)", ["heavy", "high", "medium"]);
-      applyOwnership(base, req.userId as string);
-
+      const { level, q, status, page = 1, limit = 24 } = knowledgeQuerySchema.parse(req.query);
+      const all = knowledgeBase(req.userId as string);
+      const filtered = all.clone().where("vw.cefr_level", level);
+      if (q) filtered.where((builder: any) => builder
+        .whereILike("vw.word", `%${escapeSearchPattern(q)}%`)
+        .orWhereILike("vw.english_meaning", `%${escapeSearchPattern(q)}%`)
+        .orWhereILike("vw.tamil_meaning", `%${escapeSearchPattern(q)}%`));
+      if (status !== "all") filtered.whereRaw(`(${knowledgeStatusSql}) = ?`, [status]);
       const [counts, totalRow, rows] = await Promise.all([
-        database("vocabulary_words as vw")
-          .leftJoin("user_progress as up", function () {
-            this.on("up.word_id", "=", "vw.id").andOn(
-              "up.user_id",
-              "=",
-              database.raw("?", [req.userId as string]),
-            );
-          })
-          .whereIn("vw.cefr_level", ["B1", "B2", "C1"])
-          .whereRaw("LOWER(vw.frequency) IN (?, ?, ?)", ["heavy", "high", "medium"])
-          .where((builder: any) =>
-            builder
-              .where("vw.owner_user_id", req.userId)
-              .orWhereNull("vw.owner_user_id"),
-          )
-          .groupBy("vw.cefr_level")
-          .select("vw.cefr_level")
-          .count({ total: "vw.id" })
-          .select(
-            database.raw(
-              "COUNT(*) FILTER (WHERE up.proficiency_level >= 4) AS mastered",
-            ),
-            database.raw(
-              "COUNT(*) FILTER (WHERE up.status = 'in_progress' AND COALESCE(up.proficiency_level, 0) < 4) AS learning",
-            ),
-          ),
-        base.clone().count({ total: "vw.id" }).first(),
-        base.clone()
-          .select(
-            "vw.id", "vw.word", "vw.sense_rank", "vw.word_type",
-            "vw.cefr_level", "vw.frequency", "vw.english_meaning",
-            "vw.tamil_meaning", "vw.is_starter_sample",
-            "up.status as progress_status", "up.proficiency_level",
-          )
-          .orderByRaw("LOWER(vw.word)")
-          .orderBy("vw.sense_rank")
-          .orderBy("vw.id")
-          .limit(limit)
-          .offset((page - 1) * limit),
+        all.clone().groupBy("vw.cefr_level").select("vw.cefr_level").count({ total: "vw.id" })
+          .select(...["known", "learning", "mastered", "new"].map((key) =>
+            database.raw(`COUNT(*) FILTER (WHERE (${knowledgeStatusSql}) = ?) AS ??`, [key, key]))),
+        filtered.clone().count({ total: "vw.id" }).first(),
+        filtered.clone().select("vw.id", "vw.word", "vw.sense_rank", "vw.word_type", "vw.pronunciation",
+          "vw.cefr_level", "vw.frequency", "vw.english_meaning", "vw.tamil_meaning", "vw.core_idea",
+          "vw.is_starter_sample", database.raw(`${knowledgeStatusSql} AS knowledge_status`))
+          .orderByRaw("LOWER(vw.word)").orderBy("vw.sense_rank").orderBy("vw.id")
+          .limit(limit).offset((page - 1) * limit),
       ]);
-
       const total = Number(totalRow?.total || 0);
       res.json({
-        levels: ["B1", "B2", "C1"].map((key) => {
-          const row: any = counts.find((item: any) => item.cefr_level === key);
-          return {
-            level: key,
-            total: Number(row?.total || 0),
-            learning: Number(row?.learning || 0),
-            mastered: Number(row?.mastered || 0),
-          };
+        levels: ["B1", "B2", "C1"].map((level) => {
+          const row: any = counts.find((entry: any) => entry.cefr_level === level);
+          return { level, total: Number(row?.total || 0), known: Number(row?.known || 0),
+            learning: Number(row?.learning || 0), mastered: Number(row?.mastered || 0), new: Number(row?.new || 0) };
         }),
-        words: rows.map((word: any) => ({
-          ...withDisplayLabel(word),
-          knowledge_status:
-            Number(word.proficiency_level || 0) >= 4
-              ? "mastered"
-              : word.progress_status === "in_progress"
-                ? "learning"
-                : "new",
-        })),
+        words: rows.map(withDisplayLabel),
         pagination: { page, limit, total, total_pages: Math.max(1, Math.ceil(total / limit)) },
       });
-    } catch (error) {
-      next(error);
-    }
+    } catch (error) { next(error); }
   },
 );
-
-
-router.post(
-  "/knowledge-map/:id/start",
-  authMiddleware,
+router.get("/words/:id/learner-state", authMiddleware,
   async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     try {
-      const wordId = z.string().uuid().parse(req.params.id);
-      const userId = req.userId as string;
-      const result = await database.transaction(async (trx) => {
-        await trx.raw("SELECT pg_advisory_xact_lock(hashtext(?))", [
-          `flashcards:${userId}`,
-        ]);
-        const word = await trx("vocabulary_words")
-          .where({ id: wordId })
-          .whereIn("cefr_level", ["B1", "B2", "C1"])
-          .whereRaw("LOWER(frequency) IN (?, ?, ?)", ["heavy", "high", "medium"])
-          .where((query: any) =>
-            query.where("owner_user_id", userId).orWhereNull("owner_user_id"),
-          )
-          .first();
-        if (!word) return null;
-        const now = new Date();
-        await trx("user_progress")
-          .insert({
-            user_id: userId,
-            word_id: wordId,
-            category_id: word.category_id,
-            status: "in_progress",
-            proficiency_level: 0,
-            introduced_at: now,
-            next_review_at: now,
-          })
-          .onConflict(["user_id", "word_id"])
-          .ignore();
-        const progress = await trx("user_progress")
-          .where({ user_id: userId, word_id: wordId })
-          .first();
-        // A mastered or previously reviewed entry retains its established schedule.
-        if (Number(progress.proficiency_level || 0) >= 4 ||
-            Number(progress.times_reviewed || 0) > 0) {
-          return { status: "existing", progress };
-        }
-        await trx("user_progress")
-          .where({ id: progress.id })
-          .update({
-            status: "in_progress",
-            introduced_at: progress.introduced_at || now,
-            next_review_at: now,
-            updated_at: now,
-          });
-        await trx("flashcard_queue")
-          .insert({
-            user_id: userId,
-            word_id: wordId,
-            progress_id: progress.id,
-            queue_position: 0,
-            due_at: now,
-            card_type: "vocabulary",
-          })
-          .onConflict(["user_id", "word_id"])
-          .merge({ due_at: now, updated_at: now });
-        return { status: "learning" };
-      });
-      if (!result) return res.status(404).json({ message: "Entry not found" });
-      res.json(result);
-    } catch (error) {
-      next(error);
-    }
+      const id = z.string().uuid().parse(req.params.id);
+      const word = await applyOwnership(database("vocabulary_words as vw"), req.userId as string).where("vw.id", id).first();
+      if (!word) return res.status(404).json({ message: "Entry not found" });
+      const state = await database("vocabulary_learner_state").where({ user_id: req.userId, word_id: id }).first();
+      res.json({ state: state || { familiarity: "unassessed", note: "" } });
+    } catch (error) { next(error); }
+  },
+);
+router.put("/words/:id/learner-state", authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const id = z.string().uuid().parse(req.params.id);
+      const state = await saveLearnerState(req.userId as string, id, LearnerStateSchema.parse(req.body));
+      if (!state) return res.status(404).json({ message: "Entry not found" });
+      res.json({ state });
+    } catch (error) { next(error); }
+  },
+);
+router.post("/knowledge-map/:id/start", authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const id = z.string().uuid().parse(req.params.id);
+      const eligible = await knowledgeBase(req.userId as string).where("vw.id", id).first();
+      if (!eligible) return res.status(404).json({ message: "Entry not found" });
+      const state = await saveLearnerState(req.userId as string, id, { familiarity: "learning" });
+      res.json({ status: "learning", state });
+    } catch (error) { next(error); }
+  },
+);
+router.get("/learning-preferences", authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const preferences = await database("vocabulary_preferences").where({ user_id: req.userId }).first();
+      res.json({ preferences: preferences || { accent: "en-GB", show_tamil: true, theme: "light" } });
+    } catch (error) { next(error); }
+  },
+);
+router.put("/learning-preferences", authMiddleware,
+  async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+    try {
+      const input = VocabularyPreferencesSchema.parse(req.body);
+      const [preferences] = await database("vocabulary_preferences")
+        .insert({ user_id: req.userId, ...input }).onConflict("user_id")
+        .merge({ ...input, updated_at: new Date() }).returning("*");
+      res.json({ preferences });
+    } catch (error) { next(error); }
   },
 );
 
