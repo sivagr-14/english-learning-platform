@@ -5,6 +5,7 @@ import { ReactNode, Suspense, useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
+import PersonalLearning from "@/components/PersonalLearning";
 import QuickLesson from "@/components/QuickLesson";
 import PracticeAudio from "@/components/PracticeAudio";
 import WordCategoryPicker from "@/components/WordCategoryPicker";
@@ -551,6 +552,7 @@ function VocabularyWordContent() {
               )}
             </section>
 
+            <PersonalLearning key={`personal-${word.id}`} wordId={word.id} />
             <QuickLesson key={word.id} word={word} />
             {otherMeanings.length > 0 && (
               <section className="rounded border bg-white p-4">
@@ -629,4 +631,5 @@ export default function VocabularyWordPage() {
     </AuthenticatedPage>
   );
 }
+
 
