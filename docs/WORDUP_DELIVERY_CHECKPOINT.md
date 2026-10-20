@@ -61,7 +61,7 @@ Hourly automation Complete WordUp app continues substantive work, checkpoints to
 4. Continue semantic WordUp catalogue assessment, per-sense original pictures/media and explicit parity dependencies. Data assessment remains zero final semantic decisions. Full completion must not be claimed.
 
 
-## UI-first continuation — 2026-10-20 23:48 Europe/Warsaw
+## UI-first continuation — 2026-10-20 late-evening Europe/Warsaw
 This section supersedes the older task order: COMPLETE UI and deliver for review BEFORE any 42,200-row data work.
 
 Reconciliation: main f76369888298c401806892cc600c5a6e77df3a44 includes merged #120/#121/#122; feature branch was 75d1eafbd554ede0e206ede6d9c495efbc941389. No open PR found at run start. The local directory is a partial source tree, not a git checkout. Existing local UI edits were preserved and compared with main through GitHub App. New commit is based on the main tree, so merged test-selector fixes and backend contracts remain intact.
@@ -82,3 +82,10 @@ Exact next work:
 3. Verify complete desktop/mobile journeys: discovery to detail and all eight sections, notes/favorites persistence, review save/retry, practice handoff and goals, dark-theme contrast. Add missing journey coverage.
 4. Improve return-to-map state retention (level/search/page/selected meaning); current return link reopens default map.
 5. Confirm no outstanding UI gaps, then deliver UI for review and stop continuation. Do not merge. Do not begin deferred data assessment/import during UI phase.
+
+### Further UI work and verified CI receipt
+Successor draft PR: #123. First redesign commit 2f3bea457ea0999556a84b46da8a0a7841cc270e passed Vocabulary learning UI (including 390/1280px journeys), feature delivery, content-pack and gold-corpus gates. Full integration run was still running at inspection.
+
+Follow-up implementation: collections now opens personal lists first with a separate Explore topics view; progress uses a two-column summary with compact category bars and review/practice links; practice offers Read/Recall/Listen/Write/Speak controls and collapsible session filters; review has a focused card, pronunciation and Tamil visibility hooks. Added the actual preview/copy/manual-open ChatGPT handoff (the earlier UI description claimed it but practice had no link). No data is sent automatically. Added mobile dark-theme collections/progress/practice journey coverage.
+
+Continue direct visual comparison and full eight-section/notes/favorites/review save-retry journeys. These changes are still in development, not ready for final UI review.

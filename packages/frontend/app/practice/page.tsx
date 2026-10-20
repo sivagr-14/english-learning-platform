@@ -33,6 +33,7 @@ function Practice() {
   const [summary, setSummary] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [handoffNotice, setHandoffNotice] = useState("");
   const [notice, setNotice] = useState("");
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState("");
@@ -52,6 +53,9 @@ function Practice() {
   const [reload, setReload] = useState(0);
   const card = cards[index];
   const lesson = card?.lesson_data;
+  const handoffPrompt = card
+    ? `Help me practise ${skill} using this contextual meaning. Word: ${card.word}. Meaning: ${card.english_meaning}. My response: ${answer || "I have not answered yet."}\nAsk one follow-up at a time. Explain corrections in simple English; use Tamil only where helpful. Do not claim to update my app progress.`
+    : "Help me practise English with one question at a time. Explain corrections in simple English and use Tamil only where helpful.";
 
   useEffect(() => {
     getApiClient()
@@ -112,6 +116,7 @@ function Practice() {
     register,
   ]);
   useEffect(() => {
+    setHandoffNotice("");
     setAnswer("");
     setReflection("");
     setContext("lesson");
@@ -215,7 +220,11 @@ function Practice() {
       title="Fluency Practice"
       description="Understand → recall → respond → revisit. Progress here is self-assessed, not an automated fluency score."
     >
-      <div className="space-y-5">
+      <div className="practice-workspace space-y-5">
+        <div className="learning-view-switch practice-skills" role="group" aria-label="Practice skill">
+          {[["recognition", "Read"], ["recall", "Recall"], ["listening", "Listen"], ["writing", "Write"], ["speaking", "Speak"]].map(([value, label]) => <button key={value} disabled={saving} aria-pressed={skill === value} onClick={() => setSkill(value)}>{label}</button>)}
+        </div>
+        <p className="practice-disclosure">Guided practice from saved lessons. Responses are self-assessed; there is no live AI tutor or automated pronunciation score.</p>
         {error && (
           <p role="alert" className="rounded bg-red-50 p-3 text-red-800">
             {error}
@@ -291,7 +300,7 @@ function Practice() {
             </button>
           </div>
         </details>
-        <div className="flex flex-wrap gap-3 rounded border bg-white p-4">
+        <details className="practice-filters rounded border bg-white p-4"><summary>Choose your practice session</summary><div className="flex flex-wrap gap-3 mt-4">
           <label>
             Skill{" "}
             <select
@@ -378,7 +387,7 @@ function Practice() {
               onChange={(e) => setSearch(e.target.value)}
             />
           </label>
-        </div>
+        </div></details>
         {loading ? (
           <p>Loading practice…</p>
         ) : !card ? (
@@ -574,6 +583,13 @@ function Practice() {
             </Link>
           </article>
         )}
+        <section className="settings-panel" aria-labelledby="chatgpt-handoff">
+          <h2 id="chatgpt-handoff">Continue in ChatGPT</h2>
+          <p>Copy this prompt, open ChatGPT and paste it into a conversation. Nothing is sent automatically, and replies do not update your learning progress here.</p>
+          <details><summary>Preview or select the prompt</summary><textarea aria-label="ChatGPT practice prompt" readOnly value={handoffPrompt} className="w-full rounded border p-3 mt-3" rows={6} /></details>
+          <div className="flex flex-wrap gap-3 mt-4"><button className="btn-secondary" onClick={async () => { try { await navigator.clipboard.writeText(handoffPrompt); setHandoffNotice("Prompt copied. Paste it into ChatGPT."); } catch { setHandoffNotice("Copy is unavailable. Open the preview and select the prompt manually."); } }}>Copy practice prompt</button><a className="btn-primary" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Open ChatGPT ↗</a></div>
+          {handoffNotice && <p role="status">{handoffNotice}</p>}
+        </section>
         <section className="rounded border bg-white p-5">
           <h2 className="text-lg font-semibold">Evidence by skill</h2>
           <p className="my-2 text-sm">

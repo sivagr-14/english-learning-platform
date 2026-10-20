@@ -20,7 +20,9 @@
     "packages/frontend/components/PracticeAudio.tsx",
     "packages/frontend/app/dashboard/page.tsx",
     "packages/frontend/app/flashcards/page.tsx",
-    "packages/frontend/app/practice/page.tsx"
+    "packages/frontend/app/practice/page.tsx",
+    "packages/frontend/app/categories/page.tsx",
+    "packages/frontend/app/progress/page.tsx"
   ],
   "validationPaths": [
     "packages/backend/src/scripts/smoke-fluency-postgres.ts",

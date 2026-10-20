@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getApiClient } from "@/lib/api/client";
 import useAuthStore from "@/lib/store/auth";
+import PracticeAudio from "@/components/PracticeAudio";
 import AppShell from "@/components/AppShell";
 
 interface RecallCategory {
@@ -207,7 +208,7 @@ export default function FlashcardsPage() {
                     </div>
                     <span
                       className="rounded-full px-3 py-1 text-sm font-medium text-white"
-                      style={{ backgroundColor: "#126b60" }}
+                      style={{ backgroundColor: "#64258d" }}
                     >
                       {category.due_count}
                     </span>
@@ -246,7 +247,7 @@ export default function FlashcardsPage() {
               </p>
             </div>
           ) : (
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="review-focus-card rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
               <div className="mb-4 flex items-start justify-between gap-4">
                 <div>
                   <p className="text-sm text-gray-500">
@@ -275,7 +276,7 @@ export default function FlashcardsPage() {
                       Your prompt
                     </p>
                     {card.tamil_meaning && (
-                      <p lang="ta" className="mt-3 text-lg font-medium text-blue-800">
+                      <p data-tamil lang="ta" className="mt-3 text-lg font-medium text-blue-800">
                         {card.tamil_meaning}
                       </p>
                     )}
@@ -286,19 +287,20 @@ export default function FlashcardsPage() {
                   <button
                     type="button"
                     onClick={() => setShowAnswer(true)}
-                    className="mt-4 w-full rounded-lg bg-gray-900 px-4 py-3 text-sm font-medium text-white hover:bg-gray-800"
+                    className="btn-primary mt-4 w-full"
                   >
                     Reveal answer
                   </button>
                 </div>
               ) : (
                 <div className="mt-6 space-y-5">
+                  <PracticeAudio key={card.id} text={card.word} />
                   <section>
                     <h3 className="text-sm font-semibold uppercase text-gray-500">
                       Meaning
                     </h3>
                     <p className="mt-2 text-gray-800">{card.english_meaning}</p>
-                    <p lang="ta" className="mt-1 text-blue-700">{card.tamil_meaning}</p>
+                    <p data-tamil lang="ta" className="mt-1 text-blue-700">{card.tamil_meaning}</p>
                     <p className="mt-2 text-sm text-gray-600">
                       {card.core_idea}
                     </p>
