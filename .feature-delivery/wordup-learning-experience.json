@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "featureId": "wordup-learning-experience",
-  "title": "Integrated vocabulary discovery, personal learning and preferences (in development)",
+  "title": "WordUp UI-first redesign: centered home, drawer and contextual map (in development)",
   "implementationPaths": [
     "packages/backend/src/database/migrations/10004_vocabulary_experience.ts",
     "packages/backend/src/routes/flashcards.ts",
@@ -19,12 +19,14 @@
     "packages/frontend/components/LearningPreferencesController.tsx",
     "packages/frontend/components/PracticeAudio.tsx",
     "packages/frontend/app/dashboard/page.tsx",
-    "packages/frontend/app/flashcards/page.tsx"
+    "packages/frontend/app/flashcards/page.tsx",
+    "packages/frontend/app/practice/page.tsx"
   ],
   "validationPaths": [
     "packages/backend/src/scripts/smoke-fluency-postgres.ts",
     "tests/playwright/discovery.spec.ts",
-    "tests/playwright/learning-settings.spec.ts"
+    "tests/playwright/learning-settings.spec.ts",
+    "tests/playwright/knowledge-map.spec.ts"
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",

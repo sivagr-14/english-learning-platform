@@ -60,3 +60,25 @@ Hourly automation Complete WordUp app continues substantive work, checkpoints to
 3. Verify dark-theme contrast and all eight-section/custom-content flows in browser, not just compile.
 4. Continue semantic WordUp catalogue assessment, per-sense original pictures/media and explicit parity dependencies. Data assessment remains zero final semantic decisions. Full completion must not be claimed.
 
+
+## UI-first continuation — 2026-10-20 23:48 Europe/Warsaw
+This section supersedes the older task order: COMPLETE UI and deliver for review BEFORE any 42,200-row data work.
+
+Reconciliation: main f76369888298c401806892cc600c5a6e77df3a44 includes merged #120/#121/#122; feature branch was 75d1eafbd554ede0e206ede6d9c495efbc941389. No open PR found at run start. The local directory is a partial source tree, not a git checkout. Existing local UI edits were preserved and compared with main through GitHub App. New commit is based on the main tree, so merged test-selector fixes and backend contracts remain intact.
+
+Saved UI implementation:
+- Centered 700px responsive purple canvas, toolbar, modal drawer with keyboard focus restoration and backdrop dismissal; replaces desktop sidebar.
+- Home vocabulary summary, due-review card, Discover/Learn cards, practice and collection links.
+- Dense contextual Knowledge Map with level tabs, search/status filters, selected meaning, pronunciation, previous/next selection, saved familiarity and explicit status legend. Position numbers are not frequency rank.
+- Word detail includes prominent contextual meaning/Tamil and return links to map/discovery, preserving exactly eight lesson sections and personal state.
+- Practice accepts reading/writing/speaking links (reading maps to recognition). Existing guided practice and ChatGPT handoff remain the custom alternative to live AI.
+- Added mobile 390px and desktop 1280px journey tests in existing knowledge-map.spec.ts, covered by the existing CI workflow. They exercise drawer/Escape/focus, layout bounds, map selection, next meaning, lesson link and overflow, saving screenshots.
+
+Verification: frontend TypeScript and production build run locally. Local Chromium installation still returns empty/corrupt archives, so browser tests must run in CI. Connected Chrome tool currently returns Unknown tool; this is a transient access limitation. Do not claim visual reference fidelity or full UI completion based on compilation.
+
+Exact next work:
+1. Check successor draft PR's full CI, fix legitimate failures without weakening assertions/gates. Inspect desktop/mobile screenshot artifacts.
+2. Reconnect Chrome WordUp reference for direct visual comparison; finish coherent review, practice, collections, progress and settings layouts beyond shared shell styling.
+3. Verify complete desktop/mobile journeys: discovery to detail and all eight sections, notes/favorites persistence, review save/retry, practice handoff and goals, dark-theme contrast. Add missing journey coverage.
+4. Improve return-to-map state retention (level/search/page/selected meaning); current return link reopens default map.
+5. Confirm no outstanding UI gaps, then deliver UI for review and stop continuation. Do not merge. Do not begin deferred data assessment/import during UI phase.

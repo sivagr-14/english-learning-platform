@@ -51,6 +51,14 @@ export default function AppShell({
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
+  const drawer = useRef<HTMLDialogElement>(null);
+  useEffect(() => {
+    if (menuOpen) drawer.current?.showModal();
+    else drawer.current?.close();
+    const previous = document.body.style.overflow;
+    if (menuOpen) document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = previous; };
+  }, [menuOpen]);
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
@@ -136,11 +144,11 @@ export default function AppShell({
   };
 
   return (
-    <div className="app-frame">
+    <div className={`app-frame wordup-shell ${pathname === "/dashboard" ? "is-home" : ""}`}>
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <aside className="app-sidebar">
+      <dialog ref={drawer} className="app-sidebar" aria-label="Navigation menu" onClick={event => { if (event.target === event.currentTarget) { const rect = event.currentTarget.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) setMenuOpen(false); } }} onClose={() => { setMenuOpen(false); menuButton.current?.focus(); }} onCancel={() => setMenuOpen(false)}>
         <div className="brand-row">
           <Link
             href="/dashboard"
@@ -155,15 +163,12 @@ export default function AppShell({
             </span>
           </Link>
           <button
-            ref={menuButton}
-            className="mobile-menu"
-            aria-expanded={menuOpen}
-            aria-controls="app-navigation"
-            onClick={() => setMenuOpen(!menuOpen)}
+            className="drawer-close"
+            onClick={() => setMenuOpen(false)}
           >
             <Icon name={menuOpen ? "close" : "menu"} />
             <span className="sr-only">
-              {menuOpen ? "Close navigation" : "Open navigation"}
+              Close navigation
             </span>
           </button>
         </div>
@@ -201,14 +206,15 @@ export default function AppShell({
             <p>Recall a little. Say it your way. Come back tomorrow.</p>
           </div>
         </nav>
-      </aside>
+      </dialog>
       <div className="app-workspace">
         <header className="workspace-bar">
-          <span className="workspace-label">Your English, every day</span>
+          <button ref={menuButton} className="shell-menu" aria-expanded={menuOpen} aria-haspopup="dialog" aria-controls="app-navigation" onClick={() => setMenuOpen(true)}><Icon name="menu" /><span className="sr-only">Open navigation</span></button>
+          <Link href="/dashboard" className="workspace-label">Mastery Skills</Link>
           <div className="flex items-center gap-3">
             <Link href="/search" className="search-shortcut">
               <Icon name="search" />
-              <span>Find an expression</span>
+              <span className="sr-only">Find an expression</span>
             </Link>
             <details className="account-menu">
               <summary>
@@ -217,7 +223,7 @@ export default function AppShell({
                     .slice(0, 1)
                     .toUpperCase()}
                 </span>
-                <span>Account</span>
+                <span className="sr-only">Account</span>
               </summary>
               <div className="account-panel">
                 <Link href="/settings" className="nav-item">Learning settings</Link>
@@ -256,7 +262,6 @@ export default function AppShell({
         <main id="main-content" tabIndex={-1} className="workspace-main">
           <div className="page-heading">
             <div>
-              <p className="eyebrow">Learn with intention</p>
               <h1>{title}</h1>
               {description && <p className="page-description">{description}</p>}
             </div>

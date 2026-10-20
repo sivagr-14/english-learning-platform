@@ -16,7 +16,11 @@ function Practice() {
   )
     ? params.get("focus")
     : null;
-  const [skill, setSkill] = useState("recall");
+  const requestedSkill = params.get("skill");
+  const [skill, setSkill] = useState(requestedSkill === "reading" ? "recognition" : ["recognition", "recall", "listening", "speaking", "writing"].includes(requestedSkill || "") ? requestedSkill! : "recall");
+  useEffect(() => {
+    setSkill(requestedSkill === "reading" ? "recognition" : ["recognition", "recall", "listening", "speaking", "writing"].includes(requestedSkill || "") ? requestedSkill! : "recall");
+  }, [requestedSkill]);
   const [focus, setFocus] = useState(requestedFocus || "balanced");
   const [mode, setMode] = useState("due");
   const [cards, setCards] = useState<any[]>([]);
@@ -621,3 +625,4 @@ export default function PracticePage() {
     </AuthenticatedPage>
   );
 }
+
