@@ -18,7 +18,8 @@ test("discovery saves familiarity before advancing and retries failed writes", a
   await page.goto("/discover");
   await expect(page.getByRole("heading", { name: "adjust", exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Already know it" }).click();
-  await expect(page.getByRole("alert")).toContainText("not saved");
+  // Next.js also renders a route-announcer alert outside the app's main region.
+  await expect(page.getByRole("main").getByRole("alert")).toContainText("not saved");
   await expect(page.getByText("0 explored this session")).toBeVisible();
   fail = false;
   await page.getByRole("button", { name: "Retry", exact: true }).click();

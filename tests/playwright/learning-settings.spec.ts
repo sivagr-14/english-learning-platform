@@ -31,7 +31,8 @@ test("settings survive failed saves, persist across reload and control lesson au
   await page.getByLabel("Show Tamil meanings").uncheck();
   await page.getByLabel("Appearance").selectOption("dark");
   await page.getByRole("button", { name: "Save settings" }).click();
-  await expect(page.getByRole("alert")).toContainText("not saved");
+  // Scope to app content, excluding Next.js's accessibility route announcer.
+  await expect(page.getByRole("main").getByRole("alert")).toContainText("not saved");
   await expect(page.getByLabel("Pronunciation accent")).toHaveValue("en-US");
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
   fail = false;
@@ -58,7 +59,7 @@ test("failed preference loading cannot overwrite saved settings with defaults", 
     return fail ? route.fulfill({ status: 500, json: {} }) : route.fulfill({ json: { preferences: { accent: "en-US", show_tamil: false, theme: "dark" } } });
   });
   await page.goto("/settings");
-  await expect(page.getByRole("alert")).toContainText("Could not load");
+  await expect(page.getByRole("main").getByRole("alert")).toContainText("Could not load");
   await expect(page.getByRole("button", { name: "Save settings" })).toBeDisabled();
   fail = false;
   await page.getByRole("button", { name: "Reload saved settings" }).click();
