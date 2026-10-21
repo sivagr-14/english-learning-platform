@@ -102,3 +102,8 @@ Implemented next:
 - Fixed blank home Learn-card grid illustration (empty cells were centered at zero height); new dimension assertion covers it. Adjusted quick/full lesson panels and semantic callouts to the purple light/dark surface palette.
 
 Next: inspect the newest CI and full lesson screenshots, repair any genuine issues; verify discover-to-detail with the real strict API boundary; then direct WordUp reference comparison and remaining visual gaps. Do not merge or start source assessment. The UI is still in development; browser journeys alone do not establish complete visual fidelity.
+
+### Verification and visual QA receipt (2026-10-21)
+Commit df571a124ea25f55997d1f779eb7e78cc6abdd0b saved the interrupted local changes to draft #123. Local frontend typecheck/build passed. Its 11 browser tests passed, including complete 390px dark and 1280px light lesson/note/favourite/map-return journeys. Inspected both full-lesson screenshots: readable theme surfaces, intact eight sections, no horizontal overflow. Found mobile section-number wrapping; corrected flex shrink/white space. Aligned the category picker with purple list styling and limited recording disclosure to recording-enabled audio controls. Extended the same journey to navigate Discover → detail → Discover while respecting the strict API query boundary; newest CI must verify this addition.
+
+Chrome reference still unavailable (connector Unknown tool), so direct WordUp comparison is an open verification dependency. Do not call the UI complete. Latest remaining priorities: inspect newest CI/screenshots after the small QA fixes, recover reference access and compare all principal screens, resolve any verified visual gaps. Data remains deferred; no merge.

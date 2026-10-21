@@ -128,8 +128,7 @@ export default function PracticeAudio({
         )}
       </div>
       <p className="text-xs text-slate-500">
-        Synthetic browser voice. Recordings stay in this tab and disappear when
-        you leave; no automatic pronunciation score.
+        Synthetic browser voice. {record && "Recordings stay in this tab and disappear when you leave; no automatic pronunciation score."}
       </p>
       {url && <audio controls src={url} aria-label="Your recorded response" />}
       {error && (

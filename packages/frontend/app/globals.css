@@ -1137,3 +1137,7 @@ html[data-theme="dark"] .wordup-shell :where(.text-gray-500, .text-slate-500) { 
 .wordup-shell .conversation-card { background: var(--canvas); border-color: var(--line); color: var(--ink); }
 html[data-theme="dark"] .wordup-shell :where(.text-teal-900, .text-emerald-900, .text-emerald-950, .text-rose-900, .text-rose-950, .text-amber-800, .text-amber-900, .text-amber-950) { color: var(--ink); }
 html[data-theme="dark"] .wordup-shell :where(.bg-amber-50, .bg-emerald-50, .bg-rose-50, .bg-amber-100) { background: #392b47; border-color: var(--line); }
+
+.wordup-shell .lesson-panel-number { flex-shrink: 0; white-space: nowrap; }
+.wordup-shell .word-category-picker { background: var(--surface); border-color: var(--line); }
+.wordup-shell .lesson-fields > div { border-color: var(--line); }

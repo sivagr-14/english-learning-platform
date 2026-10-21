@@ -202,7 +202,7 @@ for (const width of [390, 1280]) {
       advanced_nuance: ["Adjust can refer to physical or abstract changes."],
     };
     const word = { id: "meaning-2", word: "adjust", display_label: "adjust (change)", word_type: "verb", cefr_level: "B2", english_meaning: "Make a small change.", tamil_meaning: "சரிசெய்", core_idea: "A small change for a better fit.", frequency: "medium", knowledge_status: "learning", track_name: "Daily life", category_name: "Plans", lesson_data: lesson };
-    await page.route("**/api/vocabulary/knowledge-map?**", route => route.fulfill({ json: { levels: [{ level: "B2", total: 102, learning: 2, mastered: 0 }], words: [{ ...word, id: "meaning-1", word: "adapt", display_label: "adapt" }, word], pagination: { page: 2, limit: 100, total: 102, total_pages: 2 } } }));
+    await page.route("**/api/vocabulary/knowledge-map?**", route => route.fulfill({ json: { levels: [{ level: "B2", total: 102, learning: 2, mastered: 0 }], words: new URL(route.request().url()).searchParams.get("status") === "new" ? [word] : [{ ...word, id: "meaning-1", word: "adapt", display_label: "adapt" }, word], pagination: { page: 2, limit: 100, total: 102, total_pages: 2 } } }));
     await page.route("**/api/vocabulary/words/meaning-2", route => {
       // Keep UI-only from=map/from=discover away from the API's strict enum.
       expect(new URL(route.request().url()).search).toBe("");
@@ -261,5 +261,12 @@ for (const width of [390, 1280]) {
     await expect(page.getByRole("combobox", { name: "Show", exact: true })).toHaveValue("learning");
     await expect(page.getByRole("button", { name: "adjust (change): Learning", exact: true })).toHaveAttribute("aria-pressed", "true");
     await expect(page.getByText("Page 2 of 2 · 102 words")).toBeVisible();
+    await page.goto("/discover");
+    await expect(page.getByRole("heading", { name: "adjust (change)", exact: true })).toBeVisible();
+    await page.screenshot({ path: `test-results/discover-${width}.png`, fullPage: true });
+    await page.getByRole("link", { name: "Explore all eight lesson sections" }).click();
+    await expect(page.getByRole("heading", { name: "adjust (change)", level: 1 })).toBeVisible();
+    await page.getByRole("link", { name: "Back to Discover", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "Discover your next word" })).toBeVisible();
   });
 }
