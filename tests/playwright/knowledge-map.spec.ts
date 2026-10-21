@@ -80,7 +80,8 @@ for (const width of [390, 1280]) {
     await page.addInitScript(() => localStorage.setItem("authStore", JSON.stringify({ token: "fixture-token", refreshToken: "fixture-refresh", user: { id: "fixture-user", email: "fixture@example.invalid" } })));
     await page.route("**/health", route => route.fulfill({ json: { revision: "test" } }));
     await page.route("**/api/vocabulary/learning-preferences", route => route.fulfill({ json: { preferences: { accent: "en-GB", show_tamil: true, theme: "light" } } }));
-    await page.route("**/api/progress", route => route.fulfill({ json: { summary: { totalEntries: 40, mastered: 4, dueNow: 3, accuracy: 80 } } }));
+    await page.screenshot({ path: `test-results/collections-${width}.png`, fullPage: true });
+  await page.route("**/api/progress", route => route.fulfill({ json: { summary: { totalEntries: 40, mastered: 4, dueNow: 3, accuracy: 80 } } }));
     await page.route("**/api/vocabulary/knowledge-map?**", route => route.fulfill({ json: {
       levels: [{ level: "B1", total: 40, known: 10, learning: 12, mastered: 4 }],
       words: Array.from({ length: 40 }, (_, i) => ({ id: `entry-${i}`, word: `word${i}`, display_label: `word${i}`, word_type: "noun", english_meaning: `Contextual meaning ${i}`, tamil_meaning: "சரிசெய்", frequency: "medium", knowledge_status: ["new", "learning", "known", "mastered"][i % 4] })),
@@ -121,8 +122,9 @@ for (const width of [390, 1280]) {
   });
 }
 
-test("collections, progress and guided practice retain their contracts in the compact UI", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
+for (const width of [390, 1280]) {
+test(`collections, progress and guided practice retain their contracts at ${width}px`, async ({ page }) => {
+  await page.setViewportSize({ width, height: 844 });
   await page.addInitScript(() => localStorage.setItem("authStore", JSON.stringify({ token: "fixture-token", refreshToken: "fixture-refresh", user: { id: "fixture-user", email: "fixture@example.invalid" } })));
   await page.route("**/health", route => route.fulfill({ json: { revision: "test" } }));
   await page.route("**/api/vocabulary/learning-preferences", route => route.fulfill({ json: { preferences: { accent: "en-GB", show_tamil: true, theme: "dark" } } }));
@@ -136,11 +138,13 @@ test("collections, progress and guided practice retain their contracts in the co
   await expect(page.getByRole("link", { name: "Requests · 4" })).toHaveAttribute("href", "/taxonomy/requests");
   await page.getByRole("button", { name: "My lists", exact: true }).click();
   await expect(page.getByRole("link", { name: /Favourite/ })).toBeVisible();
+  await page.screenshot({ path: `test-results/collections-${width}.png`, fullPage: true });
   await page.route("**/api/progress", route => route.fulfill({ json: { summary: { totalEntries: 10, learning: 5, mastered: 2, dueNow: 3, reviews: 12, accuracy: 80 }, categories: [{ id: "favourite", category_name: "Favourite", track_name: "My words", total: 10, mastered: 2 }] } }));
   await page.goto("/progress");
   await expect(page.getByRole("progressbar", { name: "Favourite recall established" })).toHaveAttribute("aria-valuenow", "20");
   await expect(page.getByRole("link", { name: "Review due words" })).toHaveAttribute("href", "/flashcards");
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  await page.screenshot({ path: `test-results/progress-${width}.png`, fullPage: true });
   await page.route("**/api/fluency/profile", route => route.fulfill({ json: { profile: { timezone: "Europe/Warsaw", daily_minutes: 20, new_per_day: 10, focus: "balanced" } } }));
   await page.route("**/api/fluency/summary", route => route.fulfill({ json: { skills: [], attempts: [] } }));
   const requestedSkills: string[] = [];
@@ -156,8 +160,9 @@ test("collections, progress and guided practice retain their contracts in the co
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
-  await page.screenshot({ path: "test-results/practice-mobile-dark.png", fullPage: true });
+  await page.screenshot({ path: `test-results/practice-${width}-dark.png`, fullPage: true });
 });
+}
 
 test("review preserves a failed rating for retry and obeys Tamil visibility", async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem("authStore", JSON.stringify({ token: "fixture-token", refreshToken: "fixture-refresh", user: { id: "fixture-user", email: "fixture@example.invalid" } })));
