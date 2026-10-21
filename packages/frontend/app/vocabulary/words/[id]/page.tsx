@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { mapReturnHref } from "@/lib/knowledge-map-context";
+import { mapReturnHref, readLearningLevel } from "@/lib/knowledge-map-context";
 import { ReactNode, Suspense, useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import AppShell from "@/components/AppShell";
@@ -424,7 +424,7 @@ function VocabularyWordContent() {
   const categoryId = searchParams.get("categoryId");
   const query = searchParams.get("q") || "";
   const backHref =
-    source === "map" ? mapReturnHref(searchParams.get("map")) : source === "discover" ? "/discover" : source === "category" && categoryId
+    source === "map" ? mapReturnHref(searchParams.get("map")) : source === "discover" ? `/discover?level=${readLearningLevel(searchParams.get("level"))}` : source === "category" && categoryId
       ? `/categories/${categoryId}?page=${sourcePage}`
       : source === "search" && query
         ? `/search?q=${encodeURIComponent(query)}&match=${encodeURIComponent(searchParams.get("match") || "all")}&page=${sourcePage}`

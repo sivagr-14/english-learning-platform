@@ -44,6 +44,11 @@ test("settings survive failed saves, persist across reload and control lesson au
   await page.reload();
   await expect(page.getByLabel("Pronunciation accent")).toHaveValue("en-US");
   await expect(page.getByLabel("Show Tamil meanings")).not.toBeChecked();
+  for (const width of [390, 1280]) {
+    await page.setViewportSize({ width, height: 844 });
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await page.screenshot({ path: `test-results/settings-${width}-dark.png`, fullPage: true, animations: "disabled" });
+  }
   await page.goto("/discover");
   await expect(page.getByRole("heading", { name: "adjust", exact: true })).toBeVisible();
   await expect(page.getByText("சரிசெய்")).toBeHidden();

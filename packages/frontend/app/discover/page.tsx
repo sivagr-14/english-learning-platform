@@ -1,14 +1,16 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { readLearningLevel } from "@/lib/knowledge-map-context";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
 import PracticeAudio from "@/components/PracticeAudio";
 import { getApiClient } from "@/lib/api/client";
 
 type Word = { id: string; word: string; display_label: string; word_type: string; pronunciation: string; english_meaning: string; tamil_meaning: string };
-function Discovery() {
-  const [level, setLevel] = useState("B1");
+function Discovery({ initialLevel }: { initialLevel: string }) {
+  const [level, setLevel] = useState(initialLevel);
   const [word, setWord] = useState<Word | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -49,7 +51,7 @@ function Discovery() {
         <p className="discovery-meaning">{word.english_meaning}</p>
         <p data-tamil lang="ta" className="discovery-tamil">{word.tamil_meaning}</p>
         <PracticeAudio text={word.word} />
-        <Link className="discovery-lesson" href={`/vocabulary/words/${word.id}?from=discover`}>Explore all eight lesson sections →</Link>
+        <Link className="discovery-lesson" href={`/vocabulary/words/${word.id}?from=discover&level=${level}`}>Explore all eight lesson sections →</Link>
         <div className="discovery-choices">
           <button disabled={saving || !!error} onClick={() => choose("known")} className="btn-secondary">Already know it</button>
           <button disabled={saving || !!error} onClick={() => choose("learning")} className="btn-primary">{saving ? "Saving…" : "I want to learn this"}</button>
@@ -59,4 +61,9 @@ function Discovery() {
     </div>
   </AppShell>;
 }
-export default function DiscoverPage() { return <AuthenticatedPage><Discovery /></AuthenticatedPage>; }
+function DiscoveryRoute() {
+  const params = useSearchParams();
+  const level = readLearningLevel(params.get("level"));
+  return <Discovery key={level} initialLevel={level} />;
+}
+export default function DiscoverPage() { return <AuthenticatedPage><Suspense fallback={<p role="status">Loading discovery…</p>}><DiscoveryRoute /></Suspense></AuthenticatedPage>; }

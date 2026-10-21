@@ -6,13 +6,17 @@ export type MapContext = {
   selectedId: string | null;
 };
 
+export function readLearningLevel(level: string | null): MapContext["level"] {
+  return level === "B2" || level === "C1" ? level : "B1";
+}
+
 // Only known map fields are restored; never accept a return URL from input.
 export function readMapContext(params: Pick<URLSearchParams, "get">): MapContext {
   const level = params.get("level");
   const status = params.get("status") || "all";
   const page = Number(params.get("page") || 1);
   return {
-    level: level === "B2" || level === "C1" ? level : "B1",
+    level: readLearningLevel(level),
     query: (params.get("q") || "").slice(0, 100),
     status: ["all", "new", "learning", "known", "mastered"].includes(status) ? status : "all",
     page: Number.isSafeInteger(page) && page > 0 && page <= 100000 ? page : 1,

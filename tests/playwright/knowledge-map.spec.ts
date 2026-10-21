@@ -80,7 +80,7 @@ for (const width of [390, 1280]) {
     await page.addInitScript(() => localStorage.setItem("authStore", JSON.stringify({ token: "fixture-token", refreshToken: "fixture-refresh", user: { id: "fixture-user", email: "fixture@example.invalid" } })));
     await page.route("**/health", route => route.fulfill({ json: { revision: "test" } }));
     await page.route("**/api/vocabulary/learning-preferences", route => route.fulfill({ json: { preferences: { accent: "en-GB", show_tamil: true, theme: "light" } } }));
-    await page.screenshot({ path: `test-results/collections-${width}.png`, fullPage: true });
+    await page.screenshot({ path: `test-results/collections-${width}.png`, fullPage: true, animations: "disabled" });
   await page.route("**/api/progress", route => route.fulfill({ json: { summary: { totalEntries: 40, mastered: 4, dueNow: 3, accuracy: 80 } } }));
     await page.route("**/api/vocabulary/knowledge-map?**", route => route.fulfill({ json: {
       levels: [{ level: "B1", total: 40, known: 10, learning: 12, mastered: 4 }],
@@ -98,7 +98,7 @@ for (const width of [390, 1280]) {
     expect(mapTile!.height).toBeGreaterThan(10);
     const brand = await page.locator(".workspace-label").boundingBox();
     expect(brand!.height).toBeLessThan(32);
-    await page.screenshot({ path: `test-results/home-${width}.png`, fullPage: true });
+    await page.screenshot({ path: `test-results/home-${width}.png`, fullPage: true, animations: "disabled" });
     const menu = page.getByRole("button", { name: "Open navigation" });
     await menu.click();
     await expect(page.getByRole("dialog", { name: "Navigation menu" })).toBeVisible();
@@ -118,7 +118,7 @@ for (const width of [390, 1280]) {
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
     await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
-    await page.screenshot({ path: `test-results/map-${width}.png`, fullPage: true });
+    await page.screenshot({ path: `test-results/map-${width}.png`, fullPage: true, animations: "disabled" });
   });
 }
 
@@ -138,13 +138,13 @@ test(`collections, progress and guided practice retain their contracts at ${widt
   await expect(page.getByRole("link", { name: "Requests · 4" })).toHaveAttribute("href", "/taxonomy/requests");
   await page.getByRole("button", { name: "My lists", exact: true }).click();
   await expect(page.getByRole("link", { name: /Favourite/ })).toBeVisible();
-  await page.screenshot({ path: `test-results/collections-${width}.png`, fullPage: true });
+  await page.screenshot({ path: `test-results/collections-${width}.png`, fullPage: true, animations: "disabled" });
   await page.route("**/api/progress", route => route.fulfill({ json: { summary: { totalEntries: 10, learning: 5, mastered: 2, dueNow: 3, reviews: 12, accuracy: 80 }, categories: [{ id: "favourite", category_name: "Favourite", track_name: "My words", total: 10, mastered: 2 }] } }));
   await page.goto("/progress");
   await expect(page.getByRole("progressbar", { name: "Favourite recall established" })).toHaveAttribute("aria-valuenow", "20");
   await expect(page.getByRole("link", { name: "Review due words" })).toHaveAttribute("href", "/flashcards");
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
-  await page.screenshot({ path: `test-results/progress-${width}.png`, fullPage: true });
+  await page.screenshot({ path: `test-results/progress-${width}.png`, fullPage: true, animations: "disabled" });
   await page.route("**/api/fluency/profile", route => route.fulfill({ json: { profile: { timezone: "Europe/Warsaw", daily_minutes: 20, new_per_day: 10, focus: "balanced" } } }));
   await page.route("**/api/fluency/summary", route => route.fulfill({ json: { skills: [], attempts: [] } }));
   const requestedSkills: string[] = [];
@@ -160,7 +160,7 @@ test(`collections, progress and guided practice retain their contracts at ${widt
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
-  await page.screenshot({ path: `test-results/practice-${width}-dark.png`, fullPage: true });
+  await page.screenshot({ path: `test-results/practice-${width}-dark.png`, fullPage: true, animations: "disabled" });
 });
 }
 
@@ -179,6 +179,11 @@ test("review preserves a failed rating for retry and obeys Tamil visibility", as
   await page.getByRole("button", { name: "Reveal answer" }).click();
   await expect(page.getByRole("heading", { name: "adjust", exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Listen", exact: true })).toBeVisible();
+  for (const width of [390, 1280]) {
+    await page.setViewportSize({ width, height: 844 });
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await page.screenshot({ path: `test-results/review-${width}.png`, fullPage: true, animations: "disabled" });
+  }
   await page.getByRole("button", { name: "Good", exact: true }).click();
   await expect(page.getByRole("main").getByRole("alert")).toContainText("Could not save this review");
   await expect(page.getByRole("heading", { name: "adjust", exact: true })).toBeVisible();
@@ -259,14 +264,15 @@ for (const width of [390, 1280]) {
     await page.getByText("Explore the complete lesson", { exact: true }).click();
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
-    await page.screenshot({ path: `test-results/lesson-${width}.png`, fullPage: true });
+    await page.screenshot({ path: `test-results/lesson-${width}.png`, fullPage: true, animations: "disabled" });
     await page.getByRole("link", { name: "Back to Knowledge Map", exact: true }).click();
     await expect(page.getByRole("tab", { name: /B2/ })).toHaveAttribute("aria-selected", "true");
     await expect(page.getByRole("searchbox", { name: "Find a word" })).toHaveValue("adjust");
     await expect(page.getByRole("combobox", { name: "Show", exact: true })).toHaveValue("learning");
     await expect(page.getByRole("button", { name: "adjust (change): Learning", exact: true })).toHaveAttribute("aria-pressed", "true");
     await expect(page.getByText("Page 2 of 2 · 102 words")).toBeVisible();
-    await page.goto("/discover");
+    await page.goto("/discover?level=B2");
+    await expect(page.getByLabel("Your level", { exact: true })).toHaveValue("B2");
     await expect(page.getByRole("heading", { name: "adjust (change)", exact: true })).toBeVisible();
     const lessonContrast = await page.locator(".discovery-lesson").evaluate(link => {
       const luminance = (color: string) => {
@@ -281,12 +287,17 @@ for (const width of [390, 1280]) {
       return (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05);
     });
     expect(lessonContrast).toBeGreaterThanOrEqual(4.5);
-    await page.screenshot({ path: `test-results/discover-${width}.png`, fullPage: true });
-    await expect(page.getByRole("link", { name: "Explore all eight lesson sections" })).toHaveAttribute("href", "/vocabulary/words/meaning-2?from=discover");
+    await page.screenshot({ path: `test-results/discover-${width}.png`, fullPage: true, animations: "disabled" });
+    await expect(page.getByRole("link", { name: "Explore all eight lesson sections" })).toHaveAttribute("href", "/vocabulary/words/meaning-2?from=discover&level=B2");
     await page.getByRole("link", { name: "Explore all eight lesson sections" }).click();
-    await expect(page).toHaveURL(/\/vocabulary\/words\/meaning-2\?from=discover$/);
+    await expect(page).toHaveURL(/\/vocabulary\/words\/meaning-2\?from=discover&level=B2$/);
     await expect(page.getByRole("heading", { name: "adjust (change)", level: 1 })).toBeVisible();
     await page.getByRole("link", { name: "Back to Discover", exact: true }).click();
     await expect(page.getByRole("heading", { name: "Discover your next word" })).toBeVisible();
+    await expect(page.getByLabel("Your level", { exact: true })).toHaveValue("B2");
+    await page.reload();
+    await expect(page.getByLabel("Your level", { exact: true })).toHaveValue("B2");
+    await page.goto("/discover?level=invalid");
+    await expect(page.getByLabel("Your level", { exact: true })).toHaveValue("B1");
   });
 }
