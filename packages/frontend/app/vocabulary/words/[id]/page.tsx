@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { mapReturnHref } from "@/lib/knowledge-map-context";
 import { ReactNode, Suspense, useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import AppShell from "@/components/AppShell";
@@ -379,6 +380,16 @@ function VocabularyWordContent() {
   const params = useParams<{ id: string }>();
   const searchParams = useSearchParams();
   const contextQuery = searchParams.toString();
+  // Map/discovery origins are UI return state, not API navigation contexts.
+  // The existing API accepts only category/search origins.
+  const apiParams = new URLSearchParams();
+  if (["category", "search"].includes(searchParams.get("from") || "")) {
+    for (const key of ["from", "categoryId", "q", "match", "page", "limit"]) {
+      const value = searchParams.get(key);
+      if (value) apiParams.set(key, value);
+    }
+  }
+  const apiQuery = apiParams.toString();
   const [otherMeanings, setOtherMeanings] = useState<any[]>([]);
   const [word, setWord] = useState<WordDetail | null>(null);
   const [navigation, setNavigation] = useState<WordNavigation | null>(null);
@@ -394,7 +405,7 @@ function VocabularyWordContent() {
       setWord(null);
       setNavigation(null);
       const response = await getApiClient().get(
-        `/api/vocabulary/words/${params.id}${contextQuery ? `?${contextQuery}` : ""}`,
+        `/api/vocabulary/words/${params.id}${apiQuery ? `?${apiQuery}` : ""}`,
       );
       setWord(response.data.word);
       setOtherMeanings(response.data.otherMeanings || []);
@@ -406,14 +417,14 @@ function VocabularyWordContent() {
       setError("Could not load this vocabulary entry.");
       setIsLoading(false);
     });
-  }, [contextQuery, params.id]);
+  }, [apiQuery, params.id]);
 
   const source = searchParams.get("from");
   const sourcePage = searchParams.get("page") || "1";
   const categoryId = searchParams.get("categoryId");
   const query = searchParams.get("q") || "";
   const backHref =
-    source === "map" ? "/knowledge-map" : source === "discover" ? "/discover" : source === "category" && categoryId
+    source === "map" ? mapReturnHref(searchParams.get("map")) : source === "discover" ? "/discover" : source === "category" && categoryId
       ? `/categories/${categoryId}?page=${sourcePage}`
       : source === "search" && query
         ? `/search?q=${encodeURIComponent(query)}&match=${encodeURIComponent(searchParams.get("match") || "all")}&page=${sourcePage}`

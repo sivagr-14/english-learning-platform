@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { MapContext, readMapContext, mapContextQuery } from "@/lib/knowledge-map-context";
+import { Suspense, useEffect, useState } from "react";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
 import PracticeAudio from "@/components/PracticeAudio";
@@ -13,13 +15,13 @@ type MapWord = { id: string; word: string; display_label: string; word_type: str
 type MapData = { levels: { level: Level; total: number; known?: number; learning: number; mastered: number }[]; words: MapWord[]; pagination: PaginationState };
 const statusNames = { new: "Not explored", learning: "Learning", known: "Already known", mastered: "Review proficiency" };
 
-export default function KnowledgeMapPage() {
-  const [level, setLevel] = useState<Level>("B1");
-  const [query, setQuery] = useState("");
-  const [status, setStatus] = useState("all");
-  const [page, setPage] = useState(1);
+function KnowledgeMap({ initial }: { initial: MapContext }) {
+  const [level, setLevel] = useState<Level>(initial.level);
+  const [query, setQuery] = useState(initial.query);
+  const [status, setStatus] = useState(initial.status);
+  const [page, setPage] = useState(initial.page);
   const [data, setData] = useState<MapData | null>(null);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(initial.selectedId);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [retry, setRetry] = useState(0);
@@ -27,6 +29,7 @@ export default function KnowledgeMapPage() {
   const [saveError, setSaveError] = useState("");
   const selected = data?.words.find(word => word.id === selectedId) || data?.words[0];
   const selectedIndex = data?.words.findIndex(word => word.id === selected?.id) ?? 0;
+  const lessonHref = selected ? `/vocabulary/words/${selected.id}?${new URLSearchParams({ from: "map", map: mapContextQuery({ level, query, status, page, selectedId: selected.id }) })}` : "";
   const changeFilter = () => { setPage(1); setSelectedId(null); setSaveError(""); };
   async function choose(wordId: string, familiarity: "known" | "learning") {
     setSaving(true); setSaveError("");
@@ -62,12 +65,12 @@ export default function KnowledgeMapPage() {
       : selected && <>
         <article className="discovery-card map-word-card" aria-label="Selected meaning">
           <div className="map-card-top"><span className={`map-status status-${selected.knowledge_status}`}>{statusNames[selected.knowledge_status]}</span><span>{selectedIndex + 1} / {data.words.length} on this page</span></div>
-          <h2><Link href={`/vocabulary/words/${selected.id}?from=map`}>{selected.display_label || selected.word}</Link></h2>
+          <h2><Link href={lessonHref}>{selected.display_label || selected.word}</Link></h2>
           <p className="discovery-phonetic">{selected.pronunciation} · {selected.word_type || "Expression"} · {selected.frequency} usage</p>
           <p className="discovery-meaning">{selected.english_meaning}</p>
           <p data-tamil lang="ta" className="discovery-tamil">{selected.tamil_meaning}</p>
           <PracticeAudio key={selected.id} text={selected.word} />
-          <Link className="discovery-lesson" href={`/vocabulary/words/${selected.id}?from=map`}>Open lesson →</Link>
+          <Link className="discovery-lesson" href={lessonHref}>Open lesson →</Link>
           <div className="discovery-choices">
             {selected.knowledge_status === "new" || selected.knowledge_status === "known" ? <button className="btn-primary" disabled={saving} onClick={() => choose(selected.id, "learning")}>{saving ? "Saving…" : "Start learning"}</button> : <Link className="btn-primary" href="/flashcards">Review now →</Link>}
             <button className="btn-secondary" disabled={saving || selected.knowledge_status === "known"} onClick={() => choose(selected.id, "known")}>{selected.knowledge_status === "known" ? "Already known" : "Already know it"}</button>
@@ -78,9 +81,17 @@ export default function KnowledgeMapPage() {
           <div className="map-legend">{Object.entries(statusNames).map(([key, label]) => <span key={key}><i className={`status-${key}`} />{label}</span>)}</div>
           <div className="knowledge-grid">{data.words.map((word, index) => <button key={word.id} disabled={saving} className={`knowledge-cell status-${word.knowledge_status}`} aria-pressed={selected.id === word.id} aria-label={`${word.display_label || word.word}: ${statusNames[word.knowledge_status]}`} title={word.display_label || word.word} onClick={() => { setSelectedId(word.id); setSaveError(""); }}><span>{(page - 1) * 100 + index + 1}</span></button>)}</div>
           <p className="discovery-hint">Each square is a contextual meaning. Numbers show position in this alphabetical view, not frequency rank. Select a square to explore it.</p>
-          <PaginationControls pagination={data.pagination} onPageChange={next => { setPage(next); setSelectedId(null); }} />
+          <PaginationControls pagination={data.pagination} onPageChange={next => { if (!saving) { setPage(next); setSelectedId(null); } }} />
         </section>
       </>}
   </AppShell></AuthenticatedPage>;
 }
 
+
+function MapRoute() {
+  const params = useSearchParams();
+  return <KnowledgeMap key={params.toString()} initial={readMapContext(params)} />;
+}
+export default function KnowledgeMapPage() {
+  return <Suspense fallback={<p role="status">Loading your map…</p>}><MapRoute /></Suspense>;
+}

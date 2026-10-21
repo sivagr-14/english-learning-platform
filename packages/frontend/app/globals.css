@@ -1126,3 +1126,14 @@ html[data-theme="dark"] .wordup-shell :where(.text-gray-500, .text-slate-500) { 
 /* Override the former mobile sidebar toolbar's full-width account group. */
 .wordup-shell .workspace-bar > div { width: auto; flex-shrink: 0; justify-content: flex-end; }
 .wordup-shell .workspace-label { white-space: nowrap; }
+
+/* Empty decorative cells still need to fill their grid tracks. */
+.map-art { grid-template-rows: repeat(5, minmax(0, 1fr)); align-items: stretch; justify-content: stretch; }
+.wordup-shell .quick-lesson { background: var(--surface); border-color: var(--line); }
+.wordup-shell .lesson-panel { background: var(--surface); border-color: var(--line); }
+.wordup-shell .lesson-panel-heading h3, .wordup-shell .lesson-fields dt { color: var(--ink); }
+.wordup-shell .lesson-fields dd { color: var(--ink); }
+.wordup-shell .lesson-panel-number { background: #eee2f8; color: #64258d; }
+.wordup-shell .conversation-card { background: var(--canvas); border-color: var(--line); color: var(--ink); }
+html[data-theme="dark"] .wordup-shell :where(.text-teal-900, .text-emerald-900, .text-emerald-950, .text-rose-900, .text-rose-950, .text-amber-800, .text-amber-900, .text-amber-950) { color: var(--ink); }
+html[data-theme="dark"] .wordup-shell :where(.bg-amber-50, .bg-emerald-50, .bg-rose-50, .bg-amber-100) { background: #392b47; border-color: var(--line); }

@@ -91,3 +91,14 @@ Follow-up implementation: collections now opens personal lists first with a sepa
 Continue direct visual comparison and full eight-section/notes/favorites/review save-retry journeys. These changes are still in development, not ready for final UI review.
 
 Visual QA of first CI artifacts: inspected map-390.png and map-1280.png downloaded from run 39502959833. Dense grid and selected-card layout render without horizontal overflow. Found an inherited mobile toolbar rule that made the account group full width and wrapped the brand; corrected it and added a one-line brand assertion. Screenshots now reset to scroll top before capture so sticky bars are not misleadingly positioned midway through full-page artifacts. Added home screenshots and a real review failed-save/retry test checking the request identity and hidden Tamil.
+
+## Continuation — 2026-10-21: lesson journeys and return context
+Baseline unchanged: main f7636988; draft #123 head ccfdac575f427e468701ddc2d908c51ea5673eb7. All five checks at that head passed, including the full application/backend integration checklist and nine browser tests. Inspected CI screenshots of mobile home and dark practice. Chrome reference tool still returns Unknown tool; direct reference comparison remains pending.
+
+Implemented next:
+- Map-to-lesson return now preserves level, search, status, page and selected meaning using whitelisted, bounded URL state; no arbitrary return URLs.
+- Fixed an API contract bug: from=map/from=discover were forwarded to the word-detail endpoint, whose enum only accepts category/search. UI return state is now separate from API query context; existing category/search context is preserved.
+- New 390px dark / 1280px light complete-lesson journeys assert exactly eight sections, jump-link focus, Tamil, note failed-save recovery and persistence, unchanged learning choice, favourite-add payload and return to the same map selection/page/filters. Mocks explicitly require API detail requests without UI-only parameters.
+- Fixed blank home Learn-card grid illustration (empty cells were centered at zero height); new dimension assertion covers it. Adjusted quick/full lesson panels and semantic callouts to the purple light/dark surface palette.
+
+Next: inspect the newest CI and full lesson screenshots, repair any genuine issues; verify discover-to-detail with the real strict API boundary; then direct WordUp reference comparison and remaining visual gaps. Do not merge or start source assessment. The UI is still in development; browser journeys alone do not establish complete visual fidelity.

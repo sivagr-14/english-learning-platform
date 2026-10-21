@@ -93,6 +93,8 @@ for (const width of [390, 1280]) {
     expect(shell!.width).toBeLessThanOrEqual(700);
     expect(Math.abs(shell!.x - (width - shell!.width) / 2)).toBeLessThan(2);
     await expect(page.locator(".workspace-bar")).toHaveCSS("background-color", "rgb(96, 35, 139)");
+    const mapTile = await page.locator(".map-art i").first().boundingBox();
+    expect(mapTile!.height).toBeGreaterThan(10);
     const brand = await page.locator(".workspace-label").boundingBox();
     expect(brand!.height).toBeLessThan(32);
     await page.screenshot({ path: `test-results/home-${width}.png`, fullPage: true });
@@ -109,7 +111,7 @@ for (const width of [390, 1280]) {
     await page.getByRole("button", { name: "word2: Already known", exact: true }).click();
     await expect(page.getByRole("article", { name: "Selected meaning" }).getByRole("heading")).toHaveText("word2");
     await expect(page.getByRole("button", { name: "word2: Already known", exact: true })).toHaveAttribute("aria-pressed", "true");
-    await expect(page.getByRole("link", { name: "Open lesson" })).toHaveAttribute("href", "/vocabulary/words/entry-2?from=map");
+    await expect(page.getByRole("link", { name: "Open lesson" })).toHaveAttribute("href", /\/vocabulary\/words\/entry-2\?from=map&map=/);
     await page.getByRole("button", { name: "Next", exact: true }).click();
     await expect(page.getByRole("article", { name: "Selected meaning" }).getByRole("heading")).toHaveText("word3");
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
@@ -181,3 +183,83 @@ test("review preserves a failed rating for retry and obeys Tamil visibility", as
   expect(attempts).toHaveLength(2);
   expect(attempts[1]).toEqual(attempts[0]);
 });
+
+for (const width of [390, 1280]) {
+  test(`map returns to the selected meaning after a complete lesson, note and favourite journey at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.addInitScript(() => localStorage.setItem("authStore", JSON.stringify({ token: "fixture-token", refreshToken: "fixture-refresh", user: { id: "fixture-user", email: "fixture@example.invalid" } })));
+    await page.route("**/health", route => route.fulfill({ json: { revision: "test" } }));
+    await page.route("**/api/vocabulary/learning-preferences", route => route.fulfill({ json: { preferences: { accent: "en-GB", show_tamil: true, theme: width === 390 ? "dark" : "light" } } }));
+    const lesson = {
+      format_version: "simplified-v2",
+      overview: { meaning_usage_profile: { meaning_type: "literal", connotation: "neutral", tone: "neutral", register: "neutral" } },
+      meaning_in_context: { source_sentence: "We adjusted the plan.", contextual_meaning: "Changed the plan slightly.", simple_explanation: "Make a small change so it works better." },
+      usage_guide: { when_to_use: ["For a small change."], when_not_to_use: ["For replacing the whole thing."] },
+      patterns_collocations: { main_pattern: "adjust + noun", common_collocations: ["adjust a plan"] },
+      natural_examples: { examples: { work: "We adjusted the plan." }, mini_conversation: "A: Is the plan ready? B: I need to adjust it." },
+      mistakes_differences: { common_mistake: "adjust to the volume", correction: "adjust the volume", important_difference: "Adjust something changes it; adjust to something means adapt." },
+      memory_practice: { memory_trigger: "A small turn of a dial.", memory_sentence: "Adjust the volume.", recall_question: "What means change slightly?", recognition_task: "Find the small change.", production_task: "Describe a plan you changed." },
+      advanced_nuance: ["Adjust can refer to physical or abstract changes."],
+    };
+    const word = { id: "meaning-2", word: "adjust", display_label: "adjust (change)", word_type: "verb", cefr_level: "B2", english_meaning: "Make a small change.", tamil_meaning: "சரிசெய்", core_idea: "A small change for a better fit.", frequency: "medium", knowledge_status: "learning", track_name: "Daily life", category_name: "Plans", lesson_data: lesson };
+    await page.route("**/api/vocabulary/knowledge-map?**", route => route.fulfill({ json: { levels: [{ level: "B2", total: 102, learning: 2, mastered: 0 }], words: [{ ...word, id: "meaning-1", word: "adapt", display_label: "adapt" }, word], pagination: { page: 2, limit: 100, total: 102, total_pages: 2 } } }));
+    await page.route("**/api/vocabulary/words/meaning-2", route => {
+      // Keep UI-only from=map/from=discover away from the API's strict enum.
+      expect(new URL(route.request().url()).search).toBe("");
+      return route.fulfill({ json: { word } });
+    });
+    let note = "";
+    let failNote = true;
+    await page.route("**/api/vocabulary/words/meaning-2/learner-state", route => {
+      if (route.request().method() === "PUT") {
+        if (failNote) return route.fulfill({ status: 500, json: {} });
+        const payload = route.request().postDataJSON();
+        expect(payload).toEqual({ note: "Think of the volume dial." });
+        note = payload.note;
+      }
+      return route.fulfill({ json: { state: { note, familiarity: "learning" } } });
+    });
+    let added = false;
+    await page.route("**/api/vocabulary/categories?includeEmpty=true", route => route.fulfill({ json: { categories: [{ id: "favourite", category_name: "Favourite", is_user_category: true, is_default: true, word_count: added ? 1 : 0 }] } }));
+    await page.route("**/api/vocabulary/words/categories", route => {
+      expect(route.request().postDataJSON()).toEqual({ wordIds: ["meaning-2"], categoryId: "favourite" });
+      added = true;
+      return route.fulfill({ json: { added: 1, already_present: 0, category: { id: "favourite", category_name: "Favourite" } } });
+    });
+    await page.goto("/knowledge-map?level=B2&q=adjust&status=learning&page=2&selected=meaning-2");
+    await expect(page.getByRole("tab", { name: /B2/ })).toHaveAttribute("aria-selected", "true");
+    await expect(page.getByRole("searchbox", { name: "Find a word" })).toHaveValue("adjust");
+    await page.getByRole("link", { name: "Open lesson" }).click();
+    await expect(page.getByRole("heading", { name: "adjust (change)", level: 1 })).toBeVisible();
+    await page.getByText("Explore the complete lesson", { exact: true }).click();
+    const titles = ["Overview", "Meaning in Context", "Usage Guide", "Patterns & Collocations", "Natural Examples", "Mistakes & Differences", "Memory & Practice", "Advanced Nuance"];
+    await expect(page.locator('[id^="lesson-section-"]')).toHaveCount(8);
+    for (const title of titles) await expect(page.getByRole("heading", { name: title, exact: true, level: 3 })).toBeVisible();
+    await page.getByRole("navigation", { name: "Lesson sections" }).getByRole("link", { name: "8. Advanced Nuance", exact: true }).click();
+    await expect(page.locator("#lesson-section-8")).toBeFocused();
+    await expect(page.locator("#lesson-section-1 [lang=ta]")).toHaveText("சரிசெய்");
+    await page.getByLabel("My note or memory cue").fill("Think of the volume dial.");
+    await page.getByRole("button", { name: "Save note", exact: true }).click();
+    await expect(page.getByRole("main").getByRole("alert")).toContainText("Your edits are still here");
+    await expect(page.getByLabel("My note or memory cue")).toHaveValue("Think of the volume dial.");
+    failNote = false;
+    await page.getByRole("button", { name: "Save note", exact: true }).click();
+    await expect(page.getByText("Note saved.", { exact: true })).toBeVisible();
+    await page.getByRole("button", { name: "Add 1 word", exact: true }).click();
+    await expect(page.getByText("1 word added to Favourite.", { exact: true })).toBeVisible();
+    expect(added).toBe(true);
+    await page.reload();
+    await expect(page.getByLabel("My note or memory cue")).toHaveValue("Think of the volume dial.");
+    await expect(page.getByRole("button", { name: "Want to learn", exact: true })).toHaveAttribute("aria-pressed", "true");
+    await page.getByText("Explore the complete lesson", { exact: true }).click();
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+    await page.screenshot({ path: `test-results/lesson-${width}.png`, fullPage: true });
+    await page.getByRole("link", { name: "Back to Knowledge Map", exact: true }).click();
+    await expect(page.getByRole("tab", { name: /B2/ })).toHaveAttribute("aria-selected", "true");
+    await expect(page.getByRole("searchbox", { name: "Find a word" })).toHaveValue("adjust");
+    await expect(page.getByRole("combobox", { name: "Show", exact: true })).toHaveValue("learning");
+    await expect(page.getByRole("button", { name: "adjust (change): Learning", exact: true })).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByText("Page 2 of 2 · 102 words")).toBeVisible();
+  });
+}
