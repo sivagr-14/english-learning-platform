@@ -1,6 +1,6 @@
 # WordUp learning experience checkpoint
 
-Updated 2026-10-20. Status: IN DEVELOPMENT, not complete or release-ready.
+Updated 2026-10-21. Status: FIRST UI VERSION READY FOR REVIEW; draft #123 remains unmerged. Not a production release or completed catalogue. Latest receipt below supersedes historical pending statuses.
 
 ## Scope and baseline
 PRs #120 and #121 merged. Continue feature/wordup-learning-experience, checking current main first. Deliver one cohesive review PR, not small increments described as a complete app. Follow AGENTS.md and delivery evidence gate. Never weaken checks.
@@ -158,3 +158,14 @@ Concrete gap corrected: oversized level controls and search pushed the map below
 Local typecheck and production build passed. Added desktop/mobile layout assertions that the selected card and grid appear before filters and level tabs remain compact. Publish and inspect CI/screenshots before ready-for-review. First UI review version explicitly differs in content: existing validated entries, typographic fallback instead of per-sense media, guided practice instead of live AI. Full 42,200-row catalogue/media and notifications/native sync are NOT complete. No merge or data work.
 
 Screenshot review at c55ca80a: all 14 browser tests passed. Inspected mobile/desktop map and dark Discover. Found inherited 44px button minimum stretched compact cells beyond their grid tracks; set explicit width and 28px minimum (above 24px minimum target), and added non-overlap/square geometry checks. Removed inherited column direction from compact page headings. Reverify correction CI before marking ready.
+
+
+## First UI review delivery — 2026-10-21
+
+Verified implementation head e70dc2bf5221c74f939f685f8fd441850beffa3f against current main f76369888298c401806892cc600c5a6e77df3a44 (includes #120/#121/#122). All five checks passed: delivery; content-pack contracts; gold corpus; vocabulary UI (14 tests); full application/backend integration, including typechecks, builds and PostgreSQL smoke tests.
+
+Evidence: https://github.com/sivagr-14/english-learning-platform/actions/runs/39643006740 and https://github.com/sivagr-14/english-learning-platform/actions/runs/39643006783 . Downloaded artifact 12366890041 and inspected corrected map screenshots at 390/1280px: cells are square, separated and do not overlap; card/grid precede filters. Inspected the latest full-screen contact sheet across home, Discover, details, review, practice, collections, progress and settings; prior detailed screenshot inspections remain recorded above. Reference audit is complete for this first UI version; previous Chrome-blocked statements are historical.
+
+Delivery: draft PR #123 is ready for the user's first UI review, with preserved eight sections, Tamil, saved learner state, retry handling and guided-practice disclosure. This does not certify real-user production database persistence from mocked UI fixtures, native/offline sync, notifications, per-sense media or the 42,200-row catalogue. Those product/data limitations remain explicit in the parity matrix and UI review guide.
+
+Next: user reviews the first UI version via docs/WORDUP_UI_REVIEW.md. Do not merge or start deferred assessment/import automatically. Pause this UI continuation after review delivery; further UI feedback is a new continuation. No private database uploaded and no local edits overwritten.
