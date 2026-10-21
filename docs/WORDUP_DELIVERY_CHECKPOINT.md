@@ -132,3 +132,10 @@ Main still f7636988; draft #123 head f8fcbaec. Both workflows passed at that hea
 Review screenshot exposed empty Recall/Natural Use headings and dangling punctuation for records without optional content. Hide those sections only when neither supported lesson schema supplies any content, and join available metadata fields without orphan separators. Existing simplified-v2 and legacy lesson content remain supported. Added assertions for the missing-content review fixture alongside its save/retry test. No learner data or review scheduling changes.
 
 Next: inspect this commit's CI and review artifacts; complete non-empty guided-practice response/save/retry and list creation journeys. Direct WordUp Chrome comparison still blocked by connector Unknown tool on retry; do not claim full visual fidelity or ready-for-review. Data phase remains deferred.
+
+## Guided-practice recovery — 2026-10-21
+Reconciled main f7636988 and draft #123 head201d61db; both workflows passed at that head. Found two guided-practice bugs while extending non-empty card coverage: revealed Tamil lacked the visibility hook, and a summary GET failure after a successful attempt POST incorrectly said the save failed. Applied the existing Tamil hook and separated summary-refresh failure from attempt-save failure, preserving retry identity and the saved result.
+
+Added 390/1280 writing journeys covering answer comparison, hidden Tamil, self-check gating, failed-save response preservation, identical retry payload and successful save followed by failed summary refresh. Captures non-empty practice screens. Extended existing collection journeys with create failure/retry and payload checks. These new browser checks await CI; local frontend typecheck passed and build run before publishing.
+
+Next: inspect new CI and practice-response screenshots; extend collection read-back after creation (current fixture checks the creation response but not database persistence). Recover Chrome reference access for final fidelity comparison. Do not merge or start data phase; UI remains in development.

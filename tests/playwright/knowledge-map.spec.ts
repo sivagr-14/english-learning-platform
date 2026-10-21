@@ -81,6 +81,17 @@ for (const width of [390, 1280]) {
     await page.route("**/health", route => route.fulfill({ json: { revision: "test" } }));
     await page.route("**/api/vocabulary/learning-preferences", route => route.fulfill({ json: { preferences: { accent: "en-GB", show_tamil: true, theme: "light" } } }));
     await page.screenshot({ path: `test-results/collections-${width}.png`, fullPage: true, animations: "disabled" });
+  await page.getByRole("button", { name: "Create category", exact: true }).click();
+  await page.getByLabel("Category name", { exact: true }).fill("Travel phrases");
+  await page.getByLabel("Description (optional)", { exact: true }).fill("For my next trip");
+  await page.getByRole("button", { name: "Create", exact: true }).click();
+  await expect(page.getByRole("main").getByRole("alert")).toBeVisible();
+  await expect(page.getByLabel("Category name", { exact: true })).toHaveValue("Travel phrases");
+  failCreate = false;
+  await page.getByRole("button", { name: "Create", exact: true }).click();
+  await expect(page.getByText("Travel phrases was created and is ready for words.", { exact: true })).toBeVisible();
+  expect(createdList).toBe(true);
+
   await page.route("**/api/progress", route => route.fulfill({ json: { summary: { totalEntries: 40, mastered: 4, dueNow: 3, accuracy: 80 } } }));
     await page.route("**/api/vocabulary/knowledge-map?**", route => route.fulfill({ json: {
       levels: [{ level: "B1", total: 40, known: 10, learning: 12, mastered: 4 }],
@@ -130,6 +141,14 @@ test(`collections, progress and guided practice retain their contracts at ${widt
   await page.route("**/api/vocabulary/learning-preferences", route => route.fulfill({ json: { preferences: { accent: "en-GB", show_tamil: true, theme: "dark" } } }));
   await page.route("**/api/vocabulary/categories", route => route.fulfill({ json: { categories: [{ id: "favourite", category_name: "Favourite", track_name: "My words", word_count: "5", is_user_category: true, is_default: true }] } }));
   await page.route("**/api/vocabulary/taxonomy", route => route.fulfill({ json: { counts: { domains: 1, usage_groups: 1, specific_categories: 1 }, domains: [{ key: "work", name: "Work", word_count: 4, usage_groups: [{ key: "meetings", name: "Meetings", word_count: 4, categories: [{ key: "requests", name: "Requests", word_count: 4, description: "Making requests" }] }] }] } }));
+  let createdList = false;
+  let failCreate = true;
+  await page.route("**/api/vocabulary/user-categories", route => {
+    expect(route.request().postDataJSON()).toEqual({ name: "Travel phrases", description: "For my next trip" });
+    if (failCreate) return route.fulfill({ status: 500, json: {} });
+    createdList = true;
+    return route.fulfill({ json: { category: { id: "travel", category_name: "Travel phrases" } } });
+  });
   await page.goto("/categories");
   await expect(page.getByRole("link", { name: /Favourite/ })).toHaveAttribute("href", "/categories/favourite");
   await page.getByRole("button", { name: "Explore topics", exact: true }).click();
@@ -139,6 +158,17 @@ test(`collections, progress and guided practice retain their contracts at ${widt
   await page.getByRole("button", { name: "My lists", exact: true }).click();
   await expect(page.getByRole("link", { name: /Favourite/ })).toBeVisible();
   await page.screenshot({ path: `test-results/collections-${width}.png`, fullPage: true, animations: "disabled" });
+  await page.getByRole("button", { name: "Create category", exact: true }).click();
+  await page.getByLabel("Category name", { exact: true }).fill("Travel phrases");
+  await page.getByLabel("Description (optional)", { exact: true }).fill("For my next trip");
+  await page.getByRole("button", { name: "Create", exact: true }).click();
+  await expect(page.getByRole("main").getByRole("alert")).toBeVisible();
+  await expect(page.getByLabel("Category name", { exact: true })).toHaveValue("Travel phrases");
+  failCreate = false;
+  await page.getByRole("button", { name: "Create", exact: true }).click();
+  await expect(page.getByText("Travel phrases was created and is ready for words.", { exact: true })).toBeVisible();
+  expect(createdList).toBe(true);
+
   await page.route("**/api/progress", route => route.fulfill({ json: { summary: { totalEntries: 10, learning: 5, mastered: 2, dueNow: 3, reviews: 12, accuracy: 80 }, categories: [{ id: "favourite", category_name: "Favourite", track_name: "My words", total: 10, mastered: 2 }] } }));
   await page.goto("/progress");
   await expect(page.getByRole("progressbar", { name: "Favourite recall established" })).toHaveAttribute("aria-valuenow", "20");
@@ -301,5 +331,42 @@ for (const width of [390, 1280]) {
     await expect(page.getByLabel("Your level", { exact: true })).toHaveValue("B2");
     await page.goto("/discover?level=invalid");
     await expect(page.getByLabel("Your level", { exact: true })).toHaveValue("B1");
+  });
+}
+
+for (const width of [390, 1280]) {
+  test(`guided writing preserves retry identity and distinguishes saved progress from refresh failure at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    await page.addInitScript(() => localStorage.setItem("authStore", JSON.stringify({ token: "fixture-token", refreshToken: "fixture-refresh", user: { id: "fixture-user", email: "fixture@example.invalid" } })));
+    await page.route("**/health", route => route.fulfill({ json: { revision: "test" } }));
+    await page.route("**/api/vocabulary/learning-preferences", route => route.fulfill({ json: { preferences: { accent: "en-GB", show_tamil: false, theme: "dark" } } }));
+    await page.route("**/api/fluency/profile", route => route.fulfill({ json: { profile: { timezone: "Europe/Warsaw", daily_minutes: 20, new_per_day: 10, focus: "balanced" } } }));
+    let saved = false;
+    await page.route("**/api/fluency/summary", route => route.fulfill(saved ? { status: 500, json: {} } : { json: { skills: [], attempts: [] } }));
+    await page.route("**/api/fluency/practice?**", route => route.fulfill({ json: { cards: [{ id: "practice-1", word: "adjust", display_label: "adjust (change)", english_meaning: "Make a small change.", tamil_meaning: "சரிசெய்", cefr_level: "B2", lesson_data: { memory_practice: { production_task: "Describe a plan you changed.", memory_sentence: "I adjusted the plan." }, natural_examples: { mini_conversation: "A: Is it ready? B: I adjusted the plan." }, patterns_collocations: { main_pattern: "adjust + noun" }, mistakes_differences: { important_difference: "Use it for a small change." } } }] } }));
+    const attempts: Record<string, unknown>[] = [];
+    await page.route("**/api/fluency/attempts", route => {
+      attempts.push(route.request().postDataJSON());
+      if (attempts.length === 1) return route.fulfill({ status: 500, json: {} });
+      saved = true;
+      return route.fulfill({ json: { state: { stage: "learning" } } });
+    });
+    await page.goto("/practice?skill=writing");
+    await page.getByLabel("Your response", { exact: true }).fill("I adjusted the meeting time.");
+    await page.getByRole("button", { name: "Compare with the lesson", exact: true }).click();
+    await expect(page.getByText("சரிசெய்", { exact: true })).toBeHidden();
+    await expect(page.getByRole("button", { name: "I could do this", exact: true })).toBeDisabled();
+    for (const label of ["I used or understood the correct meaning.", "My wording fits the pattern and collocations.", "The wording suits this situation and tone."]) await page.getByLabel(label, { exact: true }).check();
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await page.screenshot({ path: `test-results/practice-response-${width}.png`, fullPage: true, animations: "disabled" });
+    await page.getByRole("button", { name: "I could do this", exact: true }).click();
+    await expect(page.getByText("Could not confirm the save. Retry; the same response identity prevents duplicate progress.", { exact: true })).toBeVisible();
+    await expect(page.getByLabel("Your response", { exact: true })).toHaveValue("I adjusted the meeting time.");
+    await page.getByRole("button", { name: "I could do this", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "Session finished", exact: true })).toBeVisible();
+    await expect(page.getByText("Practice saved. The progress summary could not refresh; reload to see the latest totals.", { exact: true })).toBeVisible();
+    expect(attempts).toHaveLength(2);
+    expect(attempts[1]).toEqual(attempts[0]);
+    expect(attempts[1]).toMatchObject({ word_id: "practice-1", skill: "writing", successful: true, answer: "I adjusted the meeting time." });
   });
 }

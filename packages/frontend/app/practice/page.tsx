@@ -153,8 +153,14 @@ function Practice() {
       );
       pending.current = null;
       setIndex((i) => i + 1);
-      const s = await getApiClient().get("/api/fluency/summary");
-      setSummary(s.data);
+      // The attempt is already saved. A summary refresh failure must not
+      // invite a duplicate submission or claim that progress was lost.
+      try {
+        const s = await getApiClient().get("/api/fluency/summary");
+        setSummary(s.data);
+      } catch {
+        setNotice("Practice saved. The progress summary could not refresh; reload to see the latest totals.");
+      }
     } catch {
       setError(
         "Could not confirm the save. Retry; the same response identity prevents duplicate progress.",
@@ -464,7 +470,7 @@ function Practice() {
                 <p>
                   <strong>{card.display_label}:</strong> {card.english_meaning}
                 </p>
-                <p>{card.tamil_meaning}</p>
+                <p data-tamil lang="ta">{card.tamil_meaning}</p>
                 <blockquote className="whitespace-pre-line">
                   {lesson.natural_examples.mini_conversation}
                 </blockquote>
