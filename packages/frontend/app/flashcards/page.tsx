@@ -251,16 +251,16 @@ export default function FlashcardsPage() {
               <div className="mb-4 flex items-start justify-between gap-4">
                 <div>
                   <p className="text-sm text-gray-500">
-                    {card.track_name} / {card.category_name} · {card.cefr_level}
+                    {[ [card.track_name, card.category_name].filter(Boolean).join(" / "), card.cefr_level ].filter(Boolean).join(" · ")}
                   </p>
                   <h2 className="mt-2 text-xl font-semibold text-gray-900">
                     {showAnswer
                       ? card.display_label || card.word
                       : "Recall the English word or expression"}
                   </h2>
-                  {showAnswer && (
+                  {showAnswer && (card.pronunciation || card.word_type) && (
                     <p className="mt-1 text-sm text-gray-600">
-                      {card.pronunciation} · {card.word_type}
+                      {[card.pronunciation, card.word_type].filter(Boolean).join(" · ")}
                     </p>
                   )}
                 </div>
@@ -306,7 +306,7 @@ export default function FlashcardsPage() {
                     </p>
                   </section>
 
-                  <section>
+                  {(card.lesson_data?.memory_practice?.recall_question || card.lesson_data?.memory_mastery?.recall_question || card.lesson_data?.memory_practice?.memory_sentence || card.lesson_data?.memory_mastery?.memory_sentence) && <section>
                     <h3 className="text-sm font-semibold uppercase text-gray-500">
                       Recall
                     </h3>
@@ -318,9 +318,9 @@ export default function FlashcardsPage() {
                       {card.lesson_data?.memory_practice?.memory_sentence ||
                         card.lesson_data?.memory_mastery?.memory_sentence}
                     </p>
-                  </section>
+                  </section>}
 
-                  <section>
+                  {(card.lesson_data?.usage_guide?.when_to_use?.[0] || card.lesson_data?.usage_mastery?.when_to_use?.[0] || card.lesson_data?.usage_guide?.when_not_to_use?.[0] || card.lesson_data?.usage_mastery?.when_not_to_use?.[0]) && <section>
                     <h3 className="text-sm font-semibold uppercase text-gray-500">
                       Natural Use
                     </h3>
@@ -332,7 +332,7 @@ export default function FlashcardsPage() {
                       {card.lesson_data?.usage_guide?.when_not_to_use?.[0] ||
                         card.lesson_data?.usage_mastery?.when_not_to_use?.[0]}
                     </p>
-                  </section>
+                  </section>}
 
                   {reviewError && <p role="alert">{reviewError}</p>}
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">

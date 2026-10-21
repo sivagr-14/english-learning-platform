@@ -179,6 +179,8 @@ test("review preserves a failed rating for retry and obeys Tamil visibility", as
   await page.getByRole("button", { name: "Reveal answer" }).click();
   await expect(page.getByRole("heading", { name: "adjust", exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Listen", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Recall", exact: true })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Natural Use", exact: true })).toHaveCount(0);
   for (const width of [390, 1280]) {
     await page.setViewportSize({ width, height: 844 });
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);

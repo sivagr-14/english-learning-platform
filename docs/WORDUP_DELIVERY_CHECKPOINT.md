@@ -125,3 +125,10 @@ Fixed another real navigation gap: Discover previously returned to B1 after open
 Next: inspect newest CI and stable collection/practice screenshots; capture and inspect settings/review at both widths, verify remaining real practice-card and list creation journeys, and recover Chrome reference access for screen-by-screen fidelity. Browser connector still reports Unknown tool; do not claim UI completion. Data assessment/import remains deferred; no merge.
 
 Added stable 390/1280 screenshots and overflow assertions for settings (saved dark theme after reload) and revealed review cards inside their existing recovery tests. These artifacts still need visual inspection after the next CI run.
+
+## Review empty-content polish — 2026-10-21
+Main still f7636988; draft #123 head f8fcbaec. Both workflows passed at that head, including full application/integration and browser checks. Downloaded artifacts from run39578316612. Inspected mobile dark settings, mobile revealed review and stable desktop collections. Collection selection is now clearly distinguished when captured without transitions; no CSS fix was necessary. Settings is readable with intact controls and explicit saved-lesson/ChatGPT disclosure.
+
+Review screenshot exposed empty Recall/Natural Use headings and dangling punctuation for records without optional content. Hide those sections only when neither supported lesson schema supplies any content, and join available metadata fields without orphan separators. Existing simplified-v2 and legacy lesson content remain supported. Added assertions for the missing-content review fixture alongside its save/retry test. No learner data or review scheduling changes.
+
+Next: inspect this commit's CI and review artifacts; complete non-empty guided-practice response/save/retry and list creation journeys. Direct WordUp Chrome comparison still blocked by connector Unknown tool on retry; do not claim full visual fidelity or ready-for-review. Data phase remains deferred.
