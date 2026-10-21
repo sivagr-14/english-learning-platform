@@ -49,7 +49,7 @@ function Discovery() {
         <p className="discovery-meaning">{word.english_meaning}</p>
         <p data-tamil lang="ta" className="discovery-tamil">{word.tamil_meaning}</p>
         <PracticeAudio text={word.word} />
-        <Link className="discovery-lesson" href={`/vocabulary/words/${word.id}`}>Explore all eight lesson sections →</Link>
+        <Link className="discovery-lesson" href={`/vocabulary/words/${word.id}?from=discover`}>Explore all eight lesson sections →</Link>
         <div className="discovery-choices">
           <button disabled={saving || !!error} onClick={() => choose("known")} className="btn-secondary">Already know it</button>
           <button disabled={saving || !!error} onClick={() => choose("learning")} className="btn-primary">{saving ? "Saving…" : "I want to learn this"}</button>

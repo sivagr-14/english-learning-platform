@@ -264,7 +264,9 @@ for (const width of [390, 1280]) {
     await page.goto("/discover");
     await expect(page.getByRole("heading", { name: "adjust (change)", exact: true })).toBeVisible();
     await page.screenshot({ path: `test-results/discover-${width}.png`, fullPage: true });
+    await expect(page.getByRole("link", { name: "Explore all eight lesson sections" })).toHaveAttribute("href", "/vocabulary/words/meaning-2?from=discover");
     await page.getByRole("link", { name: "Explore all eight lesson sections" }).click();
+    await expect(page).toHaveURL(/\/vocabulary\/words\/meaning-2\?from=discover$/);
     await expect(page.getByRole("heading", { name: "adjust (change)", level: 1 })).toBeVisible();
     await page.getByRole("link", { name: "Back to Discover", exact: true }).click();
     await expect(page.getByRole("heading", { name: "Discover your next word" })).toBeVisible();
