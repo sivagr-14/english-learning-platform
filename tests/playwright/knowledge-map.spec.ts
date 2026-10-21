@@ -80,19 +80,7 @@ for (const width of [390, 1280]) {
     await page.addInitScript(() => localStorage.setItem("authStore", JSON.stringify({ token: "fixture-token", refreshToken: "fixture-refresh", user: { id: "fixture-user", email: "fixture@example.invalid" } })));
     await page.route("**/health", route => route.fulfill({ json: { revision: "test" } }));
     await page.route("**/api/vocabulary/learning-preferences", route => route.fulfill({ json: { preferences: { accent: "en-GB", show_tamil: true, theme: "light" } } }));
-    await page.screenshot({ path: `test-results/collections-${width}.png`, fullPage: true, animations: "disabled" });
-  await page.getByRole("button", { name: "Create category", exact: true }).click();
-  await page.getByLabel("Category name", { exact: true }).fill("Travel phrases");
-  await page.getByLabel("Description (optional)", { exact: true }).fill("For my next trip");
-  await page.getByRole("button", { name: "Create", exact: true }).click();
-  await expect(page.getByRole("main").getByRole("alert")).toBeVisible();
-  await expect(page.getByLabel("Category name", { exact: true })).toHaveValue("Travel phrases");
-  failCreate = false;
-  await page.getByRole("button", { name: "Create", exact: true }).click();
-  await expect(page.getByText("Travel phrases was created and is ready for words.", { exact: true })).toBeVisible();
-  expect(createdList).toBe(true);
-
-  await page.route("**/api/progress", route => route.fulfill({ json: { summary: { totalEntries: 40, mastered: 4, dueNow: 3, accuracy: 80 } } }));
+    await page.route("**/api/progress", route => route.fulfill({ json: { summary: { totalEntries: 40, mastered: 4, dueNow: 3, accuracy: 80 } } }));
     await page.route("**/api/vocabulary/knowledge-map?**", route => route.fulfill({ json: {
       levels: [{ level: "B1", total: 40, known: 10, learning: 12, mastered: 4 }],
       words: Array.from({ length: 40 }, (_, i) => ({ id: `entry-${i}`, word: `word${i}`, display_label: `word${i}`, word_type: "noun", english_meaning: `Contextual meaning ${i}`, tamil_meaning: "சரிசெய்", frequency: "medium", knowledge_status: ["new", "learning", "known", "mastered"][i % 4] })),
@@ -139,9 +127,12 @@ test(`collections, progress and guided practice retain their contracts at ${widt
   await page.addInitScript(() => localStorage.setItem("authStore", JSON.stringify({ token: "fixture-token", refreshToken: "fixture-refresh", user: { id: "fixture-user", email: "fixture@example.invalid" } })));
   await page.route("**/health", route => route.fulfill({ json: { revision: "test" } }));
   await page.route("**/api/vocabulary/learning-preferences", route => route.fulfill({ json: { preferences: { accent: "en-GB", show_tamil: true, theme: "dark" } } }));
-  await page.route("**/api/vocabulary/categories", route => route.fulfill({ json: { categories: [{ id: "favourite", category_name: "Favourite", track_name: "My words", word_count: "5", is_user_category: true, is_default: true }] } }));
-  await page.route("**/api/vocabulary/taxonomy", route => route.fulfill({ json: { counts: { domains: 1, usage_groups: 1, specific_categories: 1 }, domains: [{ key: "work", name: "Work", word_count: 4, usage_groups: [{ key: "meetings", name: "Meetings", word_count: 4, categories: [{ key: "requests", name: "Requests", word_count: 4, description: "Making requests" }] }] }] } }));
   let createdList = false;
+  await page.route("**/api/vocabulary/categories", route => route.fulfill({ json: { categories: [
+    { id: "favourite", category_name: "Favourite", track_name: "My words", word_count: "5", is_user_category: true, is_default: true },
+    ...(createdList ? [{ id: "travel", category_name: "Travel phrases", track_name: "My words", word_count: "0", is_user_category: true, is_default: false }] : []),
+  ] } }));
+  await page.route("**/api/vocabulary/taxonomy", route => route.fulfill({ json: { counts: { domains: 1, usage_groups: 1, specific_categories: 1 }, domains: [{ key: "work", name: "Work", word_count: 4, usage_groups: [{ key: "meetings", name: "Meetings", word_count: 4, categories: [{ key: "requests", name: "Requests", word_count: 4, description: "Making requests" }] }] }] } }));
   let failCreate = true;
   await page.route("**/api/vocabulary/user-categories", route => {
     expect(route.request().postDataJSON()).toEqual({ name: "Travel phrases", description: "For my next trip" });
@@ -168,6 +159,9 @@ test(`collections, progress and guided practice retain their contracts at ${widt
   await page.getByRole("button", { name: "Create", exact: true }).click();
   await expect(page.getByText("Travel phrases was created and is ready for words.", { exact: true })).toBeVisible();
   expect(createdList).toBe(true);
+  await expect(page.getByRole("link", { name: /Travel phrases/ })).toHaveAttribute("href", "/categories/travel");
+  await page.reload();
+  await expect(page.getByRole("link", { name: /Travel phrases/ })).toHaveAttribute("href", "/categories/travel");
 
   await page.route("**/api/progress", route => route.fulfill({ json: { summary: { totalEntries: 10, learning: 5, mastered: 2, dueNow: 3, reviews: 12, accuracy: 80 }, categories: [{ id: "favourite", category_name: "Favourite", track_name: "My words", total: 10, mastered: 2 }] } }));
   await page.goto("/progress");
@@ -358,6 +352,8 @@ for (const width of [390, 1280]) {
     await expect(page.getByRole("button", { name: "I could do this", exact: true })).toBeDisabled();
     for (const label of ["I used or understood the correct meaning.", "My wording fits the pattern and collocations.", "The wording suits this situation and tone."]) await page.getByLabel(label, { exact: true }).check();
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
     await page.screenshot({ path: `test-results/practice-response-${width}.png`, fullPage: true, animations: "disabled" });
     await page.getByRole("button", { name: "I could do this", exact: true }).click();
     await expect(page.getByText("Could not confirm the save. Retry; the same response identity prevents duplicate progress.", { exact: true })).toBeVisible();
