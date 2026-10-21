@@ -114,6 +114,12 @@ for (const width of [390, 1280]) {
     expect(cardBounds!.y).toBeLessThan(250);
     expect(gridBounds!.y).toBeLessThan(850);
     expect(filtersBounds!.y).toBeGreaterThan(gridBounds!.y);
+    const firstCell = await page.locator(".knowledge-cell").nth(0).boundingBox();
+    const secondCell = await page.locator(".knowledge-cell").nth(1).boundingBox();
+    expect(firstCell!.width).toBeGreaterThanOrEqual(28);
+    expect(firstCell!.x + firstCell!.width).toBeLessThanOrEqual(secondCell!.x - 2);
+    expect(Math.abs(firstCell!.width - firstCell!.height)).toBeLessThan(1);
+
     const levelBounds = await page.getByRole("tab", { name: /B1/ }).boundingBox();
     expect(levelBounds!.height).toBeLessThan(60);
     await expect(page.locator(".map-word-card .discovery-phonetic")).not.toHaveText(/^\s*·/);
