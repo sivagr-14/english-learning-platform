@@ -888,7 +888,7 @@ progress {
 .discovery-phonetic,.discovery-hint { color:#665c79; font-size:13px; }
 .discovery-meaning { font-size:22px; line-height:1.5; margin:22px 0 12px; }
 .discovery-tamil { color:#156e67; margin-bottom:24px; line-height:1.8; }
-.discovery-lesson { display:block; color:#704099; font-weight:650; margin:24px 0; }
+.discovery-lesson { display:block; color:var(--brand); font-weight:650; margin:24px 0; }
 .discovery-choices { display:flex; flex-wrap:wrap; gap:12px; margin:18px 0; }
 .discovery-choices button { flex:1; min-width:160px; }
 .discovery-choices button[aria-pressed="true"] { outline:3px solid #b9a3d7; outline-offset:3px; }

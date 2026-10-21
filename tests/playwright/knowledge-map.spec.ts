@@ -263,6 +263,19 @@ for (const width of [390, 1280]) {
     await expect(page.getByText("Page 2 of 2 · 102 words")).toBeVisible();
     await page.goto("/discover");
     await expect(page.getByRole("heading", { name: "adjust (change)", exact: true })).toBeVisible();
+    const lessonContrast = await page.locator(".discovery-lesson").evaluate(link => {
+      const luminance = (color: string) => {
+        const channels = color.match(/\d+(?:\.\d+)?/g)!.slice(0, 3).map(Number).map(value => {
+          const channel = value / 255;
+          return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+        });
+        return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
+      };
+      const foreground = luminance(getComputedStyle(link).color);
+      const background = luminance(getComputedStyle(link.closest("article")!).backgroundColor);
+      return (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05);
+    });
+    expect(lessonContrast).toBeGreaterThanOrEqual(4.5);
     await page.screenshot({ path: `test-results/discover-${width}.png`, fullPage: true });
     await expect(page.getByRole("link", { name: "Explore all eight lesson sections" })).toHaveAttribute("href", "/vocabulary/words/meaning-2?from=discover");
     await page.getByRole("link", { name: "Explore all eight lesson sections" }).click();
