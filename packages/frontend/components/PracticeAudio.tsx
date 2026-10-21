@@ -5,9 +5,11 @@ import { useActivePreferences } from "@/lib/store/learning-preferences";
 export default function PracticeAudio({
   text,
   record = false,
+  compact = false,
 }: {
   text: string;
   record?: boolean;
+  compact?: boolean;
 }) {
   const { accent } = useActivePreferences();
   const recorder = useRef<MediaRecorder | null>(null);
@@ -96,7 +98,7 @@ export default function PracticeAudio({
     }
   };
   return (
-    <div className="space-y-2">
+    <div className={compact ? "practice-audio-compact" : "space-y-2"}>
       <div className="flex flex-wrap gap-2">
         <button className="rounded border px-3 py-2" onClick={() => speak(1)}>
           Listen

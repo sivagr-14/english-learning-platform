@@ -144,7 +144,7 @@ export default function AppShell({
   };
 
   return (
-    <div className={`app-frame wordup-shell ${pathname === "/dashboard" ? "is-home" : ""}`}>
+    <div className={`app-frame wordup-shell ${pathname === "/dashboard" ? "is-home" : pathname === "/knowledge-map" ? "is-map" : pathname === "/discover" ? "is-discover" : pathname.startsWith("/vocabulary/words/") ? "is-word-detail" : ""}`}>
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>

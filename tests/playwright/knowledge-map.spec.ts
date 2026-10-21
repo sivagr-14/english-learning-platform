@@ -108,6 +108,16 @@ for (const width of [390, 1280]) {
     await page.getByRole("navigation", { name: "Primary navigation" }).getByRole("link", { name: "Knowledge Map", exact: true }).click();
     await expect(page.getByRole("dialog")).toBeHidden();
     await expect(page.locator(".knowledge-cell")).toHaveCount(40);
+    const cardBounds = await page.locator(".map-word-card").boundingBox();
+    const gridBounds = await page.locator(".knowledge-grid").boundingBox();
+    const filtersBounds = await page.locator(".map-filters").boundingBox();
+    expect(cardBounds!.y).toBeLessThan(250);
+    expect(gridBounds!.y).toBeLessThan(850);
+    expect(filtersBounds!.y).toBeGreaterThan(gridBounds!.y);
+    const levelBounds = await page.getByRole("tab", { name: /B1/ }).boundingBox();
+    expect(levelBounds!.height).toBeLessThan(60);
+    await expect(page.locator(".map-word-card .discovery-phonetic")).not.toHaveText(/^\s*·/);
+
     await page.getByRole("button", { name: "word2: Already known", exact: true }).click();
     await expect(page.getByRole("article", { name: "Selected meaning" }).getByRole("heading")).toHaveText("word2");
     await expect(page.getByRole("button", { name: "word2: Already known", exact: true })).toHaveAttribute("aria-pressed", "true");

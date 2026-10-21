@@ -1142,3 +1142,46 @@ html[data-theme="dark"] .wordup-shell :where(.bg-amber-50, .bg-emerald-50, .bg-r
 .wordup-shell .lesson-panel-number { flex-shrink: 0; white-space: nowrap; }
 .wordup-shell .word-category-picker { background: var(--surface); border-color: var(--line); }
 .wordup-shell .lesson-fields > div { border-color: var(--line); }
+
+/* Reference audit: keep the meaning first and the map immediately below it. */
+.wordup-shell.is-map .page-heading, .wordup-shell.is-discover .page-heading { align-items: center; margin-bottom: 16px; }
+.wordup-shell.is-map .page-heading h1, .wordup-shell.is-discover .page-heading h1 { font-size: 21px; }
+.wordup-shell.is-map .page-description, .wordup-shell.is-discover .page-description { display: none; }
+.wordup-shell.is-map .page-actions, .wordup-shell.is-discover .page-actions { width: auto; margin-left: auto; }
+.wordup-shell.is-map .page-actions a, .wordup-shell.is-discover .page-actions a { padding: 8px 12px; min-height: 44px; font-size: 12px; }
+.map-experience { display: flex; flex-direction: column; }
+.map-experience > .map-levels { order: -1; margin: 0 0 12px; }
+.map-experience .map-levels button { flex-direction: row; align-items: center; justify-content: center; gap: 7px; padding: 9px 6px; min-height: 44px; }
+.map-experience .map-levels strong { font-size: 16px; }
+.map-experience .map-levels span { display: none; }
+.map-experience .map-word-card { padding: 20px 24px 16px; }
+.map-experience .map-card-top { margin-bottom: 12px; }
+.map-experience .discovery-meaning { margin-top: 16px; }
+.map-experience .discovery-tamil { margin-bottom: 12px; }
+.map-experience .discovery-lesson { margin: 12px 0; text-align: right; font-size: 14px; }
+.map-experience .discovery-choices { margin: 12px 0; display: grid; grid-template-columns: 1fr 1fr; }
+.map-experience .discovery-choices > * { width: 100%; text-align: center; min-height: 48px; display: flex; align-items: center; justify-content: center; padding: 10px; }
+.map-experience .map-card-navigation { margin-top: 12px; padding-top: 10px; }
+.map-experience .map-card-navigation button { padding: 6px 16px; }
+.map-experience .map-grid-section { margin-top: 14px; padding: 12px; border: 0; background: transparent; }
+.map-experience .map-legend { margin-bottom: 12px; gap: 8px 12px; }
+.map-experience .knowledge-grid { gap: 4px; grid-template-columns: repeat(auto-fill, minmax(28px, 1fr)); }
+.map-experience .knowledge-cell { border-radius: 3px; font-size: 10px; }
+.map-experience .map-filters { margin: 12px 0 0; }
+.map-experience .discovery-hint { font-size: 11px; }
+.practice-audio-compact { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.practice-audio-compact button { min-height: 44px; font-size: 12px; padding: 6px 12px; border-radius: 22px; border-color: var(--line); color: var(--brand); background: var(--canvas); }
+.practice-audio-compact > p { font-size: 11px; color: var(--muted); }
+.wordup-shell.is-discover .discovery-card { overflow: hidden; }
+.wordup-shell.is-discover .discovery-orbit { font-size: 84px; font-weight: 750; height: 180px; }
+.wordup-shell.is-discover .discovery-choices { display: grid; grid-template-columns: 1fr 1fr; }
+.wordup-shell.is-discover .discovery-choices button { min-height: 50px; padding: 10px; }
+.wordup-shell.is-word-detail .word-detail-hero { border-radius: 24px; border-top: 6px solid var(--brand); }
+@media (max-width: 480px) {
+  .map-experience .map-word-card { padding: 16px; }
+  .map-experience .map-levels small { font-size: 10px; }
+  .map-experience .map-filters { grid-template-columns: minmax(0,1fr) minmax(115px,.7fr); gap: 8px; }
+  .map-experience .map-filters input, .map-experience .map-filters select { font-size: 12px; padding: 8px; }
+  .map-experience .discovery-choices { gap: 8px; }
+  .wordup-shell.is-discover .discovery-orbit { height: 140px; }
+}

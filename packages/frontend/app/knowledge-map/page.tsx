@@ -50,14 +50,7 @@ function KnowledgeMap({ initial }: { initial: MapContext }) {
     return () => { active = false; };
   }, [level, page, retry, query, status]);
   return <AuthenticatedPage><AppShell title="Knowledge Map" description="Discover what you need to learn next." actions={<Link href="/discover" className="btn-primary">Discover words</Link>}>
-    <div className="map-levels" role="tablist" aria-label="Vocabulary level">{(["B1", "B2", "C1"] as Level[]).map(item => {
-      const stats = data?.levels.find(entry => entry.level === item);
-      return <button key={item} role="tab" aria-selected={level === item} onClick={() => { setLevel(item); changeFilter(); }} disabled={saving}><strong>{item}</strong><span>{item === "B1" ? "Intermediate" : item === "B2" ? "Upper intermediate" : "Advanced"}</span><small>{stats?.total ?? "—"} entries</small></button>;
-    })}</div>
-    <form className="map-filters" onSubmit={event => event.preventDefault()}>
-      <label>Find a word<input type="search" maxLength={100} value={query} disabled={saving} onChange={e => { setQuery(e.target.value); changeFilter(); }} placeholder="Word, meaning or Tamil…" /></label>
-      <label>Show<select value={status} disabled={saving} onChange={e => { setStatus(e.target.value); changeFilter(); }}><option value="all">All entries</option>{Object.entries(statusNames).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
-    </form>
+    <div className="map-experience">
     {saveError && <p role="alert" className="discovery-error">{saveError}</p>}
     {error ? <div role="alert" className="discovery-error">The Knowledge Map could not load. <button onClick={() => setRetry(n => n + 1)}>Try again</button></div>
       : loading ? <p role="status" className="discovery-card">Loading your map…</p>
@@ -66,10 +59,10 @@ function KnowledgeMap({ initial }: { initial: MapContext }) {
         <article className="discovery-card map-word-card" aria-label="Selected meaning">
           <div className="map-card-top"><span className={`map-status status-${selected.knowledge_status}`}>{statusNames[selected.knowledge_status]}</span><span>{selectedIndex + 1} / {data.words.length} on this page</span></div>
           <h2><Link href={lessonHref}>{selected.display_label || selected.word}</Link></h2>
-          <p className="discovery-phonetic">{selected.pronunciation} · {selected.word_type || "Expression"} · {selected.frequency} usage</p>
+          <p className="discovery-phonetic">{[selected.pronunciation, selected.word_type || "Expression", `${selected.frequency} usage`].filter(Boolean).join(" · ")}</p>
           <p className="discovery-meaning">{selected.english_meaning}</p>
           <p data-tamil lang="ta" className="discovery-tamil">{selected.tamil_meaning}</p>
-          <PracticeAudio key={selected.id} text={selected.word} />
+          <PracticeAudio key={selected.id} text={selected.word} compact />
           <Link className="discovery-lesson" href={lessonHref}>Open lesson →</Link>
           <div className="discovery-choices">
             {selected.knowledge_status === "new" || selected.knowledge_status === "known" ? <button className="btn-primary" disabled={saving} onClick={() => choose(selected.id, "learning")}>{saving ? "Saving…" : "Start learning"}</button> : <Link className="btn-primary" href="/flashcards">Review now →</Link>}
@@ -84,6 +77,15 @@ function KnowledgeMap({ initial }: { initial: MapContext }) {
           <PaginationControls pagination={data.pagination} onPageChange={next => { if (!saving) { setPage(next); setSelectedId(null); } }} />
         </section>
       </>}
+    <div className="map-levels" role="tablist" aria-label="Vocabulary level">{(["B1", "B2", "C1"] as Level[]).map(item => {
+      const stats = data?.levels.find(entry => entry.level === item);
+      return <button key={item} role="tab" aria-selected={level === item} onClick={() => { setLevel(item); changeFilter(); }} disabled={saving}><strong>{item}</strong><span>{item === "B1" ? "Intermediate" : item === "B2" ? "Upper intermediate" : "Advanced"}</span><small>{stats?.total ?? "—"} entries</small></button>;
+    })}</div>
+    <form className="map-filters" onSubmit={event => event.preventDefault()}>
+      <label>Find a word<input type="search" maxLength={100} value={query} disabled={saving} onChange={e => { setQuery(e.target.value); changeFilter(); }} placeholder="Word, meaning or Tamil…" /></label>
+      <label>Show<select value={status} disabled={saving} onChange={e => { setStatus(e.target.value); changeFilter(); }}><option value="all">All entries</option>{Object.entries(statusNames).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
+    </form>
+    </div>
   </AppShell></AuthenticatedPage>;
 }
 
