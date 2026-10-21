@@ -44,6 +44,13 @@ test("settings survive failed saves, persist across reload and control lesson au
   await page.reload();
   await expect(page.getByLabel("Pronunciation accent")).toHaveValue("en-US");
   await expect(page.getByLabel("Show Tamil meanings")).not.toBeChecked();
+  const skip = page.getByRole("link", { name: "Skip to content", exact: true });
+  await skip.focus();
+  await expect(skip).toBeFocused();
+  await expect(skip).toHaveCSS("background-color", "rgb(44, 34, 57)");
+  await expect(skip).toHaveCSS("color", "rgb(238, 229, 247)");
+  await page.keyboard.press("Enter");
+  await expect(page.getByRole("main")).toBeFocused();
   for (const width of [390, 1280]) {
     await page.setViewportSize({ width, height: 844 });
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);

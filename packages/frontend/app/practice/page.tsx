@@ -460,7 +460,7 @@ function Practice() {
             />
             <button
               disabled={!answer.trim()}
-              className="rounded bg-blue-700 px-4 py-2 text-white disabled:opacity-50"
+              className="btn-primary disabled:opacity-50"
               onClick={() => setRevealed(true)}
             >
               Compare with the lesson

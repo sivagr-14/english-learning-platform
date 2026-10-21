@@ -116,7 +116,8 @@ progress {
   left: 1rem;
   top: -100px;
   z-index: 100;
-  background: white;
+  background: var(--surface, white);
+  border: 1px solid var(--line);
   color: var(--ink);
   padding: 12px 20px;
   border-radius: 10px;

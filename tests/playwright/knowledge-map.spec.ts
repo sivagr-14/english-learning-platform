@@ -347,7 +347,10 @@ for (const width of [390, 1280]) {
     });
     await page.goto("/practice?skill=writing");
     await page.getByLabel("Your response", { exact: true }).fill("I adjusted the meeting time.");
-    await page.getByRole("button", { name: "Compare with the lesson", exact: true }).click();
+    const compareButton = page.getByRole("button", { name: "Compare with the lesson", exact: true });
+    await expect(compareButton).toHaveCSS("background-color", "rgb(126, 50, 174)");
+    await expect(compareButton).toHaveCSS("color", "rgb(255, 255, 255)");
+    await compareButton.click();
     await expect(page.getByText("சரிசெய்", { exact: true })).toBeHidden();
     await expect(page.getByRole("button", { name: "I could do this", exact: true })).toBeDisabled();
     for (const label of ["I used or understood the correct meaning.", "My wording fits the pattern and collocations.", "The wording suits this situation and tone."]) await page.getByLabel(label, { exact: true }).check();
