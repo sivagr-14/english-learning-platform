@@ -24,7 +24,7 @@ export default function MeaningCarousel({ current, others, contextQuery }: {
     .sort((a, b) => (a.sense_rank || 1) - (b.sense_rank || 1));
   useEffect(() => {
     const selected = strip.current?.querySelector<HTMLElement>('[aria-current="page"]');
-    if (selected && strip.current) strip.current.scrollLeft = selected.offsetLeft - strip.current.offsetLeft;
+    if (selected && strip.current) strip.current.scrollLeft = selected.offsetLeft;
   }, [current.id]);
   if (meanings.length < 2) return null;
   function move(direction: number) {
