@@ -52,6 +52,7 @@ interface TaxonomyResponse {
 }
 
 export default function CategoriesPage() {
+  const [view, setView] = useState<"lists" | "topics">("lists");
   const [categories, setCategories] = useState<Category[]>([]);
   const [taxonomy, setTaxonomy] = useState<TaxonomyResponse | null>(null);
   const [taxonomyQuery, setTaxonomyQuery] = useState("");
@@ -137,17 +138,18 @@ export default function CategoriesPage() {
   return (
     <AuthenticatedPage>
       <AppShell
-        title="Categories"
-        description="Create personal categories and choose any category to see its linked words."
+        title="My lists"
+        description="Keep useful words together. Revisit your favourites or explore by topic."
         actions={
           <button
             type="button"
             onClick={() => {
+              setView("lists");
               setShowCreateForm((current) => !current);
               setCreateError("");
               setCreateMessage("");
             }}
-            className="rounded-lg bg-amber-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-amber-700"
+            className="btn-primary"
           >
             {showCreateForm ? "Cancel" : "Create category"}
           </button>
@@ -230,7 +232,8 @@ export default function CategoriesPage() {
           </div>
         ) : (
           <>
-            <section className="mb-10">
+            <div className="learning-view-switch" role="group" aria-label="Collection view"><button aria-pressed={view === "lists"} onClick={() => setView("lists")}>My lists</button><button aria-pressed={view === "topics"} onClick={() => setView("topics")}>Explore topics</button></div>
+            {view === "topics" && <section className="mb-10">
               <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <h2 className="text-xl font-bold text-slate-950">
@@ -295,11 +298,11 @@ export default function CategoriesPage() {
                   </details>
                 ))}
               </div>
-            </section>
+            </section>}
 
-            <section>
+            {view === "lists" && <section>
               <h2 className="mb-4 text-xl font-bold text-slate-950">
-                Personal and legacy categories
+                Your word collections
               </h2>
               {!categories.length ? (
                 <div className="rounded-xl border border-slate-200 bg-white p-8 text-center">
@@ -311,7 +314,7 @@ export default function CategoriesPage() {
                   </p>
                 </div>
               ) : (
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="collection-grid">
                   {categories.map((category) => (
                     <Link
                       key={category.id}
@@ -354,10 +357,11 @@ export default function CategoriesPage() {
                   ))}
                 </div>
               )}
-            </section>
+            </section>}
           </>
         )}
       </AppShell>
     </AuthenticatedPage>
   );
 }
+

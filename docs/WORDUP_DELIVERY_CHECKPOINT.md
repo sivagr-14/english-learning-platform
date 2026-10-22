@@ -1,6 +1,6 @@
 # WordUp learning experience checkpoint
 
-Updated 2026-10-20. Status: IN DEVELOPMENT, not complete or release-ready.
+Updated 2026-10-21. Status: FIRST UI VERSION READY FOR REVIEW; draft #123 remains unmerged. Not a production release or completed catalogue. Latest receipt below supersedes historical pending statuses.
 
 ## Scope and baseline
 PRs #120 and #121 merged. Continue feature/wordup-learning-experience, checking current main first. Deliver one cohesive review PR, not small increments described as a complete app. Follow AGENTS.md and delivery evidence gate. Never weaken checks.
@@ -60,3 +60,112 @@ Hourly automation Complete WordUp app continues substantive work, checkpoints to
 3. Verify dark-theme contrast and all eight-section/custom-content flows in browser, not just compile.
 4. Continue semantic WordUp catalogue assessment, per-sense original pictures/media and explicit parity dependencies. Data assessment remains zero final semantic decisions. Full completion must not be claimed.
 
+
+## UI-first continuation — 2026-10-20 late-evening Europe/Warsaw
+This section supersedes the older task order: COMPLETE UI and deliver for review BEFORE any 42,200-row data work.
+
+Reconciliation: main f76369888298c401806892cc600c5a6e77df3a44 includes merged #120/#121/#122; feature branch was 75d1eafbd554ede0e206ede6d9c495efbc941389. No open PR found at run start. The local directory is a partial source tree, not a git checkout. Existing local UI edits were preserved and compared with main through GitHub App. New commit is based on the main tree, so merged test-selector fixes and backend contracts remain intact.
+
+Saved UI implementation:
+- Centered 700px responsive purple canvas, toolbar, modal drawer with keyboard focus restoration and backdrop dismissal; replaces desktop sidebar.
+- Home vocabulary summary, due-review card, Discover/Learn cards, practice and collection links.
+- Dense contextual Knowledge Map with level tabs, search/status filters, selected meaning, pronunciation, previous/next selection, saved familiarity and explicit status legend. Position numbers are not frequency rank.
+- Word detail includes prominent contextual meaning/Tamil and return links to map/discovery, preserving exactly eight lesson sections and personal state.
+- Practice accepts reading/writing/speaking links (reading maps to recognition). Existing guided practice and ChatGPT handoff remain the custom alternative to live AI.
+- Added mobile 390px and desktop 1280px journey tests in existing knowledge-map.spec.ts, covered by the existing CI workflow. They exercise drawer/Escape/focus, layout bounds, map selection, next meaning, lesson link and overflow, saving screenshots.
+
+Verification: frontend TypeScript and production build run locally. Local Chromium installation still returns empty/corrupt archives, so browser tests must run in CI. Connected Chrome tool currently returns Unknown tool; this is a transient access limitation. Do not claim visual reference fidelity or full UI completion based on compilation.
+
+Exact next work:
+1. Check successor draft PR's full CI, fix legitimate failures without weakening assertions/gates. Inspect desktop/mobile screenshot artifacts.
+2. Reconnect Chrome WordUp reference for direct visual comparison; finish coherent review, practice, collections, progress and settings layouts beyond shared shell styling.
+3. Verify complete desktop/mobile journeys: discovery to detail and all eight sections, notes/favorites persistence, review save/retry, practice handoff and goals, dark-theme contrast. Add missing journey coverage.
+4. Improve return-to-map state retention (level/search/page/selected meaning); current return link reopens default map.
+5. Confirm no outstanding UI gaps, then deliver UI for review and stop continuation. Do not merge. Do not begin deferred data assessment/import during UI phase.
+
+### Further UI work and verified CI receipt
+Successor draft PR: #123. First redesign commit 2f3bea457ea0999556a84b46da8a0a7841cc270e passed Vocabulary learning UI (including 390/1280px journeys), feature delivery, content-pack and gold-corpus gates. Full integration run was still running at inspection.
+
+Follow-up implementation: collections now opens personal lists first with a separate Explore topics view; progress uses a two-column summary with compact category bars and review/practice links; practice offers Read/Recall/Listen/Write/Speak controls and collapsible session filters; review has a focused card, pronunciation and Tamil visibility hooks. Added the actual preview/copy/manual-open ChatGPT handoff (the earlier UI description claimed it but practice had no link). No data is sent automatically. Added mobile dark-theme collections/progress/practice journey coverage.
+
+Continue direct visual comparison and full eight-section/notes/favorites/review save-retry journeys. These changes are still in development, not ready for final UI review.
+
+Visual QA of first CI artifacts: inspected map-390.png and map-1280.png downloaded from run 39502959833. Dense grid and selected-card layout render without horizontal overflow. Found an inherited mobile toolbar rule that made the account group full width and wrapped the brand; corrected it and added a one-line brand assertion. Screenshots now reset to scroll top before capture so sticky bars are not misleadingly positioned midway through full-page artifacts. Added home screenshots and a real review failed-save/retry test checking the request identity and hidden Tamil.
+
+## Continuation — 2026-10-21: lesson journeys and return context
+Baseline unchanged: main f7636988; draft #123 head ccfdac575f427e468701ddc2d908c51ea5673eb7. All five checks at that head passed, including the full application/backend integration checklist and nine browser tests. Inspected CI screenshots of mobile home and dark practice. Chrome reference tool still returns Unknown tool; direct reference comparison remains pending.
+
+Implemented next:
+- Map-to-lesson return now preserves level, search, status, page and selected meaning using whitelisted, bounded URL state; no arbitrary return URLs.
+- Fixed an API contract bug: from=map/from=discover were forwarded to the word-detail endpoint, whose enum only accepts category/search. UI return state is now separate from API query context; existing category/search context is preserved.
+- New 390px dark / 1280px light complete-lesson journeys assert exactly eight sections, jump-link focus, Tamil, note failed-save recovery and persistence, unchanged learning choice, favourite-add payload and return to the same map selection/page/filters. Mocks explicitly require API detail requests without UI-only parameters.
+- Fixed blank home Learn-card grid illustration (empty cells were centered at zero height); new dimension assertion covers it. Adjusted quick/full lesson panels and semantic callouts to the purple light/dark surface palette.
+
+Next: inspect the newest CI and full lesson screenshots, repair any genuine issues; verify discover-to-detail with the real strict API boundary; then direct WordUp reference comparison and remaining visual gaps. Do not merge or start source assessment. The UI is still in development; browser journeys alone do not establish complete visual fidelity.
+
+### Verification and visual QA receipt (2026-10-21)
+Commit df571a124ea25f55997d1f779eb7e78cc6abdd0b saved the interrupted local changes to draft #123. Local frontend typecheck/build passed. Its 11 browser tests passed, including complete 390px dark and 1280px light lesson/note/favourite/map-return journeys. Inspected both full-lesson screenshots: readable theme surfaces, intact eight sections, no horizontal overflow. Found mobile section-number wrapping; corrected flex shrink/white space. Aligned the category picker with purple list styling and limited recording disclosure to recording-enabled audio controls. Extended the same journey to navigate Discover → detail → Discover while respecting the strict API query boundary; newest CI must verify this addition.
+
+Chrome reference still unavailable (connector Unknown tool), so direct WordUp comparison is an open verification dependency. Do not call the UI complete. Latest remaining priorities: inspect newest CI/screenshots after the small QA fixes, recover reference access and compare all principal screens, resolve any verified visual gaps. Data remains deferred; no merge.
+
+### Discover return-link repair (2026-10-21)
+Latest main remains f7636988 and draft #123 head was 10653b31. Its integration, content-pack, gold-corpus and delivery checks passed; browser CI passed 9 tests and failed both new Discover return journeys. Trace showed navigation to the bare detail URL and “Back to vocabulary”. The local Discover link already included from=discover, but that file had been omitted from the remote checkpoint. Compared the complete local file with remote: this one href is the only difference. Publish it without overwriting local work. Strengthened both viewport journeys to assert the href and resulting URL before the existing return-link assertion; no gates or coverage removed.
+
+Next: inspect CI for this repair, view Discover and updated lesson artifacts, then resume direct WordUp reference comparison when Chrome connector recovers. Full visual fidelity remains unverified, UI is not yet delivered for review, and data work remains deferred.
+
+Screenshot follow-up: inspected Discover at 390px dark and found its lesson link retained a fixed dark purple, reducing readability against the dark card. Switched to the existing theme-aware brand token and added computed foreground/card contrast >=4.5 assertions in both viewport journeys. Local typecheck and production build passed before this CSS-only correction. Chrome retry still returned Unknown tool. Repair commit 1eaa2b10 is published; inspect the subsequent contrast commit's CI as the final head.
+
+Expanded the existing collections → progress → guided-practice journey to both 390px and 1280px and saved screenshots for each screen, rather than leaving the desktop auxiliary screens unexamined. Next CI should run 12 browser tests. This is interaction/screenshot evidence for the app, not a substitute for the unavailable WordUp Chrome reference.
+
+## Continuation — Discover level retention and visual evidence (2026-10-21)
+Reconciled draft #123 at 9cc8addc and main f7636988 (merged #120/#121/#122); no newer remote work. All five checks at 9cc8addc passed, including the expanded browser journeys, full application/backend integration, delivery, content-pack and gold-corpus gates. Downloaded run39545174439 screenshots and inspected mobile progress, desktop collections and mobile dark practice. Collections capture showed a mid-transition selection colour; disable screenshot animations to capture stable controls before deciding on a CSS change.
+
+Fixed another real navigation gap: Discover previously returned to B1 after opening a B2/C1 lesson. Lesson links now retain the selected level, detail returns to a whitelisted level URL, and Discover initializes from that URL. Unknown values fall back to B1; UI context remains excluded from the strict detail API. Extended both viewport journeys with B2 return/reload and invalid-level checks. Exactly eight sections, Tamil and learner-state contracts are untouched.
+
+Next: inspect newest CI and stable collection/practice screenshots; capture and inspect settings/review at both widths, verify remaining real practice-card and list creation journeys, and recover Chrome reference access for screen-by-screen fidelity. Browser connector still reports Unknown tool; do not claim UI completion. Data assessment/import remains deferred; no merge.
+
+Added stable 390/1280 screenshots and overflow assertions for settings (saved dark theme after reload) and revealed review cards inside their existing recovery tests. These artifacts still need visual inspection after the next CI run.
+
+## Review empty-content polish — 2026-10-21
+Main still f7636988; draft #123 head f8fcbaec. Both workflows passed at that head, including full application/integration and browser checks. Downloaded artifacts from run39578316612. Inspected mobile dark settings, mobile revealed review and stable desktop collections. Collection selection is now clearly distinguished when captured without transitions; no CSS fix was necessary. Settings is readable with intact controls and explicit saved-lesson/ChatGPT disclosure.
+
+Review screenshot exposed empty Recall/Natural Use headings and dangling punctuation for records without optional content. Hide those sections only when neither supported lesson schema supplies any content, and join available metadata fields without orphan separators. Existing simplified-v2 and legacy lesson content remain supported. Added assertions for the missing-content review fixture alongside its save/retry test. No learner data or review scheduling changes.
+
+Next: inspect this commit's CI and review artifacts; complete non-empty guided-practice response/save/retry and list creation journeys. Direct WordUp Chrome comparison still blocked by connector Unknown tool on retry; do not claim full visual fidelity or ready-for-review. Data phase remains deferred.
+
+## Guided-practice recovery — 2026-10-21
+Reconciled main f7636988 and draft #123 head201d61db; both workflows passed at that head. Found two guided-practice bugs while extending non-empty card coverage: revealed Tamil lacked the visibility hook, and a summary GET failure after a successful attempt POST incorrectly said the save failed. Applied the existing Tamil hook and separated summary-refresh failure from attempt-save failure, preserving retry identity and the saved result.
+
+Added 390/1280 writing journeys covering answer comparison, hidden Tamil, self-check gating, failed-save response preservation, identical retry payload and successful save followed by failed summary refresh. Captures non-empty practice screens. Extended existing collection journeys with create failure/retry and payload checks. These new browser checks await CI; local frontend typecheck passed and build run before publishing.
+
+Next: inspect new CI and practice-response screenshots; extend collection read-back after creation (current fixture checks the creation response but not database persistence). Recover Chrome reference access for final fidelity comparison. Do not merge or start data phase; UI remains in development.
+
+## CI repair and collection read-back — 2026-10-21
+Main f7636988 and draft #123 head1d02977a unchanged. Build/integration, gold corpus, content contracts and delivery passed. Browser run39593447631 passed 12 tests, including both new non-empty writing/retry/summary-failure journeys and collection creation recovery, but failed two home journeys. Root cause was an overly broad previous test edit duplicating collection actions into home setup before navigation. Removed only that misplaced duplicate; all assertions remain in the collection journey. Extended the collection fixture and assertions to read back the newly created list and retain it after page reload (mocked UI persistence, not a real database claim).
+
+Inspected mobile practice-response artifact: response, comparison, self-checks, retry controls and manual ChatGPT handoff are readable; full-page capture was scrolled, placing the sticky toolbar mid-image. Reset scroll before capture. Test syntax transpilation passed; production code is unchanged from the successful build/integration head. Next: inspect repair CI and corrected artifacts, retry Chrome reference connection, and finish direct visual fidelity review. UI is still unfinished; data phase remains deferred.
+
+## Dark practice contrast — 2026-10-21
+Reconciled main f7636988 and draft #123 head4c98a6f2. Both workflows passed, including restored home journeys and collection read-back/reload. Inspected corrected practice-response-390 screenshot from run39601053743: toolbar is correctly positioned, response/comparison/self-check/handoff layout is intact. Found white text on a pale purple Compare button in dark mode. Reused btn-primary to restore the existing dark purple/white palette and asserted those rendered colours in both response journeys. Also fixed the keyboard skip link to use theme surface instead of white behind dark-theme light text.
+
+Chrome reference retry still returns Unknown tool. Next: inspect latest CI, verify keyboard skip-link focus and contrast and latest desktop/mobile screenshots, then direct WordUp screen-by-screen fidelity when reference access recovers. UI remains in development; no merge/data work.
+
+## Direct reference audit — 2026-10-21 evening
+Chrome reference access recovered. Inspected the signed-in WordUp home, drawer, discovery/Knowledge Map card and grid, word detail (image/meaning/Tamil/example/note/Pro Tips/fixed familiarity choices), settings, and home practice/roleplay entry points without changing learning progress or account settings.
+
+Concrete gap corrected: oversized level controls and search pushed the map below the focused card. Reduced level tabs to one row; placed search/status below the map; tightened selected-card, audio, navigation and grid spacing; matched primary-learning-left/known-right choices in Discover; replaced generic Aa with the entry initial and removed orphan metadata separators. Kept accessible labels, keyboard controls, retry handling, return state and exactly eight sections. Word detail keeps our lesson-first content and an original purple header treatment; no WordUp photos or branding copied.
+
+Local typecheck and production build passed. Added desktop/mobile layout assertions that the selected card and grid appear before filters and level tabs remain compact. Publish and inspect CI/screenshots before ready-for-review. First UI review version explicitly differs in content: existing validated entries, typographic fallback instead of per-sense media, guided practice instead of live AI. Full 42,200-row catalogue/media and notifications/native sync are NOT complete. No merge or data work.
+
+Screenshot review at c55ca80a: all 14 browser tests passed. Inspected mobile/desktop map and dark Discover. Found inherited 44px button minimum stretched compact cells beyond their grid tracks; set explicit width and 28px minimum (above 24px minimum target), and added non-overlap/square geometry checks. Removed inherited column direction from compact page headings. Reverify correction CI before marking ready.
+
+
+## First UI review delivery — 2026-10-21
+
+Verified implementation head e70dc2bf5221c74f939f685f8fd441850beffa3f against current main f76369888298c401806892cc600c5a6e77df3a44 (includes #120/#121/#122). All five checks passed: delivery; content-pack contracts; gold corpus; vocabulary UI (14 tests); full application/backend integration, including typechecks, builds and PostgreSQL smoke tests.
+
+Evidence: https://github.com/sivagr-14/english-learning-platform/actions/runs/39643006740 and https://github.com/sivagr-14/english-learning-platform/actions/runs/39643006783 . Downloaded artifact 12366890041 and inspected corrected map screenshots at 390/1280px: cells are square, separated and do not overlap; card/grid precede filters. Inspected the latest full-screen contact sheet across home, Discover, details, review, practice, collections, progress and settings; prior detailed screenshot inspections remain recorded above. Reference audit is complete for this first UI version; previous Chrome-blocked statements are historical.
+
+Delivery: draft PR #123 is ready for the user's first UI review, with preserved eight sections, Tamil, saved learner state, retry handling and guided-practice disclosure. This does not certify real-user production database persistence from mocked UI fixtures, native/offline sync, notifications, per-sense media or the 42,200-row catalogue. Those product/data limitations remain explicit in the parity matrix and UI review guide.
+
+Next: user reviews the first UI version via docs/WORDUP_UI_REVIEW.md. Do not merge or start deferred assessment/import automatically. Pause this UI continuation after review delivery; further UI feedback is a new continuation. No private database uploaded and no local edits overwritten.

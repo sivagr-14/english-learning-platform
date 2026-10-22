@@ -116,7 +116,7 @@ export default function WordCategoryPicker({
   };
 
   return (
-    <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
+    <div className="word-category-picker rounded-xl border p-4">
       <div className="flex flex-col gap-3 lg:flex-row lg:items-end">
         <label className="min-w-0 flex-1 text-sm font-medium text-slate-800">
           Add {wordIds.length === 1 ? "word" : "selected words"} to
@@ -134,7 +134,7 @@ export default function WordCategoryPicker({
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
                 {category.is_user_category
-                  ? "My Categories"
+                  ? "My lists"
                   : category.track_name}
                 {" — "}
                 {category.category_name}
@@ -166,7 +166,7 @@ export default function WordCategoryPicker({
             isLoading || isSaving || !wordIds.length || !selectedCategoryId
           }
           onClick={addToCategory}
-          className="rounded-lg bg-amber-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-amber-700 disabled:cursor-not-allowed disabled:opacity-50"
+          className="btn-primary disabled:cursor-not-allowed disabled:opacity-50"
         >
           {isSaving
             ? "Adding…"
@@ -177,8 +177,7 @@ export default function WordCategoryPicker({
       </div>
 
       <p className="mt-2 text-xs text-slate-600">
-        Every available category is shown. Adding is additive, so existing
-        category links stay unchanged.
+        Adding here keeps this word in its other lists too.
       </p>
       {message && (
         <p role="status" className="mt-2 text-sm font-medium text-emerald-700">
@@ -193,3 +192,4 @@ export default function WordCategoryPicker({
     </div>
   );
 }
+

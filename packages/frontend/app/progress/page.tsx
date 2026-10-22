@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
@@ -46,7 +47,7 @@ export default function ProgressPage() {
   return (
     <AuthenticatedPage>
       <AppShell
-        title="Learning Progress"
+        title="My progress"
         description="Track what you are learning, your self-rated recall. Use Fluency Practice to track listening and production separately."
       >
         {error && (
@@ -60,7 +61,7 @@ export default function ProgressPage() {
             </button>
           </div>
         )}
-        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+        <section className="progress-summary-grid">
           {[
             ["Total entries", summary?.totalEntries],
             ["Learning", summary?.learning],
@@ -81,6 +82,7 @@ export default function ProgressPage() {
           ))}
         </section>
 
+        <div className="progress-next-actions"><Link className="btn-primary" href="/flashcards">Review due words</Link><Link className="btn-secondary" href="/practice">Practice by skill</Link></div>
         <section className="mt-8">
           <h2 className="text-lg font-semibold text-slate-950">
             Category recall
@@ -107,7 +109,7 @@ export default function ProgressPage() {
                   return (
                     <article
                       key={category.id}
-                      className="grid gap-4 p-5 sm:grid-cols-[minmax(180px,1fr)_2fr_100px] sm:items-center"
+                      className="category-progress-row"
                     >
                       <div>
                         <h3 className="font-medium text-slate-950">
@@ -147,3 +149,4 @@ export default function ProgressPage() {
     </AuthenticatedPage>
   );
 }
+
