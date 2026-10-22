@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "featureId": "meaning-carousel",
+  "title": "Horizontal contextual meaning cards and isolated lesson navigation",
+  "implementationPaths": ["packages/frontend/components/MeaningCarousel.tsx", "packages/frontend/app/vocabulary/words/[id]/page.tsx", "packages/frontend/app/globals.css", "packages/backend/src/routes/vocabulary.ts"],
+  "validationPaths": ["tests/playwright/knowledge-map.spec.ts"],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "Groups existing saved senses visually without changing permanent identity, exactly eight sections, assessment policy or immutable import contracts. No vocabulary generated or imported."
+  }
+}

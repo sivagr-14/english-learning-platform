@@ -6,6 +6,7 @@ import { ReactNode, Suspense, useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import AppShell from "@/components/AppShell";
 import AuthenticatedPage from "@/components/AuthenticatedPage";
+import MeaningCarousel, { MeaningSummary } from "@/components/MeaningCarousel";
 import PersonalLearning from "@/components/PersonalLearning";
 import QuickLesson from "@/components/QuickLesson";
 import PracticeAudio from "@/components/PracticeAudio";
@@ -14,6 +15,7 @@ import { getApiClient } from "@/lib/api/client";
 
 interface WordDetail {
   id: string;
+  sense_rank?: number;
   category_id: string;
   word: string;
   display_label: string;
@@ -390,14 +392,16 @@ function VocabularyWordContent() {
     }
   }
   const apiQuery = apiParams.toString();
-  const [otherMeanings, setOtherMeanings] = useState<any[]>([]);
+  const [otherMeanings, setOtherMeanings] = useState<MeaningSummary[]>([]);
   const [word, setWord] = useState<WordDetail | null>(null);
   const [navigation, setNavigation] = useState<WordNavigation | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const [retry, setRetry] = useState(0);
   useEffect(() => {
     if (!params.id) return;
+    let active = true;
 
     const loadWord = async () => {
       setIsLoading(true);
@@ -407,6 +411,7 @@ function VocabularyWordContent() {
       const response = await getApiClient().get(
         `/api/vocabulary/words/${params.id}${apiQuery ? `?${apiQuery}` : ""}`,
       );
+      if (!active) return;
       setWord(response.data.word);
       setOtherMeanings(response.data.otherMeanings || []);
       setNavigation(response.data.navigation);
@@ -414,10 +419,12 @@ function VocabularyWordContent() {
     };
 
     loadWord().catch(() => {
+      if (!active) return;
       setError("Could not load this vocabulary entry.");
       setIsLoading(false);
     });
-  }, [apiQuery, params.id]);
+    return () => { active = false; };
+  }, [apiQuery, params.id, retry]);
 
   const source = searchParams.get("from");
   const sourcePage = searchParams.get("page") || "1";
@@ -500,11 +507,13 @@ function VocabularyWordContent() {
             Loading vocabulary...
           </div>
         ) : error || !word ? (
-          <div className="rounded-lg border border-red-200 bg-red-50 p-8 text-sm text-red-700">
+          <div role="alert" className="rounded-lg border border-red-200 bg-red-50 p-8 text-sm text-red-700">
             {error || "Vocabulary entry not found."}
+            <button type="button" className="btn-secondary ml-3" onClick={() => setRetry(value => value + 1)}>Retry</button>
           </div>
         ) : (
           <div className="space-y-6">
+            <MeaningCarousel current={word} others={otherMeanings} contextQuery={contextQuery} />
             <section className="word-detail-hero rounded-lg border border-gray-200 bg-white p-6">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
@@ -567,24 +576,7 @@ function VocabularyWordContent() {
 
             <PersonalLearning key={`personal-${word.id}`} wordId={word.id} />
             <QuickLesson key={word.id} word={word} />
-            {otherMeanings.length > 0 && (
-              <section className="rounded border bg-white p-4">
-                <h2 className="font-semibold">Other meanings</h2>
-                <ul className="mt-2 space-y-2">
-                  {otherMeanings.map((sense) => (
-                    <li key={sense.id}>
-                      <Link
-                        className="text-blue-800 underline"
-                        href={`/vocabulary/words/${sense.id}`}
-                      >
-                        {sense.display_label} — {sense.english_meaning}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
-            <WordCategoryPicker wordIds={[word.id]} />
+            <WordCategoryPicker key={word.id} wordIds={[word.id]} />
 
             <details className="rounded-lg border border-gray-200 bg-white p-6">
               <summary className="cursor-pointer text-lg font-semibold">
