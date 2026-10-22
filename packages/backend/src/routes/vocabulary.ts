@@ -806,7 +806,8 @@ router.get(
           [word.id],
         )
         .whereNot("vw.id", word.id)
-        .select("vw.id", "vw.word", "vw.sense_rank", "vw.english_meaning")
+        .select("vw.id", "vw.word", "vw.sense_rank", "vw.english_meaning",
+          "vw.tamil_meaning", "vw.word_type", "vw.cefr_level")
         .orderBy("vw.sense_rank")
         .limit(100);
       res.json({

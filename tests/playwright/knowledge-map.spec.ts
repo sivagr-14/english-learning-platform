@@ -385,3 +385,87 @@ for (const width of [390, 1280]) {
     expect(attempts[1]).toMatchObject({ word_id: "practice-1", skill: "writing", successful: true, answer: "I adjusted the meeting time." });
   });
 }
+
+for (const width of [390, 1280]) {
+  test(`meaning carousel switches isolated lessons and recovers failed loads at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.addInitScript(() => localStorage.setItem("authStore", JSON.stringify({ token: "fixture-token", refreshToken: "fixture-refresh", user: { id: "fixture-user", email: "fixture@example.invalid" } })));
+    await page.route("**/health", route => route.fulfill({ json: { revision: "test" } }));
+    await page.route("**/api/vocabulary/learning-preferences", route => route.fulfill({ json: { preferences: { accent: "en-GB", show_tamil: width === 390, theme: width === 390 ? "dark" : "light" } } }));
+    const lesson = {
+      format_version: "simplified-v2",
+      overview: { meaning_usage_profile: { meaning_type: "literal", connotation: "neutral", tone: "neutral", register: "neutral" } },
+      meaning_in_context: { source_sentence: "We adjusted the plan.", contextual_meaning: "Changed the plan slightly.", simple_explanation: "Make a small change so it works better." },
+      usage_guide: { when_to_use: ["For a small change."], when_not_to_use: ["For replacing the whole thing."] },
+      patterns_collocations: { main_pattern: "adjust + noun", common_collocations: ["adjust a plan"] },
+      natural_examples: { examples: { work: "We adjusted the plan." }, mini_conversation: "A: Is the plan ready? B: I need to adjust it." },
+      mistakes_differences: { common_mistake: "adjust to the volume", correction: "adjust the volume", important_difference: "Adjust something changes it; adjust to something means adapt." },
+      memory_practice: { memory_trigger: "A small turn of a dial.", memory_sentence: "Adjust the volume.", recall_question: "What means change slightly?", recognition_task: "Find the small change.", production_task: "Describe a plan you changed." },
+      advanced_nuance: ["Adjust can refer to physical or abstract changes."],
+    };
+
+    const words = [
+      { id: "sense-a", sense_rank: 1, display_label: "adjust", english_meaning: "Make a small change.", tamil_meaning: "சரிசெய்" },
+      { id: "sense-c", sense_rank: 3, display_label: "adjust (C)", english_meaning: "Become used to a new situation.", tamil_meaning: "பழகிக்கொள்" },
+      { id: "sense-d", sense_rank: 4, display_label: "adjust (D)", english_meaning: "Settle an insurance claim.", tamil_meaning: "இழப்பீட்டைத் தீர்மானி" },
+    ].map(word => ({ ...word, word: "adjust", word_type: "verb", cefr_level: "B2", frequency: "medium", category_name: "Daily life", track_name: "Conversation", core_idea: word.english_meaning, lesson_data: { ...lesson, meaning_in_context: { ...lesson.meaning_in_context, contextual_meaning: word.english_meaning }, advanced_nuance: [`Specific nuance: ${word.english_meaning}`] } }));
+    let fail = true;
+    for (const word of words) {
+      await page.route(`**/api/vocabulary/words/${word.id}`, route => {
+        expect(new URL(route.request().url()).search).toBe("");
+        return route.fulfill(word.id === "sense-c" && fail ? { status: 500, json: {} } : { json: { word, otherMeanings: words.filter(other => other.id !== word.id) } });
+      });
+      let note = `Note for ${word.id}`;
+      let familiarity = word.id === "sense-a" ? "known" : "learning";
+      await page.route(`**/api/vocabulary/words/${word.id}/learner-state`, route => {
+        if (route.request().method() === "PUT") {
+          const body = route.request().postDataJSON();
+          if (body.note !== undefined) note = body.note;
+          if (body.familiarity !== undefined) familiarity = body.familiarity;
+        }
+        return route.fulfill({ json: { state: { note, familiarity } } });
+      });
+    }
+    await page.route("**/api/vocabulary/categories?includeEmpty=true", route => route.fulfill({ json: { categories: [] } }));
+    await page.goto("/vocabulary/words/sense-a?from=discover&level=B2");
+    const carousel = page.getByRole("navigation", { name: "Meanings of this word" });
+    await expect(carousel.getByRole("link")).toHaveCount(3);
+    await expect(carousel.getByRole("link").nth(0)).toHaveAttribute("aria-current", "page");
+    await expect(carousel.getByRole("link").nth(1)).toContainText("adjust (C)");
+    await expect(page.getByLabel("My note or memory cue")).toHaveValue("Note for sense-a");
+    await expect(page.getByRole("button", { name: "Already know it", exact: true })).toHaveAttribute("aria-pressed", "true");
+    await page.getByRole("button", { name: "Scroll meanings right" }).click();
+    await expect.poll(() => page.locator(".meaning-carousel-strip").evaluate(el => el.scrollLeft)).toBeGreaterThan(0);
+    await carousel.getByRole("link").first().focus();
+    await page.keyboard.press("ArrowRight");
+    await expect(carousel.getByRole("link").nth(1)).toBeFocused();
+    await page.keyboard.press("Enter");
+    await expect(page.getByRole("main").getByRole("alert")).toContainText("Could not load this vocabulary entry");
+    await expect(page.getByLabel("My note or memory cue")).toHaveCount(0);
+    fail = false;
+    await page.getByRole("button", { name: "Retry", exact: true }).click();
+    await expect(page).toHaveURL(/sense-c\?from=discover&level=B2$/);
+    await expect(carousel.getByRole("link").nth(1)).toHaveAttribute("aria-current", "page");
+    await expect(page.getByLabel("My note or memory cue")).toHaveValue("Note for sense-c");
+    await expect(page.getByRole("button", { name: "Want to learn", exact: true })).toHaveAttribute("aria-pressed", "true");
+    await page.getByText("Explore the complete lesson", { exact: true }).click();
+    await expect(page.locator('[id^="lesson-section-"]')).toHaveCount(8);
+    await expect(page.locator("#lesson-section-2")).toContainText(words[1].english_meaning);
+    await expect(page.locator("#lesson-section-8")).toContainText(`Specific nuance: ${words[1].english_meaning}`);
+    if (width === 390) await expect(carousel.locator("[lang=ta]").nth(1)).toBeVisible();
+    else await expect(carousel.locator("[lang=ta]").nth(1)).toBeHidden();
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+    await page.screenshot({ path: `test-results/meanings-${width}.png`, fullPage: true, animations: "disabled" });
+    await page.getByLabel("My note or memory cue").fill("New note for the adaptation sense.");
+    await page.getByRole("button", { name: "Save note", exact: true }).click();
+    await expect(page.getByText("Note saved.", { exact: true })).toBeVisible();
+    await carousel.getByRole("link").first().click();
+    await expect(page.getByLabel("My note or memory cue")).toHaveValue("Note for sense-a");
+    await page.goBack();
+    await expect(page.getByLabel("My note or memory cue")).toHaveValue("New note for the adaptation sense.");
+    await page.reload();
+    await expect(carousel.getByRole("link").nth(1)).toHaveAttribute("aria-current", "page");
+    await expect(page.getByRole("link", { name: "Back to Discover", exact: true })).toHaveAttribute("href", "/discover?level=B2");
+  });
+}
