@@ -808,7 +808,8 @@ router.get(
         .whereNot("vw.id", word.id)
         .select("vw.id", "vw.word", "vw.sense_rank", "vw.english_meaning",
           "vw.tamil_meaning", "vw.word_type", "vw.cefr_level", "vw.pronunciation",
-          database.raw("sense_lesson.lesson_data->'meaning_in_context'->>'source_sentence' AS example_sentence"))
+          database.raw("sense_lesson.lesson_data->'meaning_in_context'->>'source_sentence' AS example_sentence"),
+          database.raw("sense_lesson.lesson_data->'meaning_in_context'->>'example_origin' AS example_origin"))
         .orderBy("vw.sense_rank")
         .limit(100);
       res.json({

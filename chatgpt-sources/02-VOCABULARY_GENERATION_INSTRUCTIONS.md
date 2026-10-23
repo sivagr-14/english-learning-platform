@@ -590,3 +590,19 @@ New collection requests default to an 80,000-sense planning goal and accept 400â
 
 Follow `docs/FIRST_400_ENTRY_PILOT_PLAN.md` for the initial pilot allocation and all-eight-section acceptance checklist. Obtain the actual account request/baseline before final candidate selection, sense allocation or import-ready generation. One 400-entry visible pack uses four validated 100-entry units or eight 50-entry units; keep the complete assessment, provenance, per-candidate editorial review, deduplication and database verification gates. A generated scenario demonstrates meaning but does not establish corpus frequency. Never claim 400 lessons generated, imported or reviewed from a plan alone. Same word plus a genuinely different meaning remains a separate permanent sense entry.
 
+
+
+## Catalogue-authored example provenance
+
+For `chatgpt-catalogue-vocabulary-batch-v1` only, follow the catalogue workflow
+in `docs/CHATGPT_CONTENT_PACK_WORKFLOW.md`. Every entry remains one complete
+contextual meaning with exactly eight lesson sections and useful Tamil.
+Add `example_origin: authored_for_learning` inside `meaning_in_context` and
+copy the assessed teaching scenario exactly into `source_sentence`. Never claim
+this authored sentence was present in the SQLite export. The scenario must
+explicitly demonstrate the term; trusted-document/OCR exemptions do not apply.
+Keep the assessed English meaning identical in the header and lesson section.
+The app displays **Teaching Example** for this provenance. Document imports keep
+original source sentences and cannot use the catalogue provenance marker.
+Do not generate extra meanings solely to fill a carousel: only individually
+assessed B1â€“C1 heavy/medium senses qualify, and complete expressions remain intact.

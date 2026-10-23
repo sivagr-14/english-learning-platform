@@ -8,7 +8,8 @@ The learner selected catalogue lessons with newly authored teaching examples.
 Keep `catalogue_definition` evidence separate from `authored_for_learning`
 examples. A catalogue definition is not an original usage sentence. Do not
 send this preparation to the content inbox or relabel it as a v5 document
-assessment request. The runtime catalogue import adapter is still required.
+assessment request. The runtime catalogue manifest/batch path is documented in
+`CHATGPT_CONTENT_PACK_WORKFLOW.md`; preparation itself remains non-importable.
 
 ## Prepare the closed export
 
@@ -57,7 +58,7 @@ snapshot rather than trusting an edited JSON file's own hash.
 ## Remaining delivery gates
 
 1. Finish semantic review of every record and reconcile final decisions.
-2. Add the dedicated app catalogue request/manifest/batch contracts, binding
+2. Use the dedicated catalogue manifest/batch contracts, binding
    each candidate to its original record and definition. Persist and visibly
    label authored-example provenance on the lesson screen. Keep document
    source-evidence checks intact.

@@ -1,5 +1,6 @@
 import { createHash } from "crypto";
 import { z } from "zod";
+import { CatalogueAuditSchema, CatalogueEvidenceSchema, catalogueAuditIssues } from "./catalogue-contract";
 import {
   assertVocabularyLessonCompliant,
   vocabularyExpressionCompatibilityIssues,
@@ -38,6 +39,9 @@ export const TOPIC_CONTENT_MANIFEST_VERSION =
   "chatgpt-topic-vocabulary-manifest-v1" as const;
 export const TOPIC_CONTENT_BATCH_VERSION =
   "chatgpt-topic-vocabulary-batch-v1" as const;
+
+export const CATALOGUE_CONTENT_MANIFEST_VERSION = "chatgpt-catalogue-vocabulary-manifest-v1" as const;
+export const CATALOGUE_CONTENT_BATCH_VERSION = "chatgpt-catalogue-vocabulary-batch-v1" as const;
 
 const IdentifierSchema = z
   .string()
@@ -236,6 +240,15 @@ const SenseAwareManifestCandidateSchema = z
       });
     }
   });
+
+export const CatalogueManifestCandidateSchema = z.preprocess((value) => {
+  if (!value || typeof value !== "object") return value;
+  const { catalogueEvidence: _catalogueEvidence, evidenceType: _evidenceType, ...base } = value as Record<string, unknown>;
+  return base;
+}, SenseAwareManifestCandidateSchema).and(z.object({
+  evidenceType: z.literal("catalogue_definition_with_authored_example"),
+  catalogueEvidence: CatalogueEvidenceSchema,
+}).passthrough());
 
 export const TopicManifestCandidateSchema = z
   .preprocess((value) => {
@@ -784,6 +797,20 @@ const TopicContentManifestSchema = LegacyContentManifestSchema.omit({
   })
   .strict();
 
+const CatalogueContentManifestSchema = LegacyContentManifestSchema.omit({
+  formatVersion: true, source: true, candidates: true,
+}).extend({
+  formatVersion: z.literal(CATALOGUE_CONTENT_MANIFEST_VERSION),
+  source: z.object({
+    name: z.string().trim().min(1).max(255), type: z.literal("catalogue"),
+    contentHash: Sha256Schema,
+    totalPages: z.number().int().positive().max(20000),
+    totalChunks: z.number().int().positive().max(50000),
+  }).strict(),
+  candidates: z.array(CatalogueManifestCandidateSchema).max(250000),
+  catalogueAudit: CatalogueAuditSchema,
+}).strict();
+
 export const ContentManifestSchema = z.union([
   LegacyContentManifestSchema,
   SenseAwareContentManifestSchema,
@@ -791,6 +818,7 @@ export const ContentManifestSchema = z.union([
   ExhaustiveContentManifestSchema,
   VerifiedExhaustiveContentManifestSchema,
   TopicContentManifestSchema,
+  CatalogueContentManifestSchema,
 ]);
 
 export const GeneratedPackEntrySchema = z
@@ -852,6 +880,9 @@ const TopicContentBatchSchema = LegacyContentBatchSchema.omit({
   })
   .strict();
 
+const CatalogueContentBatchSchema = LegacyContentBatchSchema.omit({ formatVersion: true })
+  .extend({ formatVersion: z.literal(CATALOGUE_CONTENT_BATCH_VERSION) }).strict();
+
 export const ContentBatchSchema = z.union([
   LegacyContentBatchSchema,
   SenseAwareContentBatchSchema,
@@ -859,6 +890,7 @@ export const ContentBatchSchema = z.union([
   ExhaustiveContentBatchSchema,
   VerifiedExhaustiveContentBatchSchema,
   TopicContentBatchSchema,
+  CatalogueContentBatchSchema,
 ]);
 
 export type ContentManifest = z.infer<typeof ContentManifestSchema>;
@@ -909,7 +941,8 @@ export function isSenseAwareManifest(
   | z.infer<typeof TaxonomyAwareContentManifestSchema>
   | z.infer<typeof ExhaustiveContentManifestSchema>
   | z.infer<typeof VerifiedExhaustiveContentManifestSchema>
-  | z.infer<typeof TopicContentManifestSchema> {
+  | z.infer<typeof TopicContentManifestSchema>
+  | z.infer<typeof CatalogueContentManifestSchema> {
   return manifest.formatVersion !== LEGACY_CONTENT_MANIFEST_VERSION;
 }
 
@@ -919,12 +952,14 @@ export function isTaxonomyAwareManifest(
   | z.infer<typeof TaxonomyAwareContentManifestSchema>
   | z.infer<typeof ExhaustiveContentManifestSchema>
   | z.infer<typeof VerifiedExhaustiveContentManifestSchema>
-  | z.infer<typeof TopicContentManifestSchema> {
+  | z.infer<typeof TopicContentManifestSchema>
+  | z.infer<typeof CatalogueContentManifestSchema> {
   return (
     manifest.formatVersion === CONTENT_MANIFEST_VERSION ||
     manifest.formatVersion === EXHAUSTIVE_CONTENT_MANIFEST_VERSION ||
     manifest.formatVersion === VERIFIED_EXHAUSTIVE_CONTENT_MANIFEST_VERSION ||
-    manifest.formatVersion === TOPIC_CONTENT_MANIFEST_VERSION
+    manifest.formatVersion === TOPIC_CONTENT_MANIFEST_VERSION ||
+    manifest.formatVersion === CATALOGUE_CONTENT_MANIFEST_VERSION
   );
 }
 
@@ -955,6 +990,29 @@ export function validateContentManifest(
   const manifest = parsed.data;
   const issues: string[] = [];
 
+  if (manifest.formatVersion === CATALOGUE_CONTENT_MANIFEST_VERSION) {
+    issues.push(...catalogueAuditIssues(manifest.catalogueAudit, manifest.candidates, manifest.source.contentHash));
+    const groups = manifest.catalogueAudit.preparation.assessmentGroups;
+    const reviews = new Map(manifest.catalogueAudit.recordReviews.map(review => [review.recordId, review]));
+    const chunks = new Map(manifest.coverage.chunks.map(chunk => [chunk.chunkId, chunk]));
+    if (manifest.source.totalPages !== groups.length || manifest.source.totalChunks !== groups.length) {
+      issues.push("catalogue: page/chunk coverage must match the prepared assessment groups");
+    }
+    for (const [index, group] of groups.entries()) {
+      const chunk = chunks.get(group.groupId);
+      const expected = [...new Set(group.recordIds.flatMap(id => reviews.get(id)?.candidateIds || []))].sort();
+      if (!chunk || chunk.status !== "assessed" || chunk.pageStart !== index + 1 || chunk.pageEnd !== index + 1 ||
+          JSON.stringify([...chunk.candidateIds].sort()) !== JSON.stringify(expected)) {
+        issues.push(`${group.groupId}: chunk must account for every assessed meaning in its prepared records`);
+      }
+    }
+    const generatedCount = manifest.candidates.filter(candidate => candidate.decision === "generate").length;
+    const sizes = manifest.generationPlan.batches.map(batch => batch.candidateIds.length);
+    if (sizes.length !== Math.ceil(generatedCount / 100) || (generatedCount > 100 &&
+        (sizes.some(size => size < 50) || Math.max(...sizes) - Math.min(...sizes) > 1))) {
+      issues.push("catalogue: use the fewest balanced generation batches, with 50–100 meanings per batch above 100");
+    }
+  }
   if (manifest.formatVersion === TOPIC_CONTENT_MANIFEST_VERSION) {
     const generated = manifest.candidates.filter(
       (candidate) => candidate.decision === "generate",
@@ -1561,7 +1619,9 @@ export function validateContentBatch(
         VERIFIED_EXHAUSTIVE_CONTENT_MANIFEST_VERSION &&
         batch.formatVersion === VERIFIED_EXHAUSTIVE_CONTENT_BATCH_VERSION) ||
       (manifest.formatVersion === TOPIC_CONTENT_MANIFEST_VERSION &&
-        batch.formatVersion === TOPIC_CONTENT_BATCH_VERSION);
+        batch.formatVersion === TOPIC_CONTENT_BATCH_VERSION) ||
+      (manifest.formatVersion === CATALOGUE_CONTENT_MANIFEST_VERSION &&
+        batch.formatVersion === CATALOGUE_CONTENT_BATCH_VERSION);
     if (!compatibleVersions) {
       issues.push("formatVersion: manifest and batch contract versions differ");
     }
@@ -1645,10 +1705,17 @@ export function validateContentBatch(
           );
         }
       }
+      const catalogue = manifest.formatVersion === CATALOGUE_CONTENT_MANIFEST_VERSION;
+      if (catalogue && entry.lesson.meaning_in_context.example_origin !== "authored_for_learning") {
+        issues.push(`${entry.candidateId}: catalogue lessons must label their authored teaching example`);
+      }
+      if (!catalogue && entry.lesson.meaning_in_context.example_origin === "authored_for_learning") {
+        issues.push(`${entry.candidateId}: authored catalogue examples cannot be relabelled as document or topic evidence`);
+      }
       try {
         assertVocabularyLessonCompliant(entry.lesson, candidate.term, {
           trustedSourceSentence:
-            isSenseAwareManifest(manifest) && "senseEvidence" in candidate
+            !catalogue && isSenseAwareManifest(manifest) && "senseEvidence" in candidate
               ? candidate.senseEvidence.sentence
               : undefined,
         });
@@ -1673,3 +1740,4 @@ export function parseContentPack(rawText: string): unknown {
     throw new Error("The content pack is not valid JSON.");
   }
 }
+
