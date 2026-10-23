@@ -168,6 +168,14 @@ export async function smokeFluency() {
     const senses = await get(`/vocabulary/words/${wordId}`);
     assert.equal(senses.status, 200);
     assert.equal(senses.body.otherMeanings.length, 1);
+    // A sibling may have no lesson yet; metadata must remain null-safe.
+    assert("pronunciation" in senses.body.otherMeanings[0]);
+    assert("example_sentence" in senses.body.otherMeanings[0]);
+    await database("vocabulary_lessons").insert({ word_id: otherId, lesson_data: sample.lesson });
+    const expanded = await get(`/vocabulary/words/${wordId}`);
+    assert.equal(expanded.body.otherMeanings[0].example_sentence, sample.lesson.meaning_in_context.source_sentence);
+    await database("vocabulary_lessons").where({ word_id: otherId }).delete();
+
     assert.equal(senses.body.otherMeanings[0].id, otherId);
     const attempt = {
       id: randomUUID(),

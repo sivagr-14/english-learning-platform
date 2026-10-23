@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getApiClient } from "@/lib/api/client";
@@ -208,11 +209,12 @@ export default function VocabularyPage() {
               Preview the complete learning experience
             </h2>
             <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-600">
-              {starterSamples.available || 12} removable examples cover B2–C2
-              words, expressions, collocations and idioms. Each starter category
-              includes three words so Previous and Next navigation can be
-              tested. They belong only to your account.
+              {starterSamples.available || 15} removable examples cover B2–C2
+              words, expressions, collocations and idioms, including three separate
+              meanings of “charge” to test the horizontal cards. They belong
+              only to your account.
             </p>
+            {starterSamples.version >= 5 && starterSamples.loaded > 0 && missingStarterSamples === 0 && <Link className="discovery-lesson" href="/search?q=charge&match=exact">Try charge: three meaning cards →</Link>}
           </div>
           {starterSamples.loaded ? (
             <div className="flex shrink-0 flex-wrap gap-2">
@@ -252,7 +254,7 @@ export default function VocabularyPage() {
             >
               {sampleAction === "loading"
                 ? "Loading…"
-                : `Load ${starterSamples.available || 12} samples`}
+                : `Load ${starterSamples.available || 15} samples`}
             </button>
           )}
         </div>
@@ -390,3 +392,4 @@ export default function VocabularyPage() {
     </AppShell>
   );
 }
+

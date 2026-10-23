@@ -408,7 +408,7 @@ for (const width of [390, 1280]) {
       { id: "sense-a", sense_rank: 1, display_label: "adjust", english_meaning: "Make a small change.", tamil_meaning: "சரிசெய்" },
       { id: "sense-c", sense_rank: 3, display_label: "adjust (C)", english_meaning: "Become used to a new situation.", tamil_meaning: "பழகிக்கொள்" },
       { id: "sense-d", sense_rank: 4, display_label: "adjust (D)", english_meaning: "Settle an insurance claim.", tamil_meaning: "இழப்பீட்டைத் தீர்மானி" },
-    ].map(word => ({ ...word, word: "adjust", word_type: "verb", cefr_level: "B2", frequency: "medium", category_name: "Daily life", track_name: "Conversation", core_idea: word.english_meaning, lesson_data: { ...lesson, meaning_in_context: { ...lesson.meaning_in_context, contextual_meaning: word.english_meaning }, advanced_nuance: [`Specific nuance: ${word.english_meaning}`] } }));
+    ].map(word => ({ ...word, word: "adjust", word_type: "verb", cefr_level: "B2", frequency: "medium", category_name: "Daily life", track_name: "Conversation", core_idea: word.english_meaning, pronunciation: "/əˈdʒʌst/", example_sentence: `An example for ${word.id}.`, lesson_data: { ...lesson, meaning_in_context: { ...lesson.meaning_in_context, contextual_meaning: word.english_meaning }, advanced_nuance: [`Specific nuance: ${word.english_meaning}`] } }));
     let fail = true;
     for (const word of words) {
       await page.route(`**/api/vocabulary/words/${word.id}`, route => {
@@ -432,6 +432,12 @@ for (const width of [390, 1280]) {
     await expect(carousel.getByRole("link")).toHaveCount(3);
     await expect(carousel.getByRole("link").nth(0)).toHaveAttribute("aria-current", "page");
     await expect(carousel.getByRole("link").nth(1)).toContainText("adjust (C)");
+    await expect(carousel.getByRole("link").first()).toContainText("An example for sense-a.");
+    const deck = await page.locator(".meaning-carousel-strip").boundingBox();
+    const firstCard = await carousel.getByRole("link").first().boundingBox();
+    expect(firstCard!.width).toBeGreaterThan(deck!.width * 0.8);
+    expect(firstCard!.width).toBeLessThan(deck!.width);
+
     await expect(page.getByLabel("My note or memory cue")).toHaveValue("Note for sense-a");
     await expect(page.getByRole("button", { name: "Already know it", exact: true })).toHaveAttribute("aria-pressed", "true");
     await page.getByRole("button", { name: "Scroll meanings right" }).click();

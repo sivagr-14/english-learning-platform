@@ -798,7 +798,7 @@ router.get(
       }
 
       const otherMeanings = await applyOwnership(
-        database("vocabulary_words as vw"),
+        database("vocabulary_words as vw").leftJoin("vocabulary_lessons as sense_lesson", "sense_lesson.word_id", "vw.id"),
         req.userId as string,
       )
         .whereRaw(
@@ -807,7 +807,8 @@ router.get(
         )
         .whereNot("vw.id", word.id)
         .select("vw.id", "vw.word", "vw.sense_rank", "vw.english_meaning",
-          "vw.tamil_meaning", "vw.word_type", "vw.cefr_level")
+          "vw.tamil_meaning", "vw.word_type", "vw.cefr_level", "vw.pronunciation",
+          database.raw("sense_lesson.lesson_data->'meaning_in_context'->>'source_sentence' AS example_sentence"))
         .orderBy("vw.sense_rank")
         .limit(100);
       res.json({

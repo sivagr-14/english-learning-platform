@@ -1200,3 +1200,20 @@ html[data-theme="dark"] .wordup-shell :where(.bg-amber-50, .bg-emerald-50, .bg-r
 .meaning-card-meta { font-size: .75rem; color: var(--muted); }
 .meaning-card-definition { font-size: .9rem; line-height: 1.5; }
 .meaning-card-tamil { font-size: .85rem; line-height: 1.5; color: var(--brand); }
+
+/* Reference-audited meaning deck: one readable card and a visible next edge. */
+.meaning-carousel { padding: 12px 0; border: 0; background: transparent; }
+.meaning-carousel-heading { padding: 0 4px; }
+.meaning-carousel-strip { gap: 12px; padding: 4px 4px 16px; scroll-padding-inline: 4px; }
+.meaning-card { flex-basis: calc(100% - 38px); max-width: none; min-height: 290px; padding: 22px; border-radius: 22px; gap: 12px; }
+.meaning-card[aria-current="page"] { background: var(--surface); }
+.meaning-card-label { font-size: 1.35rem; }
+.meaning-card-meta { padding-bottom: 12px; border-bottom: 1px solid var(--line); font-size: .95rem; }
+.meaning-card-definition { font-size: 1.2rem; font-weight: 650; line-height: 1.45; }
+.meaning-card-tamil { text-align: right; font-size: 1rem; }
+.meaning-card-example { padding: 16px; background: var(--canvas); border-radius: 8px; font-style: italic; font-size: 1rem; line-height: 1.5; }
+.meaning-card-open { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--brand); }
+@media (max-width: 480px) {
+  .meaning-card { padding: 16px; flex-basis: calc(100% - 28px); }
+  .meaning-card-definition { font-size: 1.05rem; }
+}
