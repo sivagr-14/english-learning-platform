@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "featureId": "catalogue-preparation",
+  "title": "Lossless private WordUp catalogue preparation for authored-example lessons",
+  "implementationPaths": ["scripts/prepare-wordup-catalogue.py", "docs/WORDUP_CATALOGUE_PREPARATION.md"],
+  "validationPaths": ["scripts/test_prepare_wordup_catalogue.py", ".github/workflows/catalogue-preparation.yml"],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "Preparation-only tool emits a separate non-importable catalogue format. It does not alter accepted app manifests, document assessment, lesson generation or PostgreSQL import behavior. Dedicated preparation documentation explicitly records the remaining runtime gates and authored-example provenance requirement."
+  }
+}
