@@ -14,7 +14,8 @@ export interface MeaningSummary {
   cefr_level?: string;
   pronunciation?: string | null;
   example_sentence?: string | null;
-  lesson_data?: { meaning_in_context?: { source_sentence?: string } };
+  example_origin?: string | null;
+  lesson_data?: { meaning_in_context?: { source_sentence?: string; example_origin?: string } };
 }
 
 export default function MeaningCarousel({ current, others, contextQuery }: {
@@ -59,7 +60,7 @@ export default function MeaningCarousel({ current, others, contextQuery }: {
         <span className="meaning-card-meta">{[sense.pronunciation, sense.word_type, sense.cefr_level].filter(Boolean).join(" · ")}</span>
         <span className="meaning-card-definition">{sense.english_meaning}</span>
         {sense.tamil_meaning && <span data-tamil lang="ta" className="meaning-card-tamil">{sense.tamil_meaning}</span>}
-        {(sense.example_sentence || sense.lesson_data?.meaning_in_context?.source_sentence) && <span className="meaning-card-example">{sense.example_sentence || sense.lesson_data?.meaning_in_context?.source_sentence}</span>}
+        {(sense.example_sentence || sense.lesson_data?.meaning_in_context?.source_sentence) && <span className="meaning-card-example">{(sense.example_origin || sense.lesson_data?.meaning_in_context?.example_origin) === "authored_for_learning" && <small className="block not-italic">Teaching example</small>}{sense.example_sentence || sense.lesson_data?.meaning_in_context?.source_sentence}</span>}
         <span className="meaning-card-open">{sense.id === current.id ? "Current lesson below" : "Open this meaning’s lesson →"}</span>
       </Link>)}
     </div>

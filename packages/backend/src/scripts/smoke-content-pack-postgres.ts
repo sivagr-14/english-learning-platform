@@ -1,5 +1,6 @@
 import assert from "assert";
 import { randomUUID } from "crypto";
+import { cataloguePackFixture } from "../services/catalogue-pack.fixture";
 import { STARTER_SAMPLES } from "../data/starter-samples";
 import { contentPackHash } from "../services/content-pack-contract";
 import { ContentPackService } from "../services/content-pack.service";
@@ -258,6 +259,45 @@ async function main() {
       taxonomy_assignment_source: "content-pack-v3",
     });
 
+    const catalogue = cataloguePackFixture();
+    catalogue.manifest.manifestId = `catalogue-smoke-${suffix}`;
+    catalogue.batch.manifestId = catalogue.manifest.manifestId;
+    catalogue.batch.batchId = `catalogue-smoke-${suffix}-001`;
+    catalogue.batch.manifestHash = contentPackHash(catalogue.manifest);
+    const catalogueDocuments = [
+      { path: "catalogue/manifest.json", content: JSON.stringify(catalogue.manifest) },
+      { path: "catalogue/batch-001.json", content: JSON.stringify(catalogue.batch) },
+    ];
+    const catalogueStaged = await service.ingestDocuments(catalogueDocuments);
+    assert.deepEqual(catalogueStaged.errors, []);
+    await service.processAvailableManifests(owner.id);
+    const catalogueVerified = await service.verifyManifest(owner.id, catalogue.manifest.manifestId);
+    assert.deepEqual(catalogueVerified, { verified: true, entries: 3, issues: [] });
+    const meanings = await database("vocabulary_words as word")
+      .join("vocabulary_lessons as lesson", "lesson.word_id", "word.id")
+      .where({ "word.owner_user_id": owner.id, "word.normalized_term": "charge" })
+      .orderBy("word.sense_rank")
+      .select("word.id", "word.sense_rank", "word.english_meaning", "lesson.lesson_data");
+    assert.equal(meanings.length, 3);
+    assert.deepEqual(meanings.map((word: any) => word.sense_rank), [1, 2, 3]);
+    for (const [index, word] of meanings.entries()) {
+      const lesson = typeof word.lesson_data === "string" ? JSON.parse(word.lesson_data) : word.lesson_data;
+      assert.equal(lesson.meaning_in_context.example_origin, "authored_for_learning");
+      assert.equal(lesson.meaning_in_context.contextual_meaning, catalogue.manifest.candidates[index].contextualMeaning);
+    }
+    await assert.rejects(() => service.getManifest(otherUser.id, catalogue.manifest.manifestId), /not found/i);
+    await database("user_progress").where({ user_id: owner.id, word_id: meanings[0].id }).update({ times_reviewed: 7, proficiency_level: 3 });
+    const beforeReplayProgress = await database("user_progress").where({ user_id: owner.id, word_id: meanings[0].id }).first();
+    assert(beforeReplayProgress, "catalogue import must create review progress");
+    const catalogueReplay = await service.ingestDocuments(catalogueDocuments);
+    assert.equal(catalogueReplay.unchanged, 2);
+    assert.equal(catalogueReplay.committedEntries, 0);
+    const afterReplayProgress = await database("user_progress").where({ user_id: owner.id, word_id: meanings[0].id }).first();
+    assert.equal(afterReplayProgress.times_reviewed, 7);
+    assert.equal(afterReplayProgress.proficiency_level, 3);
+    const replayMeanings = await database("vocabulary_words").where({ owner_user_id: owner.id, normalized_term: "charge" }).orderBy("sense_rank").select("id");
+    assert.deepEqual(replayMeanings.map((word: any) => word.id), meanings.map((word: any) => word.id));
+
     console.log(
       JSON.stringify({
         status: "passed",
@@ -267,6 +307,8 @@ async function main() {
         accountIsolation: "passed",
         postgresReadBack: "passed",
         threeLevelTaxonomyReadBack: "passed",
+        catalogueMeanings: 3,
+        authoredExampleReadBack: "passed",
       }),
     );
   } finally {
@@ -283,3 +325,4 @@ main()
     await closeRedis();
     await database.destroy();
   });
+

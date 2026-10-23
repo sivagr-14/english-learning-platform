@@ -5,6 +5,7 @@ import { execFileSync } from "child_process";
 import { Knex } from "knex";
 import { AssessmentControlService } from "./assessment-control.service";
 import {
+  CATALOGUE_CONTENT_MANIFEST_VERSION,
   ContentBatch,
   ContentManifest,
   isSenseAwareManifest,
@@ -639,7 +640,9 @@ export class ContentPackService {
           request_hash: row.manifest_hash,
           status: initialStatus,
           counts: JSON.stringify(counts),
-          import_policy: JSON.stringify(importPolicySnapshot()),
+          import_policy: JSON.stringify(manifest.formatVersion === CATALOGUE_CONTENT_MANIFEST_VERSION
+            ? { ...importPolicySnapshot(), includedCefrLevels: ["B1", "B2", "C1"], excludedCefrLevels: ["A1", "A2", "C2"], evidenceType: "catalogue_definition_with_authored_example" }
+            : importPolicySnapshot()),
           ...(initialStatus === "completed"
             ? { completed_at: new Date() }
             : {}),
@@ -2103,3 +2106,4 @@ export async function synchronizeContentPacks(
   const documents = loadContentPackDocuments(directory);
   return new ContentPackService(database).ingestDocuments(documents);
 }
+

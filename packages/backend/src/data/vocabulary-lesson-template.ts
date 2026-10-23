@@ -43,6 +43,7 @@ export const VocabularyLessonSchema = z
     meaning_in_context: z
       .object({
         source_sentence: immutableSourceText,
+        example_origin: z.literal("authored_for_learning").optional(),
         contextual_meaning: usefulText,
         simple_explanation: usefulText,
       })
@@ -109,6 +110,7 @@ export const VOCABULARY_ENTRY_RESPONSE_SCHEMA = {
       }},
     }},
     meaning_in_context: { type: "OBJECT", required: ["source_sentence", "contextual_meaning", "simple_explanation"], properties: {
+      example_origin: { type: "STRING", enum: ["authored_for_learning"] },
       source_sentence: { type: "STRING" }, contextual_meaning: { type: "STRING" },
       simple_explanation: { type: "STRING" },
     }},
@@ -493,8 +495,8 @@ export function vocabularyLessonQualityIssues(
   ];
 
   if (
-    options.trustedSourceSentence !==
-      lesson.meaning_in_context.source_sentence &&
+    (lesson.meaning_in_context.example_origin === "authored_for_learning" ||
+      options.trustedSourceSentence !== lesson.meaning_in_context.source_sentence) &&
     !includesTerm(lesson.meaning_in_context.source_sentence, term)
   ) {
     issues.push(
@@ -617,3 +619,4 @@ export const VOCABULARY_SECTION_TEMPLATE_PROMPT = [
   "Overview must contain only Meaning type, Connotation, Tone, and Register.",
   "Advanced Nuance must contain a genuine distinction for this term, even for a common word.",
 ].join("\n");
+

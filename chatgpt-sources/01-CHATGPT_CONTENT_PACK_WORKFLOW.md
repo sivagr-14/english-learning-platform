@@ -763,3 +763,65 @@ entry record a field-level decision and reason. A repeated-text scan is triage,
 not semantic review. Schema validation alone cannot certify these explanations;
 record language review before claiming an entry corrected. Local synchronization
 and PostgreSQL read-back remain necessary before claiming the app was updated.
+
+
+## Catalogue lessons with authored teaching examples
+
+The separately versioned `chatgpt-catalogue-vocabulary-manifest-v1` and
+`chatgpt-catalogue-vocabulary-batch-v1` support a supplied WordUp catalogue.
+This is a catalogue-specific exception to document source-sentence discovery;
+all document and topic contracts remain unchanged. The learner selected newly
+written teaching examples because this catalogue contains definitions, not
+original usage sentences.
+
+Prepare the closed SQLite snapshot with `scripts/prepare-wordup-catalogue.py`
+and validate it against the original bytes. Embed the unchanged
+`wordup-catalogue-preparation-v1` object in `catalogueAudit.preparation`.
+Its source hash, ordinal-key JSON hash, record hashes, counts and complete group
+partition are checked by `services/catalogue-contract.ts`. The backend validates
+internal integrity; the preparation tool binds the file to the original SQLite
+snapshot. Never fabricate a replacement preparation or treat its hash as an
+external signature. Do not import `learnStateInt` as learner progress.
+
+Use one catalogue coverage page/chunk per prepared assessment group, in order,
+with its exact group ID. `catalogueAudit.recordReviews` accounts for every raw
+record exactly once. Each assessed record links all its reviewed meaning
+candidates. Whole-record rejection is limited to noise, malformed records and
+proper names, with an explicit reason/code. A basic primary meaning is not a
+reason to discard an entire word before checking its other meanings.
+
+Assess each word's useful additional meanings, preserving genuine expressions
+as complete terms. Do not invent meanings or impose a minimum meaning count.
+Every source definition gets a decision; additional meanings get separate
+stable term-and-sense identities and an explicit meaning reference. Record
+level and usage reasoning for each meaning and distinguish linguistic estimates
+from referenced assessments. Only B1, B2 and C1 heavy/medium meanings may be
+generated in this catalogue path. Keep filtered meanings and their reasons in
+the same ledger. An existing decision requires a stored word ID and backend
+owner/sense verification. The local app remains authoritative for deduplication.
+
+Each candidate uses `evidenceType: catalogue_definition_with_authored_example`
+and `catalogueEvidence` with record IDs, `meaningOrigin` (`supplied_definition`
+or `additional_meaning`), `exampleOrigin: authored_for_learning`, level/usage
+reasons, assessment basis, and reference URLs with their supported claim.
+The supplied definition must remain exact for a supplied-definition candidate;
+a source mistake is recorded rather than silently rewritten. Additional
+meanings may have their own assessed wording and references.
+
+For catalogue candidates only, `senseEvidence.sentence` and `occurrences` hold
+the explicitly authored teaching scenario. They are not quotations from the
+SQLite source. The complete eight-section lesson must copy this scenario and
+set `meaning_in_context.example_origin` to `authored_for_learning`. The sentence
+must actually demonstrate the term; the document OCR evidence exemption cannot
+be used here. The app labels this field **Teaching Example**, including on
+meaning cards. The legacy JSON field remains `source_sentence` for storage
+compatibility; that field name does not imply a source quotation in this format.
+
+Freeze the entire reconciled record-and-meaning ledger before generating any
+lessons. Use the fewest balanced batches of at most 100 meanings (50–100 per
+batch above 100). Deliver through the existing content inbox, transaction,
+permanent-sense allocation, progress-preservation and PostgreSQL read-back
+verification path. Replays retain the same immutable identities. The full
+catalogue audit is retained in the manifest payload, including filtered and
+rejected records; assessment candidate rows retain individual sense decisions.
+This runtime support does not mean the 42,200 records have been assessed.
