@@ -4,7 +4,7 @@ import {
   VOCABULARY_LESSON_FORMAT_VERSION,
 } from "./vocabulary-lesson-template";
 
-export const STARTER_SAMPLE_VERSION = 4;
+export const STARTER_SAMPLE_VERSION = 5;
 
 export interface StarterSample {
   word: string;
@@ -873,8 +873,169 @@ export const STARTER_SAMPLES: StarterSample[] = [
       ],
     }),
   },
+  // Authored removable UI examples; these are not source-import evidence.
+  {
+    "word": "charge",
+    "canonicalKey": "starter-charge|request-payment",
+    "pronunciation": "/tʃɑːdʒ/",
+    "wordType": "Verb",
+    "itemType": "word",
+    "cefrLevel": "B2",
+    "frequency": "Medium",
+    "categoryName": "Daily Life",
+    "englishMeaning": "To ask someone to pay a particular amount for a product or service.",
+    "tamilMeaning": "ஒரு பொருள் அல்லது சேவைக்குக் கட்டணம் கேட்பது.",
+    "coreIdea": "A seller sets the amount the customer must pay.",
+    lesson: lesson("charge", {
+    "meaningType": "Literal action",
+    "connotation": "Neutral description",
+    "tone": "Factual and direct",
+    "register": "Neutral; suitable for everyday and professional English",
+    "sourceSentence": "The garage will charge fifty pounds for the inspection.",
+    "usageNote": "The garage asks the customer to pay fifty pounds. This sense describes the price, not the act of paying it.",
+    "whenToUse": [
+        "Describe the amount a business asks for its service.",
+        "Ask whether a fee applies to a delivery or repair."
+    ],
+    "whenNotToUse": [
+        "Use pay when the customer gives the money.",
+        "Use cost when the subject is the product rather than the seller."
+    ],
+    "mainPattern": "charge someone an amount for something",
+    "collocations": [
+        "charge a fee",
+        "charge extra for delivery",
+        "charge fifty pounds"
+    ],
+    "examples": {
+        "service": "The mechanic will charge eighty pounds for the repair.",
+        "shopping": "Does the shop charge extra for delivery?"
+    },
+    "miniConversation": "A: How much do you charge for delivery?\nB: Five pounds, unless the order is over fifty.",
+    "commonMistake": "The shop charges me to the delivery.",
+    "correction": "The shop charges me for the delivery.",
+    "importantDifference": "Charge describes what the seller asks; pay describes what the customer gives.",
+    "memoryTrigger": "Picture a seller pointing to the amount on an invoice.",
+    "memorySentence": "The hotel will charge extra for breakfast.",
+    "recallQuestion": "Which verb describes a seller asking a customer to pay a fee?",
+    "recognitionTask": "Who charges the fee: the garage doing the repair or the customer paying for it?",
+    "productionTask": "Write a question asking what a business charges for one service.",
+    "advancedNuance": [
+        "Charge does not prove that payment has been collected: a company can charge a fee that remains unpaid.",
+        "Charge someone for something identifies the payer and service; charge something to an account identifies where the amount is recorded."
+    ],
+    "contextualMeaning": "To ask someone to pay a particular amount for a product or service."
+}),
+  },
+  {
+    "word": "charge",
+    "canonicalKey": "starter-charge|formal-accusation",
+    "pronunciation": "/tʃɑːdʒ/",
+    "wordType": "Verb",
+    "itemType": "word",
+    "cefrLevel": "B2",
+    "frequency": "Medium",
+    "categoryName": "Community & Society",
+    "englishMeaning": "To formally accuse someone of committing a crime.",
+    "tamilMeaning": "ஒருவர் குற்றம் செய்ததாக அதிகாரப்பூர்வமாகக் குற்றச்சாட்டு சுமத்துவது.",
+    "coreIdea": "An authority makes a formal accusation; guilt has not been proved.",
+    lesson: lesson("charge", {
+    "meaningType": "Literal action",
+    "connotation": "Neutral description",
+    "tone": "Factual and direct",
+    "register": "Neutral; suitable for everyday and professional English",
+    "sourceSentence": "The police decided to charge the suspect with theft.",
+    "usageNote": "The police formally accuse the suspect of theft. The sentence does not say that a court has found the person guilty.",
+    "whenToUse": [
+        "Describe a formal accusation by police or prosecutors.",
+        "Report the particular offence named in a criminal charge."
+    ],
+    "whenNotToUse": [
+        "Use suspect when there is suspicion but no formal accusation.",
+        "Use convict only when guilt has been established by a court."
+    ],
+    "mainPattern": "charge someone with a crime; be charged with a crime",
+    "collocations": [
+        "charge a suspect",
+        "charge someone with theft",
+        "formally charge someone"
+    ],
+    "examples": {
+        "news": "The police charged the driver with dangerous driving.",
+        "report": "Prosecutors may charge the official with fraud."
+    },
+    "miniConversation": "A: Has the suspect been convicted?\nB: No. The police have charged him with theft, but the trial has not started.",
+    "commonMistake": "The police charged him for theft.",
+    "correction": "The police charged him with theft.",
+    "importantDifference": "Accuse can be informal; charge in this sense is a formal step. Convict means a court has found guilt.",
+    "memoryTrigger": "Picture an official accusation document, before any trial verdict.",
+    "memorySentence": "The police may charge the suspect with theft.",
+    "recallQuestion": "Does being charged with a crime mean that guilt has already been proved?",
+    "recognitionTask": "Choose the formal accusation: police charge a suspect with fraud, or a neighbour merely suspects fraud.",
+    "productionTask": "Write a news-style sentence using charged with and a named offence.",
+    "advancedNuance": [
+        "Charge with introduces the offence, while charge for usually introduces a service or expense.",
+        "A person charged with a crime remains an accused person; charge must not be used as a synonym for convict."
+    ],
+    "contextualMeaning": "To formally accuse someone of committing a crime."
+}),
+  },
+  {
+    "word": "charge",
+    "canonicalKey": "starter-charge|rush-forward",
+    "pronunciation": "/tʃɑːdʒ/",
+    "wordType": "Verb",
+    "itemType": "word",
+    "cefrLevel": "B2",
+    "frequency": "Medium",
+    "categoryName": "Daily Life",
+    "englishMeaning": "To rush forward quickly and forcefully towards someone or something.",
+    "tamilMeaning": "ஒருவரை அல்லது ஒன்றை நோக்கி வேகமாகவும் வலிமையாகவும் பாய்ந்து செல்வது.",
+    "coreIdea": "Fast, forceful forward movement, often in an attack.",
+    lesson: lesson("charge", {
+    "meaningType": "Literal action",
+    "connotation": "Neutral description",
+    "tone": "Factual and direct",
+    "register": "Neutral; suitable for everyday and professional English",
+    "sourceSentence": "The bull began to charge towards the gate.",
+    "usageNote": "The bull moves quickly and forcefully towards the gate. The movement feels more aggressive than ordinary running.",
+    "whenToUse": [
+        "Describe an animal or person rushing forward forcefully.",
+        "Describe a sudden forceful advance towards an opponent or obstacle."
+    ],
+    "whenNotToUse": [
+        "Use walk or approach for slow, controlled movement.",
+        "Do not use this sense for electrical charging or asking for money."
+    ],
+    "mainPattern": "charge at someone; charge towards something; charge into a place",
+    "collocations": [
+        "charge at an opponent",
+        "charge towards the gate",
+        "charge into the room"
+    ],
+    "examples": {
+        "animal": "The bull charged at the farmer, who moved behind the fence.",
+        "sport": "The defender charged towards the ball to block the shot."
+    },
+    "miniConversation": "A: Why did you close the gate?\nB: The bull started to charge towards us.",
+    "commonMistake": "The bull charged to the farmer.",
+    "correction": "The bull charged at the farmer.",
+    "importantDifference": "Run describes speed; charge also suggests force, urgency or aggression. Charge at emphasizes the target.",
+    "memoryTrigger": "Picture a bull suddenly rushing straight towards a closed gate.",
+    "memorySentence": "The bull may charge at anyone who approaches it.",
+    "recallQuestion": "What does charge add to the idea of simply running forward?",
+    "recognitionTask": "Which fits charge: rushing forcefully at an opponent, or strolling slowly towards a bench?",
+    "productionTask": "Describe a sudden forward movement using charge at or charge towards.",
+    "advancedNuance": [
+        "Charge at highlights a target of attack; charge towards only specifies direction and does not by itself prove contact.",
+        "Charge into a room can describe hurried human movement without a literal attack, while still suggesting force or urgency."
+    ],
+    "contextualMeaning": "To rush forward quickly and forcefully towards someone or something."
+}),
+  },
 ];
 
 export const STARTER_SAMPLE_KEYS = STARTER_SAMPLES.map(
   (sample) => sample.canonicalKey,
 );
+

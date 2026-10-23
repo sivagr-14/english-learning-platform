@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "featureId": "meaning-preview",
+  "title": "Removable charge samples and reference-audited meaning deck",
+  "implementationPaths": [
+    "packages/backend/src/data/starter-samples.ts",
+    "packages/backend/src/routes/vocabulary.ts",
+    "packages/frontend/components/MeaningCarousel.tsx",
+    "packages/frontend/app/globals.css",
+    "packages/frontend/app/vocabulary/page.tsx",
+    "packages/backend/src/data/starter-samples.test.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/__tests__/multi-meaning-samples.test.ts",
+    "packages/backend/src/scripts/smoke-fluency-postgres.ts",
+    "tests/playwright/knowledge-map.spec.ts",
+    "packages/backend/src/data/starter-samples.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "rationale": "Uses existing validated removable starter-sample loader with authored examples clearly distinct from source-import evidence. Preserves eight-section quality, permanent senses, ownership and immutable source-import contracts."
+  }
+}

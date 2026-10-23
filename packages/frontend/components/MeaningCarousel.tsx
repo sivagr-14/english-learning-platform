@@ -12,6 +12,9 @@ export interface MeaningSummary {
   tamil_meaning?: string;
   word_type?: string | null;
   cefr_level?: string;
+  pronunciation?: string | null;
+  example_sentence?: string | null;
+  lesson_data?: { meaning_in_context?: { source_sentence?: string } };
 }
 
 export default function MeaningCarousel({ current, others, contextQuery }: {
@@ -53,9 +56,11 @@ export default function MeaningCarousel({ current, others, contextQuery }: {
         href={`/vocabulary/words/${sense.id}${contextQuery ? `?${contextQuery}` : ""}`}
         scroll={false} aria-current={sense.id === current.id ? "page" : undefined}>
         <span className="meaning-card-label">{sense.display_label || sense.word}{sense.id === current.id && <span>Selected</span>}</span>
-        <span className="meaning-card-meta">{[sense.word_type, sense.cefr_level].filter(Boolean).join(" · ")}</span>
+        <span className="meaning-card-meta">{[sense.pronunciation, sense.word_type, sense.cefr_level].filter(Boolean).join(" · ")}</span>
         <span className="meaning-card-definition">{sense.english_meaning}</span>
         {sense.tamil_meaning && <span data-tamil lang="ta" className="meaning-card-tamil">{sense.tamil_meaning}</span>}
+        {(sense.example_sentence || sense.lesson_data?.meaning_in_context?.source_sentence) && <span className="meaning-card-example">{sense.example_sentence || sense.lesson_data?.meaning_in_context?.source_sentence}</span>}
+        <span className="meaning-card-open">{sense.id === current.id ? "Current lesson below" : "Open this meaning’s lesson →"}</span>
       </Link>)}
     </div>
   </nav>;

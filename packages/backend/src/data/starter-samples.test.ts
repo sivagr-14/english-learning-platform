@@ -20,17 +20,19 @@ describe("starter samples", () => {
     ).toEqual(expect.arrayContaining(["word", "collocation", "idiom"]));
   });
 
-  it("provides three navigable words in every starter category", () => {
+  it("preserves the original three-word navigation examples alongside the sense preview", () => {
+    const originalSamples = STARTER_SAMPLES.filter(sample => !sample.canonicalKey.startsWith("starter-charge|"));
     const byCategory = new Map<string, (typeof STARTER_SAMPLES)[number][]>();
 
-    for (const sample of STARTER_SAMPLES) {
+    for (const sample of originalSamples) {
       const samples = byCategory.get(sample.categoryName) || [];
       samples.push(sample);
       byCategory.set(sample.categoryName, samples);
     }
 
     expect(byCategory.size).toBe(4);
-    expect(STARTER_SAMPLES).toHaveLength(12);
+    expect(originalSamples).toHaveLength(12);
+    expect(STARTER_SAMPLES).toHaveLength(15);
 
     for (const samples of byCategory.values()) {
       const rows = [...samples]
@@ -64,7 +66,7 @@ describe("starter samples", () => {
     expect(
       new Set(
         STARTER_SAMPLES.map(
-          (sample) => `${sample.categoryName}:${sample.word.toLowerCase()}`,
+          (sample) => `${sample.word.toLowerCase()}:${sample.englishMeaning}`,
         ),
       ).size,
     ).toBe(STARTER_SAMPLES.length);
