@@ -1,4 +1,5 @@
 import { expect, test } from "playwright/test";
+import { STARTER_SAMPLES } from "../../packages/backend/src/data/starter-samples";
 
 test("Knowledge Map switches B1–C1 and opens the existing lesson", async ({ page }) => {
   await page.addInitScript(() => {
@@ -404,11 +405,16 @@ for (const width of [390, 1280]) {
       advanced_nuance: ["Adjust can refer to physical or abstract changes."],
     };
 
-    const words = [
-      { id: "sense-a", sense_rank: 1, display_label: "adjust", english_meaning: "Make a small change.", tamil_meaning: "சரிசெய்" },
-      { id: "sense-c", sense_rank: 3, display_label: "adjust (C)", english_meaning: "Become used to a new situation.", tamil_meaning: "பழகிக்கொள்" },
-      { id: "sense-d", sense_rank: 4, display_label: "adjust (D)", english_meaning: "Settle an insurance claim.", tamil_meaning: "இழப்பீட்டைத் தீர்மானி" },
-    ].map(word => ({ ...word, word: "adjust", word_type: "verb", cefr_level: "B2", frequency: "medium", category_name: "Daily life", track_name: "Conversation", core_idea: word.english_meaning, pronunciation: "/əˈdʒʌst/", example_sentence: `An example for ${word.id}.`, lesson_data: { ...lesson, meaning_in_context: { ...lesson.meaning_in_context, contextual_meaning: word.english_meaning }, advanced_nuance: [`Specific nuance: ${word.english_meaning}`] } }));
+    const words = STARTER_SAMPLES.filter(sample => sample.word === "charge").map((sample, index) => ({
+      id: ["sense-a", "sense-c", "sense-d"][index], sense_rank: index + 1,
+      display_label: index === 0 ? "charge" : `charge (${index === 1 ? "B" : "C"})`,
+      word: sample.word, word_type: sample.wordType, cefr_level: sample.cefrLevel,
+      frequency: sample.frequency, category_name: sample.categoryName, track_name: "Sample preview",
+      english_meaning: sample.englishMeaning, tamil_meaning: sample.tamilMeaning,
+      core_idea: sample.coreIdea, pronunciation: sample.pronunciation,
+      example_sentence: sample.lesson.meaning_in_context.source_sentence, lesson_data: sample.lesson,
+      is_starter_sample: true,
+    }));
     let fail = true;
     for (const word of words) {
       await page.route(`**/api/vocabulary/words/${word.id}`, route => {
@@ -431,8 +437,8 @@ for (const width of [390, 1280]) {
     const carousel = page.getByRole("navigation", { name: "Meanings of this word" });
     await expect(carousel.getByRole("link")).toHaveCount(3);
     await expect(carousel.getByRole("link").nth(0)).toHaveAttribute("aria-current", "page");
-    await expect(carousel.getByRole("link").nth(1)).toContainText("adjust (C)");
-    await expect(carousel.getByRole("link").first()).toContainText("An example for sense-a.");
+    await expect(carousel.getByRole("link").nth(1)).toContainText("charge (B)");
+    await expect(carousel.getByRole("link").first()).toContainText(words[0].example_sentence);
     const deck = await page.locator(".meaning-carousel-strip").boundingBox();
     const firstCard = await carousel.getByRole("link").first().boundingBox();
     expect(firstCard!.width).toBeGreaterThan(deck!.width * 0.8);
@@ -457,19 +463,19 @@ for (const width of [390, 1280]) {
     await page.getByText("Explore the complete lesson", { exact: true }).click();
     await expect(page.locator('[id^="lesson-section-"]')).toHaveCount(8);
     await expect(page.locator("#lesson-section-2")).toContainText(words[1].english_meaning);
-    await expect(page.locator("#lesson-section-8")).toContainText(`Specific nuance: ${words[1].english_meaning}`);
+    await expect(page.locator("#lesson-section-8")).toContainText(words[1].lesson_data.advanced_nuance[0]);
     if (width === 390) await expect(carousel.locator("[lang=ta]").nth(1)).toBeVisible();
     else await expect(carousel.locator("[lang=ta]").nth(1)).toBeHidden();
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
     await page.screenshot({ path: `test-results/meanings-${width}.png`, fullPage: true, animations: "disabled" });
-    await page.getByLabel("My note or memory cue").fill("New note for the adaptation sense.");
+    await page.getByLabel("My note or memory cue").fill("New note for the accusation sense.");
     await page.getByRole("button", { name: "Save note", exact: true }).click();
     await expect(page.getByText("Note saved.", { exact: true })).toBeVisible();
     await carousel.getByRole("link").first().click();
     await expect(page.getByLabel("My note or memory cue")).toHaveValue("Note for sense-a");
     await page.goBack();
-    await expect(page.getByLabel("My note or memory cue")).toHaveValue("New note for the adaptation sense.");
+    await expect(page.getByLabel("My note or memory cue")).toHaveValue("New note for the accusation sense.");
     await page.reload();
     await expect(carousel.getByRole("link").nth(1)).toHaveAttribute("aria-current", "page");
     await expect(page.getByRole("link", { name: "Back to Discover", exact: true })).toHaveAttribute("href", "/discover?level=B2");
