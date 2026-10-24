@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "featureId": "catalogue-content-packs",
+  "title": "Catalogue meanings and explicitly authored teaching examples",
+  "implementationPaths": [
+    "packages/backend/src/services/catalogue-contract.ts",
+    "packages/backend/src/services/content-pack-contract.ts",
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/backend/src/data/vocabulary-lesson-template.ts",
+    "packages/backend/src/routes/vocabulary.ts",
+    "packages/frontend/components/MeaningCarousel.tsx",
+    "packages/frontend/app/vocabulary/words/[id]/page.tsx"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/catalogue-contract.test.ts",
+    "packages/backend/src/services/catalogue-pack.fixture.ts",
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts",
+    "tests/playwright/knowledge-map.spec.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": ["docs/CHATGPT_CONTENT_PACK_WORKFLOW.md", "VOCABULARY_GENERATION_INSTRUCTIONS.md"],
+    "requiredMarkers": [
+      {"path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md", "contains": ["chatgpt-catalogue-vocabulary-manifest-v1", "catalogueAudit.recordReviews", "authored_for_learning"]},
+      {"path": "VOCABULARY_GENERATION_INSTRUCTIONS.md", "contains": ["chatgpt-catalogue-vocabulary-batch-v1", "authored_for_learning", "Teaching Example"]}
+    ]
+  }
+}

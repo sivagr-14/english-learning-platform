@@ -763,3 +763,81 @@ entry record a field-level decision and reason. A repeated-text scan is triage,
 not semantic review. Schema validation alone cannot certify these explanations;
 record language review before claiming an entry corrected. Local synchronization
 and PostgreSQL read-back remain necessary before claiming the app was updated.
+
+
+## Catalogue lessons with authored teaching examples
+
+The separately versioned `chatgpt-catalogue-vocabulary-manifest-v1` and
+`chatgpt-catalogue-vocabulary-batch-v1` support a supplied WordUp catalogue.
+This is a catalogue-specific exception to document source-sentence discovery;
+all document and topic contracts remain unchanged. The learner selected newly
+written teaching examples because this catalogue contains definitions, not
+original usage sentences.
+
+Prepare the closed SQLite snapshot with `scripts/prepare-wordup-catalogue.py`
+and validate it against the original bytes. Embed the unchanged
+`wordup-catalogue-preparation-v1` object in `catalogueAudit.preparation`.
+Its source hash, ordinal-key JSON hash, record hashes, counts and complete group
+partition are checked by `services/catalogue-contract.ts`. The backend validates
+internal integrity; the preparation tool binds the file to the original SQLite
+snapshot. Never fabricate a replacement preparation or treat its hash as an
+external signature. Do not import `learnStateInt` as learner progress.
+
+Use one catalogue coverage page/chunk per prepared assessment group, in order,
+with its exact group ID. `catalogueAudit.recordReviews` accounts for every raw
+record exactly once. Each assessed record links all its reviewed meaning
+candidates. Whole-record rejection is limited to noise, malformed records and
+proper names, with an explicit reason/code. Obvious basic standalone words and predictable phrases may be `scope_excluded`,
+with `scopeExclusionCode` basic_obvious or predictable_combination, linked
+filtered primary/previous meaning decisions and `additionalMeaningsReviewed: false`.
+This is intentional scope limitation, never an exhaustive dictionary review.
+Do not discard a genuine non-obvious whole expression because its words are basic.
+
+Assess eligible vocabulary's useful additional meanings, preserving genuine expressions
+as complete terms. Do not invent meanings or impose a minimum meaning count.
+Every source definition gets a decision; additional meanings get separate
+stable term-and-sense identities and an explicit meaning reference. Record
+level and usage reasoning for each meaning and distinguish linguistic estimates
+from referenced assessments. B1–C2 heavy/medium meanings are eligible; prioritize useful B2–C2 and retain
+useful non-obvious B1. Exclude basic/obvious meanings, predictable combinations
+and rare specialist vocabulary regardless of nominal level. Do not exhaustively
+expand basic headwords merely to find an advanced sense.
+Persist `catalogueAudit.selectionPolicy` with policyId
+`wordup-useful-b1-c2-20261024`, eligibleLevels [B1,B2,C1,C2], priorityLevels
+[B2,C1,C2], includedFrequencies [heavy,medium], excludeBasicObvious,
+excludePredictableCombinations, excludeRareSpecialist and
+preserveNonObviousExpressions all true, and expandBasicHeadwords false.
+Keep this current policy separate from the unchanged preparation's historical
+B1–C1 policy and hash. Each meaning's catalogueEvidence must include learningValue
+(non_obvious, basic_obvious, predictable_combination or rare_specialist) and a
+specific learningValueReason. Only non_obvious meanings can be generated.
+These fields enforce declared decisions; they do not replace linguistic review. Keep filtered meanings and their reasons in
+the same ledger. An existing decision requires a stored word ID and backend
+owner/sense verification. The local app remains authoritative for deduplication.
+
+Each candidate uses `evidenceType: catalogue_definition_with_authored_example`
+and `catalogueEvidence` with record IDs, `meaningOrigin` (`supplied_definition`
+or `additional_meaning`), `exampleOrigin: authored_for_learning`, level/usage
+reasons, assessment basis, and reference URLs with their supported claim.
+The supplied definition must remain exact for a supplied-definition candidate;
+a source mistake is recorded rather than silently rewritten. Additional
+meanings may have their own assessed wording and references.
+
+For catalogue candidates only, `senseEvidence.sentence` and `occurrences` hold
+the explicitly authored teaching scenario. They are not quotations from the
+SQLite source. The complete eight-section lesson must copy this scenario and
+set `meaning_in_context.example_origin` to `authored_for_learning`. The sentence
+must actually demonstrate the term; the document OCR evidence exemption cannot
+be used here. The app labels this field **Teaching Example**, including on
+meaning cards. The legacy JSON field remains `source_sentence` for storage
+compatibility; that field name does not imply a source quotation in this format.
+
+Freeze the entire reconciled record-and-meaning ledger before generating any
+lessons. Use the fewest balanced batches of at most 100 meanings (50–100 per
+batch above 100). Deliver through the existing content inbox, transaction,
+permanent-sense allocation, progress-preservation and PostgreSQL read-back
+verification path. Replays retain the same immutable identities. The full
+catalogue audit is retained in the manifest payload, including filtered and
+rejected records; assessment candidate rows retain individual sense decisions.
+This runtime support does not mean the 42,200 records have been assessed.
+

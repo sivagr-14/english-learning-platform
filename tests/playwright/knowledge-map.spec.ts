@@ -412,7 +412,8 @@ for (const width of [390, 1280]) {
       frequency: sample.frequency, category_name: sample.categoryName, track_name: "Sample preview",
       english_meaning: sample.englishMeaning, tamil_meaning: sample.tamilMeaning,
       core_idea: sample.coreIdea, pronunciation: sample.pronunciation,
-      example_sentence: sample.lesson.meaning_in_context.source_sentence, lesson_data: sample.lesson,
+      example_sentence: sample.lesson.meaning_in_context.source_sentence, example_origin: "authored_for_learning",
+      lesson_data: { ...sample.lesson, meaning_in_context: { ...sample.lesson.meaning_in_context, example_origin: "authored_for_learning" } },
       is_starter_sample: true,
     }));
     let fail = true;
@@ -439,6 +440,9 @@ for (const width of [390, 1280]) {
     await expect(carousel.getByRole("link").nth(0)).toHaveAttribute("aria-current", "page");
     await expect(carousel.getByRole("link").nth(1)).toContainText("charge (B)");
     await expect(carousel.getByRole("link").first()).toContainText(words[0].example_sentence);
+    await expect(carousel.getByText("Teaching example", { exact: true })).toHaveCount(3);
+    await expect(page.getByText("Teaching Example", { exact: true })).toHaveCount(1);
+    await expect(page.getByText("Source Sentence", { exact: true })).toHaveCount(0);
     const deck = await page.locator(".meaning-carousel-strip").boundingBox();
     const firstCard = await carousel.getByRole("link").first().boundingBox();
     expect(firstCard!.width).toBeGreaterThan(deck!.width * 0.8);
@@ -481,3 +485,4 @@ for (const width of [390, 1280]) {
     await expect(page.getByRole("link", { name: "Back to Discover", exact: true })).toHaveAttribute("href", "/discover?level=B2");
   });
 }
+

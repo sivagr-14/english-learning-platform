@@ -299,7 +299,7 @@ function SimplifiedLessonTemplate({
       <LessonPanel number={2} title="Meaning in Context">
         <FieldTable
           rows={[
-            ["Source Sentence", context.source_sentence],
+            [context.example_origin === "authored_for_learning" ? "Teaching Example" : "Source Sentence", context.source_sentence],
             ["Meaning Here", context.contextual_meaning],
             ["Simple Explanation", context.simple_explanation],
           ]}
@@ -636,5 +636,6 @@ export default function VocabularyWordPage() {
     </AuthenticatedPage>
   );
 }
+
 
 

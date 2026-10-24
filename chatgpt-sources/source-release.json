@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "overview-profile-precision-20261010-v1",
+  "releaseId": "catalogue-useful-b1-c2-20261024-v1",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "b14648219f1bc94fa87a1f55f79b5aa74315231fce35d30f607e5560cba1eba0",
-      "sizeBytes": 45116
+      "sha256": "7900b53fdfc32b79fab45f0665ae70c549d7ffb77d17375066dea7a24a864ff3",
+      "sizeBytes": 50346
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "bae79f5ec97a6963cd3155362337c1c3893b1255d211e0b281c46f921400f1f3",
-      "sizeBytes": 32042
+      "sha256": "28b643c1d7330ec09f4ac18800931e40b4993fd05c262b1473b3f28dd72a0c3f",
+      "sizeBytes": 33469
     }
   ]
 }
