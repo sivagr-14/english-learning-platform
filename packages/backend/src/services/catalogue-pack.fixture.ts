@@ -1,5 +1,5 @@
 import { STARTER_SAMPLES } from "../data/starter-samples";
-import { catalogueHash } from "./catalogue-contract";
+import { catalogueHash, CATALOGUE_SELECTION_POLICY_ID } from "./catalogue-contract";
 import { contentPackHash } from "./content-pack-contract";
 
 /** Authored test fixture only; not evidence of a real catalogue assessment. */
@@ -32,7 +32,8 @@ export function cataloguePackFixture(): { manifest: any; batch: any } {
     occurrences: [{ page: 1, chunkId: "group-00001", sentence: sample.lesson.meaning_in_context.source_sentence }],
     evidenceType: "catalogue_definition_with_authored_example",
     catalogueEvidence: { recordIds: [recordId], meaningOrigin: index === 0 ? "supplied_definition" : "additional_meaning",
-      exampleOrigin: "authored_for_learning", levelReason: "Fixture-only linguistic level assessment for contract testing.",
+      exampleOrigin: "authored_for_learning", learningValue: "non_obvious",
+      learningValueReason: "This synthetic sense requires interpretation beyond a predictable literal combination.", levelReason: "Fixture-only linguistic level assessment for contract testing.",
       usageReason: "Fixture-only assessment of usefulness in ordinary communication.", assessmentBasis: "linguistic_assessment",
       references: index === 0 ? [] : [{ url: "https://example.org/fixture-meaning", supports: "meaning", explanation: "Synthetic reference for tests; never a real assessment claim." }] },
   }));
@@ -42,7 +43,12 @@ export function cataloguePackFixture(): { manifest: any; batch: any } {
     coverage: { pages: [{ page: 1, status: "assessed", chunkIds: ["group-00001"] }],
       chunks: [{ chunkId: "group-00001", pageStart: 1, pageEnd: 1, status: "assessed", candidateIds: candidates.map(candidate => candidate.candidateId) }] },
     candidates,
-    catalogueAudit: { preparation, recordReviews: [{ recordId, status: "assessed", candidateIds: candidates.map(candidate => candidate.candidateId),
+    catalogueAudit: { selectionPolicy: {
+      policyId: CATALOGUE_SELECTION_POLICY_ID, eligibleLevels: ["B1", "B2", "C1", "C2"],
+      priorityLevels: ["B2", "C1", "C2"], includedFrequencies: ["heavy", "medium"],
+      excludeBasicObvious: true, excludePredictableCombinations: true, excludeRareSpecialist: true,
+      preserveNonObviousExpressions: true, expandBasicHeadwords: false,
+    }, preparation, recordReviews: [{ recordId, status: "assessed", candidateIds: candidates.map(candidate => candidate.candidateId),
       additionalMeaningsReviewed: true, reason: "Three meanings included in this synthetic fixture only." }] },
     counts: { totalCandidates: candidates.length, generate: candidates.length, existing: 0, filtered: 0, rejected: 0, heavyUse: 0, mediumUse: candidates.length },
     generationPlan: { batchSize: 100, batches: [{ batchNumber: 1, candidateIds: candidates.map(candidate => candidate.candidateId) }] },
@@ -57,3 +63,4 @@ export function cataloguePackFixture(): { manifest: any; batch: any } {
   };
   return { manifest, batch };
 }
+

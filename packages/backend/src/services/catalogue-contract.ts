@@ -13,10 +13,25 @@ const sourceRecord = z.object({
   britishPhonetic: nullableText, americanPhonetic: nullableText,
 }).strict();
 
+export const CATALOGUE_SELECTION_POLICY_ID = "wordup-useful-b1-c2-20261024" as const;
+export const CatalogueSelectionPolicySchema = z.object({
+  policyId: z.literal(CATALOGUE_SELECTION_POLICY_ID),
+  eligibleLevels: z.tuple([z.literal("B1"), z.literal("B2"), z.literal("C1"), z.literal("C2")]),
+  priorityLevels: z.tuple([z.literal("B2"), z.literal("C1"), z.literal("C2")]),
+  includedFrequencies: z.tuple([z.literal("heavy"), z.literal("medium")]),
+  excludeBasicObvious: z.literal(true),
+  excludePredictableCombinations: z.literal(true),
+  excludeRareSpecialist: z.literal(true),
+  preserveNonObviousExpressions: z.literal(true),
+  expandBasicHeadwords: z.literal(false),
+}).strict();
+
 export const CatalogueEvidenceSchema = z.object({
   recordIds: z.array(id).min(1).max(100000),
   meaningOrigin: z.enum(["supplied_definition", "additional_meaning"]),
   exampleOrigin: z.literal("authored_for_learning"),
+  learningValue: z.enum(["non_obvious", "basic_obvious", "predictable_combination", "rare_specialist"]),
+  learningValueReason: note,
   levelReason: note,
   usageReason: note,
   assessmentBasis: z.enum(["linguistic_assessment", "referenced_assessment"]),
@@ -28,6 +43,8 @@ export const CatalogueEvidenceSchema = z.object({
 }).strict();
 
 export const CatalogueAuditSchema = z.object({
+  // Current selection is separate from the immutable historical preparation.
+  selectionPolicy: CatalogueSelectionPolicySchema,
   preparation: z.object({
     formatVersion: z.literal("wordup-catalogue-preparation-v1"),
     source: z.object({ sha256: hash, table: z.literal("words"), recordCount: z.number().int().positive() }).strict(),
@@ -55,12 +72,11 @@ export const CatalogueAuditSchema = z.object({
   }).strict(),
   recordReviews: z.array(z.object({
     recordId: id,
-    // Basic primary definitions cannot exclude an entire headword. Review its
-    // other senses too; only malformed/name records may have no candidates.
-    status: z.enum(["assessed", "rejected"]),
+    status: z.enum(["assessed", "rejected", "scope_excluded"]),
+    scopeExclusionCode: z.enum(["basic_obvious", "predictable_combination"]).optional(),
     rejectionCode: z.enum(["noise", "malformed_record", "proper_name"]).optional(),
     candidateIds: z.array(id).max(1000),
-    additionalMeaningsReviewed: z.literal(true),
+    additionalMeaningsReviewed: z.boolean(),
     reason: note,
   }).strict()).min(1).max(100000),
 }).strict();
@@ -113,14 +129,22 @@ export function catalogueAuditIssues(audit: z.infer<typeof CatalogueAuditSchema>
   if (records.size > 100 && preparation.assessmentGroups.some(group => group.recordIds.length < 50)) issues.push("catalogue: large-source groups must contain 50–100 records");
   for (const review of recordReviews) {
     if (!unique(review.candidateIds)) issues.push(`${review.recordId}: duplicate candidate links`);
-    if (review.status === "assessed" && !review.candidateIds.length) issues.push(`${review.recordId}: assessed records need meaning decisions`);
+    if (review.status !== "rejected" && !review.candidateIds.length) issues.push(`${review.recordId}: assessed records need meaning decisions`);
     if (review.status === "rejected" && review.candidateIds.length) issues.push(`${review.recordId}: rejected records cannot link meanings`);
-    if (review.status === "rejected" && !review.rejectionCode) issues.push(`${review.recordId}: whole-record rejection requires noise, malformed_record or proper_name; assess other senses before excluding a basic word`);
-    if (review.status === "assessed" && review.rejectionCode) issues.push(`${review.recordId}: assessed records cannot carry a rejection code`);
+    if (review.status === "rejected" && !review.rejectionCode) issues.push(`${review.recordId}: whole-record rejection requires noise, malformed_record or proper_name`);
+    if (review.status !== "rejected" && review.rejectionCode) issues.push(`${review.recordId}: assessed records cannot carry a rejection code`);
+    if (review.status === "scope_excluded") {
+      if (!review.scopeExclusionCode || review.additionalMeaningsReviewed) issues.push(`${review.recordId}: scope exclusion needs a code and must not claim exhaustive sense review`);
+      if (review.candidateIds.some(key => meanings.get(key)?.decision !== "filtered")) issues.push(`${review.recordId}: scope-excluded meanings must remain filtered`);
+      if (review.candidateIds.some(key => !["basic_obvious", "predictable_combination"].includes(meanings.get(key)?.catalogueEvidence.learningValue))) issues.push(`${review.recordId}: do not scope-exclude a non-obvious expression or sense`);
+    } else {
+      if (review.scopeExclusionCode) issues.push(`${review.recordId}: scope code requires scope_excluded status`);
+      if (review.status === "assessed" && !review.additionalMeaningsReviewed) issues.push(`${review.recordId}: assessed records require completed useful-sense review`);
+    }
     for (const key of review.candidateIds) {
       if (!meanings.get(key)?.catalogueEvidence.recordIds.includes(review.recordId)) issues.push(`${review.recordId}: candidate link is missing or not reciprocal`);
     }
-    if (review.status === "assessed" && !review.candidateIds.some(key => meanings.get(key)?.catalogueEvidence.meaningOrigin === "supplied_definition")) {
+    if (review.status !== "rejected" && !review.candidateIds.some(key => meanings.get(key)?.catalogueEvidence.meaningOrigin === "supplied_definition")) {
       issues.push(`${review.recordId}: the supplied definition needs an explicit decision too`);
     }
   }
@@ -141,9 +165,12 @@ export function catalogueAuditIssues(audit: z.infer<typeof CatalogueAuditSchema>
     if (evidence.assessmentBasis === "referenced_assessment" && ["level", "usage"].some(claim => !evidence.references.some((reference: any) => reference.supports === claim))) {
       issues.push(`${candidate.candidateId}: referenced assessments need references for both level and usage`);
     }
-    if (candidate.decision === "generate" && !["B1", "B2", "C1"].includes(candidate.cefrLevel)) issues.push(`${candidate.candidateId}: catalogue generation accepts B1–C1 only`);
+    if (candidate.decision === "generate" && !["B1", "B2", "C1", "C2"].includes(candidate.cefrLevel)) issues.push(`${candidate.candidateId}: catalogue generation accepts B1–C2 only`);
+    if (candidate.decision === "generate" && evidence.learningValue !== "non_obvious") issues.push(`${candidate.candidateId}: basic, predictable or rare specialist meanings must be filtered regardless of level`);
+    if (candidate.decision === "generate" && !["heavy", "medium"].includes(candidate.usageFrequency)) issues.push(`${candidate.candidateId}: catalogue generation requires heavy/medium usefulness`);
     if (candidate.decision === "existing" && !candidate.matchedWordId) issues.push(`${candidate.candidateId}: existing requires a stored word identity`);
     if (candidate.decision !== "rejected" && (!candidate.cefrLevel || !candidate.usageFrequency)) issues.push(`${candidate.candidateId}: each assessed meaning needs its own level and usage band`);
   }
   return issues;
 }
+

@@ -605,4 +605,11 @@ Keep the assessed English meaning identical in the header and lesson section.
 The app displays **Teaching Example** for this provenance. Document imports keep
 original source sentences and cannot use the catalogue provenance marker.
 Do not generate extra meanings solely to fill a carousel: only individually
-assessed B1–C1 heavy/medium senses qualify, and complete expressions remain intact.
+assessed B1–C2 heavy/medium senses qualify, prioritizing useful B2–C2 while
+retaining useful non-obvious B1. Exclude basic/obvious senses, predictable
+combinations and rare specialist vocabulary regardless of level. Preserve whole
+non-obvious expressions made from basic words; skip exhaustive expansion of
+basic standalone headwords. Apply the current catalogueAudit.selectionPolicy
+and individual catalogueEvidence.learningValue/learningValueReason contract
+from the workflow. Preserve historical reviews and preparation bytes.
+

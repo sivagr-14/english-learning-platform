@@ -641,7 +641,7 @@ export class ContentPackService {
           status: initialStatus,
           counts: JSON.stringify(counts),
           import_policy: JSON.stringify(manifest.formatVersion === CATALOGUE_CONTENT_MANIFEST_VERSION
-            ? { ...importPolicySnapshot(), includedCefrLevels: ["B1", "B2", "C1"], excludedCefrLevels: ["A1", "A2", "C2"], evidenceType: "catalogue_definition_with_authored_example" }
+            ? { ...importPolicySnapshot(), includedCefrLevels: [...manifest.catalogueAudit.selectionPolicy.eligibleLevels], excludedCefrLevels: ["A1", "A2"], catalogueSelectionPolicy: manifest.catalogueAudit.selectionPolicy, evidenceType: "catalogue_definition_with_authored_example" }
             : importPolicySnapshot()),
           ...(initialStatus === "completed"
             ? { completed_at: new Date() }
@@ -2106,4 +2106,5 @@ export async function synchronizeContentPacks(
   const documents = loadContentPackDocuments(directory);
   return new ContentPackService(database).ingestDocuments(documents);
 }
+
 

@@ -10,9 +10,55 @@ describe("catalogue packs", () => {
     expect(validateContentBatch(batch, manifest).issues).toEqual([]);
   });
 
-  it.each(["A1", "A2", "C2"])("rejects generated %s meanings without changing document policy", cefr => {
+  it.each(["A1", "A2"])("rejects generated %s meanings without changing document policy", cefr => {
     const { manifest } = cataloguePackFixture();
     manifest.candidates[0].cefrLevel = cefr;
+    expect(validateContentManifest(manifest).valid).toBe(false);
+  });
+
+  it.each(["B1", "B2", "C1", "C2"])("accepts useful non-obvious %s without changing preparation", cefr => {
+    const { manifest } = cataloguePackFixture();
+    const before = JSON.stringify(manifest.catalogueAudit.preparation);
+    manifest.candidates[0].cefrLevel = cefr;
+    expect(validateContentManifest(manifest).issues).toEqual([]);
+    expect(JSON.stringify(manifest.catalogueAudit.preparation)).toBe(before);
+  });
+
+  it.each(["basic_obvious", "predictable_combination", "rare_specialist"])("rejects generated %s even at C2", value => {
+    const { manifest } = cataloguePackFixture();
+    manifest.candidates[0].cefrLevel = "C2";
+    manifest.candidates[0].catalogueEvidence.learningValue = value;
+    expect(validateContentManifest(manifest).valid).toBe(false);
+  });
+
+  it("requires current policy and individual learning-value reasons", () => {
+    const { manifest } = cataloguePackFixture();
+    delete manifest.catalogueAudit.selectionPolicy;
+    expect(validateContentManifest(manifest).valid).toBe(false);
+    const other = cataloguePackFixture().manifest;
+    delete other.candidates[0].catalogueEvidence.learningValueReason;
+    expect(validateContentManifest(other).valid).toBe(false);
+  });
+
+  it("retains scoped basic records without pretending to expand them", () => {
+    const { manifest } = cataloguePackFixture();
+    const review = manifest.catalogueAudit.recordReviews[0];
+    review.status = "scope_excluded";
+    review.scopeExclusionCode = "basic_obvious";
+    review.additionalMeaningsReviewed = false;
+    for (const candidate of manifest.candidates) {
+      candidate.decision = "filtered";
+      candidate.reason = "Obvious basic meaning intentionally excluded by learner policy.";
+      candidate.catalogueEvidence.learningValue = "basic_obvious";
+    }
+    manifest.counts.generate = 0;
+    manifest.counts.filtered = 3;
+    manifest.generationPlan.batches = [];
+    expect(validateContentManifest(manifest).issues).toEqual([]);
+    review.additionalMeaningsReviewed = true;
+    expect(validateContentManifest(manifest).valid).toBe(false);
+    review.additionalMeaningsReviewed = false;
+    manifest.candidates[0].catalogueEvidence.learningValue = "non_obvious";
     expect(validateContentManifest(manifest).valid).toBe(false);
   });
 
@@ -77,3 +123,4 @@ describe("catalogue packs", () => {
     expect(validateContentManifest(manifest).valid).toBe(false);
   });
 });
+

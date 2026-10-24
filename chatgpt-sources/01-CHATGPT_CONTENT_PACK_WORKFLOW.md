@@ -787,16 +787,31 @@ Use one catalogue coverage page/chunk per prepared assessment group, in order,
 with its exact group ID. `catalogueAudit.recordReviews` accounts for every raw
 record exactly once. Each assessed record links all its reviewed meaning
 candidates. Whole-record rejection is limited to noise, malformed records and
-proper names, with an explicit reason/code. A basic primary meaning is not a
-reason to discard an entire word before checking its other meanings.
+proper names, with an explicit reason/code. Obvious basic standalone words and predictable phrases may be `scope_excluded`,
+with `scopeExclusionCode` basic_obvious or predictable_combination, linked
+filtered primary/previous meaning decisions and `additionalMeaningsReviewed: false`.
+This is intentional scope limitation, never an exhaustive dictionary review.
+Do not discard a genuine non-obvious whole expression because its words are basic.
 
-Assess each word's useful additional meanings, preserving genuine expressions
+Assess eligible vocabulary's useful additional meanings, preserving genuine expressions
 as complete terms. Do not invent meanings or impose a minimum meaning count.
 Every source definition gets a decision; additional meanings get separate
 stable term-and-sense identities and an explicit meaning reference. Record
 level and usage reasoning for each meaning and distinguish linguistic estimates
-from referenced assessments. Only B1, B2 and C1 heavy/medium meanings may be
-generated in this catalogue path. Keep filtered meanings and their reasons in
+from referenced assessments. B1–C2 heavy/medium meanings are eligible; prioritize useful B2–C2 and retain
+useful non-obvious B1. Exclude basic/obvious meanings, predictable combinations
+and rare specialist vocabulary regardless of nominal level. Do not exhaustively
+expand basic headwords merely to find an advanced sense.
+Persist `catalogueAudit.selectionPolicy` with policyId
+`wordup-useful-b1-c2-20261024`, eligibleLevels [B1,B2,C1,C2], priorityLevels
+[B2,C1,C2], includedFrequencies [heavy,medium], excludeBasicObvious,
+excludePredictableCombinations, excludeRareSpecialist and
+preserveNonObviousExpressions all true, and expandBasicHeadwords false.
+Keep this current policy separate from the unchanged preparation's historical
+B1–C1 policy and hash. Each meaning's catalogueEvidence must include learningValue
+(non_obvious, basic_obvious, predictable_combination or rare_specialist) and a
+specific learningValueReason. Only non_obvious meanings can be generated.
+These fields enforce declared decisions; they do not replace linguistic review. Keep filtered meanings and their reasons in
 the same ledger. An existing decision requires a stored word ID and backend
 owner/sense verification. The local app remains authoritative for deduplication.
 
@@ -825,3 +840,4 @@ verification path. Replays retain the same immutable identities. The full
 catalogue audit is retained in the manifest payload, including filtered and
 rejected records; assessment candidate rows retain individual sense decisions.
 This runtime support does not mean the 42,200 records have been assessed.
+
