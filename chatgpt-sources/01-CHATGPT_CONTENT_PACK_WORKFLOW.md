@@ -841,3 +841,62 @@ catalogue audit is retained in the manifest payload, including filtered and
 rejected records; assessment candidate rows retain individual sense decisions.
 This runtime support does not mean the 42,200 records have been assessed.
 
+
+
+## Catalogue throughput and isolated worker coordination
+
+Use `yarn catalogue:queue --db <private-queue.sqlite> ...` (Python 3 standard
+library) to coordinate up to three independent assessment workers. This queue
+is a local repository tool, not an in-app AI provider, semantic reviewer or
+import service. Keep the queue, preparation, worker outputs and assessment
+SQLite private; never commit these data files to GitHub.
+
+1. Recover the latest durable assessment version and verify source identity.
+   Initialize with `init <preparation.json> <verified-checkpoint-id>`. This binds
+   the original preparation and policy hashes, checks record hashes and retains
+   original group IDs and order. Reinitialization does not reset work.
+2. The coordinator calls `claim <worker-name>` for each worker and gives the
+   returned assignment plus the matching read-only source and prior reviews to
+   that worker. Claims are transactional, limited to three live leases, and
+   contain at most 100 original record IDs. Workers write separate JSON results;
+   only the coordinator uses queue mutation commands or the assessment writer.
+3. First make a specific scope decision for each record. Finalize obvious basic
+   standalone words and predictable combinations without exhaustive expansion;
+   never bulk-exclude using rank, spelling, length or heuristics. Preserve useful
+   non-obvious whole expressions. Reuse applicable verified evidence and prior
+   completed decisions; do not repeat completed semantic work merely because a
+   group contains other unresolved records. Reconcile earlier provisional reviews
+   individually and preserve their history.
+4. For retained items, assess all useful B1–C2 heavy/medium senses, prioritize
+   B2–C2, resolve source ambiguity, taxonomy and owner-scoped existing matches.
+   No fixed meaning count. Batch independent lookups; prioritize fully reconciling
+   earlier groups rather than indefinitely expanding provisional inventories.
+5. Copy the assignment fields into each worker result and include `recordReviews`,
+   exactly one per assigned ID. Each needs `recordId`, `scopeDecision` (`retain`,
+   `scope_excluded`, `rejected` or `hold`), and a specific `reason`. Scope exclusions
+   additionally require `scopeExclusionCode` and `additionalMeaningsReviewed:false`.
+   Attach meaning evidence/review details as worker data without changing the
+   production manifest schema. Run `submit <result.json>` to stage it. Exact retries
+   are idempotent; conflicting, expired, unassigned and stale-token results fail.
+6. **Submitted means staged, not reconciled.** The coordinator reads staged results
+   from `jobs.result_json`, performs semantic and production-contract review and
+   merges accepted decisions using one guarded assessment writer against the latest
+   durable checkpoint. Never overwrite prior finalized decisions or other workers'
+   progress. The queue does not automatically merge the historical assessment DB.
+   If a lease expires or a result needs correction, use
+   `requeue <group-id> <current-checkpoint-id> <specific-reason>`; old results remain
+   in the append-only event history and old tokens cannot write new results.
+7. Continue consecutive unfinished units while capacity allows. Save the canonical
+   assessment checkpoint at unit boundaries and interruption. Queue state is separate
+   from completed-group, finalized-sense and import counts. `status` deliberately
+   cannot certify assessment or import completion. Persist the private queue alongside
+   the assessment when using it across runs; never start a second independent queue
+   for the same work. This tool supplies assignments; it does not launch workers.
+
+Freeze no manifest and author no full lessons until every source group and sense
+is reconciled under the existing production gates. After freeze, independent
+lesson batches may be authored in parallel with fixed membership; retain all eight
+sections, Tamil, provenance and balanced 50–100-entry bounds. Final reconciliation,
+content delivery ledger writes and import verification remain coordinated. Only
+local backend PostgreSQL read-back establishes import completion. Report measured
+throughput separately from planned concurrency; three slots do not imply 3x speed.

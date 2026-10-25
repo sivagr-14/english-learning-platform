@@ -613,3 +613,24 @@ basic standalone headwords. Apply the current catalogueAudit.selectionPolicy
 and individual catalogueEvidence.learningValue/learningValueReason contract
 from the workflow. Preserve historical reviews and preparation bytes.
 
+
+
+### Efficient catalogue assessment before lesson generation
+
+Follow the repository's **Catalogue throughput and isolated worker coordination**
+workflow. Preserve all original source-group identities and assessment history.
+Perform explicit per-record scope decisions first; finalize clear exclusions with
+individual reasons and no exhaustive expansion of basic standalone words. Never
+use rank, spelling, length or heuristics alone to exclude records. Preserve genuine
+non-obvious expressions. Reuse applicable verified evidence and complete earlier
+group reconciliation before accumulating unnecessary provisional expansions.
+
+Up to three isolated workers may receive disjoint, leased groups of at most 100
+records through `yarn catalogue:queue`. Workers return separate artifacts; one
+coordinator validates and writes checkpoints. A staged worker result is not a
+completed assessment. The queue neither launches AI nor automatically merges
+historical assessment databases. All eligible meanings, sense-specific evidence,
+taxonomy and owner matches must reconcile before manifest freeze. Defer full
+eight-section lessons until then; continue multiple consecutive units per run and
+persist exact next work. Preserve every production validation and database
+read-back gate. Measure throughput before promising a completion date.

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "featureId": "catalogue-worker-coordination",
+  "title": "Isolated catalogue assignments and durable staging",
+  "implementationPaths": [
+    "scripts/catalogue-work-queue.py",
+    "package.json"
+  ],
+  "validationPaths": [
+    "scripts/test_catalogue_work_queue.py",
+    ".github/workflows/catalogue-work-queue.yml"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "catalogue:queue"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "catalogue:queue"
+        ]
+      }
+    ]
+  }
+}
