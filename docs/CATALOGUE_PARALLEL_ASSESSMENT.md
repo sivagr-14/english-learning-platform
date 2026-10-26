@@ -21,6 +21,10 @@ eight-section lesson, Tamil and local PostgreSQL read-back gates remain required
    disjoint groups of at most 100 records. It retains original group/record IDs.
    Existing live assignments are re-exported only for the same coordinator run ID; another coordinator is rejected while leases remain live. Leases expire after
    one hour; expired results must not be force-applied.
+   Save these assignments to the same durable assessment identity with its
+   expected version before dispatch. If another run saved first, reload and
+   reconcile ownership before launching any worker; never discard the guard.
+
 3. Launch one ChatGPT assessment agent for each returned input path, concurrently.
    Each agent reads only its assigned bundle, assesses each record individually,
    and writes a separate JSON output. It must not edit the assessment database.

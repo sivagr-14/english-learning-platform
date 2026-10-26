@@ -905,11 +905,13 @@ throughput separately from planned concurrency; three slots do not imply 3x spee
 ### Executing parallel catalogue scope assessment
 
 Use `yarn catalogue:parallel --assessment <private-assessment.sqlite> prepare
-<preparation.json> <private-worker-directory>` to persist and export up to three
+<preparation.json> <private-worker-directory> --coordinator <unique-run-id>` to persist and export up to three
 disjoint assignments from the latest assessment. Follow
 `docs/CATALOGUE_PARALLEL_ASSESSMENT.md` for result bindings and merge commands.
 The ChatGPT coordinator must actually launch three independent workers when
 three assignments are available; exporting files alone is not parallel execution.
+Save the assigned checkpoint with the retained durable version guard before
+dispatch; a conflict requires reloading current ownership before launching workers.
 Give each worker only its assigned immutable input and a distinct output path.
 Workers assess each record individually and never write the shared database.
 No external language-model provider, API key or in-app generation service is used.
