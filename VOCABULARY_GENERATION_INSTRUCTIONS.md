@@ -628,9 +628,17 @@ group reconciliation before accumulating unnecessary provisional expansions.
 Up to three isolated workers may receive disjoint, leased groups of at most 100
 records through `yarn catalogue:queue`. Workers return separate artifacts; one
 coordinator validates and writes checkpoints. A staged worker result is not a
-completed assessment. The queue neither launches AI nor automatically merges
-historical assessment databases. All eligible meanings, sense-specific evidence,
+completed assessment. The queue itself does not launch AI. The ChatGPT coordinator launches workers;
+`yarn catalogue:parallel` provides guarded scope-result merging into the historical
+assessment database as documented in `docs/CATALOGUE_PARALLEL_ASSESSMENT.md`. All eligible meanings, sense-specific evidence,
 taxonomy and owner matches must reconcile before manifest freeze. Defer full
 eight-section lessons until then; continue multiple consecutive units per run and
 persist exact next work. Preserve every production validation and database
 read-back gate. Measure throughput before promising a completion date.
+
+
+Parallel execution must be demonstrated by concurrent workers and accepted
+receipts, not by a configured worker count. Scope-screening receipts remain
+separate from finalized meaning decisions, group reconciliation and complete
+eight-section lessons. Retain all existing provenance, Tamil, quality and import
+gates; do not use increased concurrency to reduce individual language review.

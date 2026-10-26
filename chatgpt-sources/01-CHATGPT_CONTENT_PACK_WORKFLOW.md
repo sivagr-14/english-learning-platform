@@ -882,7 +882,7 @@ SQLite private; never commit these data files to GitHub.
    from `jobs.result_json`, performs semantic and production-contract review and
    merges accepted decisions using one guarded assessment writer against the latest
    durable checkpoint. Never overwrite prior finalized decisions or other workers'
-   progress. The queue does not automatically merge the historical assessment DB.
+   progress. The queue stages generic results; the catalogue parallel scope writer described below safely inserts previously unreviewed scope records into the historical assessment DB.
    If a lease expires or a result needs correction, use
    `requeue <group-id> <current-checkpoint-id> <specific-reason>`; old results remain
    in the append-only event history and old tokens cannot write new results.
@@ -900,3 +900,38 @@ sections, Tamil, provenance and balanced 50–100-entry bounds. Final reconcilia
 content delivery ledger writes and import verification remain coordinated. Only
 local backend PostgreSQL read-back establishes import completion. Report measured
 throughput separately from planned concurrency; three slots do not imply 3x speed.
+
+
+### Executing parallel catalogue scope assessment
+
+Use `yarn catalogue:parallel --assessment <private-assessment.sqlite> prepare
+<preparation.json> <private-worker-directory>` to persist and export up to three
+disjoint assignments from the latest assessment. Follow
+`docs/CATALOGUE_PARALLEL_ASSESSMENT.md` for result bindings and merge commands.
+The ChatGPT coordinator must actually launch three independent workers when
+three assignments are available; exporting files alone is not parallel execution.
+Give each worker only its assigned immutable input and a distinct output path.
+Workers assess each record individually and never write the shared database.
+No external language-model provider, API key or in-app generation service is used.
+
+Inspect all worker outputs, resolve questionable exclusions, then apply accepted
+outputs using the single transactional `catalogue:parallel` merge command.
+The writer validates identities, unchanged source records, policy, full assigned
+coverage and prior-review conflicts. It preserves prior reviews and stores replay
+receipts. Duplicate identical submissions do not add progress; conflicting or stale
+results fail without partially writing a round. Recover the latest durable version
+before every run, and use its version guard when saving. If another run saved a
+new version, retain worker outputs, reload current state and reconcile; never
+remove the guard or overwrite newer work. Persist assignment/result files as a
+private recovery artifact and keep checkpoint identities in the assessment itself.
+
+This first parallel stage performs scope screening only. Scope exclusions remain
+editorial decisions until linked meaning decisions reconcile. Retained words still
+need referenced sense inventories, meaning-specific level/usage, taxonomy and
+owner-scoped app matches. Do not report a fully assessed group, frozen manifest or
+lesson import from a scope receipt. Do not launch only screening indefinitely:
+after each round, prioritize outstanding semantic reconciliation. Continue further
+authorized rounds within run capacity. If parallel worker tools are unavailable,
+record that limitation, process useful work sequentially and do not claim parallel
+execution. Every scheduled run reports measured new work or its concrete blocker;
+a silent two-second invocation is not evidence of processing.

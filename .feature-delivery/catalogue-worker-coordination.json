@@ -1,14 +1,17 @@
 {
   "schemaVersion": 1,
   "featureId": "catalogue-worker-coordination",
-  "title": "Isolated catalogue assignments and durable staging",
+  "title": "Parallel catalogue scope execution and guarded checkpoint merge",
   "implementationPaths": [
     "scripts/catalogue-work-queue.py",
-    "package.json"
+    "package.json",
+    "scripts/catalogue-parallel-assessment.py",
+    "docs/CATALOGUE_PARALLEL_ASSESSMENT.md"
   ],
   "validationPaths": [
     "scripts/test_catalogue_work_queue.py",
-    ".github/workflows/catalogue-work-queue.yml"
+    ".github/workflows/catalogue-work-queue.yml",
+    "scripts/test_catalogue_parallel_assessment.py"
   ],
   "chatgptInstructionImpact": {
     "status": "required",

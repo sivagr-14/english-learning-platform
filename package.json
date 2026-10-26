@@ -45,7 +45,9 @@
     "collection:plan": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/plan-fluency-collection.ts",
     "smoke:fluency": "ts-node --transpile-only --project packages/backend/tsconfig.json packages/backend/src/scripts/smoke-fluency-postgres.ts",
     "catalogue:queue": "python3 scripts/catalogue-work-queue.py",
-    "test:catalogue-queue": "python3 -m unittest discover -s scripts -p test_catalogue_work_queue.py -v"
+    "test:catalogue-queue": "python3 -m unittest discover -s scripts -p test_catalogue_work_queue.py -v",
+    "catalogue:parallel": "python3 scripts/catalogue-parallel-assessment.py",
+    "test:catalogue-parallel": "python3 -m unittest discover -s scripts -p test_catalogue_parallel_assessment.py -v"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
