@@ -1,0 +1,30 @@
+name: Catalogue work queue
+on:
+  pull_request:
+    paths:
+      - 'scripts/catalogue-work-queue.py'
+      - 'scripts/catalogue-parallel-assessment.py'
+      - 'scripts/test_catalogue_parallel_assessment.py'
+      - 'scripts/test_catalogue_work_queue.py'
+      - '.github/workflows/catalogue-work-queue.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/catalogue-work-queue.py'
+      - 'scripts/catalogue-parallel-assessment.py'
+      - 'scripts/test_catalogue_parallel_assessment.py'
+      - 'scripts/test_catalogue_work_queue.py'
+      - '.github/workflows/catalogue-work-queue.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s scripts -p test_catalogue_work_queue.py -v
+
+      - run: python -m unittest discover -s scripts -p test_catalogue_parallel_assessment.py -v
