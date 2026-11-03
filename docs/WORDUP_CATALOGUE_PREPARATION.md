@@ -34,6 +34,10 @@ Preparation is deterministic. Writing identical content to the same path is
 safe; changed content is refused. Validation recomputes from the original
 snapshot rather than trusting an edited JSON file's own hash.
 
+## Ordered execution groups
+
+Run `python3 scripts/prepare-wordup-catalogue.py plan /private/wordup.sqlite /private/wordup-preparation.json` to validate the original preparation and print ordered groups of up to 1,000 records. The planner keeps every original assessment assignment intact. Use the preparation hash and ordered assignment IDs to locate a group in the private assessment ledger. Group membership alone provides no evidence of editorial completion or import.
+
 ## Assessment contract
 
 - Every row receives a source-bound `recordId` and evidence hash, including

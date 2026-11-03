@@ -11,6 +11,15 @@ SPEC.loader.exec_module(catalogue)
 
 
 class CatalogueTests(unittest.TestCase):
+    def test_execution_groups_keep_original_assignments_at_boundary(self):
+        sizes = [100] * 9 + [70, 60, 50]
+        groups = [{"groupId": str(i), "recordIds": list(range(size))}
+                  for i, size in enumerate(sizes)]
+        windows = catalogue.execution_groups(groups)
+        self.assertEqual([w["recordCount"] for w in windows], [970, 110])
+        self.assertEqual([key for w in windows for key in w["assessmentGroupIds"]],
+                         [group["groupId"] for group in groups])
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

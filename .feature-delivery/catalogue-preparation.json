@@ -6,6 +6,6 @@
   "validationPaths": ["scripts/test_prepare_wordup_catalogue.py", ".github/workflows/catalogue-preparation.yml"],
   "chatgptInstructionImpact": {
     "status": "not_required",
-    "rationale": "Preparation-only tool emits a separate non-importable catalogue format. It does not alter accepted app manifests, document assessment, lesson generation or PostgreSQL import behavior. Dedicated preparation documentation explicitly records the remaining runtime gates and authored-example provenance requirement."
+    "rationale": "The verified plan command partitions whole assessment assignments into execution groups without changing the preparation identity. The preparation tool emits a separate non-importable catalogue format. It does not alter accepted app manifests, document assessment, lesson generation or PostgreSQL import behavior. Dedicated preparation documentation explicitly records the remaining runtime gates and authored-example provenance requirement."
   }
 }
