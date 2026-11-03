@@ -38,6 +38,8 @@ snapshot rather than trusting an edited JSON file's own hash.
 
 Run `python3 scripts/prepare-wordup-catalogue.py plan /private/wordup.sqlite /private/wordup-preparation.json` to validate the original preparation and print ordered groups of up to 1,000 records. The planner keeps every original assessment assignment intact. Use the preparation hash and ordered assignment IDs to locate a group in the private assessment ledger. Group membership alone provides no evidence of editorial completion or import.
 
+For a saved assessment, add `--assessment /path/to/assessment.sqlite` to `plan`. The optional `pendingMeaningWork` field locates the first execution group missing a supplied-meaning review or containing a recorded meaning without a final decision. It reports these counts separately and gives the next ID for each. A null group means these two queues are empty. Additional-sense coverage, source issues, signed-in matching and import verification still require separate checks.
+
 ## Assessment contract
 
 - Every row receives a source-bound `recordId` and evidence hash, including
