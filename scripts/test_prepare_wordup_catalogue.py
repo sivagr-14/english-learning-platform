@@ -85,6 +85,37 @@ class CatalogueTests(unittest.TestCase):
             catalogue.write_once(self.output, {"edited": True})
         self.assertEqual(first, self.output.read_bytes())
 
+    def test_pending_meanings_use_bound_sense_rows_and_keep_final_decisions_closed(self):
+        prepared = self.prepare()
+        first, second, third = prepared["records"]
+        assessment = Path(self.temp.name) / "assessment.sqlite"
+        with sqlite3.connect(assessment) as db:
+            db.execute("CREATE TABLE assessment_meta(key, value)")
+            db.executemany("INSERT INTO assessment_meta VALUES (?,?)", [
+                ("source_sha256", prepared["source"]["sha256"]), ("latest_editorial_checkpoint", "test")])
+            db.execute("CREATE TABLE catalogue_meaning_review(candidate_id, record_id, origin, review_json)")
+            db.execute("CREATE TABLE catalogue_record_editorial_coverage(record_id, status)")
+            db.execute("INSERT INTO catalogue_record_editorial_coverage VALUES (?, 'held_variant_resolution')",
+                       (first["recordId"],))
+            for record, origin, decision in [(first, "supplied_definition", "filtered"),
+                                             (first, "additional_meaning", None),
+                                             (second, "additional_meaning", "rejected")]:
+                rid = record["recordId"]
+                candidate = rid + "-" + origin
+                review = {"recordId": rid, "candidateId": candidate, "meaningOrigin": origin,
+                          "sourceRecordHash": record["recordHash"], "finalDecision": decision}
+                db.execute("INSERT INTO catalogue_meaning_review VALUES (?,?,?,?)",
+                           (candidate, rid, origin, json.dumps(review)))
+        windows = catalogue.execution_groups(prepared["assessmentGroups"])
+        work = catalogue.pending_meaning_work(assessment, prepared, windows)
+        self.assertEqual(work["unfinalizedSenseCount"], 1)
+        self.assertEqual(work["nextUnfinalizedCandidateId"], first["recordId"] + "-additional_meaning")
+        self.assertEqual(work["missingPrimaryCount"], 2)
+        self.assertIn(work["nextMissingPrimaryRecordId"], [second["recordId"], third["recordId"]])
+        first["recordHash"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "binding"):
+            catalogue.pending_meaning_work(assessment, prepared, windows)
+
     def test_changed_source_cannot_validate_old_preparation(self):
         prepared = self.prepare()
         with sqlite3.connect(self.source) as connection:

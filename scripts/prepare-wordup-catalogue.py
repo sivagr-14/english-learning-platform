@@ -180,12 +180,63 @@ def execution_groups(assessment_groups):
     return windows
 
 
+
+def pending_meaning_work(assessment, preparation, windows):
+    """Return the first window with missing primary reviews or undecided senses."""
+    records = {r["recordId"]: r for r in preparation["records"]}
+    reviewed_primaries = set()
+    unresolved = {}
+    with closing(sqlite3.connect(assessment.resolve(strict=True).as_uri() + "?mode=ro", uri=True)) as db:
+        db.execute("BEGIN")  # Metadata and decisions must come from one snapshot.
+        metadata = dict(db.execute("SELECT key, value FROM assessment_meta"))
+        require(metadata.get("source_sha256") == preparation["source"]["sha256"],
+                "Assessment/source binding mismatch")
+        checkpoint = metadata.get("latest_editorial_checkpoint")
+        require(checkpoint, "Assessment has no checkpoint")
+        for candidate, rid, origin, payload in db.execute(
+                "SELECT candidate_id, record_id, origin, review_json FROM catalogue_meaning_review ORDER BY candidate_id"):
+            review = json.loads(payload)
+            require(isinstance(review, dict) and rid in records and review.get("recordId") == rid
+                    and review.get("candidateId") == candidate and review.get("meaningOrigin") == origin
+                    and review.get("sourceRecordHash") == records[rid]["recordHash"],
+                    f"Invalid meaning review binding: {candidate}")
+            if origin == "supplied_definition":
+                require(rid not in reviewed_primaries, f"Duplicate supplied definition: {rid}")
+                reviewed_primaries.add(rid)
+            else:
+                require(origin == "additional_meaning", f"Unknown meaning origin: {candidate}")
+            decision = review.get("finalDecision")
+            require(decision in (None, "generate", "existing", "filtered", "rejected"),
+                    f"Unknown final decision: {candidate}")
+            if decision is None:
+                unresolved.setdefault(rid, []).append(candidate)
+
+    groups = {g["groupId"]: g["recordIds"] for g in preparation["assessmentGroups"]}
+    for index, window in enumerate(windows, 1):
+        ids = [rid for g in window["assessmentGroupIds"] for rid in groups[g]]
+        missing = [rid for rid in ids if rid not in reviewed_primaries]
+        pending = [candidate for rid in ids for candidate in unresolved.get(rid, ())]
+        if missing or pending:
+            return {"checkpoint": checkpoint, "executionGroup": index,
+                    "missingPrimaryCount": len(missing), "unfinalizedSenseCount": len(pending),
+                    "nextMissingPrimaryRecordId": next(iter(missing), None),
+                    "nextUnfinalizedCandidateId": next(iter(pending), None)}
+    # This checks only recorded sense decisions. Inventory, ownership and delivery
+    # must be reconciled independently even when no pending meaning is found.
+    return {"checkpoint": checkpoint, "executionGroup": None,
+            "missingPrimaryCount": 0, "unfinalizedSenseCount": 0,
+            "nextMissingPrimaryRecordId": None, "nextUnfinalizedCandidateId": None}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("prepare", "validate", "plan"))
     parser.add_argument("source", type=Path)
     parser.add_argument("preparation", type=Path)
+    parser.add_argument("--assessment", type=Path, help="For plan: locate pending meaning reviews in a private assessment")
     args = parser.parse_args()
+    if args.assessment and args.command != "plan":
+        parser.error("--assessment is supported only with plan")
     try:
         require(args.source.resolve() != args.preparation.resolve(), "Output must not overwrite the source")
         if args.command == "prepare":
@@ -196,9 +247,11 @@ def main():
             preparation = json.loads(args.preparation.read_text())
         audit = validate(preparation, args.source)
         if args.command == "plan":
-            print(json.dumps({"preparationHash": preparation["preparationHash"],
-                              "executionGroups": execution_groups(preparation["assessmentGroups"]),
-                              "importReady": False}, indent=2))
+            windows = execution_groups(preparation["assessmentGroups"])
+            report = {"preparationHash": preparation["preparationHash"], "executionGroups": windows, "importReady": False}
+            if args.assessment:
+                report["pendingMeaningWork"] = pending_meaning_work(args.assessment, preparation, windows)
+            print(json.dumps(report, indent=2))
             return
         print(json.dumps({"preparationHash": preparation["preparationHash"],
                           "assessmentGroups": len(preparation["assessmentGroups"]),
