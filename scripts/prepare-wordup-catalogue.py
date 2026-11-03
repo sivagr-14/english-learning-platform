@@ -162,9 +162,27 @@ def write_once(path, payload):
         output.write(data)
 
 
+def execution_groups(assessment_groups):
+    """Pack consecutive immutable assessment groups without splitting any assignment."""
+    windows = []
+    members = []
+    count = 0
+    for group in assessment_groups:
+        size = len(group["recordIds"])
+        if count + size > 1000:
+            windows.append({"assessmentGroupIds": members, "recordCount": count})
+            members = []
+            count = 0
+        members.append(group["groupId"])
+        count += size
+    if members:
+        windows.append({"assessmentGroupIds": members, "recordCount": count})
+    return windows
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("prepare", "validate"))
+    parser.add_argument("command", choices=("prepare", "validate", "plan"))
     parser.add_argument("source", type=Path)
     parser.add_argument("preparation", type=Path)
     args = parser.parse_args()
@@ -177,6 +195,11 @@ def main():
         else:
             preparation = json.loads(args.preparation.read_text())
         audit = validate(preparation, args.source)
+        if args.command == "plan":
+            print(json.dumps({"preparationHash": preparation["preparationHash"],
+                              "executionGroups": execution_groups(preparation["assessmentGroups"]),
+                              "importReady": False}, indent=2))
+            return
         print(json.dumps({"preparationHash": preparation["preparationHash"],
                           "assessmentGroups": len(preparation["assessmentGroups"]),
                           "audit": audit, "importReady": False,
@@ -187,3 +210,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
