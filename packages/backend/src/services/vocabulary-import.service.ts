@@ -7,6 +7,7 @@ import {
   assertVocabularyLessonCompliant,
   VocabularyLesson,
   VOCABULARY_SECTION_TEMPLATE,
+  CatalogueUsageType,
 } from "../data/vocabulary-lesson-template";
 import { normalizeCefrLevel } from "./vocabulary-browse.service";
 import {
@@ -66,6 +67,7 @@ export interface VocabularyImportRow {
 
 export interface VocabularyImportValidationOptions {
   trustedSourceSentence?: string;
+  trustedCatalogueUsageTypes?: CatalogueUsageType[];
 }
 
 export interface VocabularyImportResult {
@@ -1369,3 +1371,4 @@ function buildLessonPayload(
     updated_at: new Date(),
   };
 }
+

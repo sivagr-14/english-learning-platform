@@ -95,6 +95,25 @@ export const VocabularyLessonSchema = z
 
 export type VocabularyLesson = z.infer<typeof VocabularyLessonSchema>;
 
+export const CatalogueUsageTypeSchema = z.enum(["literal", "abstract", "figurative"]);
+export type CatalogueUsageType = z.infer<typeof CatalogueUsageTypeSchema>;
+
+// Selected only by the validated catalogue policy, never by a payload flag.
+export const CatalogueVocabularyLessonSchema = VocabularyLessonSchema.extend({
+  natural_examples: z.object({
+    examples: z.record(CatalogueUsageTypeSchema, usefulText).refine(
+      examples => Object.keys(examples).length >= 1 && Object.keys(examples).length <= 3,
+      "must contain one to three usage-type examples",
+    ),
+    mini_conversation: usefulText,
+  }).strict(),
+}).strict();
+
+export interface VocabularyLessonValidationOptions {
+  trustedSourceSentence?: string;
+  trustedCatalogueUsageTypes?: CatalogueUsageType[];
+}
+
 export const VOCABULARY_ENTRY_RESPONSE_SCHEMA = {
   type: "OBJECT",
   required: ["word", "pronunciation", "wordType", "englishMeaning", "tamilMeaning", "coreIdea", "format_version", "overview", "meaning_in_context", "usage_guide", "patterns_collocations", "natural_examples", "mistakes_differences", "memory_practice", "advanced_nuance"],
@@ -459,9 +478,11 @@ export function vocabularyExpressionCompatibilityIssues(
 export function vocabularyLessonQualityIssues(
   value: unknown,
   term: string,
-  options: { trustedSourceSentence?: string } = {},
+  options: VocabularyLessonValidationOptions = {},
 ): string[] {
-  const parsed = VocabularyLessonSchema.safeParse(value);
+  const usageTypes = options.trustedCatalogueUsageTypes;
+  const schema = usageTypes ? CatalogueVocabularyLessonSchema : VocabularyLessonSchema;
+  const parsed = schema.safeParse(value);
   if (!parsed.success) {
     return parsed.error.issues.map((issue) => {
       const path = issue.path.length
@@ -473,6 +494,21 @@ export function vocabularyLessonQualityIssues(
 
   const lesson = parsed.data;
   const issues: string[] = [];
+
+  if (usageTypes) {
+    const labels = Object.keys(lesson.natural_examples.examples);
+    if (!usageTypes.length || usageTypes.length > 3 || new Set(usageTypes).size !== usageTypes.length ||
+        labels.length !== usageTypes.length || labels.some(label => !usageTypes.includes(label as CatalogueUsageType))) {
+      issues.push("lesson.natural_examples.examples: require exactly one example for each assessed usage type");
+    }
+    if (lesson.meaning_in_context.example_origin !== "authored_for_learning") {
+      issues.push("lesson.meaning_in_context.example_origin: usage-type examples require catalogue provenance");
+    }
+    const sentences = Object.values(lesson.natural_examples.examples).map(normalizeForMatch);
+    if (new Set(sentences).size !== sentences.length) {
+      issues.push("lesson.natural_examples.examples: usage types must not repeat the same sentence");
+    }
+  }
 
   for (const leaf of collectTextLeaves(lesson)) {
     for (const [pattern, label] of FORBIDDEN_FILLER_PATTERNS) {
@@ -513,9 +549,10 @@ export function vocabularyLessonQualityIssues(
   const termSpecificExamples = Object.values(
     lesson.natural_examples.examples,
   ).filter((example) => includesTerm(example, term)).length;
-  if (termSpecificExamples < 2) {
+  const requiredExamples = usageTypes ? Object.keys(lesson.natural_examples.examples).length : 2;
+  if (termSpecificExamples < requiredExamples) {
     issues.push(
-      `lesson.natural_examples.examples: at least two examples must use "${term}"`,
+      `lesson.natural_examples.examples: ${usageTypes ? "every usage-type example" : "at least two examples"} must use "${term}"`,
     );
   }
 
@@ -595,7 +632,7 @@ export function generatedVocabularyEntryQualityIssues(
 export function assertVocabularyLessonCompliant(
   value: unknown,
   term: string,
-  options: { trustedSourceSentence?: string } = {},
+  options: VocabularyLessonValidationOptions = {},
 ): VocabularyLesson {
   const issues = vocabularyLessonQualityIssues(value, term, options);
   if (issues.length) {
@@ -605,7 +642,7 @@ export function assertVocabularyLessonCompliant(
       )}`,
     );
   }
-  return VocabularyLessonSchema.parse(value);
+  return (options.trustedCatalogueUsageTypes ? CatalogueVocabularyLessonSchema : VocabularyLessonSchema).parse(value);
 }
 
 export const VOCABULARY_SECTION_TEMPLATE_PROMPT = [
@@ -619,4 +656,5 @@ export const VOCABULARY_SECTION_TEMPLATE_PROMPT = [
   "Overview must contain only Meaning type, Connotation, Tone, and Register.",
   "Advanced Nuance must contain a genuine distinction for this term, even for a common word.",
 ].join("\n");
+
 

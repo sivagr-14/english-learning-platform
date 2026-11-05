@@ -937,3 +937,36 @@ authorized rounds within run capacity. If parallel worker tools are unavailable,
 record that limitation, process useful work sequentially and do not claim parallel
 execution. Every scheduled run reports measured new work or its concrete blocker;
 a silent two-second invocation is not evidence of processing.
+
+# Catalogue usage-type example policy
+
+New catalogue manifests must declare `catalogueAudit.examplePolicy: "catalogue-usage-types-v1"`.
+For every generated candidate, provide `catalogueEvidence.supportedUsageTypes`
+and a sense-specific `usageTypeReason`. The supported types are `literal`,
+`abstract`, and `figurative`; declare only types genuinely supported by that
+one assessed meaning. Do not combine distinct senses to fill a quota.
+
+Under this policy, `lesson.natural_examples.examples` is a labelled object with
+exactly one sentence per declared type, one to three sentences total. For example,
+`{"abstract": "We need to clarify the deadline before work begins."}` illustrates
+the shape for a meaning assessed as abstract only. Every sentence must explicitly
+demonstrate the target term. Extra or missing types, unlabelled contexts, repeated
+sentences and unsupported labels fail validation. A human/editorial assessment
+must establish semantic suitability; structural validation cannot certify it.
+
+This catalogue-specific rule replaces the general minimum of two natural
+examples only when the validated immutable manifest declares the policy. Keep
+all eight simplified-v2 sections, accurate pronunciation and Tamil, the authored
+teaching scenario, mini-conversation and memory/practice examples. Do not remove
+examples required elsewhere in the lesson. Document, topic and manual imports
+retain their existing rules. Existing frozen catalogue manifests and batches
+retain their original policy and hashes; never retrofit this field into them.
+
+Validate the complete manifest and batch files together with the production
+`content-packs:validate` command. A batch without its valid immutable manifest
+must fail standalone validation. The local backend derives the permitted type
+set from the persisted manifest; a lesson or manual import cannot grant itself
+the one-example exception. This rule does not activate the proposed 1,000-record
+group pipeline or relax global reconciliation, ownership, identity or read-back
+requirements.
+

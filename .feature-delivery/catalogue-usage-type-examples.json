@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "featureId": "catalogue-usage-type-examples",
+  "title": "Enforce one example per assessed catalogue usage type through validation and import",
+  "implementationPaths": [
+    "packages/backend/src/data/vocabulary-lesson-template.ts",
+    "packages/backend/src/services/catalogue-contract.ts",
+    "packages/backend/src/services/content-pack-contract.ts",
+    "packages/backend/src/services/vocabulary-import.service.ts",
+    "packages/backend/src/services/content-pack.service.ts",
+    "packages/backend/src/scripts/validate-content-packs.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/catalogue-usage-types.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+      "VOCABULARY_GENERATION_INSTRUCTIONS.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "catalogue-usage-types-v1",
+          "supportedUsageTypes",
+          "usageTypeReason"
+        ]
+      },
+      {
+        "path": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
+        "contains": [
+          "catalogue-usage-types-v1",
+          "supportedUsageTypes",
+          "usageTypeReason"
+        ]
+      }
+    ]
+  }
+}

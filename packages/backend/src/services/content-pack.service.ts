@@ -6,6 +6,7 @@ import { Knex } from "knex";
 import { AssessmentControlService } from "./assessment-control.service";
 import {
   CATALOGUE_CONTENT_MANIFEST_VERSION,
+  catalogueUsageTypesForCandidate,
   ContentBatch,
   ContentManifest,
   isSenseAwareManifest,
@@ -1299,6 +1300,7 @@ export class ContentPackService {
         .first();
       if (!job) return { count: 0, wordIds: [] };
       const committedWordIds: string[] = [];
+      const trustedManifest = readJson<ContentManifest>(manifestRow.payload, null as any);
       for (const entry of batch.entries) {
         const candidate: any = candidateByExternalId.get(entry.candidateId);
         if (!candidate || candidate.status !== "approved") continue;
@@ -1364,7 +1366,10 @@ export class ContentPackService {
             },
           },
           userId,
-          { trustedSourceSentence: senseEvidence?.sentence },
+          {
+            trustedSourceSentence: senseEvidence?.sentence,
+            trustedCatalogueUsageTypes: catalogueUsageTypesForCandidate(trustedManifest, entry.candidateId),
+          },
         );
         if (imported.imported !== 1) {
           const importError =
@@ -2106,5 +2111,6 @@ export async function synchronizeContentPacks(
   const documents = loadContentPackDocuments(directory);
   return new ContentPackService(database).ingestDocuments(documents);
 }
+
 
 

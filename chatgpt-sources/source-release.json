@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "releaseId": "catalogue-parallel-execution-20261026-v3",
+  "releaseId": "catalogue-usage-type-examples-20261105-v1",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "011dffdd37b57cc2a4eaa16a2691f36d727e62c8faced3907d58de8b30ac780e",
-      "sizeBytes": 57254
+      "sha256": "84bd2152192e87ed542f2cc2cf9d630db2bc719edfecc190ade01ff22b55faed",
+      "sizeBytes": 59296
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "2f5651d0ea99baad5d766807d4c373362adcd76655563c4497a66c6c9fc46cd4",
-      "sizeBytes": 35341
+      "sha256": "ff8a3ea7435e7c031a53ca96256c55413114c0938a3fb49f4e2ce5b0e7d321a8",
+      "sizeBytes": 36900
     }
   ]
 }
