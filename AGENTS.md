@@ -8,3 +8,16 @@
 - Local `git` may be used for branch creation, commits, and pushes when repository credentials are available.
 - Keep unrelated local files out of commits. In particular, only stage files that belong to the user-requested change.
 - Default to creating a feature branch and draft pull request rather than pushing directly to `main`, unless the user explicitly asks for a direct main push.
+
+
+## WordUp delivery groups
+
+- Follow the canonical workflow and vocabulary instructions before processing.
+- Versioned `wordup-delivery-groups-v1` manifests preserve the full immutable
+  preparation and select ten original 100-record assessment groups (final remainder
+  allowed). Resolve all decisions in the selected scope before generation.
+- Use existing queues and immutable receipts, owner-scoped matching and verified
+  PostgreSQL read-back. Never overwrite existing senses, progress or private data.
+- All remote GitHub operations use the connected GitHub App. Code changes require
+  a PR; do not merge without current user authorization. Never commit private
+  SQLite, source exports, credentials or learner progress.

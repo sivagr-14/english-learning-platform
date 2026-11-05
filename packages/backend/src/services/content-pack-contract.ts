@@ -1,6 +1,6 @@
 import { createHash } from "crypto";
 import { z } from "zod";
-import { CatalogueAuditSchema, CatalogueEvidenceSchema, catalogueAuditIssues } from "./catalogue-contract";
+import { CatalogueAuditSchema, CatalogueEvidenceSchema, catalogueAuditIssues, catalogueAssessmentGroups } from "./catalogue-contract";
 import {
   assertVocabularyLessonCompliant,
   vocabularyExpressionCompatibilityIssues,
@@ -1009,7 +1009,7 @@ export function validateContentManifest(
 
   if (manifest.formatVersion === CATALOGUE_CONTENT_MANIFEST_VERSION) {
     issues.push(...catalogueAuditIssues(manifest.catalogueAudit, manifest.candidates, manifest.source.contentHash));
-    const groups = manifest.catalogueAudit.preparation.assessmentGroups;
+    const groups = catalogueAssessmentGroups(manifest.catalogueAudit);
     const reviews = new Map(manifest.catalogueAudit.recordReviews.map(review => [review.recordId, review]));
     const chunks = new Map(manifest.coverage.chunks.map(chunk => [chunk.chunkId, chunk]));
     if (manifest.source.totalPages !== groups.length || manifest.source.totalChunks !== groups.length) {

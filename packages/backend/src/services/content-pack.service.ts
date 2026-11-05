@@ -31,6 +31,7 @@ import { cacheInvalidate } from "../utils/redis";
 import { readJson } from "../utils/json";
 import { ProviderNeutralJobRepository } from "./provider-neutral-job.repository";
 import { planGenerationWaves, PlannedBatch } from "./generation-waves";
+import { catalogueDeliveryGroup, guardCatalogueGroupClaim, orderCatalogueDeliveryRows } from "./catalogue-delivery.service";
 
 const CONTENT_PACK_AUXILIARY_FILES = new Set([
   "pre-manifest-reconciliation.json",
@@ -482,7 +483,7 @@ export class ContentPackService {
       )
       .whereNull("inbox_cleaned_at")
       .orderBy("created_at", "asc")
-      .select("id", "owner_user_id", "status");
+      .select("id", "owner_user_id", "status", "payload");
     const processed: string[] = [];
     const cleanupEligible: string[] = [];
     const failures: Array<{
@@ -495,7 +496,7 @@ export class ContentPackService {
       term: string;
       reason: string;
     }> = [];
-    for (const row of rows) {
+    for (const row of orderCatalogueDeliveryRows<any>(rows)) {
       try {
         if (!row.owner_user_id) {
           await this.claimManifest(userId, row.id);
@@ -602,6 +603,8 @@ export class ContentPackService {
         );
       }
 
+      await guardCatalogueGroupClaim(trx, userId, manifest);
+
       let source = await trx("content_sources")
         .where({
           owner_user_id: userId,
@@ -652,10 +655,13 @@ export class ContentPackService {
 
       const segmentByExternalId = new Map<string, string>();
       for (const [index, chunk] of manifest.coverage.chunks.entries()) {
+        const sequenceNumber = manifest.formatVersion === CATALOGUE_CONTENT_MANIFEST_VERSION
+          ? manifest.catalogueAudit.preparation.assessmentGroups.findIndex(group => group.groupId === chunk.chunkId) + 1
+          : index + 1;
         let [segment] = await trx("source_segments")
           .insert({
             source_id: source.id,
-            sequence_number: index + 1,
+            sequence_number: sequenceNumber,
             content: null,
             locator: JSON.stringify({
               chunkId: chunk.chunkId,
@@ -670,7 +676,7 @@ export class ContentPackService {
           .returning("*");
         if (!segment) {
           segment = await trx("source_segments")
-            .where({ source_id: source.id, sequence_number: index + 1 })
+            .where({ source_id: source.id, sequence_number: sequenceNumber })
             .first();
         }
         if (segment) segmentByExternalId.set(chunk.chunkId, segment.id);
@@ -724,6 +730,9 @@ export class ContentPackService {
             },
             existingSenses,
           );
+          if (catalogueDeliveryGroup(manifest) && processable && resolution.decision !== "new_sense") {
+            throw statusError(`Catalogue group candidate ${candidate.candidateId} needs a fresh owner-specific sense decision; existing lessons cannot be overwritten.`, 409);
+          }
           senseDecision = resolution.decision;
           senseKey = candidate.senseKey;
           senseEvidence = candidate.senseEvidence;
@@ -1331,6 +1340,16 @@ export class ContentPackService {
         const senseEvidence = readJson<
           { sentence: string; explanation: string } | undefined
         >(candidate.sense_evidence, undefined);
+        if (catalogueDeliveryGroup(trustedManifest)) {
+          // Recheck under the same term lock held by the importer, in this transaction.
+          // A different import may have created this sense since manifest claim.
+          const normalizedTerm = normalizeVocabularyTerm(entry.word);
+          await lockVocabularyTerm(trx, userId, normalizedTerm);
+          const currentSenses = await trx("vocabulary_words").where({owner_user_id: userId, normalized_term: normalizedTerm}).select("*");
+          const resolution = resolveContextualSense({term: entry.word, contextualMeaning: candidate.contextual_meaning,
+            senseKey: candidate.sense_key, declaredDecision: "new_sense"}, currentSenses);
+          if (resolution.decision !== "new_sense") throw statusError(`Catalogue group candidate ${entry.candidateId} now matches an existing sense; reconcile without overwriting it.`, 409);
+        }
         const imported = await new VocabularyImportService(trx).importSingle(
           {
             category: primary?.name,
@@ -1374,7 +1393,7 @@ export class ContentPackService {
         if (imported.imported !== 1) {
           const importError =
             imported.errors[0]?.message || `Could not save ${entry.word}`;
-          if (isQuarantinableCandidateImportError(importError)) {
+          if (!catalogueDeliveryGroup(trustedManifest) && isQuarantinableCandidateImportError(importError)) {
             await trx("generation_job_items")
               .where({
                 generation_job_id: job.id,
@@ -1686,7 +1705,13 @@ export class ContentPackService {
     const skippedJobItems = jobItems.filter(
       (item: any) => item.status === "skipped",
     );
-    if (!job || wordIds.length !== completedJobItems.length) {
+    const payload = readJson<ContentManifest>(manifestRow?.payload, null as any);
+    const deliveryGroup = payload && catalogueDeliveryGroup(payload);
+    const noGeneratedGroup = deliveryGroup && payload.counts.generate === 0;
+    if (deliveryGroup && (skippedJobItems.length || completedJobItems.length !== payload.counts.generate)) {
+      issues.push("Catalogue group must import every planned meaning; skipped items do not complete the group.");
+    }
+    if ((!job && !noGeneratedGroup) || wordIds.length !== completedJobItems.length) {
       issues.push(
         "Committed entry count does not match the approved import count.",
       );
@@ -1879,6 +1904,16 @@ export class ContentPackService {
         .map((batch: any) => Number(batch.batch_number)),
       manifest.generationPlan.batches,
     );
+    const deliveryGroup = catalogueDeliveryGroup(manifest);
+    const catalogueDelivery = deliveryGroup && manifest.formatVersion === CATALOGUE_CONTENT_MANIFEST_VERSION ? {
+      groupNumber: deliveryGroup.groupNumber,
+      totalGroups: Math.ceil(manifest.catalogueAudit.preparation.assessmentGroups.length / 10),
+      assessmentGroupIds: deliveryGroup.assessmentGroupIds,
+      recordsInGroup: manifest.catalogueAudit.recordReviews.length,
+      sourceRecords: manifest.catalogueAudit.preparation.source.recordCount,
+      sourceComplete: deliveryGroup.groupNumber === Math.ceil(manifest.catalogueAudit.preparation.assessmentGroups.length / 10) &&
+        row.status === 'completed' && readJson<any>(row.verification_report, {}).verified === true,
+    } : undefined;
     return {
       id: row.id,
       sourceName: row.source_name,
@@ -1888,6 +1923,7 @@ export class ContentPackService {
       claimed: Boolean(row.owner_user_id),
       counts: readJson(row.counts, {}),
       coverage: manifest.coverage,
+      ...(catalogueDelivery ? {catalogueDelivery} : {}),
       generation: {
         plannedBatches: planned,
         receivedBatches: received,

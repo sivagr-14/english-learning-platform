@@ -47,6 +47,13 @@ export const CatalogueEvidenceSchema = z.object({
 }).strict();
 
 export const CatalogueAuditSchema = z.object({
+  deliveryGroup: z.object({
+    policyId: z.literal("wordup-delivery-groups-v1"),
+    ownerUserId: z.string().uuid(),
+    groupNumber: z.number().int().positive(),
+    assessmentGroupIds: z.array(id).min(1).max(10),
+    previousGroup: z.object({ manifestId: id, manifestHash: hash }).strict().nullable(),
+  }).strict().optional(),
   examplePolicy: z.literal("catalogue-usage-types-v1").optional(),
   // Current selection is separate from the immutable historical preparation.
   selectionPolicy: CatalogueSelectionPolicySchema,
@@ -86,6 +93,16 @@ export const CatalogueAuditSchema = z.object({
   }).strict()).min(1).max(100000),
 }).strict();
 
+export type CatalogueAudit = z.infer<typeof CatalogueAuditSchema>;
+
+/** Preserve original assessment IDs/order; never repartition source records. */
+export function catalogueAssessmentGroups(audit: CatalogueAudit) {
+  const groups = audit.preparation.assessmentGroups;
+  if (!audit.deliveryGroup) return groups;
+  const offset = (audit.deliveryGroup.groupNumber - 1) * 10;
+  return groups.slice(offset, offset + 10);
+}
+
 // The Python preparation tool uses ordinal key sorting, not localeCompare.
 export function catalogueHash(value: unknown): string {
   const canonical = (item: any): string => Array.isArray(item)
@@ -105,12 +122,30 @@ export function catalogueAuditIssues(audit: z.infer<typeof CatalogueAuditSchema>
   const meanings = new Map(candidates.map(candidate => [candidate.candidateId, candidate]));
   const normalize = (term: string) => term.normalize("NFKC").trim().toLowerCase().replace(/\s+/g, " ");
   const unique = (items: string[]) => new Set(items).size === items.length;
+  const selectedGroups = catalogueAssessmentGroups(audit);
+  const selectedRecords = new Set(selectedGroups.flatMap(group => group.recordIds));
+  if (audit.deliveryGroup) {
+    const group = audit.deliveryGroup;
+    if (audit.examplePolicy !== "catalogue-usage-types-v1") issues.push("catalogue: delivery groups require the usage-type example policy");
+    if (!selectedGroups.length || JSON.stringify(group.assessmentGroupIds) !== JSON.stringify(selectedGroups.map(item => item.groupId))) {
+      issues.push("catalogue: delivery group must select its exact ordered original assessment groups");
+    }
+    if (preparation.assessmentGroups.some((item, index) => item.recordIds.length !== 100 && index !== preparation.assessmentGroups.length - 1)) {
+      issues.push("catalogue: delivery groups require original 100-record assessment groups, with only the last allowed shorter");
+    }
+    if ((group.groupNumber === 1) !== (group.previousGroup === null)) issues.push("catalogue: only the first delivery group may omit its predecessor");
+    if (candidates.some(candidate => candidate.senseDecision === "ambiguous")) issues.push("catalogue: resolve every ambiguous meaning before freezing a delivery group");
+    if (candidates.some(candidate => candidate.decision === "generate" &&
+        (candidate.senseDecision !== "new_sense" || candidate.operation !== "new" || candidate.matchedWordId))) {
+      issues.push("catalogue: delivery groups generate new senses only; preserve existing senses through existing decisions");
+    }
+  }
   if (catalogueHash(payload) !== preparationHash) issues.push("catalogue: preparation hash mismatch");
   if (preparation.source.sha256 !== sourceHash) issues.push("catalogue: source hash mismatch");
   if (records.size !== preparation.records.length) issues.push("catalogue: duplicate record IDs");
   if (reviews.size !== recordReviews.length) issues.push("catalogue: duplicate record reviews");
-  if (reviews.size !== records.size || [...records.keys()].some(key => !reviews.has(key)) || [...reviews.keys()].some(key => !records.has(key))) {
-    issues.push("catalogue: review every prepared record exactly once");
+  if (reviews.size !== selectedRecords.size || [...selectedRecords].some(key => !reviews.has(key)) || [...reviews.keys()].some(key => !selectedRecords.has(key))) {
+    issues.push("catalogue: review every prepared record in the selected scope exactly once");
   }
   const expectedCounts = {
     records: records.size, groupedRecords: records.size, untracked: 0,

@@ -631,7 +631,8 @@ coordinator validates and writes checkpoints. A staged worker result is not a
 completed assessment. The queue itself does not launch AI. The ChatGPT coordinator launches workers;
 `yarn catalogue:parallel` provides guarded scope-result merging into the historical
 assessment database as documented in `docs/CATALOGUE_PARALLEL_ASSESSMENT.md`. All eligible meanings, sense-specific evidence,
-taxonomy and owner matches must reconcile before manifest freeze. Defer full
+taxonomy and owner matches must reconcile before manifest freeze for the whole
+legacy source or the exact versioned delivery-group scope. Defer full
 eight-section lessons until then; continue multiple consecutive units per run and
 persist exact next work. Preserve every production validation and database
 read-back gate. Measure throughput before promising a completion date.
@@ -666,5 +667,24 @@ Semantic review must confirm that every label fits its sentence and assessed
 meaning; passing structural validation alone does not establish this. Run the
 production validator with the immutable manifest present. The policy does not
 permit generation before the workflow's source, scope, taxonomy and owner-match
-gates have passed, and does not activate the proposed incremental group pipeline.
+gates have passed. The separate versioned delivery-group contract governs
+partial-source execution; example policy alone grants no such exception.
 
+
+### Catalogue delivery-group scope
+
+Follow `wordup-delivery-groups-v1` in the canonical workflow. Preserve the full
+immutable preparation, the original 100-record assessment groups, candidate
+identities and finalized decisions. Complete the earliest 1,000-record delivery
+group (or final remainder), including all useful additional senses, source holds,
+taxonomy and owner matches. Generate full eight-section lessons only after that
+complete scope passes production validation. All new group manifests require
+`catalogue-usage-types-v1`, `supportedUsageTypes` and `usageTypeReason`.
+
+Use the verified signed-in owner ID and preceding app receipt. Existing senses
+remain existing decisions, never replacement lessons. Preserve accurate Tamil
+and pronunciation, source-specific usage, and one labelled natural example per
+supported type (maximum three). Keep required examples in the other sections.
+A generated or delivered batch is not an imported batch; the local backend must
+verify PostgreSQL read-back before the next delivery group is accepted. Continue
+consecutive missing units automatically and retain all durable receipts.

@@ -449,7 +449,9 @@ run capacity remains, continue directly into the lesson-batch drain loop.
 ### Manifest-first incremental delivery
 
 For every large source, freeze, validate and deliver the complete manifest
-before generating the first lesson batch. Each valid batch is a separate,
+before generating the first lesson batch. The versioned catalogue delivery-group
+contract below is the sole exception: it requires a fully reconciled original
+1,000-record window and the complete unchanged preparation. Each valid batch is a separate,
 durable receipt and may be delivered in a later ChatGPT turn. Before a run
 ends, finish and validate the current batch; never discard already delivered
 batches or replace the manifest. The application derives the exact received
@@ -785,7 +787,8 @@ external signature. Do not import `learnStateInt` as learner progress.
 
 Use one catalogue coverage page/chunk per prepared assessment group, in order,
 with its exact group ID. `catalogueAudit.recordReviews` accounts for every raw
-record exactly once. Each assessed record links all its reviewed meaning
+record in the manifest scope exactly once. Legacy catalogue manifests cover the
+whole preparation; versioned delivery groups cover their exact original window. Each assessed record links all its reviewed meaning
 candidates. Whole-record rejection is limited to noise, malformed records and
 proper names, with an explicit reason/code. Obvious basic standalone words and predictable phrases may be `scope_excluded`,
 with `scopeExclusionCode` basic_obvious or predictable_combination, linked
@@ -832,8 +835,9 @@ be used here. The app labels this field **Teaching Example**, including on
 meaning cards. The legacy JSON field remains `source_sentence` for storage
 compatibility; that field name does not imply a source quotation in this format.
 
-Freeze the entire reconciled record-and-meaning ledger before generating any
-lessons. Use the fewest balanced batches of at most 100 meanings (50–100 per
+For legacy catalogue manifests, freeze the entire reconciled record-and-meaning
+ledger before generating any lessons. New versioned delivery-group manifests may
+freeze their complete reconciled window under the safeguards below. Use the fewest balanced batches of at most 100 meanings (50–100 per
 batch above 100). Deliver through the existing content inbox, transaction,
 permanent-sense allocation, progress-preservation and PostgreSQL read-back
 verification path. Replays retain the same immutable identities. The full
@@ -966,7 +970,53 @@ Validate the complete manifest and batch files together with the production
 `content-packs:validate` command. A batch without its valid immutable manifest
 must fail standalone validation. The local backend derives the permitted type
 set from the persisted manifest; a lesson or manual import cannot grant itself
-the one-example exception. This rule does not activate the proposed 1,000-record
-group pipeline or relax global reconciliation, ownership, identity or read-back
-requirements.
+the one-example exception. The separate delivery-group contract below governs
+1,000-record scopes; example policy alone grants no partial-source exception.
 
+
+## Ordered catalogue delivery groups
+
+Use `catalogueAudit.deliveryGroup.policyId: "wordup-delivery-groups-v1"` only
+with the deployed backend/validator that implements this contract. This is an
+explicit exception to the catalogue-wide freeze rule, never to the full review
+of the selected scope. Retain the complete unchanged preparation and all source
+hashes in each manifest. Ten consecutive original 100-record assessment groups
+form one delivery group; only the final group can be shorter. WordUp's 422 groups
+therefore form 42 groups of 1,000 and one final group of 200 records.
+
+The deliveryGroup object contains the signed-in `ownerUserId`, `groupNumber`
+(starting at 1), exact ordered `assessmentGroupIds`, and `previousGroup`: null
+for group 1, otherwise the preceding immutable `manifestId` and `manifestHash`.
+Do not invent an owner ID or import receipt. Read them from the local app.
+Review every selected record exactly once, resolve every source hold and
+provisional meaning, complete useful-sense inventory or justified scope exclusion,
+map taxonomy and reconcile owner-specific matches before freezing a new manifest.
+Keep all original candidate identities and final decisions. The manifest's
+coverage pages are local 1..N, while chunk IDs remain the original assessment IDs.
+The backend retains their original global source-segment sequence numbers.
+
+All group manifests require `catalogue-usage-types-v1`. Generate only new senses;
+represent an existing sense as `existing` with the verified owner-scoped word ID.
+Never regenerate it to update its lesson or progress. The backend serializes
+claims for each owner/source, rejects duplicate or missing groups, changed
+preparations and reused candidate IDs, and checks every predecessor against its
+own successful PostgreSQL read-back receipt. It rechecks current senses under a
+term lock both at claim and commit. A concurrent match blocks the new import
+without overwriting the existing sense. Resolve the conflict explicitly; never
+change the frozen payload or silently quarantine a planned group lesson.
+
+Deliver each complete immutable manifest and all its planned balanced batches
+to chatgpt-content-inbox through the connected GitHub App; verify remote byte
+hashes. The signed-in backend drains staged groups in order, preserving batch
+receipts, and verifies PostgreSQL rows before allowing the next group. A group
+with only existing/filtered/rejected meanings has zero lesson batches and still
+requires a verified accounting receipt. Skipped or missing planned lessons never
+complete a group. Existing immutable manifests and receipts remain untouched.
+
+Reuse the existing assessment queue and content-pack ledger; do not create a
+competing queue. Resume from receipts and the first unresolved decision or missing
+batch, with bounded retries and guarded checkpoint replacement. Complete
+consecutive missing units without routine confirmation. Report source records,
+reviewed meanings, finalized meanings, generated, validated, remotely verified
+and PostgreSQL-imported lessons separately. One completed group is not catalogue
+completion: all 43 group receipts must reconcile before the source is complete.
