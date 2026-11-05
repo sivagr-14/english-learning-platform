@@ -27,7 +27,8 @@ describe('catalogue usage-type policy', () => {
     const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'catalogue-example-policy-'));
     const {manifest, batch} = typedPack();
     const script = path.resolve(__dirname, '../scripts/validate-content-packs.ts');
-    const validate = () => spawnSync(process.execPath, ['--import', require.resolve('tsx'), script, directory], {encoding: 'utf8'});
+    const validate = () => spawnSync(process.execPath, [require.resolve('ts-node/dist/bin'),
+      '--transpile-only', '--project', path.resolve(__dirname, '../../tsconfig.json'), script, directory], {encoding: 'utf8'});
     try {
       fs.writeFileSync(path.join(directory, 'manifest.json'), JSON.stringify(manifest));
       fs.writeFileSync(path.join(directory, 'batch.json'), JSON.stringify(batch));
