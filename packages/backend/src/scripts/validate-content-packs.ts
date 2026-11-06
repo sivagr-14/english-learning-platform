@@ -35,6 +35,10 @@ function main() {
     item.value?.formatVersion?.includes("batch"),
   )) {
     const manifest = manifests.get(document.value?.manifestId);
+    if (!manifest) {
+      errors.push(`${document.path}: a valid immutable manifest must accompany every batch`);
+      continue;
+    }
     const result = validateContentBatch(document.value, manifest);
     if (!result.valid)
       errors.push(`${document.path}: ${result.issues.join("; ")}`);
@@ -55,3 +59,4 @@ try {
   console.error(error instanceof Error ? error.message : String(error));
   process.exitCode = 1;
 }
+

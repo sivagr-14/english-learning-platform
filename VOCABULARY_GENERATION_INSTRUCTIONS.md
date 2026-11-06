@@ -642,3 +642,29 @@ receipts, not by a configured worker count. Scope-screening receipts remain
 separate from finalized meaning decisions, group reconciliation and complete
 eight-section lessons. Retain all existing provenance, Tamil, quality and import
 gates; do not use increased concurrency to reduce individual language review.
+
+# Catalogue usage-type examples
+
+For new catalogue manifests, declare `catalogueAudit.examplePolicy:
+"catalogue-usage-types-v1"`. Assess each generated meaning's supported `literal`,
+`abstract` and/or `figurative` usage types in `catalogueEvidence.supportedUsageTypes`
+and explain the choice in `usageTypeReason`. Use only genuinely supported types
+of the same contextual meaning; do not invent a figurative use or merge separate
+senses to reach a number.
+
+In `natural_examples.examples`, use each supported type as a key and one natural
+sentence as its value. Provide exactly one example per supported type, maximum
+three per meaning. All sentences must explicitly demonstrate the target term and
+must differ from each other. This versioned catalogue rule replaces the general
+minimum of two natural examples for these manifests only. Preserve all eight
+sections, accurate Tamil and pronunciation, the authored teaching example,
+mini-conversation and memory/practice examples required elsewhere in the lesson.
+Legacy frozen catalogue packs and document, topic and manual imports keep their
+existing rules. Never change a frozen manifest to add the new policy.
+
+Semantic review must confirm that every label fits its sentence and assessed
+meaning; passing structural validation alone does not establish this. Run the
+production validator with the immutable manifest present. The policy does not
+permit generation before the workflow's source, scope, taxonomy and owner-match
+gates have passed, and does not activate the proposed incremental group pipeline.
+

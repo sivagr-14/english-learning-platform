@@ -5,6 +5,8 @@ import {
   assertVocabularyLessonCompliant,
   vocabularyExpressionCompatibilityIssues,
   VocabularyLessonSchema,
+  CatalogueVocabularyLessonSchema,
+  CatalogueUsageType,
 } from "../data/vocabulary-lesson-template";
 import {
   normalizeSenseKey,
@@ -880,8 +882,13 @@ const TopicContentBatchSchema = LegacyContentBatchSchema.omit({
   })
   .strict();
 
-const CatalogueContentBatchSchema = LegacyContentBatchSchema.omit({ formatVersion: true })
-  .extend({ formatVersion: z.literal(CATALOGUE_CONTENT_BATCH_VERSION) }).strict();
+const CatalogueContentBatchSchema = LegacyContentBatchSchema.omit({ formatVersion: true, entries: true })
+  .extend({
+    formatVersion: z.literal(CATALOGUE_CONTENT_BATCH_VERSION),
+    entries: z.array(GeneratedPackEntrySchema.extend({
+      lesson: z.union([VocabularyLessonSchema, CatalogueVocabularyLessonSchema]),
+    }).strict()).min(1).max(100),
+  }).strict();
 
 export const ContentBatchSchema = z.union([
   LegacyContentBatchSchema,
@@ -895,6 +902,16 @@ export const ContentBatchSchema = z.union([
 
 export type ContentManifest = z.infer<typeof ContentManifestSchema>;
 export type ContentBatch = z.infer<typeof ContentBatchSchema>;
+
+// Call only after manifest validation; this context must not come from a lesson.
+export function catalogueUsageTypesForCandidate(
+  manifest: ContentManifest, candidateId: string,
+): CatalogueUsageType[] | undefined {
+  if (manifest.formatVersion !== CATALOGUE_CONTENT_MANIFEST_VERSION ||
+      manifest.catalogueAudit.examplePolicy !== "catalogue-usage-types-v1") return undefined;
+  return manifest.candidates.find(candidate => candidate.candidateId === candidateId)
+    ?.catalogueEvidence.supportedUsageTypes;
+}
 
 export interface PackValidationResult<T> {
   valid: boolean;
@@ -1714,6 +1731,7 @@ export function validateContentBatch(
       }
       try {
         assertVocabularyLessonCompliant(entry.lesson, candidate.term, {
+          trustedCatalogueUsageTypes: catalogueUsageTypesForCandidate(manifest, candidate.candidateId),
           trustedSourceSentence:
             !catalogue && isSenseAwareManifest(manifest) && "senseEvidence" in candidate
               ? candidate.senseEvidence.sentence
@@ -1740,4 +1758,5 @@ export function parseContentPack(rawText: string): unknown {
     throw new Error("The content pack is not valid JSON.");
   }
 }
+
 

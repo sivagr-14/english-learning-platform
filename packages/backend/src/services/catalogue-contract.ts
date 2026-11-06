@@ -1,5 +1,6 @@
 import { createHash } from "crypto";
 import { z } from "zod";
+import { CatalogueUsageTypeSchema } from "../data/vocabulary-lesson-template";
 
 const hash = z.string().regex(/^[a-f0-9]{64}$/);
 const id = z.string().min(3).max(140).regex(/^[a-zA-Z0-9][a-zA-Z0-9._:-]*$/);
@@ -27,6 +28,9 @@ export const CatalogueSelectionPolicySchema = z.object({
 }).strict();
 
 export const CatalogueEvidenceSchema = z.object({
+  supportedUsageTypes: z.array(CatalogueUsageTypeSchema).min(1).max(3)
+    .refine(types => new Set(types).size === types.length, "usage types must be unique").optional(),
+  usageTypeReason: note.optional(),
   recordIds: z.array(id).min(1).max(100000),
   meaningOrigin: z.enum(["supplied_definition", "additional_meaning"]),
   exampleOrigin: z.literal("authored_for_learning"),
@@ -43,6 +47,7 @@ export const CatalogueEvidenceSchema = z.object({
 }).strict();
 
 export const CatalogueAuditSchema = z.object({
+  examplePolicy: z.literal("catalogue-usage-types-v1").optional(),
   // Current selection is separate from the immutable historical preparation.
   selectionPolicy: CatalogueSelectionPolicySchema,
   preparation: z.object({
@@ -150,6 +155,13 @@ export function catalogueAuditIssues(audit: z.infer<typeof CatalogueAuditSchema>
   }
   for (const candidate of candidates) {
     const evidence = candidate.catalogueEvidence;
+    if (audit.examplePolicy && candidate.decision === "generate" &&
+        (!evidence.supportedUsageTypes?.length || !evidence.usageTypeReason)) {
+      issues.push(`${candidate.candidateId}: usage-type policy requires supported types and a sense-specific reason`);
+    }
+    if (!audit.examplePolicy && (evidence.supportedUsageTypes || evidence.usageTypeReason)) {
+      issues.push(`${candidate.candidateId}: usage-type evidence requires the catalogue example policy`);
+    }
     if (!unique(evidence.recordIds)) issues.push(`${candidate.candidateId}: duplicate record references`);
     for (const key of evidence.recordIds) {
       const record = records.get(key);
@@ -173,4 +185,5 @@ export function catalogueAuditIssues(audit: z.infer<typeof CatalogueAuditSchema>
   }
   return issues;
 }
+
 
