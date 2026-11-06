@@ -63,7 +63,10 @@ For a saved assessment, add `--assessment /path/to/assessment.sqlite` to `plan`.
 
 ## Remaining delivery gates
 
-1. Finish semantic review of every record and reconcile final decisions.
+1. Finish semantic review of every record in the manifest scope and reconcile
+   final decisions. The versioned `wordup-delivery-groups-v1` workflow permits
+   exact 1,000-record windows while retaining the full unchanged preparation;
+   legacy catalogue manifests still require global reconciliation.
 2. Use the dedicated catalogue manifest/batch contracts, binding
    each candidate to its original record and definition. Persist and visibly
    label authored-example provenance on the lesson screen. Keep document
@@ -76,3 +79,4 @@ For a saved assessment, add `--assessment /path/to/assessment.sqlite` to `plan`.
 The preparation output reports `importReady: false` until those later stages
 exist and pass. Do not describe 42,200 prepared records as 42,200 assessed or
 approved lessons.
+

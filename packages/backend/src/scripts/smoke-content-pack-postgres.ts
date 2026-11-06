@@ -1,6 +1,7 @@
 import assert from "assert";
 import { randomUUID } from "crypto";
 import { cataloguePackFixture } from "../services/catalogue-pack.fixture";
+import { catalogueDeliveryFixture } from "../services/catalogue-delivery.fixture";
 import { STARTER_SAMPLES } from "../data/starter-samples";
 import { contentPackHash } from "../services/content-pack-contract";
 import { ContentPackService } from "../services/content-pack.service";
@@ -298,6 +299,62 @@ async function main() {
     const replayMeanings = await database("vocabulary_words").where({ owner_user_id: owner.id, normalized_term: "charge" }).orderBy("sense_rank").select("id");
     assert.deepEqual(replayMeanings.map((word: any) => word.id), meanings.map((word: any) => word.id));
 
+    // Synthetic group integration: actual PostgreSQL concurrency, receipts,
+    // unchanged existing senses/progress, and original source-segment order.
+    const grouped = catalogueDeliveryFixture(otherUser.id);
+    grouped.manifest.manifestId = `catalogue-group-${suffix}-1`;
+    grouped.batch.manifestId = grouped.manifest.manifestId;
+    grouped.batch.batchId = `${grouped.manifest.manifestId}-001`;
+    grouped.batch.manifestHash = contentPackHash(grouped.manifest);
+    const competing = JSON.parse(JSON.stringify(grouped));
+    competing.manifest.manifestId = `catalogue-group-${suffix}-competing`;
+    competing.batch.manifestId = competing.manifest.manifestId;
+    competing.batch.batchId = `${competing.manifest.manifestId}-001`;
+    competing.batch.manifestHash = contentPackHash(competing.manifest);
+    const groupDocs = [grouped, competing].flatMap(pack => [
+      {path: `${pack.manifest.manifestId}/manifest.json`, content: JSON.stringify(pack.manifest)},
+      {path: `${pack.manifest.manifestId}/batch-001.json`, content: JSON.stringify(pack.batch)},
+    ]);
+    assert.deepEqual((await service.ingestDocuments(groupDocs)).errors, []);
+    await assert.rejects(() => service.claimManifest(owner.id, grouped.manifest.manifestId), /another account/);
+    const claims = await Promise.allSettled([grouped, competing].map(pack => service.claimManifest(otherUser.id, pack.manifest.manifestId)));
+    assert.equal(claims.filter(result => result.status === 'fulfilled').length, 1, 'only one competing group manifest may claim the source window');
+    const winner = [grouped, competing][claims.findIndex(result => result.status === 'fulfilled')];
+    assert.deepEqual(await service.verifyManifest(otherUser.id, winner.manifest.manifestId), {verified: true, entries: 3, issues: []});
+    const importedGroupWords = await database('vocabulary_words').where({owner_user_id: otherUser.id, normalized_term: 'charge'}).orderBy('sense_rank');
+    assert.equal(importedGroupWords.length, 3);
+    await database('user_progress').where({user_id: otherUser.id, word_id: importedGroupWords[0].id}).update({times_reviewed: 9});
+
+    const second = catalogueDeliveryFixture(otherUser.id, 2);
+    second.manifest.manifestId = `catalogue-group-${suffix}-2-stale`;
+    second.manifest.catalogueAudit.deliveryGroup.previousGroup = {manifestId: winner.manifest.manifestId, manifestHash: contentPackHash(winner.manifest)};
+    assert.deepEqual((await service.ingestDocuments([{path: 'group-two-stale/manifest.json', content: JSON.stringify(second.manifest)}])).errors, []);
+    await assert.rejects(() => service.claimManifest(otherUser.id, second.manifest.manifestId), /fresh owner-specific sense decision/);
+    second.manifest.manifestId = `catalogue-group-${suffix}-2`;
+    second.manifest.candidates.forEach((candidate: any) => {
+      const existing = importedGroupWords.find((word: any) => word.sense_key === candidate.senseKey);
+      assert(existing, 'each repeated meaning has an owner-scoped prior sense');
+      candidate.decision = 'existing'; candidate.senseDecision = 'same_sense'; candidate.matchedWordId = existing.id;
+      candidate.reason = 'Synthetic repeated source entry resolves to the exact verified owner-scoped sense.';
+      delete candidate.operation;
+    });
+    second.manifest.counts.generate = 0; second.manifest.counts.existing = 3;
+    second.manifest.generationPlan.batches = [];
+    const secondDocument = {path: 'group-two/manifest.json', content: JSON.stringify(second.manifest)};
+    assert.deepEqual((await service.ingestDocuments([secondDocument])).errors, []);
+    await service.claimManifest(otherUser.id, second.manifest.manifestId);
+    assert.deepEqual(await service.verifyManifest(otherUser.id, second.manifest.manifestId), {verified: true, entries: 0, issues: []});
+    assert.equal((await service.ingestDocuments([secondDocument])).unchanged, 1);
+    await service.claimManifest(otherUser.id, second.manifest.manifestId);
+    const afterGroups = await database('vocabulary_words').where({owner_user_id: otherUser.id, normalized_term: 'charge'}).orderBy('sense_rank');
+    assert.deepEqual(afterGroups.map((word: any) => [word.id, word.entry_version]), importedGroupWords.map((word: any) => [word.id, word.entry_version]));
+    assert.equal((await database('user_progress').where({user_id: otherUser.id, word_id: importedGroupWords[0].id}).first()).times_reviewed, 9);
+    const firstGroupRow = await database('content_pack_manifests').where({id: winner.manifest.manifestId}).first();
+    const groupSegments = await database('source_segments').where({source_id: firstGroupRow.source_id}).orderBy('sequence_number');
+    assert.deepEqual(groupSegments.map((row: any) => row.sequence_number), Array.from({length: 12}, (_, i) => i + 1));
+    const finalLocator = typeof groupSegments[11].locator === 'string' ? JSON.parse(groupSegments[11].locator) : groupSegments[11].locator;
+    assert.equal(finalLocator.chunkId, 'group-00012');
+
     console.log(
       JSON.stringify({
         status: "passed",
@@ -309,6 +366,9 @@ async function main() {
         threeLevelTaxonomyReadBack: "passed",
         catalogueMeanings: 3,
         authoredExampleReadBack: "passed",
+        catalogueGroupConcurrency: "passed",
+        catalogueGroupReadBack: "passed",
+        catalogueGroupProgressPreservation: "passed",
       }),
     );
   } finally {
@@ -325,4 +385,5 @@ main()
     await closeRedis();
     await database.destroy();
   });
+
 
