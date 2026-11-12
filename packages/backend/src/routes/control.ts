@@ -15,9 +15,14 @@ import { database } from "../utils/db";
 import { SourceRequestJobService } from "../services/source-request-job.service";
 import { buildPortableTopicRequest } from "../services/topic-request.service";
 
+import { ContentPackWorker } from "../services/content-pack-worker";
+import { readJson } from "../utils/json";
+import { logger } from "../utils/logger";
+
 const router: Router = express.Router();
 const service = new AssessmentControlService(database);
 const contentPacks = new ContentPackService(database);
+export const contentPackWorker = new ContentPackWorker((userId, resumeOwnedOnly) => contentPacks.processAvailableManifests(userId, resumeOwnedOnly));
 const sourceRequestJobs = new SourceRequestJobService(database);
 const controlRateLimiter = rateLimit({
   windowMs: 60_000,
@@ -127,6 +132,7 @@ router.post(
     try {
       const input = z
         .object({
+          background: z.boolean().optional(),
           fetchedCommit: z.string().regex(/^[0-9a-f]{40}$/i).optional(),
         })
         .default({})
@@ -156,9 +162,12 @@ router.post(
           });
         }
       }
-      const processed = await contentPacks.processAvailableManifests(
-        req.userId!,
-      );
+      const pending = contentPackWorker.run(req.userId!);
+      if (input.background) {
+        void pending.catch(error => logger.error("Background content import failed", error));
+        return res.status(202).json({outcome: "importing", staged});
+      }
+      const processed = await pending;
       res.json({
         ...processed,
         staged,
@@ -178,6 +187,17 @@ router.post(
     }
   },
 );
+
+router.get("/content-packs/queue-status", async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+  try {
+    const rows = await database("content_pack_manifests")
+      .where({owner_user_id: req.userId!, inbox_branch: "chatgpt-content-inbox", status: "completed"})
+      .whereNull("inbox_cleaned_at").whereNotNull("last_verified_at")
+      .select("id", "verification_report");
+    res.json({running: contentPackWorker.isRunning(req.userId!), cleanupEligible: rows
+      .filter(row => readJson<any>(row.verification_report, {}).verified === true).map(row => row.id)});
+  } catch (error) { next(error); }
+});
 
 router.get(
   "/content-packs/:id",
@@ -293,3 +313,4 @@ router.post(
 );
 
 export default router;
+

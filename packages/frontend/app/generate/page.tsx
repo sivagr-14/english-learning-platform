@@ -32,6 +32,7 @@ interface PackManifest {
   claimed: boolean;
   counts: PackCounts;
   generation: {
+    batchStatuses?: Array<{batchNumber: number; delivery: string; localImport: string; verifiedAt: string | null}>;
     plannedBatches: number;
     receivedBatches: number;
     missingBatches: number;
@@ -146,6 +147,8 @@ export default function ChatGPTImportsPage() {
 
   useEffect(() => {
     void load();
+    const timer = window.setInterval(() => void load(), 10000);
+    return () => window.clearInterval(timer);
   }, [load]);
 
   const remoteSync = useCallback(async () => {
@@ -690,6 +693,19 @@ export default function ChatGPTImportsPage() {
                       ))}
                     </dl>
 
+                    {!!manifest.generation.batchStatuses?.length && (
+                      <div className="mt-5 overflow-x-auto">
+                        <table className="w-full text-left text-sm">
+                          <thead><tr><th className="py-2">Batch</th><th>Delivery</th><th>Local import</th></tr></thead>
+                          <tbody>{manifest.generation.batchStatuses.map(batch => (
+                            <tr key={batch.batchNumber} className="border-t border-slate-100">
+                              <td className="py-2">{batch.batchNumber}</td><td>{batch.delivery}</td><td>{batch.localImport}</td>
+                            </tr>
+                          ))}</tbody>
+                        </table>
+                      </div>
+                    )}
+
                     <div className="mt-5 rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
                       <p className="font-semibold text-slate-950">
                         Exact next action
@@ -830,3 +846,4 @@ export default function ChatGPTImportsPage() {
     </AuthenticatedPage>
   );
 }
+

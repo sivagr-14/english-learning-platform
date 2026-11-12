@@ -1,18 +1,24 @@
 {
   "schemaVersion": 1,
-  "releaseId": "catalogue-delivery-groups-20261105-v1",
+  "releaseId": "offline-import-queue-20261112-v1",
   "sources": [
     {
       "canonicalPath": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
       "projectSourcePath": "chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md",
-      "sha256": "6f6940a642d9d2f13454bc71f11ab2b8906be95fc357f765a406869b2c2ad375",
-      "sizeBytes": 62916
+      "sha256": "ff3272bafcb69b5e87385b27323d5344ea237a68065539cd09010e930951ca7d",
+      "sizeBytes": 63925
     },
     {
       "canonicalPath": "VOCABULARY_GENERATION_INSTRUCTIONS.md",
       "projectSourcePath": "chatgpt-sources/02-VOCABULARY_GENERATION_INSTRUCTIONS.md",
-      "sha256": "57cf2b2c6b5fa49876ed58c39b73d4e2a082f9c22487868624a621b9eb122e13",
-      "sizeBytes": 38171
+      "sha256": "49908f693ebb4e155021da408a8bd1cb0587c8d410f9967caa00fea2338cdd25",
+      "sizeBytes": 38923
+    },
+    {
+      "canonicalPath": "docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md",
+      "projectSourcePath": "chatgpt-sources/03_OFFLINE_IMPORT_AND_EXECUTION_POLICY.md",
+      "sha256": "87151590b10c3ddd0ee36033c8a832c6713fe121cea249ad38c49649db4ccb5e",
+      "sizeBytes": 13340
     }
   ]
 }

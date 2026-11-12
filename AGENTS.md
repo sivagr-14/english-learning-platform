@@ -21,3 +21,10 @@
 - All remote GitHub operations use the connected GitHub App. Code changes require
   a PR; do not merge without current user authorization. Never commit private
   SQLite, source exports, credentials or learner progress.
+
+## Offline queue policy
+
+Always read docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md with the workflow and
+vocabulary contract. It overrides conflicting orchestration rules: advance
+online after complete Import-ready group delivery, not after local import.
+Keep production delivery and PostgreSQL verification counts separate.

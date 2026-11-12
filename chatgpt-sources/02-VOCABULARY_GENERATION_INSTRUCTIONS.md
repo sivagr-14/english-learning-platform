@@ -1,5 +1,18 @@
 # Vocabulary Lesson Generation Contract
 
+## Offline production and local imports (12 November 2026)
+
+Read `docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md` with this file. Its newer
+execution-order rules take precedence: complete each original 1,000-record
+group through validated, remotely confirmed **Import ready** delivery, then
+advance online even while the laptop is offline. Keep immutable predecessor
+manifest/hash links and complete delivery receipts; PostgreSQL receipts are
+required for local import ordering and final completion, not online generation.
+Use the prepared owner identity and vocabulary snapshot offline; never invent
+an owner or an existing-word ID. The backend rechecks current same-sense matches
+and reuses their rows without overwriting lessons or learner progress.
+
+
 For source assessment, page/chunk accounting, GitHub transport, automatic
 selection and batch rules, first follow `docs/CHATGPT_CONTENT_PACK_WORKFLOW.md`.
 This file defines the lesson payload inside each selected content-pack batch.

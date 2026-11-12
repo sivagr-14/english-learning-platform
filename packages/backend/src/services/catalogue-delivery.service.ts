@@ -76,5 +76,19 @@ export async function guardCatalogueGroupClaim(trx: any, userId: string, manifes
     verifiedAt: row.last_verified_at, verification: readJson(row.verification_report, {}),
   }));
   const issues = catalogueGroupClaimIssues(manifest, userId, claimed);
-  if (issues.length) throw Object.assign(new Error(issues.join(' ')), {status: 409});
+  if (issues.length) {
+    // A missing/unverified predecessor is normal when production runs offline.
+    // Never downgrade ownership, hash, preparation or identity failures.
+    const group = catalogueDeliveryGroup(manifest)!;
+    const prior = claimed.filter(item => item.manifest.source.contentHash === manifest.source.contentHash);
+    const immediate = prior.find(item => catalogueDeliveryGroup(item.manifest)?.groupNumber === group.groupNumber - 1);
+    const waiting = issues.every(issue => [
+      'Claim only the first missing catalogue delivery group.',
+      'Every earlier catalogue group requires a complete PostgreSQL read-back receipt.',
+      'Catalogue predecessor ID and hash must match the verified app receipt.',
+    ].includes(issue)) && prior.every(item =>
+      (catalogueDeliveryGroup(item.manifest)?.groupNumber || 0) < group.groupNumber) &&
+      (!immediate || !issues.includes('Catalogue predecessor ID and hash must match the verified app receipt.'));
+    throw Object.assign(new Error(issues.join(' ')), {status: 409, ...(waiting ? {code: 'CATALOGUE_PREDECESSOR_PENDING'} : {})});
+  }
 }

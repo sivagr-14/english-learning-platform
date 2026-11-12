@@ -9,6 +9,15 @@ const AUTOMATIC_CONTENT_SYNC_INTERVAL_MS = 5 * 60 * 1000;
 let automaticContentSyncInFlight: Promise<void> | null = null;
 
 async function synchronizeChatGPTContent() {
+  const status = await getApiClient().get("/api/control/content-packs/queue-status");
+  const verified = status.data?.cleanupEligible || [];
+  if (verified.length) {
+    const cleanup = new URLSearchParams();
+    for (const manifestId of verified) cleanup.append("manifestId", manifestId);
+    await fetch(`/__control/cleanup-content?${cleanup.toString()}`, {
+      method: "POST", headers: { "x-english-mastery-control": "1" },
+    });
+  }
   const fetched = await fetch("/__control/sync-content", {
     method: "POST",
     headers: { "x-english-mastery-control": "1" },
@@ -16,18 +25,10 @@ async function synchronizeChatGPTContent() {
   if (!fetched.ok) return;
   const transport = await fetched.json().catch(() => ({}));
   if (!transport.fetchedCommit) return;
-  const response = await getApiClient().post(
+  await getApiClient().post(
     "/api/control/content-packs/process",
-    { fetchedCommit: transport.fetchedCommit },
+    { fetchedCommit: transport.fetchedCommit, background: true },
   );
-  const verified = response.data?.cleanupEligible || [];
-  if (!verified.length) return;
-  const cleanup = new URLSearchParams();
-  for (const manifestId of verified) cleanup.append("manifestId", manifestId);
-  await fetch(`/__control/cleanup-content?${cleanup.toString()}`, {
-    method: "POST",
-    headers: { "x-english-mastery-control": "1" },
-  });
 }
 
 function runAutomaticContentSync() {
@@ -67,11 +68,12 @@ export default function AuthenticatedPage({
       });
     };
     synchronize();
+    window.addEventListener("online", synchronize);
     const timer = window.setInterval(
       synchronize,
       AUTOMATIC_CONTENT_SYNC_INTERVAL_MS,
     );
-    return () => window.clearInterval(timer);
+    return () => { window.clearInterval(timer); window.removeEventListener("online", synchronize); };
   }, [isAuthenticated, isHydrated]);
 
   if (!isHydrated || !isAuthenticated) {
@@ -84,3 +86,4 @@ export default function AuthenticatedPage({
 
   return <>{children}</>;
 }
+

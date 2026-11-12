@@ -7,6 +7,7 @@ import path from "path";
 import { logger } from "./utils/logger";
 import { errorHandler } from "./middleware/error.middleware";
 import { appRevision } from "./services/app-version.service";
+import { contentPackWorker } from "./routes/control";
 import { synchronizeContentPacks } from "./services/content-pack.service";
 import { database } from "./utils/db";
 import { getRedisClient } from "./utils/redis";
@@ -111,9 +112,12 @@ app.listen(Number(PORT), HOST, () => {
   logger.info(`Environment: ${process.env.NODE_ENV || "development"}`);
 
   logger.info("Vocabulary generation mode: ChatGPT content packs only");
-  void synchronizeContentPacks(database).catch((error: unknown) =>
-    logger.error("Could not synchronize local ChatGPT content packs", error),
-  );
+  const resumeImports = () => void contentPackWorker.recover(database).catch((error: unknown) =>
+    logger.error("Could not resume durable content imports", error));
+  void synchronizeContentPacks(database).then(resumeImports).catch((error: unknown) =>
+    logger.error("Could not synchronize local ChatGPT content packs", error));
+  const importRecoveryTimer = setInterval(resumeImports, 5 * 60 * 1000);
+  importRecoveryTimer.unref();
   // Redis was already provisioned in docker-compose.yml but nothing in the
   // app ever connected to it. This makes the connection real; every caller
   // (see utils/redis.ts) degrades gracefully if it's unreachable, so this
@@ -122,3 +126,4 @@ app.listen(Number(PORT), HOST, () => {
 });
 
 export default app;
+

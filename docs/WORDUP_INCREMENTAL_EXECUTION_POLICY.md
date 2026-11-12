@@ -2,6 +2,19 @@
 
 Status: **versioned implementation; deploy the validated runtime before using delivery groups**. The canonical workflow defines `wordup-delivery-groups-v1` and `catalogue-usage-types-v1`. Existing immutable manifests, receipts, learner progress and valid finalized decisions take precedence. Legacy catalogue manifests retain global reconciliation. Group-mode implementation and synthetic integration tests are not evidence that real WordUp lessons were generated, delivered or imported. Verify actual local PostgreSQL receipts separately.
 
+
+## Offline production and local imports (12 November 2026)
+
+Read `docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md` with this file. Its newer
+execution-order rules take precedence: complete each original 1,000-record
+group through validated, remotely confirmed **Import ready** delivery, then
+advance online even while the laptop is offline. Keep immutable predecessor
+manifest/hash links and complete delivery receipts; PostgreSQL receipts are
+required for local import ordering and final completion, not online generation.
+Use the prepared owner identity and vocabulary snapshot offline; never invent
+an owner or an existing-word ID. The backend rechecks current same-sense matches
+and reuses their rows without overwriting lessons or learner progress.
+
 ## Goal and source accounting
 
 Account for all 42,200 original WordUp records (34,004 words, 8,196 expressions), every source occurrence, eligible contextual sense and final disposition. Recover the latest durable checkpoint, not a stale reported count. A prior recovery baseline was checkpoint 77: 3,503 screened, 1,069 finalized meaning decisions, 637 provisional, 104 source holds, zero completed groups and zero imported lessons. Never reset, duplicate or overwrite existing progress. Do not equate scope screening with final semantic assessment.
@@ -16,7 +29,7 @@ For each eligible meaning, identify supported usage types: literal, abstract, fi
 
 ## Versioned incremental pipeline
 
-Process ordered groups of up to 1,000 original records, reusing original 100-record assessment IDs. Per group: (1) reconcile previous decisions and receipts; (2) screen unresolved records with up to three real parallel workers, at most 100 originals per assignment; (3) finalize source-backed contextual senses, CEFR, usage, taxonomy, deduplication and holds; (4) freeze a **new** immutable group manifest only when its complete group reconciliation and cross-group identity safeguards pass; (5) generate all planned eight-section simplified-v2 lessons in immutable batches of at most 100, typically 50–100; (6) production-validate, retry recoverable failures, deliver to chatgpt-content-inbox via the connected GitHub App, verify byte-for-byte; (7) import through the existing local backend and verify PostgreSQL read-back; (8) reconcile group completion and advance automatically. Global deduplication and immutable source evidence remain mandatory. Do not rewrite an existing manifest or valid batch. Avoid unbounded screening-only activity: prioritize completing the earliest incomplete group.
+Process ordered groups of up to 1,000 original records, reusing original 100-record assessment IDs. Per group: (1) reconcile previous decisions and receipts; (2) screen unresolved records with up to three real parallel workers, at most 100 originals per assignment; (3) finalize source-backed contextual senses, CEFR, usage, taxonomy, deduplication and holds; (4) freeze a **new** immutable group manifest only when its complete group reconciliation and cross-group identity safeguards pass; (5) generate all planned eight-section simplified-v2 lessons in immutable batches of at most 100, typically 50–100; (6) production-validate, retry recoverable failures, deliver to chatgpt-content-inbox via the connected GitHub App, verify byte-for-byte; (7) confirm every planned batch is Import ready and advance online automatically, even while the laptop is offline; (8) independently let the authenticated local backend import queued groups in order, verify PostgreSQL read-back and reconcile local completion. Global deduplication and immutable source evidence remain mandatory. Do not rewrite an existing manifest or valid batch. Avoid unbounded screening-only activity: prioritize completing the earliest incomplete group.
 
 ## Execution and authority
 
