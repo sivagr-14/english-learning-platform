@@ -1,5 +1,24 @@
 # Parallel catalogue scope assessment
 
+## Offline production and rolling delivery (13 November 2026)
+
+Read `docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md`, revision
+`rolling-production-20261113-v2`, as the newer catalogue orchestration authority.
+Screen ahead toward 10,000 original records while alternating lesson-production
+blocks; do not gate new screening on first-group delivery or local imports.
+Preserve original 1,000-record accounting groups and full quality/provenance.
+After one attempt and one targeted retry, track difficult candidate-specific
+items as Review deferred with evidence and next action, never as completed.
+Deliver resolved subsets and later linked supplements ONLY after the versioned
+contract/validator/importer capability gate in that policy passes. Existing
+frozen contracts retain their exact scope and immutable identities. Older
+whole-group sequencing below documents the legacy contract, not a prohibition
+on independent screening. Do not silently omit deferred items from exhaustive
+manifests. Queue validated delivery as Import ready while offline; only actual
+local PostgreSQL read-back proves import. Complete the final deferred-review
+sweep before claiming full completion. Preserve ownership and learner progress.
+
+
 This is the executable first-stage integration of the three-worker workflow.
 It does not call an AI provider. ChatGPT launches three isolated assessment
 agents after preparing their assignments. Only the coordinator writes the
@@ -85,3 +104,4 @@ The integration tests cover disjoint assignments, exact resume, legacy-review
 skipping, atomic round rollback, idempotency/conflicting replay, concurrent-review
 protection, sibling merges, expired leases and immutable source validation.
 Scope screening is not full semantic reconciliation or app import verification.
+

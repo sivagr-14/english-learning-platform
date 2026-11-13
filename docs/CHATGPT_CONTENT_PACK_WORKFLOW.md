@@ -1,16 +1,23 @@
 # ChatGPT-only vocabulary automation
 
-## Offline production and local imports (12 November 2026)
+## Offline production and rolling delivery (13 November 2026)
 
-Read `docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md` with this file. Its newer
-execution-order rules take precedence: complete each original 1,000-record
-group through validated, remotely confirmed **Import ready** delivery, then
-advance online even while the laptop is offline. Keep immutable predecessor
-manifest/hash links and complete delivery receipts; PostgreSQL receipts are
-required for local import ordering and final completion, not online generation.
-Use the prepared owner identity and vocabulary snapshot offline; never invent
-an owner or an existing-word ID. The backend rechecks current same-sense matches
-and reuses their rows without overwriting lessons or learner progress.
+Read `docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md`, revision
+`rolling-production-20261113-v2`, as the newer catalogue orchestration authority.
+Screen ahead toward 10,000 original records while alternating lesson-production
+blocks; do not gate new screening on first-group delivery or local imports.
+Preserve original 1,000-record accounting groups and full quality/provenance.
+After one attempt and one targeted retry, track difficult candidate-specific
+items as Review deferred with evidence and next action, never as completed.
+Deliver resolved subsets and later linked supplements ONLY after the versioned
+contract/validator/importer capability gate in that policy passes. Existing
+frozen contracts retain their exact scope and immutable identities. Older
+whole-group sequencing below documents the legacy contract, not a prohibition
+on independent screening. Do not silently omit deferred items from exhaustive
+manifests. Queue validated delivery as Import ready while offline; only actual
+local PostgreSQL read-back proves import. Complete the final deferred-review
+sweep before claiming full completion. Preserve ownership and learner progress.
+
 
 
 This is the supported no-API-key flow for the personal local application.
@@ -1044,3 +1051,4 @@ consecutive missing units without routine confirmation. Report source records,
 reviewed meanings, finalized meanings, generated, validated, remotely verified
 and PostgreSQL-imported lessons separately. One completed group is not catalogue
 completion: all 43 group receipts must reconcile before the source is complete.
+
