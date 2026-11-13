@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "featureId": "catalogue-subset-accounting",
+  "title": "Draft parent coverage validator; subset import remains gated",
+  "implementationPaths": [
+    "packages/backend/src/services/catalogue-subset-accounting.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/catalogue-subset-accounting.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "not_required",
+    "reason": "Internal draft accounting primitive is not wired into production schemas or import. Existing rolling policy capability gate remains unchanged."
+  }
+}
