@@ -1058,3 +1058,14 @@ and PostgreSQL-imported lessons separately. One completed group is not catalogue
 completion: all 43 group receipts must reconcile before the source is complete.
 
 
+
+
+## Resolved delivery contract for 500-record cycles
+
+The versioned `wordup-resolved-delivery-v1` implementation is documented in
+`docs/WORDUP_RESOLVED_DELIVERY.md`. Follow its exact parent-ledger, cycle,
+selection, base and late-supplement bindings when using resolved delivery.
+Legacy frozen manifests remain unchanged. Use the capability only after its
+contract tests and PostgreSQL integration checks pass on the delivery commit.
+This implements production-cycle-500-20261113-v3; it does not change lesson
+quality, offline delivery, or final deferred-review obligations.

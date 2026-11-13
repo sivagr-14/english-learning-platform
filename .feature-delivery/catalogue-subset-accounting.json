@@ -11,20 +11,20 @@
   "validationPaths": [
     "packages/backend/src/services/catalogue-subset-accounting.test.ts",
     "packages/backend/src/services/catalogue-resolved.test.ts",
-    "packages/backend/src/scripts/smoke-content-pack-postgres.ts"
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts",
+    "packages/backend/src/services/catalogue-resolved.fixture.ts"
   ],
   "chatgptInstructionImpact": {
     "status": "required",
     "instructionPaths": [
-      "docs/WORDUP_RESOLVED_DELIVERY.md"
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"
     ],
     "requiredMarkers": [
       {
-        "path": "docs/WORDUP_RESOLVED_DELIVERY.md",
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
         "contains": [
           "wordup-resolved-delivery-v1",
-          "production-cycle-500-20261113-v3",
-          "Late supplement",
+          "WORDUP_RESOLVED_DELIVERY.md",
           "PostgreSQL"
         ]
       }
