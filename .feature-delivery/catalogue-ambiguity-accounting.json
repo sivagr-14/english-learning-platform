@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "featureId": "catalogue-ambiguity-accounting",
+  "title": "Allow finalized bounded-ambiguity exclusions in complete catalogue groups",
+  "implementationPaths": [
+    "packages/backend/src/services/catalogue-contract.ts"
+  ],
+  "validationPaths": [
+    "packages/backend/src/services/catalogue-delivery.test.ts"
+  ],
+  "chatgptInstructionImpact": {
+    "status": "required",
+    "instructionPaths": [
+      "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/CHATGPT_CONTENT_PACK_WORKFLOW.md",
+        "contains": [
+          "ambiguous_context:",
+          "never put it in a generation batch"
+        ]
+      }
+    ]
+  }
+}

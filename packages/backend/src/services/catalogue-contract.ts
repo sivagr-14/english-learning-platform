@@ -134,7 +134,14 @@ export function catalogueAuditIssues(audit: z.infer<typeof CatalogueAuditSchema>
       issues.push("catalogue: delivery groups require original 100-record assessment groups, with only the last allowed shorter");
     }
     if ((group.groupNumber === 1) !== (group.previousGroup === null)) issues.push("catalogue: only the first delivery group may omit its predecessor");
-    if (candidates.some(candidate => candidate.senseDecision === "ambiguous")) issues.push("catalogue: resolve every ambiguous meaning before freezing a delivery group");
+    // A bounded ambiguity exclusion is a final accounting decision, not a lesson.
+    // Keep unresolved/generated senses blocked; the shared manifest validator
+    // still checks complete coverage and excludes filtered IDs from batch plans.
+    if (candidates.some(candidate => candidate.senseDecision === "ambiguous" &&
+        !(candidate.decision === "filtered" && !candidate.matchedWordId &&
+          /^ambiguous_context:\s+\S/.test(candidate.reason ?? "")))) {
+      issues.push("catalogue: ambiguous meanings require a final filtered ambiguous_context: explanation before freezing a delivery group");
+    }
     if (candidates.some(candidate => candidate.decision === "generate" &&
         (candidate.senseDecision !== "new_sense" || candidate.operation !== "new" || candidate.matchedWordId))) {
       issues.push("catalogue: delivery groups generate new senses only; preserve existing senses through existing decisions");
