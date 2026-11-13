@@ -3,23 +3,28 @@
 Status: **versioned implementation; deploy the validated runtime before using delivery groups**. The canonical workflow defines `wordup-delivery-groups-v1` and `catalogue-usage-types-v1`. Existing immutable manifests, receipts, learner progress and valid finalized decisions take precedence. Legacy catalogue manifests retain global reconciliation. Group-mode implementation and synthetic integration tests are not evidence that real WordUp lessons were generated, delivered or imported. Verify actual local PostgreSQL receipts separately.
 
 
-## Offline production and rolling delivery (13 November 2026)
+## Production-first 500-record cycles (13 November 2026)
 
-Read `docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md`, revision
-`rolling-production-20261113-v2`, as the newer catalogue orchestration authority.
-Screen ahead toward 10,000 original records while alternating lesson-production
-blocks; do not gate new screening on first-group delivery or local imports.
-Preserve original 1,000-record accounting groups and full quality/provenance.
-After one attempt and one targeted retry, track difficult candidate-specific
-items as Review deferred with evidence and next action, never as completed.
-Deliver resolved subsets and later linked supplements ONLY after the versioned
-contract/validator/importer capability gate in that policy passes. Existing
-frozen contracts retain their exact scope and immutable identities. Older
-whole-group sequencing below documents the legacy contract, not a prohibition
-on independent screening. Do not silently omit deferred items from exhaustive
-manifests. Queue validated delivery as Import ready while offline; only actual
-local PostgreSQL read-back proves import. Complete the final deferred-review
-sweep before claiming full completion. Preserve ownership and learner progress.
+Follow `docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md`, revision
+`production-cycle-500-20261113-v3`, for catalogue execution. First generate,
+validate and deliver lessons for already finalized eligible entries; do not
+restart assessment or screen new records while that deliverable backlog remains.
+Then process at most 500 original records per working cycle: screen -> finalize
+eligible senses and explicit deferred accounting -> freeze a supported manifest
+-> generate complete lessons -> validate/repair -> deliver and confirm Import ready.
+Drain every planned batch in that cycle before screening the next 500 records.
+Use balanced 50–100-lesson batches for plans above 100; smaller complete plans
+use their actual size. Source-record counts are never lesson targets.
+Preserve original 100-record assessment IDs, 1,000-record accounting groups,
+frozen manifests and batch identities. The 500-record cycle is an operational
+overlay, not permission to repartition existing contracts. Resolved subsets and
+later supplements require tested versioned contract/validator/importer support;
+finish any narrow missing support before affected generation, without weakening
+quality or hiding deferred items. Resume the exact unfinished production step
+before new screening. Local imports run independently when available. Report
+lessons written, validated and confirmed Import ready first; screening alone is
+not production completion. Preserve all eight sections, Tamil, source evidence,
+usage-type examples, ownership, learner progress and the final deferred sweep.
 
 
 ## Goal and source accounting
@@ -36,7 +41,7 @@ For each eligible meaning, identify supported usage types: literal, abstract, fi
 
 ## Versioned incremental pipeline
 
-Process ordered groups of up to 1,000 original records, reusing original 100-record assessment IDs. Per group: (1) reconcile previous decisions and receipts; (2) screen unresolved records with up to three real parallel workers, at most 100 originals per assignment; (3) finalize source-backed contextual senses, CEFR, usage, taxonomy, deduplication and holds; (4) freeze a **new** immutable group manifest only when its complete group reconciliation and cross-group identity safeguards pass; (5) generate all planned eight-section simplified-v2 lessons in immutable batches of at most 100, typically 50–100; (6) production-validate, retry recoverable failures, deliver to chatgpt-content-inbox via the connected GitHub App, verify byte-for-byte; (7) confirm every planned batch is Import ready and advance online automatically, even while the laptop is offline; (8) independently let the authenticated local backend import queued groups in order, verify PostgreSQL read-back and reconcile local completion. Global deduplication and immutable source evidence remain mandatory. Do not rewrite an existing manifest or valid batch. For legacy manifests retain these delivery gates. For current work alternate screening toward 10,000 with production under the rolling policy; do not block screening on this legacy group gate.
+Process ordered groups of up to 1,000 original records, reusing original 100-record assessment IDs. Per group: (1) reconcile previous decisions and receipts; (2) screen unresolved records with up to three real parallel workers, at most 100 originals per assignment; (3) finalize source-backed contextual senses, CEFR, usage, taxonomy, deduplication and holds; (4) freeze a **new** immutable group manifest only when its complete group reconciliation and cross-group identity safeguards pass; (5) generate all planned eight-section simplified-v2 lessons in immutable batches of at most 100, typically 50–100; (6) production-validate, retry recoverable failures, deliver to chatgpt-content-inbox via the connected GitHub App, verify byte-for-byte; (7) confirm every planned batch is Import ready and advance online automatically, even while the laptop is offline; (8) independently let the authenticated local backend import queued groups in order, verify PostgreSQL read-back and reconcile local completion. Global deduplication and immutable source evidence remain mandatory. Do not rewrite an existing manifest or valid batch. For legacy manifests retain these delivery gates. For current work use the production-first 500-record working cycles above, with supported subsets only; do not reinterpret this legacy contract as subset support.
 
 ## Execution and authority
 
@@ -45,5 +50,6 @@ No routine human confirmations between internal batches, groups, waves or recove
 ## Acceptance and reporting
 
 Implement and test incremental manifest/group semantics, safe global deduplication, concurrency/recovery, schema and validator example-type constraints, full eight-section lesson generation, remote receipts and backend import reconciliation. Use the versioned exception in AGENTS.md and the canonical workflow only on a runtime that passes the contract and PostgreSQL integration tests. Preserve the legacy all-catalogue freeze rule for manifests without the new policy. The existing continuation prompt must read these current instructions; never create a second schedule or queue. Each run must report screened/42,200, finalized/provisional/held, eligible senses, generated/validated/delivered/imported lessons, completed groups, missing/conflicts and next automatic action. Final success requires all 42,200 accounted for, all eligible meanings generated, all batches validated and remotely verified, all lessons PostgreSQL-readback verified, zero missing batches and zero unresolved recoverable errors.
+
 
 
