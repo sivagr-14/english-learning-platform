@@ -10,6 +10,6 @@
   ],
   "chatgptInstructionImpact": {
     "status": "not_required",
-    "reason": "Internal draft accounting primitive is not wired into production schemas or import. Existing rolling policy capability gate remains unchanged."
+    "rationale": "Internal draft accounting primitive is not wired into production schemas or import. Existing rolling policy capability gate remains unchanged."
   }
 }

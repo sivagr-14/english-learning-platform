@@ -8,6 +8,14 @@ export interface ParentCandidate {
   senseIdentity: string;
   disposition: 'resolved' | 'excluded' | 'deferred';
   evidenceHash: string;
+  review?: {
+    reviewId: string;
+    reason: 'ambiguity' | 'eligibility' | 'expression_boundary' | 'taxonomy' | 'duplicate_identity' | 'lesson_quality';
+    missingFields: string[];
+    attempts: Array<{kind: 'substantive' | 'targeted_retry'; at: string; evidenceHash: string; outcome: string}>;
+    dependency: string;
+    nextAction: string;
+  };
 }
 export interface ParentRecord {
   recordId: string;
@@ -69,6 +77,8 @@ export function subsetAccountingIssues(parent: ParentLedger, selection: SubsetSe
   if (candidates.size !== parent.candidates.length) issues.push('Duplicate parent candidate.');
   if (units.size !== parent.recallUnits.length) issues.push('Duplicate recall unit.');
   if (new Set(parent.candidates.map(c => c.senseIdentity)).size !== parent.candidates.length) issues.push('Duplicate parent sense identity.');
+  const reviewIds = parent.candidates.filter(c => c.review).map(c => c.review!.reviewId);
+  if (!unique(reviewIds)) issues.push('Duplicate deferred review identity.');
   for (const r of expected.records) if (!hash(r.recordHash) || records.get(r.recordId)?.recordHash !== r.recordHash) issues.push(`${r.recordId}: source record hash mismatch.`);
   for (const r of parent.records) {
     if (!unique(r.candidateIds) || !unique(r.recallUnitIds)) issues.push(`${r.recordId}: duplicate coverage links.`);
@@ -80,6 +90,19 @@ export function subsetAccountingIssues(parent: ParentLedger, selection: SubsetSe
   for (const c of parent.candidates) {
     if (!c.candidateId.trim() || !c.senseIdentity.trim() || !hash(c.evidenceHash)) issues.push(`${c.candidateId}: missing identity/evidence hash.`);
     if (!['resolved', 'excluded', 'deferred'].includes(c.disposition)) issues.push(`${c.candidateId}: invalid disposition.`);
+    if (c.disposition === 'deferred') {
+      const r = c.review;
+      if (!r || !r.reviewId.trim() || !['ambiguity', 'eligibility', 'expression_boundary', 'taxonomy', 'duplicate_identity', 'lesson_quality'].includes(r.reason) ||
+          !r.missingFields.length || r.missingFields.some(f => !f.trim()) || !unique(r.missingFields) ||
+          r.dependency.trim().length < 3 || r.nextAction.trim().length < 8) {
+        issues.push(`${c.candidateId}: deferred review needs identity, reason, missing fields, dependency and next action.`);
+      }
+      if (!r || r.attempts.length !== 2 || r.attempts[0]?.kind !== 'substantive' || r.attempts[1]?.kind !== 'targeted_retry' ||
+          r.attempts.some(a => !Number.isFinite(Date.parse(a.at)) || !hash(a.evidenceHash) || a.outcome.trim().length < 8) ||
+          Date.parse(r.attempts[1]?.at) < Date.parse(r.attempts[0]?.at)) {
+        issues.push(`${c.candidateId}: defer only after a recorded substantive attempt and targeted retry.`);
+      }
+    }
     if (!c.recordIds.length || !unique(c.recordIds)) issues.push(`${c.candidateId}: invalid record membership.`);
     for (const rid of c.recordIds) if (!records.get(rid)?.candidateIds.includes(c.candidateId)) issues.push(`${c.candidateId}: unbound source record.`);
   }
