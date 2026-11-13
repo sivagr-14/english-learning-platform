@@ -1,5 +1,24 @@
 # WordUp catalogue preparation
 
+## Offline production and rolling delivery (13 November 2026)
+
+Read `docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md`, revision
+`rolling-production-20261113-v2`, as the newer catalogue orchestration authority.
+Screen ahead toward 10,000 original records while alternating lesson-production
+blocks; do not gate new screening on first-group delivery or local imports.
+Preserve original 1,000-record accounting groups and full quality/provenance.
+After one attempt and one targeted retry, track difficult candidate-specific
+items as Review deferred with evidence and next action, never as completed.
+Deliver resolved subsets and later linked supplements ONLY after the versioned
+contract/validator/importer capability gate in that policy passes. Existing
+frozen contracts retain their exact scope and immutable identities. Older
+whole-group sequencing below documents the legacy contract, not a prohibition
+on independent screening. Do not silently omit deferred items from exhaustive
+manifests. Queue validated delivery as Import ready while offline; only actual
+local PostgreSQL read-back proves import. Complete the final deferred-review
+sweep before claiming full completion. Preserve ownership and learner progress.
+
+
 This is the preparation stage of the catalogue lesson path. It is **not an
 importable content pack**, does not generate lessons, and never writes to the
 local app or PostgreSQL. Document import contracts remain unchanged.
@@ -79,4 +98,5 @@ For a saved assessment, add `--assessment /path/to/assessment.sqlite` to `plan`.
 The preparation output reports `importReady: false` until those later stages
 exist and pass. Do not describe 42,200 prepared records as 42,200 assessed or
 approved lessons.
+
 
