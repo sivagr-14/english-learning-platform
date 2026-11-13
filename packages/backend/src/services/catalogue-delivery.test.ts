@@ -62,6 +62,40 @@ describe('immutable catalogue delivery groups', () => {
     if (mutation === 'ambiguous') manifest.candidates[0].senseDecision = 'ambiguous';
     expect(validateContentManifest(manifest).valid).toBe(false);
   });
+  function ambiguityExclusion() {
+    const {manifest, batch} = JSON.parse(JSON.stringify(catalogueDeliveryFixture()));
+    const candidate = manifest.candidates[0];
+    candidate.decision = 'filtered';
+    candidate.senseDecision = 'ambiguous';
+    candidate.reason = 'ambiguous_context: bounded source reviews could not distinguish the two supplied interpretations.';
+    delete candidate.operation;
+    manifest.counts.generate--;
+    manifest.counts.filtered++;
+    manifest.generationPlan.batches[0].candidateIds.shift();
+    batch.entries.shift();
+    batch.manifestHash = contentPackHash(manifest);
+    return {manifest, batch, candidate};
+  }
+  it('accounts for final ambiguity exclusions without generating or losing their source records', () => {
+    const {manifest, batch, candidate} = ambiguityExclusion();
+    expect(manifest.catalogueAudit.recordReviews[0].candidateIds).toContain(candidate.candidateId);
+    expect(validateContentManifest(manifest).issues).toEqual([]);
+    expect(validateContentBatch(batch, manifest).issues).toEqual([]);
+    manifest.generationPlan.batches[0].candidateIds.unshift(candidate.candidateId);
+    expect(validateContentManifest(manifest).valid).toBe(false);
+  });
+  it.each(['missing-reason', 'wrong-reason', 'empty-explanation', 'generated', 'existing', 'rejected', 'matched-word', 'missing-coverage'])('rejects unsafe ambiguity accounting: %s', mutation => {
+    const {manifest, candidate} = ambiguityExclusion();
+    if (mutation === 'missing-reason') delete candidate.reason;
+    if (mutation === 'wrong-reason') candidate.reason = 'low_frequency: do not use this as an ambiguity workaround.';
+    if (mutation === 'empty-explanation') candidate.reason = 'ambiguous_context:   ';
+    if (mutation === 'generated') candidate.decision = 'generate';
+    if (mutation === 'existing') candidate.decision = 'existing';
+    if (mutation === 'rejected') candidate.decision = 'rejected';
+    if (mutation === 'matched-word') candidate.matchedWordId = owner;
+    if (mutation === 'missing-coverage') manifest.catalogueAudit.recordReviews.shift();
+    expect(validateContentManifest(manifest).valid).toBe(false);
+  });
   it('does not turn a partial legacy manifest into a valid manifest', () => {
     const {manifest} = catalogueDeliveryFixture(); delete manifest.catalogueAudit.deliveryGroup;
     expect(validateContentManifest(manifest).valid).toBe(false);

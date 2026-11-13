@@ -1001,6 +1001,15 @@ The deliveryGroup object contains the signed-in `ownerUserId`, `groupNumber`
 (starting at 1), exact ordered `assessmentGroupIds`, and `previousGroup`: null
 for group 1, otherwise the preceding immutable `manifestId` and `manifestHash`.
 Use the owner ID in the original authenticated preparation or a saved verified account receipt. Never invent an owner ID. Offline production does not require a new local connection or an import receipt.
+A bounded ambiguity exclusion is a resolved accounting outcome. Keep its candidate
+with `decision: filtered`, `senseDecision: ambiguous`, and a `reason` beginning
+`ambiguous_context:` followed by the specific source uncertainty and completed
+contextual review. Keep the candidate linked to its source record and coverage;
+never put it in a generation batch or attach a matched word ID. This exception
+does not permit pending reviews, technical failures, or ambiguous generated or
+existing senses. Preserve the source definition and any separately supported
+sense proposals for reconciliation before freezing the group.
+
 Review every selected record exactly once, resolve every source hold and
 provisional meaning, complete useful-sense inventory or justified scope exclusion,
 map taxonomy and reconcile owner-specific matches before freezing a new manifest.
