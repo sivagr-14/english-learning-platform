@@ -19,6 +19,17 @@ local PostgreSQL read-back proves import. Complete the final deferred-review
 sweep before claiming full completion. Preserve ownership and learner progress.
 
 
+For source assessment, page/chunk accounting, GitHub transport, automatic
+selection and batch rules, first follow `docs/CHATGPT_CONTENT_PACK_WORKFLOW.md`.
+This file defines the lesson payload inside each selected content-pack batch.
+
+Use this contract for every vocabulary entry, whether it is new or an update.
+
+The ChatGPT manifest and batch contract is the sole supported vocabulary
+generation path. The local application validates, deduplicates, imports,
+verifies and cleans content packs; it does not call Gemini, Ollama or another
+local-AI provider for discovery or lesson generation.
+
 ## Default automatic selection
 
 Generate every valid new heavy/high- and medium-frequency candidate
