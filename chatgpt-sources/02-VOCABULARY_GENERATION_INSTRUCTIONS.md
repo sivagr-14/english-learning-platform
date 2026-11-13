@@ -1,6 +1,6 @@
 # Vocabulary Lesson Generation Contract
 
-## Production-first 500-record cycles (13 November 2026)
+## Offline production: production-first 500-record cycles (13 November 2026)
 
 Follow `docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md`, revision
 `production-cycle-500-20261113-v3`, for catalogue execution. First generate,
