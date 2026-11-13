@@ -142,8 +142,21 @@ export function catalogueAuditIssues(audit: z.infer<typeof CatalogueAuditSchema>
     if (subset.kind === "supplement" && (!subset.baseManifest || !ids.length)) issues.push("catalogue: supplement requires its base and resolved candidates");
     if (audit.deliveryGroup?.groupNumber !== Math.ceil(subset.cycleNumber / 2)) issues.push("catalogue: cycle must retain original parent group");
     const parentCandidates = new Map(subset.parent.candidates.map(c => [c.candidateId, c]));
+    for (const parent of subset.parent.candidates) {
+      if (parent.senseIdentity !== `${normalize(parent.term)}|${normalize(parent.senseKey)}`) issues.push(`${parent.candidateId}: parent sense identity is not normalized`);
+      for (const id of parent.recordIds) {
+        const record = records.get(id);
+        if (record && normalize(parent.term) !== normalize(record.source.text || "")) issues.push(`${parent.candidateId}: parent term differs from source`);
+      }
+      if (parent.meaningOrigin === "supplied_definition" && !parent.recordIds.some(id => records.get(id)?.source.primaryMeaning === parent.contextualMeaning)) issues.push(`${parent.candidateId}: parent must preserve supplied definition`);
+    }
+    for (const record of subset.parent.records) {
+      if (!record.rejection && !record.candidateIds.some(id => parentCandidates.get(id)?.meaningOrigin === "supplied_definition")) issues.push(`${record.recordId}: parent must account for supplied definition`);
+      if (!record.rejection && ["single_word", "expression"].some(kind => !subset.parent.recallUnits.some(u => u.recordId === record.recordId && u.kind === kind))) issues.push(`${record.recordId}: parent requires independent word and expression recall`);
+    }
     for (const c of candidates) {
       const parent = parentCandidates.get(c.candidateId);
+      if (parent && (parent.term !== c.term || parent.senseKey !== c.senseKey || parent.contextualMeaning !== c.contextualMeaning || parent.meaningOrigin !== c.catalogueEvidence.meaningOrigin)) issues.push(`${c.candidateId}: parent meaning fields differ from candidate`);
       const identity = `${normalize(c.term)}|${normalize(c.senseKey)}`;
       if (!parent || parent.evidenceHash !== parentLedgerHash(c) || parent.senseIdentity !== identity || !same(parent.recordIds, c.catalogueEvidence.recordIds) || parent.disposition !== (["generate", "existing"].includes(c.decision) ? "resolved" : "excluded")) issues.push(`${c.candidateId}: candidate differs from parent decision/evidence`);
     }

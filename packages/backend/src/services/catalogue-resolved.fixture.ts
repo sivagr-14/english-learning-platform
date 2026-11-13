@@ -15,15 +15,15 @@ export function catalogueResolvedFixture(owner?: string, cycleNumber = 1) {
     sourceHash: m.source.contentHash, preparationHash: m.catalogueAudit.preparation.preparationHash,
     groupNumber: Math.ceil(cycleNumber / 2), revision: 1,
     records: records.map((r: any,i: number) => ({recordId:r.recordId, recordHash:r.recordHash,
-      candidateIds: i === 0 ? all.map((c:any)=>c.candidateId) : [], recallUnitIds:[`recall-${r.recordId}`],
+      candidateIds: i === 0 ? all.map((c:any)=>c.candidateId) : [], recallUnitIds:[`word-${r.recordId}`,`expression-${r.recordId}`],
       ...(!all.length || i !== 0 ? {rejection:{code:'malformed_record',reason:'Synthetic empty source record rejected explicitly.'}} : {}),
     })),
-    candidates: all.map((c:any,i:number) => ({candidateId:c.candidateId,recordIds:c.catalogueEvidence.recordIds,
+    candidates: all.map((c:any,i:number) => ({candidateId:c.candidateId,term:c.term,senseKey:c.senseKey,contextualMeaning:c.contextualMeaning,meaningOrigin:c.catalogueEvidence.meaningOrigin,recordIds:c.catalogueEvidence.recordIds,
       senseIdentity:`${c.term}|${c.senseKey}`,evidenceHash:parentLedgerHash(c),disposition:i===2?'deferred':'resolved',
       ...(i===2 ? {review:{reviewId:'deferred-third',reason:'ambiguity',missingFields:['meaning'],dependency:'source context',nextAction:'Review the source evidence for the remaining meaning.',
         attempts:[{kind:'substantive',at:'2026-11-13T10:00:00Z',evidenceHash:parentLedgerHash(c),outcome:'Synthetic first review is inconclusive.'},{kind:'targeted_retry',at:'2026-11-13T10:05:00Z',evidenceHash:parentLedgerHash(c),outcome:'Synthetic targeted retry is inconclusive.'}]}}:{}),
     })),
-    recallUnits:records.map((r:any)=>({unitId:`recall-${r.recordId}`,recordId:r.recordId,disposition:'resolved',evidenceHash:r.recordHash})),
+    recallUnits:records.flatMap((r:any)=>['single_word','expression'].map(kind=>({unitId:`${kind==='single_word'?'word':'expression'}-${r.recordId}`,recordId:r.recordId,kind,disposition:'resolved',evidenceHash:r.recordHash}))),
   };
   m.manifestId=`resolved-cycle-${cycleNumber}`;
   m.catalogueAudit.deliveryGroup={...m.catalogueAudit.deliveryGroup,groupNumber:parent.groupNumber,assessmentGroupIds:groups.map((g:any)=>g.groupId),previousGroup:null};

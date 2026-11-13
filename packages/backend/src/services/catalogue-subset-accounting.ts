@@ -1,8 +1,7 @@
 import { createHash } from 'crypto';
 import { z } from 'zod';
 
-/** Draft accounting primitive only. Not accepted by the production manifest schema.
- * Integration must retain legacy gates until PostgreSQL supplement tests pass. */
+/** Parent accounting shared by the versioned wire schema and production validator. */
 export interface ParentCandidate {
   candidateId: string;
   recordIds: string[];
@@ -137,14 +136,14 @@ export const ParentLedgerSchema = z.object({
   records: z.array(z.object({recordId: identifier, recordHash: digest, candidateIds: z.array(identifier), recallUnitIds: z.array(identifier).min(1),
     rejection: z.object({code: z.enum(['noise','malformed_record','proper_name']), reason: explanation}).strict().optional(),
   }).strict()).min(1).max(500),
-  candidates: z.array(z.object({candidateId: identifier, recordIds: z.array(identifier).min(1), senseIdentity: z.string().min(3),
+  candidates: z.array(z.object({candidateId: identifier, term: z.string().min(1), senseKey: z.string().min(1), contextualMeaning: z.string().min(1), meaningOrigin: z.enum(['supplied_definition','additional_meaning']), recordIds: z.array(identifier).min(1), senseIdentity: z.string().min(3),
     disposition: z.enum(['resolved','excluded','deferred']), evidenceHash: digest,
     review: z.object({reviewId: identifier, reason: z.enum(['ambiguity','eligibility','expression_boundary','taxonomy','duplicate_identity','lesson_quality']),
       missingFields: z.array(z.string().min(1)).min(1), dependency: z.string().min(3), nextAction: explanation,
       attempts: z.array(z.object({kind: z.enum(['substantive','targeted_retry']), at: z.string().datetime({offset:true}), evidenceHash: digest, outcome: explanation}).strict()).length(2),
     }).strict().optional(),
   }).strict()).max(10000),
-  recallUnits: z.array(z.object({unitId: identifier, recordId: identifier, disposition: z.enum(['resolved','deferred']), evidenceHash: digest}).strict()).min(1),
+  recallUnits: z.array(z.object({unitId: identifier, recordId: identifier, kind: z.enum(['single_word','expression']), disposition: z.enum(['resolved','deferred']), evidenceHash: digest}).strict()).min(1),
 }).strict();
 export const ResolvedDeliverySchema = z.object({
   policyId: z.literal('wordup-resolved-delivery-v1'), kind: z.enum(['base','supplement']),

@@ -35,6 +35,11 @@ describe('resolved production delivery',()=>{
  test('requires exact full parent coverage even for a small delivered subset',()=>{
   const p=catalogueResolvedFixture();const d=p.manifest.catalogueAudit.resolvedDelivery;d.parent.records.pop();d.selection.parentHash=parentLedgerHash(d.parent);expect(validateContentManifest(p.manifest).valid).toBe(false);
  });
+ test('rejects missing supplied-definition accounting or independent recall',()=>{
+  const p=catalogueResolvedFixture();const d=p.manifest.catalogueAudit.resolvedDelivery;
+  d.parent.recallUnits.forEach((u:any)=>{u.kind='single_word';});d.selection.parentHash=parentLedgerHash(d.parent);
+  expect(validateContentManifest(p.manifest).issues).toContain(`${d.parent.records[0].recordId}: parent requires independent word and expression recall`);
+ });
  test('never permits unknown fields or deferred candidates in a batch',()=>{
   const p=catalogueResolvedFixture();p.manifest.catalogueAudit.resolvedDelivery.ignoreQuality=true;expect(validateContentManifest(p.manifest).valid).toBe(false);
  });

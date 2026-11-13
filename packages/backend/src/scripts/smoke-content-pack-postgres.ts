@@ -369,6 +369,14 @@ async function main() {
     const beforeSubset=await database('vocabulary_words').where({owner_user_id:subsetOwner.id}).orderBy('sense_rank');
     assert.equal(beforeSubset.length,2);
     await database('user_progress').where({user_id:subsetOwner.id,word_id:beforeSubset[0].id}).update({times_reviewed:17});
+    await database('content_pack_manifests').where({id:ready.manifest.manifestId}).update({last_verified_at:null,verification_report:JSON.stringify({verified:false,entries:2,issues:['Synthetic interrupted read-back']})});
+    await database('content_pack_batches').where({manifest_id:ready.manifest.manifestId}).update({readback_verified_at:null});
+    await assert.rejects(()=>service.markInboxCleaned(ready.manifest.manifestId,'fixture-cleanup'),/verification/);
+    await assert.rejects(()=>service.claimManifest(subsetOwner.id,future.manifest.manifestId),/pending/);
+    await (service as any).commitAvailableBatches(subsetOwner.id,ready.manifest.manifestId);
+    assert.deepEqual(await service.verifyManifest(subsetOwner.id,ready.manifest.manifestId),{verified:true,entries:2,issues:[]});
+    await service.markInboxCleaned(ready.manifest.manifestId,'fixture-cleanup');
+    assert.equal((await database('content_pack_manifests').where({id:future.manifest.manifestId}).first()).inbox_cleaned_at,null);
     await service.claimManifest(subsetOwner.id,future.manifest.manifestId);
     assert.deepEqual(await service.verifyManifest(subsetOwner.id,future.manifest.manifestId),{verified:true,entries:0,issues:[]});
     assert.deepEqual((await service.ingestDocuments(docs(late))).errors, []);

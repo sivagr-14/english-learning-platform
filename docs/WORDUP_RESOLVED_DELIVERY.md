@@ -10,6 +10,8 @@ Use it only after the PR's contract and PostgreSQL integration checks pass.
 
 Embed a strict `wordup-parent-ledger-v1` snapshot and its canonical SHA-256 in `selection.parentHash`. Account for every original record in the cycle, every candidate and every recall unit with reciprocal links. Empty/noise records require explicit permitted rejection reasons. Included candidates require completed source recall. Deferred candidates require a substantive attempt, targeted retry, evidence hashes, timestamps, reason and next action; they are not exclusions or completed lessons.
 
+Each parent candidate retains term, senseKey, contextualMeaning and meaningOrigin, including the exact supplied definition. Each non-rejected record requires independent single_word and expression recall units.
+
 Parent candidate `evidenceHash` is the canonical hash of the complete manifest candidate. `senseIdentity` is normalized term + `|` + normalized senseKey (NFKC, lowercase, trimmed/collapsed whitespace). Delivered candidate source record IDs and disposition must match the parent. Resolved decisions are generate/existing; excluded decisions are filtered/rejected. All usual source, taxonomy, meaning, eight-section lesson and usage-type validators remain active.
 
 ## Base cycle
