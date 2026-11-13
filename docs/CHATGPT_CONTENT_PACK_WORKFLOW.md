@@ -1,5 +1,18 @@
 # ChatGPT-only vocabulary automation
 
+## Offline production and local imports (12 November 2026)
+
+Read `docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md` with this file. Its newer
+execution-order rules take precedence: complete each original 1,000-record
+group through validated, remotely confirmed **Import ready** delivery, then
+advance online even while the laptop is offline. Keep immutable predecessor
+manifest/hash links and complete delivery receipts; PostgreSQL receipts are
+required for local import ordering and final completion, not online generation.
+Use the prepared owner identity and vocabulary snapshot offline; never invent
+an owner or an existing-word ID. The backend rechecks current same-sense matches
+and reuses their rows without overwriting lessons or learner progress.
+
+
 This is the supported no-API-key flow for the personal local application.
 ChatGPT performs language assessment and lesson generation. GitHub transports
 structured content. Only the local backend owns PostgreSQL credentials and
@@ -987,7 +1000,7 @@ therefore form 42 groups of 1,000 and one final group of 200 records.
 The deliveryGroup object contains the signed-in `ownerUserId`, `groupNumber`
 (starting at 1), exact ordered `assessmentGroupIds`, and `previousGroup`: null
 for group 1, otherwise the preceding immutable `manifestId` and `manifestHash`.
-Do not invent an owner ID or import receipt. Read them from the local app.
+Use the owner ID in the original authenticated preparation or a saved verified account receipt. Never invent an owner ID. Offline production does not require a new local connection or an import receipt.
 Review every selected record exactly once, resolve every source hold and
 provisional meaning, complete useful-sense inventory or justified scope exclusion,
 map taxonomy and reconcile owner-specific matches before freezing a new manifest.
@@ -1001,14 +1014,16 @@ Never regenerate it to update its lesson or progress. The backend serializes
 claims for each owner/source, rejects duplicate or missing groups, changed
 preparations and reused candidate IDs, and checks every predecessor against its
 own successful PostgreSQL read-back receipt. It rechecks current senses under a
-term lock both at claim and commit. A concurrent match blocks the new import
-without overwriting the existing sense. Resolve the conflict explicitly; never
-change the frozen payload or silently quarantine a planned group lesson.
+term lock both at claim and commit. A clear same-sense match is reused without
+changing its lesson, version or progress; a distinct sense is created. Genuine
+identity ambiguity remains explicit attention, never a silent overwrite or
+quarantine of a planned group lesson.
 
 Deliver each complete immutable manifest and all its planned balanced batches
 to chatgpt-content-inbox through the connected GitHub App; verify remote byte
 hashes. The signed-in backend drains staged groups in order, preserving batch
-receipts, and verifies PostgreSQL rows before allowing the next group. A group
+receipts, and verifies PostgreSQL rows before locally importing the next group.
+Online delivery of later groups does not wait for this database verification. A group
 with only existing/filtered/rejected meanings has zero lesson batches and still
 requires a verified accounting receipt. Skipped or missing planned lessons never
 complete a group. Existing immutable manifests and receipts remain untouched.

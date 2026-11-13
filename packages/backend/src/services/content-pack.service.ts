@@ -469,7 +469,7 @@ export class ContentPackService {
     );
   }
 
-  async processAvailableManifests(userId: string) {
+  async processAvailableManifests(userId: string, resumeOwnedOnly = false) {
     const inaccessible = await this.database("content_pack_manifests")
       .where({ inbox_branch: "chatgpt-content-inbox" })
       .whereNotNull("owner_user_id")
@@ -479,12 +479,13 @@ export class ContentPackService {
     const rows = await this.database("content_pack_manifests")
       .where({ inbox_branch: "chatgpt-content-inbox" })
       .where((builder: any) =>
-        builder.whereNull("owner_user_id").orWhere("owner_user_id", userId),
+        resumeOwnedOnly ? builder.where("owner_user_id", userId) : builder.whereNull("owner_user_id").orWhere("owner_user_id", userId),
       )
       .whereNull("inbox_cleaned_at")
       .orderBy("created_at", "asc")
       .select("id", "owner_user_id", "status", "payload");
     const processed: string[] = [];
+    const waitingGroups: string[] = [];
     const cleanupEligible: string[] = [];
     const failures: Array<{
       manifestId: string;
@@ -539,7 +540,14 @@ export class ContentPackService {
             updated_at: new Date(),
           });
       } catch (error) {
-        const failure = error as Error & { status?: number };
+        const failure = error as Error & { status?: number; code?: string };
+        if (failure.code === "CATALOGUE_PREDECESSOR_PENDING") {
+          waitingGroups.push(row.id);
+          await this.database("content_pack_manifests").where({id: row.id}).update({
+            sync_status: "waiting_predecessor", sync_error: null, updated_at: new Date(),
+          });
+          continue;
+        }
         const message =
           failure instanceof Error
             ? failure.message
@@ -557,6 +565,7 @@ export class ContentPackService {
     }
     return {
       processed,
+      ...(waitingGroups.length ? {waitingGroups} : {}),
       cleanupEligible,
       failures,
       skippedItems,
@@ -730,7 +739,7 @@ export class ContentPackService {
             },
             existingSenses,
           );
-          if (catalogueDeliveryGroup(manifest) && processable && resolution.decision !== "new_sense") {
+          if (catalogueDeliveryGroup(manifest) && processable && resolution.decision === "ambiguous") {
             throw statusError(`Catalogue group candidate ${candidate.candidateId} needs a fresh owner-specific sense decision; existing lessons cannot be overwritten.`, 409);
           }
           senseDecision = resolution.decision;
@@ -1235,16 +1244,30 @@ export class ContentPackService {
       .where({ id: manifestId, owner_user_id: userId })
       .first();
     if (!manifestRow?.assessment_run_id || !manifestRow.approved_at) return 0;
+    const manifest = readJson<ContentManifest>(manifestRow.payload, null as any);
+    const grouped = Boolean(catalogueDeliveryGroup(manifest));
     const batches = await this.database("content_pack_batches")
-      .where({ manifest_id: manifestId, status: "staged" })
+      .where({ manifest_id: manifestId })
       .orderBy("batch_number");
+    const byNumber = new Map<number, any>(batches.map((row: any) => [Number(row.batch_number), row]));
     let committedTotal = 0;
-    for (const batchRow of batches) {
+    for (const planned of manifest.generationPlan.batches) {
+      const batchRow = byNumber.get(planned.batchNumber);
+      // Group imports consume only a consecutive prefix; later staged batches
+      // remain durable while a missing or invalid predecessor is repaired.
+      if (!batchRow || !["staged", "committed"].includes(batchRow.status)) {
+        if (grouped) break;
+        continue;
+      }
+      if (batchRow.status === "committed") {
+        // A restart may happen after commit but before read-back. Resume that
+        // verification before allowing the next batch, without importing again.
+        if (grouped && !batchRow.readback_verified_at) {
+          await this.verifyCommittedBatch(userId, batchRow.id, readJson<string[]>(batchRow.committed_word_ids, []));
+        }
+        continue;
+      }
       const batch = readJson<ContentBatch>(batchRow.payload, null as any);
-      const manifest = readJson<ContentManifest>(
-        manifestRow.payload,
-        null as any,
-      );
       const validation = validateContentBatch(batch, manifest);
       if (!validation.valid) {
         await this.database("content_pack_batches")
@@ -1254,6 +1277,7 @@ export class ContentPackService {
             validation_report: JSON.stringify({ issues: validation.issues }),
             updated_at: new Date(),
           });
+        if (grouped) break;
         continue;
       }
       const committed = await this.commitBatch(
@@ -1278,6 +1302,15 @@ export class ContentPackService {
     batch: ContentBatch,
   ) {
     const committed = await this.database.transaction(async (trx: any) => {
+      const scope = readJson<ContentManifest>(manifestRow.payload, null as any);
+      if (catalogueDeliveryGroup(scope)) {
+        await trx("content_pack_manifests").where({id: manifestRow.id}).forUpdate().first();
+        const prior = await trx("content_pack_batches").where({manifest_id: manifestRow.id})
+          .where("batch_number", "<", batch.batchNumber).select("batch_number", "status", "readback_verified_at");
+        if (prior.length !== batch.batchNumber - 1 || prior.some((row: any) => row.status !== "committed" || !row.readback_verified_at)) {
+          throw Object.assign(new Error("Waiting for earlier batch read-back."), {status: 503});
+        }
+      }
       const lockedBatch = await trx("content_pack_batches")
         .where({ id: batchRow.id })
         .forUpdate()
@@ -1340,6 +1373,7 @@ export class ContentPackService {
         const senseEvidence = readJson<
           { sentence: string; explanation: string } | undefined
         >(candidate.sense_evidence, undefined);
+        let reusedWord: any = null;
         if (catalogueDeliveryGroup(trustedManifest)) {
           // Recheck under the same term lock held by the importer, in this transaction.
           // A different import may have created this sense since manifest claim.
@@ -1348,9 +1382,10 @@ export class ContentPackService {
           const currentSenses = await trx("vocabulary_words").where({owner_user_id: userId, normalized_term: normalizedTerm}).select("*");
           const resolution = resolveContextualSense({term: entry.word, contextualMeaning: candidate.contextual_meaning,
             senseKey: candidate.sense_key, declaredDecision: "new_sense"}, currentSenses);
-          if (resolution.decision !== "new_sense") throw statusError(`Catalogue group candidate ${entry.candidateId} now matches an existing sense; reconcile without overwriting it.`, 409);
+          if (resolution.decision === "ambiguous") throw statusError(`Catalogue group candidate ${entry.candidateId} has an ambiguous current sense identity.`, 409);
+          if (resolution.decision === "same_sense") reusedWord = resolution.matchedSense;
         }
-        const imported = await new VocabularyImportService(trx).importSingle(
+        const imported = reusedWord ? {imported: 1, items: [{word: reusedWord}], errors: []} : await new VocabularyImportService(trx).importSingle(
           {
             category: primary?.name,
             word: entry.word,
@@ -1459,13 +1494,14 @@ export class ContentPackService {
           });
         await trx("assessment_candidates").where({ id: candidate.id }).update({
           status: "completed",
+          ...(reusedWord ? {action: "unchanged"} : {}),
           matched_word_id: wordId,
           updated_at: new Date(),
         });
         await trx("control_audit_events").insert({
           owner_user_id: userId,
           operation_id: `content-pack:${batch.batchId}:${entry.candidateId}`,
-          event_type: "content_pack.entry_committed",
+          event_type: reusedWord ? "content_pack.entry_reused" : "content_pack.entry_committed",
           entity_type: "vocabulary_word",
           entity_id: wordId,
           details: JSON.stringify({
@@ -1884,7 +1920,7 @@ export class ContentPackService {
     const manifest = readJson<ContentManifest>(row.payload, null as any);
     const batches = await this.database("content_pack_batches")
       .where({ manifest_id: row.id })
-      .select("status", "entry_count", "committed_count", "batch_number");
+      .select("status", "entry_count", "committed_count", "batch_number", "readback_verified_at");
     const received = batches.filter(
       (batch: any) => batch.status !== "invalid",
     ).length;
@@ -1925,6 +1961,15 @@ export class ContentPackService {
       coverage: manifest.coverage,
       ...(catalogueDelivery ? {catalogueDelivery} : {}),
       generation: {
+        batchStatuses: manifest.generationPlan.batches.map(plan => {
+          const batch = batches.find((item: any) => Number(item.batch_number) === plan.batchNumber);
+          return {batchNumber: plan.batchNumber,
+            delivery: !batch ? "Not received" : ["staged", "committed"].includes(batch.status) ? "Import ready" : "Validation failed",
+            localImport: batch?.status === "committed"
+              ? batch.readback_verified_at ? "Imported and verified" : "Imported; verification pending"
+              : row.sync_status === "waiting_predecessor" ? "Waiting for earlier group" : "Pending",
+            verifiedAt: batch?.readback_verified_at || null};
+        }),
         plannedBatches: planned,
         receivedBatches: received,
         missingBatches: Math.max(0, planned - received),
@@ -1956,6 +2001,8 @@ export class ContentPackService {
     received: number,
     invalid: number,
   ) {
+    if (row.sync_status === "waiting_predecessor")
+      return "Queued; waiting for the earlier group to finish PostgreSQL verification.";
     if (!row.owner_user_id)
       return "Waiting for automatic account ownership assignment.";
     if (invalid > 0)

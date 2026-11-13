@@ -9,6 +9,7 @@ const ROOT = path.resolve(__dirname, '..');
 const DELIVERY_DIR = path.join(ROOT, '.feature-delivery');
 const RELEASE_PATH = path.join(ROOT, 'chatgpt-sources', 'source-release.json');
 const SOURCE_PAIRS = [
+  {canonical: 'docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md', projectSource: 'chatgpt-sources/03_OFFLINE_IMPORT_AND_EXECUTION_POLICY.md'},
   {
     canonical: 'docs/CHATGPT_CONTENT_PACK_WORKFLOW.md',
     projectSource: 'chatgpt-sources/01-CHATGPT_CONTENT_PACK_WORKFLOW.md',
@@ -327,3 +328,4 @@ function main() {
 if (require.main === module) main();
 
 module.exports = { isProductPath, pathCovered };
+

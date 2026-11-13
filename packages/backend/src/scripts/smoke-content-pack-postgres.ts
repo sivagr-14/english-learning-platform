@@ -326,26 +326,22 @@ async function main() {
     await database('user_progress').where({user_id: otherUser.id, word_id: importedGroupWords[0].id}).update({times_reviewed: 9});
 
     const second = catalogueDeliveryFixture(otherUser.id, 2);
-    second.manifest.manifestId = `catalogue-group-${suffix}-2-stale`;
-    second.manifest.catalogueAudit.deliveryGroup.previousGroup = {manifestId: winner.manifest.manifestId, manifestHash: contentPackHash(winner.manifest)};
-    assert.deepEqual((await service.ingestDocuments([{path: 'group-two-stale/manifest.json', content: JSON.stringify(second.manifest)}])).errors, []);
-    await assert.rejects(() => service.claimManifest(otherUser.id, second.manifest.manifestId), /fresh owner-specific sense decision/);
     second.manifest.manifestId = `catalogue-group-${suffix}-2`;
-    second.manifest.candidates.forEach((candidate: any) => {
-      const existing = importedGroupWords.find((word: any) => word.sense_key === candidate.senseKey);
-      assert(existing, 'each repeated meaning has an owner-scoped prior sense');
-      candidate.decision = 'existing'; candidate.senseDecision = 'same_sense'; candidate.matchedWordId = existing.id;
-      candidate.reason = 'Synthetic repeated source entry resolves to the exact verified owner-scoped sense.';
-      delete candidate.operation;
-    });
-    second.manifest.counts.generate = 0; second.manifest.counts.existing = 3;
-    second.manifest.generationPlan.batches = [];
-    const secondDocument = {path: 'group-two/manifest.json', content: JSON.stringify(second.manifest)};
-    assert.deepEqual((await service.ingestDocuments([secondDocument])).errors, []);
+    second.manifest.catalogueAudit.deliveryGroup.previousGroup = {manifestId: winner.manifest.manifestId, manifestHash: contentPackHash(winner.manifest)};
+    second.batch.manifestId = second.manifest.manifestId;
+    second.batch.batchId = `${second.manifest.manifestId}-001`;
+    second.batch.manifestHash = contentPackHash(second.manifest);
+    const secondDocuments = [
+      {path: 'group-two/manifest.json', content: JSON.stringify(second.manifest)},
+      {path: 'group-two/batch-001.json', content: JSON.stringify(second.batch)},
+    ];
+    assert.deepEqual((await service.ingestDocuments(secondDocuments)).errors, []);
     await service.claimManifest(otherUser.id, second.manifest.manifestId);
-    assert.deepEqual(await service.verifyManifest(otherUser.id, second.manifest.manifestId), {verified: true, entries: 0, issues: []});
-    assert.equal((await service.ingestDocuments([secondDocument])).unchanged, 1);
+    assert.deepEqual(await service.verifyManifest(otherUser.id, second.manifest.manifestId), {verified: true, entries: 3, issues: []});
+    assert.equal((await service.ingestDocuments(secondDocuments)).unchanged, 2);
     await service.claimManifest(otherUser.id, second.manifest.manifestId);
+    const reuseEvents = await database('control_audit_events').where({owner_user_id: otherUser.id, event_type: 'content_pack.entry_reused'});
+    assert.equal(reuseEvents.length, 3, 'offline duplicate senses are reused, never overwritten');
     const afterGroups = await database('vocabulary_words').where({owner_user_id: otherUser.id, normalized_term: 'charge'}).orderBy('sense_rank');
     assert.deepEqual(afterGroups.map((word: any) => [word.id, word.entry_version]), importedGroupWords.map((word: any) => [word.id, word.entry_version]));
     assert.equal((await database('user_progress').where({user_id: otherUser.id, word_id: importedGroupWords[0].id}).first()).times_reviewed, 9);
