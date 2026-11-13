@@ -1,28 +1,23 @@
 # Vocabulary Lesson Generation Contract
 
-## Offline production and local imports (12 November 2026)
+## Offline production and rolling delivery (13 November 2026)
 
-Read `docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md` with this file. Its newer
-execution-order rules take precedence: complete each original 1,000-record
-group through validated, remotely confirmed **Import ready** delivery, then
-advance online even while the laptop is offline. Keep immutable predecessor
-manifest/hash links and complete delivery receipts; PostgreSQL receipts are
-required for local import ordering and final completion, not online generation.
-Use the prepared owner identity and vocabulary snapshot offline; never invent
-an owner or an existing-word ID. The backend rechecks current same-sense matches
-and reuses their rows without overwriting lessons or learner progress.
+Read `docs/OFFLINE_IMPORT_AND_EXECUTION_POLICY.md`, revision
+`rolling-production-20261113-v2`, as the newer catalogue orchestration authority.
+Screen ahead toward 10,000 original records while alternating lesson-production
+blocks; do not gate new screening on first-group delivery or local imports.
+Preserve original 1,000-record accounting groups and full quality/provenance.
+After one attempt and one targeted retry, track difficult candidate-specific
+items as Review deferred with evidence and next action, never as completed.
+Deliver resolved subsets and later linked supplements ONLY after the versioned
+contract/validator/importer capability gate in that policy passes. Existing
+frozen contracts retain their exact scope and immutable identities. Older
+whole-group sequencing below documents the legacy contract, not a prohibition
+on independent screening. Do not silently omit deferred items from exhaustive
+manifests. Queue validated delivery as Import ready while offline; only actual
+local PostgreSQL read-back proves import. Complete the final deferred-review
+sweep before claiming full completion. Preserve ownership and learner progress.
 
-
-For source assessment, page/chunk accounting, GitHub transport, automatic
-selection and batch rules, first follow `docs/CHATGPT_CONTENT_PACK_WORKFLOW.md`.
-This file defines the lesson payload inside each selected content-pack batch.
-
-Use this contract for every vocabulary entry, whether it is new or an update.
-
-The ChatGPT manifest and batch contract is the sole supported vocabulary
-generation path. The local application validates, deduplicates, imports,
-verifies and cleans content packs; it does not call Gemini, Ollama or another
-local-AI provider for discovery or lesson generation.
 
 ## Default automatic selection
 
@@ -701,3 +696,4 @@ supported type (maximum three). Keep required examples in the other sections.
 A generated or delivered batch is not an imported batch; the local backend must
 verify PostgreSQL read-back before the next delivery group is accepted. Continue
 consecutive missing units automatically and retain all durable receipts.
+
