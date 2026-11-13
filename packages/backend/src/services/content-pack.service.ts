@@ -1947,7 +1947,8 @@ export class ContentPackService {
       assessmentGroupIds: deliveryGroup.assessmentGroupIds,
       recordsInGroup: manifest.catalogueAudit.recordReviews.length,
       sourceRecords: manifest.catalogueAudit.preparation.source.recordCount,
-      sourceComplete: deliveryGroup.groupNumber === Math.ceil(manifest.catalogueAudit.preparation.assessmentGroups.length / 10) &&
+      ...(manifest.catalogueAudit.resolvedDelivery ? {deliveryKind: manifest.catalogueAudit.resolvedDelivery.kind, cycleNumber: manifest.catalogueAudit.resolvedDelivery.cycleNumber, deferredCandidates: manifest.catalogueAudit.resolvedDelivery.selection.deferred.length} : {}),
+      sourceComplete: !manifest.catalogueAudit.resolvedDelivery && deliveryGroup.groupNumber === Math.ceil(manifest.catalogueAudit.preparation.assessmentGroups.length / 10) &&
         row.status === 'completed' && readJson<any>(row.verification_report, {}).verified === true,
     } : undefined;
     return {

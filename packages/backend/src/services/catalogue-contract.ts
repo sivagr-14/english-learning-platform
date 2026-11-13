@@ -2,6 +2,8 @@ import { createHash } from "crypto";
 import { z } from "zod";
 import { CatalogueUsageTypeSchema } from "../data/vocabulary-lesson-template";
 
+import { ResolvedDeliverySchema, subsetAccountingIssues, parentLedgerHash } from "./catalogue-subset-accounting";
+
 const hash = z.string().regex(/^[a-f0-9]{64}$/);
 const id = z.string().min(3).max(140).regex(/^[a-zA-Z0-9][a-zA-Z0-9._:-]*$/);
 const note = z.string().trim().min(8).max(10000);
@@ -47,6 +49,7 @@ export const CatalogueEvidenceSchema = z.object({
 }).strict();
 
 export const CatalogueAuditSchema = z.object({
+  resolvedDelivery: ResolvedDeliverySchema.optional(),
   deliveryGroup: z.object({
     policyId: z.literal("wordup-delivery-groups-v1"),
     ownerUserId: z.string().uuid(),
@@ -98,6 +101,10 @@ export type CatalogueAudit = z.infer<typeof CatalogueAuditSchema>;
 /** Preserve original assessment IDs/order; never repartition source records. */
 export function catalogueAssessmentGroups(audit: CatalogueAudit) {
   const groups = audit.preparation.assessmentGroups;
+  if (audit.resolvedDelivery) {
+    const offset = (audit.resolvedDelivery.cycleNumber - 1) * 5;
+    return groups.slice(offset, offset + 5);
+  }
   if (!audit.deliveryGroup) return groups;
   const offset = (audit.deliveryGroup.groupNumber - 1) * 10;
   return groups.slice(offset, offset + 10);
@@ -124,6 +131,27 @@ export function catalogueAuditIssues(audit: z.infer<typeof CatalogueAuditSchema>
   const unique = (items: string[]) => new Set(items).size === items.length;
   const selectedGroups = catalogueAssessmentGroups(audit);
   const selectedRecords = new Set(selectedGroups.flatMap(group => group.recordIds));
+  const subset = audit.resolvedDelivery;
+  if (subset) {
+    if (!audit.deliveryGroup) issues.push("catalogue: resolved delivery requires an owner-bound delivery group");
+    issues.push(...subsetAccountingIssues(subset.parent, subset.selection, {ownerUserId: audit.deliveryGroup?.ownerUserId || "", sourceHash, preparationHash, groupNumber: Math.ceil(subset.cycleNumber / 2), records: selectedGroups.flatMap(g => g.recordIds).map(id => records.get(id)!)}));
+    const ids = candidates.map(c => c.candidateId);
+    const same = (a: string[], b: string[]) => unique(a) && unique(b) && a.length === b.length && a.every(x => b.includes(x));
+    if (!same(ids, subset.candidateIds)) issues.push("catalogue: delivery candidate membership differs from immutable selection");
+    if (subset.kind === "base" && (!same(ids, [...subset.selection.included, ...subset.selection.excluded]) || subset.baseManifest || subset.previousSupplement || (subset.cycleNumber === 1) !== (subset.previousBase === null))) issues.push("catalogue: invalid resolved base membership or dependencies");
+    if (subset.kind === "supplement" && (!subset.baseManifest || !ids.length)) issues.push("catalogue: supplement requires its base and resolved candidates");
+    if (audit.deliveryGroup?.groupNumber !== Math.ceil(subset.cycleNumber / 2)) issues.push("catalogue: cycle must retain original parent group");
+    const parentCandidates = new Map(subset.parent.candidates.map(c => [c.candidateId, c]));
+    for (const c of candidates) {
+      const parent = parentCandidates.get(c.candidateId);
+      const identity = `${normalize(c.term)}|${normalize(c.senseKey)}`;
+      if (!parent || parent.evidenceHash !== parentLedgerHash(c) || parent.senseIdentity !== identity || !same(parent.recordIds, c.catalogueEvidence.recordIds) || parent.disposition !== (["generate", "existing"].includes(c.decision) ? "resolved" : "excluded")) issues.push(`${c.candidateId}: candidate differs from parent decision/evidence`);
+    }
+    for (const review of recordReviews) {
+      const parent = subset.parent.records.find(r => r.recordId === review.recordId);
+      if (!parent || !same(review.candidateIds, parent.candidateIds.filter(id => ids.includes(id))) || (parent.rejection ? review.status !== "rejected" || parent.rejection.code !== review.rejectionCode : review.status === "rejected")) issues.push(`${review.recordId}: record review differs from parent accounting`);
+    }
+  }
   if (audit.deliveryGroup) {
     const group = audit.deliveryGroup;
     if (audit.examplePolicy !== "catalogue-usage-types-v1") issues.push("catalogue: delivery groups require the usage-type example policy");
@@ -133,7 +161,7 @@ export function catalogueAuditIssues(audit: z.infer<typeof CatalogueAuditSchema>
     if (preparation.assessmentGroups.some((item, index) => item.recordIds.length !== 100 && index !== preparation.assessmentGroups.length - 1)) {
       issues.push("catalogue: delivery groups require original 100-record assessment groups, with only the last allowed shorter");
     }
-    if ((group.groupNumber === 1) !== (group.previousGroup === null)) issues.push("catalogue: only the first delivery group may omit its predecessor");
+    if (!subset && (group.groupNumber === 1) !== (group.previousGroup === null)) issues.push("catalogue: only the first delivery group may omit its predecessor");
     // A bounded ambiguity exclusion is a final accounting decision, not a lesson.
     // Keep unresolved/generated senses blocked; the shared manifest validator
     // still checks complete coverage and excludes filtered IDs from batch plans.
@@ -176,7 +204,7 @@ export function catalogueAuditIssues(audit: z.infer<typeof CatalogueAuditSchema>
   if (records.size > 100 && preparation.assessmentGroups.some(group => group.recordIds.length < 50)) issues.push("catalogue: large-source groups must contain 50–100 records");
   for (const review of recordReviews) {
     if (!unique(review.candidateIds)) issues.push(`${review.recordId}: duplicate candidate links`);
-    if (review.status !== "rejected" && !review.candidateIds.length) issues.push(`${review.recordId}: assessed records need meaning decisions`);
+    if (!subset && review.status !== "rejected" && !review.candidateIds.length) issues.push(`${review.recordId}: assessed records need meaning decisions`);
     if (review.status === "rejected" && review.candidateIds.length) issues.push(`${review.recordId}: rejected records cannot link meanings`);
     if (review.status === "rejected" && !review.rejectionCode) issues.push(`${review.recordId}: whole-record rejection requires noise, malformed_record or proper_name`);
     if (review.status !== "rejected" && review.rejectionCode) issues.push(`${review.recordId}: assessed records cannot carry a rejection code`);
@@ -186,12 +214,12 @@ export function catalogueAuditIssues(audit: z.infer<typeof CatalogueAuditSchema>
       if (review.candidateIds.some(key => !["basic_obvious", "predictable_combination"].includes(meanings.get(key)?.catalogueEvidence.learningValue))) issues.push(`${review.recordId}: do not scope-exclude a non-obvious expression or sense`);
     } else {
       if (review.scopeExclusionCode) issues.push(`${review.recordId}: scope code requires scope_excluded status`);
-      if (review.status === "assessed" && !review.additionalMeaningsReviewed) issues.push(`${review.recordId}: assessed records require completed useful-sense review`);
+      if (!subset && review.status === "assessed" && !review.additionalMeaningsReviewed) issues.push(`${review.recordId}: assessed records require completed useful-sense review`);
     }
     for (const key of review.candidateIds) {
       if (!meanings.get(key)?.catalogueEvidence.recordIds.includes(review.recordId)) issues.push(`${review.recordId}: candidate link is missing or not reciprocal`);
     }
-    if (review.status !== "rejected" && !review.candidateIds.some(key => meanings.get(key)?.catalogueEvidence.meaningOrigin === "supplied_definition")) {
+    if (!subset && review.status !== "rejected" && !review.candidateIds.some(key => meanings.get(key)?.catalogueEvidence.meaningOrigin === "supplied_definition")) {
       issues.push(`${review.recordId}: the supplied definition needs an explicit decision too`);
     }
   }

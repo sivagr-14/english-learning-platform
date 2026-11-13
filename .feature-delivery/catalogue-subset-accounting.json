@@ -1,15 +1,34 @@
 {
   "schemaVersion": 1,
   "featureId": "catalogue-subset-accounting",
-  "title": "Draft parent coverage validator; subset import remains gated",
+  "title": "Versioned resolved catalogue cycles and late supplemental imports",
   "implementationPaths": [
-    "packages/backend/src/services/catalogue-subset-accounting.ts"
+    "packages/backend/src/services/catalogue-subset-accounting.ts",
+    "packages/backend/src/services/catalogue-contract.ts",
+    "packages/backend/src/services/catalogue-delivery.service.ts",
+    "packages/backend/src/services/content-pack.service.ts"
   ],
   "validationPaths": [
-    "packages/backend/src/services/catalogue-subset-accounting.test.ts"
+    "packages/backend/src/services/catalogue-subset-accounting.test.ts",
+    "packages/backend/src/services/catalogue-resolved.test.ts",
+    "packages/backend/src/scripts/smoke-content-pack-postgres.ts"
   ],
   "chatgptInstructionImpact": {
-    "status": "not_required",
-    "rationale": "Internal draft accounting primitive is not wired into production schemas or import. Existing rolling policy capability gate remains unchanged."
+    "status": "required",
+    "instructionPaths": [
+      "docs/WORDUP_RESOLVED_DELIVERY.md"
+    ],
+    "requiredMarkers": [
+      {
+        "path": "docs/WORDUP_RESOLVED_DELIVERY.md",
+        "contains": [
+          "wordup-resolved-delivery-v1",
+          "production-cycle-500-20261113-v3",
+          "Late supplement",
+          "PostgreSQL"
+        ]
+      }
+    ],
+    "rationale": "Documents exact versioned parent, cycle, supplemental membership and local receipt requirements."
   }
 }

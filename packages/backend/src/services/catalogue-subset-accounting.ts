@@ -1,4 +1,5 @@
 import { createHash } from 'crypto';
+import { z } from 'zod';
 
 /** Draft accounting primitive only. Not accepted by the production manifest schema.
  * Integration must retain legacy gates until PostgreSQL supplement tests pass. */
@@ -22,6 +23,7 @@ export interface ParentRecord {
   recordHash: string;
   candidateIds: string[];
   recallUnitIds: string[];
+  rejection?: {code: 'noise' | 'malformed_record' | 'proper_name'; reason: string};
 }
 export interface ParentLedger {
   version: 'wordup-parent-ledger-v1';
@@ -83,7 +85,8 @@ export function subsetAccountingIssues(parent: ParentLedger, selection: SubsetSe
   for (const r of parent.records) {
     if (!unique(r.candidateIds) || !unique(r.recallUnitIds)) issues.push(`${r.recordId}: duplicate coverage links.`);
     // Even a rejected/noise record needs explicit accounting before integration.
-    if (!r.candidateIds.length || !r.recallUnitIds.length) issues.push(`${r.recordId}: missing candidate or recall accounting.`);
+    if ((!r.candidateIds.length && !r.rejection) || !r.recallUnitIds.length) issues.push(`${r.recordId}: missing candidate or recall accounting.`);
+    if (r.rejection && (r.candidateIds.length || !['noise', 'malformed_record', 'proper_name'].includes(r.rejection.code) || r.rejection.reason.trim().length < 8)) issues.push(`${r.recordId}: invalid whole-record rejection.`);
     for (const cid of r.candidateIds) if (!candidates.get(cid)?.recordIds.includes(r.recordId)) issues.push(`${r.recordId}: candidate link is not reciprocal.`);
     for (const uid of r.recallUnitIds) if (units.get(uid)?.recordId !== r.recordId) issues.push(`${r.recordId}: recall link is not reciprocal.`);
   }
@@ -122,3 +125,35 @@ export function subsetAccountingIssues(parent: ParentLedger, selection: SubsetSe
   }
   return [...new Set(issues)];
 }
+
+
+const identifier = z.string().min(1).max(140).regex(/^[a-zA-Z0-9][a-zA-Z0-9._:-]*$/);
+const digest = z.string().regex(/^[a-f0-9]{64}$/);
+const explanation = z.string().trim().min(8).max(10000);
+const reference = z.object({manifestId: identifier, manifestHash: digest}).strict();
+export const ParentLedgerSchema = z.object({
+  version: z.literal('wordup-parent-ledger-v1'), ownerUserId: z.string().uuid(),
+  sourceHash: digest, preparationHash: digest, groupNumber: z.number().int().positive(), revision: z.number().int().positive(),
+  records: z.array(z.object({recordId: identifier, recordHash: digest, candidateIds: z.array(identifier), recallUnitIds: z.array(identifier).min(1),
+    rejection: z.object({code: z.enum(['noise','malformed_record','proper_name']), reason: explanation}).strict().optional(),
+  }).strict()).min(1).max(500),
+  candidates: z.array(z.object({candidateId: identifier, recordIds: z.array(identifier).min(1), senseIdentity: z.string().min(3),
+    disposition: z.enum(['resolved','excluded','deferred']), evidenceHash: digest,
+    review: z.object({reviewId: identifier, reason: z.enum(['ambiguity','eligibility','expression_boundary','taxonomy','duplicate_identity','lesson_quality']),
+      missingFields: z.array(z.string().min(1)).min(1), dependency: z.string().min(3), nextAction: explanation,
+      attempts: z.array(z.object({kind: z.enum(['substantive','targeted_retry']), at: z.string().datetime({offset:true}), evidenceHash: digest, outcome: explanation}).strict()).length(2),
+    }).strict().optional(),
+  }).strict()).max(10000),
+  recallUnits: z.array(z.object({unitId: identifier, recordId: identifier, disposition: z.enum(['resolved','deferred']), evidenceHash: digest}).strict()).min(1),
+}).strict();
+export const ResolvedDeliverySchema = z.object({
+  policyId: z.literal('wordup-resolved-delivery-v1'), kind: z.enum(['base','supplement']),
+  cycleNumber: z.number().int().positive(),
+  previousBase: reference.nullable(), baseManifest: reference.nullable(), previousSupplement: reference.nullable(),
+  parent: ParentLedgerSchema,
+  selection: z.object({version: z.literal('wordup-resolved-selection-v1'), parentHash: digest,
+    included: z.array(identifier), excluded: z.array(identifier), deferred: z.array(identifier),
+  }).strict(),
+  candidateIds: z.array(identifier),
+}).strict();
+export type ResolvedDelivery = z.infer<typeof ResolvedDeliverySchema>;
