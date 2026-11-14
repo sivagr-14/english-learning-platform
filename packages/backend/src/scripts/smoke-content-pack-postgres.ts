@@ -1,5 +1,6 @@
 import assert from "assert";
 import { randomUUID } from "crypto";
+import { catalogueResolvedFixture, catalogueSupplementFixture } from "../services/catalogue-resolved.fixture";
 import { cataloguePackFixture } from "../services/catalogue-pack.fixture";
 import { catalogueDeliveryFixture } from "../services/catalogue-delivery.fixture";
 import { STARTER_SAMPLES } from "../data/starter-samples";
@@ -28,6 +29,7 @@ async function main() {
     })
     .returning("*");
 
+  const [subsetOwner] = await database("users").insert({email:`subset-${suffix}@example.invalid`,username:`subset-${suffix}`,first_name:"Subset",email_verified:true}).returning('*');
   const manifest: any = {
     formatVersion: "chatgpt-vocabulary-manifest-v4",
     manifestId: `postgres-smoke-${suffix}`,
@@ -351,6 +353,42 @@ async function main() {
     const finalLocator = typeof groupSegments[11].locator === 'string' ? JSON.parse(groupSegments[11].locator) : groupSegments[11].locator;
     assert.equal(finalLocator.chunkId, 'group-00012');
 
+    // Resolved bases and late supplements use actual PostgreSQL transactions.
+    const ready = catalogueResolvedFixture(subsetOwner.id);
+    const future = catalogueResolvedFixture(subsetOwner.id, 2);
+    future.manifest.catalogueAudit.resolvedDelivery.previousBase = {manifestId:ready.manifest.manifestId,manifestHash:contentPackHash(ready.manifest)};
+    const late = catalogueSupplementFixture(ready);
+    const docs = (pack: any) => [{path:`${pack.manifest.manifestId}/manifest.json`,content:JSON.stringify(pack.manifest)},
+      ...(pack.manifest.counts.generate ? [{path:`${pack.manifest.manifestId}/batch-001.json`,content:JSON.stringify(pack.batch)}] : [])];
+    assert.deepEqual((await service.ingestDocuments(docs(future))).errors, []);
+    await assert.rejects(()=>service.claimManifest(subsetOwner.id,future.manifest.manifestId),/pending/);
+    assert.deepEqual((await service.ingestDocuments(docs(ready))).errors, []);
+    await assert.rejects(()=>service.claimManifest(owner.id,ready.manifest.manifestId),/another account/);
+    await Promise.all([service.claimManifest(subsetOwner.id,ready.manifest.manifestId),service.claimManifest(subsetOwner.id,ready.manifest.manifestId)]);
+    assert.deepEqual(await service.verifyManifest(subsetOwner.id,ready.manifest.manifestId),{verified:true,entries:2,issues:[]});
+    const beforeSubset=await database('vocabulary_words').where({owner_user_id:subsetOwner.id}).orderBy('sense_rank');
+    assert.equal(beforeSubset.length,2);
+    await database('user_progress').where({user_id:subsetOwner.id,word_id:beforeSubset[0].id}).update({times_reviewed:17});
+    await database('content_pack_manifests').where({id:ready.manifest.manifestId}).update({last_verified_at:null,verification_report:JSON.stringify({verified:false,entries:2,issues:['Synthetic interrupted read-back']})});
+    await database('content_pack_batches').where({manifest_id:ready.manifest.manifestId}).update({readback_verified_at:null});
+    await assert.rejects(()=>service.markInboxCleaned(ready.manifest.manifestId,'fixture-cleanup'),/verification/);
+    await assert.rejects(()=>service.claimManifest(subsetOwner.id,future.manifest.manifestId),/pending/);
+    await (service as any).commitAvailableBatches(subsetOwner.id,ready.manifest.manifestId);
+    assert.deepEqual(await service.verifyManifest(subsetOwner.id,ready.manifest.manifestId),{verified:true,entries:2,issues:[]});
+    await service.markInboxCleaned(ready.manifest.manifestId,'fixture-cleanup');
+    assert.equal((await database('content_pack_manifests').where({id:future.manifest.manifestId}).first()).inbox_cleaned_at,null);
+    await service.claimManifest(subsetOwner.id,future.manifest.manifestId);
+    assert.deepEqual(await service.verifyManifest(subsetOwner.id,future.manifest.manifestId),{verified:true,entries:0,issues:[]});
+    assert.deepEqual((await service.ingestDocuments(docs(late))).errors, []);
+    await service.claimManifest(subsetOwner.id,late.manifest.manifestId);
+    assert.deepEqual(await service.verifyManifest(subsetOwner.id,late.manifest.manifestId),{verified:true,entries:1,issues:[]});
+    assert.equal((await database('vocabulary_words').where({owner_user_id:subsetOwner.id})).length,3);
+    assert.equal((await database('user_progress').where({user_id:subsetOwner.id,word_id:beforeSubset[0].id}).first()).times_reviewed,17);
+    assert.equal((await service.ingestDocuments(docs(late))).unchanged,2);
+    await service.claimManifest(subsetOwner.id,late.manifest.manifestId);
+    assert.deepEqual(await service.verifyManifest(subsetOwner.id,late.manifest.manifestId),{verified:true,entries:1,issues:[]});
+    assert.equal((await database('vocabulary_words').where({owner_user_id:subsetOwner.id})).length,3);
+
     console.log(
       JSON.stringify({
         status: "passed",
@@ -361,6 +399,7 @@ async function main() {
         postgresReadBack: "passed",
         threeLevelTaxonomyReadBack: "passed",
         catalogueMeanings: 3,
+        resolvedDeliveryAndLateSupplement: "passed",
         authoredExampleReadBack: "passed",
         catalogueGroupConcurrency: "passed",
         catalogueGroupReadBack: "passed",
@@ -368,7 +407,7 @@ async function main() {
       }),
     );
   } finally {
-    await database("users").whereIn("id", [owner.id, otherUser.id]).delete();
+    await database("users").whereIn("id", [owner.id, otherUser.id, subsetOwner.id]).delete();
   }
 }
 
